@@ -1,0 +1,112 @@
+{
+  "engine": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "source_ci_sha256_lf": "99d4ade661f5d5492e24e29bb4c8c3cd14c8e6771f465b30b2834d2e3540af7c",
+  "probe_count_required": 5,
+  "method": "Serial rechecks of abrupt-process exits on identical source, original480s limits, error rules and isolated saves. Original82-case FAIL receipt retained.",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "probe_verbs",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_verbs.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 53.605,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_rechecks_05\\probe_verbs.log",
+      "log_sha256": "79b47784494ca52e1e665d3715bd039c8589a7dfae4b8114000caa2635ed59a0",
+      "log_bytes": 850,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_ui_system",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_ui_system.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 36.909,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_rechecks_05\\probe_ui_system.log",
+      "log_sha256": "fd6065e09969b8da7bbeb040707d99c214a6f3a76e5db6e1f245bdd218e6b33b",
+      "log_bytes": 31656,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_kart_feel",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_kart_feel.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 65.189,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_rechecks_05\\probe_kart_feel.log",
+      "log_sha256": "f1842e2ed93f96f9c4850b7d030afbbfb121e4eb4cc595c44158afc620d7a838",
+      "log_bytes": 1141,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_opera_2d",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_opera_2d.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 36.828,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_rechecks_05\\probe_opera_2d.log",
+      "log_sha256": "970283c998ee12470c891420cadd3a09898ce1e0f0c7f0593b7abe7e1b15f055",
+      "log_bytes": 103889,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_chapter2",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_chapter2.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 169.239,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_rechecks_05\\probe_chapter2.log",
+      "log_sha256": "470b04f4b130b639dfeae4301ab4961bfb0d35134debf53e2a4e40eceeb787f0",
+      "log_bytes": 49525,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    }
+  ],
+  "source_full_probe_roster_count": 82
+}

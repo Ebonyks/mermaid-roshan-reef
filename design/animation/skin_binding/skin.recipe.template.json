@@ -1,0 +1,38 @@
+{
+  "skin_id": "replace_with_costume_id",
+  "views": [
+    "front"
+  ],
+  "attachments": [
+    {
+      "id": "front_bodice",
+      "view": "front",
+      "slot": "body_front",
+      "texture": "__REPLACE_WITH_ISOLATED_GARMENT_RGBA_PATH__",
+      "template_id": "__REPLACE_WITH_VERIFIED_TEMPLATE_ID__"
+    }
+  ],
+  "coverage": {
+    "front": {
+      "body_front": "front_bodice",
+      "headwear_front": null,
+      "headwear_back": null,
+      "body_back": null,
+      "tail_cover": null,
+      "sleeve_left": null,
+      "sleeve_right": null
+    }
+  },
+  "sources": [
+    {
+      "path": "__REPLACE_WITH_ORIGINAL_GARMENT_SOURCE_PATH__",
+      "license": "__RECORD_ACTUAL_RIGHTS_AND_SOURCE__",
+      "role": "garment_source",
+      "acceptance_scope": "__RETAIN_APPROVED_CANDIDATE_OR_REJECTED_SCOPE__"
+    }
+  ],
+  "edits": [
+    "__RECORD_ISOLATION_REGISTRATION_AND_CLEANUP__"
+  ],
+  "generator_calls": 0
+}

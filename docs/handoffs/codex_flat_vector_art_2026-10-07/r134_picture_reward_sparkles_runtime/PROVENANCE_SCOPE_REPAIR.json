@@ -1,0 +1,29 @@
+{
+  "state": "BOUNDED_PROVENANCE_REPAIR_FULL_2D_NO_REGRESSION_PASS",
+  "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+  "path": "docs/handoffs/codex_recent_updates_dev_2026-11-03/SOURCE_ORIGINS.json",
+  "before_sha256": "529bb140b82dc1582f7adba457b5450084cc2ea5aa69cc8819298ddee47b469a",
+  "before_bytes": 10754452,
+  "before_total_preview_rows": 13142,
+  "historical_paths_preserved_immutably": 11800,
+  "original_preview_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fe0660adced29fac3ae50737c0f829f400c856ab/docs/handoffs/codex_recent_updates_dev_2026-11-03/SOURCE_ORIGINS.json",
+  "after_sha256": "64a2fdd3dc51d844232cb0858f9b00a808b9a37703bb04cf6b27bc6bef05d359",
+  "after_bytes": 771831,
+  "exact_current_material_rows_retained": 1342,
+  "required_payload_files": 1343,
+  "self_reference_rows_excluded": [
+    "docs/handoffs/codex_recent_updates_dev_2026-11-03/SOURCE_ORIGINS.json"
+  ],
+  "row_data_equality": true,
+  "same_production_detector_target_result": "No model signature and complete scan coverage.",
+  "detector_sha256_unchanged": "8e7ca0f11fd2cd2a5546a116e8fe14ff4c025b68acc6c92453b6ced7bcaaf8d8",
+  "detector_text_limit_unchanged": 8388608,
+  "runtime_changed": false,
+  "all82_and_four_analyzers_preserved": true,
+  "no_historical_acceptance_relabeling": true,
+  "full_final_gate": {
+    "exit_code": 0,
+    "log": "checks/full_validation/GAME2D_metadata_scope_repair.log",
+    "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac"
+  }
+}

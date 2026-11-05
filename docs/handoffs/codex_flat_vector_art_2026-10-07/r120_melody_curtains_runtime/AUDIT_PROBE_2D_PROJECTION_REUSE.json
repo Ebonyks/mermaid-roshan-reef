@@ -1,0 +1,22 @@
+{
+  "state": "EXACT_EXISTING_2D_GUARD_PROJECTION_UNCHANGED_FOR_ONLY_CHANGED_TEST",
+  "tool": "tools/audit_game_2d.py",
+  "tool_sha256": "b8d44cac5aa42fe62e2ec41d34cff268b15db4c777325bf75fdbfd075209eb8b",
+  "changed_path": "scripts/probe_audit.gd",
+  "before_3D_token_counts": {
+    "Camera3D": 1,
+    "Node3D": 8,
+    "Vector3": 9
+  },
+  "after_3D_token_counts": {
+    "Camera3D": 1,
+    "Node3D": 8,
+    "Vector3": 9
+  },
+  "production_runtime_file_changed": false,
+  "native_rendering_or_input_changed": false,
+  "reason": "Only two art-presence assertions replaced and a 2D resource predicate added in a non-production probe. Same file coverage, unchanged 3D token inventory; no new runtime assets/dependencies.",
+  "original_success": "full_validation/STATIC_RESULT.json; full_validation/GAME2D.log",
+  "current_source_verification": "Recovery runtime pin must differ from f149 only in scripts/probe_audit.gd",
+  "Dev_integrated": false
+}

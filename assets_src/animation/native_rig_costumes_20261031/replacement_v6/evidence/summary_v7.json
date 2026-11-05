@@ -1,0 +1,174 @@
+{
+  "candidate": "render_v8",
+  "utc": "2026-11-01T07:14:14.072223+00:00",
+  "complete_set_numerical_pass": true,
+  "wardrobe_compatibility_pass": false,
+  "overall_acceptance": "BLOCKED_SOURCE_REVIEW_CANDIDATE",
+  "same_original_audit_contract": {
+    "bones_identical": true,
+    "body_mesh": {
+      "original_vertices": 6864,
+      "union_vertices": 6902,
+      "all_original_vertices_preserved": true,
+      "all_original_weights_exact": true,
+      "all_original_triangles_preserved": true
+    },
+    "auditors": {
+      "audit_study.py": {
+        "byte_identical": true,
+        "sha256": "eef44a94b735a0dcac30addc8ed009204a1a11e33147d46522c0901915fedd74"
+      },
+      "audit_motion.py": {
+        "byte_identical": true,
+        "sha256": "9d1245416eee6eef61015a151d85e013eb5b45d52d17e0e7a920672d17433908"
+      }
+    },
+    "authored_methods": {
+      "ease5": true,
+      "pulse": true,
+      "authored_pose": true,
+      "clip_length": true,
+      "build_animation": true,
+      "set_pose": true,
+      "state_record": true
+    },
+    "pass": true
+  },
+  "native_engines": {
+    "ballet": {
+      "adapter": "NVIDIA GeForce RTX 3060 Ti",
+      "cycles": 120,
+      "device_claim": "desktop only; Lenovo/device/owner review pending",
+      "driver": "vulkan",
+      "engine": {
+        "build": "official",
+        "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+        "hex": 263938,
+        "major": 4,
+        "minor": 7,
+        "patch": 2,
+        "status": "stable",
+        "string": "4.7.2-stable (official)",
+        "timestamp": 0
+      },
+      "frames_rendered": 291,
+      "max_repeat_matrix_error": 0.0,
+      "rates": [
+        15,
+        24,
+        30,
+        60,
+        120
+      ],
+      "rendering_method": "mobile",
+      "state_seeks": 57744
+    },
+    "magician": {
+      "adapter": "NVIDIA GeForce RTX 3060 Ti",
+      "cycles": 120,
+      "device_claim": "desktop only; Lenovo/device/owner review pending",
+      "driver": "vulkan",
+      "engine": {
+        "build": "official",
+        "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+        "hex": 263938,
+        "major": 4,
+        "minor": 7,
+        "patch": 2,
+        "status": "stable",
+        "string": "4.7.2-stable (official)",
+        "timestamp": 0
+      },
+      "frames_rendered": 291,
+      "max_repeat_matrix_error": 0.0,
+      "rates": [
+        15,
+        24,
+        30,
+        60,
+        120
+      ],
+      "rendering_method": "mobile",
+      "state_seeks": 57744
+    },
+    "original": {
+      "adapter": "NVIDIA GeForce RTX 3060 Ti",
+      "cycles": 120,
+      "device_claim": "desktop only; Lenovo/device/owner review pending",
+      "driver": "vulkan",
+      "engine": {
+        "build": "official",
+        "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+        "hex": 263938,
+        "major": 4,
+        "minor": 7,
+        "patch": 2,
+        "status": "stable",
+        "string": "4.7.2-stable (official)",
+        "timestamp": 0
+      },
+      "frames_rendered": 291,
+      "max_repeat_matrix_error": 0.0,
+      "rates": [
+        15,
+        24,
+        30,
+        60,
+        120
+      ],
+      "rendering_method": "mobile",
+      "state_seeks": 57744
+    }
+  },
+  "full_set_checks": {
+    "ballet": {
+      "geometry": true,
+      "motion": true
+    },
+    "magician": {
+      "geometry": true,
+      "motion": true
+    }
+  },
+  "original_restoration_frames": 291,
+  "protected_region_costumed_frames": 582,
+  "replacement_frames": 582,
+  "old_clothing_pixels_removed": 70907,
+  "source_poison_pixels": 7394,
+  "original_underlay_fragment_controls": {
+    "old_left_sleeve": {
+      "changed_pixels": 470,
+      "detected": true
+    },
+    "old_outfit_underlay": {
+      "changed_pixels": 70497,
+      "detected": true
+    },
+    "old_pink_bodice": {
+      "changed_pixels": 4352,
+      "detected": true
+    },
+    "old_tail_band": {
+      "changed_pixels": 844,
+      "detected": true
+    }
+  },
+  "swap_state_cases": 243,
+  "live_swap_calls": 19248,
+  "mixed_outline_cases": 81,
+  "mixed_outline_failed_cases": 27,
+  "mixed_outline_gate": false,
+  "aseprite_exact_frames": 582,
+  "media_movies_verified": 18,
+  "frozen_input_drift": [],
+  "reproduced_art_rig_outputs": 18,
+  "source_processing_acceptance": "NOT_GRANTED: original180min wall cap exceeded; cleanup time uninstrumented, as retained in owner_correction/provenance. No further parent art/generation after v8 freeze.",
+  "normal_speed_human_review": "PENDING",
+  "static_review": "39 boards actually inspected; waist gaps confirmed and retained as failures.",
+  "phone_memory_performance_child_owner": "PENDING",
+  "owner_feedback": "Basic animations look good; no claim of exact-version costume/all-pose acceptance.",
+  "next_phase": "Eight commissioned chats, one shared contract/outline owner and seven skin/object groups for15 active job IDs. Common waist join is blocking.",
+  "runtime_integrated": false,
+  "master_audit_satisfied": false,
+  "file_name_note": "Reports with legacy _v7 filenames in this record describe current frozen render_v8 where candidate/source paths so state."
+}

@@ -1,0 +1,173 @@
+{
+  "schema": 1,
+  "id": "magician_arm_bend",
+  "revision": "v5",
+  "author_date": "Codex / 2026-10-31",
+  "source_commit": "005ba38a170f226d51ee906ce7d390ef682af9ac",
+  "profile": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md version1; initial-study curves retained",
+  "lane": "Reference-only native Canvas costume/rig study",
+  "intention": "Roshan raises her forearm for a gentle open-handed gesture, holds it readably and returns to the same neutral stance.",
+  "required_action": {
+    "view": "Fixed front view; no camera/depth turn",
+    "support": "Fixed Root in transparent viewport; no environment support/contact claimed",
+    "attachment": "Continuous shoulder/elbow/wrist; no prop or gameplay award"
+  },
+  "fixed_elements": [
+    "Camera/root pivot",
+    "Original identity/face/hair/skin/limbs/fin contour",
+    "Shared skeleton/rest/sockets and action curves"
+  ],
+  "entry_exit": {
+    "entry": "Neutral pose, eyes open, same selected costume",
+    "exit": "Exact same neutral RGBA endpoint required",
+    "prop_ownership": "Not applicable: no props",
+    "interruption": "Direct clip seeks and atomic slot changes tested; arbitrary smooth action blending, gameplay navigation/contact interrupts remain unaccepted."
+  },
+  "reuse_gap": "Existing actual Fashion Designer head/body/tail motifs; straight garment sources lacked fitted curved-tail/torso surfaces. Two shared fitting calls supplied bounded garment RGB; original headpieces reused.",
+  "method": "Local Skeleton2D/Bone2D/Polygon2D plus AnimationPlayer, immutable-base material slots, ImageGen named garment-fitting plates and derived head matte cleanup, whole-RGBA Aseprite review masters. Current owner commission is a scoped source-study exception, not production rig adoption.",
+  "size_timing": {
+    "canvas": [
+      1024,
+      1024
+    ],
+    "prepared_clothing_textures": [
+      1024,
+      1024
+    ],
+    "native_fitting_plate": [
+      1254,
+      1254
+    ],
+    "track_rate_hz": 120,
+    "capture_fps": 30,
+    "seconds": 3.2,
+    "frames_including_endpoint": 97,
+    "native_capture_actor_scale": 1,
+    "main_preview_scale": 0.7,
+    "comparison": "Whole-canvas640-square per actor in1280x720"
+  },
+  "tolerances": {
+    "visible_singular_values": [
+      0.8,
+      1.2
+    ],
+    "inverted_visible_triangles": 0,
+    "max_bone_scale_error": 1e-05,
+    "max_rigid_head_distance_error_px": 0.01,
+    "component_floor_px": 12,
+    "large_figure_components": 1,
+    "edge_alpha_px": 0,
+    "endpoint_changed_pixels": 0,
+    "source_relative_hole_allowance_px": 8,
+    "angular_speed_below_deg_s": 140,
+    "angular_acceleration_below_deg_s2": 650,
+    "joint_alpha_above": 192,
+    "source": "Byte-identical original audit_study.py and audit_motion.py, including all negative controls. No floor changed."
+  },
+  "limits": {
+    "shared_budget": "../job_cards.json#caps; two actual fitting calls total, no budget reset by costume/action/card",
+    "production_wall": "../job_cards.json#production_wall_evidence",
+    "paid_external_budget": 0,
+    "billing": "Built-in usage/billing not exposed; calls and exact tool wall seconds retained.",
+    "cleanup": "Manual minutes not separately instrumented; all fitting/repair attempts lie inside recorded card-to-final-freeze interval."
+  },
+  "stop_fallback": "Stop generation after two nonviable takes for a theme or aggregate cap; diagnose source/mask/registration or change input/method. Never an automatic per-frame campaign or 3D fallback.",
+  "inputs": [
+    {
+      "path": "assets_src/animation/native_rig_stress_20261031/art/body.png",
+      "sha256": "dded9a4df58f32b5b75a63c6d7be88c98f5dba3c64d88dd55def6ad44a6e3eea",
+      "role": "immutable base identity/undergarment",
+      "license_scope": "Project-owned/generated source, retaining existing candidate/approved-reference scope; derivative is not production accepted.",
+      "modifications": "Original preserved. See provenance and registry for separate derivatives.",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets_src/animation/native_rig_stress_20261031/godot/rig.json",
+      "sha256": "1499cadaa518016eaf3ee23f50cb83b3afa587ef9e0bb6037ea8b8ffd4f205f0",
+      "role": "shared skeleton/rest/weights",
+      "license_scope": "Project-owned/generated source, retaining existing candidate/approved-reference scope; derivative is not production accepted.",
+      "modifications": "Original preserved. See provenance and registry for separate derivatives."
+    },
+    {
+      "path": "assets_src/animation/native_rig_costumes_20261031/native/magician_fit.png",
+      "sha256": "b2b413e5d26c9ed567dcae6dc76cd61d21b88fefc461fb563b0876f7a1aea3f0",
+      "role": "garment RGB only; generated identity and fins excluded",
+      "license_scope": "Project-owned/generated source, retaining existing candidate/approved-reference scope; derivative is not production accepted.",
+      "modifications": "Original preserved. See provenance and registry for separate derivatives.",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "path": "assets_src/fashion_designer/beta_20261025/native/magician_head.png",
+      "sha256": "c55e9659bb5a14f195145b6652917ee04905b57c7cdad0b1f788cb48f8465d7d",
+      "role": "existing wardrobe garment appearance",
+      "license_scope": "Project-owned/generated source, retaining existing candidate/approved-reference scope; derivative is not production accepted.",
+      "modifications": "Original preserved. See provenance and registry for separate derivatives.",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "path": "assets_src/fashion_designer/beta_20261025/native/magician_body.png",
+      "sha256": "5d01759d95f7b2a89b8749cc7e4eadbad8a7da2ba0f7f32713221275ddbae70a",
+      "role": "existing wardrobe garment appearance",
+      "license_scope": "Project-owned/generated source, retaining existing candidate/approved-reference scope; derivative is not production accepted.",
+      "modifications": "Original preserved. See provenance and registry for separate derivatives.",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "path": "assets_src/fashion_designer/beta_20261025/native/magician_tail.png",
+      "sha256": "46803069cbbca5297cda3584d95fdedc2ce0a362197c58a33058edc1ce2c253d",
+      "role": "existing wardrobe garment appearance",
+      "license_scope": "Project-owned/generated source, retaining existing candidate/approved-reference scope; derivative is not production accepted.",
+      "modifications": "Original preserved. See provenance and registry for separate derivatives.",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    }
+  ],
+  "provenance": "../provenance.json; ../godot/costumes.json; ../evidence/frozen_inputs.json; exact final file hashes in ../manifest.json",
+  "aseprite": {
+    "version": "1.3.18.4-x64",
+    "master": "../masters/magician/arm_bend.aseprite",
+    "mapping": "Frame i is min(i/30,clip_length);33/33/34ms review durations, no native retime. One whole RGBA figure per cel; native rig authoring remains code/JSON and separate PNG masks.",
+    "roundtrip": "../evidence/aseprite_roundtrip.json"
+  },
+  "exports": {
+    "rgba_archive": "../evidence/render_magician_v5/arm_bend_rgba.mkv",
+    "normal_movie": "../review/magician/arm_bend.mp4",
+    "slow_movie": "../review/magician/arm_bend_slow.mp4",
+    "archive_limit": "Exact RGBA pixels retained, not original PNG container bytes. Native PNGs remain locally preserved in ignored capture paths."
+  },
+  "reviews": {
+    "source_machine": "../evidence/render_magician_v5/geometry_audit.json; motion_audit.json",
+    "native_engine": "../evidence/render_magician_v5/engine_receipt.json",
+    "identity_machine": "../evidence/identity_audit.json",
+    "swap_machine": "../evidence/swaps_v3/swap_audit.json",
+    "agent_static": "../evidence/agent_static_review.json",
+    "human_normal_speed": "PENDING; normal/slow movies supplied",
+    "cinematic": "NOT_APPLICABLE: source motion study, not production cinematic delivery",
+    "gameplay": "See ../evidence/project_gate_receipt.json: latest individual verdicts, non-green complete runs and exact-head CI are separate. No production actor/input/save integration accepted",
+    "device": "PENDING: Lenovo Tab M11 / Mobile / Speedy30fps and memory/load evidence required",
+    "child": "PENDING",
+    "owner": "PENDING"
+  },
+  "claims": {
+    "ARCHIVE_COMPLETE": false,
+    "GENERATION_READY": false,
+    "DELIVERY_ACCEPTED": false,
+    "runtime_integrated": false,
+    "release": false,
+    "scope": "No external handoff or production acceptance claim; prior intermediate source code states were not all frozen."
+  }
+}

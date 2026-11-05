@@ -1,0 +1,87 @@
+{
+  "revision": "V39",
+  "reviewer": "Primary Codex AI; independent second-AI record is separate",
+  "checked_at_utc": "2026-10-26T04:55:31.644731+00:00",
+  "scope": "Five focused reviews of this completed owner correction. Historical V37 twenty-run audit is not counted as new review.",
+  "pdf_sha256": "5962ef98fd3c518948aaddd37d6eba1a3b2290d76c4583b9fcfe9159b20833b7",
+  "email_sha256": "bfd0b015678846a5ce0a6ad0c9302232a0e579ae4812381ac2d9b216c4d4e3ba",
+  "book_sha256": "5b2be74e4cc38467177ccab007fb2968a24adc2ea26df17a0e76dd9b448442c5",
+  "passes": [
+    {
+      "id": 1,
+      "title": "1 — Cover identity/anatomy",
+      "inspected": [
+        "complete/page_00.png",
+        "details/cover_tails.png",
+        "art/daddy_caudal_focused_attempt3.png",
+        "art/rumi_caudal_focused_attempt3.png"
+      ],
+      "observations": "Compared selected focused caudal sources with Daddy/Rumi identity references, native rejects and final enlarged tail joins. Daddy terminates in a continuous crescent with two tips; Rumi has a shared-root pink fork. No orphan old tail strip remains. Upper identities and foreground Roshan remain exact.",
+      "result": "PASS_WITH_DECLARED_A9_HOLD",
+      "remaining_in_scope_defects": []
+    },
+    {
+      "id": 2,
+      "title": "2 — Existing-source and story truth",
+      "inspected": [
+        "complete/page_01.png",
+        "complete/page_02.png",
+        "details/window_portrait.png",
+        "inputs/demo_landing_frame_408.png"
+      ],
+      "observations": "Inspected restored stained glass and exact demo still/page crop. Actual approved Roshan portrait sits inside original gold arch. Plane is on wheels beside playground slide/swings; full plane and otter retained. Edge crop of distant swing support is a page crop. No invented water landing. Native720p print-resolution limitation remains.",
+      "result": "PASS_WITH_DECLARED_A9_HOLD",
+      "remaining_in_scope_defects": []
+    },
+    {
+      "id": 3,
+      "title": "3 — Illness acting/prop/joins",
+      "inspected": [
+        "complete/page_24.png",
+        "complete/page_25.png",
+        "details/unwell_puffs_24.png",
+        "details/unwell_puffs_25.png",
+        "art/care24_attempt1.png",
+        "art/care25_attempt1.png"
+      ],
+      "observations": "Inspected both native candidates and enlarged final care vignettes. Aqua rectangular tissue boxes with protruding white tissue read as boxes, with tired/sneezing faces. Canonical two spiral ears, two ear pearls, two hand pearls stay; no boss crest. Sofa/water flask stay. Old blue cloth and yellow cheer dash removed; no obvious rectangular seam or hand disconnect.",
+      "result": "PASS_WITH_DECLARED_A9_HOLD",
+      "remaining_in_scope_defects": []
+    },
+    {
+      "id": 4,
+      "title": "4 — Whole-book composition/pacing",
+      "inspected": [
+        "complete/contact_1.jpg",
+        "complete/contact_2.jpg",
+        "complete/contact_3.jpg",
+        "complete/contact_4.jpg",
+        "complete/contact_5.jpg",
+        "complete/turns_before_after.jpg",
+        "details/cover_lamma.png"
+      ],
+      "observations": "Viewed all34 final proof thumbnails and actual page-turn boards after corrections. Cover Lamma is visible and subordinate, feet meet existing soft floor contact. New arrival remains early and calm. Sick cameos support sneeze/reveal/help sequence without a combat beat; washing and rainbow reveal retain original timing. Both existing Lamma sightings and the cover addition remain silent.",
+      "result": "PASS_WITH_DECLARED_A9_HOLD",
+      "remaining_in_scope_defects": []
+    },
+    {
+      "id": 5,
+      "title": "5 — Export/readability/regression",
+      "inspected": [
+        "details/email_export_review.png",
+        "details/cover_tails.png",
+        "details/window_portrait.png",
+        "details/unwell_puffs_24.png",
+        "details/unwell_puffs_25.png"
+      ],
+      "observations": "Viewed final email PDF renders of all five named proofs plus rear and compared enlarged final master details. Tails, Lamma, stained glass, wheels/slide, boxes and tired expressions survive email export. Type remains clear with no art overlap introduced. Mechanical exact proof/source and caption checks separately confirm29 unchanged pages and79/7/0 contrast; those checks do not confer owner/print approval.",
+      "result": "PASS_WITH_DECLARED_A9_HOLD",
+      "remaining_in_scope_defects": []
+    }
+  ],
+  "holds": [
+    "A9 bath native-resolution hold retained unchanged",
+    "Demo native1280x720 still is not a final-print-resolution pass",
+    "Owner, child reading, qualified SLP, final trim/PPI and physical-print acceptance open"
+  ]
+}

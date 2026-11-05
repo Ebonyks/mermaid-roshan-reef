@@ -2,11 +2,13 @@
 
 Status: `SUPPORTING_CURRENT`; navigation, continuity summary, and seed pattern
 catalog for the [chapter guide](09_CHAPTER_DEVELOPMENT_GUIDE.md).
-Reviewed against source `775ceee1b9f20118abec25ce933db292bb3c847e`, 2026-09-05.
+Initial catalog baseline: source `775ceee1b9f20118abec25ce933db292bb3c847e`, 2026-09-05. Chapter source/canon routing and trial links were reviewed on 2026-10-31 at integration baseline `a0bb2cf4691631a534e210a5fb60fd227213322f`; retained examples keep their original evidence scopes.
 Facts below link to their scoped authorities; this index cannot override them.
 This initial catalog is static evidence, not a fresh runtime or visual audit.
 
 ## 1. Current continuity sources
+
+Start with the [chapter map](chapters/CHAPTER_MAP.md), [canon register](reference/CANON.md), and exact [book source](reference/BOOK_SOURCES.md). Owner direction is book-first for narrative mismatches. The later Rumi rewrite handoff remains a proposal and cannot silently replace the designated book.
 
 | Scope | Current source | Planning consequence |
 |---|---|---|
@@ -20,10 +22,9 @@ This initial catalog is static evidence, not a fresh runtime or visual audit.
 | Global progression | [SaveState](../scripts/save_state.gd), [game-design progress contract](01_GAME_DESIGN.md#5-progress-reward-and-currency) | `OPERA_ACTIVE_STAR_MASK` owns the current global live mask. Chapter-specific masks do not redefine it; retired identities are never reused. |
 | Companions and broader cast | [Game-design cast](01_GAME_DESIGN.md#6-cast-and-story), [companion specification](../STUFFIE_COMPANIONS.md), [document ledger](05_DOC_LEDGER.md) | Read only each source's retained scope; do not revive superseded model/rig directions or removed characters. No new personality claim is inferred from an image alone. |
 
-Before planning a returning character, fill a brief character card: exact
-approved name/identity references, known personality and motive with source,
-relationships, available voice cues, entry/end story state, and permitted local
-change. Write unknowns explicitly. This catalog does not invent missing canon.
+Before planning a returning character, cite its canon entry and retained source/voice/latitude scope. Add a character card only for a new minor character. Record unknowns and game/book mismatches explicitly; the canon register records authority rather than inventing story.
+
+The [Rumi book-world proposal](chapters/RUMI_MERMAID_WORLD_BRIEF_20261031.md) and [cold-start learning log](../audit/cycles/chapter-guide-20261031/COLD_START_TRIAL.md) demonstrate planning only: exact book authority, source gaps, support/contact and saved checkpoints. They are not accepted runtime patterns.
 
 ## 2. Reusable experience patterns
 

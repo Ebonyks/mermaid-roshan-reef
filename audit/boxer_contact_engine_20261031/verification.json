@@ -1,0 +1,704 @@
+{
+  "schema": "boxer_contact_verification/1",
+  "baseline": "a0bb2cf4691631a534e210a5fb60fd227213322f",
+  "engine": "Godot 4.7.2.stable.official.ed1daf0bf",
+  "baseline_method": "Original git-show source retained under ignored .tmp; class_name removed only to load it beside the repaired class. Mid-flight held overlap fails before expiry with guard_units=0.",
+  "runs": [
+    {
+      "name": "baseline",
+      "sha256": "959b43c0c871de1eaa966320364affc439da1858f1aaf137cbf9fd49ebb41be2",
+      "bytes": 170,
+      "result": "FAIL",
+      "scope": "Original source reproduction; expected failure",
+      "summary": [
+        "BASELINE|moving fist physically overlaps held glove halfway through flight|FAIL|guard_units=0"
+      ]
+    },
+    {
+      "name": "stress-01",
+      "sha256": "2ed83d5c5045e784884908d342e55ebdea7ab79293c4fe4a85fd6190c2636ddd",
+      "bytes": 2905,
+      "result": "FAIL",
+      "scope": "Native configured engine stress; desktop only",
+      "summary": [
+        "BOXINGCONTACT|FAIL|reported first-contact points touch actual padding",
+        "BOXINGCONTACT|COUNTS|geometry=14000|held_flights=224",
+        "BOXINGCONTACT|RESULT|FAIL"
+      ]
+    },
+    {
+      "name": "stress-02",
+      "sha256": "cd7aa2fbc8e830a1413bbaec7c036606cd2827c35bcfc80763818bc94195569e",
+      "bytes": 2907,
+      "result": "PASS",
+      "scope": "Native configured engine stress; desktop only",
+      "summary": [
+        "BOXINGCONTACT|COUNTS|geometry=14000|held_flights=224",
+        "BOXINGCONTACT|RESULT|ALL OK"
+      ]
+    },
+    {
+      "name": "stress-03",
+      "sha256": "eb5c7d4f54ea26876315d495f63d43e2b4bb2b6df690898f73cf53923616cba5",
+      "bytes": 3517,
+      "result": "PASS",
+      "scope": "Native configured engine stress; desktop only",
+      "summary": [
+        "BOXINGCONTACT|COUNTS|geometry=14000|held_flights=224|adversarial_events=30000|desktop_elapsed_ms=2025.868",
+        "BOXINGCONTACT|RESULT|ALL OK"
+      ]
+    },
+    {
+      "name": "stress-04",
+      "sha256": "4f6f471783f8193816e78e9f2b01daba5087cb88fafbea22677662c1b8118dd1",
+      "bytes": 4166,
+      "result": "FAIL",
+      "scope": "Native configured engine stress; desktop only",
+      "summary": [
+        "BOXINGCONTACT|COUNTS|geometry=14000|held_flights=224|adversarial_events=30000|desktop_elapsed_ms=3290.897",
+        "BOXINGCONTACT|RESULT|ALL OK",
+        "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "name": "stress-05",
+      "sha256": "4db5c8b2bf86e126bd2ab3bbe4c25c72c3e95bf528eb08daefa289ea4991fab1",
+      "bytes": 33708,
+      "result": "FAIL",
+      "scope": "Native configured engine stress; desktop only",
+      "summary": [
+        "BOXINGCONTACT|COUNTS|geometry=14000|held_flights=224|adversarial_events=30000|desktop_elapsed_ms=2487.476",
+        "BOXINGCONTACT|RESULT|ALL OK",
+        "ERROR: 1 resources still in use at exit."
+      ]
+    },
+    {
+      "name": "stress-06",
+      "sha256": "56ef79d8caf96352b2ffc12d5d766b684cf86df62a8f46df62bcd73b81e0a632",
+      "bytes": 3917,
+      "result": "PASS",
+      "scope": "Native configured engine stress; desktop only",
+      "summary": [
+        "BOXINGCONTACT|COUNTS|geometry=14000|held_flights=224|adversarial_events=30000|desktop_elapsed_ms=2305.216",
+        "BOXINGCONTACT|RESULT|ALL OK"
+      ]
+    },
+    {
+      "name": "stress-07",
+      "sha256": "db6728b7eb9ebb60855e917f95e588cd8162cd319bb44702041b366a477b3f3a",
+      "bytes": 4088,
+      "result": "PASS",
+      "scope": "Native configured engine stress; desktop only",
+      "summary": [
+        "BOXINGCONTACT|COUNTS|geometry=14000|held_flights=224|adversarial_events=30000|desktop_elapsed_ms=3162.566",
+        "BOXINGCONTACT|RESULT|ALL OK"
+      ]
+    },
+    {
+      "name": "wide-edge-baseline",
+      "sha256": "19e799f4026f154e94993d11ac18d91451df2e1d112062881f8e59b7fdc50c2c",
+      "bytes": 4486,
+      "result": "FAIL",
+      "scope": "Native configured engine stress; desktop only",
+      "summary": [
+        "BOXINGCONTACT|FAIL|viewport-routed touch owns, strikes and releases in phone_edges at (1600, 720)",
+        "BOXINGCONTACT|FAIL|viewport-routed touch owns, strikes and releases in phone_edges at (1920, 720)",
+        "BOXINGCONTACT|COUNTS|geometry=14000|held_flights=224|adversarial_events=30000|desktop_elapsed_ms=2939.622",
+        "BOXINGCONTACT|RESULT|FAIL"
+      ]
+    },
+    {
+      "name": "stress-08",
+      "sha256": "aa1a94718eabaf47866d9294f2b7fac2f2610f6b179a0cf8cea277bf0dd32207",
+      "bytes": 4488,
+      "result": "PASS",
+      "scope": "Native configured engine stress; desktop only",
+      "summary": [
+        "BOXINGCONTACT|COUNTS|geometry=14000|held_flights=224|adversarial_events=30000|desktop_elapsed_ms=2999.908",
+        "BOXINGCONTACT|RESULT|ALL OK"
+      ]
+    },
+    {
+      "name": "stress-09",
+      "sha256": "13a6c80c5d9b215f64b9a47947e21025c9af20f1e1c727de8e32c6af6d4e80ea",
+      "bytes": 5303,
+      "result": "PASS",
+      "scope": "Native configured engine stress; desktop only",
+      "summary": [
+        "BOXINGCONTACT|COUNTS|geometry=14000|held_flights=224|adversarial_events=30000|desktop_elapsed_ms=3135.99",
+        "BOXINGCONTACT|RESULT|ALL OK"
+      ]
+    },
+    {
+      "name": "feedback-baseline",
+      "sha256": "4ca538746c675427e44c8400068b72425585cddf24414e406b9743887d743a38",
+      "bytes": 5465,
+      "result": "FAIL",
+      "scope": "Completion-feedback regression and final native contact/routing stress",
+      "summary": [
+        "BOXINGCONTACT|FAIL|synchronous phase completion preserves its accepted finishing bell",
+        "BOXINGCONTACT|PASS|explicit cancellation still stops owned feedback sounds",
+        "BOXINGCONTACT|COUNTS|geometry=14000|held_flights=224|adversarial_events=30000|desktop_elapsed_ms=3621.638",
+        "BOXINGCONTACT|RESULT|FAIL"
+      ]
+    },
+    {
+      "name": "stress-10",
+      "sha256": "f211e8c8a9bfe1e944a40c5053f1255d93f0362a3ff269b977c6e198788ae864",
+      "bytes": 5467,
+      "result": "PASS",
+      "scope": "Completion-feedback regression and final native contact/routing stress",
+      "summary": [
+        "BOXINGCONTACT|PASS|synchronous phase completion preserves its accepted finishing bell",
+        "BOXINGCONTACT|PASS|explicit cancellation still stops owned feedback sounds",
+        "BOXINGCONTACT|COUNTS|geometry=14000|held_flights=224|adversarial_events=30000|desktop_elapsed_ms=4059.159",
+        "BOXINGCONTACT|RESULT|ALL OK"
+      ]
+    }
+  ],
+  "implemented": [
+    "Phone edge drag bays and directly owned tablet gloves",
+    "Swept padded-disc incoming/target contact with changing radius and exact reach-clamp splits",
+    "Held or moving guard at any trajectory point before impact",
+    "Floating-hand counter openings with fresh extension requirement",
+    "Cancellation, duplicate/contact latches and unchanged career/save ownership"
+  ],
+  "limitations": [
+    "Synthetic native InputEvent stress is distinct from physical device or child play.",
+    "First stress pass exposed scalar precision error; exact strict contact check passes after double-precision coefficient repair.",
+    "Routed tests initially exposed retiring audio playback at exit; cancellation now stops owned sounds and the runner waits for the AudioServer mixer boundary. Final focus/viewport stress exits cleanly.",
+    "No visual score, physical-device, child, owner, remote CI or overall audit acceptance inferred.",
+    "Final configured native captures pass on desktop at 1280x720 and 1600x720. Formal visual/motion review, physical phone/tablet performance and touch feel, child comprehension and owner acceptance remain separate."
+  ],
+  "acceptance": {
+    "machine": "LOCAL_FULL_VALIDATION_PASS",
+    "visual": "DESKTOP_DIAGNOSTIC_ONLY",
+    "device": "PENDING",
+    "child": "PENDING",
+    "owner": "PENDING"
+  },
+  "frozen_source": {
+    "stage": "Complete final native run",
+    "files": {
+      "scripts/opera_boxing_surface.gd": {
+        "raw_sha256": "6c87660816bb16f30eb95d6cb3f4fb6ff6b431bdec42ae03bc73770609473a61",
+        "lf_sha256": "ed9917765b94b746329dfd90f81bbcc8d021f37ef90f610bb008c92f53a07502",
+        "bytes": 36275
+      },
+      "scripts/opera_boxing_contact.gd": {
+        "raw_sha256": "f4c2eaf90f76a93ebd9beb2d533acf7291cbf40ac08ac87e71fde02bf0b7adb4",
+        "lf_sha256": "f4c2eaf90f76a93ebd9beb2d533acf7291cbf40ac08ac87e71fde02bf0b7adb4",
+        "bytes": 1940
+      },
+      "scripts/probe_boxing_contact.gd": {
+        "raw_sha256": "49cd1aafdd9f22b0174acdebd8a28ab872f76687e82b7e76fc7de6238e2d9036",
+        "lf_sha256": "36bef02c3c123beee865d11a1fa93373657e2af2bc4affc3623373a35c9ebaad",
+        "bytes": 1004
+      },
+      "scripts/probe_boxing_contact_cases.gd": {
+        "raw_sha256": "00cff45c25e089a45e36d2a5ab60d6707c24111ad97574cde0beb7ed983a19e4",
+        "lf_sha256": "00cff45c25e089a45e36d2a5ab60d6707c24111ad97574cde0beb7ed983a19e4",
+        "bytes": 23271
+      },
+      "scripts/probe_opera_2d.gd": {
+        "raw_sha256": "2cba50bb232687633098c35cb5e297a678457375268fce151ecc1e8fc6171a5a",
+        "lf_sha256": "c363d178a946034ad79c9b472e73b394021f79102c7a7442fbbff60abd06a5eb",
+        "bytes": 155161
+      },
+      "scripts/opera_career_world_2d.gd": {
+        "raw_sha256": "489ecf55aaf4a2c84bba38807c9fefb327a1479060334c2e4ce24d4efd5d276c",
+        "lf_sha256": "5ad06f19eba86ca94b6a06a093bac79a909895fb188f0d477d8193fb8fbd8700",
+        "bytes": 248385
+      },
+      "scripts/probe_opera_gesture_quality.gd": {
+        "raw_sha256": "e412f0982c9bc39c80cbd2b54b2a8f66a9b563520c88a3e6ba4fe1d5e02f705e",
+        "lf_sha256": "a901ebb3fbc1b18d0f73d8dd58508adc3dc8fc9003db963a407fbd2a1168c1bf",
+        "bytes": 95236
+      }
+    }
+  },
+  "visual_diagnostics": "audit/boxer_contact_engine_20261031/visual_diagnostics.json",
+  "focused_final": {
+    "path": ".tmp/boxer-contact-20261031/stress-10.log",
+    "sha256": "f211e8c8a9bfe1e944a40c5053f1255d93f0362a3ff269b977c6e198788ae864",
+    "geometry_cases": 14000,
+    "held_flights": 224,
+    "adversarial_events": 30000,
+    "viewport_cases": 16,
+    "result": "PASS",
+    "explanation": "Both hands in both layouts at1280x720,1600x900,1600x720,1920x720; exact script/analyzer and clean-exit native results.",
+    "source_scope": "The focused transcript precedes the two EOF blank-line removals. Exact before/after mapping is retained in visual_diagnostics.json; the complete final native suite reruns the same shared contact cases on the final hashes."
+  },
+  "cancelled_full_run": {
+    "path": ".tmp/boxer-contact-20261031/full-ci-01.log",
+    "sha256": "8ad49d21ada8ee85586e3c9ab903270cfd98e4885792e304269f7dcc2c044b04",
+    "result": "CANCELLED",
+    "disposition": "Intentionally stopped during static music checks, before the trusted-probe loop, for physical-edge coverage and fixed windup-cue correction; retained, never PASS."
+  },
+  "local_full_run_binding_note": "Full local validation combines the preserved successful static gates with the complete frozen-source final native run. The earlier full-ci-02 attempt stays FAIL; it is not relabelled green.",
+  "captured_source": {
+    "stage": "Final runtime after Geologist rest repair and final trusted test placement; both native capture batches freshly rerun",
+    "files": {
+      "scripts/opera_boxing_surface.gd": {
+        "raw_sha256": "6c87660816bb16f30eb95d6cb3f4fb6ff6b431bdec42ae03bc73770609473a61",
+        "lf_sha256": "ed9917765b94b746329dfd90f81bbcc8d021f37ef90f610bb008c92f53a07502",
+        "bytes": 36275
+      },
+      "scripts/opera_boxing_contact.gd": {
+        "raw_sha256": "2f643396ca16197a0956b2ce19b2d85b2121499e0dd80f5a12a9d7a8be01758e",
+        "lf_sha256": "2f643396ca16197a0956b2ce19b2d85b2121499e0dd80f5a12a9d7a8be01758e",
+        "bytes": 1941
+      },
+      "scripts/probe_boxing_contact.gd": {
+        "raw_sha256": "cceee3aff4c0bebb6be1669e558c87e6877e660a98af6fe9d304461726177eed",
+        "lf_sha256": "ed3b13149b2796f58c78187307b8c011020165fe835b9909dcc4bf47dcefc02b",
+        "bytes": 1006
+      },
+      "scripts/probe_boxing_contact_cases.gd": {
+        "raw_sha256": "00cff45c25e089a45e36d2a5ab60d6707c24111ad97574cde0beb7ed983a19e4",
+        "lf_sha256": "00cff45c25e089a45e36d2a5ab60d6707c24111ad97574cde0beb7ed983a19e4",
+        "bytes": 23271
+      },
+      "scripts/probe_opera_2d.gd": {
+        "raw_sha256": "2cba50bb232687633098c35cb5e297a678457375268fce151ecc1e8fc6171a5a",
+        "lf_sha256": "c363d178a946034ad79c9b472e73b394021f79102c7a7442fbbff60abd06a5eb",
+        "bytes": 155161
+      },
+      "scripts/opera_career_world_2d.gd": {
+        "raw_sha256": "489ecf55aaf4a2c84bba38807c9fefb327a1479060334c2e4ce24d4efd5d276c",
+        "lf_sha256": "5ad06f19eba86ca94b6a06a093bac79a909895fb188f0d477d8193fb8fbd8700",
+        "bytes": 248385
+      }
+    }
+  },
+  "checkpoint_utc": "2026-11-01T02:01:34.255598+00:00",
+  "interrupted_preprobe_attempt": {
+    "path": ".tmp/boxer-contact-20261031/native-final-attempt-01.log",
+    "sha256": "04802c0aa0a431089ea3ed6b3c7c44f529e9d57bf48acbec9727f67bb7314d85",
+    "bytes": 1387,
+    "result": "CANCELLED",
+    "native_probes_started": 0,
+    "reason": "Stopped only the owned process tree during the 2D inventory, before native probes, to remove two extra EOF blank lines caught by staged diff review. No gate was bypassed; the final run repeated import, 2D inventory and all 82 probes."
+  },
+  "full_ci_attempt": {
+    "path": ".tmp/boxer-contact-20261031/full-ci-02.log",
+    "sha256": "b354d562169c5bc118bf9206aa281240058eeb623586fc6592f344aa8dee37df",
+    "bytes": 536850,
+    "result": "FAIL",
+    "process_exit": 1,
+    "static_gate_result": "PASS",
+    "native_probes_completed": 82,
+    "failure": "Only probe_opera_gesture_quality failed: two mixed-input assertions used a second touch on the occupied left glove but expected it to claim the distant right glove. This fixture contradicts the newly requested direct tablet pickup.",
+    "source_binding_limit": "This attempt was not immutable: the completion-feedback correction preceded native import; the two-line Geologist rest repair followed early probes; the direct-pickup fixture was corrected after its failure. No PASS is assigned to this attempt.",
+    "static_reuse": "Unchanged static-tool/unit-test, audio, music, asset, scene and authority inputs were exercised by this attempt. Changed-script parser/inference and final document gates were rerun; exact final native import and every trusted probe were rerun below."
+  },
+  "final_native_suite": {
+    "path": ".tmp/boxer-contact-20261031/native-final.log",
+    "sha256": "e76dcd6e7a35dd7616c285d7cffa088caa00f99cd09dbd43fb64d7f0eba548d9",
+    "bytes": 481585,
+    "result": "PASS",
+    "process_exit": 0,
+    "command": "Exact native section of scripts/ci.sh with approved runtime resolution, fresh import, 2D regression gate, all 82 probes in canonical order, original flags/deadlines/classifiers and separate empty user profiles.",
+    "runner": {
+      "path": ".tmp/boxer-contact-20261031/native-final.sh",
+      "sha256": "c95b7c3371d1a148c2c9347f0d3daa212bdcf7a62a190c9894b19fef9d951f17",
+      "bytes": 5380
+    },
+    "runner_difference": "Only per-probe artifact directory and retention differ; logs/profiles are preserved instead of removed. No test, deadline or failure classifier changed.",
+    "probes": [
+      {
+        "name": "probe_reef_districts",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_ocean_kingdoms",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_audit",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_passive",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_living_world",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_load",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_rank",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_save_recovery",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_galaxy_state",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_collection",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_mg2d",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_fetch",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_melody",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_dolls",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_seek",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_audio",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_dance",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_l2",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_l2_living_cards",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_sky_lagoon_animals",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_l2_reenter",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_crown",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_throne",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_northern",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_human_art_audit",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_train",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_verbs",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_skins",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_touch_router",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_touch_stress",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_interaction",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_touch_adversary",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_touch_look",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_ui_system",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_voice",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_day_one_voice",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_day_one_d8_revisits",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_day_one_handoffs",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_kart_feel",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_combat",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_dust_bunny",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_dust_bunny_boss",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_dust_boss",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_hit",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_partner",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_combat_tutorial",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_imp_ai",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_mic",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_stuffie",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_dungeon",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_ember",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_opera",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_opera_2d",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_opera_diegetic_paths",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_opera_detective",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_opera_pipe",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_opera_nursery",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_opera_gesture_quality",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_kitchen_props",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_bathroom_props",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_castle_door_language",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_bathroom_integration",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_day_one_bathroom_bunny",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_day_one_bathroom_cleanup",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_day_one_bathroom_movie_handoff",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_day_one_director",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_day_one_integration",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_day_one_pool_cleanup",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_day_one_art_attack_state",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_day_one_castle_dressing",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_day_one_story_clips",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_chapter2",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_chapter2_farmer_resume",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_chapter2_lawn",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_alpha_milestone_save",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_dust_boss_balance",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_start_menu_routing",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_start_menu_new_game",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_castle_pool_life_2d",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_castle_pearl_art",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_fairy_art",
+        "process_exit": 0
+      },
+      {
+        "name": "probe_props",
+        "process_exit": 0
+      }
+    ],
+    "source_closure": {
+      "created_utc": "2026-11-01T02:01:34.255598+00:00",
+      "changed_source": {
+        "scripts/opera_boxing_surface.gd": {
+          "raw_sha256": "6c87660816bb16f30eb95d6cb3f4fb6ff6b431bdec42ae03bc73770609473a61",
+          "lf_sha256": "ed9917765b94b746329dfd90f81bbcc8d021f37ef90f610bb008c92f53a07502",
+          "bytes": 36275
+        },
+        "scripts/opera_boxing_contact.gd": {
+          "raw_sha256": "f4c2eaf90f76a93ebd9beb2d533acf7291cbf40ac08ac87e71fde02bf0b7adb4",
+          "lf_sha256": "f4c2eaf90f76a93ebd9beb2d533acf7291cbf40ac08ac87e71fde02bf0b7adb4",
+          "bytes": 1940
+        },
+        "scripts/probe_boxing_contact.gd": {
+          "raw_sha256": "49cd1aafdd9f22b0174acdebd8a28ab872f76687e82b7e76fc7de6238e2d9036",
+          "lf_sha256": "36bef02c3c123beee865d11a1fa93373657e2af2bc4affc3623373a35c9ebaad",
+          "bytes": 1004
+        },
+        "scripts/probe_boxing_contact_cases.gd": {
+          "raw_sha256": "00cff45c25e089a45e36d2a5ab60d6707c24111ad97574cde0beb7ed983a19e4",
+          "lf_sha256": "00cff45c25e089a45e36d2a5ab60d6707c24111ad97574cde0beb7ed983a19e4",
+          "bytes": 23271
+        },
+        "scripts/probe_opera_2d.gd": {
+          "raw_sha256": "2cba50bb232687633098c35cb5e297a678457375268fce151ecc1e8fc6171a5a",
+          "lf_sha256": "c363d178a946034ad79c9b472e73b394021f79102c7a7442fbbff60abd06a5eb",
+          "bytes": 155161
+        },
+        "scripts/opera_career_world_2d.gd": {
+          "raw_sha256": "489ecf55aaf4a2c84bba38807c9fefb327a1479060334c2e4ce24d4efd5d276c",
+          "lf_sha256": "5ad06f19eba86ca94b6a06a093bac79a909895fb188f0d477d8193fb8fbd8700",
+          "bytes": 248385
+        },
+        "scripts/probe_opera_gesture_quality.gd": {
+          "raw_sha256": "e412f0982c9bc39c80cbd2b54b2a8f66a9b563520c88a3e6ba4fe1d5e02f705e",
+          "lf_sha256": "a901ebb3fbc1b18d0f73d8dd58508adc3dc8fc9003db963a407fbd2a1168c1bf",
+          "bytes": 95236
+        }
+      },
+      "runtime_source_count": 495,
+      "runtime_source_map_sha256": "4013059d8f6b66b7b51108680c9164f4892c40e2fb90241136fc3933b77e60dd",
+      "before_snapshot": {
+        "path": ".tmp/boxer-contact-20261031/frozen-final-runtime-v3.json",
+        "sha256": "6a127e33f05d20cc9e558ddf87599a53d815a643c28fb55dc3cb4864ec6f6a26",
+        "bytes": 63373
+      },
+      "after_comparison": "PASS: every frozen runtime source/resource LF hash remains identical",
+      "ci_lf_sha256": "99d4ade661f5d5492e24e29bb4c8c3cd14c8e6771f465b30b2834d2e3540af7c"
+    },
+    "boxer_coverage": {
+      "geometry_cases": 14000,
+      "held_flights": 224,
+      "adversarial_events": 30000,
+      "routed_viewport_cases": 16,
+      "standalone_gesture_checks": 275
+    }
+  },
+  "mixed_input_fixture": {
+    "path": ".tmp/boxer-contact-20261031/gesture-final.log",
+    "sha256": "24092105cea880e323075053cccc45837478b6b5abc10532a055d8b64c5c5277",
+    "bytes": 120,
+    "result": "PASS",
+    "checks": 275,
+    "change": "Press the actual unclaimed right glove. Preserve both original ownership/release assertions and add an occupied-glove negative assertion; no distant-hand fallback was added."
+  },
+  "remote_at_record_creation": "NOT_YET_RUN; exact published-head CI and integration are recorded by the GitHub checks/PR after this checkpoint."
+}

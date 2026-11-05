@@ -1,0 +1,45 @@
+{
+  "utc": "2026-11-01T12:01:04.606716+00:00",
+  "status": "SOURCE_REVIEW_PAYLOAD_PUBLISHED_AND_ANONYMOUSLY_VERIFIED",
+  "manifest_sha256": "571d705bc11e1c61955fb0cb99730d4b5aa26f415c51a365728c403ecf8e94d0",
+  "packet_payload_sha256": "cd088f6ed88eaeb12bfeb5bb1e901eb6df51d39b05e4639fc3245dcdbfbb7f23",
+  "checked_payload_files": 975,
+  "payload_bytes": 259799041,
+  "local_hash_check_pass": true,
+  "frozen_source_inputs_checked": 189,
+  "frozen_source_mismatches": [],
+  "static_gate_rows": 56,
+  "latest_baseline_gate_resolution_pass": true,
+  "original_static_nonpassing": [
+    {
+      "name": "36_audit_audio_quality",
+      "exit": 124,
+      "advisory": false
+    },
+    {
+      "name": "37_-m",
+      "exit": 124,
+      "advisory": false
+    }
+  ],
+  "runtime_rows": 83,
+  "original_runtime_nonpassing": [
+    "probe_opera_2d",
+    "probe_chapter2",
+    "probe_audit"
+  ],
+  "publication": {
+    "committed": true,
+    "pushed": true,
+    "source_revision": "fe3ecc997f0651127388706fb058240392fbf2bd",
+    "exact_remote_manifest_and_payload_verified": true,
+    "initial_baseline_anonymous_access_only": "evidence/anonymous_access_initial.json",
+    "verification_receipt": "evidence/remote_verification.json"
+  },
+  "acceptance": "Native attachments/mixed outlines and strict original restoration FAIL; static visual finish rejected; accepted shared waist and human/full-speed/device/child/owner gates unresolved; corrected parent seed remote proof passes.",
+  "local_hash_check_scope": "Sealed immutable source payload revision fe3ecc997f0651127388706fb058240392fbf2bd; later metadata receipt/impact records are separate and do not repin the payload.",
+  "ARCHIVE_COMPLETE": true,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "COMPATIBILITY_ACCEPTED": false
+}

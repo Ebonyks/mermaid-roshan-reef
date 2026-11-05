@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-31T18:25:55.797376+00:00",
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "seconds": 61.86,
+      "stdout": "DOCAUTH|INVENTORY=627|LEDGER=627|ACTIVE=56|RECORDS=58\nDOCAUTH|RESULT|ALL OK\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "seconds": 72.921,
+      "stdout": "AUDITDEV|BASE|5920c673305989ee29d91876480ff445dba9fc8b\nAUDITDEV|RESULT|ALL OK\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "seconds": 151.875,
+      "stdout": "DOCAUTH|STRESS|6/6\n",
+      "stderr": "....................................................\n----------------------------------------------------------------------\nRan 52 tests in 148.189s\n\nOK\n"
+    }
+  ],
+  "book_verification": {
+    "path": "complete/verification.json",
+    "status": "PASS_TEXT_ART_EXPORT_AND_CONTRAST",
+    "sha256": "69e28468304e3cf5bd5d1faa978b5535019d235070904486f8747df39a9af184"
+  },
+  "source_baseline": "550a0b86216dee020d5070428ab4ddcfe0da4dc1",
+  "earlier_checks": "Initial document-navigation gate failed only because manifest.json was not yet created. QA/preflight01 retains initial six contrast failures and two margin failures. These are not current acceptance.",
+  "runtime_scope": "Book-only files; game/runtime/protected/workflow files unchanged. No new Godot/device/child/release claim."
+}

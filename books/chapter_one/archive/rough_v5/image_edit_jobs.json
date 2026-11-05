@@ -1,0 +1,38 @@
+[
+  {
+    "id": "aqua_frame",
+    "source": "v4/reference_page04.png",
+    "output": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-5c9a25ec-5183-45db-9b68-41d777d191a1.png",
+    "prompt": "Edit this exact existing book page only. Remove the two Roshan figures, their backpacks, and all lettering, including the black production footer. Inpaint just those removed foreground regions by continuing the surrounding pale aqua watercolour wash and subtle paper texture. Preserve the existing fine wavering dotted/bubble edge border and the exact soft sage seabed corners, shells, pebbles and muted coral at the bottom. Preserve their positions, delicacy, colours and hand-painted style. The centre remains quiet open wash. This is removal to obtain the existing reusable page background, not a redesign or a new scene. No new objects or ornate detail. Keep original portrait page proportions.",
+    "method": "built-in ImageGen edit",
+    "operation": "Targeted foreground removal and local inpainting of reference page background",
+    "review": "Source pose/action/identity compared visually; no invented scene; rough derivative pending owner review"
+  },
+  {
+    "id": "bath_isolated",
+    "source": "art/bath_scrub.png",
+    "output": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-7bdb586b-50cb-4e56-94b3-1bafa26d6ac5.png",
+    "prompt": "Isolate the existing action group from this exact frame onto a genuinely transparent alpha background: Roshan in exactly this pose, the brush in her hand and the entire shell bathtub with its murky water/grime. Remove only the unrelated room background, floor, sink, windows, wall. Preserve the existing character, anatomy, one tail, clothing, brush contact, bathtub shape, pixels/style/lighting as faithfully as possible. Keep all already-visible group elements together at their source-relative positions. No reposing, no scene redraw, no new objects or cleanup of the depicted dirty water. Output a clean irregular silhouette, not a rectangle.",
+    "method": "built-in ImageGen edit",
+    "operation": "Existing action group isolated to alpha",
+    "review": "Source pose/action/identity compared visually; no invented scene; rough derivative pending owner review"
+  },
+  {
+    "id": "rescue_isolated",
+    "source": "v3/frames/clip00_0.png",
+    "output": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-517e0da7-bfeb-4053-a291-63d6a754c2e7.png",
+    "prompt": "Isolate only the existing central rescue action group from this exact image onto genuinely transparent alpha: Roshan holding the brush, Baby Eagle lying beneath EXACTLY TWO lavender dust bunnies, and those two bunnies touching/holding him exactly as in the source. Remove the room, floor, toy bins and background toys. Preserve source poses, relative locations, scale, faces, one Roshan tail, brush contact, bird and bunny anatomy, colours and drawing. Do not free the bird, add a blanket, change the action, or redraw a new scene. Source-faithful irregular cutout of the complete already-visible interaction.",
+    "method": "built-in ImageGen edit",
+    "operation": "Existing action group isolated to alpha",
+    "review": "Source pose/action/identity compared visually; no invented scene; rough derivative pending owner review"
+  },
+  {
+    "id": "seahorse_isolated",
+    "source": "art/seahorse.png",
+    "output": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-c959cb14-897c-4cbb-9d97-e89e4c8a21b9.png",
+    "prompt": "Remove the room background only and isolate this existing action onto genuine transparent alpha: the seahorse fountain on the left, Roshan on the right, her hands and the pink blockage she is pulling. Preserve the source action, faces, expression, shapes, proportions, positions and style. Preserve visible source edges; do not invent a new full body or tail beyond the crop. This is a cutout of the existing frame, not a scene redraw. No blue rectangular plate or newly drawn backdrop.",
+    "method": "built-in ImageGen edit",
+    "operation": "Existing action group isolated to alpha",
+    "review": "Source pose/action/identity compared visually; no invented scene; rough derivative pending owner review"
+  }
+]

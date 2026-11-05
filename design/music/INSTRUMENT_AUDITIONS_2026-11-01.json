@@ -1,0 +1,1868 @@
+{
+  "status": "PASS_NATIVE_AND_MEASUREMENTS",
+  "checked_utc": "2026-11-02T02:16:23.380869+00:00",
+  "method": "Falcon in isolated REAPER; actual preset-specific MIDI; native ReaEQ; static gain toward -22 LUFS with -6 dBTP ceiling. No limiter, forced saturation or reference-recording upload.",
+  "private_audio": true,
+  "subjective_listening": "Ten kit/world-percussion excerpts assessed through owner-approved Gemini service. Advisory only; unreliable source labels/timestamps are not confirmed defects. Relevant performer research contains additional bounded opinions where obtained. Human acceptance pending.",
+  "tests": [
+    {
+      "id": "lofi_dreams_lofi_kit",
+      "program": "LoFi",
+      "program_path": "$LoFi Dreams.ufs/Presets/Drums/LoFi.uvip",
+      "notes": 56,
+      "keyswitch_selectors": [
+        null
+      ],
+      "duration_seconds": 12.31819,
+      "eq": [
+        [
+          "hp",
+          30,
+          0,
+          1
+        ],
+        [
+          "lp",
+          14000,
+          0,
+          0.8
+        ]
+      ],
+      "raw_lufs": -52.11,
+      "raw_true_peak_dbtp": -28.43,
+      "gain_db": 22.43,
+      "review_lufs": -29.7,
+      "review_true_peak_dbtp": -6.0,
+      "mono_rms_change_db": -0.064,
+      "source_sha256": "61240127a00593c02c9981eed8add027f261f04c8f53315ff7a8c2b6a8369c78",
+      "native_recall_sha256": "5e069c067bd8850aa8d28dc8af668847caa9348aeb84f9a743a5facbcf86d5e9",
+      "review_wav_sha256": "1e12c56cd42e61cd8b61a8391ea71d76df60da87027a08419b3e9745fe670b96",
+      "review_ogg_sha256": "85f9469055713b33dc98e329e40bbdca8ce62bf021a621e1154c97f8718283a4",
+      "purpose": "Same original diagnostic beat; actual kit-specific MIDI notes; no sequencer trigger",
+      "active_articulation": null,
+      "bpm": 110,
+      "midi_notes_tested": [
+        48,
+        51,
+        53,
+        54
+      ],
+      "velocity_range_tested": [
+        37,
+        85
+      ]
+    },
+    {
+      "id": "lofi_dreams_jazz_kit",
+      "program": "Jazz Kit",
+      "program_path": "$LoFi Dreams.ufs/Presets/Drums/Jazz Kit.uvip",
+      "notes": 56,
+      "keyswitch_selectors": [
+        null
+      ],
+      "duration_seconds": 12.31819,
+      "eq": [
+        [
+          "hp",
+          30,
+          0,
+          1
+        ],
+        [
+          "lp",
+          14000,
+          0,
+          0.8
+        ]
+      ],
+      "raw_lufs": -46.7,
+      "raw_true_peak_dbtp": -28.56,
+      "gain_db": 22.56,
+      "review_lufs": -24.14,
+      "review_true_peak_dbtp": -6.0,
+      "mono_rms_change_db": -0.058,
+      "source_sha256": "63e0aed453a19cd67786d5cf670d79af3f9dbf26503a85c14c96ecd622da5cef",
+      "native_recall_sha256": "67148778c2cc47b85653ce14212f67152642bc287affa260351ebc5965485701",
+      "review_wav_sha256": "ef6b2ff5d44238f4e437cd531aec8eed8a3f1f9e255a4f6f95f13980bf95f5bb",
+      "review_ogg_sha256": "bcc9a93c185fea8d7d0d21501efeba797bee074220bf333620835e1260647c6b",
+      "purpose": "Same original diagnostic beat; actual kit-specific MIDI notes; no sequencer trigger",
+      "active_articulation": null,
+      "bpm": 110,
+      "midi_notes_tested": [
+        36,
+        37,
+        38,
+        42
+      ],
+      "velocity_range_tested": [
+        37,
+        85
+      ]
+    },
+    {
+      "id": "lofi_dreams_foley_kit",
+      "program": "Foley Kit",
+      "program_path": "$LoFi Dreams.ufs/Presets/Drums/Foley Kit.uvip",
+      "notes": 56,
+      "keyswitch_selectors": [
+        null
+      ],
+      "duration_seconds": 12.31819,
+      "eq": [
+        [
+          "hp",
+          30,
+          0,
+          1
+        ],
+        [
+          "lp",
+          14000,
+          0,
+          0.8
+        ]
+      ],
+      "raw_lufs": -40.43,
+      "raw_true_peak_dbtp": -21.91,
+      "gain_db": 15.91,
+      "review_lufs": -24.53,
+      "review_true_peak_dbtp": -6.0,
+      "mono_rms_change_db": -0.032,
+      "source_sha256": "9451bf7c3ef75779e9eee8f39f2ec108b97e0baadb0486576a42e9a5382d4793",
+      "native_recall_sha256": "3b70261478f09765802707a2cebf52f61987e38fc0ebbb136bc71882212fc330",
+      "review_wav_sha256": "82b50f786c25a74074cb7b3f0d1ea03370ee72f400b499ca2c0f00e5f560da8c",
+      "review_ogg_sha256": "4d7e48e4efea6385bdd00fd59ce602f3d1468c34aaa59c1d3994178ed1376e40",
+      "purpose": "Same original diagnostic beat; actual kit-specific MIDI notes; no sequencer trigger",
+      "active_articulation": null,
+      "bpm": 110,
+      "midi_notes_tested": [
+        35,
+        38,
+        40,
+        41
+      ],
+      "velocity_range_tested": [
+        37,
+        85
+      ]
+    },
+    {
+      "id": "bba2_ace_t1",
+      "program": "BeatBox Anthology 2",
+      "program_path": "$BeatBox Anthology 2.ufs/Presets/BeatBox Anthology 2.uvip",
+      "notes": 56,
+      "keyswitch_selectors": [
+        null
+      ],
+      "duration_seconds": 12.31819,
+      "eq": [
+        [
+          "hp",
+          30,
+          0,
+          1
+        ],
+        [
+          "lp",
+          14000,
+          0,
+          0.8
+        ]
+      ],
+      "raw_lufs": -39.05,
+      "raw_true_peak_dbtp": -22.66,
+      "gain_db": 16.66,
+      "review_lufs": -22.42,
+      "review_true_peak_dbtp": -6.0,
+      "mono_rms_change_db": -0.009,
+      "source_sha256": "ac096cd8110f4c0e25b63c4de1b6320f35a51a56e8d88344e5eca60b7fe67172",
+      "native_recall_sha256": "b9d62a340e8dc31b08786da4c69bbe6547f072222ce560efb1c63a15cdcaf3e7",
+      "review_wav_sha256": "c232995da93e801057d3983c1f2dff1777c8b893ca574ba47d09294c6243f9ac",
+      "review_ogg_sha256": "881c81712f34070734ac9dff911b8849e56820e1fa252bce64d38cb3daf423ef",
+      "purpose": "Same original diagnostic beat; actual kit-specific MIDI notes; no sequencer trigger",
+      "active_articulation": null,
+      "bpm": 110,
+      "midi_notes_tested": [
+        36,
+        37,
+        38,
+        42
+      ],
+      "velocity_range_tested": [
+        37,
+        85
+      ]
+    },
+    {
+      "id": "bba2_classic_r78",
+      "program": "BeatBox Anthology 2",
+      "program_path": "$BeatBox Anthology 2.ufs/Presets/BeatBox Anthology 2.uvip",
+      "notes": 56,
+      "keyswitch_selectors": [
+        null
+      ],
+      "duration_seconds": 12.31819,
+      "eq": [
+        [
+          "hp",
+          30,
+          0,
+          1
+        ],
+        [
+          "lp",
+          14000,
+          0,
+          0.8
+        ]
+      ],
+      "raw_lufs": -38.6,
+      "raw_true_peak_dbtp": -22.6,
+      "gain_db": 16.6,
+      "review_lufs": -22.0,
+      "review_true_peak_dbtp": -6.0,
+      "mono_rms_change_db": -0.0,
+      "source_sha256": "115e6185497c9cb97580155be69fb1da4462296086e60ab86533c6b160b1fe19",
+      "native_recall_sha256": "47c3e0c68a85c53bff7142effff81d72953927e16e94b4129d1a3658db3ee50a",
+      "review_wav_sha256": "7b124158cbbcb781a45a4c302e29432a1bed6ea4fa58cca1e0cb88193e8c91b2",
+      "review_ogg_sha256": "ef71a08415419a33df6b134fb21452fa7e7f7c8160ffbe196a70cd324b5bf9fe",
+      "purpose": "Same original diagnostic beat; actual kit-specific MIDI notes; no sequencer trigger",
+      "active_articulation": null,
+      "bpm": 110,
+      "midi_notes_tested": [
+        36,
+        37,
+        38,
+        42
+      ],
+      "velocity_range_tested": [
+        37,
+        85
+      ]
+    },
+    {
+      "id": "world_african_large_drums",
+      "program": "African Large Drums Menu",
+      "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/African Large Drums/African Large Drums Menu.uvip",
+      "notes": 29,
+      "keyswitch_selectors": [
+        "10"
+      ],
+      "duration_seconds": 13.3,
+      "eq": [
+        [
+          "hp",
+          30,
+          0,
+          1
+        ],
+        [
+          "lp",
+          14000,
+          0,
+          0.8
+        ]
+      ],
+      "raw_lufs": -41.8,
+      "raw_true_peak_dbtp": -25.56,
+      "gain_db": 19.56,
+      "review_lufs": -22.24,
+      "review_true_peak_dbtp": -6.0,
+      "mono_rms_change_db": -0.032,
+      "source_sha256": "ceaee6d2a4703e197e149ad2fdc5d7904645254afe4b7768a344e43f20ebee2d",
+      "native_recall_sha256": "747832b60dce45e0a804feeb1edb1d5f40902552acf98ae33a8181fec7fb9887",
+      "review_wav_sha256": "4b876f5ba335034884f26ea34765dd7c693149ffe58932e988fe316f74e87d2f",
+      "review_ogg_sha256": "ba08cfdefff3d5e324ed6eb793b0bfbf37d20391ccc8f32041532063f4e57730",
+      "purpose": "Original body/mute/response diagnostic; program keyswitch before first playing note; not a traditional-performance transcription",
+      "active_articulation": "Large Drums Menu A1",
+      "bpm": 100,
+      "midi_notes_tested": [
+        48,
+        49,
+        53,
+        71
+      ],
+      "velocity_range_tested": [
+        42,
+        81
+      ]
+    },
+    {
+      "id": "world_celtic_percussion_menu",
+      "program": "All Celtic Percussion Menu",
+      "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Celtic Percussions/All Celtic Percussion Menu.uvip",
+      "notes": 29,
+      "keyswitch_selectors": [
+        "8"
+      ],
+      "duration_seconds": 13.3,
+      "eq": [
+        [
+          "hp",
+          30,
+          0,
+          1
+        ],
+        [
+          "lp",
+          14000,
+          0,
+          0.8
+        ]
+      ],
+      "raw_lufs": -41.84,
+      "raw_true_peak_dbtp": -22.95,
+      "gain_db": 16.95,
+      "review_lufs": -24.9,
+      "review_true_peak_dbtp": -6.0,
+      "mono_rms_change_db": -0.017,
+      "source_sha256": "21fcbdc62c43c195427fb457a78768682ff332654b1d2fd84e7db33af059db91",
+      "native_recall_sha256": "2ca5db05dcc180e80b7bbca67a4de89a1c51825923d115404292239fa1dcb29d",
+      "review_wav_sha256": "5500c27bcf29f3aaf32045e599be86f240629680266450773424817e68430ebb",
+      "review_ogg_sha256": "c49bdd2ede3cac493651ce0309c1d5fe75d20c99a6e046cd4fac2ea740cff76c",
+      "purpose": "Original body/mute/response diagnostic; program keyswitch before first playing note; not a traditional-performance transcription",
+      "active_articulation": "Celtic Perc Menu G1",
+      "bpm": 100,
+      "midi_notes_tested": [
+        55,
+        60,
+        64,
+        67
+      ],
+      "velocity_range_tested": [
+        42,
+        81
+      ]
+    },
+    {
+      "id": "world_bodhran_hits",
+      "program": "Bodhran Hits",
+      "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Celtic Percussions/Bodhran Hits.uvip",
+      "notes": 29,
+      "keyswitch_selectors": [
+        "1"
+      ],
+      "duration_seconds": 13.3,
+      "eq": [
+        [
+          "hp",
+          30,
+          0,
+          1
+        ],
+        [
+          "lp",
+          14000,
+          0,
+          0.8
+        ]
+      ],
+      "raw_lufs": -45.43,
+      "raw_true_peak_dbtp": -23.9,
+      "gain_db": 17.9,
+      "review_lufs": -27.61,
+      "review_true_peak_dbtp": -6.0,
+      "mono_rms_change_db": -0.03,
+      "source_sha256": "698118e8a9376b6fa180c0cc2e9c4abc5e26fddc0d25ae9f689c3016e5570620",
+      "native_recall_sha256": "004b64086f670f8f0b6f5e8e25ae6cc7cc8ba3edac46efe1d0eacd90cc56dde3",
+      "review_wav_sha256": "163928046ecad3a83e91be79ad4567353aaa6a607d36d5592c03b15afb47615d",
+      "review_ogg_sha256": "c681c65fb6e63811582e625a4616386a87c95850fe529bf4c09b6f493e5e299c",
+      "purpose": "Original body/mute/response diagnostic; program keyswitch before first playing note; not a traditional-performance transcription",
+      "active_articulation": "Bodhran Hits C1",
+      "bpm": 100,
+      "midi_notes_tested": [
+        48,
+        49,
+        50,
+        51
+      ],
+      "velocity_range_tested": [
+        42,
+        81
+      ]
+    },
+    {
+      "id": "world_antic_tabla",
+      "program": "Antic Tabla",
+      "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Tabla/Antic Tabla.uvip",
+      "notes": 29,
+      "keyswitch_selectors": [
+        "5"
+      ],
+      "duration_seconds": 13.3,
+      "eq": [
+        [
+          "hp",
+          30,
+          0,
+          1
+        ],
+        [
+          "lp",
+          14000,
+          0,
+          0.8
+        ]
+      ],
+      "raw_lufs": -52.0,
+      "raw_true_peak_dbtp": -29.14,
+      "gain_db": 23.14,
+      "review_lufs": -28.88,
+      "review_true_peak_dbtp": -6.0,
+      "mono_rms_change_db": -3.207,
+      "source_sha256": "35f7f059bbbd5aeb3375dec259f4a03a63466d243b4228b58abbbe8188261f5d",
+      "native_recall_sha256": "b3d302934f325f80513ab191948f7f0559b8827447439e80ff69c6a536aa4b27",
+      "review_wav_sha256": "224a34ac25c37903f64e3824ada951c06ff844e250656628aee4f0194a0dc705",
+      "review_ogg_sha256": "45c98a43833a1c41d6d7d4223444c6e911a546d5153b76894da3c93cbf727bac",
+      "purpose": "Original body/mute/response diagnostic; program keyswitch before first playing note; not a traditional-performance transcription",
+      "active_articulation": "Antic Tabla E1",
+      "bpm": 100,
+      "midi_notes_tested": [
+        48,
+        49,
+        50,
+        51
+      ],
+      "velocity_range_tested": [
+        42,
+        81
+      ]
+    },
+    {
+      "id": "world_modern_tabla",
+      "program": "Modern Tabla",
+      "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Tabla/Modern Tabla.uvip",
+      "notes": 29,
+      "keyswitch_selectors": [
+        "3"
+      ],
+      "duration_seconds": 13.3,
+      "eq": [
+        [
+          "hp",
+          30,
+          0,
+          1
+        ],
+        [
+          "lp",
+          14000,
+          0,
+          0.8
+        ]
+      ],
+      "raw_lufs": -48.76,
+      "raw_true_peak_dbtp": -28.62,
+      "gain_db": 22.62,
+      "review_lufs": -26.15,
+      "review_true_peak_dbtp": -6.0,
+      "mono_rms_change_db": -0.005,
+      "source_sha256": "35c013aa85700970396d0fd9954fe2e697cf213a983bb5f7fce2014a0234617b",
+      "native_recall_sha256": "5f217be67d6de679bf23dafb50ba3d10cc639dda46396d8f6e8e7d279df5f7ff",
+      "review_wav_sha256": "ae5f85068e76c329b7d3d0c9da934e3feb5d6a6a04e07c7b055ee52ed8c537b6",
+      "review_ogg_sha256": "ccc6c483e4e242133a41b30dbbeb1def9f7d488644102fe22f90ee4f66e0889c",
+      "purpose": "Original body/mute/response diagnostic; program keyswitch before first playing note; not a traditional-performance transcription",
+      "active_articulation": "Modern Tabla D1",
+      "bpm": 100,
+      "midi_notes_tested": [
+        48,
+        49,
+        55,
+        60
+      ],
+      "velocity_range_tested": [
+        42,
+        81
+      ]
+    },
+    {
+      "id": "opera_house_pan",
+      "program": "Steel Pan Main",
+      "program_path": "$World Suite 3.ufs/Presets/01 Types/Metal & Gong/Steel Pan/Steel Pan Main.uvip",
+      "notes": 27,
+      "keyswitch_selectors": [
+        null
+      ],
+      "duration_seconds": 12.14285,
+      "eq": [
+        [
+          "hp",
+          85,
+          0,
+          1
+        ],
+        [
+          "bell",
+          2800,
+          -2.3,
+          1.4
+        ],
+        [
+          "shelf",
+          7200,
+          -1.8,
+          1
+        ],
+        [
+          "lp",
+          12000,
+          0,
+          0.8
+        ]
+      ],
+      "raw_lufs": -59.6,
+      "raw_true_peak_dbtp": -50.69,
+      "gain_db": 37.6,
+      "review_lufs": -22.05,
+      "review_true_peak_dbtp": -13.09,
+      "mono_rms_change_db": -0.081,
+      "source_sha256": "4429890ad95e037bd71dcd2315e96df705c7a763ca6a67432b2d48fea3b38c79",
+      "native_recall_sha256": "b8bbfd071aaf55d68fad30e189f3067455d5c687a8c35b9843785f55d7202154",
+      "review_wav_sha256": "3025ae171836544f89b8c88331a65a1f596ebbf5066adc19cfb99859e09f53a8",
+      "review_ogg_sha256": "0d461f63914f583738bca5a4f813094796576cd684001f8dd7dd197be4d40d82",
+      "purpose": "Unchanged four-bar excerpt from current warm-ensemble study; isolated instrument",
+      "active_articulation": null,
+      "bpm": 112,
+      "midi_notes_tested": [
+        64,
+        66,
+        67,
+        69,
+        71,
+        74
+      ],
+      "velocity_range_tested": [
+        51,
+        72
+      ]
+    },
+    {
+      "id": "opera_house_congas",
+      "program": "Congas",
+      "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip",
+      "notes": 24,
+      "keyswitch_selectors": [
+        "7"
+      ],
+      "duration_seconds": 12.14285,
+      "eq": [
+        [
+          "hp",
+          70,
+          0,
+          1
+        ],
+        [
+          "bell",
+          450,
+          -1.2,
+          1.3
+        ],
+        [
+          "shelf",
+          7000,
+          -1,
+          1
+        ]
+      ],
+      "raw_lufs": -48.54,
+      "raw_true_peak_dbtp": -29.52,
+      "gain_db": 23.52,
+      "review_lufs": -25.02,
+      "review_true_peak_dbtp": -6.0,
+      "mono_rms_change_db": -0.004,
+      "source_sha256": "3f87c0978bc45f85493064c9063f1f816056f0664eb546986ff87f4b4009b646",
+      "native_recall_sha256": "ed64fd2deb75e5c20fbc7e94c1e679e29127dcdff50547b5d4e0989865c57913",
+      "review_wav_sha256": "ad39571092a2fa53b3e2d1ec70a3e4b80ab23286ee420f2be1ed5867d7b8c2ea",
+      "review_ogg_sha256": "18b4353c48e4503b444133da8b000f4ce5a33c43a58abd6ba6beedf2217ab1bd",
+      "purpose": "Unchanged four-bar excerpt from current warm-ensemble study; isolated instrument",
+      "active_articulation": "Congas F#0",
+      "bpm": 112,
+      "midi_notes_tested": [
+        48,
+        50,
+        53,
+        55
+      ],
+      "velocity_range_tested": [
+        43,
+        79
+      ]
+    },
+    {
+      "id": "opera_house_maracas",
+      "program": "Congas",
+      "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip",
+      "notes": 32,
+      "keyswitch_selectors": [
+        "11"
+      ],
+      "duration_seconds": 12.14285,
+      "eq": [
+        [
+          "hp",
+          420,
+          0,
+          1
+        ],
+        [
+          "bell",
+          5200,
+          -1.8,
+          1.6
+        ],
+        [
+          "shelf",
+          8500,
+          -2,
+          1
+        ]
+      ],
+      "raw_lufs": -51.16,
+      "raw_true_peak_dbtp": -33.09,
+      "gain_db": 27.09,
+      "review_lufs": -24.07,
+      "review_true_peak_dbtp": -6.0,
+      "mono_rms_change_db": -0.002,
+      "source_sha256": "19f62132e727dd58c3406aeb518704ece9ca119092065b753c1328d873e9c8fd",
+      "native_recall_sha256": "c3f73ec73ae734431bf970220579945d144e5492081bd088e173c792627b3300",
+      "review_wav_sha256": "e471e1f29e06883e7da0c71846e6fb2f42bbf42cede031e2f77e32761a261fb0",
+      "review_ogg_sha256": "9e1ef839996f4fbf183386352dd0e9ccbd095f308563437edc5b7d958973384b",
+      "purpose": "Unchanged four-bar excerpt from current warm-ensemble study; isolated instrument",
+      "active_articulation": "Maracas A#0",
+      "bpm": 112,
+      "midi_notes_tested": [
+        60,
+        62
+      ],
+      "velocity_range_tested": [
+        39,
+        51
+      ]
+    },
+    {
+      "id": "opera_house_cowbell",
+      "program": "Congas",
+      "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip",
+      "notes": 10,
+      "keyswitch_selectors": [
+        "8"
+      ],
+      "duration_seconds": 12.14285,
+      "eq": [
+        [
+          "hp",
+          120,
+          0,
+          1
+        ],
+        [
+          "bell",
+          3200,
+          -1,
+          1.4
+        ],
+        [
+          "shelf",
+          8500,
+          -1,
+          1
+        ]
+      ],
+      "raw_lufs": -48.89,
+      "raw_true_peak_dbtp": -32.82,
+      "gain_db": 26.82,
+      "review_lufs": -22.28,
+      "review_true_peak_dbtp": -6.0,
+      "mono_rms_change_db": -0.004,
+      "source_sha256": "6a7455f884c40b59739dbc8fa28d141c6f7939f18575e642c43e390b3d12cc7f",
+      "native_recall_sha256": "24787d0b5f861ddf87a3f2b3450384ec2c64aca2f82637a9e5caf400c8f9e417",
+      "review_wav_sha256": "9f45dbfff82927cde3920c34abc60c4ecb2e2ee40dc7f409cc8e9aa576008b77",
+      "review_ogg_sha256": "875822c8fc7a3e72fd5a18dd0dc062ba4c08ffb438b9ff03da5e18d574de941a",
+      "purpose": "Unchanged four-bar excerpt from current warm-ensemble study; isolated instrument",
+      "active_articulation": "Cowbells G0",
+      "bpm": 112,
+      "midi_notes_tested": [
+        49
+      ],
+      "velocity_range_tested": [
+        58,
+        58
+      ]
+    },
+    {
+      "id": "opera_house_timbales",
+      "program": "Congas",
+      "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip",
+      "notes": 4,
+      "keyswitch_selectors": [
+        "15"
+      ],
+      "duration_seconds": 12.14285,
+      "eq": [
+        [
+          "hp",
+          120,
+          0,
+          1
+        ],
+        [
+          "bell",
+          3200,
+          -1,
+          1.4
+        ],
+        [
+          "shelf",
+          8500,
+          -1,
+          1
+        ]
+      ],
+      "raw_lufs": -49.18,
+      "raw_true_peak_dbtp": -31.51,
+      "gain_db": 25.51,
+      "review_lufs": -23.68,
+      "review_true_peak_dbtp": -6.0,
+      "mono_rms_change_db": -0.005,
+      "source_sha256": "71ca82dcbaa72bc94779ebd4326adfb0629ddff7ce29ce2543108b24bb19e8d1",
+      "native_recall_sha256": "176bf911b072b43eb8bb58e4d3799e8616bd54f638c32296095db80e13fdce1b",
+      "review_wav_sha256": "ab0721f138f2d248a401ff8bc5d0e42c8850b3d0ad72c224650bdf298723d68d",
+      "review_ogg_sha256": "32b18d9cad47651ae7716b2b3e4ab536b61315aec7e040579119e4e8efb9d860",
+      "purpose": "Unchanged four-bar excerpt from current warm-ensemble study; isolated instrument",
+      "active_articulation": "Timbales D1",
+      "bpm": 112,
+      "midi_notes_tested": [
+        48,
+        50,
+        53,
+        55
+      ],
+      "velocity_range_tested": [
+        57,
+        57
+      ]
+    },
+    {
+      "id": "sky_lagoon_flute",
+      "program": "Djafe Flute Sustain",
+      "program_path": "$World Suite 3.ufs/Presets/01 Types/Woodwinds/African Flutes/Djafe Flute Sustain.uvip",
+      "notes": 17,
+      "keyswitch_selectors": [
+        "6"
+      ],
+      "duration_seconds": 12.14285,
+      "eq": [
+        [
+          "hp",
+          130,
+          0,
+          1
+        ],
+        [
+          "bell",
+          3400,
+          -1.2,
+          1.5
+        ],
+        [
+          "shelf",
+          8500,
+          -0.7,
+          1
+        ]
+      ],
+      "raw_lufs": -31.12,
+      "raw_true_peak_dbtp": -24.49,
+      "gain_db": 9.12,
+      "review_lufs": -22.0,
+      "review_true_peak_dbtp": -15.37,
+      "mono_rms_change_db": -0.003,
+      "source_sha256": "3735cb909daec645f0c1c495cfc3c982f5f828ead28207469a5052e3f11d8970",
+      "native_recall_sha256": "0269d18b4e3ce3e9e86afabf8473c14527a228013c8af3847850afb98a3fc9d7",
+      "review_wav_sha256": "c3b9229f39c7ccd0e9fd988813e5cfc22a66e1c554c14d3186912dcc2baab2d4",
+      "review_ogg_sha256": "6eda6e549386bb72fc04456d6e698af764d82ebbcc46d4b8288d994c81fad978",
+      "purpose": "Unchanged four-bar excerpt from current warm-ensemble study; isolated instrument",
+      "active_articulation": "Djafe Sustain F2",
+      "bpm": 112,
+      "midi_notes_tested": [
+        64,
+        67,
+        69,
+        71,
+        74,
+        76
+      ],
+      "velocity_range_tested": [
+        92,
+        92
+      ]
+    },
+    {
+      "id": "sky_lagoon_bass",
+      "program": "Cuba Bass",
+      "program_path": "$World Suite 3.ufs/Presets/01 Types/Fretted/Electric Bass/Cuba Bass.uvip",
+      "notes": 16,
+      "keyswitch_selectors": [
+        "1"
+      ],
+      "duration_seconds": 12.14285,
+      "eq": [
+        [
+          "hp",
+          34,
+          0,
+          1
+        ],
+        [
+          "bell",
+          240,
+          -2,
+          1.2
+        ],
+        [
+          "shelf",
+          2400,
+          -2.5,
+          1
+        ]
+      ],
+      "raw_lufs": -37.82,
+      "raw_true_peak_dbtp": -25.81,
+      "gain_db": 15.82,
+      "review_lufs": -22.09,
+      "review_true_peak_dbtp": -9.99,
+      "mono_rms_change_db": -0.006,
+      "source_sha256": "b715ee9569bb0bb0570bc21617f266a1b49ff5d95ec5b6a7d9613dd109c727be",
+      "native_recall_sha256": "acec78560e005b114ee6777c5096f7fb92bde7a2af00bff0e831627222b724b3",
+      "review_wav_sha256": "efb6650676d57ac171f43868889fedc8dbd87166ffba79ec6d05684d287e1e7a",
+      "review_ogg_sha256": "3ab1bfdafee7eab96d11e1da458312fc68e12d4742a5667dddd37f4e4cfe784a",
+      "purpose": "Unchanged four-bar excerpt from current warm-ensemble study; isolated instrument",
+      "active_articulation": "Cuba Bass C0",
+      "bpm": 112,
+      "midi_notes_tested": [
+        35,
+        36,
+        42,
+        43,
+        50
+      ],
+      "velocity_range_tested": [
+        70,
+        79
+      ]
+    },
+    {
+      "id": "sky_lagoon_valiha",
+      "program": "Kora 1",
+      "program_path": "$World Suite 3.ufs/Presets/01 Types/Strings/Kora/Kora 1.uvip",
+      "notes": 12,
+      "keyswitch_selectors": [
+        "3"
+      ],
+      "duration_seconds": 12.14285,
+      "eq": [
+        [
+          "hp",
+          170,
+          0,
+          1
+        ],
+        [
+          "bell",
+          1250,
+          -2.1,
+          1.5
+        ],
+        [
+          "shelf",
+          7000,
+          -1,
+          1
+        ]
+      ],
+      "raw_lufs": -49.49,
+      "raw_true_peak_dbtp": -35.39,
+      "gain_db": 27.49,
+      "review_lufs": -22.06,
+      "review_true_peak_dbtp": -7.9,
+      "mono_rms_change_db": -0.093,
+      "source_sha256": "2e7aefc04b1e639fed47da4e6138aa09bad4293668e598b396ecb390491ab1a0",
+      "native_recall_sha256": "84054139a675270ad8de2c42bceb0f8e9d06c599cca1025d865beed7bc0661f4",
+      "review_wav_sha256": "1cbac00f67b10ae207bdb9798b1742b1dc4762fbf828514cbfa03a042308b56f",
+      "review_ogg_sha256": "2a7b7456ddb3cfccc6c9869b70f665691ccfc556a4aef926fa359c535841863a",
+      "purpose": "Unchanged four-bar excerpt from current warm-ensemble study; isolated instrument",
+      "active_articulation": "Valiha D1",
+      "bpm": 112,
+      "midi_notes_tested": [
+        62,
+        64,
+        67,
+        69,
+        71,
+        74
+      ],
+      "velocity_range_tested": [
+        62,
+        62
+      ]
+    },
+    {
+      "id": "sky_lagoon_udu",
+      "program": "Udu Large",
+      "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/African Percussions/Udu Large.uvip",
+      "notes": 12,
+      "keyswitch_selectors": [
+        "1"
+      ],
+      "duration_seconds": 12.14285,
+      "eq": [
+        [
+          "hp",
+          48,
+          0,
+          1
+        ],
+        [
+          "bell",
+          380,
+          -1.1,
+          1.4
+        ],
+        [
+          "shelf",
+          5200,
+          -1.5,
+          1
+        ]
+      ],
+      "raw_lufs": -41.07,
+      "raw_true_peak_dbtp": -26.73,
+      "gain_db": 19.07,
+      "review_lufs": -22.01,
+      "review_true_peak_dbtp": -7.66,
+      "mono_rms_change_db": -2.76,
+      "source_sha256": "899dd8d7a95b580eeab8ec8073f9507518616fced67d270f2f40a58cdc96af69",
+      "native_recall_sha256": "75180509959d00f45a9f929d69b11ecb8de8c8bc9ef6fa3c4d2aa2b0793b1a8e",
+      "review_wav_sha256": "b880a9160dd6f8f6ecc4efe53e50db67b7e1eece4278f5cb35292ca63da4fdff",
+      "review_ogg_sha256": "ac47ad79eb25b2695a997052be77ad553b2068e6262c4036847bc957e6444901",
+      "purpose": "Unchanged four-bar excerpt from current warm-ensemble study; isolated instrument",
+      "active_articulation": "Large Udu C1",
+      "bpm": 112,
+      "midi_notes_tested": [
+        48,
+        53
+      ],
+      "velocity_range_tested": [
+        62,
+        62
+      ]
+    },
+    {
+      "id": "sky_lagoon_bongos",
+      "program": "Congas",
+      "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip",
+      "notes": 16,
+      "keyswitch_selectors": [
+        "3"
+      ],
+      "duration_seconds": 12.14285,
+      "eq": [
+        [
+          "hp",
+          120,
+          0,
+          1
+        ],
+        [
+          "bell",
+          3200,
+          -1,
+          1.4
+        ],
+        [
+          "shelf",
+          8500,
+          -1,
+          1
+        ]
+      ],
+      "raw_lufs": -49.57,
+      "raw_true_peak_dbtp": -29.87,
+      "gain_db": 23.87,
+      "review_lufs": -25.77,
+      "review_true_peak_dbtp": -6.0,
+      "mono_rms_change_db": -0.005,
+      "source_sha256": "95584cb2fc601e2e7d52769ce3edc5ffe0a2bd8979eea5f5819f957c3de54485",
+      "native_recall_sha256": "94d0fdc3156dd3a551fd88bead9da0bb60d267dda929253aea4ba21258a90d46",
+      "review_wav_sha256": "579b138e86a12c1fa2e60c8e98b9debf95d68723e044f2fc71d875e9115b6da4",
+      "review_ogg_sha256": "141ef878f31c6235a1f896893fac06b05089fa9a162b4ece315c8e8ad9a34992",
+      "purpose": "Unchanged four-bar excerpt from current warm-ensemble study; isolated instrument",
+      "active_articulation": "Bongos D0",
+      "bpm": 112,
+      "midi_notes_tested": [
+        48,
+        50,
+        53,
+        55
+      ],
+      "velocity_range_tested": [
+        51,
+        64
+      ]
+    },
+    {
+      "id": "sky_lagoon_guiro",
+      "program": "Congas",
+      "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip",
+      "notes": 16,
+      "keyswitch_selectors": [
+        "10"
+      ],
+      "duration_seconds": 12.14285,
+      "eq": [
+        [
+          "hp",
+          120,
+          0,
+          1
+        ],
+        [
+          "bell",
+          3200,
+          -1,
+          1.4
+        ],
+        [
+          "shelf",
+          8500,
+          -1,
+          1
+        ]
+      ],
+      "raw_lufs": -53.8,
+      "raw_true_peak_dbtp": -33.37,
+      "gain_db": 27.37,
+      "review_lufs": -26.43,
+      "review_true_peak_dbtp": -6.0,
+      "mono_rms_change_db": -0.002,
+      "source_sha256": "ab07e78d82a0dc2ed97eda77fc1b8e77fbab65df2181f1d52c046d3c423c2f96",
+      "native_recall_sha256": "60f1c33daf4fd573c47541dda2b9c417f8c1e2b466fcef7dbfd6bdc0872b30a7",
+      "review_wav_sha256": "c9533784dc832b1c6932b0deded4345f53d84ab9d0e4d7da8a06e00be754125f",
+      "review_ogg_sha256": "dcb754ae87131c38a24d7d7d014070566d05e8396e616a20f0a55028fe94b658",
+      "purpose": "Unchanged four-bar excerpt from current warm-ensemble study; isolated instrument",
+      "active_articulation": "Guiros A0",
+      "bpm": 112,
+      "midi_notes_tested": [
+        60,
+        61
+      ],
+      "velocity_range_tested": [
+        48,
+        58
+      ]
+    },
+    {
+      "id": "castle_sunbird",
+      "program": "Sunbird",
+      "program_path": "$Sunbird.ufs/Presets/Sunbird.M5p",
+      "notes": 18,
+      "keyswitch_selectors": [
+        null
+      ],
+      "duration_seconds": 14.23912,
+      "eq": [
+        [
+          "hp",
+          65,
+          0,
+          1
+        ],
+        [
+          "bell",
+          210,
+          1,
+          1.5
+        ],
+        [
+          "bell",
+          2700,
+          -2.6,
+          1.3
+        ],
+        [
+          "shelf",
+          5200,
+          -3.1,
+          1
+        ],
+        [
+          "lp",
+          10500,
+          0,
+          0.8
+        ]
+      ],
+      "raw_lufs": -43.35,
+      "raw_true_peak_dbtp": -29.7,
+      "gain_db": 21.35,
+      "review_lufs": -22.0,
+      "review_true_peak_dbtp": -8.35,
+      "mono_rms_change_db": -0.313,
+      "source_sha256": "ae4b9b2f2c59a9c85bfc709a123d0f1a82e8d9aedfb96b4e90f7f16fff403543",
+      "native_recall_sha256": "cfad9825ec640d04c4872ce1b56a7dc4c1491264d00d3c9b92cd3bc8307ac124",
+      "review_wav_sha256": "2cf61e8902a0d3ea2ec737dcdee2148eb87f236d6b361543b02dd9634cffb255",
+      "review_ogg_sha256": "cd12341d0580af6390c40ea8a56f12e7430076e1f0e205a2a8ad4df1f4dcdb9d",
+      "purpose": "Unchanged four-bar excerpt from current warm-ensemble study; isolated instrument",
+      "active_articulation": null,
+      "bpm": 92,
+      "midi_notes_tested": [
+        58,
+        60,
+        62,
+        63,
+        65,
+        67
+      ],
+      "velocity_range_tested": [
+        79,
+        79
+      ]
+    },
+    {
+      "id": "castle_guitar_comp",
+      "program": "Tchad Nylon Guitar",
+      "program_path": "$World Suite 3.ufs/Presets/01 Types/Fretted/African Guitars/Tchad Nylon Guitar.uvip",
+      "notes": 38,
+      "keyswitch_selectors": [
+        "3"
+      ],
+      "duration_seconds": 14.23912,
+      "eq": [
+        [
+          "hp",
+          85,
+          0,
+          1
+        ],
+        [
+          "bell",
+          220,
+          1.1,
+          1.4
+        ],
+        [
+          "bell",
+          2900,
+          -2.8,
+          1.45
+        ],
+        [
+          "shelf",
+          4800,
+          -3.5,
+          1
+        ],
+        [
+          "lp",
+          8500,
+          0,
+          0.8
+        ]
+      ],
+      "raw_lufs": -38.76,
+      "raw_true_peak_dbtp": -25.39,
+      "gain_db": 16.76,
+      "review_lufs": -22.06,
+      "review_true_peak_dbtp": -8.63,
+      "mono_rms_change_db": -0.027,
+      "source_sha256": "31dc6ad73c811bf4542bcdd00583eebbe282f9738fc644021abc82e581ce35aa",
+      "native_recall_sha256": "1dec4b7811e387f25573f274c87b605d7c3782b0f25b1fbb78c796272692f696",
+      "review_wav_sha256": "3d80d2df7dcc66274841483f8f78fa7a62c1204c36daac03f7a394a64e9de328",
+      "review_ogg_sha256": "8eacc70b0d17cbc8381a7140a95d5e5297f5353d8f8f366dd874ca90507c5738",
+      "purpose": "Unchanged four-bar excerpt from current warm-ensemble study; isolated instrument",
+      "active_articulation": "Tchad Nylon Guitar C#1",
+      "bpm": 92,
+      "midi_notes_tested": [
+        46,
+        51,
+        53,
+        58,
+        60,
+        62,
+        67
+      ],
+      "velocity_range_tested": [
+        55,
+        62
+      ]
+    },
+    {
+      "id": "castle_bass",
+      "program": "Jazzistic Double Bass",
+      "program_path": "$Jazzistic.ufs/Presets/03 Instruments/02 Jazz Double Bass/Jazzistic Double Bass.M5p",
+      "notes": 16,
+      "keyswitch_selectors": [],
+      "duration_seconds": 14.23912,
+      "eq": [
+        [
+          "hp",
+          32,
+          0,
+          1
+        ],
+        [
+          "bell",
+          225,
+          -2,
+          1.1
+        ],
+        [
+          "shelf",
+          2300,
+          -1.5,
+          1
+        ]
+      ],
+      "raw_lufs": -46.98,
+      "raw_true_peak_dbtp": -32.85,
+      "gain_db": 24.98,
+      "review_lufs": -22.01,
+      "review_true_peak_dbtp": -7.87,
+      "mono_rms_change_db": -0.001,
+      "source_sha256": "956bff0b508e50050de23eead2995817f5f6b01e63a66d26f1f4c3ab2ac041ae",
+      "native_recall_sha256": "7b6de467304eff2bbb75aac6974d310934944e24475f2f219d7ea9d35797cb92",
+      "review_wav_sha256": "2e711e33fc85d6d00757f2b6c384647e0ce9f9998e4bb20d67ac1dddf837ace7",
+      "review_ogg_sha256": "80cfd8ee10b9650c980d59a74f2ae92e24cdf2005d45c24773f5a2be73d9cceb",
+      "purpose": "Unchanged four-bar excerpt from current warm-ensemble study; isolated instrument",
+      "active_articulation": null,
+      "bpm": 92,
+      "midi_notes_tested": [
+        34,
+        39,
+        41,
+        46
+      ],
+      "velocity_range_tested": [
+        70,
+        79
+      ]
+    },
+    {
+      "id": "castle_ep",
+      "program": "The Electric Piano Smokey",
+      "program_path": "$LoFi Dreams.ufs/Presets/Keys/The Electric Piano Smokey.uvip",
+      "notes": 12,
+      "keyswitch_selectors": [
+        null
+      ],
+      "duration_seconds": 14.23912,
+      "eq": [
+        [
+          "hp",
+          170,
+          0,
+          1
+        ],
+        [
+          "bell",
+          350,
+          -1.2,
+          1.4
+        ],
+        [
+          "bell",
+          1700,
+          -1.8,
+          1.5
+        ],
+        [
+          "shelf",
+          6500,
+          -1.5,
+          1
+        ]
+      ],
+      "raw_lufs": -52.03,
+      "raw_true_peak_dbtp": -39.98,
+      "gain_db": 30.03,
+      "review_lufs": -22.16,
+      "review_true_peak_dbtp": -9.95,
+      "mono_rms_change_db": -4.837,
+      "source_sha256": "37075a5937265262e9eed0fe7301f6bb020a18cfd6e49dab0c99ac98249cf1ff",
+      "native_recall_sha256": "2dc2ebfebeb1e2861ac56278c4d3dd03913da145c2b8437c5005a548900c3259",
+      "review_wav_sha256": "d2334566c083024f098a2778f2f2362db6aee4903e65fd585549bfabfc0bddef",
+      "review_ogg_sha256": "b9479b145933def1c01f41910851c42f7a94de3d6d5c3dc6da4bb5434146310d",
+      "purpose": "Unchanged four-bar excerpt from current warm-ensemble study; isolated instrument",
+      "active_articulation": null,
+      "bpm": 92,
+      "midi_notes_tested": [
+        48,
+        50,
+        51,
+        53,
+        55,
+        57,
+        58
+      ],
+      "velocity_range_tested": [
+        54,
+        54
+      ]
+    },
+    {
+      "id": "castle_kit",
+      "program": "Jazz Brushed Kit 1",
+      "program_path": "$Jazzistic.ufs/Presets/03 Instruments/01 Drum kits/Jazz Brushed Kit 1.M5p",
+      "notes": 34,
+      "keyswitch_selectors": [],
+      "duration_seconds": 14.23912,
+      "eq": [
+        [
+          "hp",
+          60,
+          0,
+          1
+        ],
+        [
+          "bell",
+          430,
+          -1.4,
+          1.2
+        ],
+        [
+          "shelf",
+          7000,
+          -1.2,
+          1
+        ]
+      ],
+      "raw_lufs": -47.53,
+      "raw_true_peak_dbtp": -32.36,
+      "gain_db": 25.53,
+      "review_lufs": -21.98,
+      "review_true_peak_dbtp": -6.83,
+      "mono_rms_change_db": -0.002,
+      "source_sha256": "ce0edf38eb4ffbddbcca8fbf5071e40b453caea4abc51e691beb9cc1a15c1aa7",
+      "native_recall_sha256": "8f4a95f9b0f37aa7de4d8a68a97e46f405eeb3f0323a02d8aeb8337be06a22ee",
+      "review_wav_sha256": "b4bcac9ab76a6f823ae33fadf20a9ec2030fc839ad767a1ddd0b3902a3d94073",
+      "review_ogg_sha256": "7292a9cc4aaea9e3520ee72db1ef1b760bc04a81615f3b6195e87dfbd84174b3",
+      "purpose": "Unchanged four-bar excerpt from current warm-ensemble study; isolated instrument",
+      "active_articulation": null,
+      "bpm": 92,
+      "midi_notes_tested": [
+        36,
+        42
+      ],
+      "velocity_range_tested": [
+        39,
+        77
+      ]
+    },
+    {
+      "id": "world_nordic_upright_1_full",
+      "program": "Nordic Upright Piano 1 Full",
+      "program_path": "$World Suite 3.ufs/Presets/01 Types/Keyboards/Nordic Upright Piano/Nordic Upright Piano 1 Full.uvip",
+      "notes": 18,
+      "keyswitch_selectors": [
+        null
+      ],
+      "duration_seconds": 14.23912,
+      "eq": [
+        [
+          "hp",
+          65,
+          0,
+          1
+        ],
+        [
+          "bell",
+          300,
+          -1.5,
+          1.4
+        ],
+        [
+          "lp",
+          11000,
+          0,
+          0.8
+        ]
+      ],
+      "raw_lufs": -47.23,
+      "raw_true_peak_dbtp": -36.59,
+      "gain_db": 25.23,
+      "review_lufs": -22.08,
+      "review_true_peak_dbtp": -11.36,
+      "mono_rms_change_db": -0.02,
+      "source_sha256": "aae9a2abfb048b6d7e509e7526ba16a80172c2c57a7e8b6e09921536b98ca4c8",
+      "native_recall_sha256": "a4b90c9f7b0b6c21a4116733b7bd8f4e91126b3bf7b4c34f9c2cf4da3c71418c",
+      "review_wav_sha256": "9bd64bc36a5a1a03cba4159369eb984e7aa5fe02482efc7b894fcf7ac0bb985a",
+      "review_ogg_sha256": "dd7563645b390962c7edef868e25e4278145602c36a375988f4c821390d4076b",
+      "purpose": "Same Castle lead excerpt as Sunbird, to compare a new keyboard voice",
+      "active_articulation": null,
+      "bpm": 92,
+      "midi_notes_tested": [
+        58,
+        60,
+        62,
+        63,
+        65,
+        67
+      ],
+      "velocity_range_tested": [
+        79,
+        79
+      ]
+    },
+    {
+      "id": "world_kora_1",
+      "program": "Kora 1",
+      "program_path": "$World Suite 3.ufs/Presets/01 Types/Strings/Kora/Kora 1.uvip",
+      "notes": 18,
+      "keyswitch_selectors": [
+        "1"
+      ],
+      "duration_seconds": 14.23912,
+      "eq": [
+        [
+          "hp",
+          90,
+          0,
+          1
+        ],
+        [
+          "lp",
+          11000,
+          0,
+          0.8
+        ]
+      ],
+      "raw_lufs": -39.24,
+      "raw_true_peak_dbtp": -27.95,
+      "gain_db": 17.24,
+      "review_lufs": -21.99,
+      "review_true_peak_dbtp": -10.71,
+      "mono_rms_change_db": -0.117,
+      "source_sha256": "78ff96c334903355d2ccde07db7081ca888a3dd1f8ab9c966e0922a76b0ad2b4",
+      "native_recall_sha256": "7e8b365cb8335abcd40145ae5309fbcb4a49d13c35f954139702b3176ad536a2",
+      "review_wav_sha256": "989bf3f2b330eb34e4a72660d80be194e9931ed19d97cf97d05e7cfe1a93be06",
+      "review_ogg_sha256": "44a3dd6c88d8a4cff296d020849cb8b7feb8597db9169cdb668d93092eca772f",
+      "purpose": "Same Castle lead excerpt as Sunbird; candidate guest, not a committed song substitution",
+      "active_articulation": "Kora 1 C1",
+      "bpm": 92,
+      "midi_notes_tested": [
+        58,
+        60,
+        62,
+        63,
+        65,
+        67
+      ],
+      "velocity_range_tested": [
+        79,
+        79
+      ]
+    },
+    {
+      "id": "percussion_factory_mambo_night_100",
+      "program": "Mambo Night 100BPM",
+      "program_path": "$Percussion Factory.ufs/Presets/00 World Tour/Caribbean/Mambo Night 100BPM.uvip",
+      "notes": 20,
+      "keyswitch_selectors": [
+        null
+      ],
+      "duration_seconds": 15.3,
+      "eq": [
+        [
+          "hp",
+          35,
+          0,
+          1
+        ],
+        [
+          "lp",
+          12500,
+          0,
+          0.8
+        ]
+      ],
+      "raw_lufs": -48.8,
+      "raw_true_peak_dbtp": -25.92,
+      "gain_db": 19.92,
+      "review_lufs": -29.2,
+      "review_true_peak_dbtp": -6.0,
+      "mono_rms_change_db": -0.059,
+      "source_sha256": "7ac93d58614b28144109e185da78bdfd118ea706da598604f8cb94ac9cb86048",
+      "native_recall_sha256": "1917aad09d7041eaeb2cb4ae2c1101582cbb9c211282a2112397fdd731bc3b3d",
+      "review_wav_sha256": "2db1556c0d722d76c5f14428821b39ea789d0b5688024e6119d405922756d37d",
+      "review_ogg_sha256": "6c92c0a0abc61d7c4058de58307cf4feb42020386ed0df8c08ad35a5636ec36b",
+      "purpose": "Original direct-hit mapping and groove diagnostic; no factory sequence trigger",
+      "active_articulation": null,
+      "bpm": 100,
+      "readiness": "NATIVE_RECALLED_RENDERED_AND_MEASURED",
+      "preroll_peak": 0.0
+    },
+    {
+      "id": "keysuite_acoustic_tdr_mellow_dark",
+      "program": "TDR Mellow Dark",
+      "program_path": "$Key Suite Acoustic.ufs/Presets/2 Upright Pianos/Tender Upright/TDR Mellow Dark.uvip",
+      "notes": 16,
+      "keyswitch_selectors": [
+        null
+      ],
+      "duration_seconds": 15.3,
+      "eq": [
+        [
+          "hp",
+          100,
+          0,
+          1
+        ],
+        [
+          "lp",
+          8500,
+          0,
+          0.8
+        ]
+      ],
+      "raw_lufs": -49.39,
+      "raw_true_peak_dbtp": -33.2,
+      "gain_db": 27.2,
+      "review_lufs": -22.44,
+      "review_true_peak_dbtp": -6.0,
+      "mono_rms_change_db": -3.166,
+      "source_sha256": "000840e2f04cfe9fe23de9bb5e04f1a9c22e7459aeadb6b3590c6ce6a0eabda0",
+      "native_recall_sha256": "b78170d5d21958df07c32221ac3091b924264d09cd7219389b5432fdba6df94e",
+      "review_wav_sha256": "19112b2a57a44aea0598d57ffbec9890c2e5dd503f344ee947021bcfc682aded",
+      "review_ogg_sha256": "af2b91dab5b88dbec115528acd71844dd5ce0319e5c560d6cd1023cb800299e6",
+      "purpose": "Original sustained chord and dynamic-response diagnostic",
+      "active_articulation": null,
+      "bpm": 100,
+      "readiness": "NATIVE_RECALLED_RENDERED_AND_MEASURED",
+      "preroll_peak": 0.0
+    },
+    {
+      "id": "keysuite_electric_w200_basic_dry",
+      "program": "W 200 Basic Dry",
+      "program_path": "$Key Suite Electric-002.ufs/Presets/2 Reeds/W 200/W 200 Basic Dry.uvip",
+      "notes": 16,
+      "keyswitch_selectors": [
+        null
+      ],
+      "duration_seconds": 15.3,
+      "eq": [
+        [
+          "hp",
+          100,
+          0,
+          1
+        ],
+        [
+          "lp",
+          8500,
+          0,
+          0.8
+        ]
+      ],
+      "raw_lufs": -47.11,
+      "raw_true_peak_dbtp": -34.31,
+      "gain_db": 25.11,
+      "review_lufs": -22.05,
+      "review_true_peak_dbtp": -9.2,
+      "mono_rms_change_db": 0.0,
+      "source_sha256": "de30081af0bca18b3a7773f7aebef46359fbc2c70fb58cee67e71a0919545ba5",
+      "native_recall_sha256": "78da1bcd8cd9fbbd7ec427134963548faff8ec9b8414ba5329b1ad85ca0df872",
+      "review_wav_sha256": "c768fd52fb44218ae47b602ef43708502eea5937779b613c902661d176389cf8",
+      "review_ogg_sha256": "499843f0ecc38495d457d07f7d6a029c7e30e887d3fa0635e1f0b7a1f610adea",
+      "purpose": "Original sustained chord and dynamic-response diagnostic",
+      "active_articulation": null,
+      "bpm": 100,
+      "readiness": "NATIVE_RECALLED_RENDERED_AND_MEASURED",
+      "preroll_peak": 0.0
+    },
+    {
+      "id": "atmospherics_warmth",
+      "program": "Warmth",
+      "program_path": "$Atmospherics.ufs/Presets/Pure Pads/Warmth.uvip",
+      "notes": 16,
+      "keyswitch_selectors": [],
+      "duration_seconds": 15.3,
+      "eq": [
+        [
+          "hp",
+          100,
+          0,
+          1
+        ],
+        [
+          "lp",
+          8500,
+          0,
+          0.8
+        ]
+      ],
+      "raw_lufs": -31.94,
+      "raw_true_peak_dbtp": -20.73,
+      "gain_db": 9.94,
+      "review_lufs": -22.03,
+      "review_true_peak_dbtp": -10.79,
+      "mono_rms_change_db": -3.205,
+      "source_sha256": "93e3351e3723534cd498f4f74c52469a34033247d42ae3c82d64f4e878711f81",
+      "native_recall_sha256": "4460de8c9853c68bd5ce0534b36478a646c702333be585a4ee213eacfbb4937f",
+      "review_wav_sha256": "d1fc32338c7d0797f0fbc8a41762e9285f45e018f0e99f878bccc38aa5159060",
+      "review_ogg_sha256": "1321ad0dbe2edaca265b8066ec9f46403b57bfb24a97ed12a329bb755c1dc673",
+      "purpose": "Original sustained chord and dynamic-response diagnostic",
+      "active_articulation": null,
+      "bpm": 100,
+      "readiness": "NATIVE_RECALLED_RENDERED_AND_MEASURED",
+      "preroll_peak": 0.0
+    },
+    {
+      "id": "ether_fields_castle_texture",
+      "program": "FM Harp",
+      "program_path": "$Ether Fields.ufs/Presets/Bells - Plucks/FM Harp.uvip",
+      "notes": 16,
+      "keyswitch_selectors": [],
+      "duration_seconds": 15.3,
+      "eq": [
+        [
+          "hp",
+          100,
+          0,
+          1
+        ],
+        [
+          "lp",
+          8500,
+          0,
+          0.8
+        ]
+      ],
+      "raw_lufs": -45.13,
+      "raw_true_peak_dbtp": -25.37,
+      "gain_db": 19.37,
+      "review_lufs": -25.77,
+      "review_true_peak_dbtp": -6.0,
+      "mono_rms_change_db": -1.241,
+      "source_sha256": "b2c38b80ec3f6f9b1e78599ea223abf9f30fc7c58598c68c43ebb362757da00a",
+      "native_recall_sha256": "7b63df75deeac17edeeac3cc01e5f46462037b568fdf146eb6aa93a2e0356fd5",
+      "review_wav_sha256": "7b4561434c2d83e2db24c49cfe919138971a4f3478d856a55c86c1b37508d9b1",
+      "review_ogg_sha256": "8e3a36fbfeb49a83e17c64dde9846c7f6862c81258e2bbcf0ffc7d8c90da54cd",
+      "purpose": "Original sustained chord and dynamic-response diagnostic",
+      "active_articulation": null,
+      "bpm": 100,
+      "readiness": "NATIVE_RECALLED_RENDERED_AND_MEASURED",
+      "preroll_peak": 0.0
+    },
+    {
+      "id": "percussion_factory_mambo_night_100_sequence",
+      "program": "Mambo Night 100BPM",
+      "program_path": "$Percussion Factory.ufs/Presets/00 World Tour/Caribbean/Mambo Night 100BPM.uvip",
+      "notes": 1,
+      "keyswitch_selectors": [
+        null
+      ],
+      "duration_seconds": 15.3,
+      "eq": [
+        [
+          "hp",
+          35,
+          0,
+          1
+        ],
+        [
+          "lp",
+          12500,
+          0,
+          0.8
+        ]
+      ],
+      "raw_lufs": -35.4,
+      "raw_true_peak_dbtp": -18.69,
+      "gain_db": 12.69,
+      "review_lufs": -22.75,
+      "review_true_peak_dbtp": -6.0,
+      "mono_rms_change_db": -0.088,
+      "source_sha256": "49f7cf6c606431e3057ebf6f40f0668d58dbd8332e9d0601b8f3d5e4719bccd3",
+      "native_recall_sha256": "1917aad09d7041eaeb2cb4ae2c1101582cbb9c211282a2112397fdd731bc3b3d",
+      "review_wav_sha256": "dc9223c5afd08bdd78773ba83d6d51c15ff62cdc23cba2818e572de497883fc8",
+      "review_ogg_sha256": "e33cd7464d398bff0ada3bf575beabb91719867472d9900e42f0959227f7ca83",
+      "purpose": "Factory Mambo Night 100 BPM sequence for host-sync verification; not an original authored rhythm",
+      "active_articulation": null,
+      "bpm": 100,
+      "readiness": "NATIVE_RECALLED_RENDERED_AND_MEASURED",
+      "preroll_peak": 0.0
+    }
+  ],
+  "reels": [
+    {
+      "file": "01_lofi_electronic_kits.ogg",
+      "common_lufs": -29.7,
+      "duration_seconds": 48.6364,
+      "sha256": "2756c47038a06d4d0e5e09c39f3e15f39d261a5aeb457653997fc303c9f098db",
+      "markers": [
+        {
+          "start_seconds": 0.0,
+          "id": "lofi_dreams_lofi_kit"
+        },
+        {
+          "start_seconds": 9.7273,
+          "id": "lofi_dreams_jazz_kit"
+        },
+        {
+          "start_seconds": 19.4545,
+          "id": "lofi_dreams_foley_kit"
+        },
+        {
+          "start_seconds": 29.1818,
+          "id": "bba2_ace_t1"
+        },
+        {
+          "start_seconds": 38.9091,
+          "id": "bba2_classic_r78"
+        }
+      ]
+    },
+    {
+      "file": "02_world_percussion.ogg",
+      "common_lufs": -28.88,
+      "duration_seconds": 53.0,
+      "sha256": "91cd702131a63fe59c3d1be2f71497c2f06ee9508c8bb36b1a1f6e82dde7ba6e",
+      "markers": [
+        {
+          "start_seconds": 0.0,
+          "id": "world_african_large_drums"
+        },
+        {
+          "start_seconds": 10.6,
+          "id": "world_celtic_percussion_menu"
+        },
+        {
+          "start_seconds": 21.2,
+          "id": "world_bodhran_hits"
+        },
+        {
+          "start_seconds": 31.8,
+          "id": "world_antic_tabla"
+        },
+        {
+          "start_seconds": 42.4,
+          "id": "world_modern_tabla"
+        }
+      ]
+    },
+    {
+      "file": "03_leads_piano_kora.ogg",
+      "common_lufs": -22.08,
+      "duration_seconds": 53.4473,
+      "sha256": "3fb8b467d95d59b03531e4133aab13d5af37f814c13e7b87515e803c8ac3fdba",
+      "markers": [
+        {
+          "start_seconds": 0.0,
+          "id": "opera_house_pan"
+        },
+        {
+          "start_seconds": 9.5714,
+          "id": "sky_lagoon_flute"
+        },
+        {
+          "start_seconds": 19.1429,
+          "id": "castle_sunbird"
+        },
+        {
+          "start_seconds": 30.5777,
+          "id": "world_nordic_upright_1_full"
+        },
+        {
+          "start_seconds": 42.0125,
+          "id": "world_kora_1"
+        }
+      ]
+    },
+    {
+      "file": "04_chords_keys_plucks.ogg",
+      "common_lufs": -22.16,
+      "duration_seconds": 43.8758,
+      "sha256": "5086d54276469c006fadee2245da6d630f80247f161aa85d41bd8a339be492ff",
+      "markers": [
+        {
+          "start_seconds": 0.0,
+          "id": "castle_guitar_comp"
+        },
+        {
+          "start_seconds": 11.4348,
+          "id": "castle_ep"
+        },
+        {
+          "start_seconds": 22.8696,
+          "id": "sky_lagoon_valiha"
+        },
+        {
+          "start_seconds": 32.441,
+          "id": "castle_kit"
+        }
+      ]
+    },
+    {
+      "file": "05_bass_hand_percussion.ogg",
+      "common_lufs": -26.43,
+      "duration_seconds": 88.0063,
+      "sha256": "8cd030654ea8ec89981b2c2177a74ea8d860057a74bc2ce637c216dbced6ca65",
+      "markers": [
+        {
+          "start_seconds": 0.0,
+          "id": "sky_lagoon_bass"
+        },
+        {
+          "start_seconds": 9.5714,
+          "id": "castle_bass"
+        },
+        {
+          "start_seconds": 21.0062,
+          "id": "opera_house_congas"
+        },
+        {
+          "start_seconds": 30.5777,
+          "id": "opera_house_maracas"
+        },
+        {
+          "start_seconds": 40.1491,
+          "id": "opera_house_timbales"
+        },
+        {
+          "start_seconds": 49.7205,
+          "id": "opera_house_cowbell"
+        },
+        {
+          "start_seconds": 59.292,
+          "id": "sky_lagoon_udu"
+        },
+        {
+          "start_seconds": 68.8634,
+          "id": "sky_lagoon_bongos"
+        },
+        {
+          "start_seconds": 78.4349,
+          "id": "sky_lagoon_guiro"
+        }
+      ]
+    }
+  ],
+  "private_audio_location": "build/dkc_instrument_auditions_20261101/review",
+  "source_scope": "Short diagnostics or unchanged current-study excerpts; no new full arrangements. Raw factory states and audio remain private.",
+  "percussion_factory": {
+    "status": "OWNER_REPORTED_ADDED_NATIVE_AUDITION_PENDING",
+    "manual": "https://uvi.s3.amazonaws.com/Manuals/percussion_factory_manual.pdf",
+    "scope": "Installed edition and exact preset not verified. Current plans do not depend on an untested Percussion Factory part."
+  },
+  "review_decode_verification": {
+    "status": "PASS",
+    "files_checked": 66,
+    "checks": "48 kHz stereo; finite PCM; no sample clipping; measured maximum absolute DC below 0.003; WAV and Vorbis review prints. Source and copy hashes remain byte-exact."
+  },
+  "expanded_palette": {
+    "receipt": "build/expanded_palette_auditions_20261101/measurement_receipt.json",
+    "native_tests": 6,
+    "owner_listening": "PENDING"
+  }
+}

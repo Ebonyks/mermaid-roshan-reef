@@ -1,0 +1,2660 @@
+{
+  "format": "roshan.shared-native-skin-review/1",
+  "task": "shared-roshan-skin-swim-20261101",
+  "repository": "https://github.com/Ebonyks/mermaid-roshan-reef",
+  "branch": "codex/shared-roshan-skin-swim-20261101",
+  "baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+  "entry": "assets_src/animation/roshan_shared_swim_20261101/README.txt",
+  "required_files": [
+    {
+      "path": "ASSET_LICENSES.md",
+      "bytes": 6307962,
+      "sha256": "c344b3f58f0ce25e5e5a84b346c61948ffe261f0f2cf50c782d19986decc6553"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/.gitattributes",
+      "bytes": 139,
+      "sha256": "11d8715c99e5efcecd71bcc42ba11fb4af8cced0358f830a5fd3e5988538d253"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/.gitignore",
+      "bytes": 89,
+      "sha256": "d580de0d7859b12068df35d093c30fd2da738cf235f8ed54be72331669ae459a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/README.txt",
+      "bytes": 10504,
+      "sha256": "41e57cadd432f2801dd6eea2dcd750ca1d521cb03acbe6efb9e3ea384c4a0ae0"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/art_source/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/art_source/ballet_parts_take01.png",
+      "bytes": 2231018,
+      "sha256": "bb293f197853e5b494824e6509b10a2572922ad85b60c4eb4a5239c6f3163a3a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/art_source/generation_records.json",
+      "bytes": 9105,
+      "sha256": "3977eece1c655c90a91be41318dd47e7cc6736452174d83e7b0119f89c7a5b9c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/art_source/magician_parts_take01.png",
+      "bytes": 2221499,
+      "sha256": "3af074f1299c2822d4b7bb9a9c96542acbe07cfaf0a34111cc9d8374dc30a236"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/art_source/neck_yoke_take01.png",
+      "bytes": 594694,
+      "sha256": "7ad73d3326a96f18c8365a7802e771a2c85eff1ce08a79ec4b7fe283c4ee3d25"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/art_source/shared_view_parts_take01.png",
+      "bytes": 2031324,
+      "sha256": "cbf323644c3a7f1450790547e2fda42cb9cda165bb72b55391dbff85190dc80e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/art_component_inventory.json",
+      "bytes": 2842,
+      "sha256": "c3f1ae50c9b3cf52045944e0b42b254f4ef4f8b10203e828f5265986c43743b1"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/aseprite_isolation.log",
+      "bytes": 35,
+      "sha256": "a4b82d70657325eb61d2692712882c8d72b17cbfc1d5676730bac0aefcbb80ba"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/authoring_unit_tests.log",
+      "bytes": 126,
+      "sha256": "43d1001cf61981e684b5ef3968631d497b8bedec225a30812abe7c5687e8e23d"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/ballet_format.json",
+      "bytes": 590,
+      "sha256": "87afa2d1980ba92f96b5486b73e7fbd770a6b157a05c480447207c7197646c18"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/ballet_samples.json",
+      "bytes": 842461,
+      "sha256": "51ff8c79b2fdb0c998de5073787a12bf12cd1ea98763c47f5202b1016e54bfe0"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/development_coverage.log",
+      "bytes": 80,
+      "sha256": "bfdebdcdf9b9fe6339c10a3e217412a82484429cf183c3865a29b7ead7bf2936"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/document_authority.log",
+      "bytes": 78,
+      "sha256": "27287112ad49605cf4c09e40a2349d561dbcd6ba51a04cb4b11c3b2944d6ff73"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/fin_preparation.json",
+      "bytes": 1844,
+      "sha256": "ab66fafd5b4f91e48fbcab47d06d867862d353ace60a4d75a799260141259049"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/fin_registration.log",
+      "bytes": 30,
+      "sha256": "87bec7b474e2c60bf1024fa5b3f80d9d8fc50432a32f123a9296a904fbeb7e30"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/format_validation.json",
+      "bytes": 1564,
+      "sha256": "c18a3404809d445cd6d68d00796d0f270de32884ec4f86f4c24553c2711edb3e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/gd_inference.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/gd_parser.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/evidence/ballet_samples.json",
+      "bytes": 826890,
+      "sha256": "c9a8d9453801ae69b3aca03ab05432099738d63d889b8fc89f970fd22bf28a30"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/evidence/live_swaps_samples.json",
+      "bytes": 828050,
+      "sha256": "2c1248e29a4eaff85ae852d3b1e5f3e956748260f2724a633c7b7891cad7df2a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/evidence/magician_samples.json",
+      "bytes": 827806,
+      "sha256": "f15009e00cb93246a7bb1ee80d3540a1643ac9cb3f853237f1ed9725e4c1dcc2"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/evidence/media_roundtrip.json",
+      "bytes": 168836,
+      "sha256": "68b181972fd37e1179bf14102ab95d2ff93bf142b7a7702728250e9082d84350"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/evidence/native_capture.log",
+      "bytes": 1495,
+      "sha256": "755d8b9cf94dc109cb0f2b8f25bce4e194c0959cb2a70d403bc0829c2e498eac"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/evidence/native_capture_complete.json",
+      "bytes": 23754,
+      "sha256": "c2a5d4e2c4e158122566ed0f77f5eb72fa292d20ec744bb7dcf0dcd7f3970112"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/evidence/native_capture_receipt.json",
+      "bytes": 5656,
+      "sha256": "8835c10b8e64269d56fbada4c56a068d81f34e1fd1bad3b2f837aec21f7569ee"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/evidence/native_geometry_audit.json",
+      "bytes": 179255,
+      "sha256": "7dea910fa42990dc230e77f30ad6ce2b60cf098008ac00ad5e6af18f34fbdf18"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/evidence/native_swap_tests.json",
+      "bytes": 53711,
+      "sha256": "f84c2e5e9b273a7c1598374cda01c47576a44281f9a17d7426b7e2ce76650d45"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/geometry/anatomy_arm_far.json",
+      "bytes": 39285,
+      "sha256": "c01ddca8e9439657b9901accf4a0815717cdcc1f0160414ce50ab2d5033807fa"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/geometry/anatomy_arm_near.json",
+      "bytes": 40448,
+      "sha256": "8609628f6711bc1a1ac0acd39793cae85213a8180748a003c1b78abbf3c79eca"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/geometry/anatomy_fin_broad.json",
+      "bytes": 82086,
+      "sha256": "0086ddcc1139e8e55102378d6ea15a3cf8cc388d2d860a3a216fa249616aeb26"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/geometry/anatomy_fin_cup.json",
+      "bytes": 74400,
+      "sha256": "6c0108368a4ffd4954df3e6665a1561f958ea1e4c8d9333c9999e7f92e03f5b6"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/geometry/anatomy_fin_edge.json",
+      "bytes": 31245,
+      "sha256": "374c5e54708f5d986eb399d0555c9d73274596ed59679d41f11d630d8c0c6739"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/geometry/anatomy_head_hair.json",
+      "bytes": 211651,
+      "sha256": "3854e2c16180600e8599269e0a9c22ad1caf2effa7f581f6d6eeaa058132b966"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/geometry/anatomy_neck_yoke.json",
+      "bytes": 588279,
+      "sha256": "3b51e81d99220fd2640a82f6345672c05b9ba17243675f301d2d3268251717f6"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/geometry/ballet_body.json",
+      "bytes": 432277,
+      "sha256": "2f80bac0a7271076532019040092742f12968c262f093ae5a74f5b62fe65f2ca"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/geometry/ballet_headwear.json",
+      "bytes": 108964,
+      "sha256": "11a7821f6f1d026375102ed341efc3856ca9296ed38839900cdc094ad2b415a4"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/geometry/ballet_sleeve_far.json",
+      "bytes": 51319,
+      "sha256": "f1abec172e4da333d6cfd43da2d5867732c21a833711e5d7504634cc6488c27e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/geometry/ballet_sleeve_near.json",
+      "bytes": 45157,
+      "sha256": "66f06cb13670781cc9819e1b145600276221e1b2c7e7347507004cb5ac2c0727"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/geometry/ballet_tail.json",
+      "bytes": 406986,
+      "sha256": "e96603a7d28a40709395333e9dfbecbb016d1a6d9a929d9eb312fefc690a65e5"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/geometry/magician_body.json",
+      "bytes": 372677,
+      "sha256": "42fd0e439577b846849082b901761e523e7fef7b18fb0e3153701b63f62b421b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/geometry/magician_headwear.json",
+      "bytes": 118569,
+      "sha256": "bbf928495e1cad2b6d5f8b4160b024714dc788fcc2665c71c9f8a1629c8ea9fb"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/geometry/magician_sleeve_far.json",
+      "bytes": 51042,
+      "sha256": "2d089dcd376a22eb933027000d04faf3afb2a80d7348d0d8df63ae4413f2e9ce"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/geometry/magician_sleeve_near.json",
+      "bytes": 46439,
+      "sha256": "77fc0ff2efeaba0490dd3308fc4c87e292d9e31e23d958fda4aa376696943a63"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/geometry/magician_tail.json",
+      "bytes": 417501,
+      "sha256": "bd8faef6d8607daeabb2aaf44018b9e7a25aeaac85d5924dd2aa4e2120e21594"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/masters/ballet_native_rgba.mkv",
+      "bytes": 42067471,
+      "sha256": "90b958f1970f38cbeee0a5cb8cd76e71cd0ed53bd5899aa83c906beff4669318"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/masters/live_swaps_native_rgba.mkv",
+      "bytes": 42981387,
+      "sha256": "b6c491787384b07fac8348f6244c14041697018a2ed0bc51ef55eb0c3847fe4a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/masters/magician_native_rgba.mkv",
+      "bytes": 43208301,
+      "sha256": "a99255d189c9739255cc30a68d57b82839c4aedbcf143de0f77522fa97e061d4"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/project.godot",
+      "bytes": 623,
+      "sha256": "514a8b7af5cd062f87b7806ee6e87717efc6af7a365b46fe59160a5c41e7708b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/retention.json",
+      "bytes": 7631,
+      "sha256": "3aa47acae1646002f2455e2808264f3cc45900b24dc9b8317f1255e7c63c2952"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/review/ballet.mp4",
+      "bytes": 2748533,
+      "sha256": "09cbdcf3642093faf3989689c3fa983a5fe78bcb73f47209b69edac44e50bfa3"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/review/ballet_action.png",
+      "bytes": 286489,
+      "sha256": "2e08a9247a1356883722a1e2a0349b0258f761be9a8a8dd66d04cf63536f1a86"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/review/fin_transitions.png",
+      "bytes": 1035864,
+      "sha256": "2308362ddccb97298f098e9a1a12cb880a1e15b39ff91b38bc6006f693b07f18"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/review/live_swaps.mp4",
+      "bytes": 2907557,
+      "sha256": "43bfbbc97d1be8e2a6ced64d66ba044c9ad171d69cb2e6dc254d0baa558d4b27"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/review/magician.mp4",
+      "bytes": 2951768,
+      "sha256": "8e705d2e9bbf2375ddee6d54e4eec08ef501a2e145d2e37f09d4e0eafbd87caf"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/review/magician_action.png",
+      "bytes": 292387,
+      "sha256": "01e6179a460ea7f71efb0f8627c65e73b60216322ecbc65f41fc08c1db841a2c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/review/swap_boundaries.png",
+      "bytes": 621250,
+      "sha256": "48848399f01aa17c9e9c88be1597a53bda88e9d547edea99e33bfb78eea882e3"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/review/two_costumes.png",
+      "bytes": 530940,
+      "sha256": "c714958455c225a9da408faac3b8dbf3639291a29be4f327f6469a9054d375b2"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/rig/action_contract.json",
+      "bytes": 744,
+      "sha256": "9aac42db0546650f13268c5fe98a1ca2c885bd36d811538bb5a16266cde17b0e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/rig/anatomy.json",
+      "bytes": 3626,
+      "sha256": "f5c9f23b0090a017a92ef6438f211629ae4acafcfdded453149f513f0d301a85"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/rig/cut_spec.json",
+      "bytes": 726608,
+      "sha256": "b442dbd377c854b05d71e1094643a351a60f2801b93d610e7ad2a7d3bd045629"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/rig/registration.json",
+      "bytes": 6778,
+      "sha256": "fb9b43c2412010e29aa3f19af03cbaa38fa18ee512dce106f0e5f5008c98db5c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/rig/rig_binding.json",
+      "bytes": 4676,
+      "sha256": "8ec99a43336ded8e33112fd8c836781aa9ef89c61a21afa767b08df6e49231db"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/rig/skeleton.json",
+      "bytes": 3672,
+      "sha256": "635adfa4aac38dbb4d2119c89808eca229b963e1bfd91813096084b796f5eee3"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/shared_actor.gd",
+      "bytes": 21491,
+      "sha256": "514cad0d101b50b17d85b4006dba1d1bfcb760172bce33e84a3f428a404a07df"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/skins/ballet.json",
+      "bytes": 4208,
+      "sha256": "1e54891dc3413281bf491c7a0a33de394ed01d2e2998fbea7c96ff9d571261f6"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/skins/catalog.json",
+      "bytes": 438,
+      "sha256": "b96ba6891feafc14b7f636b0ba1f99c046a4b0e2a3bb17c942fae8ce2c9e82c4"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/skins/magician.json",
+      "bytes": 4252,
+      "sha256": "563f68330677d5c6a24c8c57c5438b78bba9aa11a943dbcb4f76bb76390e3849"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/study.gd",
+      "bytes": 14111,
+      "sha256": "220880eafb1c841a42ab3a6582f42b6593a32c57ed530ea495df3c2fe2771e89"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/study.tscn",
+      "bytes": 161,
+      "sha256": "ba015c72cad26bc2d7e0db5167cb1fcb9613798eb9359a3a0a35950cade78fae"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/textures/anatomy/arm_far.png",
+      "bytes": 36643,
+      "sha256": "4d91852743a8ad27b90fdebc66a7df9e360780deb4ae1eb508bf667fe53d5bac"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/textures/anatomy/arm_near.png",
+      "bytes": 39004,
+      "sha256": "47c68cbb6d490bed5cfefb644f69ae3a69613d17f353b2f3654eafb4281e584e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/textures/anatomy/fin_broad.png",
+      "bytes": 116250,
+      "sha256": "5db21dcf249ebca8a5597b8119fdb546836ab09ac5ec615e62b9022a932c188e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/textures/anatomy/fin_cup.png",
+      "bytes": 102894,
+      "sha256": "c39b1846d2ee35cc87637613b28fa0ca37a4c617ef4502de85f45a57c8c8e023"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/textures/anatomy/fin_edge.png",
+      "bytes": 38517,
+      "sha256": "702db2c2d292869677d622c0ebe5be649697138a9b53fb754e5afbc23ece48f9"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/textures/anatomy/head_hair.png",
+      "bytes": 268898,
+      "sha256": "4a9a5d5d32e7f68f53bb6c7288798e117244f8f3608c4b05f55bb6794a0458d1"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/textures/anatomy/neck_yoke.png",
+      "bytes": 439431,
+      "sha256": "c6fed5c3e613fd375353f9d52fde00e16db1c48857bda9c572d88713fc9b182a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/textures/garments/ballet_body.png",
+      "bytes": 585998,
+      "sha256": "b3b848d468e1b36bc5192bc46e0d4a8717248355064d652bbc844ee003686720"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/textures/garments/ballet_headwear.png",
+      "bytes": 179631,
+      "sha256": "423f00e9689f0fd81e8b07d412cb9637974d3f92b0a42ee4ba5d053ab991ab2b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/textures/garments/ballet_sleeve_far.png",
+      "bytes": 75911,
+      "sha256": "7c963490a38e7edd4a1a0aadb4b755ae4ff26bc8a055b53d74bed92baa1d888b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/textures/garments/ballet_sleeve_near.png",
+      "bytes": 70868,
+      "sha256": "65acf8a3754bd62f281927b5d3a08b0e64bafd76f6fb2cac033076c3cdc98f39"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/textures/garments/ballet_tail.png",
+      "bytes": 482570,
+      "sha256": "5465b0485a8e5ba8495a7968e2ae9d95dc59b8da6e96d968f547ce50b7cb1fde"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/textures/garments/magician_body.png",
+      "bytes": 529577,
+      "sha256": "b794c93cdd17e37b794b8c04ceb2f4ead99beb942dd813b97fe818b28a4ded4a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/textures/garments/magician_headwear.png",
+      "bytes": 199142,
+      "sha256": "db79c5f11aff777dd8547b7062d635189b58779b8dfbfe756271d0d3c20d65bf"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/textures/garments/magician_sleeve_far.png",
+      "bytes": 80030,
+      "sha256": "c714026498c4ff74924c7697e68c10047d10b99cb5ec7293bb6c81b6919fac69"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/textures/garments/magician_sleeve_near.png",
+      "bytes": 72381,
+      "sha256": "27ba501fbd17026d015303e0d07b1fada0cc5e95cd3fa00ebf8aaf884b883a41"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate01/textures/garments/magician_tail.png",
+      "bytes": 506376,
+      "sha256": "1a2777db291f9a23f7c77825b8f2d9f9b80f873683815abaf352b8409542ad75"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/evidence/ballet_samples.json",
+      "bytes": 842443,
+      "sha256": "e210c2f8b67a8430d21a0e2ee5da6802265b575856ac314f432d01a2cc35b4fd"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/evidence/live_swaps_samples.json",
+      "bytes": 843603,
+      "sha256": "63469f8915549f6e1d10712e2ad2ecb91bde209363ab36de182d5c9d34311448"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/evidence/magician_samples.json",
+      "bytes": 843359,
+      "sha256": "dea27729c3329e9449156454a5a8e351cd0ef8044193ec62dd7eae259f0f8c96"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/evidence/media_roundtrip.json",
+      "bytes": 168836,
+      "sha256": "bc2ea2143188fa49f6de6822bcf38ab6e0e77e87a225fbff9ea4dae01939e1de"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/evidence/native_capture.log",
+      "bytes": 1495,
+      "sha256": "755d8b9cf94dc109cb0f2b8f25bce4e194c0959cb2a70d403bc0829c2e498eac"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/evidence/native_capture_complete.json",
+      "bytes": 27594,
+      "sha256": "31c4fd0d329fdbc6b19d21d65c5a8f961357d5445877ecbd6d663650621288d4"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/evidence/native_capture_receipt.json",
+      "bytes": 6781,
+      "sha256": "45ac7afc776150d17c0ebbc3428f3e5bb2ac6b3097ed454842fbb1c5ca8ab447"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/evidence/native_geometry_audit.json",
+      "bytes": 179845,
+      "sha256": "b3e7844b18e516ce966e6180040c31f8a048f8ac24f3a4cfa2465189f81f6406"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/evidence/native_swap_tests.json",
+      "bytes": 61726,
+      "sha256": "51b0c9e01e9b7977b0eb2b0474bc0a448f7191c252d9c3ff6156eedee4b9ed4d"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/fin_view.gd",
+      "bytes": 1913,
+      "sha256": "35df20ec05a8be3a6c77fc25c4b1fb3ebf9187f5a430a9f9bcd3389b6a5b01d2"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/fin_view.gdshader",
+      "bytes": 2216,
+      "sha256": "dad468158caa971657928d0d7a4527de4bb691c5493499182b9580f1fc55fa8f"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/geometry/anatomy_arm_far.json",
+      "bytes": 39285,
+      "sha256": "c01ddca8e9439657b9901accf4a0815717cdcc1f0160414ce50ab2d5033807fa"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/geometry/anatomy_arm_near.json",
+      "bytes": 40448,
+      "sha256": "8609628f6711bc1a1ac0acd39793cae85213a8180748a003c1b78abbf3c79eca"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/geometry/anatomy_fin_broad.json",
+      "bytes": 672,
+      "sha256": "ef7d92aaf2cd4efdb1e89f167757c940257dd9d7d731f0894779191cce0f9a29"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/geometry/anatomy_fin_cup.json",
+      "bytes": 672,
+      "sha256": "ef7d92aaf2cd4efdb1e89f167757c940257dd9d7d731f0894779191cce0f9a29"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/geometry/anatomy_fin_edge.json",
+      "bytes": 672,
+      "sha256": "ef7d92aaf2cd4efdb1e89f167757c940257dd9d7d731f0894779191cce0f9a29"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/geometry/anatomy_head_hair.json",
+      "bytes": 211651,
+      "sha256": "3854e2c16180600e8599269e0a9c22ad1caf2effa7f581f6d6eeaa058132b966"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/geometry/anatomy_neck_yoke.json",
+      "bytes": 588279,
+      "sha256": "3b51e81d99220fd2640a82f6345672c05b9ba17243675f301d2d3268251717f6"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/geometry/ballet_body.json",
+      "bytes": 432277,
+      "sha256": "2f80bac0a7271076532019040092742f12968c262f093ae5a74f5b62fe65f2ca"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/geometry/ballet_headwear.json",
+      "bytes": 108964,
+      "sha256": "11a7821f6f1d026375102ed341efc3856ca9296ed38839900cdc094ad2b415a4"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/geometry/ballet_sleeve_far.json",
+      "bytes": 51319,
+      "sha256": "f1abec172e4da333d6cfd43da2d5867732c21a833711e5d7504634cc6488c27e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/geometry/ballet_sleeve_near.json",
+      "bytes": 45157,
+      "sha256": "66f06cb13670781cc9819e1b145600276221e1b2c7e7347507004cb5ac2c0727"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/geometry/ballet_tail.json",
+      "bytes": 406986,
+      "sha256": "e96603a7d28a40709395333e9dfbecbb016d1a6d9a929d9eb312fefc690a65e5"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/geometry/magician_body.json",
+      "bytes": 372677,
+      "sha256": "42fd0e439577b846849082b901761e523e7fef7b18fb0e3153701b63f62b421b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/geometry/magician_headwear.json",
+      "bytes": 118569,
+      "sha256": "bbf928495e1cad2b6d5f8b4160b024714dc788fcc2665c71c9f8a1629c8ea9fb"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/geometry/magician_sleeve_far.json",
+      "bytes": 51042,
+      "sha256": "2d089dcd376a22eb933027000d04faf3afb2a80d7348d0d8df63ae4413f2e9ce"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/geometry/magician_sleeve_near.json",
+      "bytes": 46439,
+      "sha256": "77fc0ff2efeaba0490dd3308fc4c87e292d9e31e23d958fda4aa376696943a63"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/geometry/magician_tail.json",
+      "bytes": 417501,
+      "sha256": "bd8faef6d8607daeabb2aaf44018b9e7a25aeaac85d5924dd2aa4e2120e21594"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/masters/ballet_native_rgba.mkv",
+      "bytes": 41204465,
+      "sha256": "80b93d65375e59fdd41044dc26bc7cd834f67ca9d5c9a41eb4a18a5db9152b7e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/masters/live_swaps_native_rgba.mkv",
+      "bytes": 42118292,
+      "sha256": "477315e13ce1916f1e080ff1b6af136d2f759ee5bb99b648cecf26a1d6113d8e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/masters/magician_native_rgba.mkv",
+      "bytes": 42345764,
+      "sha256": "5af35a8b6a6bee2c93fbf6c8d82092ddc2a62e4196ede485702e2d815c6c1578"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/project.godot",
+      "bytes": 623,
+      "sha256": "514a8b7af5cd062f87b7806ee6e87717efc6af7a365b46fe59160a5c41e7708b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/retention.json",
+      "bytes": 354,
+      "sha256": "5e88eacfedc415bf6e989d38e05633f533ad899ad46a236785902b146234c8a1"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/review/ballet.mp4",
+      "bytes": 2805013,
+      "sha256": "3ffcf0f97133694ba6128c9fd016f7ce9f4a77a5a6f66195c575b6ea857576bc"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/review/ballet_action.png",
+      "bytes": 281110,
+      "sha256": "76380254141b267498dcad5c6e544f8a5bc1f17cb3dbd3f4a62d9c1332a5844a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/review/fin_transitions.png",
+      "bytes": 944666,
+      "sha256": "8cceb0c52a96ba44632036e9b7e73edab1ffca4fd0cfbc6185c375423fc68746"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/review/live_swaps.mp4",
+      "bytes": 2950391,
+      "sha256": "92fb54180cd5a2cd0f8a4f7cc86cf9e4f1f3c3aaef1ac2a46ae030780d23f37d"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/review/magician.mp4",
+      "bytes": 3000960,
+      "sha256": "83b478b72479664d15431084a64381a1bedd670d02d1aa19cd491851117d831f"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/review/magician_action.png",
+      "bytes": 286972,
+      "sha256": "73257c0d4daef383191d2f896f87cea78597d51b563fa9f73763057d956e1cd4"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/review/swap_boundaries.png",
+      "bytes": 610279,
+      "sha256": "1f1f7babbb819cfec521c08d4dfc77c7010b0f361a5c66ac29daee3cbc3c91a4"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/review/two_costumes.png",
+      "bytes": 525866,
+      "sha256": "03b413934318543c76007e24c77f333bfb86ed3bdd3fbf68d5d667f95485224a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/rig/action_contract.json",
+      "bytes": 744,
+      "sha256": "9aac42db0546650f13268c5fe98a1ca2c885bd36d811538bb5a16266cde17b0e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/rig/anatomy.json",
+      "bytes": 5442,
+      "sha256": "ca66c841c6b17584b4e7fe78d33bf0df0fff4fc176097f7ee75df93e4c6bee94"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/rig/cut_spec.json",
+      "bytes": 726608,
+      "sha256": "b442dbd377c854b05d71e1094643a351a60f2801b93d610e7ad2a7d3bd045629"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/rig/fin_broad_nearest_uv.f32",
+      "bytes": 2097152,
+      "sha256": "dc226be795518c6a2d25cd9ce9bb6c8b2ac5b9bfd5082765b7dd43c8b0271d09"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/rig/fin_broad_sdf.f32",
+      "bytes": 1048576,
+      "sha256": "0d7a83fc94b1a395dbec084c8d46a7bc2b7683fd48eac21997ec0d886c79dda7"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/rig/fin_cup_nearest_uv.f32",
+      "bytes": 2097152,
+      "sha256": "acf326c709828232157d07cb095f6b2893b64a505173829e36769bcb7c58dcd3"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/rig/fin_cup_sdf.f32",
+      "bytes": 1048576,
+      "sha256": "8a9d3bdd33d9520c294828508dc2a285e82381fa345e24054c5af27a27a5c62c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/rig/fin_edge_nearest_uv.f32",
+      "bytes": 2097152,
+      "sha256": "712d9ed06f810521732ef98b8945764ef1ee7c99f5709a9f49cdc31be1056d3d"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/rig/fin_edge_sdf.f32",
+      "bytes": 1048576,
+      "sha256": "e5aac4c9c449d7e75fbfcb69e466a8145458d16a8007628c872547f7c221680b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/rig/registration.json",
+      "bytes": 6778,
+      "sha256": "fb9b43c2412010e29aa3f19af03cbaa38fa18ee512dce106f0e5f5008c98db5c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/rig/rig_binding.json",
+      "bytes": 6182,
+      "sha256": "03dc3e910f59cf8c389fee4344ca34e194529ca4879556a8c214846b06ec1c56"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/rig/skeleton.json",
+      "bytes": 3672,
+      "sha256": "635adfa4aac38dbb4d2119c89808eca229b963e1bfd91813096084b796f5eee3"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/shared_actor.gd",
+      "bytes": 22013,
+      "sha256": "52d2b807dd5b1525273306d6e103966822cc608d35e82f81534433841492e800"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/skins/ballet.json",
+      "bytes": 4208,
+      "sha256": "bbed3f859b8a4ab9c65babbb1e28d3d85ad9ed32c906124638bea0419cca4600"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/skins/catalog.json",
+      "bytes": 438,
+      "sha256": "b96ba6891feafc14b7f636b0ba1f99c046a4b0e2a3bb17c942fae8ce2c9e82c4"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/skins/magician.json",
+      "bytes": 4252,
+      "sha256": "0ee773ab82852d0e6861ca32873ca2be300947b87f551bf0254a50912a4c36c6"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/study.gd",
+      "bytes": 14184,
+      "sha256": "3c2c66fa0c2435278ece7b0712c25e1f164c7857ad24aaba0c5af7a50338cb19"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/study.tscn",
+      "bytes": 161,
+      "sha256": "ba015c72cad26bc2d7e0db5167cb1fcb9613798eb9359a3a0a35950cade78fae"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/textures/anatomy/arm_far.png",
+      "bytes": 36643,
+      "sha256": "4d91852743a8ad27b90fdebc66a7df9e360780deb4ae1eb508bf667fe53d5bac"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/textures/anatomy/arm_near.png",
+      "bytes": 39004,
+      "sha256": "47c68cbb6d490bed5cfefb644f69ae3a69613d17f353b2f3654eafb4281e584e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/textures/anatomy/fin_broad.png",
+      "bytes": 116250,
+      "sha256": "5db21dcf249ebca8a5597b8119fdb546836ab09ac5ec615e62b9022a932c188e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/textures/anatomy/fin_broad_registered.png",
+      "bytes": 119654,
+      "sha256": "74717126e1093ce8ab2c7fd5c623f025ce8e713d016ea54968674f9a2d7d0982"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/textures/anatomy/fin_cup.png",
+      "bytes": 102894,
+      "sha256": "c39b1846d2ee35cc87637613b28fa0ca37a4c617ef4502de85f45a57c8c8e023"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/textures/anatomy/fin_cup_registered.png",
+      "bytes": 106282,
+      "sha256": "d30973153d22af14087313edf8d710a91baf82b46aa3ceeddee34763876c07a8"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/textures/anatomy/fin_edge.png",
+      "bytes": 38517,
+      "sha256": "702db2c2d292869677d622c0ebe5be649697138a9b53fb754e5afbc23ece48f9"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/textures/anatomy/fin_edge_registered.png",
+      "bytes": 41499,
+      "sha256": "8a56ca2be8f169528562ccf930c615ea7ddc4faccd3f38b9b9ab4367bc931897"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/textures/anatomy/head_hair.png",
+      "bytes": 268898,
+      "sha256": "4a9a5d5d32e7f68f53bb6c7288798e117244f8f3608c4b05f55bb6794a0458d1"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/textures/anatomy/neck_yoke.png",
+      "bytes": 439431,
+      "sha256": "c6fed5c3e613fd375353f9d52fde00e16db1c48857bda9c572d88713fc9b182a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/textures/garments/ballet_body.png",
+      "bytes": 585998,
+      "sha256": "b3b848d468e1b36bc5192bc46e0d4a8717248355064d652bbc844ee003686720"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/textures/garments/ballet_headwear.png",
+      "bytes": 179631,
+      "sha256": "423f00e9689f0fd81e8b07d412cb9637974d3f92b0a42ee4ba5d053ab991ab2b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/textures/garments/ballet_sleeve_far.png",
+      "bytes": 75911,
+      "sha256": "7c963490a38e7edd4a1a0aadb4b755ae4ff26bc8a055b53d74bed92baa1d888b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/textures/garments/ballet_sleeve_near.png",
+      "bytes": 70868,
+      "sha256": "65acf8a3754bd62f281927b5d3a08b0e64bafd76f6fb2cac033076c3cdc98f39"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/textures/garments/ballet_tail.png",
+      "bytes": 482570,
+      "sha256": "5465b0485a8e5ba8495a7968e2ae9d95dc59b8da6e96d968f547ce50b7cb1fde"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/textures/garments/magician_body.png",
+      "bytes": 529577,
+      "sha256": "b794c93cdd17e37b794b8c04ceb2f4ead99beb942dd813b97fe818b28a4ded4a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/textures/garments/magician_headwear.png",
+      "bytes": 199142,
+      "sha256": "db79c5f11aff777dd8547b7062d635189b58779b8dfbfe756271d0d3c20d65bf"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/textures/garments/magician_sleeve_far.png",
+      "bytes": 80030,
+      "sha256": "c714026498c4ff74924c7697e68c10047d10b99cb5ec7293bb6c81b6919fac69"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/textures/garments/magician_sleeve_near.png",
+      "bytes": 72381,
+      "sha256": "27ba501fbd17026d015303e0d07b1fada0cc5e95cd3fa00ebf8aaf884b883a41"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/candidate02_component_bug/textures/garments/magician_tail.png",
+      "bytes": 506376,
+      "sha256": "1a2777db291f9a23f7c77825b8f2d9f9b80f873683815abaf352b8409542ad75"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/capture_7b7d09e12fc1455e9bbebed489bdc203.json",
+      "bytes": 6781,
+      "sha256": "8d86f9e67f5aef5ea36dda36a871dc9596ed95594bc6ea578755e0e2f86c1956"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/capture_7b7d09e12fc1455e9bbebed489bdc203.log",
+      "bytes": 1535,
+      "sha256": "d5adb3edb64242d1efd3746f5e65993c17774b6dc4037fc41374295196b421e5"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/capture_a23126013a1b43d1a95c54447c85bc8b.json",
+      "bytes": 5656,
+      "sha256": "8835c10b8e64269d56fbada4c56a068d81f34e1fd1bad3b2f837aec21f7569ee"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/capture_a23126013a1b43d1a95c54447c85bc8b.log",
+      "bytes": 1495,
+      "sha256": "755d8b9cf94dc109cb0f2b8f25bce4e194c0959cb2a70d403bc0829c2e498eac"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/capture_b19e13e2a76742e9805661d5f35a44a6.json",
+      "bytes": 6781,
+      "sha256": "45ac7afc776150d17c0ebbc3428f3e5bb2ac6b3097ed454842fbb1c5ca8ab447"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/capture_b19e13e2a76742e9805661d5f35a44a6.log",
+      "bytes": 1495,
+      "sha256": "755d8b9cf94dc109cb0f2b8f25bce4e194c0959cb2a70d403bc0829c2e498eac"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/capture_eb8197a145444ebdaa0ddd9711648476.json",
+      "bytes": 6781,
+      "sha256": "3c02171a073c770d237112bb73b8915793eeee2a60b39b0740c652d81d25cdc0"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/capture_eb8197a145444ebdaa0ddd9711648476.log",
+      "bytes": 1535,
+      "sha256": "d5adb3edb64242d1efd3746f5e65993c17774b6dc4037fc41374295196b421e5"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/check_10827d3adffe44a29c751fbf3f3641ea.json",
+      "bytes": 5538,
+      "sha256": "b372a8dfbb2733b8901e8f94243df8da78c44aaf9d06cf0f4e7d6b0fc68c73ee"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/check_10827d3adffe44a29c751fbf3f3641ea.log",
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/check_23fb2bab0a67483aa306822627347142.json",
+      "bytes": 6663,
+      "sha256": "c6740d5cc6019ae66afb6e0132816446ffe175f43bb2d11d7b703b2c4d8ec90a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/check_23fb2bab0a67483aa306822627347142.log",
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/check_49594a5e765b4d7aafeff84cf5edb9da.json",
+      "bytes": 6663,
+      "sha256": "fed714fb0ea6bf11d51c563752683e12b88fded02ee8da4d702311aa74646621"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/check_49594a5e765b4d7aafeff84cf5edb9da.log",
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/ci_archive_gate/project_ci.err",
+      "bytes": 1988,
+      "sha256": "36aa6852944d03069b94a2d85e539da1dc7173dd1d0d1ab46bff4881b0b136a0"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/ci_archive_gate/project_ci.log",
+      "bytes": 831784,
+      "sha256": "55b4234f655381358639cb53dd6e555b116b3801ae962529fa3ac5ce9d05f67e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/ci_archive_gate/project_ci_receipt.json",
+      "bytes": 551,
+      "sha256": "7959a9d7384f94af3e27c49e8d8f7a1156986df5ddaa9dc12ac21cbe96579569"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/ci_coverage_prefix/project_ci.err",
+      "bytes": 1266,
+      "sha256": "89a3a76bbc915be8eb7fe1aa49ce1b4909f3bbc2b08afa408e0b95422e1a234e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/ci_coverage_prefix/project_ci.log",
+      "bytes": 14735,
+      "sha256": "397a743e7207c3c2ddf5200e6424f687142da34a2d3d45019c638a0595dfc3e8"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/ci_coverage_prefix/project_ci_receipt.json",
+      "bytes": 551,
+      "sha256": "80002f9f57ee02fc76446affea3f875190c4938ebc0aa76d08e96c42e069f373"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/ci_resume_context_error/clarification.json",
+      "bytes": 427,
+      "sha256": "050b3cbab75dccc3d917d4a9022f88ceface1d6147d63e6be098e77a4921eb87"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/ci_resume_context_error/project_ci.err",
+      "bytes": 66,
+      "sha256": "cc502344179a00a35e5ee8b8cf80b6ec96b4df9c9ee0d5b43aa7b1534f5bbc9f"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/ci_resume_context_error/project_ci.log",
+      "bytes": 2276,
+      "sha256": "adba3871107244eb3bdf465003dec4aac87f308eb90ab2e56555c7775c68a1d4"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/ci_resume_context_error/project_ci_receipt.json",
+      "bytes": 744,
+      "sha256": "88382d7694b2da255a74f71cdca2ade3e176c8aadbe93d5004d617a23e146fb7"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/document_link_preflight/development_coverage.log",
+      "bytes": 220,
+      "sha256": "778cffb7dcd9efd7f6ba2f4f53ca61d0e56531cd2aad0ead0bac575f3c6af9a4"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/document_link_preflight/document_authority.log",
+      "bytes": 26874,
+      "sha256": "f3315c5cb95f91c64266d404f8c36229ba6e14684773bc5084f2b2ab008d2d1b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/document_link_preflight/reason.json",
+      "bytes": 603,
+      "sha256": "26a55b4c08aa5b291964a46234907a9269f1dd129714b446d8af05ce59f1a2f8"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/fin_uv_projection_bug/ballet_0.png",
+      "bytes": 349301,
+      "sha256": "7718b2c2cc4ff5c5a50ffa6b4df6048c2a26efcc4111fd3a55b972da83cf6608"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/fin_uv_projection_bug/ballet_1.png",
+      "bytes": 343020,
+      "sha256": "381766fad47f0303b76de6aba366bf224aa52a7854c077c9f4d38850bf7d4256"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/fin_uv_projection_bug/ballet_2.png",
+      "bytes": 334019,
+      "sha256": "2a83c69df91f33ddd67b2e9b2b7519292f05124a00191e04ab8be0f2fe05c0b3"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/fin_uv_projection_bug/ballet_3.png",
+      "bytes": 346418,
+      "sha256": "60cca0d566293545d65eff2d0b044592aad540c3a9e8781bf4feaabab50d5a67"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/fin_uv_projection_bug/magician_0.png",
+      "bytes": 351305,
+      "sha256": "36907305230319e85fe1a2c8eecf3e291aece553d8ba6e15662dd6515b4bacc6"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/fin_uv_projection_bug/magician_1.png",
+      "bytes": 344477,
+      "sha256": "9a269886dd12ea10e8f56c9a1db594f9264fdfdbd7dc7e4f8b44a616ada9734d"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/fin_uv_projection_bug/magician_2.png",
+      "bytes": 335906,
+      "sha256": "03d3a0256112fdcef4aa1bfdc431b5bc5b402fa8c95b01ae2fad81189fe13902"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/fin_uv_projection_bug/magician_3.png",
+      "bytes": 348677,
+      "sha256": "3251746b4870133c58e4baf1ca8e25403d5529dc1c0e552a3392b5e1d3c3639a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/fin_uv_projection_bug/native_pose.log",
+      "bytes": 199,
+      "sha256": "5c35cab7466d62cea2e5130be821654d142da29d953aa6db19ccbc6a2bb0efb5"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/fin_uv_projection_bug/native_pose_receipt.json",
+      "bytes": 6782,
+      "sha256": "e0cd87fb8d0561f73d668369e33cd2e177671eefb602062123eef59852cafad6"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/fin_uv_projection_bug/pose_geometry.json",
+      "bytes": 3222,
+      "sha256": "72f80e9550ae4435c241ae525dd09275d46989e20c29b4fdb2f96dab031f2090"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/fin_uv_projection_bug/pose_preview.json",
+      "bytes": 28814,
+      "sha256": "9f594149420c2ed1ac172279af17ac4a1e9818997526e6bd93772e63ae597270"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/fin_uv_projection_bug/rejection.json",
+      "bytes": 365,
+      "sha256": "0dd6a95a6b40a3c49d91706b622c43823d92abc11cc3a6d4f19fad98ac0fd720"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/evidence/ballet_format.json",
+      "bytes": 177,
+      "sha256": "7d67218cc9d87760adc8d1bb25c41f9cca37af5da98945984bf8acdf6470702b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/evidence/ballet_samples.json",
+      "bytes": 842461,
+      "sha256": "74695917599d72ba2fe229816010320dd74f18c51ffd0d43cca9d36f323caf1c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/evidence/live_swaps_samples.json",
+      "bytes": 843621,
+      "sha256": "5b9d2b8465b75e5cb2aa47bcf5e34c5262d546348fb2065a4d056d2896d40737"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/evidence/magician_samples.json",
+      "bytes": 843377,
+      "sha256": "e0332d0eb78412dbadc94d0849cbe6a7264c789ba1cacd35c702e108e18148b6"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/evidence/native_capture.log",
+      "bytes": 1535,
+      "sha256": "d5adb3edb64242d1efd3746f5e65993c17774b6dc4037fc41374295196b421e5"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/evidence/native_capture_complete.json",
+      "bytes": 27594,
+      "sha256": "55aa0cfe6626bba3e87e5aff8f37b3d8cdfb8bb0448142baa553e366a726041b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/evidence/native_capture_receipt.json",
+      "bytes": 6781,
+      "sha256": "3c02171a073c770d237112bb73b8915793eeee2a60b39b0740c652d81d25cdc0"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/evidence/native_geometry_audit.json",
+      "bytes": 177586,
+      "sha256": "95347ef560cc7b7f25e158cf0526185236ed7b6d693e7fdbd8a1e2e14f965c97"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/evidence/native_swap_tests.json",
+      "bytes": 62289,
+      "sha256": "3c16f29f5039a2facf0641190ba588871f607a34fd766d05e94c1cdd1a00a8d9"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/fin_view.gd",
+      "bytes": 1913,
+      "sha256": "35df20ec05a8be3a6c77fc25c4b1fb3ebf9187f5a430a9f9bcd3389b6a5b01d2"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/fin_view.gdshader",
+      "bytes": 2009,
+      "sha256": "4da320f206c8a23c672fc912b70213319c24aa657e09742328e322c2e2dbd161"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/geometry/anatomy_arm_far.json",
+      "bytes": 39285,
+      "sha256": "c01ddca8e9439657b9901accf4a0815717cdcc1f0160414ce50ab2d5033807fa"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/geometry/anatomy_arm_near.json",
+      "bytes": 40448,
+      "sha256": "8609628f6711bc1a1ac0acd39793cae85213a8180748a003c1b78abbf3c79eca"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/geometry/anatomy_fin_broad.json",
+      "bytes": 672,
+      "sha256": "ef7d92aaf2cd4efdb1e89f167757c940257dd9d7d731f0894779191cce0f9a29"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/geometry/anatomy_fin_cup.json",
+      "bytes": 672,
+      "sha256": "ef7d92aaf2cd4efdb1e89f167757c940257dd9d7d731f0894779191cce0f9a29"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/geometry/anatomy_fin_edge.json",
+      "bytes": 672,
+      "sha256": "ef7d92aaf2cd4efdb1e89f167757c940257dd9d7d731f0894779191cce0f9a29"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/geometry/anatomy_head_hair.json",
+      "bytes": 211651,
+      "sha256": "3854e2c16180600e8599269e0a9c22ad1caf2effa7f581f6d6eeaa058132b966"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/geometry/anatomy_neck_yoke.json",
+      "bytes": 588279,
+      "sha256": "3b51e81d99220fd2640a82f6345672c05b9ba17243675f301d2d3268251717f6"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/geometry/ballet_body.json",
+      "bytes": 432277,
+      "sha256": "2f80bac0a7271076532019040092742f12968c262f093ae5a74f5b62fe65f2ca"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/geometry/ballet_headwear.json",
+      "bytes": 108964,
+      "sha256": "11a7821f6f1d026375102ed341efc3856ca9296ed38839900cdc094ad2b415a4"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/geometry/ballet_sleeve_far.json",
+      "bytes": 51319,
+      "sha256": "f1abec172e4da333d6cfd43da2d5867732c21a833711e5d7504634cc6488c27e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/geometry/ballet_sleeve_near.json",
+      "bytes": 45157,
+      "sha256": "66f06cb13670781cc9819e1b145600276221e1b2c7e7347507004cb5ac2c0727"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/geometry/ballet_tail.json",
+      "bytes": 406986,
+      "sha256": "e96603a7d28a40709395333e9dfbecbb016d1a6d9a929d9eb312fefc690a65e5"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/geometry/magician_body.json",
+      "bytes": 372677,
+      "sha256": "42fd0e439577b846849082b901761e523e7fef7b18fb0e3153701b63f62b421b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/geometry/magician_headwear.json",
+      "bytes": 118569,
+      "sha256": "bbf928495e1cad2b6d5f8b4160b024714dc788fcc2665c71c9f8a1629c8ea9fb"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/geometry/magician_sleeve_far.json",
+      "bytes": 51042,
+      "sha256": "2d089dcd376a22eb933027000d04faf3afb2a80d7348d0d8df63ae4413f2e9ce"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/geometry/magician_sleeve_near.json",
+      "bytes": 46439,
+      "sha256": "77fc0ff2efeaba0490dd3308fc4c87e292d9e31e23d958fda4aa376696943a63"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/geometry/magician_tail.json",
+      "bytes": 417501,
+      "sha256": "bd8faef6d8607daeabb2aaf44018b9e7a25aeaac85d5924dd2aa4e2120e21594"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/pixel_retention.json",
+      "bytes": 751,
+      "sha256": "63e7283d537f9c81ab898d6c4693ac7a959083da2bdbc07258532d8fd88e795a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/project.godot",
+      "bytes": 623,
+      "sha256": "514a8b7af5cd062f87b7806ee6e87717efc6af7a365b46fe59160a5c41e7708b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/retention.json",
+      "bytes": 532,
+      "sha256": "b831362102ff1e8adaeb4b89d252fa170e8533df5a55fa13ab0fef6fe4189948"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/rig/action_contract.json",
+      "bytes": 1181,
+      "sha256": "97ba1a4e6d99a94f79c4a166bd757bb3fa716218f9a70d333743645601423a04"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/rig/anatomy.json",
+      "bytes": 5442,
+      "sha256": "bc1c3834564e593a864b3e0d9d7b68b4246cdcb1e6c0ca426d623835b96e3fac"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/rig/cut_spec.json",
+      "bytes": 726608,
+      "sha256": "b442dbd377c854b05d71e1094643a351a60f2801b93d610e7ad2a7d3bd045629"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/rig/fin_broad_nearest_uv.f32",
+      "bytes": 2097152,
+      "sha256": "ea01642ea997053e321d5343ddb3d83ea0c8eb14b0c630e751c801959d13bf27"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/rig/fin_broad_sdf.f32",
+      "bytes": 1048576,
+      "sha256": "0d7a83fc94b1a395dbec084c8d46a7bc2b7683fd48eac21997ec0d886c79dda7"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/rig/fin_cup_nearest_uv.f32",
+      "bytes": 2097152,
+      "sha256": "7f577c4482981ae7081c4a6b3d6de0ea153fca454320faad2d4e5dd4851a354d"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/rig/fin_cup_sdf.f32",
+      "bytes": 1048576,
+      "sha256": "8a9d3bdd33d9520c294828508dc2a285e82381fa345e24054c5af27a27a5c62c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/rig/fin_edge_nearest_uv.f32",
+      "bytes": 2097152,
+      "sha256": "176059ae77e40b9815aad767c8c06d29016c56835602d86375ffcddaa722c455"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/rig/fin_edge_sdf.f32",
+      "bytes": 1048576,
+      "sha256": "e5aac4c9c449d7e75fbfcb69e466a8145458d16a8007628c872547f7c221680b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/rig/registration.json",
+      "bytes": 6778,
+      "sha256": "fb9b43c2412010e29aa3f19af03cbaa38fa18ee512dce106f0e5f5008c98db5c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/rig/rig_binding.json",
+      "bytes": 6182,
+      "sha256": "d9b0b523063e1786e86739f0340315f1ae7d3325fd325f25958f699589b3a224"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/rig/skeleton.json",
+      "bytes": 3672,
+      "sha256": "635adfa4aac38dbb4d2119c89808eca229b963e1bfd91813096084b796f5eee3"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/shared_actor.gd",
+      "bytes": 22311,
+      "sha256": "be72e1a075f867285f820c533d67527797b02a7d92bc6b2184ad3e9a9ccc7ac6"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/skins/ballet.json",
+      "bytes": 4208,
+      "sha256": "cf98d54ff626896569f04944c0bbdd8b53e01f208b4c0dbcaa7830b05a7efb1c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/skins/catalog.json",
+      "bytes": 438,
+      "sha256": "b96ba6891feafc14b7f636b0ba1f99c046a4b0e2a3bb17c942fae8ce2c9e82c4"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/skins/magician.json",
+      "bytes": 4252,
+      "sha256": "68428dc7dc39d5b7e02fee15fa6ef511250354ecff092be37020d59aa61323b3"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/study.gd",
+      "bytes": 14544,
+      "sha256": "a5c7d328b61424ec7b4f5c592b5a364a597b59f767d5d38c7f123a25a45ba007"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/study.tscn",
+      "bytes": 161,
+      "sha256": "ba015c72cad26bc2d7e0db5167cb1fcb9613798eb9359a3a0a35950cade78fae"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/textures/anatomy/arm_far.png",
+      "bytes": 36643,
+      "sha256": "4d91852743a8ad27b90fdebc66a7df9e360780deb4ae1eb508bf667fe53d5bac"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/textures/anatomy/arm_near.png",
+      "bytes": 39004,
+      "sha256": "47c68cbb6d490bed5cfefb644f69ae3a69613d17f353b2f3654eafb4281e584e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/textures/anatomy/fin_broad.png",
+      "bytes": 116250,
+      "sha256": "5db21dcf249ebca8a5597b8119fdb546836ab09ac5ec615e62b9022a932c188e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/textures/anatomy/fin_broad_registered.png",
+      "bytes": 119654,
+      "sha256": "74717126e1093ce8ab2c7fd5c623f025ce8e713d016ea54968674f9a2d7d0982"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/textures/anatomy/fin_cup.png",
+      "bytes": 102894,
+      "sha256": "c39b1846d2ee35cc87637613b28fa0ca37a4c617ef4502de85f45a57c8c8e023"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/textures/anatomy/fin_cup_registered.png",
+      "bytes": 106282,
+      "sha256": "d30973153d22af14087313edf8d710a91baf82b46aa3ceeddee34763876c07a8"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/textures/anatomy/fin_edge.png",
+      "bytes": 38517,
+      "sha256": "702db2c2d292869677d622c0ebe5be649697138a9b53fb754e5afbc23ece48f9"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/textures/anatomy/fin_edge_registered.png",
+      "bytes": 41499,
+      "sha256": "8a56ca2be8f169528562ccf930c615ea7ddc4faccd3f38b9b9ab4367bc931897"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/textures/anatomy/head_hair.png",
+      "bytes": 268898,
+      "sha256": "4a9a5d5d32e7f68f53bb6c7288798e117244f8f3608c4b05f55bb6794a0458d1"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/textures/anatomy/neck_yoke.png",
+      "bytes": 439431,
+      "sha256": "c6fed5c3e613fd375353f9d52fde00e16db1c48857bda9c572d88713fc9b182a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/textures/garments/ballet_body.png",
+      "bytes": 585998,
+      "sha256": "b3b848d468e1b36bc5192bc46e0d4a8717248355064d652bbc844ee003686720"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/textures/garments/ballet_headwear.png",
+      "bytes": 179631,
+      "sha256": "423f00e9689f0fd81e8b07d412cb9637974d3f92b0a42ee4ba5d053ab991ab2b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/textures/garments/ballet_sleeve_far.png",
+      "bytes": 75911,
+      "sha256": "7c963490a38e7edd4a1a0aadb4b755ae4ff26bc8a055b53d74bed92baa1d888b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/textures/garments/ballet_sleeve_near.png",
+      "bytes": 70868,
+      "sha256": "65acf8a3754bd62f281927b5d3a08b0e64bafd76f6fb2cac033076c3cdc98f39"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/textures/garments/ballet_tail.png",
+      "bytes": 482570,
+      "sha256": "5465b0485a8e5ba8495a7968e2ae9d95dc59b8da6e96d968f547ce50b7cb1fde"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/textures/garments/magician_body.png",
+      "bytes": 529577,
+      "sha256": "b794c93cdd17e37b794b8c04ceb2f4ead99beb942dd813b97fe818b28a4ded4a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/textures/garments/magician_headwear.png",
+      "bytes": 199142,
+      "sha256": "db79c5f11aff777dd8547b7062d635189b58779b8dfbfe756271d0d3c20d65bf"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/textures/garments/magician_sleeve_far.png",
+      "bytes": 80030,
+      "sha256": "c714026498c4ff74924c7697e68c10047d10b99cb5ec7293bb6c81b6919fac69"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/textures/garments/magician_sleeve_near.png",
+      "bytes": 72381,
+      "sha256": "27ba501fbd17026d015303e0d07b1fada0cc5e95cd3fa00ebf8aaf884b883a41"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/format_metadata_preflight/textures/garments/magician_tail.png",
+      "bytes": 506376,
+      "sha256": "1a2777db291f9a23f7c77825b8f2d9f9b80f873683815abaf352b8409542ad75"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/ballet_rgba_delta.json",
+      "bytes": 50300,
+      "sha256": "d1322b7fd1360d868241eeb7499cd2e8dc36d828a39b940983fae7eadfa50417"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/ballet_rgba_delta.mkv",
+      "bytes": 3970621,
+      "sha256": "c90e97c45667b84b1c4f8c032a93faf62a493307ddcc6e5c336071d55cdc48ea"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/evidence/ballet_samples.json",
+      "bytes": 842443,
+      "sha256": "89e8ae0bb04b3bb4a38e53bce17d1bc6817c013bfb14a4d76a043c8d91a0a540"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/evidence/live_swaps_samples.json",
+      "bytes": 843603,
+      "sha256": "b2dcc433c3e01a7e42d0ed6734fbf9869cce6fc7ccb98d18416029719bb2a4fd"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/evidence/magician_samples.json",
+      "bytes": 843359,
+      "sha256": "ab80643aa24b8ccaaa2d11c44287db6e6fe52c7473b431baf03a641225609dd4"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/evidence/native_capture.log",
+      "bytes": 1535,
+      "sha256": "d5adb3edb64242d1efd3746f5e65993c17774b6dc4037fc41374295196b421e5"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/evidence/native_capture_complete.json",
+      "bytes": 27594,
+      "sha256": "a298f748aa8bc80f3061d554933078931fd223e8ac2c20ef01e33a34791678d7"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/evidence/native_capture_receipt.json",
+      "bytes": 6781,
+      "sha256": "8d86f9e67f5aef5ea36dda36a871dc9596ed95594bc6ea578755e0e2f86c1956"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/evidence/native_geometry_audit.json",
+      "bytes": 179845,
+      "sha256": "b3e7844b18e516ce966e6180040c31f8a048f8ac24f3a4cfa2465189f81f6406"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/evidence/native_swap_tests.json",
+      "bytes": 62289,
+      "sha256": "7c06cab67a393865b77c0fb57e29fc2c92bd34dc4899d3b34c53fbde755896e9"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/fin_view.gd",
+      "bytes": 1913,
+      "sha256": "35df20ec05a8be3a6c77fc25c4b1fb3ebf9187f5a430a9f9bcd3389b6a5b01d2"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/fin_view.gdshader",
+      "bytes": 2009,
+      "sha256": "4da320f206c8a23c672fc912b70213319c24aa657e09742328e322c2e2dbd161"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/geometry/anatomy_arm_far.json",
+      "bytes": 39285,
+      "sha256": "c01ddca8e9439657b9901accf4a0815717cdcc1f0160414ce50ab2d5033807fa"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/geometry/anatomy_arm_near.json",
+      "bytes": 40448,
+      "sha256": "8609628f6711bc1a1ac0acd39793cae85213a8180748a003c1b78abbf3c79eca"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/geometry/anatomy_fin_broad.json",
+      "bytes": 672,
+      "sha256": "ef7d92aaf2cd4efdb1e89f167757c940257dd9d7d731f0894779191cce0f9a29"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/geometry/anatomy_fin_cup.json",
+      "bytes": 672,
+      "sha256": "ef7d92aaf2cd4efdb1e89f167757c940257dd9d7d731f0894779191cce0f9a29"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/geometry/anatomy_fin_edge.json",
+      "bytes": 672,
+      "sha256": "ef7d92aaf2cd4efdb1e89f167757c940257dd9d7d731f0894779191cce0f9a29"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/geometry/anatomy_head_hair.json",
+      "bytes": 211651,
+      "sha256": "3854e2c16180600e8599269e0a9c22ad1caf2effa7f581f6d6eeaa058132b966"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/geometry/anatomy_neck_yoke.json",
+      "bytes": 588279,
+      "sha256": "3b51e81d99220fd2640a82f6345672c05b9ba17243675f301d2d3268251717f6"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/geometry/ballet_body.json",
+      "bytes": 432277,
+      "sha256": "2f80bac0a7271076532019040092742f12968c262f093ae5a74f5b62fe65f2ca"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/geometry/ballet_headwear.json",
+      "bytes": 108964,
+      "sha256": "11a7821f6f1d026375102ed341efc3856ca9296ed38839900cdc094ad2b415a4"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/geometry/ballet_sleeve_far.json",
+      "bytes": 51319,
+      "sha256": "f1abec172e4da333d6cfd43da2d5867732c21a833711e5d7504634cc6488c27e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/geometry/ballet_sleeve_near.json",
+      "bytes": 45157,
+      "sha256": "66f06cb13670781cc9819e1b145600276221e1b2c7e7347507004cb5ac2c0727"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/geometry/ballet_tail.json",
+      "bytes": 406986,
+      "sha256": "e96603a7d28a40709395333e9dfbecbb016d1a6d9a929d9eb312fefc690a65e5"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/geometry/magician_body.json",
+      "bytes": 372677,
+      "sha256": "42fd0e439577b846849082b901761e523e7fef7b18fb0e3153701b63f62b421b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/geometry/magician_headwear.json",
+      "bytes": 118569,
+      "sha256": "bbf928495e1cad2b6d5f8b4160b024714dc788fcc2665c71c9f8a1629c8ea9fb"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/geometry/magician_sleeve_far.json",
+      "bytes": 51042,
+      "sha256": "2d089dcd376a22eb933027000d04faf3afb2a80d7348d0d8df63ae4413f2e9ce"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/geometry/magician_sleeve_near.json",
+      "bytes": 46439,
+      "sha256": "77fc0ff2efeaba0490dd3308fc4c87e292d9e31e23d958fda4aa376696943a63"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/geometry/magician_tail.json",
+      "bytes": 417501,
+      "sha256": "bd8faef6d8607daeabb2aaf44018b9e7a25aeaac85d5924dd2aa4e2120e21594"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/live_swaps_rgba_delta.json",
+      "bytes": 50308,
+      "sha256": "9774f57a3620bff057b53129c447919f1e7adaed67fd4438f69e2d9990cab6e7"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/live_swaps_rgba_delta.mkv",
+      "bytes": 3975381,
+      "sha256": "ab1574c709e0be64538da9de4b5d97bc7bf9694536edbf058183c2cf83616240"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/magician_rgba_delta.json",
+      "bytes": 50304,
+      "sha256": "b58111b983fcd0faa55afe9f99ec19c856d531c28cd6d18b7449fb577f7e730b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/magician_rgba_delta.mkv",
+      "bytes": 3979942,
+      "sha256": "b7af4e6566844cf0b68027ada8dcedb30c86787382ee7f82278f38477c16d34a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/project.godot",
+      "bytes": 623,
+      "sha256": "514a8b7af5cd062f87b7806ee6e87717efc6af7a365b46fe59160a5c41e7708b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/retention.json",
+      "bytes": 1908,
+      "sha256": "c0eef1b6a41b60dfe05069f669a0e1ee6d57fb64bb247542e092ee28e1ca194c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/rig/action_contract.json",
+      "bytes": 1181,
+      "sha256": "97ba1a4e6d99a94f79c4a166bd757bb3fa716218f9a70d333743645601423a04"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/rig/anatomy.json",
+      "bytes": 5442,
+      "sha256": "bc1c3834564e593a864b3e0d9d7b68b4246cdcb1e6c0ca426d623835b96e3fac"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/rig/cut_spec.json",
+      "bytes": 726608,
+      "sha256": "b442dbd377c854b05d71e1094643a351a60f2801b93d610e7ad2a7d3bd045629"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/rig/fin_broad_nearest_uv.f32",
+      "bytes": 2097152,
+      "sha256": "ea01642ea997053e321d5343ddb3d83ea0c8eb14b0c630e751c801959d13bf27"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/rig/fin_broad_sdf.f32",
+      "bytes": 1048576,
+      "sha256": "0d7a83fc94b1a395dbec084c8d46a7bc2b7683fd48eac21997ec0d886c79dda7"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/rig/fin_cup_nearest_uv.f32",
+      "bytes": 2097152,
+      "sha256": "7f577c4482981ae7081c4a6b3d6de0ea153fca454320faad2d4e5dd4851a354d"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/rig/fin_cup_sdf.f32",
+      "bytes": 1048576,
+      "sha256": "8a9d3bdd33d9520c294828508dc2a285e82381fa345e24054c5af27a27a5c62c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/rig/fin_edge_nearest_uv.f32",
+      "bytes": 2097152,
+      "sha256": "176059ae77e40b9815aad767c8c06d29016c56835602d86375ffcddaa722c455"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/rig/fin_edge_sdf.f32",
+      "bytes": 1048576,
+      "sha256": "e5aac4c9c449d7e75fbfcb69e466a8145458d16a8007628c872547f7c221680b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/rig/registration.json",
+      "bytes": 6778,
+      "sha256": "fb9b43c2412010e29aa3f19af03cbaa38fa18ee512dce106f0e5f5008c98db5c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/rig/rig_binding.json",
+      "bytes": 6182,
+      "sha256": "d9b0b523063e1786e86739f0340315f1ae7d3325fd325f25958f699589b3a224"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/rig/skeleton.json",
+      "bytes": 3672,
+      "sha256": "635adfa4aac38dbb4d2119c89808eca229b963e1bfd91813096084b796f5eee3"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/shared_actor.gd",
+      "bytes": 22311,
+      "sha256": "be72e1a075f867285f820c533d67527797b02a7d92bc6b2184ad3e9a9ccc7ac6"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/skins/ballet.json",
+      "bytes": 4208,
+      "sha256": "cf98d54ff626896569f04944c0bbdd8b53e01f208b4c0dbcaa7830b05a7efb1c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/skins/catalog.json",
+      "bytes": 438,
+      "sha256": "b96ba6891feafc14b7f636b0ba1f99c046a4b0e2a3bb17c942fae8ce2c9e82c4"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/skins/magician.json",
+      "bytes": 4252,
+      "sha256": "68428dc7dc39d5b7e02fee15fa6ef511250354ecff092be37020d59aa61323b3"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/study.gd",
+      "bytes": 14436,
+      "sha256": "01a1852303fddd136fb20717becfbcc1fc360125ed063a94fbedfc30102775bd"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/study.tscn",
+      "bytes": 161,
+      "sha256": "ba015c72cad26bc2d7e0db5167cb1fcb9613798eb9359a3a0a35950cade78fae"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/textures/anatomy/arm_far.png",
+      "bytes": 36643,
+      "sha256": "4d91852743a8ad27b90fdebc66a7df9e360780deb4ae1eb508bf667fe53d5bac"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/textures/anatomy/arm_near.png",
+      "bytes": 39004,
+      "sha256": "47c68cbb6d490bed5cfefb644f69ae3a69613d17f353b2f3654eafb4281e584e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/textures/anatomy/fin_broad.png",
+      "bytes": 116250,
+      "sha256": "5db21dcf249ebca8a5597b8119fdb546836ab09ac5ec615e62b9022a932c188e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/textures/anatomy/fin_broad_registered.png",
+      "bytes": 119654,
+      "sha256": "74717126e1093ce8ab2c7fd5c623f025ce8e713d016ea54968674f9a2d7d0982"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/textures/anatomy/fin_cup.png",
+      "bytes": 102894,
+      "sha256": "c39b1846d2ee35cc87637613b28fa0ca37a4c617ef4502de85f45a57c8c8e023"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/textures/anatomy/fin_cup_registered.png",
+      "bytes": 106282,
+      "sha256": "d30973153d22af14087313edf8d710a91baf82b46aa3ceeddee34763876c07a8"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/textures/anatomy/fin_edge.png",
+      "bytes": 38517,
+      "sha256": "702db2c2d292869677d622c0ebe5be649697138a9b53fb754e5afbc23ece48f9"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/textures/anatomy/fin_edge_registered.png",
+      "bytes": 41499,
+      "sha256": "8a56ca2be8f169528562ccf930c615ea7ddc4faccd3f38b9b9ab4367bc931897"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/textures/anatomy/head_hair.png",
+      "bytes": 268898,
+      "sha256": "4a9a5d5d32e7f68f53bb6c7288798e117244f8f3608c4b05f55bb6794a0458d1"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/textures/anatomy/neck_yoke.png",
+      "bytes": 439431,
+      "sha256": "c6fed5c3e613fd375353f9d52fde00e16db1c48857bda9c572d88713fc9b182a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/textures/garments/ballet_body.png",
+      "bytes": 585998,
+      "sha256": "b3b848d468e1b36bc5192bc46e0d4a8717248355064d652bbc844ee003686720"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/textures/garments/ballet_headwear.png",
+      "bytes": 179631,
+      "sha256": "423f00e9689f0fd81e8b07d412cb9637974d3f92b0a42ee4ba5d053ab991ab2b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/textures/garments/ballet_sleeve_far.png",
+      "bytes": 75911,
+      "sha256": "7c963490a38e7edd4a1a0aadb4b755ae4ff26bc8a055b53d74bed92baa1d888b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/textures/garments/ballet_sleeve_near.png",
+      "bytes": 70868,
+      "sha256": "65acf8a3754bd62f281927b5d3a08b0e64bafd76f6fb2cac033076c3cdc98f39"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/textures/garments/ballet_tail.png",
+      "bytes": 482570,
+      "sha256": "5465b0485a8e5ba8495a7968e2ae9d95dc59b8da6e96d968f547ce50b7cb1fde"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/textures/garments/magician_body.png",
+      "bytes": 529577,
+      "sha256": "b794c93cdd17e37b794b8c04ceb2f4ead99beb942dd813b97fe818b28a4ded4a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/textures/garments/magician_headwear.png",
+      "bytes": 199142,
+      "sha256": "db79c5f11aff777dd8547b7062d635189b58779b8dfbfe756271d0d3c20d65bf"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/textures/garments/magician_sleeve_far.png",
+      "bytes": 80030,
+      "sha256": "c714026498c4ff74924c7697e68c10047d10b99cb5ec7293bb6c81b6919fac69"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/textures/garments/magician_sleeve_near.png",
+      "bytes": 72381,
+      "sha256": "27ba501fbd17026d015303e0d07b1fada0cc5e95cd3fa00ebf8aaf884b883a41"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/textures/garments/magician_tail.png",
+      "bytes": 506376,
+      "sha256": "1a2777db291f9a23f7c77825b8f2d9f9b80f873683815abaf352b8409542ad75"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/framing_preflight/video_conversion.json",
+      "bytes": 1592,
+      "sha256": "bb8abdb1d918371bd1c671de7f3c26bebfe0f59ccaac1a056f95f1add194a414"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/import_7e6bef7d4bb14617a01eb88725c16a61.json",
+      "bytes": 5547,
+      "sha256": "6175185a7c1cbd96f0590f4f04f0564c10ca1a45364854759549d667dce905d8"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/import_7e6bef7d4bb14617a01eb88725c16a61.log",
+      "bytes": 6423,
+      "sha256": "c7e6d614137ee1fadb9dafa59d7e828ad5139c5e30906b540aad107658019c69"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/import_9c93dd46f246409b88a1d88e044871d2.json",
+      "bytes": 5504,
+      "sha256": "bb0d4dbfffd85e7a719f96c5cf1cac4111596fffbd8564e451182bce876e393d"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/import_9c93dd46f246409b88a1d88e044871d2.log",
+      "bytes": 1315,
+      "sha256": "97d3a98b638bde96129f72c0aa2c73756b531bcc790e7a75a73508fdf8f980e1"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_0e7d133998644375825d4967d2842047.json",
+      "bytes": 6782,
+      "sha256": "b267b501afa4688eae7607e2fccee746e704fbac1b7c4d59ca5ad727320de3ca"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_0e7d133998644375825d4967d2842047.log",
+      "bytes": 199,
+      "sha256": "5c35cab7466d62cea2e5130be821654d142da29d953aa6db19ccbc6a2bb0efb5"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_1e72e33e69ac42b8a488637c5b7851e0.json",
+      "bytes": 6783,
+      "sha256": "74865b75cdd184c04b8455dd86590db9e18d39e455c341c706d841c14d2d46eb"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_1e72e33e69ac42b8a488637c5b7851e0.log",
+      "bytes": 199,
+      "sha256": "5c35cab7466d62cea2e5130be821654d142da29d953aa6db19ccbc6a2bb0efb5"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_23e1f6fc71884472934ee59f15c90b99.json",
+      "bytes": 5658,
+      "sha256": "f68269fa220feff2b6ddd4616e7d35d45c4e05739c989a04179c4fc65241a84b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_23e1f6fc71884472934ee59f15c90b99.log",
+      "bytes": 199,
+      "sha256": "5c35cab7466d62cea2e5130be821654d142da29d953aa6db19ccbc6a2bb0efb5"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_a581b67cb0be458383be257ef9488683.json",
+      "bytes": 5658,
+      "sha256": "b60762900724b36b3d5fc4fcd996b6e142f804d98fb720467e0b86fee1a4e84a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_a581b67cb0be458383be257ef9488683.log",
+      "bytes": 199,
+      "sha256": "5c35cab7466d62cea2e5130be821654d142da29d953aa6db19ccbc6a2bb0efb5"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_bdb3267e6299493fb65082a109e1c4d8.json",
+      "bytes": 6782,
+      "sha256": "e0cd87fb8d0561f73d668369e33cd2e177671eefb602062123eef59852cafad6"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_bdb3267e6299493fb65082a109e1c4d8.log",
+      "bytes": 199,
+      "sha256": "5c35cab7466d62cea2e5130be821654d142da29d953aa6db19ccbc6a2bb0efb5"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_fceb50f09bc8419b90e7887fa35d0ef3.json",
+      "bytes": 6932,
+      "sha256": "c482449051dd0ac5db376df331c71ea688ea2368cac9b12d9fe32e9a784d51da"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_fceb50f09bc8419b90e7887fa35d0ef3.log",
+      "bytes": 427,
+      "sha256": "d611bc4150631a33d7cf8deb041f4e1495111a670df2cb0b1b95e6f5a8790328"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_v1/ballet_0.png",
+      "bytes": 349294,
+      "sha256": "6ebe19708a2f9d796d053277bc83d300fc5deeac82087f8910e3f51958af536f"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_v1/ballet_1.png",
+      "bytes": 349656,
+      "sha256": "8c16a1dbfbc69f236a806c3f48500a06ee2b89c15ee323c2a7b0b0128db0c20b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_v1/ballet_2.png",
+      "bytes": 333128,
+      "sha256": "74bc48f606007defc9255c75fb5ef942986b375f11fb266389bba075817e7439"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_v1/ballet_3.png",
+      "bytes": 346690,
+      "sha256": "6fea82d3daa220899dc4d7ab710c00b278b3d938700340a1f4f20a341973774b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_v1/magician_0.png",
+      "bytes": 351285,
+      "sha256": "aa3e48d7947d86cb968f3d156e57cdb1cd4f72b2061e2a96f88d62ab3dd46a82"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_v1/magician_1.png",
+      "bytes": 350992,
+      "sha256": "368412a97990f2fa548579be20171f517a7bf5235768c73f9f0699a54a844e2a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_v1/magician_2.png",
+      "bytes": 334927,
+      "sha256": "c9eb323aa0ed8fdf3f315fedbf01ac3efae20719128347c8e5019610f41a0b18"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_v1/magician_3.png",
+      "bytes": 348554,
+      "sha256": "987250059a44e80bcb7450a30e6443da520e0402f8e4f72e5684296cbe61d87d"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_v1/pose_geometry.json",
+      "bytes": 3252,
+      "sha256": "db4800da9123037d2ae527573ea3f4dfe5fbdacd7809726ff36369d45c70bd84"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_v1/pose_preview.json",
+      "bytes": 28306,
+      "sha256": "2add83cb82f47efa29f8e89c9b861a86561fdb26719a48f4dbc693e1580b1550"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/history/pose_v1/retention.json",
+      "bytes": 961,
+      "sha256": "87b7e662aa50ef1c68fff61dd89ebec518285fec963fd04ee549a8abfb8fa346"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/isolation_receipt.json",
+      "bytes": 23804,
+      "sha256": "5471f55675e0e25982e00e047ff281ff52472b6a9a568f8ecfac2c0dbb1f6199"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/live_swaps_samples.json",
+      "bytes": 843621,
+      "sha256": "f961d21cee37bb894ca5bc965d9c865057703d1500f9ccb2979d69e12d6228cc"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/magician_format.json",
+      "bytes": 592,
+      "sha256": "e1cba85a97ff49f857f78a964ff13421c1e267ff485f9a488fc5fc0461092757"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/magician_samples.json",
+      "bytes": 843377,
+      "sha256": "36b58f46ceb3edd899ca67941066cf79c172a4ae6b0c4449d69d9e7fd81e85d1"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/master_audit_guard.json",
+      "bytes": 508,
+      "sha256": "af7870c5163b3ee0d5c6fafcfa831084aacfcd131530dd152fc4a51444fb5857"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/media_roundtrip.json",
+      "bytes": 168836,
+      "sha256": "4f1c818be88fa1cc8f7f319b6b2f291f275b27154809da4cf7da59bac8483a47"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/native_audit_control_tests.log",
+      "bytes": 106,
+      "sha256": "0e67baae0de52affce7b335421aa14d723cc13b5bc9cc9e0c990d0f0dd9f3eb0"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/native_capture.log",
+      "bytes": 1535,
+      "sha256": "d5adb3edb64242d1efd3746f5e65993c17774b6dc4037fc41374295196b421e5"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/native_capture_complete.json",
+      "bytes": 27594,
+      "sha256": "734a1f1ae59c15d73269d7552af96a3158753eaf1c88486689e5d7595b9ace17"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/native_capture_receipt.json",
+      "bytes": 6780,
+      "sha256": "6fa5bf2560d5385d4b8e2688ed7a1cf38de54aa740481d0e17b93c8295a15ed7"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/native_check.log",
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/native_check_receipt.json",
+      "bytes": 6663,
+      "sha256": "0988632af7e8d054be19b59185fa391a825e8a632f76bce37eab72862326d69f"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/native_geometry_audit.json",
+      "bytes": 177586,
+      "sha256": "95347ef560cc7b7f25e158cf0526185236ed7b6d693e7fdbd8a1e2e14f965c97"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/native_import.log",
+      "bytes": 3930,
+      "sha256": "c33c8e2d392de899446b6dc8ff3eefeac0a07952f5ad3dc815605ae09e53693a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/native_import_receipt.json",
+      "bytes": 6629,
+      "sha256": "7d5296127b7f3aa01a937b4a71f77a92e189461bd6b0dfb9b67148f95ad0f86b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/native_pose.log",
+      "bytes": 199,
+      "sha256": "5c35cab7466d62cea2e5130be821654d142da29d953aa6db19ccbc6a2bb0efb5"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/native_pose_receipt.json",
+      "bytes": 6782,
+      "sha256": "fe8434f5d68efe5cf896fb5e55b608f51d4921b52e26919b2e56c5de9f105ce1"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/native_swap_tests.json",
+      "bytes": 62289,
+      "sha256": "a6fa49c9c5ae2d70451dd7b24e4009bc7bcc834e7729c9a4a7121f885314d65b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/native_verify.log",
+      "bytes": 1067,
+      "sha256": "bec392905c267b42c3813e98f30d8b495ea90ff64eb11afc2e2d8252e2c31d81"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/native_verify_receipt.json",
+      "bytes": 5567,
+      "sha256": "3e1db321f0a71c5c534f5c9cd4d7c94cbb5df34e0a054bc3a6a1e1db68e030bf"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/pose_geometry.json",
+      "bytes": 3222,
+      "sha256": "72f80e9550ae4435c241ae525dd09275d46989e20c29b4fdb2f96dab031f2090"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/pose_preview.json",
+      "bytes": 28814,
+      "sha256": "44ea1d61a1a738222d248c707711e65484293244bdcf53162a5119610262485e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/project_ci.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/project_ci.log",
+      "bytes": 470795,
+      "sha256": "4bd7ccdfb8202413f68b93cd71efc7f5755046bf1204e7e924b2a7f1753d90a2"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/project_ci_checkpoint.json",
+      "bytes": 718,
+      "sha256": "977f2a23172f208e52f22b27142e5a2637167d7a4485faca872258429db6580b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/project_ci_receipt.json",
+      "bytes": 744,
+      "sha256": "9b0721ccac6d80a7adc65e113bc8ed8b5e0b36c1db23efec28fd9a21bdcb7ebf"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/reference_copy.log",
+      "bytes": 26,
+      "sha256": "7f310690e863b391aed7752a4ad4622f0d24e88fa33436b2f2272f0bae02c83b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/result_summary.json",
+      "bytes": 13915,
+      "sha256": "e4519134a63b90967248cd128beb992b01e392c05395b1d01e311388e43e9c1c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/evidence/swap_pixel_audit.json",
+      "bytes": 46675,
+      "sha256": "762a24488d79c2b66aa0b4d09a98ce34a3f57b24a48b3b0e05d21922561e0542"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/fin_view.gd",
+      "bytes": 1913,
+      "sha256": "35df20ec05a8be3a6c77fc25c4b1fb3ebf9187f5a430a9f9bcd3389b6a5b01d2"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/fin_view.gdshader",
+      "bytes": 2009,
+      "sha256": "4da320f206c8a23c672fc912b70213319c24aa657e09742328e322c2e2dbd161"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/anatomy_arm_far.json",
+      "bytes": 39285,
+      "sha256": "c01ddca8e9439657b9901accf4a0815717cdcc1f0160414ce50ab2d5033807fa"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/anatomy_arm_near.json",
+      "bytes": 40448,
+      "sha256": "8609628f6711bc1a1ac0acd39793cae85213a8180748a003c1b78abbf3c79eca"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/anatomy_fin_broad.json",
+      "bytes": 672,
+      "sha256": "ef7d92aaf2cd4efdb1e89f167757c940257dd9d7d731f0894779191cce0f9a29"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/anatomy_fin_cup.json",
+      "bytes": 672,
+      "sha256": "ef7d92aaf2cd4efdb1e89f167757c940257dd9d7d731f0894779191cce0f9a29"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/anatomy_fin_edge.json",
+      "bytes": 672,
+      "sha256": "ef7d92aaf2cd4efdb1e89f167757c940257dd9d7d731f0894779191cce0f9a29"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/anatomy_head_hair.json",
+      "bytes": 211651,
+      "sha256": "3854e2c16180600e8599269e0a9c22ad1caf2effa7f581f6d6eeaa058132b966"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/anatomy_neck_yoke.json",
+      "bytes": 588279,
+      "sha256": "3b51e81d99220fd2640a82f6345672c05b9ba17243675f301d2d3268251717f6"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/ballet_body.json",
+      "bytes": 432277,
+      "sha256": "2f80bac0a7271076532019040092742f12968c262f093ae5a74f5b62fe65f2ca"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/ballet_headwear.json",
+      "bytes": 108964,
+      "sha256": "11a7821f6f1d026375102ed341efc3856ca9296ed38839900cdc094ad2b415a4"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/ballet_sleeve_far.json",
+      "bytes": 51319,
+      "sha256": "f1abec172e4da333d6cfd43da2d5867732c21a833711e5d7504634cc6488c27e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/ballet_sleeve_near.json",
+      "bytes": 45157,
+      "sha256": "66f06cb13670781cc9819e1b145600276221e1b2c7e7347507004cb5ac2c0727"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/ballet_tail.json",
+      "bytes": 406986,
+      "sha256": "e96603a7d28a40709395333e9dfbecbb016d1a6d9a929d9eb312fefc690a65e5"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/magician_body.json",
+      "bytes": 372677,
+      "sha256": "42fd0e439577b846849082b901761e523e7fef7b18fb0e3153701b63f62b421b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/magician_headwear.json",
+      "bytes": 118569,
+      "sha256": "bbf928495e1cad2b6d5f8b4160b024714dc788fcc2665c71c9f8a1629c8ea9fb"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/magician_sleeve_far.json",
+      "bytes": 51042,
+      "sha256": "2d089dcd376a22eb933027000d04faf3afb2a80d7348d0d8df63ae4413f2e9ce"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/magician_sleeve_near.json",
+      "bytes": 46439,
+      "sha256": "77fc0ff2efeaba0490dd3308fc4c87e292d9e31e23d958fda4aa376696943a63"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/magician_tail.json",
+      "bytes": 417501,
+      "sha256": "bd8faef6d8607daeabb2aaf44018b9e7a25aeaac85d5924dd2aa4e2120e21594"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/job_card.json",
+      "bytes": 4102,
+      "sha256": "5a4a9cdd020e1a09d50ede662bdab572df2b046c6b10978401b294ddec2bbc08"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/master_audit_writeback_draft.txt",
+      "bytes": 1381,
+      "sha256": "69134746f4f2129b318e066feb82d8cdb11f56b26b19410e14b19c8d3cba4649"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/masters/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/masters/ballet_native_rgba.mkv",
+      "bytes": 34093880,
+      "sha256": "b2c00b1924eb2fa3cfbc039ae38002369e2eb7eedbce68f31d557385510e61d1"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/masters/ballet_parts.aseprite",
+      "bytes": 1811348,
+      "sha256": "62c26b3a204d547ba50e4d5a97d5384471cc54416be377083746bb01468de2af"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/masters/base_parts.aseprite",
+      "bytes": 858128,
+      "sha256": "096ea37faf300ed73ed9110b1c4209593eab5b9418de8a18166803e14132610d"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/masters/live_swaps_native_rgba.mkv",
+      "bytes": 34827839,
+      "sha256": "7b92aed25574dabd819f64725c9d430864cd5eb47f710d58c0ecd0110ee32d92"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/masters/magician_native_rgba.mkv",
+      "bytes": 35014936,
+      "sha256": "c50e270e5dfcd17692677ec777a84b0b8ae5cf5a059d44c61060260eb17def16"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/masters/magician_parts.aseprite",
+      "bytes": 1836863,
+      "sha256": "433b50b83d56284c20116158c89af7487e423c04a678a92db66e93c3fab050e7"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/masters/neck_parts.aseprite",
+      "bytes": 635047,
+      "sha256": "a61ac74f28b765fe89cc29dc7d9ffcd1ad80bb0d7855601f689c6e268102fee3"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/masters/shared_fin_keys.aseprite",
+      "bytes": 392387,
+      "sha256": "13e249089e402f096304aed463bc847f82c48ee976251a094217c139c61ed9aa"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/project.godot",
+      "bytes": 623,
+      "sha256": "514a8b7af5cd062f87b7806ee6e87717efc6af7a365b46fe59160a5c41e7708b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/references/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/references/ballet_body.png",
+      "bytes": 2009952,
+      "sha256": "8fb71bbcb8ad1e0da00128df75e1bf2825c7f72682c0678e02d397ab6981cc9c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/references/ballet_head.png",
+      "bytes": 1211297,
+      "sha256": "02c3208e30bf1952c6348ec966fd9f968dc300f888894cf4c47a11b06d7a95c1"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/references/ballet_tail.png",
+      "bytes": 1215038,
+      "sha256": "ab7a071ddf2fbb4580fc6b67401e512d8d3398370affda27a224edd37d12c1f2"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/references/magician_body.png",
+      "bytes": 1826139,
+      "sha256": "5d01759d95f7b2a89b8749cc7e4eadbad8a7da2ba0f7f32713221275ddbae70a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/references/magician_head.png",
+      "bytes": 1427917,
+      "sha256": "c55e9659bb5a14f195145b6652917ee04905b57c7cdad0b1f788cb48f8465d7d"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/references/magician_tail.png",
+      "bytes": 1185421,
+      "sha256": "46803069cbbca5297cda3584d95fdedc2ce0a362197c58a33058edc1ce2c253d"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/references/roshan_base.png",
+      "bytes": 50051,
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/references/roshan_swim_front.png",
+      "bytes": 685193,
+      "sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/references/source_manifest.json",
+      "bytes": 7218,
+      "sha256": "70a86006068730359f7c36cf915fb7d0233a21bdb5520c760805c6b2c5552e07"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/review/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/review/ballet.mp4",
+      "bytes": 2485649,
+      "sha256": "511a45d1da53f9113437151ae35991b0aa5d477eb425c22d9e640ef80102a20c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/review/ballet_action.png",
+      "bytes": 231211,
+      "sha256": "4cd88755ccead44d0eafc7fd5acbaac65e4973a1aef2e40c0e1f0aeb33e1bcdf"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/review/fin_transitions.png",
+      "bytes": 794386,
+      "sha256": "9a4aa78120a8837dbd07d0647b1aad2f2a0fcf21bc60509d330093b9727dc3df"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/review/live_swaps.mp4",
+      "bytes": 2613897,
+      "sha256": "d22c89c4a5d2cc5b0c0fc4b25157ce712dcd2bf34b95944b7fcf7a7755894808"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/review/magician.mp4",
+      "bytes": 2657723,
+      "sha256": "a33d690beb2b808f98cb025ba0acc4ded710f913ccbda17bad05bc0a532cd251"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/review/magician_action.png",
+      "bytes": 235704,
+      "sha256": "247086f0e9e868da12256385ff03a27ed312bfc5df70e142425631ce9ebb660e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/review/swap_boundaries.png",
+      "bytes": 500231,
+      "sha256": "9d120e7a2c97974583e083bcaa9d04b570a1d30b654816187bc9667f8ebe805a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/review/two_costumes.png",
+      "bytes": 431423,
+      "sha256": "182c50181082d9a632e3d473db89417df1b3eff0b6f3288ef1be703b496b422a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/rig/action_contract.json",
+      "bytes": 1181,
+      "sha256": "97ba1a4e6d99a94f79c4a166bd757bb3fa716218f9a70d333743645601423a04"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/rig/anatomy.json",
+      "bytes": 5442,
+      "sha256": "bc1c3834564e593a864b3e0d9d7b68b4246cdcb1e6c0ca426d623835b96e3fac"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/rig/cut_spec.json",
+      "bytes": 726608,
+      "sha256": "b442dbd377c854b05d71e1094643a351a60f2801b93d610e7ad2a7d3bd045629"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/rig/fin_broad_nearest_uv.f32",
+      "bytes": 2097152,
+      "sha256": "ea01642ea997053e321d5343ddb3d83ea0c8eb14b0c630e751c801959d13bf27"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/rig/fin_broad_sdf.f32",
+      "bytes": 1048576,
+      "sha256": "0d7a83fc94b1a395dbec084c8d46a7bc2b7683fd48eac21997ec0d886c79dda7"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/rig/fin_cup_nearest_uv.f32",
+      "bytes": 2097152,
+      "sha256": "7f577c4482981ae7081c4a6b3d6de0ea153fca454320faad2d4e5dd4851a354d"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/rig/fin_cup_sdf.f32",
+      "bytes": 1048576,
+      "sha256": "8a9d3bdd33d9520c294828508dc2a285e82381fa345e24054c5af27a27a5c62c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/rig/fin_edge_nearest_uv.f32",
+      "bytes": 2097152,
+      "sha256": "176059ae77e40b9815aad767c8c06d29016c56835602d86375ffcddaa722c455"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/rig/fin_edge_sdf.f32",
+      "bytes": 1048576,
+      "sha256": "e5aac4c9c449d7e75fbfcb69e466a8145458d16a8007628c872547f7c221680b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/rig/registration.json",
+      "bytes": 6778,
+      "sha256": "fb9b43c2412010e29aa3f19af03cbaa38fa18ee512dce106f0e5f5008c98db5c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/rig/rig_binding.json",
+      "bytes": 4709,
+      "sha256": "01ef35d911f6ab14e7711eca947dbc026ac54c2c44c958060c2b97540f432f44"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/rig/skeleton.json",
+      "bytes": 3672,
+      "sha256": "635adfa4aac38dbb4d2119c89808eca229b963e1bfd91813096084b796f5eee3"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/shared_actor.gd",
+      "bytes": 22311,
+      "sha256": "be72e1a075f867285f820c533d67527797b02a7d92bc6b2184ad3e9a9ccc7ac6"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/skins/ballet.json",
+      "bytes": 4208,
+      "sha256": "66ba616a663163d96d2d22aeed5435458b84e20d450d7c10cdff79e5534eb3de"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/skins/catalog.json",
+      "bytes": 438,
+      "sha256": "b96ba6891feafc14b7f636b0ba1f99c046a4b0e2a3bb17c942fae8ce2c9e82c4"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/skins/magician.json",
+      "bytes": 4252,
+      "sha256": "10d1abf0afb38effbe37aed8aaa7a7d86b017a9b284ffdf9b2a934a2106446a8"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/study.gd",
+      "bytes": 14544,
+      "sha256": "a5c7d328b61424ec7b4f5c592b5a364a597b59f767d5d38c7f123a25a45ba007"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/study.tscn",
+      "bytes": 161,
+      "sha256": "ba015c72cad26bc2d7e0db5167cb1fcb9613798eb9359a3a0a35950cade78fae"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/tests/test_native_audit.py",
+      "bytes": 2780,
+      "sha256": "6f2093a821b6cce8799cf39d54ebed36c21e51e254824183834820817fda4eb9"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/arm_far.png",
+      "bytes": 36643,
+      "sha256": "4d91852743a8ad27b90fdebc66a7df9e360780deb4ae1eb508bf667fe53d5bac"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/arm_near.png",
+      "bytes": 39004,
+      "sha256": "47c68cbb6d490bed5cfefb644f69ae3a69613d17f353b2f3654eafb4281e584e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/fin_broad.png",
+      "bytes": 116250,
+      "sha256": "5db21dcf249ebca8a5597b8119fdb546836ab09ac5ec615e62b9022a932c188e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/fin_broad_registered.png",
+      "bytes": 119654,
+      "sha256": "74717126e1093ce8ab2c7fd5c623f025ce8e713d016ea54968674f9a2d7d0982"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/fin_cup.png",
+      "bytes": 102894,
+      "sha256": "c39b1846d2ee35cc87637613b28fa0ca37a4c617ef4502de85f45a57c8c8e023"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/fin_cup_registered.png",
+      "bytes": 106282,
+      "sha256": "d30973153d22af14087313edf8d710a91baf82b46aa3ceeddee34763876c07a8"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/fin_edge.png",
+      "bytes": 38517,
+      "sha256": "702db2c2d292869677d622c0ebe5be649697138a9b53fb754e5afbc23ece48f9"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/fin_edge_registered.png",
+      "bytes": 41499,
+      "sha256": "8a56ca2be8f169528562ccf930c615ea7ddc4faccd3f38b9b9ab4367bc931897"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/head_hair.png",
+      "bytes": 268898,
+      "sha256": "4a9a5d5d32e7f68f53bb6c7288798e117244f8f3608c4b05f55bb6794a0458d1"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/neck_yoke.png",
+      "bytes": 439431,
+      "sha256": "c6fed5c3e613fd375353f9d52fde00e16db1c48857bda9c572d88713fc9b182a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/garments/ballet_body.png",
+      "bytes": 585998,
+      "sha256": "b3b848d468e1b36bc5192bc46e0d4a8717248355064d652bbc844ee003686720"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/garments/ballet_headwear.png",
+      "bytes": 179631,
+      "sha256": "423f00e9689f0fd81e8b07d412cb9637974d3f92b0a42ee4ba5d053ab991ab2b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/garments/ballet_sleeve_far.png",
+      "bytes": 75911,
+      "sha256": "7c963490a38e7edd4a1a0aadb4b755ae4ff26bc8a055b53d74bed92baa1d888b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/garments/ballet_sleeve_near.png",
+      "bytes": 70868,
+      "sha256": "65acf8a3754bd62f281927b5d3a08b0e64bafd76f6fb2cac033076c3cdc98f39"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/garments/ballet_tail.png",
+      "bytes": 482570,
+      "sha256": "5465b0485a8e5ba8495a7968e2ae9d95dc59b8da6e96d968f547ce50b7cb1fde"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/garments/magician_body.png",
+      "bytes": 529577,
+      "sha256": "b794c93cdd17e37b794b8c04ceb2f4ead99beb942dd813b97fe818b28a4ded4a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/garments/magician_headwear.png",
+      "bytes": 199142,
+      "sha256": "db79c5f11aff777dd8547b7062d635189b58779b8dfbfe756271d0d3c20d65bf"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/garments/magician_sleeve_far.png",
+      "bytes": 80030,
+      "sha256": "c714026498c4ff74924c7697e68c10047d10b99cb5ec7293bb6c81b6919fac69"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/garments/magician_sleeve_near.png",
+      "bytes": 72381,
+      "sha256": "27ba501fbd17026d015303e0d07b1fada0cc5e95cd3fa00ebf8aaf884b883a41"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/garments/magician_tail.png",
+      "bytes": 506376,
+      "sha256": "1a2777db291f9a23f7c77825b8f2d9f9b80f873683815abaf352b8409542ad75"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/tools/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/tools/audit_native_geometry.py",
+      "bytes": 9409,
+      "sha256": "061e3f62c0e285aecc9eb96c67e324fe06a0e6a4743eff6b25b9b91da0393637"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/tools/audit_swap_pixels.py",
+      "bytes": 2992,
+      "sha256": "03b6c0fbbb49177aedb81cf83db75d5944f0d4c848067ce9fa8a591854e100ca"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/tools/build_assets.py",
+      "bytes": 20610,
+      "sha256": "be33dda16adee32302c4dfd179b0b1865fe088bd18fe4f4f33d96ce7fbe2e04b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/tools/build_reference_packet.py",
+      "bytes": 2991,
+      "sha256": "bb90f834d7b6a44a54b84721c8a545fab52428993ed8c97f04bd02825db549f4"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/tools/convert_diagnostic_video.py",
+      "bytes": 3168,
+      "sha256": "f43e4c0927a1e075d9deb8dcc2204fce1355595427be7a779ba6f9b8e2f0fa65"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/tools/isolate_parts.lua",
+      "bytes": 1405,
+      "sha256": "af495ab73846ee3258c1b95d9c74d3194e6d7ac575a7fdfb510605c6a1497512"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/tools/make_manifest.py",
+      "bytes": 4141,
+      "sha256": "998e4acc27ce768b43d4e65a0f8daa3e4447875809372da0035f3d1647005c39"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/tools/make_review.py",
+      "bytes": 10615,
+      "sha256": "90d10c157aab8eb1f79556703d0809231a11f4acc51a368b2a2e42a5e8a14b71"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/tools/pack_diagnostic.py",
+      "bytes": 3247,
+      "sha256": "83b56301fb76a9b73f6584709626726dc5ae26638c165783c9d65033055fa988"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/tools/prepare_fin_views.py",
+      "bytes": 6283,
+      "sha256": "e9c33595b30442145f921effc3099968617b5ec30cd512a3ccfe4eb0808b0df4"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/tools/register_fin.lua",
+      "bytes": 2136,
+      "sha256": "f57cebcce848dc7d691c12f30e0c3a8fb7bf826dc15d5f5e547fb27795b2337b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/tools/register_licenses.py",
+      "bytes": 3527,
+      "sha256": "76579f43d54d57e906c52e02f66f2b92b379003583adb77c0479976429e188de"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/tools/rgba_delta_video.py",
+      "bytes": 2490,
+      "sha256": "20711c2692200b6f28b4d95588fa47e1267a02dafcaf3b2908bd8bbaa64a8c40"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/tools/run_native.py",
+      "bytes": 4978,
+      "sha256": "5ad3cda4701e85d106d2e98bb32c2882f9a34f740389e9904f8d99e58a5c9e3e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/tools/run_project_gates.py",
+      "bytes": 3494,
+      "sha256": "63532b773e4d3bbaddcd0ac12e02e12a59aaf7ba4aa247987efba050d0468736"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/tools/verify_publication.py",
+      "bytes": 4015,
+      "sha256": "a5259c4fdf3c843aaa4669c883828ba688fcfcd51299979f801f7baceeee69f9"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/tools/write_results.py",
+      "bytes": 13517,
+      "sha256": "a157b250ff42659520ad802afe750341f9fb1e622af1416a775071fc21138ade"
+    },
+    {
+      "path": "design/animation/skin_binding/attachment_mesh.schema.json",
+      "bytes": 1768,
+      "sha256": "0b0e327afda0803a84ac11142d6937309e06a5df5ffd0452c2f8875c886c6558"
+    },
+    {
+      "path": "design/animation/skin_binding/rig_binding.schema.json",
+      "bytes": 4312,
+      "sha256": "c747226d9d380f138589a8158f4a19a5a2edaaa9219adc72b886fb543323675e"
+    },
+    {
+      "path": "design/animation/skin_binding/skin.recipe.template.json",
+      "bytes": 908,
+      "sha256": "49044647f0558285abf7ffc01eda31d238325dd63df99731f20db5b584abc832"
+    },
+    {
+      "path": "design/animation/skin_binding/skin_package.schema.json",
+      "bytes": 6991,
+      "sha256": "9712a72883aaeea099f5affd1bd4b10dcb7ad1f1408bda0c7c9f4ed06d5dab0a"
+    },
+    {
+      "path": "design/audit_impacts/shared-roshan-skin-swim-20261101.json",
+      "bytes": 60975,
+      "sha256": "1da9cc8a7a6100f3bf588de53aa311217318586c8158bbb3b882cda5abf6765c"
+    },
+    {
+      "path": "tools/audit_godot_baseline.py",
+      "bytes": 5766,
+      "sha256": "770fc634d71f1576938f4735d24169b9090052fb9cf09014b2025af678704a66"
+    },
+    {
+      "path": "tools/godot_baseline.json",
+      "bytes": 1392,
+      "sha256": "7fe925d2d12927d152a27f3a614ff62c9b0e6fe02991396a6837e8f5c06d0f5b"
+    },
+    {
+      "path": "tools/prepare_costume_skin.py",
+      "bytes": 4463,
+      "sha256": "2de2488f3b3c3fe7588717069463ac728cbdcbb86c6352f6bf0443bc4cc46dff"
+    },
+    {
+      "path": "tools/resolve_godot.py",
+      "bytes": 2490,
+      "sha256": "feacf82f033b45b1e259103cb6a30bcd803bd56231b2673026bb38ce734b2d8f"
+    },
+    {
+      "path": "tools/tests/test_costume_skin_binding.py",
+      "bytes": 10493,
+      "sha256": "143aa62cdc6a50d7667a53818b9fb226069e9ac0ba546d42db84704067bb726f"
+    },
+    {
+      "path": "tools/validate_costume_skin.py",
+      "bytes": 12923,
+      "sha256": "8059ca17359d78233d3f83b977328e8523efa4fbcbce6e9005d278f62677ecc1"
+    }
+  ],
+  "payload_sha256": "bffad7a9810121e533b0aa2264601f7d94b8fd14407a4c79e8adee1b177acc1c",
+  "payload_hash_rule": "Sorted repository-relative path NUL decimal byte count NUL lowercase SHA-256 LF; manifest excluded from its own payload hash.",
+  "byte_scope": "Exact staged Git blob bytes. Packet .gitattributes preserves raw source/art/evidence; normal root text EOL normalization is included.",
+  "claim": "SOURCE_REVIEW_PACKET; one common actor and two data-only skins. See exact evidence/result_summary.json.",
+  "generation_ready": "NOT_APPLICABLE: no external generator jobs commissioned by this packet",
+  "delivery_accepted": false,
+  "production_accepted": false,
+  "master_audit_writeback_authorized": false,
+  "master_audit_changed": false,
+  "acceptance_limits": "Machine checks and a source archive do not accept identity/style/natural movement, fin interpolation, actual device, child/owner or production integration. Historical failed stages remain rejected."
+}

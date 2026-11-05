@@ -1,0 +1,49 @@
+{
+  "id": "collective-multiinstrumentalists-20261101",
+  "scope": "Owner reframes the ensemble as a context-led collective of multi-instrumentalists, primarily within related instrument families, with shifting composing/performing roles. Add a distinct traditional/world percussionist and establish lo-fi beats as the current underlying rhythmic theme, replacing a metal-kit default. Preserve DKC whole-game architecture, hook-first review workflow, UVI family plus explicit RetroPlug/LSDJ exception and Ember King chiptune. Design-only; no new notes, audio, installs or runtime changes.",
+  "baseline": "16952c663667eafbcfae88f0db759933ea49bc00",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SND-04",
+    "DL-SND-09",
+    "DL-SND-12",
+    "DL-SND-17",
+    "DL-ASSET-04"
+  ],
+  "findings": [
+    "MA-AUDIO-001"
+  ],
+  "files": [
+    "design/music/ENSEMBLE_DESIGN_GUIDE_2026-11-01.md",
+    "design/music/ENSEMBLE_ROSTER_2026-11-01.json",
+    "design/music/SONIC_IDENTITY_PROPOSAL_2026-11-01.md",
+    "design/music/SONIC_PALETTE_MAP_2026-11-01.json",
+    "design/music/collective_owner_direction_20261101.json",
+    "MUSIC_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/reference/owner_decisions.json",
+    "design/reference/OWNER_DECISIONS.md",
+    "audit/cycles/collective-musicians-20261101/owner_answers.json"
+  ],
+  "validation": [
+    {
+      "command": "Collective, role-shift, percussion/library and historical-reference review",
+      "result": "PASS",
+      "evidence": "Ten unique core members and five guests, each with >=2 related instrument choices and >=3 role choices. Valid partner IDs and all eight family seating graphs; traditional percussion present as a selectable member. Every declared previously rendered program has native evidence in the existing 16-program map. Six producer lanes, with current lo-fi foundation first; Ember King chiptune and explicit RetroPlug exception preserved. ECM, TTM Djembe Academy, artist catalogues, Stones Throw and UVI catalogue verify newly named facts; exact new kit choices and listening remain pending."
+    },
+    {
+      "command": "Document authority, development coverage and append-only decision register",
+      "result": "PASS",
+      "evidence": "755 document inventory/ledger, ACTIVE 74, RECORDS 77; 77 owner decisions with prior entries unchanged against 16952c663667eafbcfae88f0db759933ea49bc00; development auto base 93166ab1828ab9857227d038f8833b92dfb2f9f1 ALL OK. build/sonic_identity_20261101/collective_{authority,coverage,decisions}.log. No executable, audio, runtime or protected-source changes."
+    },
+    {
+      "command": "Owner review-copy and scoped editorial review",
+      "result": "PASS",
+      "evidence": "Eleven music/design documents copied byte-identically to each owner review/tool folder with SHA256 receipts. Twelve scoped project files including impact; fixed-chair descriptions replaced with instrument-family capabilities and role rotation, with owner concepts distinguished from proposed detailed realizations. Diff check clean."
+    }
+  ],
+  "acceptance_gaps": "Owner review of proposed member capabilities, contextual references, exact world-kit selections and cue casts. No composition/audition or runtime acceptance supplied; human, voice/mono/phone/child, MA-AUDIO-001 and demo/release scopes unchanged."
+}

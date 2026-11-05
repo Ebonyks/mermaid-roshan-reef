@@ -1,0 +1,593 @@
+{
+  "schema": "dkc-mastering-receipt/1",
+  "date": "2026-11-03",
+  "status": "PRIVATE_MASTERS_TECHNICALLY_VERIFIED_LISTENING_AND_APPROVAL_OPEN",
+  "owner_review_root": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\11\\03\\01a19fa8-22d6-78b0-8b9e-d9af7c766da2\\six-track-mastering\\review",
+  "source_commit": "d2d7d4f79d3057c1def36fd07cd8ed92f183248b",
+  "construction_source_master_hashes_preserved": 6,
+  "construction_source_stem_hashes_preserved": 80,
+  "technical_audit_rounds": 8,
+  "complete_subjective_audits": 0,
+  "processing_renders": 30,
+  "distinct_processing_audio_hashes": 25,
+  "selected_round": 6,
+  "tracks": [
+    {
+      "id": "DKC-02",
+      "title": "Simian Segue",
+      "selected_processing_round": 6,
+      "master": {
+        "file": "01-Simian-Segue-master.flac",
+        "sha256": "d8f37d34bc220c20e2bbfc57342ad14b404b5d4ca0dae1d9780bff0da8322b65",
+        "bytes": 26561447
+      },
+      "listening": {
+        "mp3": {
+          "file": "01-Simian-Segue-master.mp3",
+          "sha256": "8c3b1cd09950e0b71be4269684aee2edbc53df1c3193e9e9e3d472bb2831812b",
+          "bytes": 3845997,
+          "measured_integrated_lufs": -20.26,
+          "measured_true_peak_dbtp": -4.26,
+          "encoder_level_trim_db": 0
+        },
+        "ogg": {
+          "file": "01-Simian-Segue-master.ogg",
+          "sha256": "d7ef8a98a8c0cb2192c72570ce7b7f3ad29a0de760c446a2cd67c2eaf205695d",
+          "bytes": 1678726,
+          "measured_integrated_lufs": -20.04,
+          "measured_true_peak_dbtp": -4.28,
+          "encoder_level_trim_db": 0
+        }
+      },
+      "compare": {
+        "file": "01-Simian-Segue-master-compare.mp3",
+        "sha256": "443e0851c0e977fe3b19cc3065620a9debef25f0bffa482a156da0070bd2a2f4",
+        "timeline": [
+          {
+            "at_s": 0,
+            "label": "construction",
+            "song_start_s": 5,
+            "length_s": 15
+          },
+          {
+            "at_s": 15.5,
+            "label": "mastering",
+            "song_start_s": 5,
+            "length_s": 15
+          },
+          {
+            "at_s": 31.0,
+            "label": "construction",
+            "song_start_s": 48,
+            "length_s": 15
+          },
+          {
+            "at_s": 46.5,
+            "label": "mastering",
+            "song_start_s": 48,
+            "length_s": 15
+          }
+        ],
+        "method": "Construction then mastering for two sections, common nominal whole-song -23 LUFS reference; no original game recording."
+      },
+      "translation_proxies": {
+        "mono": "01-Simian-Segue-master-mono.flac",
+        "quiet_minus12db": "01-Simian-Segue-master-quiet.flac",
+        "band_limited_mono": "01-Simian-Segue-master-speaker-proxy.flac",
+        "scope": "Diagnostic copies; not physical-device or human-listening acceptance"
+      },
+      "codec_checks": [
+        {
+          "format": "mp3",
+          "codec": "mp3",
+          "sample_rate": "48000",
+          "channels": 2,
+          "decoded_finite": true,
+          "decoded_peak": 0.6109210252761841
+        },
+        {
+          "format": "ogg",
+          "codec": "vorbis",
+          "sample_rate": "48000",
+          "channels": 2,
+          "decoded_finite": true,
+          "decoded_peak": 0.6099561452865601
+        }
+      ],
+      "native_mix_project": "01-Simian-Segue-master.rpp",
+      "source_instrument_parts": 12,
+      "input_construction_sha256": "a065a7bd36f64887c8bdf3054b5eba9b9ac7f74ece31e62ca192eedfc1ad7182",
+      "duration_s": 160.2,
+      "integrated_lufs": -20.0,
+      "true_peak_dbtp": -4.01,
+      "loudness_range_lu": 4.0,
+      "approval": "PENDING_COMPLETE_LISTENING_AND_OWNER_REVIEW"
+    },
+    {
+      "id": "DKC-03",
+      "title": "DK Island Swing",
+      "selected_processing_round": 6,
+      "master": {
+        "file": "02-DK-Island-Swing-master.flac",
+        "sha256": "5111081b6762f5ce047ab8bfe01ced717239144ff5974fcb190cff046a8000a9",
+        "bytes": 22141234
+      },
+      "listening": {
+        "mp3": {
+          "file": "02-DK-Island-Swing-master.mp3",
+          "sha256": "7bb14619bb952e470f0daa7d0da25b0b516518b79b81028a1b962d9f3fad760d",
+          "bytes": 3831021,
+          "measured_integrated_lufs": -20.26,
+          "measured_true_peak_dbtp": -3.7,
+          "encoder_level_trim_db": 0
+        },
+        "ogg": {
+          "file": "02-DK-Island-Swing-master.ogg",
+          "sha256": "f8e582308f2a2a16ff07ed9b2be8cf919be8bf908e969f9c2d03004150007c60",
+          "bytes": 1558100,
+          "measured_integrated_lufs": -20.03,
+          "measured_true_peak_dbtp": -3.31,
+          "encoder_level_trim_db": 0
+        }
+      },
+      "compare": {
+        "file": "02-DK-Island-Swing-master-compare.mp3",
+        "sha256": "4b518638be41f6c3d5c461f12ae0808e06418fc383076af35af00e648534b927",
+        "timeline": [
+          {
+            "at_s": 0,
+            "label": "construction",
+            "song_start_s": 60,
+            "length_s": 15
+          },
+          {
+            "at_s": 15.5,
+            "label": "mastering",
+            "song_start_s": 60,
+            "length_s": 15
+          },
+          {
+            "at_s": 31.0,
+            "label": "construction",
+            "song_start_s": 96,
+            "length_s": 15
+          },
+          {
+            "at_s": 46.5,
+            "label": "mastering",
+            "song_start_s": 96,
+            "length_s": 15
+          }
+        ],
+        "method": "Construction then mastering for two sections, common nominal whole-song -23 LUFS reference; no original game recording."
+      },
+      "translation_proxies": {
+        "mono": "02-DK-Island-Swing-master-mono.flac",
+        "quiet_minus12db": "02-DK-Island-Swing-master-quiet.flac",
+        "band_limited_mono": "02-DK-Island-Swing-master-speaker-proxy.flac",
+        "scope": "Diagnostic copies; not physical-device or human-listening acceptance"
+      },
+      "codec_checks": [
+        {
+          "format": "mp3",
+          "codec": "mp3",
+          "sample_rate": "48000",
+          "channels": 2,
+          "decoded_finite": true,
+          "decoded_peak": 0.6525434255599976
+        },
+        {
+          "format": "ogg",
+          "codec": "vorbis",
+          "sample_rate": "48000",
+          "channels": 2,
+          "decoded_finite": true,
+          "decoded_peak": 0.6835145950317383
+        }
+      ],
+      "native_mix_project": "02-DK-Island-Swing-master.rpp",
+      "source_instrument_parts": 14,
+      "input_construction_sha256": "2287864b99d9678af0a2edf0120a537bb731241caea71a3fa3c9851ca617a82f",
+      "duration_s": 159.57135416666668,
+      "integrated_lufs": -20.0,
+      "true_peak_dbtp": -3.43,
+      "loudness_range_lu": 17.8,
+      "approval": "PENDING_COMPLETE_LISTENING_AND_OWNER_REVIEW"
+    },
+    {
+      "id": "DKC-07",
+      "title": "Aquatic Ambiance",
+      "selected_processing_round": 6,
+      "master": {
+        "file": "03-Aquatic-Ambiance-master.flac",
+        "sha256": "b45bd52fb26a9b8eca8cddb1eec00a1f1f81de1da822fd0e1f72e2cfb2b62490",
+        "bytes": 31984070
+      },
+      "listening": {
+        "mp3": {
+          "file": "03-Aquatic-Ambiance-master.mp3",
+          "sha256": "d4192192170cbf856b08b8f370f9273fd975e7e7aafb4af4a63f71d69059ad83",
+          "bytes": 4836141,
+          "measured_integrated_lufs": -20.26,
+          "measured_true_peak_dbtp": -4.2,
+          "encoder_level_trim_db": 0
+        },
+        "ogg": {
+          "file": "03-Aquatic-Ambiance-master.ogg",
+          "sha256": "9eff5a3b2dffa71b965d0457e3f01a6ad36a73897f54cdec2e784a0838d37928",
+          "bytes": 2115072,
+          "measured_integrated_lufs": -20.01,
+          "measured_true_peak_dbtp": -3.94,
+          "encoder_level_trim_db": 0
+        }
+      },
+      "compare": {
+        "file": "03-Aquatic-Ambiance-master-compare.mp3",
+        "sha256": "88b578621936e84da8bfbf337d9e6210c8101ec1d9bbae26fbc93cc219fc6845",
+        "timeline": [
+          {
+            "at_s": 0,
+            "label": "construction",
+            "song_start_s": 46,
+            "length_s": 15
+          },
+          {
+            "at_s": 15.5,
+            "label": "mastering",
+            "song_start_s": 46,
+            "length_s": 15
+          },
+          {
+            "at_s": 31.0,
+            "label": "construction",
+            "song_start_s": 132,
+            "length_s": 15
+          },
+          {
+            "at_s": 46.5,
+            "label": "mastering",
+            "song_start_s": 132,
+            "length_s": 15
+          }
+        ],
+        "method": "Construction then mastering for two sections, common nominal whole-song -23 LUFS reference; no original game recording."
+      },
+      "translation_proxies": {
+        "mono": "03-Aquatic-Ambiance-master-mono.flac",
+        "quiet_minus12db": "03-Aquatic-Ambiance-master-quiet.flac",
+        "band_limited_mono": "03-Aquatic-Ambiance-master-speaker-proxy.flac",
+        "scope": "Diagnostic copies; not physical-device or human-listening acceptance"
+      },
+      "codec_checks": [
+        {
+          "format": "mp3",
+          "codec": "mp3",
+          "sample_rate": "48000",
+          "channels": 2,
+          "decoded_finite": true,
+          "decoded_peak": 0.6158260107040405
+        },
+        {
+          "format": "ogg",
+          "codec": "vorbis",
+          "sample_rate": "48000",
+          "channels": 2,
+          "decoded_finite": true,
+          "decoded_peak": 0.6348766088485718
+        }
+      ],
+      "native_mix_project": "03-Aquatic-Ambiance-master.rpp",
+      "source_instrument_parts": 17,
+      "input_construction_sha256": "6efbf0f62fa4b9e10c199ed56c992640fcef8327212d5d76bdc67ae079d5dc12",
+      "duration_s": 201.45,
+      "integrated_lufs": -20.0,
+      "true_peak_dbtp": -3.94,
+      "loudness_range_lu": 15.4,
+      "approval": "PENDING_COMPLETE_LISTENING_AND_OWNER_REVIEW"
+    },
+    {
+      "id": "DKC-19",
+      "title": "Fear Factory",
+      "selected_processing_round": 6,
+      "master": {
+        "file": "04-Fear-Factory-master.flac",
+        "sha256": "829223d349bfc9fc000836dc8f782f98837ef06d35609d2491027a347ba1c29d",
+        "bytes": 35084725
+      },
+      "listening": {
+        "mp3": {
+          "file": "04-Fear-Factory-master.mp3",
+          "sha256": "5a3264327547669d9592d387dda38163ec4dba57fdbf6b2887b3ae21ed6d26e0",
+          "bytes": 5745069,
+          "measured_integrated_lufs": -20.27,
+          "measured_true_peak_dbtp": -6.31,
+          "encoder_level_trim_db": 0
+        },
+        "ogg": {
+          "file": "04-Fear-Factory-master.ogg",
+          "sha256": "5c4d7468723822ab74a33777eee3c5fee5495edb899e0c2d7ba52f1bd5c68d4c",
+          "bytes": 2253200,
+          "measured_integrated_lufs": -20.03,
+          "measured_true_peak_dbtp": -6.09,
+          "encoder_level_trim_db": 0
+        }
+      },
+      "compare": {
+        "file": "04-Fear-Factory-master-compare.mp3",
+        "sha256": "1da9acc55716a6e74d7fc93273dc41417649ca1c3e6254838c2fd6eaa6cf0665",
+        "timeline": [
+          {
+            "at_s": 0,
+            "label": "construction",
+            "song_start_s": 10,
+            "length_s": 15
+          },
+          {
+            "at_s": 15.5,
+            "label": "mastering",
+            "song_start_s": 10,
+            "length_s": 15
+          },
+          {
+            "at_s": 31.0,
+            "label": "construction",
+            "song_start_s": 65,
+            "length_s": 15
+          },
+          {
+            "at_s": 46.5,
+            "label": "mastering",
+            "song_start_s": 65,
+            "length_s": 15
+          }
+        ],
+        "method": "Construction then mastering for two sections, common nominal whole-song -23 LUFS reference; no original game recording."
+      },
+      "translation_proxies": {
+        "mono": "04-Fear-Factory-master-mono.flac",
+        "quiet_minus12db": "04-Fear-Factory-master-quiet.flac",
+        "band_limited_mono": "04-Fear-Factory-master-speaker-proxy.flac",
+        "scope": "Diagnostic copies; not physical-device or human-listening acceptance"
+      },
+      "codec_checks": [
+        {
+          "format": "mp3",
+          "codec": "mp3",
+          "sample_rate": "48000",
+          "channels": 2,
+          "decoded_finite": true,
+          "decoded_peak": 0.48132526874542236
+        },
+        {
+          "format": "ogg",
+          "codec": "vorbis",
+          "sample_rate": "48000",
+          "channels": 2,
+          "decoded_finite": true,
+          "decoded_peak": 0.490465372800827
+        }
+      ],
+      "native_mix_project": "04-Fear-Factory-master.rpp",
+      "source_instrument_parts": 17,
+      "input_construction_sha256": "3acddd6bffb52714174b4cd93e62604209822fd7eae58f64712f88da4fcd0922",
+      "duration_s": 239.30745833333333,
+      "integrated_lufs": -20.0,
+      "true_peak_dbtp": -6.17,
+      "loudness_range_lu": 3.5,
+      "approval": "PENDING_COMPLETE_LISTENING_AND_OWNER_REVIEW"
+    },
+    {
+      "id": "DKC-11",
+      "title": "Life in the Mines",
+      "selected_processing_round": 6,
+      "master": {
+        "file": "05-Life-in-the-Mines-master.flac",
+        "sha256": "be0fcd739b24279086f74df08c048a46b062594798d6ec7dde337781a08fa7bb",
+        "bytes": 39609895
+      },
+      "listening": {
+        "mp3": {
+          "file": "05-Life-in-the-Mines-master.mp3",
+          "sha256": "fcdacbc0f5f23b1703e4936127d1119349f83a4abdb4b444dd49ed39a24fa5d2",
+          "bytes": 6318765,
+          "measured_integrated_lufs": -20.26,
+          "measured_true_peak_dbtp": -5.2,
+          "encoder_level_trim_db": 0
+        },
+        "ogg": {
+          "file": "05-Life-in-the-Mines-master.ogg",
+          "sha256": "7d9c36b9a60e3e371a6b4f6309e821d6bbacca082e38a5df9e701fa872e04561",
+          "bytes": 2727429,
+          "measured_integrated_lufs": -20.02,
+          "measured_true_peak_dbtp": -5.0,
+          "encoder_level_trim_db": 0
+        }
+      },
+      "compare": {
+        "file": "05-Life-in-the-Mines-master-compare.mp3",
+        "sha256": "c1f8abe2fafe2ed3cdbb2b161f1e943ef1057a1fca7ec8bd208ca73b251208e7",
+        "timeline": [
+          {
+            "at_s": 0,
+            "label": "construction",
+            "song_start_s": 8,
+            "length_s": 15
+          },
+          {
+            "at_s": 15.5,
+            "label": "mastering",
+            "song_start_s": 8,
+            "length_s": 15
+          },
+          {
+            "at_s": 31.0,
+            "label": "construction",
+            "song_start_s": 70,
+            "length_s": 15
+          },
+          {
+            "at_s": 46.5,
+            "label": "mastering",
+            "song_start_s": 70,
+            "length_s": 15
+          }
+        ],
+        "method": "Construction then mastering for two sections, common nominal whole-song -23 LUFS reference; no original game recording."
+      },
+      "translation_proxies": {
+        "mono": "05-Life-in-the-Mines-master-mono.flac",
+        "quiet_minus12db": "05-Life-in-the-Mines-master-quiet.flac",
+        "band_limited_mono": "05-Life-in-the-Mines-master-speaker-proxy.flac",
+        "scope": "Diagnostic copies; not physical-device or human-listening acceptance"
+      },
+      "codec_checks": [
+        {
+          "format": "mp3",
+          "codec": "mp3",
+          "sample_rate": "48000",
+          "channels": 2,
+          "decoded_finite": true,
+          "decoded_peak": 0.5484510660171509
+        },
+        {
+          "format": "ogg",
+          "codec": "vorbis",
+          "sample_rate": "48000",
+          "channels": 2,
+          "decoded_finite": true,
+          "decoded_peak": 0.5620374083518982
+        }
+      ],
+      "native_mix_project": "05-Life-in-the-Mines-master.rpp",
+      "source_instrument_parts": 12,
+      "input_construction_sha256": "9a3972791944e80da7f4650543e6b45d52010498ee389c5c824617310728a16e",
+      "duration_s": 263.2082291666667,
+      "integrated_lufs": -20.0,
+      "true_peak_dbtp": -4.92,
+      "loudness_range_lu": 12.3,
+      "approval": "PENDING_COMPLETE_LISTENING_AND_OWNER_REVIEW"
+    },
+    {
+      "id": "DKC-15",
+      "title": "Funky's Fugue",
+      "selected_processing_round": 6,
+      "master": {
+        "file": "06-Funkys-Fugue-master.flac",
+        "sha256": "4bf9061aaab2ad6c1d4d24a96b25fa166f9f8fdd5e4fb4a53b48b206776e558d",
+        "bytes": 22530837
+      },
+      "listening": {
+        "mp3": {
+          "file": "06-Funkys-Fugue-master.mp3",
+          "sha256": "4ec7c8f21278c8d8deb4fe52a951c17438f3ae85bf690cfdfb26439ce5f1ce49",
+          "bytes": 3464109,
+          "measured_integrated_lufs": -20.3,
+          "measured_true_peak_dbtp": -3.36,
+          "encoder_level_trim_db": 0
+        },
+        "ogg": {
+          "file": "06-Funkys-Fugue-master.ogg",
+          "sha256": "02318329380263722dd2d70513b297c246deaf479e5b0a4f15632c6cb452a517",
+          "bytes": 1406319,
+          "measured_integrated_lufs": -20.32,
+          "measured_true_peak_dbtp": -3.1,
+          "encoder_level_trim_db": -0.17999999999999972
+        }
+      },
+      "compare": {
+        "file": "06-Funkys-Fugue-master-compare.mp3",
+        "sha256": "2186a2e3e534ebc1579d7c650a3c44816bc3a3f34a000581a210e90f4f1d204c",
+        "timeline": [
+          {
+            "at_s": 0,
+            "label": "construction",
+            "song_start_s": 2,
+            "length_s": 15
+          },
+          {
+            "at_s": 15.5,
+            "label": "mastering",
+            "song_start_s": 2,
+            "length_s": 15
+          },
+          {
+            "at_s": 31.0,
+            "label": "construction",
+            "song_start_s": 32,
+            "length_s": 15
+          },
+          {
+            "at_s": 46.5,
+            "label": "mastering",
+            "song_start_s": 32,
+            "length_s": 15
+          }
+        ],
+        "method": "Construction then mastering for two sections, common nominal whole-song -23 LUFS reference; no original game recording."
+      },
+      "translation_proxies": {
+        "mono": "06-Funkys-Fugue-master-mono.flac",
+        "quiet_minus12db": "06-Funkys-Fugue-master-quiet.flac",
+        "band_limited_mono": "06-Funkys-Fugue-master-speaker-proxy.flac",
+        "scope": "Diagnostic copies; not physical-device or human-listening acceptance"
+      },
+      "codec_checks": [
+        {
+          "format": "mp3",
+          "codec": "mp3",
+          "sample_rate": "48000",
+          "channels": 2,
+          "decoded_finite": true,
+          "decoded_peak": 0.6785492897033691
+        },
+        {
+          "format": "ogg",
+          "codec": "vorbis",
+          "sample_rate": "48000",
+          "channels": 2,
+          "decoded_finite": true,
+          "decoded_peak": 0.6979619860649109,
+          "encoder_level_trim_db": -0.17999999999999972
+        }
+      ],
+      "native_mix_project": "06-Funkys-Fugue-master.rpp",
+      "source_instrument_parts": 8,
+      "input_construction_sha256": "6a5557787f9e957ddef079bca15592686360e72e1ab356a978bf68d5f293e91d",
+      "duration_s": 144.28660416666668,
+      "integrated_lufs": -20.04,
+      "true_peak_dbtp": -3.15,
+      "loudness_range_lu": 3.2,
+      "approval": "PENDING_COMPLETE_LISTENING_AND_OWNER_REVIEW"
+    }
+  ],
+  "native_recall_receipt": "mastering_native_recall_v1.json",
+  "pipeline_sha256": "7045f6c6f274bc97df382b304904c98450c1b266973eec8869355e3ff19929b4",
+  "analysis_sha256": "1104444e6fc011f538348a5272eaf5eb11fbca90d0c5e7fe524153850e963130",
+  "native_verifier_sha256": "dc85e2dd2c1601bf9f3567fa557797536985eec0ca4034a563936c9290be161f",
+  "no_runtime_replacement": true,
+  "gemini_transfer": "NOT_AUTHORIZED_PENDING_ANSWER; PRIOR_AUTOMATIC_APPROVAL_REJECTION_RESPECTED",
+  "owner_approval": "PENDING",
+  "environment": {
+    "python": "3.13.14",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "soundfile": "0.14.0",
+    "ffmpeg": "ffmpeg version 8.1.2-essentials_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+    "native_host": "REAPER 7.80/win64, task-owned Dummy Audio profile"
+  },
+  "owner_archives": [
+    {
+      "file": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\11\\03\\01a19fa8-22d6-78b0-8b9e-d9af7c766da2\\DKC-mastering-review.zip",
+      "sha256": "c18284a4b5cebfcac96a2c0ea021fd3ee4dc739a3cf1924589a5d761df64b297",
+      "bytes": 552914131,
+      "purpose": "Six masters, MP3/Ogg listening copies, construction/master comparisons, translation proxies and audit guide"
+    },
+    {
+      "file": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\11\\03\\01a19fa8-22d6-78b0-8b9e-d9af7c766da2\\DKC-mastering-editable-mixes.zip",
+      "sha256": "1df82f2134a85db4d83a0db9948c1faea0d33d231ccc5739babc0f16db90bc9e",
+      "bytes": 806110421,
+      "purpose": "Six portable printed mastering sessions, 80 instrument layers, six depth layers, gain curves and recipes"
+    }
+  ],
+  "archive_integrity": "PASS_ZIP_CRC_AND_PER_PAYLOAD_SHA256_MANIFESTS"
+}

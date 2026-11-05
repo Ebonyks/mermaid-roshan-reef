@@ -1,0 +1,48 @@
+{
+  "id": "picture-book-v41-print-handoff-20261026",
+  "baseline": "f55c094cfde2c1722eb210c74f85b868a4158ce9",
+  "scope": "Publish Claude's page-by-page audit of the V39 chapter-one picture book and the owner-approved V41 work order for Codex (owner, 2026-10-26: use the suggested defaults for Q1-Q4, an 11-inch-wide trim, page 2 from its source layers, stronger page 5 dust, no third page 9 attempt). Numbered V41 because Codex's owner-directed V40 (page 2) was already in progress. Part 1: stronger page 5 dust and a review build, then a stop for owner acceptance of the illustrations. Part 2: the 11 x 8.5 in print edition (page geometry, extension, one enlargement pass, typography, page 2 recomposed from its layers, checks and files). Documentation and a hashed manifest only; the ledger marks the 2026-10-25 work order and V37 audit as historical. No book art, proof, manuscript word, renderer, game, runtime or protected-original change; Claude made no images and did not touch Codex's in-progress V40 files.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static picture-book editorial audit and Codex work order; no game or runtime defect or canonical master finding is repaired or closed.",
+  "files": [
+    "books/chapter_one/handoffs/2026-10-26_v41_print_edition/AUDIT.md",
+    "books/chapter_one/handoffs/2026-10-26_v41_print_edition/MANIFEST.json",
+    "books/chapter_one/handoffs/2026-10-26_v41_print_edition/README.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/picture-book-v41-print-handoff-20261026.json"
+  ],
+  "validation": [
+    {
+      "command": "Direct review of the 11 V39 pages that changed since V37, Codex's existing close-ups, demo frame 408 and the Sky Lagoon panorama; page-hash comparison against V37 and V38; the sent PDF matches the V39 master SHA-256",
+      "result": "PASS",
+      "evidence": "books/chapter_one/handoffs/2026-10-26_v41_print_edition/AUDIT.md"
+    },
+    {
+      "command": "Numbers-only measurements: page 5 dust area and contrast from the V37-to-V39 pixel difference; print stretch factors and caption distances to the trim from V39's page provenance at 11 x 8.5 in with 0.125 in bleed",
+      "result": "PASS",
+      "evidence": "books/chapter_one/handoffs/2026-10-26_v41_print_edition/README.md (values under B1, P1-P7)"
+    },
+    {
+      "command": "SHA-256 of every referenced governing document, control, source and V39 proof from the committed bytes at the baseline commit",
+      "result": "PASS",
+      "evidence": "books/chapter_one/handoffs/2026-10-26_v41_print_edition/MANIFEST.json (70 files)"
+    },
+    {
+      "command": "python -X utf8 -B tools/audit_document_authority.py; python -X utf8 -B tools/audit_development.py --base auto; python -X utf8 -B tools/audit_development.py --base f55c094cfde2c1722eb210c74f85b868a4158ce9; python -X utf8 -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "Run before commit; output reported in the publishing session."
+    },
+    {
+      "command": "Godot import, runtime, script and device gates",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Documentation and a hashed manifest only; no runtime, scene, script, save, asset, protected original, device or release change."
+    }
+  ],
+  "acceptance_gaps": "V40 and V41 are not built. Owner acceptance of the illustrations (required before any print enlargement), a physical test print, a child reading and a professional speech-language review remain open. Anonymous remote verification follows the push."
+}

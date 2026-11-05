@@ -1,0 +1,88 @@
+{
+  "scale": 0.66,
+  "offset": [
+    86.0,
+    92.0
+  ],
+  "cleanup": {
+    "source_size": [
+      1254,
+      1254
+    ],
+    "removed_alpha_pixels": 9916
+  },
+  "eye_patches": {
+    "half": {
+      "native_patch_bounds": [
+        [
+          581,
+          188,
+          676,
+          279
+        ],
+        [
+          688,
+          188,
+          790,
+          279
+        ]
+      ],
+      "method": "two isolated eye ellipses, exact source coordinates, 6px feather, no face replacement"
+    },
+    "closed": {
+      "native_patch_bounds": [
+        [
+          581,
+          188,
+          676,
+          279
+        ],
+        [
+          688,
+          188,
+          790,
+          279
+        ]
+      ],
+      "method": "two isolated eye ellipses, exact source coordinates, 6px feather, no face replacement"
+    }
+  },
+  "meshes": {
+    "Body": {
+      "vertices": 6864,
+      "triangles": 13200
+    },
+    "UpperArm": {
+      "vertices": 328,
+      "triangles": 579
+    },
+    "Forearm": {
+      "vertices": 432,
+      "triangles": 765
+    }
+  },
+  "shoulder_cap": {
+    "native_source": "native/shoulder_arm.png",
+    "uniform_scale": 0.3730769230769231,
+    "source_shoulder": [
+      735,
+      390
+    ],
+    "target_shoulder": [
+      589,
+      436
+    ],
+    "original_arm_kept_below_y": 460,
+    "static_transition": [
+      440,
+      460
+    ],
+    "runtime_animated_crossfade": false
+  },
+  "source_hashes": {
+    "blink_closed.png": "bac9731255348c4ba860e822cd7c717f938c431298a32a3b0c242acbb3ac931d",
+    "blink_half.png": "cfd2c5d8fb5d36ace2a4d58f27779cb040c3ccbe6a0f4b1bc562f590a95290fb",
+    "neutral.png": "65b3b1ff6590b202bd9b284f7dbbf6df0ff486af74f8ed2e8ffc700bb9d14907",
+    "shoulder_arm.png": "5dee33273e1f1864ffddb9d4606fd1c0e71620d5ce48c754370b4d613199bbcb"
+  }
+}

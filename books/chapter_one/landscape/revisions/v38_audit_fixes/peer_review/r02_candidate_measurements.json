@@ -1,0 +1,94 @@
+{
+  "candidate": "V38R2",
+  "baseline": "03d35a93b6e4b814f8026d0a5c6d44932ec33ec6",
+  "master_sha256": "2aa2116d61bf6babc6a5abdffafa1807ffdcc12d974e6ed86a07067197013ac8",
+  "email_sha256": "1bad85dfd680f9c62d5f5b6e0b2085bd2da44fa4693c1f4b87d2a9b0ec3699e4",
+  "unchanged_proof_pages_vs_initial_v38": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33
+  ],
+  "changed_proof_pages": [
+    5
+  ],
+  "original_handle_source": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/door_cutout_repair_attempt1.png",
+  "reference_handle_estimate_pixels": [
+    70,
+    35
+  ],
+  "mote_visible_estimates_pixels": [
+    [
+      115,
+      52
+    ],
+    [
+      95,
+      45
+    ],
+    [
+      98,
+      53
+    ],
+    [
+      115,
+      54
+    ]
+  ],
+  "measurement_method": "Manual visible-cloud estimates on native1669x942crop mapped to620x350source window; approximate\u00b15pixels, not automatic segmentation or mask-padding measurements. Independent critic to confirm final footprint/readability.",
+  "diagnostics": [
+    {
+      "path": "books/chapter_one/landscape/revisions/v38_audit_fixes/peer_review/r01_page05.png",
+      "sha256": "e4448068d275c462fc914b16b799acf116a44461e1eb05bec42b88e3914c06a9",
+      "role": "Read-only review crop/scale/collage, never generation or delivery artwork",
+      "source_master_sha256": "d8125dde586bcfb2fd775cd6c034f4b27a73428b760663d30d9d684eae64c037"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v38_audit_fixes/peer_review/r02_page05_7x5.png",
+      "sha256": "6b56f7b1b6c3a4984a1873b6e67f3242a0d035408701e20a4683340e2a40ccba",
+      "role": "Read-only review crop/scale/collage, never generation or delivery artwork",
+      "source_master_sha256": "2aa2116d61bf6babc6a5abdffafa1807ffdcc12d974e6ed86a07067197013ac8"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v38_audit_fixes/peer_review/r02_page05_before_after.png",
+      "sha256": "4476167c0a3577485ebc9beebf81ce673f003603c2aa63ca1098ef9c8017da67",
+      "role": "Read-only review crop/scale/collage, never generation or delivery artwork",
+      "source_master_sha256": "2aa2116d61bf6babc6a5abdffafa1807ffdcc12d974e6ed86a07067197013ac8"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v38_audit_fixes/peer_review/r02_handle_dust_scale.png",
+      "sha256": "e4ca2114ba1ce9fdcfd98dc075c0377b9b0a6d4158acec2c13be0b7f66f302e5",
+      "role": "Read-only review crop/scale/collage, never generation or delivery artwork",
+      "source_master_sha256": "2aa2116d61bf6babc6a5abdffafa1807ffdcc12d974e6ed86a07067197013ac8"
+    }
+  ]
+}

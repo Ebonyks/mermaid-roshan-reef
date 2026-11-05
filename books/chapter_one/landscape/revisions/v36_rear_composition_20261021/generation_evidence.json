@@ -1,0 +1,65 @@
+{
+  "provider": "OpenAI image_gen built-in",
+  "calls": 1,
+  "request_id": "exec-d65c0b50-0d41-4596-a37a-8466de51e55e",
+  "native_output": "C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-d65c0b50-0d41-4596-a37a-8466de51e55e.png",
+  "output": "books/chapter_one/landscape/revisions/v36_rear_composition_20261021/rear_scene_attempt1.png",
+  "sha256": "cd1a5a40d51560170713169b3b3187828a07463610fa929275eaa8dbc604b0d7",
+  "dimensions": [
+    1484,
+    1060
+  ],
+  "prompt": "Use case: illustration-story, reference-led NEW back-cover composition explicitly commissioned by owner. Landscape 7:5 polished painted 2D picture-book art, highest native resolution. IMAGE1 supplies Pearl Castle's EXISTING lavender stone, pearl columns, gold shell trim, arched room passages, warm sconces, red runner and small dusty patches; do NOT reuse its front-on staging or its Daddy/Roshan pair. IMAGE2 supplies exact Roshan identity and welcoming open-arm gesture: preschool girl, round face, brown eyes, rounded ear, chestnut waves, ONE rainbow side ponytail, small gold tiara one blue gem, fitted pink top/lilac flutter sleeves, purple scaled tail/rainbow fins. IMAGE3 supplies the exact pearl-inlaid cleaning brush. IMAGE4 supplies the exact little lavender dust bunny with two spiral ears, pearl studs, two paw pearls. Recompose these familiar materials into a fresh, coherent castle vignette never seen in the book: view from just inside a side arch, at a low child's eye level, looking DIAGONALLY along the hall into depth. Large cropped pearl arch frames upper left and side; the familiar brush lies diagonally on a low marble ledge in near foreground at lower left, making an inviting visual entry. ONE little lavender bunny peeks curiously beside that ledge, small, not giant. Roshan floats in midground on right third, full tail visible, welcoming reader with the source open-arm gesture, sized about 35 percent canvas height. Her gaze warmly meets reader. Red runner curves gently toward gold-trimmed arched passages in the distance; a few soft dust patches suggest small jobs ahead. No new room theme, no new story event, no additional characters, no Daddy, no transformation, no rainbow Puff, no nap, no soap-cloud climax. Gentle intrigue, sunlit welcoming atmosphere, consistent soft contact shadows and painterly materials. NOT a collage of panels, not a reused interior frame, no extreme wide-angle distortion. Leave upper-middle pale lavender wall/soft daylight area clean and quiet for TWO future lines of back-cover copy; do NOT render text, letters, logo, border or watermark. Preserve the supplied character/material designs while changing their composition and camera relationship. No 3D-render look, no pixel art.",
+  "prompt_sha256": "2c2ec1af1b666220774c43baba7c35872a5232858e1ebefb99ed27f3fb50e767",
+  "references": [
+    {
+      "path": "books/chapter_one/landscape/art/story_detail_v23/castle_repair.png",
+      "sha256": "b1d25511be353a94ed989f1e25289b1d5e1ce3ae69983d544c1eca1a83e6ab17",
+      "size": [
+        1484,
+        1060
+      ],
+      "role": "castle architecture/material identity"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+      "sha256": "35190707591cb136c7d598f45f3b4d2f2b06ec350c21666496d8336128762855",
+      "size": [
+        1230,
+        1278
+      ],
+      "role": "Roshan identity and inviting gesture"
+    },
+    {
+      "path": "books/chapter_one/archive/rough_v5/art/brush.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "size": [
+        936,
+        1024
+      ],
+      "role": "cleaning brush design"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
+      "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+      "size": [
+        512,
+        512
+      ],
+      "role": "little dust bunny identity"
+    }
+  ],
+  "method": "New reference-led rendered composition expressly commissioned by owner. Familiar source designs re-rendered in a new viewpoint; not a literal pixel collage or a source-preserving local patch.",
+  "edits_after_generation": "None; native file copied byte-identically.",
+  "backend_revision": "Not exposed",
+  "seed": "Not exposed",
+  "cost": "Not exposed",
+  "acceptance": "REVIEW_CANDIDATE",
+  "review": {
+    "composition": "Distinct diagonal view, near foreground brush/bunny, midground Roshan, depth through existing themed passages; differs from story3 threshold and front-on hall4.",
+    "identity": "Rounded ear, brown eyes, single blue central gem, pink top/lilac sleeves, purple scales and rainbow fins; one rainbow ponytail; no extra limbs observed.",
+    "canon": "No transformation, rainbow Puff, washing climax or nap; no new story action.",
+    "limits": "Roshan is larger than the prompt target of35% height, and hair is more saturated than the pastel standard. Existing designs are interpreted rather than byte-identical. Native1484x1060 is review resolution, not a final print master.",
+    "owner": "Pending; no acceptance inferred."
+  }
+}

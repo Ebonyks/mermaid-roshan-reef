@@ -1,0 +1,34 @@
+{
+  "checked_utc": "2026-11-05T15:25:56.035824+00:00",
+  "source_dev": "6892c5753c75161986b4463c186f8711a0c12870",
+  "prior_green_checkpoint": "ca1242fce078dab72b4c302c79f4d9753d6e3a98",
+  "prior_exact_head_green_ci": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42033481423",
+  "frozen_validation_tree": "7e9942c7913e19a50bb60512a8b468d8b24c84a0",
+  "runtime_and_validator_git_object_ids": {
+    "scripts": "561c1ec523a47cbafd986fc34c47dcb3ea1100e8",
+    "assets": "fe635fb14a365b233ea77ddc11f79ea63ac377fd",
+    "assets_src": "24ada4781a11c029eba0514376048cd5e83491be",
+    "addons": "759fe8b73a8d674a69e15c6a5783470b963e6426",
+    "scenes": "34209479016672c9a91cfec2ce33f89e2075f4ff",
+    "shaders": "9888a82057eececf56c4042ede9abf3f07704bee",
+    "project.godot": "84da90ba17c376d4b08a0268faabaab4b110db3b",
+    ".mcp.json": "5e14ff24ebc7b8aee2012230be159956763fa1d9",
+    "design/reference/book_sources": "e21004a9b056f50b2bf681d3a053ee04b6bb4e83",
+    "tools": "a4364cc13f3fa58d2ef6cdd40ca6ea1a69c764b1",
+    "design/audit_impacts/.gdignore": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  "final_commit_binding": "Each mapped path must resolve to the same Git object in the publication revision. Source did not change between the full run and the serial rechecks.",
+  "static_result": "PASS complete original ci.sh static prefix. Working-directory locator adjusted for the isolated Windows checkout. Original commands, assertions and limits preserved. Includes82 model cases,19 falsification controls and96 visual-audit cases.",
+  "original_native_result": "FAIL. Approved-engine import and model gate pass.77of82 trusted probes accepted. Five processes ended with exit4294967295 mid-transcript. Exact original logs and results retained. Cause unestablished.",
+  "serial_recheck_result": "PASS. All five affected probes exit0 on identical source with fresh isolated saves under original480s limits and error rules.",
+  "aggregate_probe_coverage": "82of82 distinct required probes accepted across the original77 and serial5 checkpoints. This is combined coverage across retained attempts.",
+  "bubble_duel_stress": "PASS original100-cycle stress and separate-process saved-state reload under unchanged runner assertions and deadlines.",
+  "pinned_addon_files_byte_verified": 39,
+  "protected_original_changes": [],
+  "high_risk_changes_against_current_dev": [
+    ".github/workflows/probes.yml"
+  ],
+  "authorization": "../owner_authorization.json",
+  "integration_gate": "Fresh exact-publication-head GitHub Probe suite must pass before dev update. Prior green CI does not cover this merged feature source.",
+  "acceptance_scope": "Machine checks only. Source-only/review status, MA-DOC-010 attribution/owner review, formal QA11 and artistic/device/child/owner acceptance retain their separate scopes. Master audit UNSATISFIED."
+}

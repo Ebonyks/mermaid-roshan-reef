@@ -1,0 +1,110 @@
+{
+  "id": "workgroup-batch-ci-recovery-20261104",
+  "baseline": "65c63ae849b091e3fb91cdbeaf1e2837e10778fe",
+  "incoming": "9474e440b65445882e2d15f0a41e43827f8551a3",
+  "scope": "Owner-authorized checkout repair and reconciliation of the already published recent-updates batch with current dev. Preserve source history and later dev changes.",
+  "owner_authorization": "Current chat reply: Authorize the checkout repair and continue",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-14"
+  ],
+  "findings": [],
+  "no_findings_reason": "Checkout path/disk infrastructure recovery does not repair or close existing game/advisory findings.",
+  "required_evidence": [
+    "Pinned checkout action input compatibility",
+    "Full commit history with delayed historical blobs for Linux",
+    "Windows sparse checkout contains all deterministic music inputs",
+    "Authority and development coverage gates",
+    "Changed script parsing and inference",
+    "Godot 4.7.2 full local validation",
+    "Exact-head remote CI before dev integration"
+  ],
+  "chapter_guide_source": {
+    "head": "a0bb2cf4691631a534e210a5fb60fd227213322f",
+    "staged_patch_sha256": "3d527421066e9015e9043ced842d5e724ee8c410b758f92f17c8563c5d95bf41",
+    "scope": "Preserved local chapter-guide documentation and static-check draft. Original full regression FAIL retained in its REGRESSION_RESULT.json; current candidate requires fresh validation."
+  },
+  "scope_addendum": {
+    "json_scan": "Live profiling identified quadratic repeated-suffix copies in the recovered JSON URL scanner. Use in-place matching with the same whitespace/colon semantics and add a structural regression control. Restart the unchanged full gate after focused tests.",
+    "chapter_guide": "Source recovery applies DL-PLAN-01 through DL-PLAN-08, DL-CODE-10 and DL-CIN-16 with MA-DOC-010 retained IN_PROGRESS.",
+    "draft_archive": "626 source snapshots in five independently inspected complete-document volumes."
+  },
+  "concurrent_dev_reconciliation": {
+    "dev": "8d16b9a5c8d3ada2c15b037c6701b396f33dd50d",
+    "checkpoint": "5988e751cfb463503f5fcae3c578b37207aee8d4",
+    "rules": [
+      "DL-AUTH-05",
+      "DL-AUTH-06",
+      "DL-AUTH-07",
+      "DL-QA-01",
+      "DL-QA-02",
+      "DL-ASSET-01",
+      "DL-MED-01"
+    ],
+    "scope": "Preserve concurrent R140 Dolls progress artwork, code and records. Reconcile append-only metadata, retain source-byte provenance, rerun full machine and exact-head remote gates. Canonical R140 keeps CHG-146 and the unpublished workgroup entry moves to CHG-147.",
+    "verified_input_result": "All runtime/art/validator subtree object IDs match the all82 tested checkpoint exactly. R140 production assets and code were already present byte-identically in the combined batch. Added metadata passes the unchanged artifact inspector. Runtime evidence remains directly applicable."
+  },
+  "editor_bridge_reconciliation": {
+    "dev": "208a12cf4ba79fea7ddbf317bb6c686180b652fb",
+    "scope": "Preserve canonical current-dev bridge, configuration, pin manifest and audit-tool changes. Bound Windows byte preservation to addons/godot_mcp. Revalidate full static and82 trusted probes on the new combined source. Existing findings and separate acceptance remain open.",
+    "rules": [
+      "DL-AUTH-01",
+      "DL-AUTH-05",
+      "DL-AUTH-06",
+      "DL-AUTH-07",
+      "DL-QA-01",
+      "DL-QA-02",
+      "DL-MED-01"
+    ],
+    "finding_scope": "No bridge/tooling or advisory-sensor finding is closed. MA-DOC-010 remains the chapter review/source-attribution candidate."
+  },
+  "cross_drive_message_repair": {
+    "rule": "DL-QA-07",
+    "scope": "Use the fixed project-relative diagnostic path for missing runtime facts. Correct a Windows H/C drive mismatch without changing evidence floors, fallback policy, strict exit status or gameplay. Existing test still requires COVERAGE_GAP and a new forced-cross-drive test rejects the old function.",
+    "required_evidence": "Preserve original crash and failing control, rerun all96 visual audit cases and the original static prefix."
+  },
+  "audit_record_runtime_boundary": {
+    "scope": "Use the existing Godot .gdignore mechanism for structured audit documentation. Preserve text, source hashes and checker limits. Confirm production code has no audit-record dependency and all repository model scanning still applies.",
+    "rules": [
+      "DL-AUTH-05",
+      "DL-AUTH-06",
+      "DL-AUTH-07",
+      "DL-MED-04",
+      "DL-QA-02"
+    ],
+    "required_evidence": [
+      "Negative active-JSON control",
+      "Ignored-JSON control",
+      "Hidden binary model still detected",
+      "Full current audit unit suite",
+      "Normal Godot import and model gate",
+      "Final authority/coverage and exact-head CI"
+    ]
+  },
+  "bubble_duel_reconciliation": {
+    "dev": "6892c5753c75161986b4463c186f8711a0c12870",
+    "scope": "Preserve existing Bubble Duel feature, code, art and source evidence. Reconcile append-only metadata, validate the combined normal entry points, retain all acceptance boundaries.",
+    "rules": [
+      "DL-AUTH-05",
+      "DL-AUTH-06",
+      "DL-AUTH-07",
+      "DL-MED-01",
+      "DL-QA-01",
+      "DL-QA-02",
+      "DL-ASSET-01"
+    ],
+    "required_evidence": [
+      "New complete static prefix",
+      "Approved Godot import",
+      "Exact shrinking model gate",
+      "All82 trusted probes",
+      "Focused Bubble Duel checks from existing feature receipts as applicable",
+      "Final authority/coverage",
+      "Exact-head GitHub CI"
+    ]
+  }
+}

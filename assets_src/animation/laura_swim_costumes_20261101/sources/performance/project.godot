@@ -1,0 +1,10 @@
+config_version=5
+[application]
+config/name="Laura-led Roshan swim comparison"
+config/features=PackedStringArray("4.7","Mobile")
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=720
+[rendering]
+renderer/rendering_method="mobile"
+renderer/rendering_method.mobile="mobile"

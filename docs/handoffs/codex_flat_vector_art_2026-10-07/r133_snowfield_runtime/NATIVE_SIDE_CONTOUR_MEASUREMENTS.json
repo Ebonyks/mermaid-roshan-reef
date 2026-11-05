@@ -1,0 +1,79 @@
+{
+  "rows": [
+    {
+      "y": 750,
+      "xmin": 113,
+      "xmax": 1965
+    },
+    {
+      "y": 800,
+      "xmin": 88,
+      "xmax": 1990
+    },
+    {
+      "y": 850,
+      "xmin": 64,
+      "xmax": 2012
+    },
+    {
+      "y": 900,
+      "xmin": 44,
+      "xmax": 2029
+    },
+    {
+      "y": 950,
+      "xmin": 38,
+      "xmax": 2033
+    },
+    {
+      "y": 1000,
+      "xmin": 41,
+      "xmax": 2025
+    },
+    {
+      "y": 1050,
+      "xmin": 48,
+      "xmax": 2014
+    },
+    {
+      "y": 1100,
+      "xmin": 57,
+      "xmax": 2002
+    },
+    {
+      "y": 1150,
+      "xmin": 68,
+      "xmax": 1987
+    },
+    {
+      "y": 1200,
+      "xmin": 84,
+      "xmax": 1971
+    },
+    {
+      "y": 1250,
+      "xmin": 102,
+      "xmax": 1951
+    },
+    {
+      "y": 1300,
+      "xmin": 123,
+      "xmax": 1930
+    }
+  ],
+  "native_canvas": [
+    2048,
+    2048
+  ],
+  "alpha_bbox": [
+    33,
+    50,
+    2040,
+    2016
+  ],
+  "new_generation_calls": 0,
+  "state": "CONTINUOUS_CONTOUR_TRANSPARENT_NATIVE_MARGINS_NOT_CANVAS_CLIPPING",
+  "decision": "Retain actual source. Nativeopaque extrema move113to38to123 across y750..1300. Full2048source alpha bbox33,50,2040,2016 leaves native margins; apparent nearvertical silhouette is natural tangent, not cropped image. The earlier clipping inference is withdrawn. No extra generation or pixel repair made.",
+  "model_calls_used": 5,
+  "remaining": 3
+}

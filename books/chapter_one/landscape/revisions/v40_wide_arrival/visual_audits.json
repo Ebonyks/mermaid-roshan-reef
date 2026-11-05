@@ -1,0 +1,111 @@
+{
+  "scope": "Five actual fresh focused primary inspections of final V40 R03, separate from historical reviews, machine checks and independent peer",
+  "reviewed_at_utc": "2026-10-27T02:32:29.315926+00:00",
+  "pdf_sha256": "0689d8cbc7720b97c17f4c50522c8788a03533019547e7dca2ee75a80b99fde6",
+  "email_sha256": "c1859ba353e12692c2510549415abebb4ec6765cbce1c86bafa44df337391b3f",
+  "passes": [
+    {
+      "pass_index": 1,
+      "focus": "Story context and composition",
+      "inspected": [
+        "complete/page_02.png",
+        "details/comparison_02.png"
+      ],
+      "inspected_sha256": {
+        "complete/page_02.png": "ec07a1e3cdc89eadee11f3da1e1386a51da6f74be5c133b0e39347441281e8c8",
+        "details/comparison_02.png": "a51606a599d53cb30e7811e86ef97d5db9c9ecd45958cd2ecdcd3a829effa9e8"
+      },
+      "observations": [
+        "No otter or unexplained escort remains. Plane, slide, swing and Pearl Castle are visible in one connected scene.",
+        "The wider view supplies the castle named by the unchanged second caption line; staging is explicitly condensed book layout."
+      ],
+      "result": "PASS_WITH_DECLARED_A9_HOLD",
+      "remaining_in_scope_defects": []
+    },
+    {
+      "pass_index": 2,
+      "focus": "Source identity and isolated edges",
+      "inspected": [
+        "art/sky_lagoon_wide_arrival.png",
+        "details/plane_matte.png",
+        "details/playground.png"
+      ],
+      "inspected_sha256": {
+        "art/sky_lagoon_wide_arrival.png": "9a4b5e6b6c19e25e639eeec9c40015953ed3b2fae3b95e5fa150127d992f054b",
+        "details/plane_matte.png": "d03a560bed2903b010b6f4561098d6d50e9e1d4de4f79c7889583d8ce471f09c",
+        "details/playground.png": "c8b5a1187e7c795c458142e7f1dca7e1f7b1f83bb8bc9e5c5a7c5cf348888388"
+      },
+      "observations": [
+        "Native castle silhouette and Roshan portrait remain recognizable; slide and swing retain existing source identities.",
+        "Plane body, windows, shell, wings and two visible landing wheels retain exact native video colors. No rectangle seam, duplicated fixture or new character is visible. Native video softness is retained as a print-resolution limit."
+      ],
+      "result": "PASS_WITH_DECLARED_A9_HOLD",
+      "remaining_in_scope_defects": []
+    },
+    {
+      "pass_index": 3,
+      "focus": "Support, contact and route",
+      "inspected": [
+        "details/landed_wheels.png",
+        "details/castle_path.png",
+        "complete/page_02.png"
+      ],
+      "inspected_sha256": {
+        "details/landed_wheels.png": "63bdba0237106d98cdffc4fc91f28e589baa2c0270cfb1c9a6c41a4081a9219e",
+        "details/castle_path.png": "0ead320d324071860ee60e77d0dfc54d0bf6bc203dd7fa46e7ed77b23637c555",
+        "complete/page_02.png": "ec07a1e3cdc89eadee11f3da1e1386a51da6f74be5c133b0e39347441281e8c8"
+      },
+      "observations": [
+        "Both tires meet clear stone with small local contact shadows; foreground plant overlap from R01 is gone.",
+        "R03 shifts the complete castle and shadow40native pixels; bridge front now meets the stone path. Supports, doorway, rail and glass stay clear."
+      ],
+      "result": "PASS_WITH_DECLARED_A9_HOLD",
+      "remaining_in_scope_defects": []
+    },
+    {
+      "pass_index": 4,
+      "focus": "Typography, sequence and scale",
+      "inspected": [
+        "details/arrival_sequence.png",
+        "complete/contact_1.jpg",
+        "complete/page_02.png"
+      ],
+      "inspected_sha256": {
+        "details/arrival_sequence.png": "e0812c09d40b4f9c336a75513128116f4a3142bbd346d121813bb3011956b2e2",
+        "complete/contact_1.jpg": "bb53f5ec4c5c9074eb7600b9fda6bad13984a5197e5f438b8fec79f8bc6a99c6",
+        "complete/page_02.png": "ec07a1e3cdc89eadee11f3da1e1386a51da6f74be5c133b0e39347441281e8c8"
+      },
+      "observations": [
+        "Flight, arrival and castle-entry sequence reads without a new explanatory animal or caption. Navy caption keeps exact words, line breaks, position and size against light sky.",
+        "At page and contact-sheet scale, plane/fixtures/destination remain readable; foreground plane naturally occludes part of the slide chute without hiding the playground."
+      ],
+      "result": "PASS_WITH_DECLARED_A9_HOLD",
+      "remaining_in_scope_defects": []
+    },
+    {
+      "pass_index": 5,
+      "focus": "Final smaller export and comparison",
+      "inspected": [
+        "details/email_page_02.png",
+        "details/comparison_02.png",
+        "complete/page_02.png"
+      ],
+      "inspected_sha256": {
+        "details/email_page_02.png": "d66d0432978c09bdfbda81be62591813c9a2fdf7c84dcdaa85d04a4b99845067",
+        "details/comparison_02.png": "a51606a599d53cb30e7811e86ef97d5db9c9ecd45958cd2ecdcd3a829effa9e8",
+        "complete/page_02.png": "ec07a1e3cdc89eadee11f3da1e1386a51da6f74be5c133b0e39347441281e8c8"
+      },
+      "observations": [
+        "Final email render retains clear caption, castle portrait, complete bridge and visible gear. No new visible compression/layout defect found.",
+        "The lossless master remains separate. Mechanical evidence confirms native image sizes, vector text/clips/geometry,97exact alpha placements and rendered fidelity floor; source/PPI/print holds are not waived."
+      ],
+      "result": "PASS_WITH_DECLARED_A9_HOLD",
+      "remaining_in_scope_defects": []
+    }
+  ],
+  "held": [
+    "A9 native bath resolution unchanged",
+    "Native444x242 video plane isolation enlarged in review layout; final print/PPI acceptance open",
+    "Owner/child/SLP/final trim and physical print remain separate"
+  ]
+}

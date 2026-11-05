@@ -1,0 +1,64 @@
+{
+  "tool": "Aseprite1.3.18.4-x64",
+  "command": [
+    "C:/Program Files/Aseprite/Aseprite.exe",
+    "-b",
+    "--script",
+    "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\melody_bulbs_20261102\\EXPORT.lua"
+  ],
+  "script_sha256": "205e87d05c17bb84abc7407ea7b167ac4930fa508625ef1aed61a4d74a0c6d12",
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "native_exports": 2,
+  "reexports": 0,
+  "native_or_crop_pixel_edits": 0,
+  "engine_textures": [
+    {
+      "path": "assets/melody/theatre_bulb_cream_painted.png",
+      "sha256": "6b77475880e6b86c45fd3e0ac481814a4a19a1cdd7bc6d67e16e4379fc56d24d",
+      "dimensions": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "base_RGBA8_bytes": 65536,
+      "native_roundtrip_RGBA_exact": true,
+      "crop_roundtrip_RGBA_exact": true,
+      "native_sha256": "34061b4e16c90a60bd17ccb6d808f59f050dfaf25527cecf4ce660cd60cf1287",
+      "crop": [
+        136,
+        140,
+        961,
+        961
+      ],
+      "runtime_alpha_range": [
+        0,
+        254
+      ]
+    },
+    {
+      "path": "assets/melody/theatre_bulb_gold_painted.png",
+      "sha256": "6bbb37224b78c39dda1a40d56cbb7904a2fbf4987b5d15e643196be42dc1ccc2",
+      "dimensions": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "base_RGBA8_bytes": 65536,
+      "native_roundtrip_RGBA_exact": true,
+      "crop_roundtrip_RGBA_exact": true,
+      "native_sha256": "87d7d75fbcd56687b58062183db868e1750efd7aea9e76428415f7d50e083ab1",
+      "crop": [
+        134,
+        138,
+        965,
+        965
+      ],
+      "runtime_alpha_range": [
+        0,
+        254
+      ]
+    }
+  ],
+  "total_new_base_RGBA8_bytes": 131072,
+  "verification_correction": "ALPHA_RESAMPLE_NOTE.json; no repeated export or changed pixels"
+}

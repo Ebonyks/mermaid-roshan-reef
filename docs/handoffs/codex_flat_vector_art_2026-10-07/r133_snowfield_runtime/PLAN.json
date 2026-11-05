@@ -1,0 +1,187 @@
+{
+  "state": "VISUAL_REGISTRATION_REPAIR_FINAL_CONTEXT_RUNNING",
+  "stable_id": "FV-55B5EF60A12C",
+  "name": "Snowman ground snow field",
+  "family": "picture_snowman",
+  "source_baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+  "source_branch": "codex/flat-vector-snowfield-native-20261103",
+  "canonical_parent": "d0b37c377e31182fee9ad9d391bca2bd854fd65a",
+  "scope": "Replace only the visible circle/rim/black shadow/gloss ground generated in _mg_build_snowman by one whole painted snowfield, native>=2048x2048. Preserve the original1400square Panel geometry/position(-60,280)/pivot/defaultmouse as invisible functional geometry; four nonoverlapping1024native TextureRect cards displayed700x500with visual yoffset-60 from one native master, input-ignore. Original29other methods/shared_circle, body/face/chase/bite/save/input/audio/rewards unchanged. Work branch only, Dev/master frozen.",
+  "observed_gap": "Same actual source54native/phone frames show a large translucent grey code circle with flat neutral rim/gloss wedge below the painted Roshan and carrot; surface lacks snow material and phone figure-ground quality. Prior1672x941study remains REJECTED for missing native2K and busy water-like caustics. New ground should read as quiet powder snow with broad cool-blue/lavender bands, no caustic filaments or foreground distractions.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-LAY-03",
+    "DL-LAY-08",
+    "DL-LAY-09",
+    "DL-READ-02",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-PERF-01",
+    "DL-PERF-03",
+    "DL-QA-03",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "related_not_repaired": {
+    "MA_VIS_008": "Whole-unit/overdraw principles inform the new ground budget, but its DayOne/Opera/living_world code paths are unchanged; no scoped MA-VIS-008repair/closure is claimed."
+  },
+  "authority_override": "Owner2026-10-17 quality-first production/reuse optional instruction supersedes old July28 failed-reuse prerequisite in DL-ASSET-02; preserve identity/originals/provenance. Owner resumed art candidates with Dev frozen.",
+  "source_context": "OriginalR131source54nativeframes at immutable8864c00a19208e356aacb7845a9fb9e1909ffac4 remain current: all5062source inputs match after clean originDev branch switch. Reuse exact source frames/hashes/phone bytes,0newsourcecapture credit. Prior original-source precision/setup failures retain exact history.",
+  "source_native_frames_reused": 54,
+  "new_source_frame_credit": 0,
+  "method": "Builtin image_gen.imagegen named missing painted native snowfield. First bounded whole-master request: verify returned actual dimensions. If native>=2048square, use it directly; otherwise retain that output as reference-only, then synthesize four native overlapping regional outputs and assemble at1:1 in Aseprite into one seam-free>=2048square master, no enlarged source accepted as native. At most two bounded native seam/material repairs within total cap. Transparent output preserved; no code/procedural delivery pixels, no protected pixels or HUD exports.",
+  "native_requirement": "At least2048x2048 authored native coverage for the one playable screen, before four nonoverlapping1024runtime slices. All delivery-region pixels derive from actual native outputs at1:1; no interpolation/enlargement/padding accepted as native detail.",
+  "static_item_total_builtin_call_cap": 8,
+  "static_calls_used_this_continuation": 5,
+  "historical_snowfield_calls_known": 1,
+  "historical_attempt01_status": "REJECTED_UNCHANGED",
+  "funded_item_specific_monetary_budget": "No monetary cap recorded in the selected role, priorSnowfieldmanifest/review or supportingart record; this static builtin lane is owner-authorized. No paidCLI/API or animation funded budget is used.",
+  "paid_CLI_calls": 0,
+  "animation_calls": 0,
+  "cleanup_minutes_cap": 60,
+  "stop_rule": "Stop after two nonviable complete artwork attempts or total8builtin calls; diagnose/change method without resetting any item/animation/funded cap. Preserve all outputs, including native-resolution failures/reference-only art.",
+  "runtime_budget": {
+    "cards": 4,
+    "card_size": [
+      1024,
+      1024
+    ],
+    "decoded_RGBA_with_full_mips_ceiling_bytes": 22400000,
+    "overdraw": "Nonoverlapping source slices, one ground-art layer per pixel; old visible stylebox/rim/gloss retired for ground only. Original logical Panel retained invisible, no dynamiclights or3D. Device30fps proof remains separate."
+  },
+  "required_evidence": [
+    "Actual native outputs/prompts/ref-role/hash/builtin backend and returned-version limits, losslessAseprite master and1:1regional mapping",
+    "Whole-master seam continuity before runtime slicing; no duplicate readableobjects or guide pixels in delivery",
+    "Actual changed ground at all18states/3aspects, phoneHUDtenaxes and source5062/candidateclosure/normal11guards",
+    "Exact4.7.2Mobile/Speedy import/parser/inference/analyzer/2D/full82 and exactsourceCI; source/canonicaleveryfileanonymousimmutable verification",
+    "FormalQA11/naturalroute/device/child/owner/global acceptance remain separate, acceptedremovals0"
+  ],
+  "Dev_integrated": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "at_utc": "2026-11-03T13:54:38.638894+00:00",
+  "first_whole_native_2K_requirement_met": false,
+  "reference_native": {
+    "state": "FAIL_REQUIRED_2048_NATIVE_COVERAGE_REFERENCE_ONLY",
+    "path": "assets_src/imagegen/snowfield_20261103/native/snowfield_02_01.png",
+    "native_original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-de03674b-9f8e-4089-890f-d3205e34bd00.png",
+    "sha256": "b879a94848a456b6d25bb07d4d68f68759889bbdc48b641216353acaf9d60ed0",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox_alpha_gt3": [
+      0,
+      33,
+      1254,
+      1244
+    ],
+    "guide_magenta_delivery_pixels": 0,
+    "used_as_runtime_delivery_pixels": false,
+    "native_2K_requirement_met": false,
+    "method_change": "Retain whole output as appearance reference only. Author4new native overlapping regional outputs at1:1global scale; no enlarged reference/padding accepted as native detail.",
+    "visual_observation": "Calm broad blue-lavender powder-snow brush bands, no watercaustics/props/characters. Some lowalpha/cyan edge debris needs exact matte review in final native assembly. Source-only, not mounted/accepted.",
+    "backend": "builtin image_gen.imagegen",
+    "returned_metadata_fields": [
+      "image_url",
+      "output_hint"
+    ],
+    "model_selector_exposed": false,
+    "model_version": null,
+    "calls_used_this_continuation": 1,
+    "static_total_call_cap": 8,
+    "historical_attempt01_calls_known": 1,
+    "animation_calls": 0,
+    "paid_CLI_calls": 0,
+    "generation_wall_seconds": 56.4,
+    "at_utc": "2026-11-03T14:01:37.477400+00:00"
+  },
+  "regional_registration_trial": {
+    "state": "ACTUAL_MASTER_CREATED_NATIVE_1TO1_FOUR_REGION_MAPPING",
+    "method": "Use returned1254regions at1:1, provisional anchors(0,0),(794,0),(0,794),(794,794) on2048canvas,460overlap; preserve all originals. Final authored contour/seam review determines viability before runtime slicing. No guide, enlarged concept or procedural art enters delivery.",
+    "global_master": [
+      2048,
+      2048
+    ],
+    "native_region_size": [
+      1254,
+      1254
+    ],
+    "anchors": {
+      "tl": [
+        0,
+        0
+      ],
+      "tr": [
+        794,
+        0
+      ],
+      "bl": [
+        0,
+        794
+      ],
+      "br": [
+        794,
+        794
+      ]
+    },
+    "seam_overlap": 460,
+    "guide_alignment_exact": false,
+    "guide_pixels_used": false,
+    "actual_master_created": true,
+    "native_dimension_floor_verified": true,
+    "formal_QA11": null
+  },
+  "additional_context_dependency": "Actual new native2048painted ground/four1024cards requires source-bound actual UI/actor/ball/face/chase/clear/reentry captures across3aspects. Unchanged5062source54frames are reused from immutableR131,0newsourcecapturecredit. New fourcard layers/mips/shape/actor support and original inputgeometry are measured; no formalQA11 or naturalroute claim.",
+  "excluded_native_events_here": 64,
+  "new_candidate_bounded_frames_expected": 54,
+  "visual_mapping": {
+    "master_size": [
+      2048,
+      2048
+    ],
+    "display_size": [
+      1400,
+      1000
+    ],
+    "field_origin": [
+      -60,
+      220
+    ],
+    "tile_size": [
+      700,
+      500
+    ],
+    "child_offset": [
+      0,
+      -60
+    ],
+    "x_scale": 0.68359375,
+    "y_scale": 0.48828125,
+    "scope": "Declared static ground-plane presentation, no native pixel reexport/enlargement/acting/identity change; functional1400square Panel(-60,280)unchanged"
+  }
+}

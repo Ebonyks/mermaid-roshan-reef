@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "candidate": "v6_review_only",
+  "lane": "SOURCE_ONLY_NATIVE_CANVAS2D",
+  "provider": "built-in image_gen",
+  "model_revision": "UNEXPOSED",
+  "seed": "UNEXPOSED",
+  "paid_api_jobs": 0,
+  "generation_calls": 3,
+  "reported_cost": "not exposed; call counts recorded",
+  "attempts": [
+    {
+      "brief": "detective garment assembly",
+      "native": "native/detective_take01.png",
+      "call_output_id": "exec-3af64ab2-4030-4062-b4ce-49daa8c8d33d",
+      "calls": 1,
+      "limit": 2,
+      "status": "prototype source only"
+    },
+    {
+      "brief": "geologist garment assembly",
+      "native": "native/geologist_take01.png",
+      "call_output_id": "exec-c850d1f0-edd6-40a4-a3cb-23d3368e091b",
+      "calls": 1,
+      "limit": 2,
+      "status": "prototype source only"
+    },
+    {
+      "brief": "two-view grip part atlas",
+      "native": "native/grip_take01.png",
+      "call_output_id": "exec-5f9d9fa6-18f4-4cde-8999-fe37fb2b3526",
+      "calls": 1,
+      "limit": 2,
+      "status": "front used provisionally; clipped alternate back wrist unbound"
+    }
+  ],
+  "settings": {
+    "transparent_background": true,
+    "other_sampling_settings": "not exposed"
+  },
+  "sources": "source_inventory.json",
+  "edits": [
+    {
+      "method": "Aseprite uniform scale and canvas placement of complete named garment parts; alpha threshold24 removes low-alpha specks; source RGB otherwise preserved",
+      "recipe": "tools/register_garments.lua"
+    },
+    {
+      "method": "Aseprite isolation, bounded original neck pixel extension, six-pixel cuff underlap from its own painted cloth, explicit original-fin slot restoration",
+      "recipes": [
+        "tools/grip_parts.lua",
+        "tools/repair_parts.lua",
+        "tools/repair_seam.lua"
+      ]
+    },
+    {
+      "method": "Dedicated2D garment mesh on unchanged14 bones; longitudinal90px Gaussian/95px waist blend; torso/head/sleeve rigid attachments; no original common vertex/weight edit",
+      "recipe": "tools/build_bindings.py"
+    },
+    {
+      "method": "Actual native engine RGBA outputs and direct PNG-byte ZIP archive; review movie uses uniform720/1024 scale and1280x720 square-pixel silent landscape",
+      "recipe": "tools/package_native.py"
+    },
+    {
+      "method": "Conditional anatomy/fin ownership preservation; no generation or new painting. Exact original_tail restored from immutable seed.",
+      "recipe": "tools/legacy_fin_layers.lua; demo/investigation.gd; demo/costume.gdshader",
+      "evidence": "evidence/legacy_seed_pixel_comparison.json; evidence/v6_new_action_preservation.json"
+    }
+  ],
+  "native_hashes": {
+    "detective_take01.png": "225933b5630654bd56131b80660ce5322abc4d3b7367b1f9fec2e728f0c51d1d",
+    "geologist_take01.png": "db707a5e56cea5d038bf7c5d501e9f6e0d33501b6c540759f8527d1d2f8ebeb7",
+    "grip_take01.png": "16dbeca8c780d7697eb613b06c4901a6992f73707b1a0424e122256c4f6fd55b"
+  },
+  "master_hashes": {
+    "detective_binding.aseprite": "dcf013981afa256dbff1bab8fa7e3bf32ad07f93a15b37cac6ec1b0266e94887",
+    "detective_registered.aseprite": "581f725416b513aa464ec2546b8bbb783f53dd1afa423a147e06cdc29db45905",
+    "geologist_binding.aseprite": "16b907b006245b0692256b161f8afa111cd952baa80abbbac37126f68e98d5e6",
+    "geologist_registered.aseprite": "91c953b15bdc497d64ed48dcd0375755bf5dfac8380fa431aee0b0122ff8d224",
+    "grip_registered.aseprite": "42a393fbefdcfc89894403b1a3a2470694f523ee221d20110223ff972e4303ac"
+  },
+  "rejected_evidence": "evidence/rejected_binding_v1/ and evidence/rejected_v1/; prior APNG alpha mismatches, mesh strain/flip, cuff and acceleration failures retained",
+  "scope": "No gameplay adoption, runtime character replacement, owner/device/child/art acceptance or master-finding closure. Protected originals untouched.",
+  "cleanup_time": "Not precisely instrumented; no active-cleanup-duration or cost-efficiency claim. Source/tool/capture timestamps and retained attempts are evidence; computer-use approval wait was idle, not a production job.",
+  "later_repair": "One bounded v5 ownership cleanup was rejected; preferred v4 sources were restored with zero frozen input drift. No additional generation calls."
+}

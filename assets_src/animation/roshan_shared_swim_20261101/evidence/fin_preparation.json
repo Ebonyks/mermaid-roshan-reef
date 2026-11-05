@@ -1,0 +1,52 @@
+{
+  "pass": true,
+  "native_registered_pixels_exact": true,
+  "poses": [
+    {
+      "id": "fin_broad",
+      "source": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/fin_broad.png",
+        "sha256": "5db21dcf249ebca8a5597b8119fdb546836ab09ac5ec615e62b9022a932c188e"
+      },
+      "output": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/fin_broad_registered.png",
+        "sha256": "74717126e1093ce8ab2c7fd5c623f025ce8e713d016ea54968674f9a2d7d0982"
+      },
+      "offset": [
+        57,
+        133
+      ]
+    },
+    {
+      "id": "fin_edge",
+      "source": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/fin_edge.png",
+        "sha256": "702db2c2d292869677d622c0ebe5be649697138a9b53fb754e5afbc23ece48f9"
+      },
+      "output": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/fin_edge_registered.png",
+        "sha256": "8a56ca2be8f169528562ccf930c615ea7ddc4faccd3f38b9b9ab4367bc931897"
+      },
+      "offset": [
+        45,
+        207
+      ]
+    },
+    {
+      "id": "fin_cup",
+      "source": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/fin_cup.png",
+        "sha256": "c39b1846d2ee35cc87637613b28fa0ca37a4c617ef4502de85f45a57c8c8e023"
+      },
+      "output": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/fin_cup_registered.png",
+        "sha256": "d30973153d22af14087313edf8d710a91baf82b46aa3ceeddee34763876c07a8"
+      },
+      "offset": [
+        65,
+        137
+      ]
+    }
+  ],
+  "interpolation_scope": "Common anatomical fin only. No garment shader, per-costume actor, extra fin node or image generation. UV/contour interpolation requires exact visual review separately from LBS strain."
+}

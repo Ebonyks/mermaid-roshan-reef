@@ -1,0 +1,61 @@
+{
+  "stable_id": "FV-0FCB49F07274",
+  "state": "AI_PROVISIONAL_STATIC_PAINTED_COAL_REVIEWED_NATIVE_AND_PHONE",
+  "candidate_native_frames": 54,
+  "source_native_frames_reused": 54,
+  "new_source_native_frame_credit": 0,
+  "native_candidate_inspected": [
+    "1280x720/08_three_stack_face",
+    "1280x720/09_partial_face",
+    "1280x720/10_chase_full",
+    "1280x720/14_remaining_head"
+  ],
+  "native_source_inspected": [
+    "1280x720/08_three_stack_face",
+    "1280x720/09_partial_face"
+  ],
+  "all108_phone_views_inspected": true,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "Dev_integrated": false,
+  "accepted_removed": 0,
+  "phone_source_views_reused": 54,
+  "phone_candidate_views_new": 54,
+  "whole_HUD_comparison_boards": 18,
+  "scale": 0.3,
+  "phone_review_acceptance": "Local AI static review only; no independent formalQA11, device, child, owner or fullmotion proof",
+  "inspected_phone_boards": [
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/phone_comparisons/01_small.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/phone_comparisons/02_wrong_passive.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/phone_comparisons/03_growing_lower.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/phone_comparisons/04_lower_settled.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/phone_comparisons/05_growing_middle.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/phone_comparisons/06_two_settled.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/phone_comparisons/07_growing_head.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/phone_comparisons/08_three_stack_face.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/phone_comparisons/09_partial_face.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/phone_comparisons/10_chase_full.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/phone_comparisons/11_lower_bite_squash.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/phone_comparisons/12_remaining_two.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/phone_comparisons/13_middle_bite_squash.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/phone_comparisons/14_remaining_head.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/phone_comparisons/15_head_bite_squash.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/phone_comparisons/16_carrot_only.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/phone_comparisons/17_original_win.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/phone_comparisons/18_fresh_reentry.png"
+  ],
+  "complete_contact_motion_open": true,
+  "all_ten_axis_floor_met": false,
+  "observations": [
+    "Face UI08/partial09: new hand-painted slate ridges replace sharp broad polygon planes beside actual carrot; dark navy/plum identity, original two choices/transfer/eye geometry retained.",
+    "Chase10-14: both42square eye cards remain dark and separate, inherited head-relative placement and draworder retained; no new facial anatomy or reorientation.",
+    "15-18: actualcoal cards clear at original head bite/carrot/win/fresh reentry; nocoal remnants; original global sticker/header overlap persists.",
+    "Unchanged procedural snowballs/ground and inherited unsupported upper masses/rightedge clipping/eating motion remain separate open work. R131 body candidate is independent, not integrated in R132."
+  ],
+  "new_native_frame_events": 54,
+  "source_native_reuse_new_credit": 0,
+  "candidate_status": "SOURCE_CANDIDATE_LOCAL_MACHINE_VERIFIED_FORMAL_OPEN",
+  "complete_machine_validation": "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/LOCAL_82_RESULT.json"
+}

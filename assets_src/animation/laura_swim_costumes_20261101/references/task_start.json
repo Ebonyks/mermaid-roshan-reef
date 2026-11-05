@@ -1,0 +1,48 @@
+{
+  "id": "laura-swim-test-20261101",
+  "started_utc": "2026-11-01T22:30:30.981283+00:00",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-MOT-01",
+    "DL-MOT-03",
+    "DL-MOT-10",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-QA-02",
+    "DL-QA-07",
+    "DL-CODE-05"
+  ],
+  "findings": [
+    "MA-ROSHAN-005",
+    "MA-ROSHAN-006"
+  ],
+  "scope": "Today source-only native Canvas swimming pilot using owner-selected Laura-led v2 direction. All15 currently available job candidates plus original. Shared14-bone rest and same motion across costumes. No production, save, input, dev/master or release adoption. Known candidate rejects remain rejects.",
+  "required_evidence": [
+    "pinned Laura v2 profile and actual source inventory/hashes/status",
+    "same rig bone/rest contract across outfits",
+    "real Godot4.7.2 Mobile RGBA captures, loop and one-shot travel/settle",
+    "all frames geometric/outline/contamination and negative controls with unchanged original thresholds",
+    "normal-speed comparison video, phase boards, editable Aseprite and exact pixel reopening",
+    "source licenses/derivation/limits, master guidance, applicable source/full game gates",
+    "separate human/device/child/owner acceptance"
+  ],
+  "budget": {
+    "wall_minutes": 180,
+    "generated_takes_max": 2,
+    "imagegen_calls": 0,
+    "lane": "local native 2D animation; reuse all approved source pixels first"
+  },
+  "view_limit": "Current painted rig is front view. Today test is upright buoyant front-view swimming; no unpainted profile/turn or unseen surface acceptance. Future right/left view coverage remains blocked."
+}

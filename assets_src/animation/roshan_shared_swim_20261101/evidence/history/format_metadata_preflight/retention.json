@@ -1,0 +1,6 @@
+{
+  "status": "REJECTED_FORMAT_METADATA_ONLY",
+  "reason": "The v1 rig asset list rejects renderer program/binary file types. Keep the renderer implementation outside data-only rig/skin references. Anatomy JSON continues to pin its own numeric fields, which the native core checks. No animation, bone, garment, image, camera or shader change.",
+  "native_png_hashes_preserved": true,
+  "native_rgba_retention": "Final full capture must match every native pixel from this capture; proof will be attached after revalidation."
+}

@@ -1,0 +1,29 @@
+{
+  "state": "TERMINAL_REPAIRED_MELODY_FOCUSED_PASS",
+  "command": [
+    "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot.exe",
+    "--verbose",
+    "--log-file",
+    "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\melody_combined_smoke02\\native_engine.log",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\recent-updates-dev-20261103\\mermaid-roshan-reef",
+    "-s",
+    "scripts/probe_melody.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "pins": {
+    "scripts/probe_melody.gd": "2fd099a90948b0f68fd57f712cab77cb42e28a5cf28a4f0737a88d9d2d917420",
+    "scripts/games/melody.gd": "3b07a47fe282e168a21970dc9fb35827c8771dbcfe853aff46d95677c4454495",
+    "scripts/games/picture_games.gd": "e3f2e187d4a4f74c73714c0e36f2588472df326db8a40976dd0448f1e37e60a1"
+  },
+  "prior_failure_preserved": "melody_combined_smoke01",
+  "started_at_utc": "2026-11-03T17:16:20.811127+00:00",
+  "pid": 75260,
+  "exit_code": 0,
+  "failure_lines": [],
+  "source_drift": [],
+  "completed_at_utc": "2026-11-03T17:17:21.692796+00:00"
+}

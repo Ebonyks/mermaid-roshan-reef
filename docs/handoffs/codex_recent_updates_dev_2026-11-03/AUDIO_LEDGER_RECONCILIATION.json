@@ -1,0 +1,52 @@
+{
+  "state": "METADATA_HASH_POINTER_RECONCILED_NO_AUDIO_CHANGE",
+  "at_utc": "2026-11-03T18:49:32.302467+00:00",
+  "baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+  "rows": 862,
+  "current_csv_already_matches_fresh_generated_bytes": true,
+  "csv_before_sha256": "6cfbd13b9ec167915595a8a611a0160a269727063ccf4078eb982e4e5a9c8925",
+  "csv_current_sha256": "854bd9b18290b4059246586544db01411b96e7595cfe6c65d65713bab933a853",
+  "base_to_combined_row_deltas": [
+    {
+      "path": "assets/audio/chime.ogg",
+      "field": "runtime_reference_count",
+      "before": "12",
+      "after": "13"
+    }
+  ],
+  "combined_vs_generated_row_deltas": [],
+  "summary_changed_fields": [
+    "inventory_sha256"
+  ],
+  "summary_before_sha256": "3929a02538194654517a28211dd4dd78abb219a22a3beffcd72d350b23b141ab",
+  "summary_after_sha256": "ea9a664b285aa6c9b8a7950baee5c868c34195c891a0f2098eabb7f76be42ab2",
+  "all_audio_paths_hashes_bytes_protection_technical_human_grades_and_acceptance_unchanged": true,
+  "runtime_audio_changes": 0,
+  "reason": "Imported source CSV already records the additional chime reference; merged summary retained the base CSV hash. Fresh complete regeneration confirms every current row and only repairs this hash pointer.",
+  "fresh_regeneration": {
+    "state": "TERMINAL_AUDIO_LEDGER_TEMP_RENDER_PASS_COMPARE_REQUIRED",
+    "pid": 54640,
+    "command": [
+      "python",
+      "-B",
+      "tools/audit_audio_quality.py",
+      "--out-dir",
+      "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\audio_ledger_current"
+    ],
+    "started_at_utc": "2026-11-03T18:44:01.207420+00:00",
+    "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\AUDIO_LEDGER_REBUILD.log",
+    "exit_code": 0,
+    "completed_at_utc": "2026-11-03T18:47:47.519143+00:00"
+  },
+  "original_failure": {
+    "log": "validation/STATIC_PREFIX.log",
+    "sha256": "7eb4e17c2853bdfa968c6d3c50a0a2810bcd9c0930fd7886f904b3e3e98ea169",
+    "result": "validation/STATIC_RESULT_attempt01.json",
+    "engine_probes_started": 0
+  },
+  "next": "Resume exact failed audio --check plus remaining static suffix, then all82 original trusted probes.",
+  "formal_QA11": null,
+  "device_listening": null,
+  "child": null,
+  "owner": null
+}

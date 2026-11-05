@@ -1,0 +1,152 @@
+{
+  "checked_utc": "2026-11-03T04:39:55.487Z",
+  "kind": "metadata_intake_not_listening_acceptance",
+  "summary": {
+    "rows": 30,
+    "midi_file_coverage": 24,
+    "original_candidates": 30,
+    "backing_video_candidates": 21,
+    "confirmed_faithful_mappings": 0
+  },
+  "files": [
+    {
+      "file": "README.md",
+      "size": 19189,
+      "sha256": "a5f4f22f95c9cd62d6104a2643cc1e5afa9a6c70143a36e5a812430caf385929"
+    },
+    {
+      "file": "WRITTEN_CONTEXT.md",
+      "size": 9694,
+      "sha256": "48ef893529b68adf8e57ba093049856c9c4ef9cfc68539456c97db001070f812"
+    },
+    {
+      "file": "INTERPRETIVE_REVIEW.md",
+      "size": 12977,
+      "sha256": "b43f83c70e6bfb75fe6b2fbfd51f8a6a11df363062442ece608b7533108e7a23"
+    },
+    {
+      "file": "soundtrack_catalog.json",
+      "size": 222529,
+      "sha256": "1877801a6b11c3770dcec324971388004f38bb1689ac19581e215bbc2fea3bc2"
+    },
+    {
+      "file": "midi_catalog.json",
+      "size": 8554,
+      "sha256": "f8df9ab58db4c221430d5b7a7d5c3ab021bdaa8229f8817dd14f2c8f8eeb18d3"
+    },
+    {
+      "file": "vgmusic_catalog.json",
+      "size": 69178,
+      "sha256": "ccec38e4dd4961d1fa14f2303fd85fd6ef7e344e83e864d24678b0b4300ee956"
+    },
+    {
+      "file": "instrument_candidates.json",
+      "size": 11842,
+      "sha256": "8029454a94512e784549f7e8c190b6b36da20493c8080a436ce5c24824c176c7"
+    },
+    {
+      "file": "written_sources.json",
+      "size": 7971,
+      "sha256": "eaf7fc477f4ade30beb9eea4a145c6e95b720db0557846fb8fa26cee95745f34"
+    },
+    {
+      "file": "working_interpretations.json",
+      "size": 78302,
+      "sha256": "afe3821f050f26633ad93cc5889442ca619cb6c3c0169826bc38579148f9a918"
+    },
+    {
+      "file": "evidence/expanded_search_receipt.json",
+      "size": 22812,
+      "sha256": "30cb3b74f86dc46b7afb5576b45c94d4f086cd031a46cfd678055656c669d9da"
+    },
+    {
+      "file": "evidence/listening_summary.json",
+      "size": 33982,
+      "sha256": "33b6d0a9e0acef390374d2028843d7ddf3532feef92f04f086e0a7bf1ab67251"
+    },
+    {
+      "file": "evidence/midi_audio_comparisons.json",
+      "size": 64838,
+      "sha256": "d58f34822d419dae20422dcc0cae76b2b373bbb9a0b336d40583c378a8ded258"
+    },
+    {
+      "file": "evidence/midi_event_summaries.json",
+      "size": 794026,
+      "sha256": "364231e363d33e7d98eff4f319098c4a19571927c16f08cb4d648a65544bdff3"
+    },
+    {
+      "file": "evidence/original_reference_manifest.json",
+      "size": 21589,
+      "sha256": "a901a82fa21015725270805a820612b390f2d88f8501e4c8304bbd803f39a932"
+    },
+    {
+      "file": "evidence/rejected_reference_intake.json",
+      "size": 471,
+      "sha256": "33763324c506556588f2b8c7c848fa2e75952d79beab132e7c41e4fb7d1a40f1"
+    },
+    {
+      "file": "evidence/reproduction_receipt.json",
+      "size": 189,
+      "sha256": "fa237291458d0cc3f345aa782e9971e48bbe6fa972bfe4bc885cd7155b3a9092"
+    },
+    {
+      "file": "SOUNDTRACK_REVISION_GUIDE_V2.md",
+      "size": 90177,
+      "sha256": "8c61ea1d27e3c061b48a5f0b7a56fab02043f780ac12a6f5925b44beb9b1c8cc"
+    },
+    {
+      "file": "revision_call_sheets_v2.json",
+      "size": 405829,
+      "sha256": "0564fc3c71cc68a6134891a178be8fd5f8ed930da0487bcf893a6339d52c5675"
+    },
+    {
+      "file": "performance_references_v2.json",
+      "size": 5770,
+      "sha256": "95a4ddd65525d0fa7c29704c24cacbb1a3b458d443f78a016256eae3f7b4724c"
+    },
+    {
+      "file": "revision_owner_direction_20261102.json",
+      "size": 975,
+      "sha256": "fe46e699cece597b2465bc6b372b3af6fc19b63a90dd8a7aac1192abcc52920b"
+    },
+    {
+      "file": "evidence/revision_guide_validation_v2.json",
+      "size": 3200,
+      "sha256": "ca538fe0547c6ac6ca592e46e26fdb7b92a879545961bbc00c56265ed67c9748"
+    }
+  ],
+  "written_context_revision": {
+    "checked_utc": "2026-11-03T04:48:19.530Z",
+    "read_sources": 8,
+    "additional_limited_leads": 2,
+    "full_track_credit_rows": 22,
+    "unassigned_short_cue_rows": 8,
+    "claim_status": "DOCUMENTARY_CONTEXT_NOT_PATCH_ACCEPTANCE",
+    "source_id_references": "PASS"
+  },
+  "interpretive_revision": {
+    "checked_utc": "2026-11-03T05:17:00.142Z",
+    "input_urls": 106,
+    "parsed_urls": 105,
+    "unique_midi_hashes": 75,
+    "additional_archive_duplicate_entries": 33,
+    "original_references": 30,
+    "excerpt_opinions": 52,
+    "adopted_working_directions": 30,
+    "midi_covered_entries": 24,
+    "confidence": "Working interpretation with alternatives/revision triggers; no native timbre or human acceptance claimed.",
+    "reproduced_unique_candidate_comparisons": 54,
+    "method_source": "tools/studies/dkc_midi_stress.py",
+    "method_sha256": "4b7ddd0c633d3ed4028022a79c145cad15bd9986a67875d5961720778b808cfe"
+  },
+  "performance_revision": {
+    "checked_utc": "2026-11-03T05:40:06.074Z",
+    "revision": 2,
+    "complete_two_layer_plans": 30,
+    "individual_player_calls": 117,
+    "primary_influence_context_sources": 6,
+    "profile_revision_hash_checks": "15/15 PASS",
+    "native_source_matched_programs_accepted": 0,
+    "status": "WRITTEN_OUTLINE_COMPLETE_NATIVE_AND_HUMAN_ACCEPTANCE_OPEN"
+  }
+}

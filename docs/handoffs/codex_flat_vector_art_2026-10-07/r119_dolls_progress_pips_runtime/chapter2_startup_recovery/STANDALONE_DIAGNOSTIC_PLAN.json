@@ -1,0 +1,16 @@
+{
+  "role": "DIAGNOSTIC_ONLY_NOT_TRUSTED_GATE",
+  "question": "Does the original child script reach its first assertion or finish when launched alone from copies of the exact failed synthetic milestone inputs, and what resource loads precede its first assertion?",
+  "new_basis": "The30minute capacity opportunity ended with0original retries dispatched. Both WMI and independent native GetSystemTimes measured100percent hostbusy. Diagnose the exact child startup with verbose resource tracing; do not restart71healthy probes or lower the original30second gate.",
+  "trusted_script": "scripts/probe_chapter2.gd",
+  "trusted_script_sha256": "0276b386e1a8f4432fc88a533dec6723d77791fa518f15f37960112c5155d6ff",
+  "source_pin_sha256": "f61ba4a69c0c6a4133336dc1608b951d78e3cf40344a4d942de026962b90ba70",
+  "input_policy": "Copy only owned synthetic primary/backup frozen inputs from original72failure to fresh privateuser data, exactbytes/hash. Rebind expectation path metadata andactual diagnostic Python parentPID; snapshot/generation/hash/source andall child assertions unchanged. Preserve originalinputs/logs untouched. Never use normal savedata.",
+  "diagnostic_budget_seconds": 180,
+  "original_gate_child_deadline_ms": 30000,
+  "does_diagnostic_replace_or_pass_original_gate": false,
+  "max_diagnostic_launches": 1,
+  "new_generation_calls": 0,
+  "new_frames": 0,
+  "at_utc": "2026-10-31T22:19:02.966562+00:00"
+}

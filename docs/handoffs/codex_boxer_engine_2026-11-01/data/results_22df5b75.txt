@@ -1,0 +1,185 @@
+# Boxer engine evaluation results (numbers only)
+# Branch codex/boxer-contact-engine-20261031 at 22df5b7541c7ddc28f8b7acd7f4947c8807e5dc0
+# Engine: Godot 4.7.2.stable.official.ed1daf0bf, headless, fresh APPDATA per run (harness/run_iso.sh)
+# Runs: 2026-11-01. Each block names the harness script that printed it.
+
+## Codex focused probe rerun: scripts/probe_boxing_contact.gd
+BOXINGCONTACT|COUNTS|geometry=14000|held_flights=224|adversarial_events=30000|desktop_elapsed_ms=3257.719
+BOXINGCONTACT|RESULT|ALL OK
+
+## Contact math: harness/geometry_check.gd
+GEOM|uniform_wide|cases=100000|ref_contacts=18385|engine_contacts=18385|missed=0|false=0|ambiguous=4|max_late_px=0.000000000|max_early_px=0.000000000|max_gap_at_engine_t=0.000000000|late_over_half_px=0
+GEOM|game_scale|cases=100000|ref_contacts=6698|engine_contacts=6698|missed=0|false=0|ambiguous=4|max_late_px=0.000000000|max_early_px=0.000000000|max_gap_at_engine_t=0.000000000|late_over_half_px=0
+GEOM|near_tangent_0.02|cases=20000|ref_contacts=10189|engine_contacts=10189|missed=0|false=0|ambiguous=11|max_late_px=0.000000000|max_early_px=0.000000000|max_gap_at_engine_t=0.000000000|late_over_half_px=0
+GEOM|near_tangent_0.1|cases=20000|ref_contacts=10170|engine_contacts=10170|missed=0|false=0|ambiguous=18|max_late_px=0.000000000|max_early_px=0.000000000|max_gap_at_engine_t=0.000000000|late_over_half_px=0
+GEOM|near_tangent_1.0|cases=20000|ref_contacts=10202|engine_contacts=10202|missed=0|false=0|ambiguous=58|max_late_px=0.000000000|max_early_px=0.000000000|max_gap_at_engine_t=0.000000000|late_over_half_px=0
+GEOM|near_tangent_5.0|cases=20000|ref_contacts=10124|engine_contacts=10124|missed=0|false=0|ambiguous=113|max_late_px=0.000000000|max_early_px=0.000000000|max_gap_at_engine_t=0.000000000|late_over_half_px=0
+GEOM|radius_dominated|cases=20000|ref_contacts=12007|engine_contacts=12007|missed=0|false=0|ambiguous=1|max_late_px=0.000000000|max_early_px=0.000000000|max_gap_at_engine_t=0.000000000|late_over_half_px=0
+GEOM|same_velocity|cases=20000|ref_contacts=4071|engine_contacts=4071|missed=0|false=0|ambiguous=1|max_late_px=0.000000000|max_early_px=0.000000000|max_gap_at_engine_t=0.000000000|late_over_half_px=0
+GEOM|long_sweeps|cases=20000|ref_contacts=12190|engine_contacts=12190|missed=0|false=0|ambiguous=12|max_late_px=0.000000040|max_early_px=0.000000122|max_gap_at_engine_t=0.000000018|late_over_half_px=0
+GEOM|invalid_inputs|rejected=5/5
+GEOM|cost|calls=200000|usec_per_call=1.918|sink=-200000.000000
+GEOM|DONE
+
+## Held guard, centre parking, counter gate, help level: harness/collision_integration.gd
+## (Its CROSS lines used a frame order that lags the glove one frame; superseded by crossing_v3.gd below.)
+HELD|fps60_step16|runs=14592|agree=14592|engine_only=0|analytic_only=0|unresolved=0|borderline=81
+PARK|boxing_guard|hand=0|cells_blocking_any_lane=897|cells_blocking_both_lanes=236|share_both=0.263
+PARK|boxing_guard|hand=1|cells_blocking_any_lane=897|cells_blocking_both_lanes=232|share_both=0.259
+PARK|boxing_imp|hand=0|cells_blocking_any_lane=885|cells_blocking_both_lanes=224|share_both=0.253
+PARK|boxing_imp|hand=1|cells_blocking_any_lane=887|cells_blocking_both_lanes=225|share_both=0.254
+PARK|boxing_guard|left glove parked at x=640 blocks: y250=2/2 y330=2/2 y410=2/2 y490=2/2 y570=2/2
+PARK|boxing_imp|left glove parked at x=640 blocks: y250=2/2 y330=2/2 y410=2/2 y490=2/2 y570=2/2
+HELD|fps30_step32_hitch|runs=3648|agree=3648|engine_only=0|analytic_only=0|unresolved=0|borderline=22
+CROSS|boxing_guard|fps=30|hitch=false|trials=3000|truth_contact=2961|engine_block=2961|agree=3000|missed=0|false=0|borderline_disagree=0|unresolved=0|max_true_overlap_missed_px=0.00|max_true_gap_falsely_blocked_px=0.00
+CROSS|boxing_guard|fps=60|hitch=false|trials=3000|truth_contact=2966|engine_block=2966|agree=3000|missed=0|false=0|borderline_disagree=0|unresolved=0|max_true_overlap_missed_px=0.00|max_true_gap_falsely_blocked_px=0.00
+CROSS|boxing_guard|fps=60|hitch=true|trials=2000|truth_contact=1964|engine_block=1948|agree=1958|missed=29|false=12|borderline_disagree=1|unresolved=0|max_true_overlap_missed_px=118.06|max_true_gap_falsely_blocked_px=229.26
+CROSS|boxing_imp|fps=30|hitch=false|trials=3000|truth_contact=2169|engine_block=2260|agree=2881|missed=7|false=92|borderline_disagree=20|unresolved=0|max_true_overlap_missed_px=40.88|max_true_gap_falsely_blocked_px=31.34
+CROSS|boxing_imp|fps=60|hitch=false|trials=3000|truth_contact=2171|engine_block=2210|agree=2937|missed=9|false=43|borderline_disagree=11|unresolved=0|max_true_overlap_missed_px=15.41|max_true_gap_falsely_blocked_px=37.56
+CROSS|boxing_imp|fps=60|hitch=true|trials=2000|truth_contact=1426|engine_block=1475|agree=1579|missed=180|false=225|borderline_disagree=16|unresolved=0|max_true_overlap_missed_px=115.23|max_true_gap_falsely_blocked_px=502.04
+IMPGATE|unblocked|counter_window_opens_at=3.450|friendly_contact=true|window_seconds=1.70
+IMPGATE|held_guard_p=0.2|counter_window_opens_at=3.017|blocked=true|assist=1
+IMPGATE|held_guard_p=0.5|counter_window_opens_at=3.250|blocked=true|assist=1
+IMPGATE|held_guard_p=0.8|counter_window_opens_at=3.067|blocked=true|assist=0
+ASSIST|jab one sideways try released|assist_level=2|target_radius=114
+ASSIST|imp one punch on closed guard|assist_level=2|windup_after=1.60|counter_window_after=2.20
+ASSIST|guard one unblocked punch|assist_level=1
+ASSIST|after three accepted jabs|assist_before=2|assist_after=2|accepted=3
+INTEG|elapsed_s=793.5
+INTEG|DONE
+
+## Moving guard in Godot's real frame order: harness/crossing_v3.gd
+CROSS3|boxing_imp|fps=30|stutter=0.00s|fist_px_per_frame=17.6|trials=1500|wrong=70|launch=3(max 10.9px)|mid=60(max 16.2px)|arrival=7(max 19.7px)|missed_max=10.9|false_max=19.7
+CROSS3|boxing_imp|fps=60|stutter=0.00s|fist_px_per_frame=8.8|trials=1500|wrong=39|launch=0(max 0.0px)|mid=35(max 8.1px)|arrival=4(max 3.9px)|missed_max=0.0|false_max=8.1
+CROSS3|boxing_imp|fps=60|stutter=0.10s|fist_px_per_frame=52.8|trials=1000|wrong=63|launch=4(max 50.5px)|mid=37(max 41.1px)|arrival=22(max 169.5px)|missed_max=50.5|false_max=169.5
+CROSS3|boxing_imp|fps=60|stutter=0.25s|fist_px_per_frame=132.0|trials=1000|wrong=174|launch=46(max 999.0px)|mid=77(max 77.4px)|arrival=51(max 303.1px)|missed_max=113.8|false_max=999.0
+CROSS3|DONE
+CROSS3|boxing_guard|fps=30|stutter=0.00s|fist_px_per_frame=6.6|trials=1500|wrong=9|launch=6(max 39.7px)|mid=0(max 0.0px)|arrival=3(max 67.0px)|missed_max=39.7|false_max=67.0
+CROSS3|boxing_guard|fps=60|stutter=0.00s|fist_px_per_frame=3.3|trials=1500|wrong=5|launch=2(max 24.3px)|mid=0(max 0.0px)|arrival=3(max 25.3px)|missed_max=24.3|false_max=25.3
+CROSS3|boxing_guard|fps=60|stutter=0.10s|fist_px_per_frame=19.8|trials=1000|wrong=2|launch=1(max 4.7px)|mid=0(max 0.0px)|arrival=1(max 112.7px)|missed_max=4.7|false_max=112.7
+CROSS3|boxing_guard|fps=60|stutter=0.25s|fist_px_per_frame=49.5|trials=1000|wrong=16|launch=15(max 116.1px)|mid=0(max 0.0px)|arrival=1(max 7.6px)|missed_max=116.1|false_max=7.6
+CROSS3|DONE
+
+## Mismatch diagnosis, guard drill 30 fps: harness/crossing_debug.gd
+DEBUG|blocked=true|gap=67.0|gap_t=3.1999|t_end=3.2000|speed=2552|angle=-0.13|p_cross=0.92|t_cross=3.2681|t_enter=3.1114|t_leave=3.4249|side=0|impact=(588.8, 619.2)|glove_end=(497.6004, 592.0266)|fist_at_gap=(588.7982, 619.1775)|glove_at_gap=(412.9509, 602.9445)
+DEBUG|blocked=false|gap=-32.1|gap_t=0.8000|t_end=3.2333|speed=1651|angle=-0.11|p_cross=0.12|t_cross=0.7695|t_enter=0.5271|t_leave=1.0118|side=1|impact=(640.0, 489.6)|glove_end=(327.2026, 246.4687)|fist_at_gap=(729.6, 144.0)|glove_at_gap=(674.77, 208.4666)
+DEBUG|blocked=false|gap=-39.7|gap_t=0.8000|t_end=3.2333|speed=2613|angle=-0.20|p_cross=0.06|t_cross=0.7749|t_enter=0.6218|t_leave=0.9281|side=1|impact=(640.0, 489.6)|glove_end=(335.097, 248.0741)|fist_at_gap=(729.6, 144.0)|glove_at_gap=(663.2703, 183.06)
+DEBUG|blocked=true|gap=13.1|gap_t=3.1998|t_end=3.2000|speed=1214|angle=-0.24|p_cross=0.89|t_cross=3.2864|t_enter=2.9568|t_leave=3.6159|side=1|impact=(691.2, 619.2)|glove_end=(757.8052, 552.9)|fist_at_gap=(691.2031, 619.1625)|glove_at_gap=(797.3058, 543.1429)
+DEBUG|blocked=false|gap=-32.3|gap_t=0.8000|t_end=3.2333|speed=1846|angle=-0.27|p_cross=0.08|t_cross=0.7662|t_enter=0.5495|t_leave=0.9830|side=1|impact=(640.0, 489.6)|glove_end=(340.5874, 288.8716)|fist_at_gap=(729.6, 144.0)|glove_at_gap=(666.3339, 199.7883)
+DEBUG|blocked=true|gap=6.5|gap_t=3.1999|t_end=3.2000|speed=2091|angle=0.08|p_cross=0.95|t_cross=3.2557|t_enter=3.0644|t_leave=3.4470|side=1|impact=(691.2, 619.2)|glove_end=(739.8886, 597.4661)|fist_at_gap=(691.2014, 619.1823)|glove_at_gap=(809.5699, 602.8358)
+DEBUG|blocked=false|gap=-12.5|gap_t=0.8000|t_end=3.2333|speed=1723|angle=0.33|p_cross=0.10|t_cross=0.7392|t_enter=0.5070|t_leave=0.9714|side=1|impact=(640.0, 489.6)|glove_end=(347.0164, 63.87965)|fist_at_gap=(729.6, 144.0)|glove_at_gap=(626.514, 159.0868)
+DEBUG|blocked=false|gap=-3.2|gap_t=0.8000|t_end=3.2333|speed=1594|angle=-0.08|p_cross=0.11|t_cross=0.7418|t_enter=0.4909|t_leave=0.9928|side=1|impact=(640.0, 489.6)|glove_end=(326.6792, 228.1528)|fist_at_gap=(729.6, 144.0)|glove_at_gap=(632.9595, 203.516)
+DEBUG|blocked=false|gap=-15.3|gap_t=0.8000|t_end=3.2333|speed=2110|angle=-0.08|p_cross=0.12|t_cross=0.7652|t_enter=0.5756|t_leave=0.9548|side=1|impact=(640.0, 489.6)|glove_end=(325.9533, 233.2651)|fist_at_gap=(729.6, 144.0)|glove_at_gap=(651.5851, 208.6903)
+CROSS2|boxing_guard|fps=30|stutter=0.00s|fist_travel_per_frame_px=6.6|trials=1500|wrong_by_bin: deep_contact=5/1486 shallow_contact=1/1 near_miss=1/2 clear_miss=2/11|worst_missed_overlap_px=39.7|worst_false_gap_px=67.0
+CROSS2|DONE
+
+## Finger lift after a guard: harness/boundary_checks.gd (its boundary section exceeded the 40-minute limit and was replaced by crossing_v3.gd)
+RELEASE|boxing_imp|guard move then lift finger|failed_try_events=1|assist 0->2|demo_replayed=true
+RELEASE|boxing_guard|guard move then lift finger|failed_try_events=0|assist 0->0|demo_replayed=false
+
+## 900 playthroughs: harness/playthrough.gd -- runs=120
+LAYOUT|phone_bays|left=[P: (0.0, 256.0), S: (230.4, 1024.0)]|right=[P: (1049.6, 256.0), S: (230.4, 1024.0)]|press_left=(115.2, 604.8)
+VOICE|instruction_seconds| op_boxer_work=3.12 op_boxer_jab_stage=3.41 op_boxer_duck_stage=2.89 op_boxer_bell_chase_stage=3.96 op_boxer_belt_stage=3.15|total=16.53
+PLAY|quick|tablet_direct|runs=120|in_phase_total_s p10=41.8 p50=46.3 p90=51.9
+PLAY|quick|tablet_direct|boxing_guide|done=120/120|secs p10=3.3 p50=3.8 p90=4.7|first_unit p50=2.1|gap_between_units p50=1.63 p90=2.03|fails p50=0 p90=0|friendly p50=0|blocks p50=0|assist_max_share=0.00|assist2_at p50=-1.0|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|quick|tablet_direct|boxing_jab|done=120/120|secs p10=6.7 p50=7.5 p90=9.7|first_unit p50=2.1|gap_between_units p50=1.68 p90=2.37|fails p50=0 p90=1|friendly p50=0|blocks p50=0|assist_max_share=0.25|assist2_at p50=5.4|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|quick|tablet_direct|boxing_guard|done=120/120|secs p10=3.1 p50=3.4 p90=4.8|first_unit p50=1.6|gap_between_units p50=0.90 p90=1.08|fails p50=0 p90=0|friendly p50=0|blocks p50=3|assist_max_share=0.00|assist2_at p50=-1.0|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|quick|tablet_direct|boxing_imp|done=120/120|secs p10=25.1 p50=26.4 p90=34.8|first_unit p50=4.2|gap_between_units p50=4.28 p90=5.15|fails p50=4 p90=6|friendly p50=0|blocks p50=6|assist_max_share=1.00|assist2_at p50=2.6|windows p50=6 used p50=5|imp_cycle p50=4.27 p90=4.70
+PLAY|quick|tablet_direct|boxing_belt|done=120/120|secs p10=1.7 p50=2.2 p90=2.6|first_unit p50=2.2|gap_between_units p50=-1.00 p90=-1.00|fails p50=0 p90=0|friendly p50=0|blocks p50=0|assist_max_share=0.00|assist2_at p50=-1.0|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|quick|phone_edges|runs=120|in_phase_total_s p10=39.2 p50=43.4 p90=51.0
+PLAY|quick|phone_edges|boxing_guide|done=120/120|secs p10=2.9 p50=3.4 p90=4.1|first_unit p50=2.0|gap_between_units p50=1.43 p90=1.77|fails p50=0 p90=0|friendly p50=0|blocks p50=0|assist_max_share=0.00|assist2_at p50=-1.0|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|quick|phone_edges|boxing_jab|done=120/120|secs p10=5.7 p50=6.3 p90=7.4|first_unit p50=2.0|gap_between_units p50=1.38 p90=1.87|fails p50=0 p90=1|friendly p50=0|blocks p50=0|assist_max_share=0.28|assist2_at p50=4.4|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|quick|phone_edges|boxing_guard|done=120/120|secs p10=2.9 p50=3.3 p90=6.2|first_unit p50=1.4|gap_between_units p50=0.90 p90=1.12|fails p50=0 p90=0|friendly p50=0|blocks p50=3|assist_max_share=0.01|assist2_at p50=7.4|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|quick|phone_edges|boxing_imp|done=120/120|secs p10=24.5 p50=25.7 p90=33.9|first_unit p50=4.0|gap_between_units p50=4.20 p90=8.00|fails p50=3 p90=5|friendly p50=0|blocks p50=6|assist_max_share=0.99|assist2_at p50=2.4|windows p50=6 used p50=5|imp_cycle p50=4.17 p90=4.73
+PLAY|quick|phone_edges|boxing_belt|done=120/120|secs p10=1.7 p50=1.9 p90=2.7|first_unit p50=1.9|gap_between_units p50=-1.00 p90=-1.00|fails p50=0 p90=0|friendly p50=0|blocks p50=0|assist_max_share=0.01|assist2_at p50=2.9|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|typical|tablet_direct|runs=120|in_phase_total_s p10=58.6 p50=74.8 p90=93.6
+PLAY|typical|tablet_direct|boxing_guide|done=120/120|secs p10=4.7 p50=5.9 p90=8.2|first_unit p50=3.6|gap_between_units p50=2.08 p90=2.93|fails p50=0 p90=0|friendly p50=0|blocks p50=0|assist_max_share=0.00|assist2_at p50=-1.0|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|typical|tablet_direct|boxing_jab|done=120/120|secs p10=9.1 p50=10.7 p90=13.8|first_unit p50=3.5|gap_between_units p50=2.17 p90=3.38|fails p50=0 p90=1|friendly p50=0|blocks p50=0|assist_max_share=0.17|assist2_at p50=9.3|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|typical|tablet_direct|boxing_guard|done=120/120|secs p10=4.1 p50=5.1 p90=8.3|first_unit p50=2.5|gap_between_units p50=1.15 p90=2.17|fails p50=0 p90=0|friendly p50=0|blocks p50=3|assist_max_share=0.03|assist2_at p50=8.5|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|typical|tablet_direct|boxing_imp|done=120/120|secs p10=32.8 p50=49.2 p90=64.6|first_unit p50=4.7|gap_between_units p50=7.98 p90=14.15|fails p50=8 p90=13|friendly p50=1|blocks p50=10|assist_max_share=1.00|assist2_at p50=6.9|windows p50=11 used p50=5|imp_cycle p50=4.67 p90=4.85
+PLAY|typical|tablet_direct|boxing_belt|done=120/120|secs p10=2.9 p50=3.7 p90=4.5|first_unit p50=3.7|gap_between_units p50=-1.00 p90=-1.00|fails p50=0 p90=0|friendly p50=0|blocks p50=0|assist_max_share=0.00|assist2_at p50=-1.0|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|typical|phone_edges|runs=120|in_phase_total_s p10=55.1 p50=65.8 p90=86.0
+PLAY|typical|phone_edges|boxing_guide|done=120/120|secs p10=4.2 p50=5.1 p90=7.6|first_unit p50=3.2|gap_between_units p50=1.73 p90=3.25|fails p50=0 p90=0|friendly p50=0|blocks p50=0|assist_max_share=0.04|assist2_at p50=4.9|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|typical|phone_edges|boxing_jab|done=120/120|secs p10=7.6 p50=9.4 p90=12.0|first_unit p50=3.4|gap_between_units p50=1.73 p90=3.17|fails p50=0 p90=1|friendly p50=0|blocks p50=0|assist_max_share=0.26|assist2_at p50=6.2|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|typical|phone_edges|boxing_guard|done=120/120|secs p10=4.0 p50=5.2 p90=8.1|first_unit p50=2.6|gap_between_units p50=1.10 p90=2.32|fails p50=0 p90=0|friendly p50=0|blocks p50=3|assist_max_share=0.06|assist2_at p50=7.4|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|typical|phone_edges|boxing_imp|done=120/120|secs p10=30.5 p50=41.5 p90=59.6|first_unit p50=4.5|gap_between_units p50=4.95 p90=14.07|fails p50=7 p90=11|friendly p50=2|blocks p50=7|assist_max_share=1.00|assist2_at p50=5.5|windows p50=9 used p50=5|imp_cycle p50=4.67 p90=5.23
+PLAY|typical|phone_edges|boxing_belt|done=120/120|secs p10=2.4 p50=3.5 p90=5.4|first_unit p50=3.5|gap_between_units p50=-1.00 p90=-1.00|fails p50=0 p90=0|friendly p50=0|blocks p50=0|assist_max_share=0.06|assist2_at p50=3.9|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|slow|tablet_direct|runs=120|in_phase_total_s p10=109.3 p50=156.8 p90=210.9
+PLAY|slow|tablet_direct|boxing_guide|done=120/120|secs p10=6.5 p50=8.5 p90=11.3|first_unit p50=5.3|gap_between_units p50=2.77 p90=5.77|fails p50=0 p90=0|friendly p50=0|blocks p50=0|assist_max_share=0.01|assist2_at p50=10.0|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|slow|tablet_direct|boxing_jab|done=120/120|secs p10=13.3 p50=16.3 p90=20.0|first_unit p50=5.5|gap_between_units p50=3.17 p90=5.37|fails p50=0 p90=1|friendly p50=0|blocks p50=0|assist_max_share=0.23|assist2_at p50=11.8|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|slow|tablet_direct|boxing_guard|done=120/120|secs p10=5.4 p50=8.9 p90=12.6|first_unit p50=5.0|gap_between_units p50=1.57 p90=4.22|fails p50=0 p90=0|friendly p50=1|blocks p50=3|assist_max_share=0.34|assist2_at p50=8.0|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|slow|tablet_direct|boxing_imp|done=120/120|secs p10=71.5 p50=118.3 p90=173.1|first_unit p50=10.1|gap_between_units p50=14.50 p90=48.25|fails p50=22 p90=34|friendly p50=3|blocks p50=22|assist_max_share=1.00|assist2_at p50=6.8|windows p50=25 used p50=5|imp_cycle p50=4.78 p90=5.10
+PLAY|slow|tablet_direct|boxing_belt|done=120/120|secs p10=4.0 p50=5.1 p90=7.7|first_unit p50=5.1|gap_between_units p50=-1.00 p90=-1.00|fails p50=0 p90=0|friendly p50=0|blocks p50=0|assist_max_share=0.00|assist2_at p50=-1.0|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|slow|phone_edges|runs=120|in_phase_total_s p10=86.0 p50=114.3 p90=149.1
+PLAY|slow|phone_edges|boxing_guide|done=120/120|secs p10=6.1 p50=8.2 p90=11.7|first_unit p50=5.3|gap_between_units p50=2.38 p90=5.25|fails p50=0 p90=1|friendly p50=0|blocks p50=0|assist_max_share=0.13|assist2_at p50=7.4|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|slow|phone_edges|boxing_jab|done=120/120|secs p10=11.5 p50=14.5 p90=18.3|first_unit p50=5.1|gap_between_units p50=2.45 p90=5.43|fails p50=0 p90=2|friendly p50=0|blocks p50=0|assist_max_share=0.38|assist2_at p50=7.8|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|slow|phone_edges|boxing_guard|done=120/120|secs p10=5.5 p50=9.8 p90=14.5|first_unit p50=5.0|gap_between_units p50=1.60 p90=4.60|fails p50=0 p90=0|friendly p50=1|blocks p50=3|assist_max_share=0.44|assist2_at p50=6.4|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|slow|phone_edges|boxing_imp|done=120/120|secs p10=49.5 p50=74.4 p90=111.5|first_unit p50=10.0|gap_between_units p50=10.25 p90=24.57|fails p50=13 p90=24|friendly p50=6|blocks p50=9|assist_max_share=1.00|assist2_at p50=7.9|windows p50=15 used p50=5|imp_cycle p50=4.83 p90=5.57
+PLAY|slow|phone_edges|boxing_belt|done=120/120|secs p10=3.6 p50=5.1 p90=8.2|first_unit p50=5.1|gap_between_units p50=-1.00 p90=-1.00|fails p50=0 p90=0|friendly p50=0|blocks p50=0|assist_max_share=0.08|assist2_at p50=5.5|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|masher|tablet_direct|runs=60|in_phase_total_s p10=92.3 p50=123.7 p90=152.9
+PLAY|masher|tablet_direct|boxing_guide|done=60/60|secs p10=7.1 p50=14.8 p90=31.5|first_unit p50=7.3|gap_between_units p50=6.73 p90=15.78|fails p50=5 p90=11|friendly p50=0|blocks p50=0|assist_max_share=0.97|assist2_at p50=4.1|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|masher|tablet_direct|boxing_jab|done=60/60|secs p10=15.5 p50=25.5 p90=42.5|first_unit p50=6.7|gap_between_units p50=4.88 p90=13.70|fails p50=10 p90=21|friendly p50=0|blocks p50=0|assist_max_share=1.00|assist2_at p50=4.4|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|masher|tablet_direct|boxing_guard|done=60/60|secs p10=6.9 p50=14.0 p90=24.3|first_unit p50=5.5|gap_between_units p50=2.68 p90=9.22|fails p50=0 p90=0|friendly p50=2|blocks p50=3|assist_max_share=0.60|assist2_at p50=8.4|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|masher|tablet_direct|boxing_imp|done=60/60|secs p10=32.9 p50=50.0 p90=75.3|first_unit p50=8.3|gap_between_units p50=5.60 p90=16.20|fails p50=25 p90=41|friendly p50=7|blocks p50=4|assist_max_share=1.00|assist2_at p50=3.5|windows p50=10 used p50=5|imp_cycle p50=5.00 p90=5.57
+PLAY|masher|tablet_direct|boxing_belt|done=60/60|secs p10=3.1 p50=6.6 p90=17.5|first_unit p50=6.6|gap_between_units p50=-1.00 p90=-1.00|fails p50=2 p90=7|friendly p50=0|blocks p50=0|assist_max_share=0.73|assist2_at p50=3.9|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|masher|phone_edges|runs=60|in_phase_total_s p10=74.8 p50=90.4 p90=109.5
+PLAY|masher|phone_edges|boxing_guide|done=60/60|secs p10=5.4 p50=9.3 p90=17.9|first_unit p50=4.7|gap_between_units p50=3.90 p90=9.98|fails p50=4 p90=9|friendly p50=0|blocks p50=0|assist_max_share=0.95|assist2_at p50=3.2|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|masher|phone_edges|boxing_jab|done=60/60|secs p10=11.3 p50=18.1 p90=26.4|first_unit p50=5.2|gap_between_units p50=3.30 p90=9.25|fails p50=11 p90=20|friendly p50=0|blocks p50=0|assist_max_share=1.00|assist2_at p50=3.1|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|masher|phone_edges|boxing_guard|done=60/60|secs p10=7.2 p50=10.9 p90=19.7|first_unit p50=4.0|gap_between_units p50=2.40 p90=7.58|fails p50=0 p90=0|friendly p50=1|blocks p50=3|assist_max_share=0.40|assist2_at p50=9.1|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|masher|phone_edges|boxing_imp|done=60/60|secs p10=30.6 p50=41.3 p90=56.4|first_unit p50=4.6|gap_between_units p50=4.87 p90=14.22|fails p50=32 p90=44|friendly p50=5|blocks p50=4|assist_max_share=1.00|assist2_at p50=3.1|windows p50=9 used p50=5|imp_cycle p50=4.75 p90=5.57
+PLAY|masher|phone_edges|boxing_belt|done=60/60|secs p10=2.9 p50=6.3 p90=12.9|first_unit p50=6.3|gap_between_units p50=-1.00 p90=-1.00|fails p50=3 p90=8|friendly p50=0|blocks p50=0|assist_max_share=0.78|assist2_at p50=2.9|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|turtle|tablet_direct|runs=60|in_phase_total_s p10=60.6 p50=72.0 p90=85.2
+PLAY|turtle|tablet_direct|boxing_guide|done=60/60|secs p10=4.5 p50=5.7 p90=8.2|first_unit p50=3.4|gap_between_units p50=2.03 p90=4.18|fails p50=0 p90=0|friendly p50=0|blocks p50=0|assist_max_share=0.00|assist2_at p50=-1.0|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|turtle|tablet_direct|boxing_jab|done=60/60|secs p10=9.1 p50=10.6 p90=14.9|first_unit p50=3.5|gap_between_units p50=2.20 p90=3.37|fails p50=0 p90=1|friendly p50=0|blocks p50=0|assist_max_share=0.30|assist2_at p50=6.8|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|turtle|tablet_direct|boxing_guard|done=60/60|secs p10=5.3 p50=5.9 p90=8.3|first_unit p50=2.5|gap_between_units p50=1.73 p90=1.85|fails p50=0 p90=0|friendly p50=0|blocks p50=3|assist_max_share=0.00|assist2_at p50=-1.0|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|turtle|tablet_direct|boxing_imp|done=60/60|secs p10=33.4 p50=47.1 p90=58.8|first_unit p50=4.7|gap_between_units p50=5.10 p90=14.90|fails p50=7 p90=11|friendly p50=0|blocks p50=9|assist_max_share=1.00|assist2_at p50=6.5|windows p50=10 used p50=5|imp_cycle p50=4.85 p90=5.07
+PLAY|turtle|tablet_direct|boxing_belt|done=60/60|secs p10=2.6 p50=3.4 p90=4.9|first_unit p50=3.4|gap_between_units p50=-1.00 p90=-1.00|fails p50=0 p90=0|friendly p50=0|blocks p50=0|assist_max_share=0.00|assist2_at p50=-1.0|windows p50=0 used p50=0|imp_cycle p50=-1.00 p90=-1.00
+PLAY|elapsed_s=115.9
+PLAY|DONE
+EXIT 0
+
+## Analytic geometry: harness/geometry_numbers.py
+SIZES (stage px -> mm)
+  tablet (Lenovo Tab M11): painted glove 155-218px = 28.5-40.2 mm; glove contact diameter 105-149px = 19.4-27.4 mm; fist contact diameter 85-112px = 15.6-20.6 mm; counter target radius 78/96/114px = 14.4/17.7/21.0 mm; belt radius 56px = 10.3 mm
+  phone (6.4in 2400x1080): painted glove 155-218px = 14.3-20.2 mm; glove contact diameter 105-149px = 9.7-13.8 mm; fist contact diameter 85-112px = 7.9-10.4 mm; counter target radius 78/96/114px = 7.2/8.9/10.6 mm; belt radius 56px = 5.2 mm
+LANES (x at top/middle/bottom of flight)
+  p=0.0: left x=550 right x=730 separation=179px (tablet 33.0 mm); fist radius 42px
+  p=0.5: left x=570 right x=710 separation=141px (tablet 25.9 mm); fist radius 49px
+  p=1.0: left x=589 right x=691 separation=102px (tablet 18.9 mm); fist radius 56px
+CENTRE PARKING: glove centred on x=640 blocks both lanes at these heights (imp target):
+  y150=yes y200=yes y250=yes y300=yes y350=yes y400=yes y450=yes y500=yes y550=yes y600=yes y650=yes
+LANE SPACING NEEDED: each lane at least 132px from the centre line (separation >= 264px, 0.21 of stage width; tablet 49 mm, phone 24 mm) so one max-size glove (74px) cannot touch both fists (56px). Current: 64-90px from centre.
+COUNTER RETRACTION (imp open; ready when glove is farther than target r + glove r + 24px)
+  assist 0: glove blocked at left-lane p=0.2 (558,239) is 108px from target; must pull back 68px first (tablet 13 mm, phone thumb ~5-3 mm)
+  assist 0: glove blocked at left-lane p=0.4 (566,334) is 78px from target; must pull back 94px first (tablet 17 mm, phone thumb ~8-4 mm)
+  assist 0: glove blocked at left-lane p=0.6 (573,429) is 137px from target; must pull back 32px first (tablet 6 mm, phone thumb ~3-1 mm)
+  assist 0: glove blocked at left-lane p=0.8 (581,524) is 222px from target; must pull back 0px first (tablet 0 mm, phone thumb ~0-0 mm)
+  assist 2: glove blocked at left-lane p=0.2 (558,239) is 108px from target; must pull back 104px first (tablet 19 mm, phone thumb ~8-4 mm)
+  assist 2: glove blocked at left-lane p=0.4 (566,334) is 78px from target; must pull back 130px first (tablet 24 mm, phone thumb ~11-5 mm)
+  assist 2: glove blocked at left-lane p=0.6 (573,429) is 137px from target; must pull back 68px first (tablet 12 mm, phone thumb ~5-3 mm)
+  assist 2: glove blocked at left-lane p=0.8 (581,524) is 222px from target; must pull back 0px first (tablet 0 mm, phone thumb ~0-0 mm)
+TRAVEL (glove px; tablet finger mm = glove mm; phone thumb mm = glove/gain)
+  rest->left lane middle (p=0.5): 282px; tablet 52 mm; phone thumb 19 mm
+  rest->imp counter target: 382px; tablet 70 mm; phone thumb 26 mm
+  rest->far jab pad (0.54,0.34): 465px; tablet 86 mm; phone thumb 31 mm
+  left lane p=0.5 -> right lane p=0.5: 141px; tablet 26 mm; phone thumb 5 mm
+  jab re-arm: pad -> within 110px of rest: 295px; tablet 54 mm; phone thumb 22 mm
+TIME BUDGET (Title Imp, seconds from windup start to fist arrival): 2.05 normal, 2.50 assisted
+  quick: react 0.60s + choose 0.08s + reach 0.44s to mid-lane = 1.12s
+  typical: react 0.76s + choose 0.08s + reach 0.58s to mid-lane = 1.42s
+  slow: react 1.10s + choose 0.08s + reach 0.80s to mid-lane = 1.98s
+COUNTER WINDOW BUDGET: 1.70 s normal, 2.20 s assisted
+  quick: direct punch 0.88s; with a pull-back first 1.09s
+  typical: direct punch 1.11s; with a pull-back first 1.35s
+  slow: direct punch 1.55s; with a pull-back first 1.84s
+
+## High guard as early punch: harness/high_guard.py
+left lane, own glove from rest: assist0: guard at lane p<=0.60 counts as a punch; assist2: guard at lane p<=0.70 counts as a punch
+right lane, own glove from rest: assist0: guard at lane p<=0.60 counts as a punch; assist2: guard at lane p<=0.70 counts as a punch
+
+## Hook geometry: harness/hook_geometry.py
+centre-parked glove (640,446): hook-left gap 81 px, hook-right gap 81 px, jab gap -126 px
+left-side glove (422,446): hook-left gap -53 px, jab gap 91 px, hook-right gap 275 px
+hook arc length 516 px vs jab 418 px; at the jab's 528 px/s the hook needs 0.98 s
+tablet: hook end pad is 31 mm beside the chest emblem
+phone: hook end pad is 15 mm beside the chest emblem

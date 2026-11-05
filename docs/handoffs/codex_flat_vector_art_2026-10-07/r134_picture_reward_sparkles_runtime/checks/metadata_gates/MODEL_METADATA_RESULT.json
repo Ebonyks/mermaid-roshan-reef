@@ -1,0 +1,1965 @@
+{
+  "state": "PASS",
+  "same_production_classifier": true,
+  "detector_sha256": "930d6bbed8a744dc0f3fa110e77447258fadcfe0f4aea89d8c0bdece402519ab",
+  "scan_bound_unchanged": 8388608,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 7868,
+      "flagged": false
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "bytes": 8543611,
+      "flagged": false
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_amber_painted.png",
+      "bytes": 16424,
+      "flagged": false
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_amber_painted.png.import",
+      "bytes": 997,
+      "flagged": false
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_coral_painted.png",
+      "bytes": 16158,
+      "flagged": false
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_coral_painted.png.import",
+      "bytes": 996,
+      "flagged": false
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_ice_painted.png",
+      "bytes": 16339,
+      "flagged": false
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_ice_painted.png.import",
+      "bytes": 991,
+      "flagged": false
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_leaf_painted.png",
+      "bytes": 17120,
+      "flagged": false
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_leaf_painted.png.import",
+      "bytes": 994,
+      "flagged": false
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_lemon_painted.png",
+      "bytes": 16322,
+      "flagged": false
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_lemon_painted.png.import",
+      "bytes": 997,
+      "flagged": false
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_mint_painted.png",
+      "bytes": 16889,
+      "flagged": false
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_mint_painted.png.import",
+      "bytes": 994,
+      "flagged": false
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_rose_painted.png",
+      "bytes": 16425,
+      "flagged": false
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_rose_painted.png.import",
+      "bytes": 993,
+      "flagged": false
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_sky_painted.png",
+      "bytes": 16500,
+      "flagged": false
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_sky_painted.png.import",
+      "bytes": 990,
+      "flagged": false
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_violet_painted.png",
+      "bytes": 16161,
+      "flagged": false
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_violet_painted.png.import",
+      "bytes": 1000,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/ASEPRITE_CLEANUP.csv",
+      "bytes": 367,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/BRIEF.json",
+      "bytes": 5899,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/EXPORT_ASEPRITE.lua",
+      "bytes": 2233,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/EXPORT_VERIFICATION.json",
+      "bytes": 4567,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/IMPLEMENTATION.json",
+      "bytes": 1975,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/RETIRED_SLIDE_DISPOSITION.json",
+      "bytes": 475,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/TAKE01_REQUEST.json",
+      "bytes": 3013,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/TAKE01_RESULT.json",
+      "bytes": 1311,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/TAKE02_REQUEST.json",
+      "bytes": 1656,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/TAKE02_RESULT.json",
+      "bytes": 4503,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/native_cutouts/amber.png",
+      "bytes": 77601,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/native_cutouts/coral.png",
+      "bytes": 75283,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/native_cutouts/ice.png",
+      "bytes": 75661,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/native_cutouts/leaf.png",
+      "bytes": 80617,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/native_cutouts/lemon.png",
+      "bytes": 76889,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/native_cutouts/mint.png",
+      "bytes": 79360,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/native_cutouts/rose.png",
+      "bytes": 75942,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/native_cutouts/sky.png",
+      "bytes": 77556,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/native_cutouts/violet.png",
+      "bytes": 73876,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/painted_sparkles_master.aseprite",
+      "bytes": 994792,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/painted_sparkles_master.png",
+      "bytes": 707004,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/take01_native.png",
+      "bytes": 1948863,
+      "flagged": false
+    },
+    {
+      "path": "assets_src/imagegen/picture_reward_stars_20261103/take02_alpha_repair_native.png",
+      "bytes": 760889,
+      "flagged": false
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 367759,
+      "flagged": false
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "bytes": 246305,
+      "flagged": false
+    },
+    {
+      "path": "audit/cycles/dkc-six-track-mastering-20261103/owner_answers.json",
+      "bytes": 757,
+      "flagged": false
+    },
+    {
+      "path": "audit/cycles/dkc-six-track-production-20261103/owner_answers.json",
+      "bytes": 1026,
+      "flagged": false
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 336248,
+      "flagged": false
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 289640,
+      "flagged": false
+    },
+    {
+      "path": "design/audit_impacts/dkc-six-track-mastering-20261103.json",
+      "bytes": 5776,
+      "flagged": false
+    },
+    {
+      "path": "design/audit_impacts/dkc-six-track-production-20261103.json",
+      "bytes": 6474,
+      "flagged": false
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-picture-reward-stars-20261103.json",
+      "bytes": 51385,
+      "flagged": false
+    },
+    {
+      "path": "design/audit_impacts/recent-updates-followup-music-20261103.json",
+      "bytes": 5897,
+      "flagged": false
+    },
+    {
+      "path": "design/music/dkc/MASTERING_EVALUATION_2026-11-03.md",
+      "bytes": 15848,
+      "flagged": false
+    },
+    {
+      "path": "design/music/dkc/README.md",
+      "bytes": 20738,
+      "flagged": false
+    },
+    {
+      "path": "design/music/dkc/SIX_TRACK_PRODUCTION_2026-11-03.md",
+      "bytes": 29128,
+      "flagged": false
+    },
+    {
+      "path": "design/music/dkc/mastering_audit_plan_v1.json",
+      "bytes": 4005,
+      "flagged": false
+    },
+    {
+      "path": "design/music/dkc/mastering_audits_v1.json",
+      "bytes": 277981,
+      "flagged": false
+    },
+    {
+      "path": "design/music/dkc/mastering_native_recall_v1.json",
+      "bytes": 2960,
+      "flagged": false
+    },
+    {
+      "path": "design/music/dkc/mastering_owner_direction_20261103.json",
+      "bytes": 592,
+      "flagged": false
+    },
+    {
+      "path": "design/music/dkc/mastering_receipt_v1.json",
+      "bytes": 21364,
+      "flagged": false
+    },
+    {
+      "path": "design/music/dkc/mastering_recipe_v1.json",
+      "bytes": 140188,
+      "flagged": false
+    },
+    {
+      "path": "design/music/dkc/native_mix_recall_v1.json",
+      "bytes": 3301,
+      "flagged": false
+    },
+    {
+      "path": "design/music/dkc/production_call_sheets_v3.json",
+      "bytes": 178977,
+      "flagged": false
+    },
+    {
+      "path": "design/music/dkc/production_iterations_v1.json",
+      "bytes": 32335,
+      "flagged": false
+    },
+    {
+      "path": "design/music/dkc/production_measurements_v1.json",
+      "bytes": 19296,
+      "flagged": false
+    },
+    {
+      "path": "design/music/dkc/production_owner_direction_20261103.json",
+      "bytes": 1676,
+      "flagged": false
+    },
+    {
+      "path": "design/music/dkc/production_receipt_v1.json",
+      "bytes": 17827,
+      "flagged": false
+    },
+    {
+      "path": "design/music/dkc/production_validation_v1.json",
+      "bytes": 543,
+      "flagged": false
+    },
+    {
+      "path": "design/reference/OWNER_DECISIONS.md",
+      "bytes": 61730,
+      "flagged": false
+    },
+    {
+      "path": "design/reference/owner_decisions.json",
+      "bytes": 84333,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/COMPOSITION_IMPORT_BINDING_DIAGNOSIS.json",
+      "bytes": 173240,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/EXPORT_CONTEXT_REVIEW.lua",
+      "bytes": 7607,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/FOCUSED_PICTURE_GAMES.log",
+      "bytes": 3533,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/FOCUSED_RESULT.json",
+      "bytes": 706,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/MANIFEST.json",
+      "bytes": 146834,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/PRODUCTION_DELTA.json",
+      "bytes": 2025,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/PROVENANCE_SCOPE_REPAIR.json",
+      "bytes": 1518,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/README.md",
+      "bytes": 4097,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/RECENT_UPDATES_COMPOSITION.json",
+      "bytes": 6208,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/TRACEABILITY_REPAIR.json",
+      "bytes": 501,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/VISUAL_REVIEW.json",
+      "bytes": 4137,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/FOCUSED_COMPLETION_BINDING.json",
+      "bytes": 810,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/IMPORT.log",
+      "bytes": 4291,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/IMPORT_STATE.json",
+      "bytes": 265,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/INFERENCE.log",
+      "bytes": 0,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/PARSER.log",
+      "bytes": 0,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/REFERENCE_REMOTE_VERIFICATION.json",
+      "bytes": 2345,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/ANALYZER_LOGGING_FAILURE.json",
+      "bytes": 393,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/FINAL_RESULT.json",
+      "bytes": 26625,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/GAME2D.log",
+      "bytes": 930,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/GAME2D_FAILURE_attempt03.json",
+      "bytes": 545,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/GAME2D_metadata_scope_repair.log",
+      "bytes": 414,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/GAME2D_metadata_scope_repair_RESULT.json",
+      "bytes": 241,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/RESULTS_PROGRESS.json",
+      "bytes": 24459,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/SOURCE_PIN.json",
+      "bytes": 1032295,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/STATIC_COVERAGE_SUFFIX.log",
+      "bytes": 43428,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/STATIC_PREFIX.log",
+      "bytes": 54370,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/STATIC_RESULT.json",
+      "bytes": 211,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/STATIC_RESULT_attempt01.json",
+      "bytes": 211,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/STATIC_SOURCE_LEDGER.json",
+      "bytes": 769,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/STOP_attempt01.json",
+      "bytes": 4175,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/STOP_attempt02.json",
+      "bytes": 350,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/analyzer/RESULTS.json",
+      "bytes": 585,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/analyzer/games_picture_games.log",
+      "bytes": 75,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/analyzer/probe_mg2d.log",
+      "bytes": 75,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/analyzer/probe_rank.log",
+      "bytes": 75,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/analyzer/probe_ui_system.log",
+      "bytes": 75,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_alpha_milestone_save/engine.log",
+      "bytes": 70052,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_audio/engine.log",
+      "bytes": 84703,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_audit/engine.log",
+      "bytes": 227558,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_bathroom_integration/engine.log",
+      "bytes": 160224,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_bathroom_props/engine.log",
+      "bytes": 7949,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_castle_door_language/engine.log",
+      "bytes": 119586,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_castle_pearl_art/engine.log",
+      "bytes": 203557,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_castle_pool_life_2d/engine.log",
+      "bytes": 53815,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_chapter2/engine.log",
+      "bytes": 1694934,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_chapter2_farmer_resume/engine.log",
+      "bytes": 621437,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_chapter2_lawn/engine.log",
+      "bytes": 163798,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_collection/engine.log",
+      "bytes": 58653,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_combat/engine.log",
+      "bytes": 82095,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_combat_tutorial/engine.log",
+      "bytes": 110121,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_crown/engine.log",
+      "bytes": 270522,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_dance/engine.log",
+      "bytes": 71053,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_day_one_art_attack_state/engine.log",
+      "bytes": 66677,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_day_one_bathroom_bunny/engine.log",
+      "bytes": 58557,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_day_one_bathroom_cleanup/engine.log",
+      "bytes": 74539,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_day_one_bathroom_movie_handoff/engine.log",
+      "bytes": 54246,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_day_one_castle_dressing/engine.log",
+      "bytes": 2980,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_day_one_d8_revisits/engine.log",
+      "bytes": 1713,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_day_one_director/engine.log",
+      "bytes": 54290,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_day_one_handoffs/engine.log",
+      "bytes": 60336,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_day_one_integration/engine.log",
+      "bytes": 55908,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_day_one_pool_cleanup/engine.log",
+      "bytes": 78902,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_day_one_story_clips/engine.log",
+      "bytes": 302918,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_day_one_voice/engine.log",
+      "bytes": 62677,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_dolls/engine.log",
+      "bytes": 88568,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_dungeon/engine.log",
+      "bytes": 197305,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_dust_boss/engine.log",
+      "bytes": 191421,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_dust_boss_balance/engine.log",
+      "bytes": 562876,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_dust_bunny/engine.log",
+      "bytes": 3090,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_dust_bunny_boss/engine.log",
+      "bytes": 15067,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_ember/engine.log",
+      "bytes": 185812,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_fairy_art/engine.log",
+      "bytes": 1937,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_fetch/engine.log",
+      "bytes": 64320,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_galaxy_state/engine.log",
+      "bytes": 115254,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_hit/engine.log",
+      "bytes": 71489,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_human_art_audit/engine.log",
+      "bytes": 53202,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_imp_ai/engine.log",
+      "bytes": 2532,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_interaction/engine.log",
+      "bytes": 447791,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_kart_feel/engine.log",
+      "bytes": 96885,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_kitchen_props/engine.log",
+      "bytes": 19585,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_l2/engine.log",
+      "bytes": 156192,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_l2_living_cards/engine.log",
+      "bytes": 94917,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_l2_reenter/engine.log",
+      "bytes": 81981,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_living_world/engine.log",
+      "bytes": 244333,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_load/engine.log",
+      "bytes": 144776,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_melody/engine.log",
+      "bytes": 283311,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_mg2d/engine.log",
+      "bytes": 111164,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_mic/engine.log",
+      "bytes": 62504,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_northern/engine.log",
+      "bytes": 90471,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_ocean_kingdoms/engine.log",
+      "bytes": 178011,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_opera/engine.log",
+      "bytes": 1485758,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_opera_2d/engine.log",
+      "bytes": 1558707,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_opera_detective/engine.log",
+      "bytes": 90539,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_opera_diegetic_paths/engine.log",
+      "bytes": 1141,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_opera_gesture_quality/engine.log",
+      "bytes": 161861,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_opera_nursery/engine.log",
+      "bytes": 91179,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_opera_pipe/engine.log",
+      "bytes": 10962,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_partner/engine.log",
+      "bytes": 93170,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_passive/engine.log",
+      "bytes": 130399,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_props/engine.log",
+      "bytes": 62162,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_rank/engine.log",
+      "bytes": 64234,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_reef_districts/engine.log",
+      "bytes": 54835,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_save_recovery/engine.log",
+      "bytes": 59095,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_seek/engine.log",
+      "bytes": 81423,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_skins/engine.log",
+      "bytes": 59370,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_sky_lagoon_animals/engine.log",
+      "bytes": 173814,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_start_menu_new_game/engine.log",
+      "bytes": 78344,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_start_menu_routing/engine.log",
+      "bytes": 55222,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_stuffie/engine.log",
+      "bytes": 174368,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_throne/engine.log",
+      "bytes": 226600,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_touch_adversary/engine.log",
+      "bytes": 732529,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_touch_look/engine.log",
+      "bytes": 67616,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_touch_router/engine.log",
+      "bytes": 59169,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_touch_stress/engine.log",
+      "bytes": 87439,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_train/engine.log",
+      "bytes": 106305,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_ui_system/engine.log",
+      "bytes": 352493,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_verbs/engine.log",
+      "bytes": 58239,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/checks/full_validation/probe_voice/engine.log",
+      "bytes": 121167,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/CANDIDATE_INPUT_PIN.json",
+      "bytes": 1031999,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/CANDIDATE_SOURCE_PIN.json",
+      "bytes": 1031848,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/FINAL_RESULT.json",
+      "bytes": 342966,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/FRAME_INDEX.json",
+      "bytes": 22550,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/PHONE_REVIEW_INDEX.json",
+      "bytes": 25178,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/SOURCE_SOURCE_PIN.json",
+      "bytes": 1031845,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/garden/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/garden/LAUNCH.json",
+      "bytes": 949,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/garden/RESULT.json",
+      "bytes": 37294,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/garden/engine.log",
+      "bytes": 205,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/garden/garden_mint.png",
+      "bytes": 143804,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/garden/garden_mint_phone.png",
+      "bytes": 34105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/garden/garden_sky.png",
+      "bytes": 145218,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/garden/garden_sky_phone.png",
+      "bytes": 34300,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/garden/garden_win.png",
+      "bytes": 159118,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/garden/garden_win_phone.png",
+      "bytes": 35891,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/snowman/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/snowman/LAUNCH.json",
+      "bytes": 950,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/snowman/RESULT.json",
+      "bytes": 29116,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/snowman/engine.log",
+      "bytes": 206,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/snowman/snow_settle.png",
+      "bytes": 522911,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/snowman/snow_settle_phone.png",
+      "bytes": 59340,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/snowman/snowman_win.png",
+      "bytes": 515096,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/snowman/snowman_win_phone.png",
+      "bytes": 58850,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/trampoline/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/trampoline/LAUNCH.json",
+      "bytes": 956,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/trampoline/RESULT.json",
+      "bytes": 19002,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/trampoline/engine.log",
+      "bytes": 209,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/trampoline/trampoline_win.png",
+      "bytes": 154435,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/trampoline/trampoline_win_phone.png",
+      "bytes": 22041,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/xmas/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/xmas/LAUNCH.json",
+      "bytes": 944,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/xmas/RESULT.json",
+      "bytes": 18314,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/xmas/engine.log",
+      "bytes": 203,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/xmas/xmas_win.png",
+      "bytes": 215771,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/xmas/xmas_win_phone.png",
+      "bytes": 27623,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/garden/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/garden/LAUNCH.json",
+      "bytes": 948,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/garden/RESULT.json",
+      "bytes": 37276,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/garden/engine.log",
+      "bytes": 205,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/garden/garden_mint.png",
+      "bytes": 146444,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/garden/garden_mint_phone.png",
+      "bytes": 34544,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/garden/garden_sky.png",
+      "bytes": 147921,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/garden/garden_sky_phone.png",
+      "bytes": 34716,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/garden/garden_win.png",
+      "bytes": 165016,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/garden/garden_win_phone.png",
+      "bytes": 36697,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/snowman/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/snowman/LAUNCH.json",
+      "bytes": 950,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/snowman/RESULT.json",
+      "bytes": 29114,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/snowman/engine.log",
+      "bytes": 206,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/snowman/snow_settle.png",
+      "bytes": 566702,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/snowman/snow_settle_phone.png",
+      "bytes": 64152,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/snowman/snowman_win.png",
+      "bytes": 574071,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/snowman/snowman_win_phone.png",
+      "bytes": 65327,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/trampoline/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/trampoline/LAUNCH.json",
+      "bytes": 956,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/trampoline/RESULT.json",
+      "bytes": 19003,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/trampoline/engine.log",
+      "bytes": 209,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/trampoline/trampoline_win.png",
+      "bytes": 154076,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/trampoline/trampoline_win_phone.png",
+      "bytes": 22085,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/xmas/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/xmas/LAUNCH.json",
+      "bytes": 944,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/xmas/RESULT.json",
+      "bytes": 18303,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/xmas/engine.log",
+      "bytes": 203,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/xmas/xmas_win.png",
+      "bytes": 231597,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x800/xmas/xmas_win_phone.png",
+      "bytes": 29551,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/garden/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/garden/LAUNCH.json",
+      "bytes": 948,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/garden/RESULT.json",
+      "bytes": 37291,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/garden/engine.log",
+      "bytes": 205,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/garden/garden_mint.png",
+      "bytes": 154979,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/garden/garden_mint_phone.png",
+      "bytes": 35822,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/garden/garden_sky.png",
+      "bytes": 156409,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/garden/garden_sky_phone.png",
+      "bytes": 36023,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/garden/garden_win.png",
+      "bytes": 176558,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/garden/garden_win_phone.png",
+      "bytes": 38506,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/snowman/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/snowman/LAUNCH.json",
+      "bytes": 950,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/snowman/RESULT.json",
+      "bytes": 29111,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/snowman/engine.log",
+      "bytes": 206,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/snowman/snow_settle.png",
+      "bytes": 549261,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/snowman/snow_settle_phone.png",
+      "bytes": 63055,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/snowman/snowman_win.png",
+      "bytes": 551005,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/snowman/snowman_win_phone.png",
+      "bytes": 63573,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/trampoline/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/trampoline/LAUNCH.json",
+      "bytes": 956,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/trampoline/RESULT.json",
+      "bytes": 18985,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/trampoline/engine.log",
+      "bytes": 209,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/trampoline/trampoline_win.png",
+      "bytes": 168587,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/trampoline/trampoline_win_phone.png",
+      "bytes": 24199,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/xmas/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/xmas/LAUNCH.json",
+      "bytes": 944,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/xmas/RESULT.json",
+      "bytes": 18319,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/xmas/engine.log",
+      "bytes": 203,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/xmas/xmas_win.png",
+      "bytes": 245122,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1600x720/xmas/xmas_win_phone.png",
+      "bytes": 31046,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/capture_feedback.gd.txt",
+      "bytes": 7305,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/paired_phone_1280x720.png",
+      "bytes": 334517,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/paired_phone_1280x800.png",
+      "bytes": 353514,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/paired_phone_1600x720.png",
+      "bytes": 360801,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/garden/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/garden/LAUNCH.json",
+      "bytes": 941,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/garden/RESULT.json",
+      "bytes": 23559,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/garden/engine.log",
+      "bytes": 202,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/garden/garden_mint.png",
+      "bytes": 140365,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/garden/garden_mint_phone.png",
+      "bytes": 33802,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/garden/garden_sky.png",
+      "bytes": 140619,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/garden/garden_sky_phone.png",
+      "bytes": 33877,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/garden/garden_win.png",
+      "bytes": 153891,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/garden/garden_win_phone.png",
+      "bytes": 35505,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/snowman/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/snowman/LAUNCH.json",
+      "bytes": 944,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/snowman/RESULT.json",
+      "bytes": 18377,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/snowman/engine.log",
+      "bytes": 203,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/snowman/snow_settle.png",
+      "bytes": 517640,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/snowman/snow_settle_phone.png",
+      "bytes": 58894,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/snowman/snowman_win.png",
+      "bytes": 508775,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/snowman/snowman_win_phone.png",
+      "bytes": 58488,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/trampoline/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/trampoline/LAUNCH.json",
+      "bytes": 949,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/trampoline/RESULT.json",
+      "bytes": 11930,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/trampoline/engine.log",
+      "bytes": 206,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/trampoline/trampoline_win.png",
+      "bytes": 149947,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/trampoline/trampoline_win_phone.png",
+      "bytes": 21673,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/xmas/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/xmas/LAUNCH.json",
+      "bytes": 937,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/xmas/RESULT.json",
+      "bytes": 11555,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/xmas/engine.log",
+      "bytes": 200,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/xmas/xmas_win.png",
+      "bytes": 214377,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x720/xmas/xmas_win_phone.png",
+      "bytes": 27440,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/garden/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/garden/LAUNCH.json",
+      "bytes": 941,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/garden/RESULT.json",
+      "bytes": 23514,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/garden/engine.log",
+      "bytes": 202,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/garden/garden_mint.png",
+      "bytes": 142963,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/garden/garden_mint_phone.png",
+      "bytes": 34224,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/garden/garden_sky.png",
+      "bytes": 143245,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/garden/garden_sky_phone.png",
+      "bytes": 34315,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/garden/garden_win.png",
+      "bytes": 158730,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/garden/garden_win_phone.png",
+      "bytes": 36144,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/snowman/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/snowman/LAUNCH.json",
+      "bytes": 944,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/snowman/RESULT.json",
+      "bytes": 18360,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/snowman/engine.log",
+      "bytes": 203,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/snowman/snow_settle.png",
+      "bytes": 561367,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/snowman/snow_settle_phone.png",
+      "bytes": 63692,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/snowman/snowman_win.png",
+      "bytes": 567473,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/snowman/snowman_win_phone.png",
+      "bytes": 65004,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/trampoline/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/trampoline/LAUNCH.json",
+      "bytes": 950,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/trampoline/RESULT.json",
+      "bytes": 11934,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/trampoline/engine.log",
+      "bytes": 206,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/trampoline/trampoline_win.png",
+      "bytes": 148511,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/trampoline/trampoline_win_phone.png",
+      "bytes": 21642,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/xmas/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/xmas/LAUNCH.json",
+      "bytes": 938,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/xmas/RESULT.json",
+      "bytes": 11563,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/xmas/engine.log",
+      "bytes": 200,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/xmas/xmas_win.png",
+      "bytes": 229298,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1280x800/xmas/xmas_win_phone.png",
+      "bytes": 29338,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/garden/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/garden/LAUNCH.json",
+      "bytes": 941,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/garden/RESULT.json",
+      "bytes": 23511,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/garden/engine.log",
+      "bytes": 202,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/garden/garden_mint.png",
+      "bytes": 151051,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/garden/garden_mint_phone.png",
+      "bytes": 35517,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/garden/garden_sky.png",
+      "bytes": 151312,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/garden/garden_sky_phone.png",
+      "bytes": 35613,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/garden/garden_win.png",
+      "bytes": 168930,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/garden/garden_win_phone.png",
+      "bytes": 38092,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/snowman/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/snowman/LAUNCH.json",
+      "bytes": 943,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/snowman/RESULT.json",
+      "bytes": 18373,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/snowman/engine.log",
+      "bytes": 203,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/snowman/snow_settle.png",
+      "bytes": 543733,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/snowman/snow_settle_phone.png",
+      "bytes": 62641,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/snowman/snowman_win.png",
+      "bytes": 543618,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/snowman/snowman_win_phone.png",
+      "bytes": 63122,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/trampoline/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/trampoline/LAUNCH.json",
+      "bytes": 949,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/trampoline/RESULT.json",
+      "bytes": 11896,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/trampoline/engine.log",
+      "bytes": 206,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/trampoline/trampoline_win.png",
+      "bytes": 160850,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/trampoline/trampoline_win_phone.png",
+      "bytes": 23672,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/xmas/EXIT.json",
+      "bytes": 105,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/xmas/LAUNCH.json",
+      "bytes": 937,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/xmas/RESULT.json",
+      "bytes": 11564,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/xmas/engine.log",
+      "bytes": 200,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/xmas/xmas_win.png",
+      "bytes": 242958,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/source/1600x720/xmas/xmas_win_phone.png",
+      "bytes": 31077,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-03/README.md",
+      "bytes": 5525,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-03/SOURCE_ORIGINS.json",
+      "bytes": 771831,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-03/followup_music_20261103/MANIFEST.json",
+      "bytes": 11154,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-03/followup_music_20261103/OWNER_DECISION_MERGE.json",
+      "bytes": 765,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-03/followup_music_20261103/PLAN.json",
+      "bytes": 2092,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-03/followup_music_20261103/README.md",
+      "bytes": 1676,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-03/followup_music_20261103/metadata_gates/AUTHORITY.log",
+      "bytes": 78,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-03/followup_music_20261103/metadata_gates/AUTO.log",
+      "bytes": 80,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-03/followup_music_20261103/metadata_gates/HEAD.log",
+      "bytes": 80,
+      "flagged": false
+    },
+    {
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-03/followup_music_20261103/metadata_gates/RESULTS.json",
+      "bytes": 886,
+      "flagged": false
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "bytes": 34659,
+      "flagged": false
+    }
+  ],
+  "flagged": [],
+  "scope": "Actual newly staged source/media/metadata files after the successful full2D check; no runtime change beyond the exact tested source."
+}

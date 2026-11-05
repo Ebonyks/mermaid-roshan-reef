@@ -1,0 +1,270 @@
+{
+  "id": "chapter-guide-refinement-20261031",
+  "scope": "CG0-CG8: chapter guide, canon and book-first reconciliation, chapter map/status, integration contract, story-binding and navigation checks, founding decisions and a fresh-agent Rumi-world planning trial. No gameplay, protected art, workflow or instruction-file changes.",
+  "baseline": "a0bb2cf4691631a534e210a5fb60fd227213322f",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-02",
+    "DL-AUTH-03",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-PLAN-01",
+    "DL-PLAN-02",
+    "DL-PLAN-03",
+    "DL-PLAN-04",
+    "DL-PLAN-05",
+    "DL-PLAN-06",
+    "DL-QA-02",
+    "DL-SAVE-01",
+    "DL-SAVE-04",
+    "DL-CODE-10",
+    "DL-CIN-16",
+    "DL-PLAN-07",
+    "DL-PLAN-08"
+  ],
+  "findings": [
+    "MA-DOC-010",
+    "MA-DOC-006",
+    "MA-DOC-007",
+    "MA-PLAY-005",
+    "MA-PLAY-006"
+  ],
+  "files": [
+    "audit/CHAPTER_GUIDE_PLANNING_HISTORY_2026-10-31.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/cycles/chapter-guide-20261031/BASELINE.json",
+    "audit/cycles/chapter-guide-20261031/COLD_START_TRIAL.md",
+    "audit/cycles/chapter-guide-20261031/README.md",
+    "audit/cycles/chapter-guide-20261031/REGRESSION_RESULT.json",
+    "audit/cycles/chapter-guide-20261031/STORY_BACKFILL_NOTES.md",
+    "audit/cycles/chapter-guide-20261031/moved_spans.json",
+    "audit/cycles/chapter-guide-20261031/owner_answers.json",
+    "audit/cycles/chapter-guide-20261031/owner_request.json",
+    "audit/cycles/chapter-guide-20261031/verification/.gitattributes",
+    "audit/cycles/chapter-guide-20261031/verification/chapter-guide-opera-serial-recheck.log",
+    "audit/cycles/chapter-guide-20261031/verification/full_ci.log",
+    "audit/cycles/chapter-guide-20261031/verification/opera_2d_recheck.log",
+    "audit/cycles/chapter-guide-20261031/verification/probe_chapter2-recheck.log",
+    "audit/cycles/chapter-guide-20261031/verification/probe_start_menu_new_game-recheck.log",
+    "audit/cycles/story-backfill-20261031/owner_answers.json",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/01_GAME_DESIGN.md",
+    "design/03_TECHNICAL_ARCHITECTURE.md",
+    "design/05_DOC_LEDGER.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "design/09_CHAPTER_DEVELOPMENT_GUIDE.md",
+    "design/10_CHAPTER_REFERENCE_LIBRARY.md",
+    "design/audit_impacts/chapter-guide-handoff-20261031.json",
+    "design/chapters/CHAPTER_MAP.md",
+    "design/chapters/RUMI_MERMAID_WORLD_BRIEF_20261031.md",
+    "design/chapters/chapter_map.json",
+    "design/reference/BOOK_SOURCES.md",
+    "design/reference/CANON.md",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/reference/book_sources/.gitattributes",
+    "design/reference/book_sources/SOURCES.json",
+    "design/reference/book_sources/rumi_owner_history_20261012.txt",
+    "design/reference/book_sources/rumi_visual_detective_20261012.json",
+    "design/reference/book_sources/rumi_visual_detective_20261012.txt",
+    "design/reference/canon.json",
+    "design/reference/owner_decisions.json",
+    "design/reference/prompt_intents.json",
+    "design/reference/recipes/new_chapter.md",
+    "design/templates/CHAPTER_BRIEF_V1.md",
+    "docs/handoffs/codex_chapter_guide_2026-10-31/.gdignore",
+    "docs/handoffs/codex_chapter_guide_2026-10-31/MANIFEST.json",
+    "docs/handoffs/codex_chapter_guide_2026-10-31/README.md",
+    "docs/handoffs/codex_chapter_guide_2026-10-31/data/chapter_map_seed.json",
+    "docs/handoffs/codex_chapter_guide_2026-10-31/data/measurements_218ae766.json",
+    "docs/handoffs/codex_chapter_guide_2026-10-31/tools/measure_chapter_guide.py",
+    "tools/audit_chapter_contract.py",
+    "tools/audit_development.py",
+    "tools/audit_document_authority.py",
+    "tools/design_reference.py",
+    "tools/tests/test_audit_chapter_contract.py",
+    "tools/tests/test_audit_development.py",
+    "tools/tests/test_audit_document_authority.py",
+    "tools/tests/test_design_reference.py"
+  ],
+  "validation": [
+    {
+      "command": "Required document, development, prompt and decision gates; fault-injection tests; staged preservation checks",
+      "result": "PASS",
+      "evidence": "Final 759/759 authority and 74 active/77 retained records, development base a0bb2cf4, generated prompts, 76 immutable owner decisions, 51/51 verbatim spans, zero runtime/protected/high-risk diff and 3/3 book / 5/5 packet blob hashes all pass. Full game regression failure is separate below."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_design_reference tools.tests.test_audit_chapter_contract tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "65 tests, 43.221s, including both source binding corruptions, three planning-index corruptions, unsupported acceptance promotion, source/hash/decision controls and 6/6 authority stress."
+    },
+    {
+      "command": "python -B tmp/verify_preservation.py",
+      "result": "PASS",
+      "evidence": "51/51 receipt spans match exact a0bb2cf4 source and history; runtime/protected/high-risk paths have zero Git diff. Final staged/blob verification still required."
+    },
+    {
+      "command": "bash --noprofile --norc scripts/ci.sh via isolated exact-engine runner",
+      "result": "FAIL",
+      "evidence": "Complete full run exits 1: 82 probes in exact roster order, 79 exit 0 and 3 exit 1: Opera 2D geologist finale separation; Chapter 2 and New Game verifier-child deadlines. Both deadline probes pass subsequent sequential rechecks with original limits. Opera fails the identical geologist assertion again when run alone after all other probes exit. Full native logs, source scope, execution limitation and SHA-256: audit/cycles/chapter-guide-20261031/REGRESSION_RESULT.json. Full-suite status remains FAIL; no thresholds or runtime sources changed."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "Final existing CI entry-point test run: 65 tests in 203.332s, 6/6 stress controls; includes all 10 new chapter/reference tests. Following generated-identity-bullet cleanup, all 6 reference tests also pass in 2.434s. No runtime files changed."
+    },
+    {
+      "command": "python -B tools/plan_prompt.py --check; python -B tools/record_owner_decision.py --check --base origin/dev",
+      "result": "PASS",
+      "evidence": "PROMPTS ALL OK; 76 immutable decisions, DECISIONS ALL OK. Baseline origin/dev remains a0bb2cf4691631a534e210a5fb60fd227213322f after fresh fetch."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Final complete 759/759 Markdown inventory/authority rows and 74 active/77 retained findings; DOCAUTH ALL OK and AUDITDEV ALL OK at a0bb2cf4 base. Trial files and source shelf are included."
+    },
+    {
+      "command": "Stage only impact-listed files; compare Git index blob SHA-256 against book-source and original handoff manifests; git diff --cached --check",
+      "result": "PASS",
+      "evidence": "3/3 book text snapshots and 5/5 original handoff payload files retain exact hashes after staging. Generated whitespace fixed; native source ending bytes preserved by scoped .gitattributes. Staged whitespace check exits 0."
+    },
+    {
+      "command": "python -B tools/audit_game_2d.py --regression-gate",
+      "result": "PASS",
+      "evidence": "Exit 0; NO_REGRESSION against exact shrinking baseline. Current counts: model files/scan coverage/export models/model import sidecars/untracked model sidecars/model archives all 0; production 3D files 52, probe 3D files 61, scenes 1, configuration 1. Strict state remains UNSATISFIED; no final-medium acceptance is claimed."
+    },
+    {
+      "command": "Initial combined document/new-check test attempt before gate-connection correction",
+      "result": "FAIL",
+      "evidence": "Invalid indentation in the new audit_document_authority.py except clause raised SyntaxError. Corrected before the combined 65-test PASS; failure is retained and is not an existing game defect."
+    },
+    {
+      "command": "Initial complete-document candidate checks while trial files were not yet written",
+      "result": "FAIL",
+      "evidence": "Authority correctly rejected missing trial Markdown and the incomplete coverage record; the new navigation guard also exposed an art route filename and embedded dated Grok receipt, then both were repaired. Final 759/759 authority and coverage pass separately."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_development; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Final navigation guard follow-up: 14 tests in 81.290s, including three required injected faults and a legitimate navigation-only dated-filename control; AUDITDEV ALL OK. Final canonical voice/source changes also pass all 6 reference tests (3.500s)."
+    },
+    {
+      "command": "Anonymous HTTPS SHA-256 checks of original c3e0da51 Rumi source files and selected-art manifest",
+      "result": "PASS",
+      "evidence": "4/4 public exact hashes verified: script ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd; manuscript 38acb28035596b04f3f479f401cff7d407aaff90233ee6ade833bca186b12221; source-owner history bd5d7775501069af9db520ae68164801cfd8d8eb1f06041eaeb603a862ca8051; selected_art.json f3492f5eebeca5c29306e7e99ed7bec29c98d599f7177f3a3a43af64670d570f. Check time 2026-10-31 22:09:39 UTC. No Authorization header; original URLs are in SOURCES.json/BOOK_SOURCES.md. This proves source availability only."
+    },
+    {
+      "command": "python tools/audit_visual_design.py (existing advisory lane in scripts/ci.sh)",
+      "result": "FAIL",
+      "evidence": "Current advisory visual result remains UNSATISFIED: FAIL=15, REVIEW_OPEN=18, MANUAL_OPEN=2, COVERAGE_GAP=87, WAIVED=0, PASS=31, NOT_APPLICABLE=94. Visual contract tests pass (95 tests, 963.816s) and 18/18 fault controls pass. No runtime or asset changes, no visual acceptance or master-audit satisfaction claimed."
+    },
+    {
+      "command": "Isolated unchanged-runtime scripts/probe_opera_2d.gd recheck with --touch --classic-touch-test and fresh APPDATA/LOCALAPPDATA/XDG directories",
+      "result": "FAIL",
+      "evidence": "Exit 1, identical geologist finale separation assertion. Literal log SHA-256 2d0b1769fb55694de090d6cfedf83b0c66f16cc0e06bb8b087c60afec19d1965. No probe or runtime threshold changed."
+    },
+    {
+      "command": "Sequential exact-engine probe_chapter2 recheck with original limits and isolated save directories",
+      "result": "PASS",
+      "evidence": "audit/cycles/chapter-guide-20261031/verification/probe_chapter2-recheck.log; exit 0. Does not rewrite the initial full-suite failure."
+    },
+    {
+      "command": "Sequential exact-engine probe_start_menu_new_game recheck with original limits and isolated save directories",
+      "result": "PASS",
+      "evidence": "audit/cycles/chapter-guide-20261031/verification/probe_start_menu_new_game-recheck.log; exit 0. Does not rewrite the initial full-suite failure."
+    },
+    {
+      "command": "Sequential exact-engine probe_opera_2d recheck with original limits and isolated save directories",
+      "result": "FAIL",
+      "evidence": "audit/cycles/chapter-guide-20261031/verification/chapter-guide-opera-serial-recheck.log; exit 1, same geologist finale separation assertion; no concurrent game probe."
+    },
+    {
+      "command": "Final staged literal-regression-log verification and scoped native-evidence whitespace check",
+      "result": "PASS",
+      "evidence": "5/5 native log blobs match receipt byte length/SHA-256 exactly; 56 intended staged paths; git diff --cached --check exits 0. The new evidence folder alone preserves literal output CRLF/printed whitespace; source formatting rules and test limits are unchanged."
+    }
+  ],
+  "acceptance_gaps": "MA-DOC-010 remains IN_PROGRESS. Owner review of the guide and Rumi-world brief and attributable August 30 founding-source backfill remain open. Combined machine regression passes in the November 5 reconciliation. Runtime/device/child and artistic acceptance retain their separate source-specific scopes.",
+  "overlap": "Builds MA-DOC-006 section 4.3 canon schema and section 4.2 decision backfill; uses existing V1 brief and reference shelf. Coordinates MA-DOC-007 W2 only for verbatim planning receipt moves, R04 chapter reference and R08 canon. No wholesale archive wave or duplicate reference front door.",
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-BOOK-FIRST-20261031",
+      "evidence": "audit/cycles/chapter-guide-20261031/owner_request.json",
+      "write_back": "DL-PLAN-08; design/reference/BOOK_SOURCES.md; canon; chapter recipe and Rumi trial"
+    },
+    {
+      "decision_id": "ODR-RUMI-CHAPTER-TRIAL-20261031",
+      "evidence": "audit/cycles/chapter-guide-20261031/owner_request.json",
+      "write_back": "Rumi-world cold-start trial replaces Northern default."
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "Both chapter directors currently forward state to ReefMain; syntactic property counts in the handoff do not establish director-owned mutable state.",
+      "write_back": "design/03_TECHNICAL_ARCHITECTURE.md#chapter-directors"
+    },
+    {
+      "lesson": "The newer Rumi revision proposal is not the latest authored source book; narrative authority must bind exact source bytes.",
+      "write_back": "design/reference/BOOK_SOURCES.md; canonical source hash gate"
+    },
+    {
+      "lesson": "Missing attributable founding owner wording must stay a source question.",
+      "write_back": "audit/cycles/chapter-guide-20261031/STORY_BACKFILL_NOTES.md; OQ-CH2-FOUNDING-SOURCE"
+    },
+    {
+      "lesson": "Voice availability must come from the actual source manifest: Roshan uses provisional synthetic Joy cues, Daddy has protected numbered family recordings plus separate filler, and book dialogue alone cannot authorize a new Rumi performance.",
+      "write_back": "design/reference/canon.json voice/voice_availability and CANON-C02"
+    },
+    {
+      "lesson": "Reference source copies may preserve identity without restoring a deleted protected original; hash-bound archival identity remains reference scope only.",
+      "write_back": "canon identity entries for Baby Eagle and Ember royals; BOOK_SOURCES / protected-source scope"
+    }
+  ],
+  "trial": {
+    "prompt": "Plan the Rumi mermaid world chapter defined by the latest book",
+    "context": "Fresh agent with no parent conversation; prepared repository only, plus bounded work-scope/source pointers. Read actual manuscript/panel staging.",
+    "brief": "design/chapters/RUMI_MERMAID_WORLD_BRIEF_20261031.md",
+    "log": "audit/cycles/chapter-guide-20261031/COLD_START_TRIAL.md",
+    "status": "PROPOSAL_WRITTEN_OWNER_REVIEW_PENDING",
+    "write_backs": "Canon OQ-RUMI-PLACEMENT / OQ-RUMI-RUNTIME-VOICE / OQ-RUMI-CHAPTER-COMMISSION; BOOK_SOURCES native-art pointer; semantic-namespace exception in design03; minor follower staging remains delegated."
+  },
+  "source_provenance": {
+    "book": "c3e0da5107b9f3d18be4a07ffa3183196ddeb574",
+    "snapshots": "design/reference/book_sources/SOURCES.json",
+    "literal_bytes_policy": "design/reference/book_sources/.gitattributes",
+    "handoff_source": "3a692025",
+    "verbatim_receipts": "audit/cycles/chapter-guide-20261031/moved_spans.json",
+    "scope": "Original packet unchanged; current owner corrections live in new source/decision records, not rewritten packet history."
+  },
+  "verification_source_pin": {
+    "normalization": "UTF-8 LF for tool/test source; source-book hashes stay literal via SOURCES.json.",
+    "sha256": {
+      "tools/audit_chapter_contract.py": "f6ebe5cea151c2343eb4fe03aa91463797d4d52414b0859ad9912d5716620a30",
+      "tools/design_reference.py": "829ff2af1734d6894de32ab469afe732c2b38cebb35ab2c27456e41d18a8c06b",
+      "tools/audit_development.py": "0e39740efb1084574b30b1cb09ef19caa48fa87da772cb609c472aedd0508ed5",
+      "tools/audit_document_authority.py": "0915e1fe426ecb9ad407dadc39f47eb610efc7ff1fd93222a34424467bc5762d",
+      "tools/tests/test_audit_chapter_contract.py": "992793ab480adddcbaece8dd20e501bbbbeee4d2145a552aa957bf3a9be533ed",
+      "tools/tests/test_design_reference.py": "d8e24a9ce6869bba73d718ad9bb4df8edaa47ad51294ac04a98780ddaa607041",
+      "tools/tests/test_audit_development.py": "17a38b116194d9a4b7f4958d300411063be8a7dd520450060736ad3c47597d8c",
+      "tools/tests/test_audit_document_authority.py": "84734331db59e0da861087a5042e621b439461faeea324f7c6e1b3826eeafe87"
+    }
+  },
+  "publication_status": "RECONCILED_REVIEW_CANDIDATE_LOCAL_GATES_PASS_EXACT_HEAD_REMOTE_CI_REQUIRED",
+  "full_ci_receipt": "audit/cycles/chapter-guide-20261031/REGRESSION_RESULT.json",
+  "historical_source_state": {
+    "publication_status": "BLOCKED_BY_REQUIRED_COMMIT_GATE; documentation review draft complete; no dev integration while red.",
+    "acceptance_gaps": "Required full-game commit gate is red. The full run fails three probes; Chapter 2/New Game deadline probes pass subsequent sequential rechecks, while the geologist finale assertion repeats in a final standalone run. MA-DOC-010 remains IN_PROGRESS: owner review of guide/brief and August 30 source-attribution backfill are open. Chapter runtime/device/child acceptance is not supplied by this document task; MA-PLAY-005 fresh-save traversal and Chapter 3 trusted roster remain separate work. No gameplay, art, recording, workflow or high-risk instruction file changed.",
+    "scope": "Preserved a0bb2cf4 draft state and its original failed runtime receipts."
+  },
+  "reconciliation": {
+    "baseline": "65c63ae849b091e3fb91cdbeaf1e2837e10778fe",
+    "impact": "design/audit_impacts/workgroup-batch-ci-recovery-20261104.json",
+    "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/INPUT_BINDING.json",
+    "result": "158 focused tests and all 82 original trusted probes pass on the reconciled runtime inputs. Earlier source failures retain their original baseline and logs."
+  },
+  "current_dev_reconciliation": {
+    "dev": "6892c5753c75161986b4463c186f8711a0c12870",
+    "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/BUBBLE_DEV_INPUT_BINDING.json",
+    "result": "Complete static checks and82of82 aggregate trusted-probe coverage across retained original/recheck attempts. Bubble Duel100-cycle and saved-state reload checks pass. Exact-head CI remains required. MA-DOC-010 remains IN_PROGRESS for owner review and attributable founding-source backfill."
+  }
+}

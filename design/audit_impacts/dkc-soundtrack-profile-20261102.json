@@ -1,0 +1,71 @@
+{
+  "id": "dkc-soundtrack-profile-20261102",
+  "scope": "Separate original DKC1 soundtrack listening inventory, MIDI metadata and source-led instrument comparison plan. Original in-game instrumentation takes precedence over performer roster and installed palette. Source research only.",
+  "baseline": "4a8c2dd9ed9f86670e41b3c4df9fdca82f1bd903",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SND-04",
+    "DL-SND-09",
+    "DL-SND-12",
+    "DL-SND-15",
+    "DL-SND-18"
+  ],
+  "findings": [
+    "MA-AUDIO-001"
+  ],
+  "finding_effect": "Reference research does not repair runtime audio or alter finding lifecycle.",
+  "files": [
+    "design/music/dkc/README.md",
+    "design/music/dkc/soundtrack_catalog.json",
+    "design/music/dkc/midi_catalog.json",
+    "design/music/dkc/vgmusic_catalog.json",
+    "design/music/dkc/instrument_candidates.json",
+    "design/music/dkc/owner_direction_20261102.json",
+    "design/reference/owner_decisions.json",
+    "design/reference/OWNER_DECISIONS.md",
+    "audit/cycles/dkc-soundtrack-profile-20261102/owner_answers.json",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/music/dkc/research_receipt.json"
+  ],
+  "required_evidence": [
+    "Complete catalog reconciliation, direct listening URLs and MIDI source byte hashes",
+    "Separate metadata-found, playback-reviewed, transcription-aligned and instrument-match status",
+    "Exact native preset/articulation comparisons and full-track human review before fidelity acceptance"
+  ],
+  "validation": [
+    {
+      "command": "YouTube ytsearch3: 30 original and two rounds of 30 MIDI queries; urllib source-byte fetch; mido parse",
+      "result": "PASS",
+      "evidence": "design/music/dkc/soundtrack_catalog.json: 30 original metadata candidates, 21 MIDI-video candidate rows, 24 MIDI-source-covered rows, zero accepted matches. midi_catalog.json: 30/30 source headers verified. vgmusic_catalog.json: 75/76 parsed files; one failed source retained explicitly. Byte verification is not musical fidelity."
+    },
+    {
+      "command": "python -X utf8 -B tools/record_owner_decision.py --check --base 4a8c2dd9ed9f86670e41b3c4df9fdca82f1bd903",
+      "result": "PASS",
+      "evidence": "Final append-only check at baseline 4a8c2dd9: 82 decisions ALL OK."
+    },
+    {
+      "command": "python -X utf8 -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "Final DOCAUTH inventory=774 ledger=774 active=74 records=77 ALL OK."
+    },
+    {
+      "command": "python -X utf8 -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Final AUDITDEV ALL OK at auto base 93166ab1828ab9857227d038f8833b92dfb2f9f1. Initial empty-validation rejection retained in the work log; repaired without relaxing coverage."
+    },
+    {
+      "command": "python -X utf8 -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "54 tests in 12.353s OK; DOCAUTH STRESS 6/6."
+    },
+    {
+      "command": "Godot runtime regression and instrument A/B stress tests",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Documentation/metadata-only commit changes no game script, scene, asset, score, tool or runtime configuration. Runtime suite is not new evidence for this study; instrument A/B testing is the explicitly open next milestone."
+    }
+  ],
+  "acceptance_gaps": "Listening-index intake only. All original/MIDI alignment, full instrument identification, exact native A/B stress tests and owner fidelity acceptance pending. No runtime audio, protected media, save or release change. MA-AUDIO-001 remains FIXED_PENDING_VERIFICATION."
+}

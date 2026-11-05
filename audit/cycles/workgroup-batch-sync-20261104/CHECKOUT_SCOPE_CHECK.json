@@ -1,0 +1,18 @@
+{
+  "workflow_check": "PASS",
+  "authorized_checkout_inputs_only": true,
+  "windows_sparse_roots": [
+    "tools",
+    "assets/audio/music",
+    "assets_src/audio/music"
+  ],
+  "linux_history_depth": 0,
+  "linux_filter": "blob:none",
+  "protected_original_changes": [],
+  "required_music_files": [
+    "tools/build_area_music.py",
+    "tools/setup_video_tools.ps1",
+    "assets_src/audio/music/area_music_scores.json",
+    "assets/audio/music/area_music_manifest.json"
+  ]
+}

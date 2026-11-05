@@ -1,0 +1,12 @@
+{
+  "early_diagnostic_nil": "A snapshot polled the review while its high-resolution background was still building; guarded uninitialized snapshots now return not-ready.",
+  "main_initialization_race": "Godot AI helper liveness precedes ReefMain save/menu initialization; review boot now waits for the start-menu layer that is built after _load_save.",
+  "restored_fully_initialized_bank": {
+    "stars": 64,
+    "pearls": 12,
+    "per_run_dictionary_hash": 1795345105
+  },
+  "in_run_progress_invariant": true,
+  "cross_run_limit": "Early partially initialized snapshots had different dictionary hashes/pearl counts. They are not evidence of a fully loaded save; no save has been rolled back to force an old hash.",
+  "final_runtime_checks": 31
+}

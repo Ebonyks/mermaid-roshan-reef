@@ -1,0 +1,229 @@
+# Chapter One picture-book design language
+
+Status: `BINDING_DOMAIN` for the static picture book only. Owner direction, 2026-09-20. The [original Gemini prompt](ORIGINAL_GEMINI_BACKGROUND_PROMPT.txt) is preserved separately; the rules below make its placement constraints explicit. Later owner instructions govern conflicts. The game-wide cinematic delivery rules are unchanged.
+
+## Layer scope
+
+The Gemini prompt governs the blank stationery BACKGROUND and integrated border assets. Its clear writing surface is intentional. It does not prohibit the later book-composition layer from placing large existing story illustrations and Sniglet text in that area. Full-art pages have no stationery background at all. This layer distinction follows the user's explicit request for foreground story pictures alternating with full-art pages.
+
+## Background rules
+
+- **BK-BG-01 — Base:** watercolor blue environment, fine dotted perimeter, two low seafloor mounds. Preserve the base aspect ratio. All panels and both mounds remain consistently blue.
+- **BK-BG-02 — Exact asset:** preserve each supplied asset's design, color, style and texture. Remove its solid rectangular background; do not redraw, stylize, recolor or generatively reinterpret the supplied object. Keep its alpha silhouette and original aspect ratio.
+- **BK-BG-03 — Clear top:** integrated decorative assets must fit entirely in the bottom 15%: normalized top coordinate at least 0.85. Base-native perimeter bubbles remain base elements, not new scattered decorations.
+- **BK-BG-04 — Central gap:** the space between left and right mound silhouettes receives no integrated asset, shadow or new ornament. The base wash remains visible there. The writing surface stays empty until the separate foreground page-composition step.
+- **BK-BG-05 — Slopes only:** anchor assets exclusively on the left or right mound slope. Record which mound supports each asset; no floating items.
+- **BK-BG-06 — Maximum size:** asset bounding width <= 0.12 * canvas width AND height <= 0.12 * canvas height, preserving aspect ratio. Measure before occlusion, not just the visible remainder. Both limits apply.
+- **BK-BG-07 — Grounding:** cover the bottom 10% of the placed asset with the existing mound texture and add a low-opacity contact shadow. Use the mound's actual silhouette, not a generic rectangular cover. Shadows also stay out of the central gap and upper restricted zone.
+- **BK-BG-08 — One object, one role:** do not repeat a foreground story prop in the border of that page. Select a motif variant without the duplicate. No second brush, paint cup group, character, tool or room thumbnail.
+- **BK-BG-09 — Clarity:** native shells, coral, bubbles and mound edges must be crisp and clearly drawn, with high-contrast, vector-like precision in their outlines, clean gradients and crisp paper grain. This does not license changing a supplied asset's texture/style or filling the writing surface with high-detail scenery. No digital speckles, corrupted edges or transparency holes.
+- **BK-BG-10 — Publication review:** preserve native originals; keep derivatives separately. Assess at intended print size and resolution. Existing 1060 x 1484 studies are not automatically publication-ready; no claim of compliance until placement, silhouette, grounding and visual checks pass.
+
+## Page composition
+
+- **BK-PG-01 — Rhythm:** blue vignette pages alternate purposefully with border-free full art. Adjacent setup pages are allowed; a run must serve the story, not a repeated template.
+- **BK-PG-02 — Cuts:** isolate whole action groups and meaningful objects along authored contours. Preserve contact, faces, hands, tails, location and object identity. Do not use rounded screenshot rectangles as a substitute.
+- **BK-PG-03 — Spreads:** default review single pages are14x10in with32story entries plus covers. Owner2026-10-26 authorizes the arrival alone as a doublewide scene with significant top/bottom cropping. V42 uses one28x10in PDF review entry and one continuous uniformly scaled source window. Actual physical page assignment/parity and gutter remain held; do not independently recrop halves or claim an imposed32-page interior from34mixed-width PDF entries. Other wide reveals retain their existing single-page treatment. Former40-page portrait assignments remain superseded.
+- **BK-PG-04 — Text:** Sniglet; short navy text in quiet image space. No opaque full-width caption strips. Background decorations remain small; foreground story artwork remains large.
+- **BK-PG-05 — Source-only narrative:** existing Grok and storyboard/handoff art; no whole-scene redraws. Targeted isolation/inpainting/outpainting remains allowed within owner limits. Missing action art is a gap, never permission to invent a scene.
+- **BK-PG-06 — Story:** waterfall clears and turns rainbow. Two dust bunnies hold Baby Eagle. Preserve four-helper soap concealment, rainbow jump, collapse and landing order. No changed landing or omitted-action restoration.
+- **BK-PG-07 — Distinct pages:** in the landscape edition, page 11 narrates clearing against the obstruction source; page 12 shows the distinct rainbow payoff. The actual clearing-action illustration remains a declared gap. Do not invent an action frame or repeat the obstruction as a cosmetic second page.
+
+## Current study status
+
+The previous seven blue backgrounds are retained as design studies, not accepted implementations of this newly supplied specification. In particular, their generatively rendered props do not prove exact asset extraction, <=12% bounds, 10% mound occlusion or grounded shadow placement. Build future variants from the base plus exact supplied cutouts, with explicit bounds and masks. The art-room composition is the owner's relative quality reference, not a waiver of these constraints.
+
+## Required evidence per composed background
+
+Record base/source paths and SHA-256, canvas size, exact asset source and alpha extraction method, normalized pre-occlusion bounding box, left/right mound, mound-mask reference, occlusion fraction, shadow bounds/opacity, central-gap mask, foreground prop exclusions and human print-size review. No automatic pass from a filename or attractive preview. Original book/reference and protected game assets remain unchanged.
+
+## Owner correction: exactly two image treatments
+
+- **BK-PG-08 — Binary image treatment:** every delivered illustration is either full-art to the page/spread edges OR a genuine object/character silhouette with transparency outside its authored contour. No reduced scene rectangles, rounded rectangles, circles, torn-paper crops, soft scenic blobs or irregular room/floor fragments. There is no third vignette-panel category.
+- **BK-PG-09 — Complete cutouts:** a sticker means an unboxed isolated figure, whole object, or connected action group, without an added white sticker stroke. Preserve natural holes and gaps. Never substitute a severed head/hand or partial environmental crop. A naturally rectangular object (paper, book, display) can retain its physical contour; its surrounding scene cannot.
+- **BK-PG-10 — Foreground and background ownership:** each reduced page explicitly lists foreground cutouts, left mound assets, right mound assets, removed context and placement. The Gemini 85%/12%/10% restrictions apply to small background integrations, not large foreground story cutouts. Never repeat an object in both roles.
+- **BK-PG-11 — Source previews:** raw scene frames may appear only in clearly separated, collapsed source-reference sections of the production plan. They are not proposed reduced-page artwork. A missing cutout remains a production job, not a displayed screenshot substitute.
+
+The previous 40-page plan is preserved as superseded planning evidence. The current 32-page landscape manuscript and per-page assignments live in `landscape/book.json` and `landscape/PAGE_PLAN.md`.
+
+## Owner refinement: event-specific border details
+
+Owner direction, 2026-09-20: the improved blue bank base is retained, but repeated brushes, suds and generic cleanup symbols are insufficient. Each lower-border composition must reflect that page's event with contextual props and subtle detail. Inventory the richer repository catalog first; new isolated decorative assets related to these events are explicitly permitted where needed. This permission does not authorize new narrative scenes or character redesign. Existing supplied objects retain their exact style and texture. New props follow the original book's simple outlined watercolor border language. The bottom-15%, maximum-12%, central-gap and foreground-duplication rules still apply.
+
+## Owner correction: integrated ground contact
+
+The owner rejected the event-border proof for pasted-on ground contact, loosely related repeated objects and the smudge. Remove the smudge entirely. Decorative variants may render the authorized new props into the existing blue banks with coherent perspective, narrow contact shadows and shaped sand contact. This is background integration, not permission to redraw narrative scenes or characters. Do not use a horizontal rectangular mask to claim natural grounding.
+
+For these flattened background variants, the earlier exact-alpha/occlusion record describes only the superseded cutout-compositing method. Record the actual generated background, bound source references, prompt/hash, inspected visible prop bounds, relevance and contact review instead. Do not claim pixel-exact supplied-asset preservation, a measured hidden 10% occlusion, or numeric shadow opacity for generated pixels. The target remains subtly nestled objects, unchanged story foregrounds, bottom-15% placement, maximum-12% size and an empty central gap. A mechanical bounds pass is not owner visual acceptance.
+
+## Owner refinement: dust-bunny action cameos
+
+The owner explicitly authorizes newly drawn dust bunnies performing page-related actions in the lower borders where imported story objects are weak, following the first book's recurring Baby Eagle activity. Preserve the established lavender puff, spiral-ear and pearl-nub identity. This narrow permission supersedes the prior prohibition on new decorative character poses; it does not authorize replacement narrative scenes, protagonist redesign or altered story facts. Do not reveal the rainbow transformation before its story beat.
+
+Use a readable action or reaction, not a repeated idle mascot. Retain meaningful bath/craft objects. Broaden lower-bank groups horizontally through pose and interaction rather than enlarging every individual decoration; each small figure/prop keeps the existing individual size and lower-zone limits. Connected groups may span farther across their own bank, leaving the central gap clear. These are marginal story echoes, not claims of additional literal game events. Character recurrence is intentional; identical pose repetition and arbitrary filler remain undesirable.
+
+
+## Owner refinement: varied border performances
+
+Use one to three marginal dust bunnies total on a page when their activity adds meaning; zero on object-led or full-art pages is intentional. Mix relevant story objects with the figures and vary count, silhouette, facing, grouping and bank emphasis. Do not default to one activity per bank, duplicate mascot poses, or use extra objects to fill space. Useful individual drawings do not establish a coherent or accepted border composition.
+
+Develop the artistic vision, audit its comprehension, revise it, and store that work on the dedicated book branch before the next whole-story review cycle. [Border art direction](landscape/BORDER_ART_DIRECTION.md) records the proposed page score and editorial audit. It does not claim that the current PDF implements the score or that a child/owner has accepted it. Existing individual size, lower zone, central gap, identity and source-only narrative rules remain in force.
+
+## Owner commission: rendered cover and resting epilogue
+
+The latest owner direction explicitly commissions two unified rendered illustrations: the cover, integrating story elements in a shared physical setting as in the original book, and story page32, with everyone napping together in a large bubble pile. These are specific exceptions to BK-PG-05, not permission to redraw other narrative scenes. Preserve the exact canonical landing on30 and friendship reflection on31; the nap follows them. Targeted door lighting and a distinct original-identity Baby Eagle pose remain allowed. Page25 now requires scared/cowering bunnies, one sheltering under a shell. Page26 changes to cheering Roshan, including one popcorn-eating bunny; this supersedes the earlier escalating-fear direction. Audit every background, preserve the strong page21 source exactly, and regenerate only justified weak variants with relevant attic/bath/play references.
+
+## Owner correction: rescue identity and low-resolution pose repair
+
+The owner explicitly commissions regeneration of the Baby Eagle/dust-bunny rescue shots after rejecting their character fidelity. Page17 must show exactly two canonical lavender puff bunnies trapping the original-identity Eagle;18 must depict progressive release, without a blanket or invented replacement event. This scoped permission supersedes the source-only ban for those shots. Restore small Roshan atlas poses at sufficient native size while preserving their authored gestures and identity; repair the duplicated upper-wall strip on dirty-castle page3 through bounded inpainting. No unrelated scene redesign is authorized.
+
+## Owner commission: V22 source-resolution and bunny fidelity audit
+
+The owner explicitly requests regeneration of low-resolution cropped pages, the tiny-chirp Roshan, and drifted marginal dust bunnies. This is a scoped quality-restoration exception to BK-PG-05: preserve established scene identity, location, action, characters and story facts while restoring full-page resolution. Repair dirty castle3 without stitched seams. Sharpen the stationery bubbles and preserve quiet blue writing space. Page26 includes the game cloud couch with two bunnies watching and eating popcorn; page21 requires a richer messy-art sorting composition. All marginal bunnies use the original curl-ear cloud reference, not prior generated cameos as identity authority. The exact finale landing remains unchanged.
+
+## Owner commission: V23 rear cover and speaking bunnies
+
+The owner requests up to ten unified full-art rear-cover samples showing Roshan and Daddy's concern at a close view of the dirty castle, using the front cover and bubble-nap painting as style references. The later owner correction rejects photorealistic dirt and requires the other characters plus the existing book palette. Eight studies are preserved; the selected H composition includes Roshan, Daddy, Rumi, Baby Eagle and two canonical puffs, with painted lavender dust. The rear cover is a scoped new-scene exception. Page3 receives targeted window/door repair, page9 gains the established strainer, and page13 receives a clearer caption. On19 the two bunnies explicitly say “sorry” and “we were just playing.” They are now speaking story characters: the layout interprets this request as a larger lower-margin narrative beat, with speech balloons above and figures within the bottom20%, rather than applying the silent decorative-prop15% zone to them. This exception applies only to19; other stationery restrictions remain. Speech is editable Sniglet text, not generated lettering.
+
+Owner correction V25: simplify the existing craft scene style; use the actual route-light hall with other completed doors; replace the fighting pose with a contour action cutout of Roshan facing Puff, holding a sparkly shell, visible outgoing sparkles and dizzy Puff. These are scoped edits and pose corrections, not permission for unrelated scene invention.
+
+## Owner language and identity clarification (2026-09-26)
+
+Rumi has lived in the castle for hundreds of years and is trapped underwater by gunk at discovery. That duration does not describe her entrapment. Dust bunnies are endearing playful pests; preserve the real two-bunny Baby Eagle trap and repair through apology/gentle play. Grand Puff is unwell beneath dust, then transforms into his own shiny rainbow self. This is one continuing character. The owner commissions supporting artwork for these corrections. Retain34 total pages including covers and the accepted rear H. Short read-aloud language should support growing reading participation without a claimed reading level.
+
+## Owner correction: V28 cooperative cleaning (2026-09-30)
+
+The owner approves the dated before/after proposals except oversized apology bunnies on former 19. Keep those bunnies small and secondary to Eagle; their speaking role does not justify enlarging them beyond the book's established border scale. Rounded editable speech capsules retain “Sorry!” and “We were just playing!” The earlier larger-figure interpretation and oversized preview are superseded. Small figures may retain the previously commissioned speaking-character margin; its exception must remain explicit rather than claiming strict bottom15% compliance.
+
+Remove the disconnected craft-making beat on former 23. Reallocate its page to an early exploration/entry beat using existing dirty-castle source material; no invented scene. Keep the craft-room sorting and cleaning as part of restoring the castle. Retain34 total pages, both covers and the exact landing. Current numbering and old-to-new map are in landscape/PAGE_PLAN.md and landscape/revisions/v28_kindness/pagination.json.
+
+**Grand Puff's book plot is now entirely care and collaborative cleaning.** Former26 must show Roshan holding a cleaning supply and saying “Hold on, we'll make you feel clean and better!” Replace the shell, attack sparkles and dizzy expression through bounded edits. Roshan and her friends wash the dusty Puff until his own rainbow colors show. This explicitly supersedes the V25 fighting/shell instruction for the book; it does not change game canon, gameplay or runtime movie rules.
+
+The owner also approves the proposed sink action, subtle bath visitor, fountain action, contour hug, clearer Eagle release, group-scrub ceiling and Roshan-to-Puff reflection. Keep their source/prompt evidence and record scoped layout exceptions. Two or three subtle Lamb-a appearances are permitted as unprompted discoveries; no child-facing clue or search instruction. Later scene requests remain subject to the existing source-preservation rule.
+
+## Owner commission: comprehensive polish and bubble-quality audit (2026-09-30)
+
+The story/concepts are finished. Audit every page and object for identity, source preservation, anatomy, contextual low-bank performances, clean material joins, readability, pacing and language suitable for shared reading at ages4–5. The owner explicitly approves substantial generation iteration, including “upwards of50 regenerations,” for identified quality gaps. This is no numeric upper cap and no permission for unrelated scene invention. Preserve the accepted front/rear covers, exact landing and strong page21 main artwork; keep originals and rejected studies separately.
+
+Include varied relevant game objects and canonical dust-bunny actions with zero to three small marginal bunnies where useful. Two subtle Lamma appearances implement the latest request for one or two; use the actual character reference, and include no child-facing prompt or clue. All newly selected silent decorations, including the apology figures in this iteration, satisfy the strict lower15%, individual12% width/height and central-void measurements. This stricter achieved geometry supersedes no earlier evidence by rewriting it.
+
+Digital compression around bubbles is an explicit audit lane. Inspect native contours, highlight integrity, mottling, halos and block patterns, then inspect every exported page. Do not confuse authored watercolor/soap texture with a diagnosed codec defect. Preserve native PNGs; use lossless PDF image streams and verify decoded resource/pixel identity. Seam repair cannot create rectangular wash panels or duplicated architecture.
+
+Use editable Sniglet captions and dialogue. Story text, including any contour stroke, has a24pt trim inset and minimum18pt type; accepted cover typography retains its separate18pt inset. A fine navy contour may support white type across source painting. Avoid opaque text bars and extra raster lettering. Keep rounded apology capsules secondary to Eagle.
+
+The4.9/5 goal is an internal editorial craft target, separate from the master's release-proven scale. Report actual object-level judgments, accepted source variants and missing evidence without inflating scores. Developmental guidance is not professional SLP sign-off. Owner/child reading, qualified SLP and physical-print acceptance remain explicit. Current evidence is in [V29](landscape/revisions/v29_polish/README.md); V28 and earlier review artifacts remain historical.
+
+## V30 final local continuity polish (2026-09-30)
+
+The comprehensive quality commission continues through bounded adult-Rumi facial repairs on0/10/33, removal of Roshan’s small cover brooches to match interior clothing, and shared attentive speaking expressions in the dirty hall4. These are local inpaints over the accepted complete scene bases; source composition, staging, bodies, setting and story action remain unchanged. No full-scene redraw is introduced. Original cover H and front source are preserved intact; only the declared seven facial/bodice polygons are exposed from new candidates. Exact outside-region pixel checks and native visual review are separate evidence.
+
+Page5 introduces the plural supply set with both the original pink game star sponge and a complete existing-source-derived yellow sponge, using actual transparent cutouts. Its foreground tools are rearranged without changing their source artwork or the low-bank design. This explains the yellow supplies already in use later; it does not change the game tool.
+
+[V30](landscape/revisions/v30_identity/README.md) records the published identity-polish baseline; V33 below owns the current cover review; V32 preserves the unchanged interior proof. The bound spread dummy separates exterior covers from32 interior story pages, with story1 on the right and preserved23→24/27→28 reveals. Internal4.9 judgments require actual inspected improvements and exact proof bindings; professional SLP, owner/child and physical-print acceptance remain explicitly separate. V29 audits/artifacts remain published historical evidence.
+
+## V31 owner corrections: comprehension, mystery and belonging (2026-09-30)
+
+The owner rejects the unclear waterfall count/completion claim, the inviting rainbow doorway and the weak former31 play beat, and requests a tiny rear-cover Lamma. Use ongoing partial clearing12, full rainbow completion13, the same castle door shadowed violet23, and Puff’s thanks/rest invitation31. Keep the correct completed doors and route lights; uncertainty belongs to the dusty friend behind the door, not a new villain or combat plot. Preserve source scene bases, existing bodies/staging, exact landing and both reveal turns. The extra early exploration alternative remains documented; no numbering shift is required for this narrower correction.
+
+Only five local candidates supply bounded water/reflection, door/face, low-bank acting, Puff face and shelf-cameo pixels. No full-scene replacement or protected-original edit. Remove old31’s cameo when adding the rear cameo, preserving two subtle unprompted sightings. [V31](landscape/revisions/v31_story_clarity/README.md) preserves historical review facts; V30 was its unchanged-image baseline. Source/pixel checks and internal editorial judgments do not grant owner, child, professional SLP or print acceptance.
+
+
+## V32 owner clarification: magical rainbow water and consolidated welcome (2026-10-01)
+
+Water from the magic swimming pool is rainbow-colored. Restore the original partial rainbow13; explicitly explain the pool's magic on14. Combine Puff's reflection, gratitude and invitation to rest into31, freeing a page for complete dusty-castle object cutouts early in the story. Use old22 as a quiet clean-room result30 after locally removing the actor/held brush;22 narrates both sorting and table cleaning. Preserve32 interiors plus covers and the23→24/27→28 reveal turns.
+
+Continue full-art/true contour alternation, blue stationery, clear upper85%, empty central bottom gap, grounded low assets ≤12%, source character contours and subtle page-specific details. New local bank/extraction work grants no full-scene redraw authority. Both native chest candidates retain backing haze; use the first only as a document-clipped exact contour source, never declare it a clean-alpha master. Preserve all originals, prompt/source hashes and rejected attempts. [V32](landscape/revisions/v32_rainbow_story/README.md) preserves that revision’s facts;28 mapped V31 proofs remain unchanged. V33 below owns current cover facts. Internal quality judgments never supply owner/child/SLP/print or game-wide approval.
+
+
+## V33 owner correction: cover story truth (2026-10-17)
+
+The owner rejects cover elements representing events absent from the current story. Remove the front's paint-making spill and drawing paper through bounded floor repair; give Puff his unwell, care-seeking expression. Retire rear H's obsolete craft gathering. Reuse the exact existing story26 cooperative washing scene for the rear, omitting its caption and retaining one tiny canonical shelf Lamma through a local patch. Preserve original source artwork, identity, contact, fixtures, all32 interiors, title/font/trim and both reveal turns. No full-scene redraw is authorized or needed. V33 owns current cover facts; earlier cover approvals are superseded only for these named deficiencies. The rejected interior4 remains a separate open editorial item. Publication and machine checks do not establish owner/child, professional SLP or physical-print approval.
+
+## V34 owner directions and evaluated audit (2026-10-18)
+
+Owner: “Audit, evaluate, and execute as deemed appropriate.” Later clarification: at least8x11 inches, possibly11x14; upsample after illustration tweaks. The current14x10 review keeps source proportions; final trim/reflow, resolution and printer bleed follow later. The supplied audit/work-order recommendations are evaluated in [V34](landscape/revisions/v34_editorial_polish/AUDIT_EVALUATION.md), including its deliberate placement and wording adaptations.
+
+**BK-BG-11 — Little puffs only:** the owner rejects Grand Puff in a background. Only canonical LITTLE curl-ear puffs may perform marginal cameos: no Grand Puff star/diamond, tall stacked crest or boss silhouette. Grand Puff belongs in main story art and full-art covers. Reject mistaken identity bindings; preserve the rejected studies as evidence. Tiny tissue/water preparation and cloth folding replace battle reactions. Full integrated stationery variants are permitted; no pasted seam panels.
+
+All body captions use20pt logical Sniglet; quiet positions come from composed-art luminance sampling plus native inspection. Fine contrasting contours support midtone art; speech capsules retain the smaller established size. Whole source action groups, exact finale staging and binary image treatment remain binding. No professional SLP or blanket4.9/5 acceptance is implied.
+
+## V35 owner request: story value and a spoiler-free rear (2026-10-18)
+
+The owner rejects the cooperative-washing rear cover because it reveals too much of the story. The replacement must promise a beginning and preserve the final encounter, care sequence and rainbow transformation for the interior. Existing source-preservation, whole-art/cutout, character, Sniglet and unprompted cameo rules remain binding. This request supersedes the V33/V34 rear-cover selection, without rejecting the washing scene as interior story art.
+
+The owner asks for a deeper reflection on life lessons and educational value, and allows questions during the workflow. [V35 review](landscape/revisions/v35_story_value/STORY_REVIEW.html) proposes stronger agency, perspective-taking, gentle play, asking/accepting help, practical confidence and belonging through the existing plot. Its twelve suggested captions, apology-bubble change and two rear-cover treatments are proposals, not accepted manuscript changes. The owner’s emphasis response remains pending; no moral, new quest or extra story page is silently added. The V34 manuscript/PDF baseline remains sealed while the direction is discussed. Editorial use of developmental guidance is not evidence of SLP approval or a measured learning outcome.
+
+## Owner decision: the audit handoff governs (2026-10-19)
+
+The owner directs Codex to follow the published V34 audit handoff (commit cc603da5) with the accepted Q1-Q14 defaults, adjusting its print step for the larger final size. The 14 story pages its text table changes use its exact words; Codex's V34 wording stays on the other pages; the rear cover is V35 spoiler-free candidate A, the castle doorway (owner choice the same day). This reverses the V34 adaptations named in the [decision record](handoffs/2026-10-18_v34_audit_fixes/OWNER_DECISION_2026-10-19.md): the late help request, the soft-voice line, the removed cover subtitle, the unshown table scrub and the deferred dust and doorway repairs. BK-BG-11, the 14 x 10 review format, upsampling only after the illustration fixes remain. The owner also approved W3b that day: exactly one new story 9 action cutout of Roshan scrubbing from behind the tub while lifting the plug chain, a scoped exception to BK-PG-05 for that cutout alone. The owner also answered Q6: Roshan's ears are rounded. A bounded local edit matches the story 3 ear, and the rear cover built from that art, to story 1's rounded ear; Daddy's and Rumi's ears are unchanged. For the same draft the owner standardized Roshan's look: one pastel rainbow ponytail on her left side (about a quarter of her hair), brown soft waves from shoulder to mid-back, and a gold tiara with one blue gem. The owner also allowed small character-only edits on the locked cover, jump and landing art without changing their staging. Fixes C1-C14 are in the [character consistency addendum](handoffs/2026-10-18_v34_audit_fixes/CHARACTER_CONSISTENCY_2026-10-19.md). V35 caption proposals stay proposals until the owner accepts them.
+
+
+## Owner direction 2026-10-21: distinct back-cover composition
+
+The owner rejected the rear cover as a repeat of an interior page and commissioned a new scene using existing Mermaid Roshan Day One castle materials in an unseen composition. This is a scoped exception to BK-PG-05 for the new back-cover candidate, replacing the rear-A staging requirement; it does not authorize other interior redraws or game changes. Preserve the existing character/material identities and spoiler-free premise. Record the reference-led rendering honestly, retain source hashes and original V36, and keep owner/print acceptance separate. See [new rear candidate](landscape/revisions/v36_rear_composition_20261021/README.md).
+
+
+## V38 owner decision (2026-10-25)
+
+The owner wrote: “Write the V38 Codex handoff for the V37 audit fixes, using your suggested defaults for Q1-Q6; leave Q7 (final trim) open.” The [accepted packet](handoffs/2026-10-25_v38_audit_fixes/README.md) governs A1–A10; the 2026-10-19 manuscript and character standards stay in force. This permits bounded rear Lamma/web/dust and door-dust additions and the higher-resolution W3b trial, without a new scene, pose, wording, game or release change.
+
+[V38](landscape/revisions/v38_audit_fixes/README.md) implements A1–A8/A10 with exact V37 originals and unnamed pages preserved. A9 held after two undersized trials with slight contour drift; approved bath stays exact. Five focused AI passes,307source/font seals and composed contrast are scoped evidence. V37's sealed folder is historical. Owner/child/SLP/final trim/PPI/physical-print gates stay open; no print edition starts.
+
+The subsequent owner-requested [second-AI compliance review](landscape/revisions/v38_audit_fixes/peer_review/README.md) keeps this authority intact. Its A8 correction uses only a translucent dust layer over the exact original door. Evidence helpers fail closed on changed artifacts and execute rather than infer contract checks. Peer satisfaction concerns scoped handoff completion, not owner, child, SLP, trim or physical-print acceptance.
+
+
+## V39 owner illustration corrections (2026-10-25)
+
+The owner identifies cover Daddy/Rumi caudal anatomy and missing Lamma, lost Roshan stained glass in PDF2/story1, incorrect water landing in PDF3/story2, and insufficient illness props/acting for the two late marginal little-puff vignettes. These named corrections supersede older instructions to keep the water arrival and cloth-only care cues exact. The new cover Lamma is an additional silent sighting;10/rear remain.
+
+[V39](landscape/revisions/v39_owner_corrections/README.md) uses bounded local tail/face/hand/tissue-box repairs and direct approved-source reuse. Restore the actual existing castle stained-glass portrait inside its arch. Use exact demo frame408 at17s showing the plane on wheels by slide/swings; no invented scene. The native720p still is review source, not print-resolution approval. Preserve sofa, flask, canonical little-puff anatomy, exact words/manual breaks/captions/pagination/rear, V38 originals and all29 unnamed proofs.
+
+Eight native ImageGen calls/five selected local candidates and all rejects are recorded. A narrow canonical-fin input change follows two diagnosed broad failures. Five primary focused reviews and separate iterative second-AI critique apply only to exact declared artifacts. Retain A9 bath/native demo resolution, owner/child/SLP/trim/PPI/physical-print holds; no game or release authority is added.
+
+## V40 owner composition direction — 2026-10-26
+
+PDF3 / story2 must omit the unexplained otter and zoom out to show both playground and Pearl Castle. A new blended composition from existing source artwork is authorized for this page. Preserve the landscape identity, grounded arrival, real castle portrait and connected path; condensed book staging is declared rather than presented as an exact gameplay camera/map. No full-scene redraw or identity redesign is needed. Preserve V39 and all other 33 proofs, exact manuscript/caption controls and binding. See [V40](landscape/revisions/v40_wide_arrival/README.md). A9, native source resolution and owner/child/SLP/trim/physical-print acceptance stay separate.
+
+
+## V41 owner decision (2026-10-26)
+
+The [V41 packet](handoffs/2026-10-26_v41_print_edition/README.md) records: “Write the V40 Codex work order using your suggested defaults: an 11-inch-wide trim (Q1), rebuild page 2 from its source layers (Q2), stronger page 5 dust (Q3), and no third page 9 attempt (Q4).” The owner subsequently rejected V40's merged/condensed composition and clarified: “The full Sky Lagoon setting: water, playground, landing area and route to Pearl Castle”. This direct decision overrides the packet's approved-V40 premise and the preceding V40 section's permission to condense this book view.
+
+[V41 Part1](landscape/revisions/v41_final_review/README.md) retains complete original panorama spacing and both water areas, playground, grounded arrival and route to the current four-tower castle. Only sky/foreground extension and declared bounded boundary joins use new generated repair; central source geography is restored. No otter, full-scene redraw, identity redesign, changed words or game work. B1 stronger dust remains featureless at0.9opacity; B2/A9 closes as not needed at11in with no third bath attempt.
+
+The packet says “Once the owner has accepted the illustrations” before print Part2. Deliver Part1 for that review and stop: P1–P8, print enlargement/PPI/boxes and printer files are held. All32 unnamed proofs, manuscript/captions/binding and old sources remain exact. Source seals, five focused inspections and independent critique do not substitute for owner, physical-print, child or qualifiedSLP acceptance. V40 arrival is OWNER_REJECTED, with original artifacts preserved as historical evidence.
+
+
+## V42 owner direction: doublewide arrival (2026-10-26)
+
+Owner: “This should be a doublewide page, with significant cropping of top and bottom of screen.” [V42](landscape/revisions/v42_doublewide_arrival/README.md) supersedes V41's single-page arrival format while preserving its scene source. Crop the redundant sky/foreground, retain complete horizontal context and use one continuous uniform source window. No new generation or scene invention.
+
+Pending the optional owner choice of occupying stories2-3 versus adding an arrival page, the illustration review uses one double-width PDF entry, preserving all34entries,32captiontexts and the separate entrance illustration. It grants no physical imposition/reveal-parity pass: splitting it while retaining entrance produces33interior page units. The swing is close to the proposed centre fold; physical gutter and page placement are held. Print Part2 and owner,physical,child,qualifiedSLP acceptance remain open.
+
+
+## V43 owner cover and title direction (2026-10-28)
+
+The owner selects **Mermaid Roshan and the Dust Bunnies**, requests the bunnies have a more major cover role, and directs Lamma to be hidden with its head barely peeking behind the bucket. This supersedes the Hidden Rainbow cover title and the previous exposed full-body Lamma cover cameo. The existing scoped rendered-cover commission permits the two new canonical posed bunnies as a foreground insert; it does not authorize a full-scene redraw or family/identity changes.
+
+[V43](landscape/revisions/v43_dust_bunnies_cover/README.md) retains the existing castle/family artwork and anatomy corrections, makes the title editable, introduces a prominent two-bunny group, and hides the original whole Lamma cel behind the original bucket's curved rim. No severed head is a new asset. No body/rear illustration or manuscript changes. V42 sources/exports remain preserved, as do arrival imposition/gutter, printPart2 and owner/child/SLP/physical-print holds.
+
+## V44 structural repair and consistency audit (2026-10-29)
+
+The owner identifies the missing cover door half/hinges and commissions a comprehensive consistency audit. [V44](landscape/revisions/v44_door_and_consistency/README.md) restores the existing opened shell-door pair and complete outer hinge assemblies with bounded architecture-only patches; original central Puff and all other figures remain. Both title lines move together20logicalpt left to clear the new tip, preserving words, font, sizes and baselines. Preserve native attempts, prompt/input hashes and exact character/manuscript sources; no full-scene redraw.
+
+Both34-entry visual audits retain two open inherited continuity findings: story1's ocean/island geography versus selected Sky Lagoon story2, and changing seahorse forehead ornament across11/15/16. Document these without inventing a new canon choice or accepting inconsistent pixels. Character identity remains broadly coherent; source finish differences alone do not authorize novelty redraws. Cover repair PASS, comprehensive audit completion and whole-book creative acceptance are separate claims. Prior owner/child/SLP, arrival imposition/parity/gutter and printPart2/physical-print holds remain unchanged.
+
+## V45 owner decision: one moral, carried by the words (2026-10-31)
+
+The owner asked for a critique focused on language, plotting, word choices and age-appropriate resolutions, with "a clear moral conclusion and lesson to extract" and an arc all children can identify with. The owner chose the moral: "Empathetic representation of the dust bunnies, who cause problems, but just need help, is a critical element, and that through the power of friendship, larger jobs can be accomplished." On page 21 the two bunnies now say "Sorry!" and "We'll be gentle!", replacing "We were just playing!". On page 5 the big door is stuck and Roshan promises to come back; on page 23 the sparkle trails already drawn from the clean rooms reach the door, it clicks open and she keeps her promise.
+
+The [V45 work order](handoffs/2026-10-31_v45_story_language/README.md) changes caption text on 25 pages and the page-21 bubbles only: no art, page order, cover, rear or type-size change, and no new DL-ASSET-08 permission. Its new story facts await the owner's yes on reading V45: Grand Puff is the biggest dust bunny; his sneezes puff out dust and he says sorry for it; the clean rooms' sparkles unstick the door; Rumi offers help in return. V44's open continuity findings, illustration acceptance, print, arrival imposition, child read-aloud and qualified speech-language review stay open.
+V45 implementation status (2026-10-31): [V45 review draft](landscape/revisions/v45_story_language/README.md) implements24exact proposed captions and the page21 bubbles, with a declared concise page11 editorial adaptation for fit/readability. No new art. New story facts and the adaptation remain for owner reading; original rules and all acceptance holds above remain.
+
+V45 implementation review (2026-11-01): [delivered draft](landscape/revisions/v45_story_language_r02_review/README.md) implements23of25 supplied caption changes plus page21bubbles. Under the work order's explicit hold rule, stories11/15retain exact V44 pending shorter supplied words. No words/font sizes/art are changed to force a pass. This implementation status is supporting evidence, not new canon or art permission; the owner/new-fact and existing acceptance holds above remain.
+
+## V46 owner correction: readable lettering and preschool copy (2026-11-01)
+
+Owner: "The text opacity is poor, and some of the pages have too much text on them, there needs to be 4 year old appropriateness in the text." This direct feedback supersedes the earlier V45 exact-word/hold constraint for this editorial revision. Shorten and recast crowded copy, preserve the empathy/friendship moral and causal story order, and make the lettering solid and readable. Do not shrink body/bubble type or redesign artwork to force text to fit.
+
+[V46](landscape/revisions/v46_preschool_legibility/README.md) uses an opt-in solid-ink profile: opaque same-colour fill/stroke above a separately painted backing edge. Preserve Sniglet, body 20/bubbles 18 logical pt, existing artwork/crops/identity/page order and cover/rear words. Source and rejected candidates remain preserved. 26 captions change, with 309 words versus 509 and no held-word pages. Word counts are editorial evidence, not a developmental diagnosis; owner reading/child/qualifiedSLP, inherited art and physical-print/imposition holds remain separate.

@@ -1,0 +1,36 @@
+{
+  "id": "picture-book-v46-publication-20261101",
+  "baseline": "ebf6e20a682705c7e0aee37254565c6a275e841d",
+  "scope": "Publish V46 anonymous exact-revision verification and bounded independent publication acceptance. Sealed book/art/type/control payload stays unchanged.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static book publication metadata only; no live game or creative acceptance claim.",
+  "files": [
+    "books/chapter_one/landscape/revisions/v46_preschool_legibility/remote_verification.json",
+    "books/chapter_one/landscape/revisions/v46_preschool_legibility/peer_review/final_publication_acceptance.json",
+    "design/audit_impacts/picture-book-v46-publication-20261101.json"
+  ],
+  "validation": [
+    {
+      "command": "Anonymous HTTPS manifest/every99output and2pinned before references",
+      "result": "PASS",
+      "evidence": "Exact101-member receipt;99outputs+2pinnedreferences;191330697bytes;anonymous HTTPS/no credentials;checked 2026-11-02T04:04:59.289261+00:00;manifestSHA 88c0eda86b13fd37bd0ec4215aa4fc45ca192362da29e300b14425077c2736af;receiptSHA d80031490ceee52ae1cb05394e73e0f066df16f7e8b011bc2ec498af941cb873"
+    },
+    {
+      "command": "Bounded independent publication/receipt review",
+      "result": "PASS",
+      "evidence": "Bounded independent publication review;fouranonymousobjects/117761bytes exact;101fullreceiptentries/twodigests/52candidatebindings exact;peerSHA 95ad5b1dd15d0e73c73422335c8e6f3681629513286b2460e7d52315b84e8524"
+    },
+    {
+      "command": "Final authority/development metadata gates",
+      "result": "PASS",
+      "evidence": "631/631authority ALL OK; development ALL OK at5920c673305989ee29d91876480ff445dba9fc8b. Sealed source retained52passing tests and6/6stress; no changed book/art/code requires repeated rendering/testing."
+    }
+  ],
+  "acceptance_gaps": "Owner/actual child or human spoken/qualifiedSLP/physical print and inherited art issues remain open; no game/dev/master/release."
+}

@@ -1,0 +1,721 @@
+{
+  "schema": "dkc-production-measurements/1",
+  "measurement_scope": "Actual decoded selected FLACs; loudness/true peak estimates from full-render FFmpeg analysis plus the applied static gain; independent final measurement follows. Not subjective audio acceptance.",
+  "tracks": [
+    {
+      "id": "DKC-02",
+      "version": 11,
+      "sample_rate": 48000,
+      "channels": 2,
+      "duration_s": 160.2,
+      "finite": true,
+      "clipped_samples": 0,
+      "sample_peak": 0.6408830881118774,
+      "dc_mean": [
+        -2.8052071776585308e-09,
+        -2.5715045648411206e-09
+      ],
+      "mono_power_loss_db": -0.01130185371132867,
+      "integrated_lufs_estimate": -20.0,
+      "true_peak_dbtp_estimate": -3.8400000000000007
+    },
+    {
+      "id": "DKC-03",
+      "version": 11,
+      "sample_rate": 48000,
+      "channels": 2,
+      "duration_s": 159.57135416666668,
+      "finite": true,
+      "clipped_samples": 0,
+      "sample_peak": 0.6985067129135132,
+      "dc_mean": [
+        -1.285564849018428e-10,
+        -2.9913505700251974e-11
+      ],
+      "mono_power_loss_db": -0.08815105471475676,
+      "integrated_lufs_estimate": -20.0,
+      "true_peak_dbtp_estimate": -3.1000000000000014
+    },
+    {
+      "id": "DKC-07",
+      "version": 12,
+      "sample_rate": 48000,
+      "channels": 2,
+      "duration_s": 201.45,
+      "finite": true,
+      "clipped_samples": 0,
+      "sample_peak": 0.6339449882507324,
+      "dc_mean": [
+        8.804839496390215e-11,
+        -2.2351126158226542e-11
+      ],
+      "mono_power_loss_db": -0.2796896942018113,
+      "integrated_lufs_estimate": -20.0,
+      "true_peak_dbtp_estimate": -3.9499999999999975
+    },
+    {
+      "id": "DKC-19",
+      "version": 11,
+      "sample_rate": 48000,
+      "channels": 2,
+      "duration_s": 239.30745833333333,
+      "finite": true,
+      "clipped_samples": 0,
+      "sample_peak": 0.4919801950454712,
+      "dc_mean": [
+        -7.586299644035677e-12,
+        6.871257035578893e-11
+      ],
+      "mono_power_loss_db": -0.011187956221836126,
+      "integrated_lufs_estimate": -20.0,
+      "true_peak_dbtp_estimate": -6.0600000000000005
+    },
+    {
+      "id": "DKC-11",
+      "version": 11,
+      "sample_rate": 48000,
+      "channels": 2,
+      "duration_s": 263.2082291666667,
+      "finite": true,
+      "clipped_samples": 0,
+      "sample_peak": 0.5786707401275635,
+      "dc_mean": [
+        -6.401109503562097e-11,
+        8.225010256213139e-11
+      ],
+      "mono_power_loss_db": -0.13436648349203353,
+      "integrated_lufs_estimate": -20.0,
+      "true_peak_dbtp_estimate": -4.75
+    },
+    {
+      "id": "DKC-15",
+      "version": 12,
+      "sample_rate": 48000,
+      "channels": 2,
+      "duration_s": 144.28660416666668,
+      "finite": true,
+      "clipped_samples": 0,
+      "sample_peak": 0.7732570171356201,
+      "dc_mean": [
+        2.3391727790866845e-11,
+        2.9018479286158083e-10
+      ],
+      "mono_power_loss_db": -0.004648541075571672,
+      "integrated_lufs_estimate": -20.87,
+      "true_peak_dbtp_estimate": -2.2000000000000006
+    }
+  ],
+  "native_register_checks": [
+    {
+      "instrument": "source_range_upright",
+      "midi": 28,
+      "expected_hz": 41.203,
+      "estimated_hz": 41.558,
+      "cents": 14.9,
+      "periodicity_error": 0.0176,
+      "peak": 0.028398
+    },
+    {
+      "instrument": "source_range_upright",
+      "midi": 35,
+      "expected_hz": 61.735,
+      "estimated_hz": 62.016,
+      "cents": 7.8,
+      "periodicity_error": 0.0568,
+      "peak": 0.023029
+    },
+    {
+      "instrument": "source_range_upright",
+      "midi": 40,
+      "expected_hz": 82.407,
+      "estimated_hz": 83.189,
+      "cents": 16.4,
+      "periodicity_error": 0.0019,
+      "peak": 0.025228
+    },
+    {
+      "instrument": "source_range_upright",
+      "midi": 43,
+      "expected_hz": 97.999,
+      "estimated_hz": 97.561,
+      "cents": -7.8,
+      "periodicity_error": 0.0035,
+      "peak": 0.023615
+    },
+    {
+      "instrument": "source_range_electric",
+      "midi": 26,
+      "expected_hz": 36.708,
+      "estimated_hz": 35.191,
+      "cents": -73.1,
+      "periodicity_error": 0.9355,
+      "peak": 0.068508
+    },
+    {
+      "instrument": "source_range_electric",
+      "midi": 35,
+      "expected_hz": 61.735,
+      "estimated_hz": 30.888,
+      "cents": -1198.9,
+      "periodicity_error": 0.0024,
+      "peak": 0.054177
+    },
+    {
+      "instrument": "source_range_electric",
+      "midi": 40,
+      "expected_hz": 82.407,
+      "estimated_hz": 41.237,
+      "cents": -1198.6,
+      "periodicity_error": 0.0016,
+      "peak": 0.050578
+    },
+    {
+      "instrument": "source_range_electric",
+      "midi": 48,
+      "expected_hz": 130.813,
+      "estimated_hz": 65.484,
+      "cents": -1197.9,
+      "periodicity_error": 0.0002,
+      "peak": 0.043948
+    },
+    {
+      "instrument": "source_range_piano",
+      "midi": 69,
+      "expected_hz": 440.0,
+      "estimated_hz": 440.367,
+      "cents": 1.4,
+      "periodicity_error": 0.0027,
+      "peak": 0.008341
+    },
+    {
+      "instrument": "source_range_piano",
+      "midi": 81,
+      "expected_hz": 880.0,
+      "estimated_hz": 888.889,
+      "cents": 17.4,
+      "periodicity_error": 0.0159,
+      "peak": 0.005852
+    },
+    {
+      "instrument": "source_range_piano",
+      "midi": 93,
+      "expected_hz": 1760.0,
+      "estimated_hz": 1777.778,
+      "cents": 17.4,
+      "periodicity_error": 0.3335,
+      "peak": 0.002512
+    },
+    {
+      "instrument": "source_range_piano",
+      "midi": 96,
+      "expected_hz": 2093.005,
+      "estimated_hz": 2181.818,
+      "cents": 71.9,
+      "periodicity_error": 0.2885,
+      "peak": 0.002249
+    },
+    {
+      "instrument": "source_range_flute",
+      "midi": 72,
+      "expected_hz": 523.251,
+      "estimated_hz": 521.739,
+      "cents": -5.0,
+      "periodicity_error": 0.0257,
+      "peak": 0.069088
+    },
+    {
+      "instrument": "source_range_flute",
+      "midi": 84,
+      "expected_hz": 1046.502,
+      "estimated_hz": 1043.478,
+      "cents": -5.0,
+      "periodicity_error": 0.0023,
+      "peak": 0.074818
+    },
+    {
+      "instrument": "source_range_flute",
+      "midi": 87,
+      "expected_hz": 1244.508,
+      "estimated_hz": 1230.769,
+      "cents": -19.2,
+      "periodicity_error": 0.0049,
+      "peak": 0.070448
+    },
+    {
+      "instrument": "source_range_flute",
+      "midi": 88,
+      "expected_hz": 1318.51,
+      "estimated_hz": 1333.333,
+      "cents": 19.4,
+      "periodicity_error": 0.004,
+      "peak": 0.070994
+    },
+    {
+      "instrument": "source_range_synth_bass",
+      "midi": 35,
+      "expected_hz": 61.735,
+      "estimated_hz": 61.776,
+      "cents": 1.1,
+      "periodicity_error": 0.0004,
+      "peak": 0.012143
+    },
+    {
+      "instrument": "source_range_synth_bass",
+      "midi": 42,
+      "expected_hz": 92.499,
+      "estimated_hz": 92.486,
+      "cents": -0.2,
+      "periodicity_error": 0.0002,
+      "peak": 0.012183
+    },
+    {
+      "instrument": "source_range_synth_bass",
+      "midi": 50,
+      "expected_hz": 146.832,
+      "estimated_hz": 146.789,
+      "cents": -0.5,
+      "periodicity_error": 0.0001,
+      "peak": 0.012402
+    },
+    {
+      "instrument": "source_range_synth_bass",
+      "midi": 57,
+      "expected_hz": 220.0,
+      "estimated_hz": 220.183,
+      "cents": 1.4,
+      "periodicity_error": 0.0001,
+      "peak": 0.012405
+    }
+  ],
+  "corrected_electric_bass": [
+    {
+      "midi": 26,
+      "expected_hz": 36.708,
+      "measured_hz": 36.725,
+      "cents": 0.81,
+      "periodicity_error": 0.0021
+    },
+    {
+      "midi": 35,
+      "expected_hz": 61.735,
+      "measured_hz": 61.697,
+      "cents": -1.09,
+      "periodicity_error": 0.0012
+    },
+    {
+      "midi": 40,
+      "expected_hz": 82.407,
+      "measured_hz": 82.333,
+      "cents": -1.56,
+      "periodicity_error": 0.0011
+    },
+    {
+      "midi": 48,
+      "expected_hz": 130.813,
+      "measured_hz": 130.79,
+      "cents": -0.3,
+      "periodicity_error": 0.0001
+    }
+  ],
+  "native_fixed_pitch_dynamics": [
+    {
+      "id": "same_pitch_dynamics_nordic",
+      "same_midi_pitch": 69,
+      "measurements": [
+        {
+          "velocity": 32,
+          "rms": 0.0042734064081826565,
+          "peak": 0.01230168342590332
+        },
+        {
+          "velocity": 56,
+          "rms": 0.0053946273208063614,
+          "peak": 0.0155409574508667
+        },
+        {
+          "velocity": 80,
+          "rms": 0.006993883981267102,
+          "peak": 0.022405266761779785
+        },
+        {
+          "velocity": 104,
+          "rms": 0.011410542334906586,
+          "peak": 0.03845202922821045
+        }
+      ],
+      "rms_monotonic": true
+    },
+    {
+      "id": "same_pitch_dynamics_electric_bass",
+      "same_midi_pitch": 35,
+      "measurements": [
+        {
+          "velocity": 32,
+          "rms": 0.00926353191670893,
+          "peak": 0.040253281593322754
+        },
+        {
+          "velocity": 56,
+          "rms": 0.010952587320372596,
+          "peak": 0.04740095138549805
+        },
+        {
+          "velocity": 80,
+          "rms": 0.014913823409874216,
+          "peak": 0.06384015083312988
+        },
+        {
+          "velocity": 104,
+          "rms": 0.021953074145647084,
+          "peak": 0.09278154373168945
+        }
+      ],
+      "rms_monotonic": true
+    },
+    {
+      "id": "same_pitch_dynamics_upright",
+      "same_midi_pitch": 35,
+      "measurements": [
+        {
+          "velocity": 32,
+          "rms": 0.004165033290737544,
+          "peak": 0.016533970832824707
+        },
+        {
+          "velocity": 56,
+          "rms": 0.005295992206662845,
+          "peak": 0.021178245544433594
+        },
+        {
+          "velocity": 80,
+          "rms": 0.00795722218280221,
+          "peak": 0.03200888633728027
+        },
+        {
+          "velocity": 104,
+          "rms": 0.013405882231713219,
+          "peak": 0.05173313617706299
+        }
+      ],
+      "rms_monotonic": true
+    },
+    {
+      "id": "same_pitch_dynamics_bottle",
+      "same_midi_pitch": 76,
+      "measurements": [
+        {
+          "velocity": 32,
+          "rms": 0.003001938698335665,
+          "peak": 0.0053555965423583984
+        },
+        {
+          "velocity": 56,
+          "rms": 0.004806329285706619,
+          "peak": 0.00851738452911377
+        },
+        {
+          "velocity": 80,
+          "rms": 0.007756714101752068,
+          "peak": 0.013742685317993164
+        },
+        {
+          "velocity": 104,
+          "rms": 0.012518653283297322,
+          "peak": 0.02218163013458252
+        }
+      ],
+      "rms_monotonic": true
+    },
+    {
+      "id": "same_pitch_dynamics_rounded",
+      "same_midi_pitch": 76,
+      "measurements": [
+        {
+          "velocity": 32,
+          "rms": 0.003628856681846609,
+          "peak": 0.005357146263122559
+        },
+        {
+          "velocity": 56,
+          "rms": 0.005653449733861849,
+          "peak": 0.008297443389892578
+        },
+        {
+          "velocity": 80,
+          "rms": 0.009124016923499241,
+          "peak": 0.013391256332397461
+        },
+        {
+          "velocity": 104,
+          "rms": 0.014725163104645956,
+          "peak": 0.021611928939819336
+        }
+      ],
+      "rms_monotonic": true
+    },
+    {
+      "id": "same_pitch_dynamics_physical_clean",
+      "same_midi_pitch": 60,
+      "measurements": [
+        {
+          "velocity": 32,
+          "rms": 4.88715767659113e-05,
+          "peak": 0.0008913278579711914
+        },
+        {
+          "velocity": 56,
+          "rms": 0.00010458099315074574,
+          "peak": 0.001990079879760742
+        },
+        {
+          "velocity": 80,
+          "rms": 0.00022500393157612135,
+          "peak": 0.003808140754699707
+        },
+        {
+          "velocity": 104,
+          "rms": 0.000501364237650844,
+          "peak": 0.009977340698242188
+        }
+      ],
+      "rms_monotonic": true
+    },
+    {
+      "id": "same_pitch_dynamics_physical_muted",
+      "same_midi_pitch": 67,
+      "measurements": [
+        {
+          "velocity": 32,
+          "rms": 2.2780811938931882e-05,
+          "peak": 0.0005750656127929688
+        },
+        {
+          "velocity": 56,
+          "rms": 4.4507262431911786e-05,
+          "peak": 0.0013606548309326172
+        },
+        {
+          "velocity": 80,
+          "rms": 0.00010401746947485002,
+          "peak": 0.0033403635025024414
+        },
+        {
+          "velocity": 104,
+          "rms": 0.0002369277698399897,
+          "peak": 0.006132721900939941
+        }
+      ],
+      "rms_monotonic": true
+    },
+    {
+      "id": "same_pitch_dynamics_electronic_hat",
+      "same_midi_pitch": 42,
+      "measurements": [
+        {
+          "velocity": 32,
+          "rms": 3.4863520187176626e-05,
+          "peak": 0.001353621482849121
+        },
+        {
+          "velocity": 56,
+          "rms": 5.447271122419226e-05,
+          "peak": 0.00211489200592041
+        },
+        {
+          "velocity": 80,
+          "rms": 0.00010063467594930152,
+          "peak": 0.003907680511474609
+        },
+        {
+          "velocity": 104,
+          "rms": 0.00018477184204441436,
+          "peak": 0.007174015045166016
+        }
+      ],
+      "rms_monotonic": true
+    },
+    {
+      "id": "same_pitch_dynamics_conga",
+      "same_midi_pitch": 53,
+      "measurements": [
+        {
+          "velocity": 32,
+          "rms": 0.0027767979224759183,
+          "peak": 0.03306245803833008
+        },
+        {
+          "velocity": 56,
+          "rms": 0.0033311312501423857,
+          "peak": 0.03966259956359863
+        },
+        {
+          "velocity": 80,
+          "rms": 0.004636497096654891,
+          "peak": 0.05520522594451904
+        },
+        {
+          "velocity": 104,
+          "rms": 0.007014766192786457,
+          "peak": 0.08352255821228027
+        }
+      ],
+      "rms_monotonic": true
+    },
+    {
+      "id": "same_pitch_dynamics_triangle",
+      "same_midi_pitch": 84,
+      "measurements": [
+        {
+          "velocity": 32,
+          "rms": 0.0031617844478971976,
+          "peak": 0.005356550216674805
+        },
+        {
+          "velocity": 56,
+          "rms": 0.005139249567753667,
+          "peak": 0.009296298027038574
+        },
+        {
+          "velocity": 80,
+          "rms": 0.008294071197921396,
+          "peak": 0.014994144439697266
+        },
+        {
+          "velocity": 104,
+          "rms": 0.013385721751745535,
+          "peak": 0.02419888973236084
+        }
+      ],
+      "rms_monotonic": true
+    }
+  ],
+  "wide_string_glide": [
+    {
+      "time": 0.8,
+      "fundamental_hz": 259.459,
+      "periodicity_error": 0.004
+    },
+    {
+      "time": 2.1,
+      "fundamental_hz": 657.534,
+      "periodicity_error": 0.032
+    },
+    {
+      "time": 3.4,
+      "fundamental_hz": 103.448,
+      "periodicity_error": 0.016
+    }
+  ],
+  "guitar_touch_refinement": [
+    {
+      "mode": "clean",
+      "estimated_fundamental_hz": 262.295,
+      "expected_hz": 261.626,
+      "periodicity_error": 0.009,
+      "rms": 0.00035499646213473256,
+      "peak": 0.004492044448852539,
+      "crest_db": 22.04
+    },
+    {
+      "mode": "muted",
+      "estimated_fundamental_hz": 390.244,
+      "expected_hz": 391.995,
+      "periodicity_error": 0.033,
+      "rms": 0.00010903782161160428,
+      "peak": 0.002037644386291504,
+      "crest_db": 25.43
+    }
+  ],
+  "independent_final_and_native_recall": [
+    {
+      "id": "DKC-02",
+      "native_reload_tracks": 13,
+      "native_recall_wav_sha256": "152fead89ba47e109f84a5c222dd30d151476f685108419037ccdebdb0796704",
+      "sample_length_difference": 0,
+      "rms_difference_dbfs": -137.5075292577249,
+      "peak_difference": 5.960464477539062e-07,
+      "gain_ratio": 0.9999999592459314,
+      "independent_loudness": {
+        "input_i": "-20.00",
+        "input_tp": "-3.84",
+        "input_lra": "4.30"
+      },
+      "mp3_decoded_sample_peak": 0.6185663342475891
+    },
+    {
+      "id": "DKC-03",
+      "native_reload_tracks": 15,
+      "native_recall_wav_sha256": "ed02f43db1a9d848aacf9a78de74ad6259d702b56a4398fb040500c9ff3516e1",
+      "sample_length_difference": 0,
+      "rms_difference_dbfs": -136.19912556223642,
+      "peak_difference": 7.152557373046875e-07,
+      "gain_ratio": 1.000000032343105,
+      "independent_loudness": {
+        "input_i": "-20.01",
+        "input_tp": "-3.10",
+        "input_lra": "18.30"
+      },
+      "mp3_decoded_sample_peak": 0.6782152056694031
+    },
+    {
+      "id": "DKC-07",
+      "native_reload_tracks": 18,
+      "native_recall_wav_sha256": "79f17eed1399e3b451aaedd9f9377d8dac06d99030ebbf2e4a7887e5e079f0c7",
+      "sample_length_difference": 0,
+      "rms_difference_dbfs": -132.35341817533723,
+      "peak_difference": 1.1920928955078125e-06,
+      "gain_ratio": 0.9999999902675502,
+      "independent_loudness": {
+        "input_i": "-20.00",
+        "input_tp": "-3.95",
+        "input_lra": "15.70"
+      },
+      "mp3_decoded_sample_peak": 0.614963173866272
+    },
+    {
+      "id": "DKC-19",
+      "native_reload_tracks": 18,
+      "native_recall_wav_sha256": "81a75e497d9f3d0f86b70023479abdcf18f4dc640cbe33f7db63941852e491eb",
+      "sample_length_difference": 0,
+      "rms_difference_dbfs": -138.18132332824095,
+      "peak_difference": 7.152557373046875e-07,
+      "gain_ratio": 0.9999999585318619,
+      "independent_loudness": {
+        "input_i": "-20.00",
+        "input_tp": "-6.06",
+        "input_lra": "3.70"
+      },
+      "mp3_decoded_sample_peak": 0.4937952756881714
+    },
+    {
+      "id": "DKC-11",
+      "native_reload_tracks": 13,
+      "native_recall_wav_sha256": "1409b62587fd60989df468127d8a7b4303ebe2c37658126143ff8ef91ef8b0dd",
+      "sample_length_difference": 0,
+      "rms_difference_dbfs": -135.4518839039763,
+      "peak_difference": 9.5367431640625e-07,
+      "gain_ratio": 1.0000000365667427,
+      "independent_loudness": {
+        "input_i": "-20.00",
+        "input_tp": "-4.75",
+        "input_lra": "12.50"
+      },
+      "mp3_decoded_sample_peak": 0.560299813747406
+    },
+    {
+      "id": "DKC-15",
+      "native_reload_tracks": 9,
+      "native_recall_wav_sha256": "c4beab99f7c38f9533625a7087ece9cbc4026fb9337505210b3281daac171a5a",
+      "sample_length_difference": 0,
+      "rms_difference_dbfs": -138.43978686029465,
+      "peak_difference": 5.960464477539062e-07,
+      "gain_ratio": 0.9999999854106875,
+      "independent_loudness": {
+        "input_i": "-20.87",
+        "input_tp": "-2.20",
+        "input_lra": "3.30"
+      },
+      "mp3_decoded_sample_peak": 0.7520471811294556
+    }
+  ]
+}

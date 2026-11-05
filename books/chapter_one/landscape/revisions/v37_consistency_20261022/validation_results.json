@@ -1,0 +1,20 @@
+{
+  "status": "LOCAL_GATES_PASS",
+  "book": "complete/verification.json",
+  "email": "complete/email_verification.json",
+  "visual": "r07_audits.json",
+  "machine_vs_visual": "Separate evidence; no owner/print/child/SLP acceptance",
+  "source_files_sealed": 274,
+  "exact_pdf_proofs": 34,
+  "caption_contrast": {
+    "FAIL": 0,
+    "OUTLINE_REQUIRED": 6,
+    "PASS": 79
+  },
+  "python_syntax": "8changed/new scripts compile",
+  "authority_unit_tests": "52tests PASS; stress6/6",
+  "document_and_change_coverage": "PASS: audit_document_authority.py and audit_development.py --base auto;52unit tests PASS",
+  "runtime_gates": "NOT_APPLICABLE: static-book branch only; no Godot/runtime/GDScript/protected asset changes. No runtime/release claim.",
+  "master": "125160448bytes preserved by exact binary parts; reassembly hash verified",
+  "remote": "Separate exact-revision anonymous receipt, excluded from circular payload"
+}

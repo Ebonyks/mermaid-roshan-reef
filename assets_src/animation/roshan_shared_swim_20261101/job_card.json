@@ -1,0 +1,90 @@
+{
+  "task": "shared-roshan-skin-swim-20261101",
+  "baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+  "scope": "Source-only native shared Skeleton2D actor, one-facing tail-driven swimming prototype and two garment-only costume packages switching on that same actor without phase reset. No production/save/input changes. Master audit writeback explicitly prohibited until owner separately approves tested results.",
+  "owner_instruction": "Test before adding to master audit, do not do so until permission is specifically given",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-MOT-01",
+    "DL-MOT-03",
+    "DL-MOT-10",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-QA-02",
+    "DL-QA-07",
+    "DL-SAVE-01",
+    "DL-SAVE-04",
+    "DL-CODE-05",
+    "DL-PERF-01",
+    "DL-PERF-02",
+    "DL-PERF-03",
+    "DL-PERF-04",
+    "DL-PERF-07"
+  ],
+  "findings": [
+    "MA-ROSHAN-005",
+    "MA-ROSHAN-006"
+  ],
+  "required_evidence": [
+    "Shared actor/skeleton/bone/animator IDs and rest/anatomy hashes stable before/after real costume swaps; phase/root/scale do not reset",
+    "Actual native Mobile captures and material-visible geometry/alpha/seam audit with unchanged applicable source floors",
+    "Repeated swaps, invalid rollback, restoration, seek determinism, pause/resume and resource growth controls",
+    "Human/actual device/child/owner acceptance separately pending; master audit baseline hash unchanged"
+  ],
+  "art_gap": "Current high-resolution master pieces are upright/front; available diagonal swimming atlas cells are256px and pre-curled. Need registered horizontal three-quarter common view, separable anatomy/default garments, matching garment-only views of existing Ballet/Magician wardrobe designs. No existing master can reveal missing neck/shoulder/fin surfaces at required scale.",
+  "source_identity": {
+    "path": "assets/characters/roshan_25d/roshan_base.png",
+    "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+    "scope": "Approved project identity/appearance only; no new view/performance acceptance"
+  },
+  "caps": {
+    "builtin_imagegen_calls": 4,
+    "maximum_takes_per_asset_brief": 2,
+    "asset_briefs": [
+      "one shared swimming-view cutout kit",
+      "Ballet garment-only view",
+      "Magician garment-only view",
+      "one shared neck/shoulder local repair (fourth call within original cap)"
+    ],
+    "paid_api_usd": 0,
+    "cleanup_minutes": 120,
+    "nonviable_full_sequence_design_revisions": 2,
+    "wall_minutes": 360,
+    "cumulative_history": "Earlier rejected front/restart/costume studies remain rejected and preserved; this changes input/artwork and shared runtime method, no per-frame generation campaign."
+  },
+  "delivery": {
+    "repository": "https://github.com/Ebonyks/mermaid-roshan-reef",
+    "branch": "codex/shared-roshan-skin-swim-20261101",
+    "path": "assets_src/animation/roshan_shared_swim_20261101",
+    "access_mode": "Public anonymous HTTPS verification before delivery claim",
+    "master_audit_writeback": "WAITING_FOR_SPECIFIC_OWNER_PERMISSION_AFTER_TESTS"
+  },
+  "started_utc": "2026-11-02T04:24:34.703494+00:00",
+  "render_designs": [
+    {
+      "id": "01",
+      "method": "discrete authored common fin keys",
+      "status": "REJECTED_FIN_VIEW_POP"
+    },
+    {
+      "id": "02",
+      "method": "one common fin material with continuous authored-view contour interpolation",
+      "status": "IN_REVIEW",
+      "implementation_correction": "Gradient UV projection rejected; retain source pigment coordinates, extend interior colours and use one continuous contour."
+    }
+  ],
+  "master_audit_writeback_authorized": false,
+  "performance_scope": "Desktop Mobile renderer and size/cache/estimated-byte evidence only. Offline 30fps sampling is not frame-time evidence. Actual Speedy-tier Lenovo Tab M11 transparency/shader/decoded/GPU memory/lifecycle acceptance remains pending."
+}

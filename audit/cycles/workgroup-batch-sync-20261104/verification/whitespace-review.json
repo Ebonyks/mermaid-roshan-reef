@@ -1,0 +1,14 @@
+{
+  "command": "git diff --cached --check",
+  "result": "FAIL",
+  "log_bytes": 105486760,
+  "log_sha256": "b1f36945c597504a9037737a2c2a3bdb73a8fc3c2993811655802bf3723893c3",
+  "affected_paths": 639,
+  "interpretation": "Additional manual check reports inherited literal CRLF/source-evidence and upstream whitespace. It is separate from the required parser, inference, authority, coverage, runtime and CI gates. Hash-bound source bytes remain preserved.",
+  "source_code_messages": [
+    "scripts/games/picture_games.gd:842: new blank line at EOF.",
+    "scripts/probe_melody.gd:3537: new blank line at EOF.",
+    "tools/build_opera_tiled_detail.py:199: new blank line at EOF.",
+    "tools/collect_opera_tile_outputs.py:21: new blank line at EOF."
+  ]
+}

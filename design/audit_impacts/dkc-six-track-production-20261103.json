@@ -1,0 +1,97 @@
+{
+  "id": "dkc-six-track-production-20261103",
+  "scope": "Owner commissions actual production: revise Simian Segue, DK Island Swing, Aquatic Ambiance and Fear Factory; add Life in the Mines and Funky’s Fugue. Build source-faithful instrument/tonal roughs, then expressive cast performances through substantive iterative renders and comparisons, approximately 10–25 revisions as needed. Preserve strong alternate takes and document critical artistic decisions for future whole-game score production. Private review audio, editable sessions, source provenance and public metadata only; no runtime replacement.",
+  "baseline": "ecff1fd2f2d028188b7f514e377e7daa2eda81ad",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SND-09",
+    "DL-SND-11",
+    "DL-SND-12",
+    "DL-SND-15",
+    "DL-SND-18"
+  ],
+  "findings": [
+    "MA-AUDIO-001"
+  ],
+  "finding_effect": "Private production studies; does not close runtime audio or owner/device acceptance.",
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/music/dkc/README.md",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/reference/owner_decisions.json",
+    "audit/cycles/dkc-six-track-production-20261103/owner_answers.json",
+    "design/music/dkc/SIX_TRACK_PRODUCTION_2026-11-03.md",
+    "design/music/dkc/production_call_sheets_v3.json",
+    "design/music/dkc/production_iterations_v1.json",
+    "design/music/dkc/production_measurements_v1.json",
+    "design/music/dkc/production_owner_direction_20261103.json",
+    "design/music/dkc/production_receipt_v1.json",
+    "design/music/dkc/native_mix_recall_v1.json",
+    "design/music/dkc/production_validation_v1.json"
+  ],
+  "validation": [
+    {
+      "command": "Native source register, percussion routing and controller stress tests",
+      "result": "PASS",
+      "evidence": "production_measurements_v1.json: corrected source octave/register mapping, low-D electric bass within about 2 cents, source upright range, restored R78 hats/cymbals, explicit percussion selectors, native wide string glide, and ten fixed-pitch four-velocity dynamic checks. Initial silent/unresolved patch probes and first two source roughs remain rejected diagnostics, not fidelity acceptance."
+    },
+    {
+      "command": "python -X utf8 -B verify_production_metadata.py (private production workspace)",
+      "result": "PASS",
+      "evidence": "production_validation_v1.json: 69 complete full-song passes have 69 distinct audio hashes; six selected candidates; all 80 MIDI parts match actual note counts/ranges; nine exact profile hashes and revisions checked."
+    },
+    {
+      "command": "python -X utf8 -B verify_final_production.py (private production workspace)",
+      "result": "PASS",
+      "evidence": "native_mix_recall_v1.json and production_measurements_v1.json: six native full-band reload/renders have exact sample lengths and RMS differences below -132 dBFS; 48kHz finite stereo masters and MP3 decoding without clipping; independently measured loudness -20.01 to -20.00 LUFS except Funky -20.87, true peaks <= -2.20 dBTP."
+    },
+    {
+      "command": "Complete source/tone and subjective musical listening",
+      "result": "PENDING",
+      "evidence": "Automatic approval review rejected sending the new private candidates to Gemini without explicit transfer authorization; an asynchronous permission question remains unanswered. No candidate was uploaded. Preferred takes are rational source/arranging choices, not fabricated listening scores or human acceptance."
+    },
+    {
+      "command": "Project document, development, owner-decision and performer-plan gates",
+      "result": "PASS",
+      "evidence": "audit_document_authority.py: 778 inventory / 778 ledger, ALL OK; audit_development.py --base auto: ALL OK at integration base 27c88288bf6e39582072811443df79919e7bbb89; 54 governance unit tests and six/six stress checks pass; audit_music_performer_plans.py ALL OK; owner-decision check 85 records ALL OK; git diff --check passes. No runtime game source or asset changed, so Godot runtime/Android/device acceptance is not claimed."
+    },
+    {
+      "command": "Private owner archive payload manifests and ZIP integrity",
+      "result": "PASS",
+      "evidence": "production_receipt_v1.json records two exact archive hashes: listening/review collection 598714991 bytes; editable sessions collection 711676562 bytes. Both ZIP CRC checks pass, with per-payload SHA-256 manifests. Library sample data and original YouTube audio are excluded; private native preset/session states remain owner-local."
+    }
+  ],
+  "acceptance_gaps": "Complete source-tone and subjective musical listening remains open pending the explicitly requested Gemini transfer permission or owner listening. Native guitar realism and named timbre proxies remain working interpretations. No protected recordings or runtime music changed. Owner musical acceptance and any future runtime loop/two-wrap/voice/mono/device/child/release gates are separate; MA-AUDIO-001 is unchanged.",
+  "lessons": [
+    {
+      "lesson": "MIDI pitch-class agreement and non-silent rendering can conceal an octave error; test sounding fundamental at the actual source range.",
+      "write_back": "design/music/dkc/SIX_TRACK_PRODUCTION_2026-11-03.md",
+      "recurrence_key": "native-register-fidelity"
+    },
+    {
+      "lesson": "A kit/preset name does not establish enabled components, percussion mapping or an active menu selector.",
+      "write_back": "design/music/dkc/production_call_sheets_v3.json"
+    },
+    {
+      "lesson": "Controller and damping parameters need measured native response; forwarding messages or changing an inactive control is insufficient.",
+      "write_back": "design/music/dkc/production_measurements_v1.json"
+    }
+  ],
+  "references_used": [
+    {
+      "path": "design/music/dkc/SOUNDTRACK_REVISION_GUIDE_V2.md",
+      "purpose": "Source/cast direction and full-section handoffs before private construction."
+    },
+    {
+      "path": "design/music/dkc/revision_call_sheets_v2.json",
+      "purpose": "Inherited source identities, exact performer profile revisions, planned phrase/physical limits and readiness questions."
+    },
+    {
+      "path": "design/music/performers/registry.json",
+      "purpose": "Exact profile identity and SHA binding for actual performed parts."
+    }
+  ]
+}

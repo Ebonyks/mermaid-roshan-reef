@@ -1,0 +1,48 @@
+{
+  "method": "built-in image_gen",
+  "model_revision": "not exposed",
+  "billing": "not exposed",
+  "calls": 4,
+  "task_cap": {
+    "imagegen_calls": 10,
+    "max_per_named_gap": 2,
+    "local_iteration_minutes": 120,
+    "paid_api_budget": 0
+  },
+  "prompts": [
+    {
+      "id": "neutral-01",
+      "prompt": "Use case: identity-preserve. Asset type: high-resolution RGBA source for a native 2D Godot animation rig. Input Image 1 is the approved identity and painted style reference for Mermaid Roshan, a small child mermaid; preserve her child face, proportions, brown eyes, chestnut hair, tiny gold tiara with blue jewel, rainbow ponytail, lavender-pink short puff-sleeve bodice, blue-lavender waistband, iridescent lavender-pink-purple single mermaid tail and rainbow butterfly-like paired tail flukes. Produce ONE full-figure front-facing neutral reference cutout, refined polished 2D storybook paint with crisp fine warm contours and smooth authored colors, not pixel art, not 3D. Same friendly child. Both arms held gently downward-outward about 30 degrees from vertical, separated clearly from waist and tail, elbows almost straight with a natural slight bend, relaxed hands with anatomically correct five fingers. Both puff sleeves attached correctly. Keep a continuous complete tail with a gentle curve, flukes visible below and to the viewer's left, no feet or legs. Entire hair, tiara, fingertips and tail flukes inside the canvas with generous transparent padding. No scenery, shadows on background, checkerboard drawing, labels, guides, duplicate figures or effects. Genuinely transparent background. Preserve identity; the gap being filled is clean high resolution articulated source art with unobstructed arms for a rigging prototype. Large portrait figure on square canvas.",
+      "native": "native/neutral.png",
+      "result": "candidate"
+    },
+    {
+      "id": "blink-closed-01",
+      "prompt": "Use case: precise-object-edit / identity-preserve. Input Image 1 is the edit target, the exact painted Roshan rig source. Change ONLY her two eyes into a natural softly CLOSED blink: relaxed skin-coloured eyelids, a single fine curved upper lash line on each closed eye, no visible iris or white sclera, no squint, no smile change, no raised eyebrows. Preserve the exact eye corner positions and spacing. All other pixels, head size, face shape, nose, mouth, hair, tiara, pose, proportions, hands, bodice, tail, paint style and canvas registration must remain as unchanged as possible. The output is a matching whole-character source for extracting two small eyelid replacement patches for rig animation; do not redesign the figure. Same canvas dimensions, same framing. Genuinely transparent background, no scene, no text.",
+      "native": "native/blink_closed.png",
+      "result": "candidate; only eye patches consumed"
+    },
+    {
+      "id": "blink-half-01",
+      "prompt": "Use case: precise-object-edit / identity-preserve. Input Image 1 is the exact open-eye edit target; Image 2 supplies the closed-eye blink endpoint and identity only. Make ONE matching full-figure cutout of Image 1 with ONLY the upper eyelids halfway lowered in a natural blink: each eye aperture about half its original height, upper lids descend, iris partly occluded, lower lid stays in place. Both eyes synchronized. Preserve eyebrow positions, eye corners, eye width and gaze. Preserve all other pixels and details as exactly as possible: face proportions, mouth, hair, tiara, arms, hands, outfit, single tail and rainbow flukes, lighting, outline, canvas dimensions and pose registration. No squint, no expression change, no duplication. Polished 2D storybook illustration. Genuinely transparent background. Output is an intermediate blink source for two small replacement eye patches, not a new character design.",
+      "native": "native/blink_half.png",
+      "result": "candidate; only eye patches consumed"
+    }
+  ],
+  "additional_prompt_record": "provenance_shoulder.json",
+  "reported_tool_call_wall_seconds": [
+    33.4,
+    32.3,
+    59.6,
+    29.3
+  ],
+  "cleanup_time_accounting": "Not separately instrumented; ten native render/audit passes and their filesystem/engine evidence are retained. No billed API jobs.",
+  "local_environment": {
+    "python": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+    "pillow": "12.3.0",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "aseprite": "1.3.18.4-x64",
+    "ffmpeg": "8.1.2"
+  }
+}

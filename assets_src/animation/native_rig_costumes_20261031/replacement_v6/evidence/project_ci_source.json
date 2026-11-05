@@ -1,0 +1,12 @@
+{
+  "source": "scripts/ci.sh",
+  "source_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e",
+  "executed_lf_sha256": "99d4ade661f5d5492e24e29bb4c8c3cd14c8e6771f465b30b2834d2e3540af7c",
+  "changes": "CRLF to LF only; helper in repo/tmp retains the same dirname/.. repository root. Original source untouched.",
+  "engine": "exact resolver-validated official4.7.2",
+  "python_shell_shim": {
+    "interpreter": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+    "version": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+    "scope": "Ignored per-process PATH shim runs the same installed Python as Codex. Project CI script/gates/probe list unchanged; bypasses stalled shell python3 manager alias."
+  }
+}

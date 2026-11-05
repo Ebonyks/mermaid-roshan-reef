@@ -1,0 +1,33 @@
+{
+  "schema_version": "book-local-polish-scope-v1",
+  "baseline": "82a6dc1dba381c0b3ef507a8397512fa09ef624e",
+  "repository": "Ebonyks/mermaid-roshan-reef",
+  "branch": "codex/mermaid-roshan-picture-book",
+  "recipient_access": "anonymous HTTPS",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-08",
+    "BK-PG-05",
+    "BK-PG-08",
+    "BK-PG-09",
+    "BK-PG-04",
+    "BK-BG-09",
+    "BK-BG-10"
+  ],
+  "related_ma_findings": [],
+  "ma_reason": "Static source-preserving picture-book polish; no game/runtime finding is repaired or closed.",
+  "scope": "Seven explicitly recorded irregular facial/bodice inpaint regions; one complete existing-source-derived yellow sponge cutout. No full-scene redraw or narrative invention. Accepted full-art base scenes remain unchanged outside the declared regions; page5 rearranges true foreground tool cutouts.",
+  "required_evidence": [
+    "native input and generated candidate hashes and prompts",
+    "explicit edit/mask bounds and outside-region source preservation",
+    "independent native visual review against identity art",
+    "all34 pages rerendered and PDF pixels/text/fonts/lossless encoding verified",
+    "same story order and exact canon/accepted compositions",
+    "before-after review",
+    "all applicable authority/coverage/regression gates",
+    "anonymous exact remote commit bytes for full package"
+  ],
+  "status": "COMPOSED_DERIVATIVES; frozen review and verification pending"
+}

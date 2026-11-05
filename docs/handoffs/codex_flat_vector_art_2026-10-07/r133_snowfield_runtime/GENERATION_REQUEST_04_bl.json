@@ -1,0 +1,93 @@
+{
+  "local_request_id": "R133_NATIVE_SNOWFIELD_CONTINUATION02_CALL04_BL",
+  "stable_id": "FV-55B5EF60A12C",
+  "backend": "builtin image_gen.imagegen",
+  "model_version": null,
+  "model_selector_exposed": false,
+  "call_index": 4,
+  "total_call_cap": 8,
+  "region": "bl",
+  "prompt_path": "assets_src/imagegen/snowfield_20261103/PROMPT_04_bl.txt",
+  "prompt_sha256": "a5813f0c63e3ff320d08120f0d176a704b6edf293bf1008620ea11dd9d825e67",
+  "references": [
+    {
+      "image": "IMAGE_1",
+      "region": "bl",
+      "path": "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\export\\flat_vector_r133_guides\\bl_position_only.png",
+      "sha256": "abcdaeead288911db66670b6dac1fc24282d38601bca1c4e602e65138daf4daa",
+      "source_global_rect": [
+        -115,
+        909,
+        1254,
+        1254
+      ],
+      "core_crop": [
+        115,
+        115,
+        1024,
+        1024
+      ],
+      "core_global_position": [
+        0,
+        1024
+      ],
+      "role": "position_only",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "image": "IMAGE_2",
+      "path": "assets_src/imagegen/snowfield_20261103/native/snowfield_02_01.png",
+      "sha256": "b879a94848a456b6d25bb07d4d68f68759889bbdc48b641216353acaf9d60ed0",
+      "role": "whole_field_appearance_reference_only_not_approved_or_delivery",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "image": "IMAGE_3",
+      "path": "assets_src/imagegen/snowfield_20261103/native/snowfield_02_02_tl.png",
+      "sha256": "4a1729f3d56c488ecc3afe22f8088f9c54a455d80bb4cca7b16904218d7f8209",
+      "role": "actual_adjacent_native_material_continuity_reference_pending_master_review"
+    }
+  ],
+  "transparent_background": true,
+  "native_registration_trial": {
+    "state": "NATIVE_OUTPUT_REGISTRATION_TRIAL_PENDING_ALL_REGIONS",
+    "method": "Use returned1254regions at1:1, provisional anchors(0,0),(794,0),(0,794),(794,794) on2048canvas,460overlap; preserve all originals. Final authored contour/seam review determines viability before runtime slicing. No guide, enlarged concept or procedural art enters delivery.",
+    "global_master": [
+      2048,
+      2048
+    ],
+    "native_region_size": [
+      1254,
+      1254
+    ],
+    "anchors": {
+      "tl": [
+        0,
+        0
+      ],
+      "tr": [
+        794,
+        0
+      ],
+      "bl": [
+        0,
+        794
+      ],
+      "br": [
+        794,
+        794
+      ]
+    },
+    "seam_overlap": 460,
+    "guide_alignment_exact": false,
+    "guide_pixels_used": false,
+    "actual_master_created": false,
+    "native_dimension_floor_verified": false,
+    "formal_QA11": null
+  },
+  "upper_join_trial": "Measured source-alpha ownership atx1053, contoury59bothsource; interior premultiplied colour crossfade, native1:1. Lower/fullmaster still pending.",
+  "actual_output_and_master_review_pending": true,
+  "paid_CLI_calls": 0,
+  "animation_calls": 0,
+  "at_utc": "2026-11-03T14:22:18.963307+00:00"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "picture-book-new-rear-20261021",
+  "scope": "Owner-directed new rear-cover composition using existing Day One castle/character/tool materials, separate from sealed V36 review.",
+  "baseline": "aaa3f1eeaffa3d39c8592b77f03080e014be670f",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static book composition commission; no game finding closure.",
+  "files": [
+    "books/chapter_one/landscape/revisions/v36_rear_composition_20261021/generation_evidence.json",
+    "books/chapter_one/landscape/revisions/v36_rear_composition_20261021/manifest.json",
+    "books/chapter_one/landscape/revisions/v36_rear_composition_20261021/README.md",
+    "books/chapter_one/landscape/revisions/v36_rear_composition_20261021/rear_scene_attempt1.png",
+    "books/chapter_one/landscape/revisions/v36_rear_composition_20261021/remote_verification.json",
+    "books/chapter_one/landscape/revisions/v36_rear_composition_20261021/request.json",
+    "books/chapter_one/DESIGN_LANGUAGE.md",
+    "books/chapter_one/README.md",
+    "design/05_DOC_LEDGER.md",
+    "ASSET_LICENSES.md"
+  ],
+  "validation": [
+    {
+      "command": "Inventory reference art and read book authority",
+      "result": "PASS",
+      "evidence": "Four actual sources inspected; exact owner request in request.json supersedes reused rearA composition for this new candidate."
+    },
+    {
+      "command": "Native generated composition visual review and source hash capture",
+      "result": "PASS",
+      "evidence": "generation_evidence.json: four inspected references, native output retained; identity/composition observations and deviations explicit."
+    }
+  ],
+  "acceptance_gaps": "Owner acceptance and final print resolution open. New scene is a separately delivered replacement-art candidate, not an updated full-book PDF."
+}

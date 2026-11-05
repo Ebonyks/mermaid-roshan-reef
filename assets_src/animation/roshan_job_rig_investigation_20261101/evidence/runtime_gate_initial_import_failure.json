@@ -1,0 +1,37 @@
+{
+  "source": "scripts/ci.sh",
+  "source_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e",
+  "status": "RUNNING",
+  "rows": [
+    {
+      "name": "resolve",
+      "args": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/resolve_godot.py",
+        "--godot",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe"
+      ],
+      "exit": 0,
+      "seconds": 2.682539800000086,
+      "log": "resolve.log",
+      "sha256": "30ae36d362d79731a1ec8e640743089c48ecbe16a3180f941d488c2830d17b4e",
+      "runtime_error": false
+    },
+    {
+      "name": "project_import",
+      "args": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\rig-investigation-worktree",
+        "--import"
+      ],
+      "exit": 4294967295,
+      "seconds": 353.01098109999975,
+      "log": "project_import.log",
+      "sha256": "73be27de1c81cb08a0089286da67ba839fbfd98da5cdde08254c8bd43a1221e5",
+      "runtime_error": false
+    }
+  ]
+}

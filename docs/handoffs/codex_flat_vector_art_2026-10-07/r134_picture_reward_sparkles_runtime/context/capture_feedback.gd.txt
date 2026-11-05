@@ -1,0 +1,143 @@
+extends SceneTree
+var m: ReefMain
+var checks: Array[Dictionary] = []
+var captures: Array[Dictionary] = []
+var failed := 0
+var out := OS.get_environment("R134_OUT")
+var lane := OS.get_environment("R134_LANE")
+var kind := OS.get_environment("R134_KIND")
+var width := int(OS.get_environment("R134_WIDTH"))
+var height := int(OS.get_environment("R134_HEIGHT"))
+func _init() -> void:
+	call_deferred("run")
+func check(label: String, ok: bool) -> void:
+	checks.append({"label":label,"pass":ok})
+	if not ok:
+		failed += 1
+		print("R134|FAIL|",label)
+func wait_frames(n: int) -> void:
+	for i in range(n):
+		await process_frame
+func layer() -> Control:
+	return m.mg.get("feedback_layer") as Control
+func inspect_burst(label: String, expected_count: int) -> Array[Dictionary]:
+	var rows: Array[Dictionary] = []
+	var active := layer()
+	check(label+" stage feedback layer",active!=null and active.mouse_filter==Control.MOUSE_FILTER_IGNORE and active.z_index==20)
+	if active==null:
+		return rows
+	var burst: Control = null
+	for node: Node in active.get_children():
+		if node is Control and (node as Control).visible:
+			burst = node as Control
+	check(label+" actual burst count",burst!=null and burst.get_child_count()==expected_count and int(burst.get_meta("visible_elements",0))==expected_count)
+	if burst==null:
+		return rows
+	for node: Node in burst.get_children():
+		var item := node as Node2D
+		check(label+" live original transformable particle",item!=null and item.visible and item.modulate.a>0.05)
+		if item==null:
+			continue
+		var endpoint: Vector2 = item.get_meta("feedback_endpoint",Vector2.ZERO)
+		var row := {"class":item.get_class(),"instance_id":item.get_instance_id(),"position":str(item.position),"scale":str(item.scale),"rotation":item.rotation,"endpoint":str(endpoint),"modulate":str(item.modulate)}
+		check(label+" bounded endpoint",endpoint.length()<=300.01 and endpoint.length()>=39.0)
+		if lane=="candidate":
+			var sprite := item as Sprite2D
+			check(label+" painted Sprite2D",sprite!=null and sprite.centered and sprite.modulate.r==1.0 and sprite.modulate.g==1.0 and sprite.modulate.b==1.0)
+			if sprite==null:
+				continue
+			var tex: Texture2D = sprite.texture
+			check(label+" actual native painted resource",tex!=null and tex.resource_path.begins_with("res://assets/mg/picture_feedback/sparkle_") and tex.resource_path.ends_with("_painted.png") and tex.get_size()==Vector2(128,128))
+			if tex==null:
+				continue
+			var image: Image = tex.get_image()
+			check(label+" exact mip/decoded bound",image!=null and image.has_mipmaps() and image.get_data_size()<=87380)
+			check(label+" role identity",String(sprite.get_meta("painted_feedback_role",""))=="FV-E96CD69662D1")
+			row["texture"]=tex.resource_path
+			row["texture_sha256"]=FileAccess.get_sha256(tex.resource_path)
+			row["variant"]=sprite.get_meta("painted_feedback_variant","")
+			row["decoded_mips_bytes"]=image.get_data_size()if image!=null else -1
+		else:
+			var polygon := item as Polygon2D
+			check(label+" exact original eight-vertex sparkle",polygon!=null and polygon.polygon.size()==8)
+			if polygon!=null:
+				row["source_color"]=str(polygon.color)
+		rows.append(row)
+	return rows
+func shot(label: String, count: int) -> void:
+	await wait_frames(4)
+	var particles := inspect_burst(label,count)
+	await RenderingServer.frame_post_draw
+	var image: Image = get_root().get_texture().get_image()
+	var path: String = out.path_join(label+".png")
+	check(label+" actual native viewport PNG",image.get_size()==Vector2i(width,height) and image.save_png(path)==OK)
+	captures.append({"label":label,"path":path,"sha256":FileAccess.get_sha256(path),"width":width,"height":height,"kind":kind,"lane":lane,"particles":particles,"stage_scale":str(m.mg2d_stage.scale),"stage_position":str(m.mg2d_stage.position),"source_pin_sha256":OS.get_environment("R134_PIN_SHA256"),"configured_effect_only":true,"natural_route":false})
+func action_shot(label: String, point: Vector2, color: Color, tag: String, count: int, radius: float, duration: float) -> void:
+	m._pics_ref()._mg2d_feedback_burst(point,color,tag,count,radius,duration)
+	await shot(label,count)
+	await wait_frames(30)
+	check(label+" short effect completes",layer()!=null and layer().get_child_count()==0)
+func run() -> void:
+	seed(20261103)
+	get_root().mode=Window.MODE_WINDOWED
+	get_root().size=Vector2i(width,height)
+	DirAccess.make_dir_recursive_absolute(out)
+	var packed := load("res://scenes/main.tscn")as PackedScene
+	m=packed.instantiate()as ReefMain
+	m._save_state=SaveState.new(m,"user://r134_isolated_context.json")
+	get_root().add_child(m)
+	await wait_frames(20)
+	var button := m.start_menu_layer.find_child("StartMenuContinueButton",true,false)as Button if m.start_menu_layer!=null else null
+	check("actual title Continue exists",button!=null)
+	if button==null:
+		await finish()
+		return
+	var saved: Dictionary=m.save_data.duplicate(true)
+	saved["day_one_active"]=false
+	saved["day_one_completed_rooms"]=["bathroom","pool","stuffie","art"]
+	m._day_one_ref().restore_state(saved)
+	m.save_data.merge(m._day_one_ref().serialize_state(),true)
+	m.has_saved_game=true
+	button.disabled=false
+	button.pressed.emit()
+	await wait_frames(20)
+	m._set_touch_mode(m.TOUCH_MODE_HYBRID,false)
+	m._apply_quality("speedy")
+	m.set_process(false)
+	m._mg2d_open(kind)
+	await wait_frames(5)
+	check("Mobile",RenderingServer.get_current_rendering_method()=="mobile")
+	check("actual requested viewport",get_root().get_visible_rect().size==Vector2(width,height))
+	check("actual active picture activity",m.mg_kind==kind and m.mg2d_stage!=null and not m.start_menu_active)
+	if m.mg2d_stage==null:
+		await finish()
+		return
+	if kind=="snowman":
+		await action_shot("snow_settle",Vector2(420,510),Color(0.8,0.92,1.0),"snowball_settle",10,96.0,0.55)
+		for i in range(5):
+			m._pics_ref()._mg2d_feedback_burst(Vector2(640,345),Color.CORAL,"configured_cap",18,90.0,0.55)
+		await wait_frames(2)
+		check("unchanged maximum three action bursts",layer().get_child_count()==3)
+		await wait_frames(30)
+	elif kind=="garden":
+		await action_shot("garden_mint",Vector2(180,470),Color(0.4,0.8,0.7),"garden_growth",8,74.0,0.5)
+		await action_shot("garden_sky",Vector2(430,440),Color(0.5,0.76,1.0),"garden_growth",10,88.0,0.55)
+	m._mg2d_win("Happy picture-game reward!")
+	await shot(kind+"_win",18)
+	var old_layer: Control=layer()
+	m._mg2d_close()
+	await wait_frames(5)
+	check("actual close releases stage/effects",m.mg_kind=="" and m.mg2d_stage==null and not is_instance_valid(old_layer))
+	await finish()
+func finish() -> void:
+	if m!=null and is_instance_valid(m):
+		m.process_mode=Node.PROCESS_MODE_DISABLED
+		m.get_parent().remove_child(m)
+		m.free()
+	await process_frame
+	var result:={"status":"PASS"if failed==0 else"FAIL","checks":checks,"captures":captures,"lane":lane,"kind":kind,"configured_effect_only":true,"natural_route":false,"formal_QA11":null,"device":null,"child":null,"owner":null,"scope":"Actual production helper on configured live picture-game scenes; no objective/input/whole-route acceptance is inferred. Unchanged probe_mg2d covers behavior separately."}
+	var file:=FileAccess.open(out.path_join("RESULT.json"),FileAccess.WRITE)
+	file.store_string(JSON.stringify(result,"\t"))
+	file.close()
+	print("R134|END|",lane,"|",kind,"|bad=",failed,"|frames=",captures.size())
+	quit(0 if failed==0 else 1)

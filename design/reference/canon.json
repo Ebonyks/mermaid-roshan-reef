@@ -1,0 +1,2839 @@
+{
+  "schema": "design_reference_canon/1",
+  "scope": "Chapter slice extending MA-DOC-006 section 4.3; sources distinguish designated book narrative from as-built code and later proposals.",
+  "book_precedence": {
+    "decision": "ODR-BOOK-FIRST-20261031",
+    "source": "design/reference/BOOK_SOURCES.md",
+    "book_script": "design/reference/book_sources/rumi_visual_detective_20261012.json"
+  },
+  "entities": [
+    {
+      "id": "CHR-ROSHAN",
+      "names": [
+        "Roshan",
+        "Mermaid Roshan"
+      ],
+      "status": "ACTIVE",
+      "role": "Young mermaid child and player protagonist; approved RGBA atlas identity. In the Rumi book she wants to sing the first line, learns to speak up and ask for help, and voices an ordinary idea at home.",
+      "identity": {
+        "art": [
+          {
+            "path": "assets/characters/roshan_25d/roshan_base.png",
+            "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+            "scope": "Approved gameplay RGBA identity family; no new pixels accepted."
+          }
+        ],
+        "must": [
+          "Young mermaid child; exact brown/rainbow hair, tiara, pink bodice, one continuous rainbow tail; no legs or adult redesign.",
+          "Curious, brave, affectionate; child scale."
+        ],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "Roshan",
+        "type": "provisional synthetic Joy player/objective cues; new book-specific takes missing",
+        "protected": false,
+        "key_prefixes": [
+          "roshan_"
+        ],
+        "note": "Availability is source inventory only. Provisional filler is not human/owner voice acceptance and cannot replace an exact required cue. Preserve protected family recordings; no family-conditioning or new performance permission is granted."
+      },
+      "movement": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+      "appears_in": [
+        "CH-1",
+        "CH-2",
+        "CH-3 route/prototype",
+        "PROPOSED-LANTERN-NIGHT (designated Rumi book; runtime planned)"
+      ],
+      "decisions": [],
+      "sources": [
+        {
+          "path": "assets/characters/roshan_25d/README.md",
+          "authority": "SOURCE_PACKAGE_EVIDENCE",
+          "location": ""
+        },
+        {
+          "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+          "authority": "CANONICAL_CURRENT",
+          "location": "DL-MED-02, DL-VIS-06"
+        },
+        {
+          "path": "design/reference/owner_decisions.json",
+          "authority": "OWNER_DECISION",
+          "location": "ODR-ROSHAN-IDENTITY; ODR-ROSHAN-IRIDESCENT"
+        },
+        {
+          "path": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+          "authority": "BOOK_NARRATIVE",
+          "location": "p2–32"
+        }
+      ],
+      "conflicts": [
+        "CANON-C01"
+      ],
+      "chapter_latitude": {
+        "value": "MINOR",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "provisional synthetic Joy player/objective cues; new book-specific takes missing",
+        "source": "assets/audio/voices/VOICE_MANIFEST.md",
+        "scope": "Exact event inventory and permitted scope must be checked before reuse; new book lines remain missing."
+      }
+    },
+    {
+      "id": "CHR-DADDY",
+      "names": [
+        "Daddy Mermaid",
+        "Daddy"
+      ],
+      "status": "ACTIVE",
+      "role": "Roshan’s father; protected family recordings and existing book identity. No invented kinship or redesigned father.",
+      "identity": {
+        "art": [
+          {
+            "path": "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/daddy_daddy_master.png",
+            "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+            "scope": "Existing identity reference only; source-specific art acceptance and runtime use remain separate."
+          }
+        ],
+        "must": [
+          "Clean-shaven slender face, long straight brown hair, pointed ears, thin rectangular black glasses, jeweled crown.",
+          "High-neck long-sleeve navy coat with gold embroidery, teal cape with shell clasps, one rainbow tail and multicolor fluke.",
+          "Patient offered hand and reassuring proximity; never beard, curly hair, generic king or solid blue tail."
+        ],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "Daddy Mermaid",
+        "type": "protected daddy1–3 family recordings plus separate provisional synthetic Will event fillers",
+        "protected": true,
+        "key_prefixes": [
+          "daddy"
+        ],
+        "note": "Availability is source inventory only. Provisional filler is not human/owner voice acceptance and cannot replace an exact required cue. Preserve protected family recordings; no family-conditioning or new performance permission is granted."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "CH-1 arrival/transformation clip",
+        "CH-2 party/fashion sources"
+      ],
+      "decisions": [],
+      "sources": [
+        {
+          "path": "design/01_GAME_DESIGN.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        },
+        {
+          "path": "assets/audio/voices/VOICE_MANIFEST.md",
+          "authority": "SOURCE_PACKAGE_EVIDENCE",
+          "location": ""
+        }
+      ],
+      "conflicts": [
+        "CANON-C09"
+      ],
+      "chapter_latitude": {
+        "value": "MINOR",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "protected daddy1–3 family recordings plus separate provisional synthetic Will event fillers",
+        "source": "assets/audio/voices/VOICE_MANIFEST.md",
+        "scope": "Exact event inventory and permitted scope must be checked before reuse; new book lines remain missing."
+      }
+    },
+    {
+      "id": "CHR-RUMI",
+      "names": [
+        "Rumi",
+        "Violet",
+        "Violet Tide (historical working name)"
+      ],
+      "status": "ACTIVE",
+      "role": "Adult mermaid with a violet braid; pool friend and Chapter 2 music partner. In the designated book she promises Roshan a turn, speaks, listens and participates with Hana and Nari. Book dialogue does not grant a new runtime voice performance. Source acceptance is approved private canon for private playtesting under an IP hold; it is not cleared for public marketing or merchandising. Book-first adaptation does not expand those rights.",
+      "identity": {
+        "art": [
+          {
+            "path": "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/rumi_rumi_full_body_identity.png",
+            "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+            "scope": "Existing identity reference only; source-specific art acceptance and runtime use remain separate. Rumi use remains private-canon/playtest scope under PROVENANCE.json."
+          }
+        ],
+        "must": [
+          "Adult mermaid, enormous sculpted violet braid, pointed ears, star-shell earrings, navy/lavender jacket, aqua/violet/pink tail and coral split fin.",
+          "Keep separate arms/torsos/tails during hug."
+        ],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "Rumi",
+        "type": "existing provisional synthetic Emily cues; new book speech has no authorized runtime performance",
+        "protected": false,
+        "key_prefixes": [
+          "rumi_"
+        ],
+        "note": "Availability is source inventory only. Provisional filler is not human/owner voice acceptance and cannot replace an exact required cue. Preserve protected family recordings; no family-conditioning or new performance permission is granted."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "CH-1 selected Pool clip",
+        "CH-2 music partner",
+        "PROPOSED-LANTERN-NIGHT (designated Rumi book; runtime planned)"
+      ],
+      "decisions": [
+        "ODR-BOOK-FIRST-20261031"
+      ],
+      "sources": [
+        {
+          "path": "assets_src/characters/rumi_2026-08-22/PROVENANCE.json",
+          "authority": "SOURCE_PACKAGE_EVIDENCE",
+          "location": "status approved_private_canon; public_use_status private_ip_hold_playtest_only_not_cleared_for_public_marketing_or_merchandising"
+        },
+        {
+          "path": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+          "authority": "BOOK_NARRATIVE",
+          "location": "p2–32"
+        },
+        {
+          "path": "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        }
+      ],
+      "conflicts": [
+        "CANON-C02"
+      ],
+      "chapter_latitude": {
+        "value": "MINOR",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "existing provisional synthetic Emily cues; new book speech has no authorized runtime performance",
+        "source": "assets/audio/voices/VOICE_MANIFEST.md",
+        "scope": "Book dialogue controls narrative; existing Chapter 2 no-invented-Rumi-performance scope and missing new takes remain explicit."
+      }
+    },
+    {
+      "id": "CHR-BABY-EAGLE",
+      "names": [
+        "Baby Eagle",
+        "sparkle (code speaker key, sweep)"
+      ],
+      "status": "ACTIVE",
+      "role": "Book bird trapped under two dust bunnies in the Playroom; adopted as a companion; backpack-free cutout; protected art is not recoloured.",
+      "identity": {
+        "art": [
+          {
+            "path": "assets_src/cinematics/grok_builder_2026-09-14/media/da8ead4677192ef4.png",
+            "sha256": "da8ead4677192ef404ed7b252fdb281cfb0234beb8064cfe7abdac2f8aade19b",
+            "scope": "Existing byte-identical source identity copy. Original provenance: assets/book/baby_eagle.png. Reference scope only; no restoration, new pixels or runtime/cinematic acceptance."
+          }
+        ],
+        "must": [
+          "original book body and neck proportions; no squat mascot redesign",
+          "soft turquoise/mint scalloped feathers with pastel transitions, not saturated armor-like scales",
+          "yellow eye patch, pink three-lobed crest, glossy blue eyes and authored lashes",
+          "lavender beak base and black hooked tip, not an all-black oversized beak",
+          "pink wings with broad black outer tips; exactly two wings",
+          "soft silver-grey legs with broad rounded plush toe silhouettes; no newly sharpened black talons",
+          "backpack is incidental to the original crop and must not be added to these films",
+          "Original book crop partly occluded; unobscured anatomy is not approved. Reject prior pinned/standing redesigns."
+        ],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "sparkle (code alias)",
+        "type": "provisional synthetic Tina cues under Sparkle code alias; no new personality/voice role inferred",
+        "protected": false,
+        "key_prefixes": [
+          "sparkle_"
+        ],
+        "note": "Availability is source inventory only. Provisional filler is not human/owner voice acceptance and cannot replace an exact required cue. Preserve protected family recordings; no family-conditioning or new performance permission is granted."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "CH-1 rescue/transformation",
+        "Carried companion thereafter; new-chapter staging must be explicit"
+      ],
+      "decisions": [
+        "ODR-BOOK-SCENE-CANON-20260920",
+        "ODR-DAY-ONE-CLIPS-CANON-20260923"
+      ],
+      "sources": [
+        {
+          "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+          "authority": "CANONICAL_CURRENT",
+          "location": "DL-ASSET-08; DL-CIN-16"
+        }
+      ],
+      "conflicts": [
+        "CANON-C03",
+        "CANON-C10"
+      ],
+      "chapter_latitude": {
+        "value": "MINOR",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "provisional synthetic Tina cues under Sparkle code alias; no new personality/voice role inferred",
+        "source": "assets/audio/voices/VOICE_MANIFEST.md",
+        "scope": "Exact event inventory and permitted scope must be checked before reuse; new book lines remain missing."
+      }
+    },
+    {
+      "id": "CHR-DUST-BUNNIES",
+      "names": [
+        "dust bunnies"
+      ],
+      "status": "ACTIVE",
+      "role": "Friendly authored storybook creatures, distinct from Grand Puff and the Rainbow Friend; no pest extermination premise.",
+      "identity": {
+        "art": [],
+        "must": [],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "dust bunnies",
+        "type": "no new voice authorized by this reference",
+        "protected": false,
+        "key_prefixes": [],
+        "note": "Consult the exact protected voice manifest and live catalog; source presence is not clearance for a new cue."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "CH-1 room encounters; later roles are not inferred"
+      ],
+      "decisions": [],
+      "sources": [
+        {
+          "path": "DUST_BUNNY_BOSS_2026-08-02.md",
+          "authority": "BINDING_DOMAIN",
+          "location": "Friendly creature identity only; later fate comes from DL-CIN-16"
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "MINOR",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "no new voice authorized by this reference",
+        "source": "assets/audio/voices/VOICE_MANIFEST.md",
+        "scope": "Inventory exact usable cues; missing lines remain gaps. Rumi book speech is narrative, not a recorded runtime performance."
+      }
+    },
+    {
+      "id": "CHR-GRAND-PUFF",
+      "names": [
+        "Grand Puff",
+        "Great Dust Bunny"
+      ],
+      "status": "ACTIVE",
+      "role": "Existing shipped/selected-clip scope: a friend under dirt, faced by Roshan alone before family transformation. Newer owner demo direction records a friend-with-a-cold care recast, conditional on DR3c; its original decision/implementation is still stranded off dev. Do not treat the old dirt premise as the only current owner intent or claim the recast is already built.",
+      "identity": {
+        "art": [
+          {
+            "path": "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/grand_puff_BOSS_DUST_BUNNY_IDENTITY.png",
+            "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+            "scope": "Existing identity reference only; source-specific art acceptance and runtime use remain separate."
+          }
+        ],
+        "must": [
+          "Big lavender bunny begins intact with his own spiral ears, crest, face and pearl details.",
+          "Only group scrubbing loses his silhouette in bubbles. Casing collapses as the little friend jumps. Friendly, no pain, corpse, shards or explosion."
+        ],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "Grand Puff",
+        "type": "no new voice authorized by this reference",
+        "protected": false,
+        "key_prefixes": [],
+        "note": "Consult the exact protected voice manifest and live catalog; source presence is not clearance for a new cue."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "CH-1 encounter/transformation; later care-recast scope remains separately recorded"
+      ],
+      "decisions": [
+        "ODR-DAY-ONE-CLIPS-CANON-20260923",
+        "ODR-DEMO-GRAND-PUFF-20261031"
+      ],
+      "sources": [
+        {
+          "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+          "authority": "CANONICAL_CURRENT",
+          "location": "DL-CIN-16"
+        },
+        {
+          "path": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md",
+          "authority": "OWNER_DECISION",
+          "location": "DR3c and accepted Q2; original ODR-GRAND-PUFF-COLD-20261017 remains off dev"
+        }
+      ],
+      "conflicts": [
+        "CANON-C04",
+        "CANON-C16"
+      ],
+      "chapter_latitude": {
+        "value": "MINOR",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "no new voice authorized by this reference",
+        "source": "assets/audio/voices/VOICE_MANIFEST.md",
+        "scope": "Inventory exact usable cues; missing lines remain gaps. Rumi book speech is narrative, not a recorded runtime performance."
+      }
+    },
+    {
+      "id": "CHR-RAINBOW-FRIEND",
+      "names": [
+        "rainbow dust bunny"
+      ],
+      "status": "ACTIVE",
+      "role": "Revealed when Grand Puff is beaten; then follows Roshan like Baby Eagle.",
+      "identity": {
+        "art": [
+          {
+            "path": "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/rainbow_dust_bunny_concept.png",
+            "sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+            "scope": "Existing identity reference only; source-specific art acceptance and runtime use remain separate."
+          }
+        ],
+        "must": [
+          "two large broad spiral ears, not antenna stalks",
+          "left ear coral/yellow, right ear mint/blue/lavender",
+          "large pink forehead curl with a four-point prismatic sparkle, not an amber jewel",
+          "layered cloud scallops with warm upper face and cool blue/lavender base",
+          "large plum glossy eyes, pink cheeks and tiny curved mouth",
+          "two pearl-like front details and pearl ear-base details; no invented articulated paws",
+          "dark plum authored outline; no wings, legs, teeth, crown or extra bunny",
+          "Completely hidden until jump from scrubbed old casing; no early rainbow ears. Do not merge identity with ordinary dust bunnies."
+        ],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "rainbow dust bunny",
+        "type": "no new voice authorized by this reference",
+        "protected": false,
+        "key_prefixes": [],
+        "note": "Consult the exact protected voice manifest and live catalog; source presence is not clearance for a new cue."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "CH-1 transformation/epilogue",
+        "Later castle follower; new-chapter staging must be explicit"
+      ],
+      "decisions": [
+        "ODR-DAY-ONE-CLIPS-CANON-20260923"
+      ],
+      "sources": [
+        {
+          "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+          "authority": "CANONICAL_CURRENT",
+          "location": "DL-CIN-16"
+        },
+        {
+          "path": "scripts/rainbow_friend_follower.gd",
+          "authority": "AS_BUILT",
+          "location": ""
+        }
+      ],
+      "conflicts": [
+        "CANON-C04"
+      ],
+      "chapter_latitude": {
+        "value": "MINOR",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "no new voice authorized by this reference",
+        "source": "assets/audio/voices/VOICE_MANIFEST.md",
+        "scope": "Inventory exact usable cues; missing lines remain gaps. Rumi book speech is narrative, not a recorded runtime performance."
+      }
+    },
+    {
+      "id": "CHR-EMBER-KING",
+      "names": [
+        "Ember King"
+      ],
+      "status": "ACTIVE",
+      "role": "Main antagonist; wants the lit candle for his own birthday; takes the candle, leaving the cake intact.",
+      "identity": {
+        "art": [
+          {
+            "path": "assets_src/cinematics/grok_builder_2026-09-14/media/422f7bd45a13f1d3.png",
+            "sha256": "422f7bd45a13f1d3c0304082727d72298e3bc01babd8919dc0c7e3e92777052c",
+            "scope": "Existing byte-identical source identity copy. Original provenance: git:663b3e0a:assets_src/concepts/ember_royals_2026-08-22/ember_king_concept_v4.png. Reference scope only; no restoration, new pixels or runtime/cinematic acceptance."
+          }
+        ],
+        "must": [
+          "Use owner-selected V4 identity, not V6 fringe/redesign.",
+          "After Roshan succeeds he cheats and steals only the candle. Friends and earned objects remain safe."
+        ],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "Ember King",
+        "type": "no new voice authorized by this reference",
+        "protected": false,
+        "key_prefixes": [],
+        "note": "Consult the exact protected voice manifest and live catalog; source presence is not clearance for a new cue."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "CH-2"
+      ],
+      "decisions": [],
+      "sources": [
+        {
+          "path": "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        },
+        {
+          "path": "design/CHAPTER2_LAWN_FINALE_DRAFT_2026-09-06.md",
+          "authority": "CANDIDATE",
+          "location": ""
+        }
+      ],
+      "conflicts": [
+        "CANON-C05"
+      ],
+      "chapter_latitude": {
+        "value": "MINOR",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "no new voice authorized by this reference",
+        "source": "assets/audio/voices/VOICE_MANIFEST.md",
+        "scope": "Inventory exact usable cues; missing lines remain gaps. Rumi book speech is narrative, not a recorded runtime performance."
+      }
+    },
+    {
+      "id": "CHR-EMBER-PRINCE",
+      "names": [
+        "Ember Prince"
+      ],
+      "status": "PLANNED",
+      "role": "The King’s son in the lawn-finale candidate; kind and conflicted. Future role and any relationship extension remain reserved.",
+      "identity": {
+        "art": [
+          {
+            "path": "assets_src/cinematics/grok_builder_2026-09-14/media/95d5cf35321c87a1.png",
+            "sha256": "95d5cf35321c87a1b5fae280a76a52fa7d3c6930e56503c10a4054c4c75169c4",
+            "scope": "Existing byte-identical source identity copy. Original provenance: git:671b8b4a5315a6ce5e51a6f7b89ad35dda708fe5:docs/grok_animation_series_project/characters/ember_prince/EMBER_PRINCE_IDENTITY.png. Reference scope only; no restoration, new pixels or runtime/cinematic acceptance."
+          }
+        ],
+        "must": [
+          "Approved thin Prince; 80% of King height at same ground plane.",
+          "Sincere kindness, conflicted loyalty; only light future-affection hint."
+        ],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "Ember Prince",
+        "type": "no new voice authorized by this reference",
+        "protected": false,
+        "key_prefixes": [],
+        "note": "Consult the exact protected voice manifest and live catalog; source presence is not clearance for a new cue."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "CH-2"
+      ],
+      "decisions": [],
+      "sources": [
+        {
+          "path": "design/CHAPTER2_LAWN_FINALE_DRAFT_2026-09-06.md",
+          "authority": "CANDIDATE",
+          "location": ""
+        }
+      ],
+      "conflicts": [
+        "CANON-C05"
+      ],
+      "chapter_latitude": {
+        "value": "RESERVED",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "no new voice authorized by this reference",
+        "source": "assets/audio/voices/VOICE_MANIFEST.md",
+        "scope": "Inventory exact usable cues; missing lines remain gaps. Rumi book speech is narrative, not a recorded runtime performance."
+      }
+    },
+    {
+      "id": "CHR-EVIE-LAMBA",
+      "names": [
+        "Evie",
+        "Lamb-a'",
+        "Lamba"
+      ],
+      "status": "ACTIVE",
+      "role": "Existing book friends; names and identity stay tied to protected sources. Lamba is the named Magician partner; a stale bunny-fish cue is not a replacement character.",
+      "identity": {
+        "art": [
+          {
+            "path": "assets/characters/friends/pearl_friend.png",
+            "sha256": "165f6448ef0b1ea85b638b4cbaaf7da5cccb9f5e781776ec35caa38e133970ef",
+            "scope": "Protected paired portrait; current source mapping is FRIEND_DEFS."
+          }
+        ],
+        "must": [],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "Evie",
+        "type": "Evie has provisional synthetic Jenna cues; Lamba-specific speech not inferred",
+        "protected": false,
+        "key_prefixes": [
+          "evie_"
+        ],
+        "note": "Availability is source inventory only. Provisional filler is not human/owner voice acceptance and cannot replace an exact required cue. Preserve protected family recordings; no family-conditioning or new performance permission is granted."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "Existing protected book/free-play roster; no new chapter role inferred"
+      ],
+      "decisions": [],
+      "sources": [
+        {
+          "path": "design/01_GAME_DESIGN.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        },
+        {
+          "path": "FABLE_OPERA_LAMBA_TAKEOVER_HANDOFF_2026-08-01.md",
+          "authority": "SUPPORTING_CURRENT",
+          "location": ""
+        }
+      ],
+      "conflicts": [
+        "CANON-C06"
+      ],
+      "chapter_latitude": {
+        "value": "MINOR",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "Evie has provisional synthetic Jenna cues; Lamba-specific speech not inferred",
+        "source": "assets/audio/voices/VOICE_MANIFEST.md",
+        "scope": "Exact event inventory and permitted scope must be checked before reuse; new book lines remain missing."
+      }
+    },
+    {
+      "id": "CHR-BOOK-FRIENDS",
+      "names": [
+        "Harper and Fiona",
+        "Faron",
+        "Wacky and Chuck",
+        "Princess Huluu",
+        "Kareem",
+        "Flower Friend"
+      ],
+      "status": "ACTIVE",
+      "role": "Protected book-friend roster; FRIEND_DEFS owns current portrait associations. Individual names retain their original art and no inferred personalities.",
+      "identity": {
+        "art": [],
+        "must": [],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "Harper and Fiona",
+        "type": "no new voice authorized by this reference",
+        "protected": true,
+        "key_prefixes": [],
+        "note": "Consult the exact protected voice manifest and live catalog; source presence is not clearance for a new cue."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "Existing protected book/free-play/collection roster; no new chapter role inferred"
+      ],
+      "decisions": [],
+      "sources": [
+        {
+          "path": "scripts/main.gd",
+          "authority": "AS_BUILT",
+          "location": "FRIEND_DEFS"
+        },
+        {
+          "path": "design/01_GAME_DESIGN.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        }
+      ],
+      "conflicts": [
+        "CANON-C07"
+      ],
+      "chapter_latitude": {
+        "value": "MINOR",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "no new voice authorized by this reference",
+        "source": "assets/audio/voices/VOICE_MANIFEST.md",
+        "scope": "Inventory exact usable cues; missing lines remain gaps. Rumi book speech is narrative, not a recorded runtime performance."
+      }
+    },
+    {
+      "id": "CUT-GABBY",
+      "names": [
+        "Gabby"
+      ],
+      "status": "REMOVED_IP_HOLD",
+      "role": "Assets preserved only in attic/gabby/; do not reintroduce without an owner-approved redesign.",
+      "identity": {
+        "art": [],
+        "must": [],
+        "never": [
+          "Do not restore without new owner authority."
+        ]
+      },
+      "voice": {
+        "speaker": "Gabby",
+        "type": "no new voice authorized by this reference",
+        "protected": false,
+        "key_prefixes": [],
+        "note": "Consult the exact protected voice manifest and live catalog; source presence is not clearance for a new cue."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "Historical removed content only; no active chapter"
+      ],
+      "decisions": [],
+      "sources": [
+        {
+          "path": "CLAUDE.md",
+          "authority": "BINDING_OPERATIONAL",
+          "location": "Removed IP hold; no restoration"
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "NONE",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "no new voice authorized by this reference",
+        "source": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "scope": "Not a speaking character."
+      }
+    },
+    {
+      "id": "CUT-OPERA-BOSSES",
+      "names": [
+        "Curtain Dragon",
+        "Shadow Phantom",
+        "Midnight Maestro"
+      ],
+      "status": "CUT",
+      "role": "Cut from the reachable product; save slots 4/9/14 are permanent tombstones; any future boss fights belong to Ember-aligned henchmen.",
+      "identity": {
+        "art": [],
+        "must": [],
+        "never": [
+          "Do not restore without new owner authority."
+        ]
+      },
+      "voice": {
+        "speaker": "Curtain Dragon",
+        "type": "no new voice authorized by this reference",
+        "protected": false,
+        "key_prefixes": [],
+        "note": "Consult the exact protected voice manifest and live catalog; source presence is not clearance for a new cue."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "Historical cut proposals only; no active chapter"
+      ],
+      "decisions": [],
+      "sources": [
+        {
+          "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+          "authority": "CANONICAL_CURRENT",
+          "location": "DL-INT-13; DL-SAVE-06"
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "NONE",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "no new voice authorized by this reference",
+        "source": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "scope": "Not a speaking character."
+      }
+    },
+    {
+      "id": "PLC-SKY-LAGOON",
+      "names": [
+        "Sky Lagoon"
+      ],
+      "status": "ACTIVE",
+      "role": "Sky Lagoon contains Pearl Castle and the birthday lawn; the flight arrives here. Exact placement is as built, not a new map commission.",
+      "identity": {
+        "art": [],
+        "must": [],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "Sky Lagoon",
+        "type": "no new voice authorized by this reference",
+        "protected": false,
+        "key_prefixes": [],
+        "note": "Consult the exact protected voice manifest and live catalog; source presence is not clearance for a new cue."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "CH-1",
+        "CH-2"
+      ],
+      "decisions": [],
+      "sources": [
+        {
+          "path": "design/10_CHAPTER_REFERENCE_LIBRARY.md",
+          "authority": "SUPPORTING_CURRENT",
+          "location": ""
+        },
+        {
+          "path": "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "MINOR",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "no new voice authorized by this reference",
+        "source": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "scope": "Not a speaking character."
+      }
+    },
+    {
+      "id": "PLC-PEARL-CASTLE",
+      "names": [
+        "Pearl Castle",
+        "Main Hall",
+        "castle rooms"
+      ],
+      "status": "ACTIVE",
+      "role": "Main Hall plus the castle rooms and the Royal Hall gate; the full room list exists only in scripts/arena/castle_rooms_25d.gd.",
+      "identity": {
+        "art": [],
+        "must": [],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "Pearl Castle",
+        "type": "no new voice authorized by this reference",
+        "protected": false,
+        "key_prefixes": [],
+        "note": "Consult the exact protected voice manifest and live catalog; source presence is not clearance for a new cue."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "CH-1",
+        "CH-2",
+        "CH-3 route entry",
+        "PROPOSED-LANTERN-NIGHT (under-pool book setting)"
+      ],
+      "decisions": [],
+      "sources": [
+        {
+          "path": "scripts/arena/castle_rooms_25d.gd",
+          "authority": "AS_BUILT",
+          "location": "ROOM_LAYOUTS"
+        },
+        {
+          "path": "design/07_CASTLE_DOOR_LANGUAGE.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        }
+      ],
+      "conflicts": [
+        "CANON-C08"
+      ],
+      "chapter_latitude": {
+        "value": "MINOR",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "no new voice authorized by this reference",
+        "source": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "scope": "Not a speaking character."
+      }
+    },
+    {
+      "id": "PLC-OPERA-HOUSE",
+      "names": [
+        "Opera Hall",
+        "Opera House venue"
+      ],
+      "status": "ACTIVE",
+      "role": "Current multi-floor career venue. Runtime source records the present layout; older four-floor proposals and historical career counts cannot override the as-built inventory or approve it.",
+      "identity": {
+        "art": [],
+        "must": [],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "Opera Hall",
+        "type": "no new voice authorized by this reference",
+        "protected": false,
+        "key_prefixes": [],
+        "note": "Consult the exact protected voice manifest and live catalog; source presence is not clearance for a new cue."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "CH-2 scoped story stage",
+        "Global free-play career venue"
+      ],
+      "decisions": [],
+      "sources": [
+        {
+          "path": "scripts/opera_house_venue_2d.gd",
+          "authority": "AS_BUILT",
+          "location": ""
+        },
+        {
+          "path": "scripts/opera_house.gd",
+          "authority": "AS_BUILT",
+          "location": ""
+        }
+      ],
+      "conflicts": [
+        "CANON-C11"
+      ],
+      "chapter_latitude": {
+        "value": "MINOR",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "no new voice authorized by this reference",
+        "source": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "scope": "Not a speaking character."
+      }
+    },
+    {
+      "id": "PLC-FAIRY-CONSERVATORY",
+      "names": [
+        "Fairy Conservatory",
+        "Rainbow Skyway",
+        "Butterfly House",
+        "Butterfly World",
+        "Fairy Pond"
+      ],
+      "status": "ACTIVE",
+      "role": "Scoped saved Castle → Rainbow Skyway → Butterfly House → Butterfly World → Fairy Pond route and return; the faerie-restoration prototype is separate from the uncommissioned full ending.",
+      "identity": {
+        "art": [],
+        "must": [],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "Fairy Conservatory",
+        "type": "no new voice authorized by this reference",
+        "protected": false,
+        "key_prefixes": [],
+        "note": "Consult the exact protected voice manifest and live catalog; source presence is not clearance for a new cue."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "CH-3"
+      ],
+      "decisions": [],
+      "sources": [
+        {
+          "path": "design/FAIRY_CONSERVATORY_CHAPTER3_2026-08-30.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        },
+        {
+          "path": "design/FAIRY_RESTORATION_PROTOTYPE_2026-09-30.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        }
+      ],
+      "conflicts": [
+        "CANON-C12"
+      ],
+      "chapter_latitude": {
+        "value": "MINOR",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "no new voice authorized by this reference",
+        "source": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "scope": "Not a speaking character."
+      }
+    },
+    {
+      "id": "PLC-NORTHERN",
+      "names": [
+        "Northern Kingdom",
+        "Ice World"
+      ],
+      "status": "PLANNED",
+      "role": "Restaurant with customer orders remixing cooking mechanics; July 29 forest concept is the owner-confirmed art family reference.",
+      "identity": {
+        "art": [],
+        "must": [],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "Northern Kingdom",
+        "type": "no new voice authorized by this reference",
+        "protected": false,
+        "key_prefixes": [],
+        "note": "Consult the exact protected voice manifest and live catalog; source presence is not clearance for a new cue."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "PLANNING-NORTHERN"
+      ],
+      "decisions": [
+        "ODR-CHAPTER-REUSE-20260905"
+      ],
+      "sources": [
+        {
+          "path": "design/chapters/NORTHERN_ICE_WORLD.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        }
+      ],
+      "conflicts": [
+        "CANON-C12"
+      ],
+      "chapter_latitude": {
+        "value": "RESERVED",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "no new voice authorized by this reference",
+        "source": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "scope": "Not a speaking character."
+      }
+    },
+    {
+      "id": "PLC-REEF",
+      "names": [
+        "Reef",
+        "home ocean"
+      ],
+      "status": "RETIRED",
+      "role": "Retired destination; no new route or fallback authorized.",
+      "identity": {
+        "art": [],
+        "must": [],
+        "never": [
+          "Do not restore without new owner authority."
+        ]
+      },
+      "voice": {
+        "speaker": "Reef",
+        "type": "no new voice authorized by this reference",
+        "protected": false,
+        "key_prefixes": [],
+        "note": "Consult the exact protected voice manifest and live catalog; source presence is not clearance for a new cue."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "Historical retired destination only; no active chapter"
+      ],
+      "decisions": [],
+      "sources": [
+        {
+          "path": "design/audit_impacts/retired-reef-20260909.json",
+          "authority": "CHANGE_RECORD",
+          "location": ""
+        },
+        {
+          "path": "design/audit_impacts/remove-3d-reef-20260923.json",
+          "authority": "CHANGE_RECORD",
+          "location": ""
+        }
+      ],
+      "conflicts": [
+        "CANON-C13"
+      ],
+      "chapter_latitude": {
+        "value": "NONE",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "no new voice authorized by this reference",
+        "source": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "scope": "Not a speaking character."
+      }
+    },
+    {
+      "id": "STY-DAY-ONE",
+      "names": [
+        "Day One"
+      ],
+      "status": "ACTIVE",
+      "role": "Arrival, dusty castle, bathroom/pool/stuffie/art restoration, Grand Puff faced alone, family joining only in the transformation clip, Rainbow Friend follower and the Day Two transition.",
+      "identity": {
+        "art": [],
+        "must": [],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "Day One",
+        "type": "no new voice authorized by this reference",
+        "protected": false,
+        "key_prefixes": [],
+        "note": "Consult the exact protected voice manifest and live catalog; source presence is not clearance for a new cue."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "CH-1"
+      ],
+      "decisions": [
+        "ODR-DAY-ONE-CLIPS-CANON-20260923"
+      ],
+      "sources": [
+        {
+          "path": "assets_src/cinematics/day_one_story_clips_2026-09-23/CLIP_MANIFEST.json",
+          "authority": "OWNER_DIRECTED_RUNTIME_CLIP",
+          "location": ""
+        },
+        {
+          "path": "scripts/day_one_director.gd",
+          "authority": "AS_BUILT",
+          "location": ""
+        }
+      ],
+      "conflicts": [
+        "CANON-C03",
+        "CANON-C14"
+      ],
+      "chapter_latitude": {
+        "value": "MINOR",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "no new voice authorized by this reference",
+        "source": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "scope": "Not a speaking character."
+      }
+    },
+    {
+      "id": "STY-DAY-TWO-BIRTHDAY",
+      "names": [
+        "Chapter 2",
+        "Day Two",
+        "birthday"
+      ],
+      "status": "ACTIVE",
+      "role": "Eight ordered story careers construct one party; the dress precedes party start, the rocket lights the separate candle, and the King takes the candle while earned preparations remain safe.",
+      "identity": {
+        "art": [],
+        "must": [],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "Chapter 2",
+        "type": "no new voice authorized by this reference",
+        "protected": false,
+        "key_prefixes": [],
+        "note": "Consult the exact protected voice manifest and live catalog; source presence is not clearance for a new cue."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "CH-2"
+      ],
+      "decisions": [],
+      "sources": [
+        {
+          "path": "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        },
+        {
+          "path": "design/CHAPTER2_CAKE_VISUAL_PROGRESSION_2026-08-31.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        }
+      ],
+      "conflicts": [
+        "CANON-C05",
+        "CANON-C15"
+      ],
+      "chapter_latitude": {
+        "value": "MINOR",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "no new voice authorized by this reference",
+        "source": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "scope": "Not a speaking character."
+      }
+    },
+    {
+      "id": "CHR-HANA",
+      "names": [
+        "Hana"
+      ],
+      "status": "PLANNED",
+      "role": "Tall copper-red-haired choreographer in the book trio; learns to make room for Roshan.",
+      "identity": {
+        "art": [],
+        "must": [
+          "Preserve the designated book’s identity and physical causality."
+        ],
+        "never": [
+          "Do not promote proposal-only art or invent a family relationship."
+        ]
+      },
+      "voice": {
+        "speaker": "Hana",
+        "type": "No runtime performance authorized",
+        "protected": false,
+        "key_prefixes": []
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "PROPOSED-LANTERN-NIGHT"
+      ],
+      "decisions": [
+        "ODR-BOOK-FIRST-20261031",
+        "ODR-RUMI-CHAPTER-TRIAL-20261031"
+      ],
+      "sources": [
+        {
+          "path": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+          "authority": "BOOK_NARRATIVE",
+          "location": ""
+        },
+        {
+          "path": "design/reference/book_sources/rumi_owner_history_20261012.txt",
+          "authority": "OWNER_COMMISSIONED_BOOK_DRAFT",
+          "location": "Character candidates; runtime not commissioned"
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "RESERVED",
+        "scope": "Book facts may be adapted in a proposal; runtime commission and voice choices remain open.",
+        "source": "design/reference/BOOK_SOURCES.md"
+      },
+      "voice_availability": {
+        "type": "Book dialogue only; runtime cue/performer missing",
+        "source": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+        "scope": "No synthetic/family voice inferred from narrative speech."
+      }
+    },
+    {
+      "id": "CHR-NARI",
+      "names": [
+        "Nari"
+      ],
+      "status": "PLANNED",
+      "role": "Younger dark-bobbed rhythm singer in the book trio; follows Roshan’s listening cue.",
+      "identity": {
+        "art": [],
+        "must": [
+          "Preserve the designated book’s identity and physical causality."
+        ],
+        "never": [
+          "Do not promote proposal-only art or invent a family relationship."
+        ]
+      },
+      "voice": {
+        "speaker": "Nari",
+        "type": "No runtime performance authorized",
+        "protected": false,
+        "key_prefixes": []
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "PROPOSED-LANTERN-NIGHT"
+      ],
+      "decisions": [
+        "ODR-BOOK-FIRST-20261031",
+        "ODR-RUMI-CHAPTER-TRIAL-20261031"
+      ],
+      "sources": [
+        {
+          "path": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+          "authority": "BOOK_NARRATIVE",
+          "location": ""
+        },
+        {
+          "path": "design/reference/book_sources/rumi_owner_history_20261012.txt",
+          "authority": "OWNER_COMMISSIONED_BOOK_DRAFT",
+          "location": "Character candidates; runtime not commissioned"
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "RESERVED",
+        "scope": "Book facts may be adapted in a proposal; runtime commission and voice choices remain open.",
+        "source": "design/reference/BOOK_SOURCES.md"
+      },
+      "voice_availability": {
+        "type": "Book dialogue only; runtime cue/performer missing",
+        "source": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+        "scope": "No synthetic/family voice inferred from narrative speech."
+      }
+    },
+    {
+      "id": "CHR-DURI",
+      "names": [
+        "Duri"
+      ],
+      "status": "PLANNED",
+      "role": "Lavender turtle courier with mint floral shell; warnings are ignored, joins the rescue and later helps the group.",
+      "identity": {
+        "art": [],
+        "must": [
+          "Preserve the designated book’s identity and physical causality."
+        ],
+        "never": [
+          "Do not promote proposal-only art or invent a family relationship."
+        ]
+      },
+      "voice": {
+        "speaker": "Duri",
+        "type": "No runtime performance authorized",
+        "protected": false,
+        "key_prefixes": []
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "PROPOSED-LANTERN-NIGHT"
+      ],
+      "decisions": [
+        "ODR-BOOK-FIRST-20261031",
+        "ODR-RUMI-CHAPTER-TRIAL-20261031"
+      ],
+      "sources": [
+        {
+          "path": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+          "authority": "BOOK_NARRATIVE",
+          "location": ""
+        },
+        {
+          "path": "design/reference/book_sources/rumi_owner_history_20261012.txt",
+          "authority": "OWNER_COMMISSIONED_BOOK_DRAFT",
+          "location": "Character candidates; runtime not commissioned"
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "RESERVED",
+        "scope": "Book facts may be adapted in a proposal; runtime commission and voice choices remain open.",
+        "source": "design/reference/BOOK_SOURCES.md"
+      },
+      "voice_availability": {
+        "type": "Book dialogue only; runtime cue/performer missing",
+        "source": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+        "scope": "No synthetic/family voice inferred from narrative speech."
+      }
+    },
+    {
+      "id": "CHR-IMP-PERFORMER",
+      "names": [
+        "Performer",
+        "purple performer imp"
+      ],
+      "status": "PLANNED",
+      "role": "Book performer with oversized soft show props, bubbles and practical amends; no copied film character or song.",
+      "identity": {
+        "art": [],
+        "must": [
+          "Preserve the designated book’s identity and physical causality."
+        ],
+        "never": [
+          "Do not promote proposal-only art or invent a family relationship."
+        ]
+      },
+      "voice": {
+        "speaker": "Performer",
+        "type": "existing provisional Imps Mike cues; new book-specific speech/song takes missing",
+        "protected": false,
+        "key_prefixes": [
+          "imps_"
+        ],
+        "note": "Availability is source inventory only. Provisional filler is not human/owner voice acceptance and cannot replace an exact required cue. Preserve protected family recordings; no family-conditioning or new performance permission is granted."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "PROPOSED-LANTERN-NIGHT"
+      ],
+      "decisions": [
+        "ODR-BOOK-FIRST-20261031",
+        "ODR-RUMI-CHAPTER-TRIAL-20261031"
+      ],
+      "sources": [
+        {
+          "path": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+          "authority": "BOOK_NARRATIVE",
+          "location": ""
+        },
+        {
+          "path": "design/reference/book_sources/rumi_owner_history_20261012.txt",
+          "authority": "OWNER_COMMISSIONED_BOOK_DRAFT",
+          "location": "Character candidates; runtime not commissioned"
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "RESERVED",
+        "scope": "Book facts may be adapted in a proposal; runtime commission and voice choices remain open.",
+        "source": "design/reference/BOOK_SOURCES.md"
+      },
+      "voice_availability": {
+        "type": "existing provisional Imps Mike cues; new book-specific speech/song takes missing",
+        "source": "assets/audio/voices/VOICE_MANIFEST.md",
+        "scope": "Exact event inventory and permitted scope must be checked before reuse; new book lines remain missing."
+      }
+    },
+    {
+      "id": "CHR-IMP-MAGICIAN",
+      "names": [
+        "Magician",
+        "magician imp"
+      ],
+      "status": "PLANNED",
+      "role": "Book magician with a foam/bubble act; needs to be heard and accepts help; no frightening injury.",
+      "identity": {
+        "art": [],
+        "must": [
+          "Preserve the designated book’s identity and physical causality."
+        ],
+        "never": [
+          "Do not promote proposal-only art or invent a family relationship."
+        ]
+      },
+      "voice": {
+        "speaker": "Magician",
+        "type": "existing provisional Imps Mike cues; new book-specific speech/song takes missing",
+        "protected": false,
+        "key_prefixes": [
+          "imps_"
+        ],
+        "note": "Availability is source inventory only. Provisional filler is not human/owner voice acceptance and cannot replace an exact required cue. Preserve protected family recordings; no family-conditioning or new performance permission is granted."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "PROPOSED-LANTERN-NIGHT"
+      ],
+      "decisions": [
+        "ODR-BOOK-FIRST-20261031",
+        "ODR-RUMI-CHAPTER-TRIAL-20261031"
+      ],
+      "sources": [
+        {
+          "path": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+          "authority": "BOOK_NARRATIVE",
+          "location": ""
+        },
+        {
+          "path": "design/reference/book_sources/rumi_owner_history_20261012.txt",
+          "authority": "OWNER_COMMISSIONED_BOOK_DRAFT",
+          "location": "Character candidates; runtime not commissioned"
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "RESERVED",
+        "scope": "Book facts may be adapted in a proposal; runtime commission and voice choices remain open.",
+        "source": "design/reference/BOOK_SOURCES.md"
+      },
+      "voice_availability": {
+        "type": "existing provisional Imps Mike cues; new book-specific speech/song takes missing",
+        "source": "assets/audio/voices/VOICE_MANIFEST.md",
+        "scope": "Exact event inventory and permitted scope must be checked before reuse; new book lines remain missing."
+      }
+    },
+    {
+      "id": "PLC-RUMI-WORLD",
+      "names": [
+        "Under-pool mermaid neighbourhood",
+        "Rumi mermaid world"
+      ],
+      "status": "PLANNED",
+      "role": "Book world beneath Rumi’s existing pool, with connected hanok lane, shops, bubble tram/pearl bridge, bathhouse and shell stage; Song Night. Pearl Hollow/Lantern Night remain later rewrite proposals.",
+      "identity": {
+        "art": [],
+        "must": [
+          "Preserve the designated book’s identity and physical causality."
+        ],
+        "never": [
+          "Do not promote proposal-only art or invent a family relationship."
+        ]
+      },
+      "voice": {
+        "speaker": "Under-pool mermaid neighbourhood",
+        "type": "No runtime performance authorized",
+        "protected": false,
+        "key_prefixes": []
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "PROPOSED-LANTERN-NIGHT"
+      ],
+      "decisions": [
+        "ODR-BOOK-FIRST-20261031",
+        "ODR-RUMI-CHAPTER-TRIAL-20261031"
+      ],
+      "sources": [
+        {
+          "path": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+          "authority": "BOOK_NARRATIVE",
+          "location": ""
+        },
+        {
+          "path": "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "RESERVED",
+        "scope": "Book facts may be adapted in a proposal; runtime commission and voice choices remain open.",
+        "source": "design/reference/BOOK_SOURCES.md"
+      },
+      "voice_availability": {
+        "type": "Book dialogue only; runtime cue/performer missing",
+        "source": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+        "scope": "No synthetic/family voice inferred from narrative speech."
+      }
+    },
+    {
+      "id": "PLC-BATHHOUSE",
+      "names": [
+        "Bathhouse"
+      ],
+      "status": "PLANNED",
+      "role": "Book refuge after the rescue: vulnerable conversation, towel humour, extravagant shared couch feast and an interruption. Five-room mystery expansion is proposal-only.",
+      "identity": {
+        "art": [],
+        "must": [
+          "Preserve the designated book’s identity and physical causality."
+        ],
+        "never": [
+          "Do not promote proposal-only art or invent a family relationship."
+        ]
+      },
+      "voice": {
+        "speaker": "Bathhouse",
+        "type": "No runtime performance authorized",
+        "protected": false,
+        "key_prefixes": []
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "PROPOSED-LANTERN-NIGHT"
+      ],
+      "decisions": [
+        "ODR-BOOK-FIRST-20261031",
+        "ODR-RUMI-CHAPTER-TRIAL-20261031"
+      ],
+      "sources": [
+        {
+          "path": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+          "authority": "BOOK_NARRATIVE",
+          "location": ""
+        },
+        {
+          "path": "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "RESERVED",
+        "scope": "Book facts may be adapted in a proposal; runtime commission and voice choices remain open.",
+        "source": "design/reference/BOOK_SOURCES.md"
+      },
+      "voice_availability": {
+        "type": "Book dialogue only; runtime cue/performer missing",
+        "source": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+        "scope": "No synthetic/family voice inferred from narrative speech."
+      }
+    },
+    {
+      "id": "STY-RUMI-VOICE",
+      "names": [
+        "Song Night",
+        "Here I Am!"
+      ],
+      "status": "PLANNED",
+      "role": "Roshan’s first-line wish, glint test, Duri rescue, being heard at the bathhouse, foam/bubble teamwork, practical amends, chosen solo and ordinary idea at home. Candle remains missing.",
+      "identity": {
+        "art": [],
+        "must": [
+          "Preserve the designated book’s identity and physical causality."
+        ],
+        "never": [
+          "Do not promote proposal-only art or invent a family relationship."
+        ]
+      },
+      "voice": {
+        "speaker": "Song Night",
+        "type": "No runtime performance authorized",
+        "protected": false,
+        "key_prefixes": []
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "PROPOSED-LANTERN-NIGHT"
+      ],
+      "decisions": [
+        "ODR-BOOK-FIRST-20261031",
+        "ODR-RUMI-CHAPTER-TRIAL-20261031"
+      ],
+      "sources": [
+        {
+          "path": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+          "authority": "BOOK_NARRATIVE",
+          "location": ""
+        },
+        {
+          "path": "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "RESERVED",
+        "scope": "Book facts may be adapted in a proposal; runtime commission and voice choices remain open.",
+        "source": "design/reference/BOOK_SOURCES.md"
+      },
+      "voice_availability": {
+        "type": "Book dialogue only; runtime cue/performer missing",
+        "source": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+        "scope": "No synthetic/family voice inferred from narrative speech."
+      }
+    },
+    {
+      "id": "OBJ-RAINBOW-CANDLE",
+      "names": [
+        "Rainbow candle"
+      ],
+      "status": "ACTIVE",
+      "role": "Separate birthday candle taken by the Ember King; the Rumi book’s glint is light and does not recover it.",
+      "identity": {
+        "art": [],
+        "must": [
+          "Preserve the designated book’s identity and physical causality."
+        ],
+        "never": [
+          "Do not promote proposal-only art or invent a family relationship."
+        ]
+      },
+      "voice": {
+        "speaker": "Rainbow candle",
+        "type": "No runtime performance authorized",
+        "protected": false,
+        "key_prefixes": []
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "CH-2",
+        "PROPOSED-LANTERN-NIGHT (still missing; no recovery)"
+      ],
+      "decisions": [
+        "ODR-BOOK-FIRST-20261031",
+        "ODR-RUMI-CHAPTER-TRIAL-20261031"
+      ],
+      "sources": [
+        {
+          "path": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+          "authority": "BOOK_NARRATIVE",
+          "location": ""
+        },
+        {
+          "path": "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "RESERVED",
+        "scope": "Book facts may be adapted in a proposal; runtime commission and voice choices remain open.",
+        "source": "design/reference/BOOK_SOURCES.md"
+      },
+      "voice_availability": {
+        "type": "Book dialogue only; runtime cue/performer missing",
+        "source": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+        "scope": "No synthetic/family voice inferred from narrative speech."
+      }
+    },
+    {
+      "id": "OBJ-BOOK-SHOW-PROPS",
+      "names": [
+        "Giant fan",
+        "cloth",
+        "foam star"
+      ],
+      "status": "PLANNED",
+      "role": "Physical soft show props cause and resolve book action; songs coordinate help rather than move scenery by new magic.",
+      "identity": {
+        "art": [],
+        "must": [
+          "Preserve the designated book’s identity and physical causality."
+        ],
+        "never": [
+          "Do not promote proposal-only art or invent a family relationship."
+        ]
+      },
+      "voice": {
+        "speaker": "Giant fan",
+        "type": "No runtime performance authorized",
+        "protected": false,
+        "key_prefixes": []
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "PROPOSED-LANTERN-NIGHT"
+      ],
+      "decisions": [
+        "ODR-BOOK-FIRST-20261031",
+        "ODR-RUMI-CHAPTER-TRIAL-20261031"
+      ],
+      "sources": [
+        {
+          "path": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+          "authority": "BOOK_NARRATIVE",
+          "location": ""
+        },
+        {
+          "path": "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "RESERVED",
+        "scope": "Book facts may be adapted in a proposal; runtime commission and voice choices remain open.",
+        "source": "design/reference/BOOK_SOURCES.md"
+      },
+      "voice_availability": {
+        "type": "Book dialogue only; runtime cue/performer missing",
+        "source": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+        "scope": "No synthetic/family voice inferred from narrative speech."
+      }
+    },
+    {
+      "id": "CHR-HARPER-FIONA",
+      "names": [
+        "Harper and Fiona"
+      ],
+      "status": "ACTIVE",
+      "role": "Existing protected book friend(s); exact portrait mapping is FRIEND_DEFS. No personality or new family relationship is inferred. Kareem is excluded from the Rumi book commission.",
+      "identity": {
+        "art": [
+          {
+            "path": "assets/characters/friends/two_friends.png",
+            "sha256": "85f2cc1bc7247d0877ff7bb6a97a44b711c757c497d36c215bc70fb74e548f58",
+            "scope": "Protected portrait identity; not a full-body animation approval."
+          }
+        ],
+        "must": [],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "Harper and Fiona",
+        "type": "Harper has provisional synthetic Lauren cues; a separate Fiona voice is not inferred",
+        "protected": false,
+        "key_prefixes": [
+          "harper_"
+        ],
+        "note": "Availability is source inventory only. Provisional filler is not human/owner voice acceptance and cannot replace an exact required cue. Preserve protected family recordings; no family-conditioning or new performance permission is granted."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "Existing protected book/free-play/collection roster; chapter appearances require exact sources"
+      ],
+      "decisions": [],
+      "sources": [
+        {
+          "path": "scripts/main.gd",
+          "authority": "AS_BUILT",
+          "location": "FRIEND_DEFS"
+        },
+        {
+          "path": "design/01_GAME_DESIGN.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "MINOR",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "Harper has provisional synthetic Lauren cues; a separate Fiona voice is not inferred",
+        "source": "assets/audio/voices/VOICE_MANIFEST.md",
+        "scope": "Exact event inventory and permitted scope must be checked before reuse; new book lines remain missing."
+      }
+    },
+    {
+      "id": "CHR-FARON",
+      "names": [
+        "Faron"
+      ],
+      "status": "ACTIVE",
+      "role": "Existing protected book friend(s); exact portrait mapping is FRIEND_DEFS. No personality or new family relationship is inferred. Kareem is excluded from the Rumi book commission.",
+      "identity": {
+        "art": [
+          {
+            "path": "assets/characters/friends/mama_baby.png",
+            "sha256": "57c479d7a709b1bd268cfa1efeaf9340721056c9b9d4765929ed0add581334a2",
+            "scope": "Protected portrait identity; not a full-body animation approval."
+          }
+        ],
+        "must": [],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "Harper and Fiona",
+        "type": "Faron is excluded from synthetic filler; retain existing source recordings and verify exact available cues/performer before use",
+        "protected": true,
+        "key_prefixes": [
+          "faron"
+        ],
+        "note": "Availability is source inventory only. Provisional filler is not human/owner voice acceptance and cannot replace an exact required cue. Preserve protected family recordings; no family-conditioning or new performance permission is granted."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "Existing protected book/free-play/collection roster; chapter appearances require exact sources"
+      ],
+      "decisions": [],
+      "sources": [
+        {
+          "path": "scripts/main.gd",
+          "authority": "AS_BUILT",
+          "location": "FRIEND_DEFS"
+        },
+        {
+          "path": "design/01_GAME_DESIGN.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "MINOR",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "Faron is excluded from synthetic filler; retain existing source recordings and verify exact available cues/performer before use",
+        "source": "assets/audio/voices/VOICE_MANIFEST.md",
+        "scope": "Exact event inventory and permitted scope must be checked before reuse; new book lines remain missing."
+      }
+    },
+    {
+      "id": "CHR-WACKY-CHUCK",
+      "names": [
+        "Wacky and Chuck"
+      ],
+      "status": "ACTIVE",
+      "role": "Existing protected book friend(s); exact portrait mapping is FRIEND_DEFS. No personality or new family relationship is inferred. Kareem is excluded from the Rumi book commission.",
+      "identity": {
+        "art": [
+          {
+            "path": "assets/characters/friends/wacky_chuck.png",
+            "sha256": "191da94a84ee9b967da1b80dac7dfc51a7a962059089b4adbf401e0fecbd3701",
+            "scope": "Protected portrait identity; not a full-body animation approval."
+          }
+        ],
+        "must": [],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "Harper and Fiona",
+        "type": "Wacky provisional synthetic Gary cues; Chuck’s retained recordings are protected, with provenance conflict CANON-C07 still open",
+        "protected": true,
+        "key_prefixes": [
+          "wacky_/chuck"
+        ],
+        "note": "Availability is source inventory only. Provisional filler is not human/owner voice acceptance and cannot replace an exact required cue. Preserve protected family recordings; no family-conditioning or new performance permission is granted."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "Existing protected book/free-play/collection roster; chapter appearances require exact sources"
+      ],
+      "decisions": [],
+      "sources": [
+        {
+          "path": "scripts/main.gd",
+          "authority": "AS_BUILT",
+          "location": "FRIEND_DEFS"
+        },
+        {
+          "path": "design/01_GAME_DESIGN.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "MINOR",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "Wacky provisional synthetic Gary cues; Chuck’s retained recordings are protected, with provenance conflict CANON-C07 still open",
+        "source": "assets/audio/voices/VOICE_MANIFEST.md",
+        "scope": "Exact event inventory and permitted scope must be checked before reuse; new book lines remain missing."
+      }
+    },
+    {
+      "id": "CHR-HULUU",
+      "names": [
+        "Princess Huluu"
+      ],
+      "status": "ACTIVE",
+      "role": "Existing protected book friend(s); exact portrait mapping is FRIEND_DEFS. No personality or new family relationship is inferred. Kareem is excluded from the Rumi book commission.",
+      "identity": {
+        "art": [
+          {
+            "path": "assets/characters/friends/huluu.png",
+            "sha256": "4b6c0e4d1c4945cc1c3cb1594ad967aa6001e9bf24506e4574345088fd9a2dc9",
+            "scope": "Protected portrait identity; not a full-body animation approval."
+          }
+        ],
+        "must": [],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "Harper and Fiona",
+        "type": "provisional synthetic Lea cues",
+        "protected": false,
+        "key_prefixes": [
+          "huluu_"
+        ],
+        "note": "Availability is source inventory only. Provisional filler is not human/owner voice acceptance and cannot replace an exact required cue. Preserve protected family recordings; no family-conditioning or new performance permission is granted."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "Existing protected book/free-play/collection roster; chapter appearances require exact sources"
+      ],
+      "decisions": [],
+      "sources": [
+        {
+          "path": "scripts/main.gd",
+          "authority": "AS_BUILT",
+          "location": "FRIEND_DEFS"
+        },
+        {
+          "path": "design/01_GAME_DESIGN.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "MINOR",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "provisional synthetic Lea cues",
+        "source": "assets/audio/voices/VOICE_MANIFEST.md",
+        "scope": "Exact event inventory and permitted scope must be checked before reuse; new book lines remain missing."
+      }
+    },
+    {
+      "id": "CHR-KAREEM",
+      "names": [
+        "Kareem"
+      ],
+      "status": "ACTIVE",
+      "role": "Existing protected book friend(s); exact portrait mapping is FRIEND_DEFS. No personality or new family relationship is inferred. Kareem is excluded from the Rumi book commission.",
+      "identity": {
+        "art": [
+          {
+            "path": "assets/characters/friends/kareem.png",
+            "sha256": "8e9c64bed039bf3e4e85039120f13f543c9e72a6870fb54c893e443536ef678a",
+            "scope": "Protected portrait identity; not a full-body animation approval."
+          }
+        ],
+        "must": [],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "Harper and Fiona",
+        "type": "no new voice authorized by this reference",
+        "protected": true,
+        "key_prefixes": [],
+        "note": "Consult the exact protected voice manifest and live catalog; source presence is not clearance for a new cue."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "Existing protected book/free-play/collection roster; chapter appearances require exact sources"
+      ],
+      "decisions": [],
+      "sources": [
+        {
+          "path": "scripts/main.gd",
+          "authority": "AS_BUILT",
+          "location": "FRIEND_DEFS"
+        },
+        {
+          "path": "design/01_GAME_DESIGN.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "MINOR",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "no new voice authorized by this reference",
+        "source": "assets/audio/voices/VOICE_MANIFEST.md",
+        "scope": "Inventory exact usable cues; missing lines remain gaps. Rumi book speech is narrative, not a recorded runtime performance."
+      }
+    },
+    {
+      "id": "CHR-FLOWER-FRIEND",
+      "names": [
+        "Flower Friend"
+      ],
+      "status": "ACTIVE",
+      "role": "Existing protected book friend(s); exact portrait mapping is FRIEND_DEFS. No personality or new family relationship is inferred. Kareem is excluded from the Rumi book commission.",
+      "identity": {
+        "art": [
+          {
+            "path": "assets/characters/friends/flower_friend.png",
+            "sha256": "c13b27ebb9f214f522a6af5f161b88582c59d13f51e4ea7ad113858404c13951",
+            "scope": "Protected portrait identity; not a full-body animation approval."
+          }
+        ],
+        "must": [],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "Harper and Fiona",
+        "type": "no new voice authorized by this reference",
+        "protected": true,
+        "key_prefixes": [],
+        "note": "Consult the exact protected voice manifest and live catalog; source presence is not clearance for a new cue."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "Existing protected book/free-play/collection roster; chapter appearances require exact sources"
+      ],
+      "decisions": [],
+      "sources": [
+        {
+          "path": "scripts/main.gd",
+          "authority": "AS_BUILT",
+          "location": "FRIEND_DEFS"
+        },
+        {
+          "path": "design/01_GAME_DESIGN.md",
+          "authority": "BINDING_DOMAIN",
+          "location": ""
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "MINOR",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "no new voice authorized by this reference",
+        "source": "assets/audio/voices/VOICE_MANIFEST.md",
+        "scope": "Inventory exact usable cues; missing lines remain gaps. Rumi book speech is narrative, not a recorded runtime performance."
+      }
+    },
+    {
+      "id": "CHR-EMBER-SCOUT",
+      "names": [
+        "Ember scout"
+      ],
+      "status": "PLANNED",
+      "role": "Chapter 2 scout seen before the King takes the candle; later role unspecified and reserved.",
+      "identity": {
+        "art": [],
+        "must": [
+          "Approved thin Prince; 80% of King height at same ground plane.",
+          "Sincere kindness, conflicted loyalty; only light future-affection hint."
+        ],
+        "never": [
+          "Do not redesign or infer a new personality, relationship or voice from appearance alone."
+        ]
+      },
+      "voice": {
+        "speaker": "Ember Prince",
+        "type": "no new voice authorized by this reference",
+        "protected": false,
+        "key_prefixes": [],
+        "note": "Consult the exact protected voice manifest and live catalog; source presence is not clearance for a new cue."
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "CH-2"
+      ],
+      "decisions": [],
+      "sources": [
+        {
+          "path": "design/CHAPTER2_LAWN_FINALE_DRAFT_2026-09-06.md",
+          "authority": "CANDIDATE",
+          "location": ""
+        },
+        {
+          "path": "scripts/chapter_two_director.gd",
+          "authority": "AS_BUILT",
+          "location": "chapter2_ember_scout_seen"
+        }
+      ],
+      "conflicts": [
+        "CANON-C05"
+      ],
+      "chapter_latitude": {
+        "value": "RESERVED",
+        "scope": "Local staging, approved outfits and optional activity context inside a commissioned premise only; major character/plot, new voice and protected-source changes remain reserved.",
+        "source": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md#2-creative-authority--owner-decision-2026-09-05"
+      },
+      "voice_availability": {
+        "type": "no new voice authorized by this reference",
+        "source": "assets/audio/voices/VOICE_MANIFEST.md",
+        "scope": "Inventory exact usable cues; missing lines remain gaps. Rumi book speech is narrative, not a recorded runtime performance."
+      }
+    },
+    {
+      "id": "CHR-GRANDMA-GOBUK",
+      "names": [
+        "Grandma Gobuk"
+      ],
+      "status": "PLANNED",
+      "role": "Later Rumi revision proposal only; not part of the designated illustrated book. No runtime commission, approved new kinship, name or voice.",
+      "identity": {
+        "art": [],
+        "must": [
+          "Preserve the designated book’s identity and physical causality."
+        ],
+        "never": [
+          "Do not promote proposal-only art or invent a family relationship."
+        ]
+      },
+      "voice": {
+        "speaker": "Duri",
+        "type": "No runtime performance authorized",
+        "protected": false,
+        "key_prefixes": []
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "Later Lantern Night rewrite proposal only; excluded from the designated book trial"
+      ],
+      "decisions": [
+        "ODR-BOOK-FIRST-20261031",
+        "ODR-RUMI-CHAPTER-TRIAL-20261031"
+      ],
+      "sources": [
+        {
+          "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/WORLD_BIBLE.md",
+          "authority": "PROPOSED_CURRENT",
+          "location": ""
+        },
+        {
+          "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/README.md",
+          "authority": "PROPOSED_CURRENT",
+          "location": "Q2/Q3/Q6 open"
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "RESERVED",
+        "scope": "Book facts may be adapted in a proposal; runtime commission and voice choices remain open.",
+        "source": "design/reference/BOOK_SOURCES.md"
+      },
+      "voice_availability": {
+        "type": "Book dialogue only; runtime cue/performer missing",
+        "source": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+        "scope": "No synthetic/family voice inferred from narrative speech."
+      }
+    },
+    {
+      "id": "CHR-PIP",
+      "names": [
+        "Pip"
+      ],
+      "status": "PLANNED",
+      "role": "Later Rumi revision proposal only; not part of the designated illustrated book. No runtime commission, approved new kinship, name or voice.",
+      "identity": {
+        "art": [],
+        "must": [
+          "Preserve the designated book’s identity and physical causality."
+        ],
+        "never": [
+          "Do not promote proposal-only art or invent a family relationship."
+        ]
+      },
+      "voice": {
+        "speaker": "Duri",
+        "type": "No runtime performance authorized",
+        "protected": false,
+        "key_prefixes": []
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "Later Lantern Night rewrite proposal only; excluded from the designated book trial"
+      ],
+      "decisions": [
+        "ODR-BOOK-FIRST-20261031",
+        "ODR-RUMI-CHAPTER-TRIAL-20261031"
+      ],
+      "sources": [
+        {
+          "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/WORLD_BIBLE.md",
+          "authority": "PROPOSED_CURRENT",
+          "location": ""
+        },
+        {
+          "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/README.md",
+          "authority": "PROPOSED_CURRENT",
+          "location": "Q2/Q3/Q6 open"
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "RESERVED",
+        "scope": "Book facts may be adapted in a proposal; runtime commission and voice choices remain open.",
+        "source": "design/reference/BOOK_SOURCES.md"
+      },
+      "voice_availability": {
+        "type": "Book dialogue only; runtime cue/performer missing",
+        "source": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+        "scope": "No synthetic/family voice inferred from narrative speech."
+      }
+    },
+    {
+      "id": "CHR-TIDEBELLS",
+      "names": [
+        "The Tidebells"
+      ],
+      "status": "PLANNED",
+      "role": "Later Rumi revision proposal only; not part of the designated illustrated book. No runtime commission, approved new kinship, name or voice.",
+      "identity": {
+        "art": [],
+        "must": [
+          "Preserve the designated book’s identity and physical causality."
+        ],
+        "never": [
+          "Do not promote proposal-only art or invent a family relationship."
+        ]
+      },
+      "voice": {
+        "speaker": "Duri",
+        "type": "No runtime performance authorized",
+        "protected": false,
+        "key_prefixes": []
+      },
+      "movement": "GAP",
+      "appears_in": [
+        "Later Lantern Night rewrite proposal only; excluded from the designated book trial"
+      ],
+      "decisions": [
+        "ODR-BOOK-FIRST-20261031",
+        "ODR-RUMI-CHAPTER-TRIAL-20261031"
+      ],
+      "sources": [
+        {
+          "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/WORLD_BIBLE.md",
+          "authority": "PROPOSED_CURRENT",
+          "location": ""
+        },
+        {
+          "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/README.md",
+          "authority": "PROPOSED_CURRENT",
+          "location": "Q2/Q3/Q6 open"
+        }
+      ],
+      "conflicts": [],
+      "chapter_latitude": {
+        "value": "RESERVED",
+        "scope": "Book facts may be adapted in a proposal; runtime commission and voice choices remain open.",
+        "source": "design/reference/BOOK_SOURCES.md"
+      },
+      "voice_availability": {
+        "type": "Book dialogue only; runtime cue/performer missing",
+        "source": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+        "scope": "No synthetic/family voice inferred from narrative speech."
+      }
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "CANON-C01",
+      "topic": "Roshan's colours",
+      "original_source_notes": [
+        "design/01_GAME_DESIGN.md:480 'lavender clothing, green-right / pink-left tail' (verified)",
+        "assets/characters/roshan_25d/PROMPTS.md:27 approved-atlas prompt (verified start; sweep: 'pink ruffled top, pearlescent lavender/aqua scaled tail')",
+        "DATABASE.json 'pink bodice, one continuous rainbow tail' (sweep)"
+      ],
+      "sources": [
+        {
+          "path": "design/01_GAME_DESIGN.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        },
+        {
+          "path": "assets/characters/roshan_25d/PROMPTS.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        }
+      ],
+      "default": "Book-first precedence governs a demonstrated book/game mismatch: preserve originals and record the exact game adaptation required. Current approved atlas identity and the iridescent lavender/rainbow decision describe existing source authority, not an exemption from the later book-first direction. Do not invent an unobserved visual mismatch or redesign; exact source inspection and identity/visual acceptance remain separate. Roshan-anchor repair remains MA-DOC-008.",
+      "status": "RESOLVED_DEFAULT",
+      "question_id": null
+    },
+    {
+      "id": "CANON-C02",
+      "topic": "Does Rumi speak?",
+      "original_source_notes": [
+        "assets/audio/voices/VOICE_MANIFEST.md:88 'Rumi | Emily' (verified)",
+        "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md:66 'no invented Rumi voice' (verified)"
+      ],
+      "sources": [
+        {
+          "path": "assets/audio/voices/VOICE_MANIFEST.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        },
+        {
+          "path": "design/reference/book_sources/rumi_visual_detective_20261012.json",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        },
+        {
+          "path": "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        }
+      ],
+      "default": "Rumi speaks in the designated book. Adapt game narrative to that speech; no new runtime voice is commissioned. Existing Chapter 2 no-invented-voice restriction remains until a performance is authorized. Resolve performer in OQ-RUMI-RUNTIME-VOICE.",
+      "status": "OPEN",
+      "question_id": "OQ-RUMI-RUNTIME-VOICE"
+    },
+    {
+      "id": "CANON-C03",
+      "topic": "What traps Baby Eagle",
+      "original_source_notes": [
+        "DL-ASSET-08: two dust bunnies, not a blanket (verified)",
+        "assets_src/cinematics/d1_c07_stuffie_dirty_discovery_visual_v1/storyboards/STORYBOARD_PROMPT.txt 'soft folded blanket/cushion' (verified)"
+      ],
+      "sources": [
+        {
+          "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        },
+        {
+          "path": "assets_src/cinematics/d1_c07_stuffie_dirty_discovery_visual_v1/storyboards/STORYBOARD_PROMPT.txt",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        }
+      ],
+      "default": "Two dust bunnies, never a blanket; the older storyboard prompt is superseded for this moment.",
+      "status": "RESOLVED_DEFAULT",
+      "question_id": null
+    },
+    {
+      "id": "CANON-C04",
+      "topic": "Grand Puff's fate and the rainbow friend",
+      "original_source_notes": [
+        "DL-CIN-16 (verified)",
+        "DUST_BUNNY_BOSS_2026-08-02.md:78-82 'deflates into a small cuddly puff' (verified), still ledger-binding for Grand Puff identity at design/05_DOC_LEDGER.md:395 (verified)"
+      ],
+      "sources": [
+        {
+          "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        },
+        {
+          "path": "DUST_BUNNY_BOSS_2026-08-02.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        }
+      ],
+      "default": "Grand Puff is a friend under dirt; Roshan faces him alone, family joins only in transformation, and Rainbow Friend follows. Earlier deflation shorthand is superseded by DL-CIN-16. The newer care-recast mismatch is recorded separately as CANON-C16.",
+      "status": "RESOLVED_DEFAULT",
+      "question_id": null
+    },
+    {
+      "id": "CANON-C05",
+      "topic": "Ember King's motive and the Prince's role",
+      "original_source_notes": [
+        "Chapter 2 spine: wants the candle for his own birthday",
+        "CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md: blows out her candles; Prince crashes the party (sweep)",
+        "Battle of the Bands commission 2026-09-20, off dev (sweep)"
+      ],
+      "sources": [
+        {
+          "path": "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        },
+        {
+          "path": "design/CHAPTER2_LAWN_FINALE_DRAFT_2026-09-06.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        },
+        {
+          "path": "CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        }
+      ],
+      "default": "Chapter 2 spine controls existing birthday motive; later Prince/Battle-of-Bands extensions remain OQ-EMBER-CONTINUATION. Record any selected book mismatch before changing the game.",
+      "status": "OPEN",
+      "question_id": "OQ-EMBER-CONTINUATION"
+    },
+    {
+      "id": "CANON-C06",
+      "topic": "Lamba versus 'bunny-fish'",
+      "original_source_notes": [
+        "scripts/opera_house.gd:87 Magician intro still says 'bunny-fish' (verified)",
+        "MA-ACCESS-002 (protected recording)"
+      ],
+      "sources": [
+        {
+          "path": "scripts/opera_house.gd",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        },
+        {
+          "path": "assets/audio/voices/VOICE_MANIFEST.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        }
+      ],
+      "default": "Lamba is the named partner; protected contradictory recording remains a missing replacement under MA-ACCESS-002. No recording substitution here.",
+      "status": "RESOLVED_DEFAULT",
+      "question_id": null
+    },
+    {
+      "id": "CANON-C07",
+      "topic": "Chuck recordings",
+      "original_source_notes": [
+        "VOICE_MANIFEST.md calls chuck*.ogg family recordings (sweep)",
+        "ASSET_LICENSES.md credits a stock bark and a synthesis (sweep)"
+      ],
+      "sources": [
+        {
+          "path": "assets/audio/voices/VOICE_MANIFEST.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        },
+        {
+          "path": "ASSET_LICENSES.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        }
+      ],
+      "default": "Chuck recording provenance remains OQ-CHUCK-PROVENANCE. Do not modify protected audio.",
+      "status": "OPEN",
+      "question_id": "OQ-CHUCK-PROVENANCE"
+    },
+    {
+      "id": "CANON-C08",
+      "topic": "Room names",
+      "original_source_notes": [
+        "sweep: Bubble Bath/Bubble Bathroom, Stuffie Playroom/Stuffie Room, Craft Room/Art Room, Royal Kitchen/Castle Kitchen, Stone Attic/Dusty Attic"
+      ],
+      "sources": [
+        {
+          "path": "scripts/arena/castle_rooms_25d.gd",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        },
+        {
+          "path": "design/07_CASTLE_DOOR_LANGUAGE.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        }
+      ],
+      "default": "Display aliases are documentary; use actual room IDs in saved state and route probes. A display-name choice cannot rename keys.",
+      "status": "RESOLVED_DEFAULT",
+      "question_id": null
+    },
+    {
+      "id": "CANON-C09",
+      "topic": "Daddy's hair",
+      "original_source_notes": [
+        "sweep: long brown/deep-green versus long straight brown"
+      ],
+      "sources": [
+        {
+          "path": "design/01_GAME_DESIGN.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        },
+        {
+          "path": "assets_src/cinematics/grok_builder_2026-09-14/DATABASE.json",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        }
+      ],
+      "default": "Use exact sources to identify Daddy. A demonstrated mismatch with the designated book requires a recorded game adaptation under book-first precedence, preserving originals; no hair redesign or family relationship is invented from summary text.",
+      "status": "RESOLVED_DEFAULT",
+      "question_id": null
+    },
+    {
+      "id": "CANON-C10",
+      "topic": "Baby Eagle's pronoun",
+      "original_source_notes": [
+        "sweep: 'his wings' in the clip manifest versus 'Her rescue' in design/07"
+      ],
+      "sources": [
+        {
+          "path": "assets_src/cinematics/day_one_story_clips_2026-09-23/CLIP_MANIFEST.json",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        },
+        {
+          "path": "design/07_CASTLE_DOOR_LANGUAGE.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        }
+      ],
+      "default": "Use Baby Eagle by name pending OQ-BABY-EAGLE-PRONOUN; no inferred owner answer.",
+      "status": "OPEN",
+      "question_id": "OQ-BABY-EAGLE-PRONOUN"
+    },
+    {
+      "id": "CANON-C11",
+      "topic": "Career count and Opera Hall layout",
+      "original_source_notes": [
+        "DL-INT-07 and DL-SAVE-06 say 13 careers (verified)",
+        "scripts/opera_house.gd:13-16 ACTIVE_ACT_COUNT := 15, ACTIVE_STAR_MASK := 0x3BDEF (verified)",
+        "owner direction 2026-09-24 four-floor venue (verified)"
+      ],
+      "sources": [
+        {
+          "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        },
+        {
+          "path": "scripts/opera_house.gd",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        },
+        {
+          "path": "scripts/opera_house_venue_2d.gd",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        }
+      ],
+      "default": "Use live code only to describe implementation, not narrative authority or acceptance. Current venue is the implemented layout; stale counts/proposals remain historical.",
+      "status": "RESOLVED_DEFAULT",
+      "question_id": null
+    },
+    {
+      "id": "CANON-C12",
+      "topic": "What Chapter 3 is",
+      "original_source_notes": [
+        "CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md 'Day 3 | 3 | North, for information on how to stop them.' (verified)",
+        "design/FAIRY_CONSERVATORY_CHAPTER3_2026-08-30.md (Fairy Conservatory as Chapter 3)",
+        "design/chapters/NORTHERN_ICE_WORLD.md (chapter number not set)"
+      ],
+      "sources": [
+        {
+          "path": "CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        },
+        {
+          "path": "design/FAIRY_CONSERVATORY_CHAPTER3_2026-08-30.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        },
+        {
+          "path": "design/chapters/NORTHERN_ICE_WORLD.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        }
+      ],
+      "default": "Fairy Conservatory is the scoped implemented Chapter 3 route. Northern chapter number and full ending remain OQ-CHAPTER-NUMBERING; do not relabel code.",
+      "status": "OPEN",
+      "question_id": "OQ-CHAPTER-NUMBERING"
+    },
+    {
+      "id": "CANON-C13",
+      "topic": "Reef mentions after retirement",
+      "original_source_notes": [
+        "audit/MASTER_AUDIT_2026-08-09.md:585 scorecard row (verified)",
+        "voice ledger row NAV-01 'I'm home! Let's visit the fishies!' (sweep)"
+      ],
+      "sources": [
+        {
+          "path": "audit/MASTER_AUDIT_2026-08-09.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        },
+        {
+          "path": "design/audit_impacts/retired-reef-20260909.json",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        }
+      ],
+      "default": "Reef is retired; old scorecards/cues are historical and do not reopen a route.",
+      "status": "RESOLVED_DEFAULT",
+      "question_id": null
+    },
+    {
+      "id": "CANON-C14",
+      "topic": "Pool beat order",
+      "original_source_notes": [
+        "HANDOFF_GROK_DAY_ONE_POOL_NEXT_ANIMATION_2026-08-23.md restores the waterfall after the seahorse (sweep)",
+        "grok builder CONFLICT-06 resolves skim, waterfall, seahorse, Rumi (sweep)",
+        "design/05_DOC_LEDGER.md:97 still calls the older order binding (sweep)"
+      ],
+      "sources": [
+        {
+          "path": "design/HANDOFF_GROK_DAY_ONE_POOL_NEXT_ANIMATION_2026-08-23.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        },
+        {
+          "path": "scripts/games/day_one_pool_cleanup.gd",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        },
+        {
+          "path": "assets_src/cinematics/day_one_story_clips_2026-09-23/CLIP_MANIFEST.json",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        }
+      ],
+      "default": "Current held reward is clean-pool reveal; Rumi rises once in the selected clip. Preserve source-specific straight cuts and owner one-rise decision; earlier duplicated rise/order text is superseded.",
+      "status": "RESOLVED_DEFAULT",
+      "question_id": null
+    },
+    {
+      "id": "CANON-C15",
+      "topic": "Day/Chapter vocabulary",
+      "original_source_notes": [
+        "code and handoffs say Day One / Day Two; design says Chapter 2 / Chapter 3 (sweep)"
+      ],
+      "sources": [
+        {
+          "path": "scripts/day_one_director.gd",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        },
+        {
+          "path": "scripts/chapter_two_director.gd",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        },
+        {
+          "path": "design/FAIRY_CONSERVATORY_CHAPTER3_2026-08-30.md",
+          "authority": "SOURCE_SCOPED",
+          "location": "Both sides retained; exact current scope is in the default"
+        }
+      ],
+      "default": "Use CH-1/CH-2/CH-3 aliases in one chapter-map home. Final naming remains provisional OQ-CHAPTER-NAMES; never rename code/save identifiers.",
+      "status": "OPEN",
+      "question_id": "OQ-CHAPTER-NAMES"
+    },
+    {
+      "id": "CANON-C16",
+      "topic": "Grand Puff care recast versus preserved runtime/clip canon",
+      "sources": [
+        {
+          "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+          "authority": "CANONICAL_CURRENT",
+          "location": "DL-CIN-16 selected-clip contract"
+        },
+        {
+          "path": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md",
+          "authority": "OWNER_DECISION",
+          "location": "DR3c; accepted Q2"
+        }
+      ],
+      "default": "Preserve exact shipped/selected-clip evidence while recording the later care-recast direction separately. The original October 17 decision remains on an unpushed branch according to the demo audit; DR0/DR3c own recovery and integration. No high-risk canon-file edit is authorized here.",
+      "status": "OPEN",
+      "question_id": "OQ-GRAND-PUFF-CARE-SOURCE"
+    }
+  ],
+  "open_questions": [
+    {
+      "id": "OQ-RUMI-RUNTIME-VOICE",
+      "question": "Who supplies authorized runtime performances for Rumi and the new book characters?",
+      "default": "No new voice synthesized or family recording changed.",
+      "blocks": "Only audio-dependent implementation.",
+      "source": "design/reference/BOOK_SOURCES.md",
+      "authority": "OPEN; defaults are not owner answers"
+    },
+    {
+      "id": "OQ-EMBER-CONTINUATION",
+      "question": "Which later Ember family/Prince/candle continuation is commissioned?",
+      "default": "Keep the candle missing and later major story reserved.",
+      "blocks": "New main-plot continuation.",
+      "source": "design/10_CHAPTER_REFERENCE_LIBRARY.md",
+      "authority": "OPEN; defaults are not owner answers"
+    },
+    {
+      "id": "OQ-CHUCK-PROVENANCE",
+      "question": "Which Chuck recordings have family versus stock/synthetic provenance?",
+      "default": "Preserve protected audio unchanged.",
+      "blocks": "New reuse/provenance acceptance.",
+      "source": "assets/audio/voices/VOICE_MANIFEST.md",
+      "authority": "OPEN; defaults are not owner answers"
+    },
+    {
+      "id": "OQ-BABY-EAGLE-PRONOUN",
+      "question": "Which Baby Eagle pronoun is owner canon?",
+      "default": "Use Baby Eagle by name.",
+      "blocks": "Pronoun-specific new narration only.",
+      "source": "design/07_CASTLE_DOOR_LANGUAGE.md",
+      "authority": "OPEN; defaults are not owner answers"
+    },
+    {
+      "id": "OQ-CHAPTER-NUMBERING",
+      "question": "What number/title should Northern and the Rumi world use in the eventual chapter sequence?",
+      "default": "Keep current CH-1/2/3 mapping, unnumbered planning slots and all save identifiers.",
+      "blocks": "Final documentary naming/sequence.",
+      "source": "design/chapters/chapter_map.json",
+      "authority": "OPEN; defaults are not owner answers"
+    },
+    {
+      "id": "OQ-CHAPTER-NAMES",
+      "question": "Confirm or revise the handoff Q1 documentary chapter names?",
+      "default": "Number plus story name is provisional; no code rename.",
+      "blocks": "Final documentary titles only.",
+      "source": "docs/handoffs/codex_chapter_guide_2026-10-31/README.md",
+      "authority": "OPEN; defaults are not owner answers"
+    },
+    {
+      "id": "OQ-CH2-FOUNDING-SOURCE",
+      "question": "Where is the original August 30 owner source distinguishing owner choices from agent design in the Chapter 2 spine?",
+      "default": "Retain the spine’s existing domain authority without fabricating a historical answer.",
+      "blocks": "Attribution-complete CG7 backfill.",
+      "source": "audit/cycles/chapter-guide-20261031/STORY_BACKFILL_NOTES.md",
+      "authority": "OPEN; defaults are not owner answers"
+    },
+    {
+      "id": "OQ-GRAND-PUFF-CARE-SOURCE",
+      "question": "Recover the original October 17 Grand Puff care decision and reconcile DR3c evidence?",
+      "default": "Keep legacy and later intended scopes explicit; let DR0/DR3c recover their own sources.",
+      "blocks": "Care-recast attribution/integration, not independent chapter planning.",
+      "source": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md",
+      "authority": "OPEN; defaults are not owner answers"
+    },
+    {
+      "id": "OQ-RUMI-CHAPTER-COMMISSION",
+      "question": "Approve the eventual Rumi playable chapter premise/boundaries after reviewing the proposal?",
+      "default": "Planning trial only; feature freeze and no runtime commission remain.",
+      "blocks": "All new Rumi gameplay implementation.",
+      "source": "design/reference/BOOK_SOURCES.md",
+      "authority": "OPEN; defaults are not owner answers"
+    },
+    {
+      "id": "OQ-CHAPTER-ACCEPTANCE",
+      "question": "Confirm the handoff Q4 acceptance ladder and reserved-thread marks in Q2?",
+      "default": "Owner review after a recorded phone session; record child observations when present; preserve separate release/child gates.",
+      "blocks": "Terminal chapter acceptance and changes to reserved scope only.",
+      "source": "docs/handoffs/codex_chapter_guide_2026-10-31/README.md",
+      "authority": "OPEN; defaults are not owner answers"
+    },
+    {
+      "id": "OQ-RUMI-PLACEMENT",
+      "question": "Is the Rumi book world an optional post-birthday pool adventure or a later required chapter, and what earns its entrance?",
+      "default": "Proposal recommends optional entry after both Chapter 2 completion and candle-taking; no runtime gate is selected yet.",
+      "blocks": "Rumi chapter route/order implementation only.",
+      "source": "design/chapters/RUMI_MERMAID_WORLD_BRIEF_20261031.md",
+      "authority": "OPEN; trial Q-R1 is a proposal, not an owner answer"
+    }
+  ]
+}

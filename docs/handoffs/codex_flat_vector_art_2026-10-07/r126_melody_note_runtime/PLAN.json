@@ -1,0 +1,51 @@
+{
+  "id": "R126-MELODY-NOTE",
+  "stable_id": "FV-A914479B2992",
+  "baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+  "source_branch": "codex/flat-vector-melody-note-20261102",
+  "canonical_branch": "codex/flat-vector-r6-20261012",
+  "owner_answer": "Resume art candidates; keep Dev frozen",
+  "Dev_frozen": true,
+  "master_frozen": true,
+  "automation_resumed": false,
+  "scope": "Replace only RainbowNoteCanvas flat disc and primitive eighth-note with complete painted RGBA tokens for seven original ordered colors. Preserve all controller action/input/save/audio/movement and other art roles.",
+  "failure": "Actual1280source viewed: uniform flat colored disc with hard navy border and code-drawn paper symbol lacks painted material beside authored meadow/actors.",
+  "method": "Built-in ImageGen single native seven-state token atlas; Aseprite complete per-token square technical crops and uniform lossless256 exports; no tint/recolor/deformation or code-drawn substitute.",
+  "static_item_call_cap": 2,
+  "generation_calls": 0,
+  "animation_calls": 0,
+  "reuse_optional": true,
+  "no_failed_reuse_prerequisite": true,
+  "original_geometry": {
+    "visible_size": 84,
+    "outer_diameter": 82,
+    "hit_size": 120,
+    "note_count": 7,
+    "z_index": 35,
+    "pivot": "42,42",
+    "rotation": "sin(pulse*3.1+note_id)*0.035",
+    "original_drift_and_timing_unchanged": true
+  },
+  "source_context": {
+    "raw_exact_runtime_files": 5062,
+    "existing_three_aspect_frames": 6,
+    "checks": 69,
+    "immutable_revision": "0e8095e656aaae795076b98b202cc453c3234e06",
+    "extra_context_needed": "All seven native color/action states and completed hidden-token endpoint in same source scene; only selected role depends on added context."
+  },
+  "required_evidence": [
+    "Preserved native outputs/prompts/references/hashes and editable Aseprite masters",
+    "All seven colors actual source/candidate at1280x720,1600x720,1280x800 and completed hidden endpoint",
+    "Ten-axis same-scene local comparison separate from formalQA11",
+    "Exact4.7.2 import, parser/inference/analyzer, full82/current static/2D, unchanged normal saves/runtime closure",
+    "Source/canonical audit-impact CHG132, registry/coverage/tally and anonymous immutable manifest/every-required-file delivery",
+    "Exact-source CI; no Dev integration; formalQA11/device/child/owner remain separate"
+  ],
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "whole_role_closed": false,
+  "mission_complete": false
+}

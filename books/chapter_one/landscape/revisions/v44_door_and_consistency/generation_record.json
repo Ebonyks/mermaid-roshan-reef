@@ -1,0 +1,47 @@
+{
+  "method": "Built-in imagegen bounded existing door repair; native outputs unchanged; document-clipped architecture only",
+  "attempts": [
+    {
+      "attempt": 1,
+      "native": "art/door_attempt1.png",
+      "sha256": "93c3cb05f9e4e48ad3e297778686a3d58c21c2ce72988d631e153e5d303865e2",
+      "prompt": "door_prompt_attempt1.txt",
+      "prompt_sha256": "88b35371f7b39ff03082c70423960b2dff906b8fe59c3bdd3ef42127870af236",
+      "input": "references/door_before.png",
+      "input_sha256": "f6f90bbf55586c007661cf49cb408ec6a335baecc306996215dd34b7f60d0001",
+      "decision": "Not selected: repair is useful but crop includes baked title letters. Changed input to title-free exact source before final take."
+    },
+    {
+      "attempt": 2,
+      "native": "art/door_attempt2.png",
+      "sha256": "f3425544c1989829229a4e30caad5b2b821d73ad22acc2a0b21a3875bc0645e8",
+      "prompt": "door_prompt_attempt2.txt",
+      "prompt_sha256": "05a26e820ed66955340ccf25935221f30d546a6538a8df6f0f3ea3b63f53a6d4",
+      "input": "references/door_title_free_input.png",
+      "input_sha256": "67b5ad118c08ab0f86cbdbdd12dc0341c2f69218edc23e92192672940ebeda9d",
+      "decision": "Selected architecture within two declared polygons. Central Puff face stays original; natural edge occlusion by opened leaves is declared."
+    }
+  ],
+  "source_canvas_box": [
+    1190,
+    110,
+    1512,
+    720
+  ],
+  "native_dimensions": [
+    [
+      911,
+      1727
+    ],
+    [
+      910,
+      1727
+    ]
+  ],
+  "provider_revision": "Not exposed",
+  "request_ids": "Not exposed",
+  "usage": "Two calls; no monetary cost exposed",
+  "cleanup_minutes": 0,
+  "edits": "No native raster mutation; PDF polygon cropping/feather/inset/uniform mapping. Title text block moved20logicalpoints left, words/font/sizes/baselines unchanged.",
+  "sources_preserved": true
+}

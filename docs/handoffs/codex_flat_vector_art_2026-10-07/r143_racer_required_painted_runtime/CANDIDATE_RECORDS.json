@@ -4,7 +4,7 @@
     {
       "id": "FVR-D147419B7EE0",
       "existing_artifact": "r141_racer_context_source",
-      "status": "TOPIC_RUNTIME_CANDIDATE_DEV_PENDING",
+      "status": "COMBINED_CURRENT_SOURCE_LOCAL_GATES_PASS_REMOTE_CI_DEV_PENDING",
       "actual_candidate_output": {
         "path": "assets/racer/context_v2/item_capsule.png",
         "bytes": 952138,
@@ -29,20 +29,27 @@
         "candidate": true,
         "local_integration": true,
         "native_same_scene_pairs": 54,
-        "full82": true,
         "Dev": false,
         "formal_QA11": null,
         "device": null,
         "child": null,
-        "owner": null
+        "owner": null,
+        "initial_source_full82": true,
+        "combined_source_full82": true,
+        "current_source_native_cases": 54,
+        "combined_machine_result": "current_dev_80975b0051/evidence/FINAL_RESULT.json"
       },
       "comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/TEN_AXIS_COMPARISON.json",
-      "accepted_removed": 0
+      "accepted_removed": 0,
+      "current_source_context": {
+        "local_implementation": "8b8829ba3c114bb57a31e9da58a31b91a4c2ed5c",
+        "incoming_Dev": "80975b0051f6a5be29b0680e8b84e15f30d3c316"
+      }
     },
     {
       "id": "FVR-59E3B726D2F1",
       "existing_artifact": "r141_racer_context_source",
-      "status": "TOPIC_RUNTIME_CANDIDATE_DEV_PENDING",
+      "status": "COMBINED_CURRENT_SOURCE_LOCAL_GATES_PASS_REMOTE_CI_DEV_PENDING",
       "actual_candidate_output": {
         "path": "assets/racer/context_v2/kelp_trap.png",
         "bytes": 720171,
@@ -67,15 +74,22 @@
         "candidate": true,
         "local_integration": true,
         "native_same_scene_pairs": 54,
-        "full82": true,
         "Dev": false,
         "formal_QA11": null,
         "device": null,
         "child": null,
-        "owner": null
+        "owner": null,
+        "initial_source_full82": true,
+        "combined_source_full82": true,
+        "current_source_native_cases": 54,
+        "combined_machine_result": "current_dev_80975b0051/evidence/FINAL_RESULT.json"
       },
       "comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/TEN_AXIS_COMPARISON.json",
-      "accepted_removed": 0
+      "accepted_removed": 0,
+      "current_source_context": {
+        "local_implementation": "8b8829ba3c114bb57a31e9da58a31b91a4c2ed5c",
+        "incoming_Dev": "80975b0051f6a5be29b0680e8b84e15f30d3c316"
+      }
     }
   ],
   "design_delta": 0,

@@ -1,0 +1,110 @@
+{
+  "id": "reference-main-arrangements-20261101",
+  "scope": "Owner correction: first full songs remain underbuilt/meandering with unclear melodies. Opera is strongest. Choose named reference recordings, retain their verse/refrain and instrument-role architecture, build original melodic adaptations and purposeful rhythmic ensembles using only installed UVI / authorized UVI-powered Sunbird. Preserve every prior recording. Non-runtime review candidates only.",
+  "baseline": "93166ab1828ab9857227d038f8833b92dfb2f9f1",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SND-04",
+    "DL-SND-09",
+    "DL-SND-12",
+    "DL-SND-17",
+    "DL-ASSET-04",
+    "DL-SND-07"
+  ],
+  "findings": [
+    "MA-AUDIO-001"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/audio/music/reference_arrangements_20261101/.gdignore",
+    "assets_src/audio/music/reference_arrangements_20261101/Listening Guide.txt",
+    "assets_src/audio/music/reference_arrangements_20261101/articulation_recall.json",
+    "assets_src/audio/music/reference_arrangements_20261101/castle/castle.ogg",
+    "assets_src/audio/music/reference_arrangements_20261101/castle/castle_arrangement.mid",
+    "assets_src/audio/music/reference_arrangements_20261101/castle/castle_master.flac",
+    "assets_src/audio/music/reference_arrangements_20261101/castle/score.json",
+    "assets_src/audio/music/reference_arrangements_20261101/group_balance.json",
+    "assets_src/audio/music/reference_arrangements_20261101/manifest.json",
+    "assets_src/audio/music/reference_arrangements_20261101/mix_assessment.json",
+    "assets_src/audio/music/reference_arrangements_20261101/native_mastering.tsv",
+    "assets_src/audio/music/reference_arrangements_20261101/opera_house/opera_house.ogg",
+    "assets_src/audio/music/reference_arrangements_20261101/opera_house/opera_house_arrangement.mid",
+    "assets_src/audio/music/reference_arrangements_20261101/opera_house/opera_house_master.flac",
+    "assets_src/audio/music/reference_arrangements_20261101/opera_house/score.json",
+    "assets_src/audio/music/reference_arrangements_20261101/performance.lua",
+    "assets_src/audio/music/reference_arrangements_20261101/reference_map.json",
+    "assets_src/audio/music/reference_arrangements_20261101/sky_lagoon/score.json",
+    "assets_src/audio/music/reference_arrangements_20261101/sky_lagoon/sky_lagoon.ogg",
+    "assets_src/audio/music/reference_arrangements_20261101/sky_lagoon/sky_lagoon_arrangement.mid",
+    "assets_src/audio/music/reference_arrangements_20261101/sky_lagoon/sky_lagoon_master.flac",
+    "tools/compose_reference_arrangements.py",
+    "tools/finalize_main_arrangements.py",
+    "tools/finish_reference_arrangements.py",
+    "tools/publish_reference_arrangements.py",
+    "tools/reaper/build_reference_arrangements.lua",
+    "tools/reaper/master_reference_arrangements.lua",
+    "tools/reaper/mix_reference_arrangements.lua",
+    "tools/reaper/reference_bus_guards.lua"
+  ],
+  "validation": [
+    {
+      "command": "Named recording research and scored section/role adaptation",
+      "result": "PASS",
+      "evidence": "reference_map.json; Listening Guide.txt. Belafonte Jump in the Line / Makeba Pata Pata / Marley Three Little Birds. Reference identities and source form links recorded; our exact bar lengths and original hooks are explicitly adaptations, not claimed reference transcriptions."
+    },
+    {
+      "command": "Native REAPER/Falcon construction, exposed articulation recall and exact MIDI / returning-hook checks",
+      "result": "PASS",
+      "evidence": "manifest.json: 25 native parts / 10893 notes; all note pitches, velocities and starts checked. Pitched-part durations and all returning eight-bar refrain identities agree. Percussive one-shot note-off lengths are not used as a pitched-duration acceptance test. Each declared native selector and Sunbird Solo mode checked."
+    },
+    {
+      "command": "Individual EQ/automation, five ensemble buses, native mastering and independent encoded audio checks",
+      "result": "PASS",
+      "evidence": "manifest.json; group_balance.json; mix_assessment.json; native_mastering.tsv. 256 kbps Vorbis and 24-bit FLAC; all three meet -18 LUFS +/-0.5 and <=-3 dBTP, finite stereo 48 kHz, no clipping, settled tails, mono and lossless checks. Actual fixed-performance master limiting measured separately; no subjective sound grade claimed."
+    },
+    {
+      "command": "Owner-local portable session / stem hash verification; prior review preservation",
+      "result": "PASS",
+      "evidence": "Reference Arrangements 20261101/delivery_receipt.json: 3 individual-part native composition sessions, 3 printed-submix sessions, 15 submix stems and score/MIDI/audio copies. Every previous full-review OGG/FLAC hash still matches the earlier manifest."
+    },
+    {
+      "command": "Python AST / executed Lua builders and helper compilation",
+      "result": "PASS",
+      "evidence": "Four touched Python modules parse; native build, mix, MIDI verification, transient guard and master jobs executed. Final documented Castle headroom parameter matches the executed correction."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV baseline 93166ab1828ab9857227d038f8833b92dfb2f9f1 RESULT ALL OK; document authority inventory/ledger 752/752, active 74, records 77, RESULT ALL OK. Final native Lua loadfile compilation passed. Source-only review package; no runtime integration/commit claimed."
+    },
+    {
+      "command": "Owner musical acceptance / voice-over / phone / child / runtime gates",
+      "result": "PENDING",
+      "evidence": "Needs owner hearing for recognisable hooks, reference suitability, orchestration and section contrast. No runtime music replaced, protected assets edited, finding closed or game-wide acceptance claimed."
+    },
+    {
+      "command": "Final portable delivery, listening guide and background-worker shutdown",
+      "result": "PASS",
+      "evidence": "Owner-local Reference Arrangements 20261101; manifest and delivery receipt hashes verified. Listening Guide.txt copied with section timings and instrument roles. Only the REAPER process with the task-specific private profile was stopped after all sessions were saved."
+    }
+  ],
+  "acceptance_gaps": "No new song, reference choice, section adaptation or mix is owner-accepted yet. Runtime/voice/phone/child listening remains separate. Rejected previous full mixes retained unchanged; no finding closed.",
+  "lessons": [
+    {
+      "lesson": "Conservative percussive peak caps suppressed the rhythmic body. The revised mix gives the kit and hand percussion meaningful roles and uses local transient control where needed, with measured final encoded peaks.",
+      "write_back": "tools/finish_reference_arrangements.py; tools/reaper/reference_bus_guards.lua"
+    },
+    {
+      "lesson": "Maximum predicted peak reduction is only a diagnostic; assess the actual fixed-performance limiting and encoded result. Castle required extra native ceiling headroom for lossy overshoot; final source and session controls record it.",
+      "write_back": "tools/publish_reference_arrangements.py; tools/reaper/master_reference_arrangements.lua"
+    }
+  ],
+  "references_used": [
+    {
+      "path": "assets_src/audio/music/reference_arrangements_20261101/reference_map.json",
+      "purpose": "Named recording sources, preserved section identities, explicit adaptation limits and part-role maps."
+    }
+  ]
+}

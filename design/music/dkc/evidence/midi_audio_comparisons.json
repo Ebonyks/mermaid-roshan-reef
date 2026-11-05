@@ -1,0 +1,1630 @@
+{
+  "schema": "dkc-midi-original-stress/1",
+  "checked_utc": "2026-11-03T04:58:53.596735+00:00",
+  "method": "Whitened STFT chroma versus tempo-decoded note-duration chroma; bounded scale .7–1.5 and offset -4–8s; first <=65s; no drum-channel notes. Candidate ranking only, not percentage fidelity.",
+  "limits": [
+    "No timbre equivalence measurement",
+    "MIDI sustain pedal, effects and pitch bends summarized but not synthesized in chroma",
+    "Percussion, intros, loops and tuning can reduce discrimination",
+    "Controls intentionally permit a wrong original to expose false positives; no pass threshold manufactured",
+    "Short-stinger wrong-original control may have no valid overlap; null means unavailable, not a low fidelity score.",
+    "Channel 10 is treated as default percussion; nonstandard GS/XG drum remaps require separate inspection. Pitch class comparison cannot verify bass octave, expressive synthesis or exact notes."
+  ],
+  "synthetic_controls": [
+    {
+      "actual_scale": 1,
+      "matched": {
+        "centered_chroma_similarity": 1,
+        "midi_seconds_to_audio_scale": 1.0000000000000002,
+        "audio_offset_seconds": -8.881784197001252e-16,
+        "compared_frames": 250
+      },
+      "transposed": {
+        "centered_chroma_similarity": 0.6364,
+        "midi_seconds_to_audio_scale": 1.0000000000000002,
+        "audio_offset_seconds": -2.0000000000000004,
+        "compared_frames": 240
+      },
+      "pass_test": true
+    },
+    {
+      "actual_scale": 1.2,
+      "matched": {
+        "centered_chroma_similarity": 0.9984,
+        "midi_seconds_to_audio_scale": 1.2000000000000004,
+        "audio_offset_seconds": -8.881784197001252e-16,
+        "compared_frames": 250
+      },
+      "transposed": {
+        "centered_chroma_similarity": 0.6406,
+        "midi_seconds_to_audio_scale": 1.2000000000000004,
+        "audio_offset_seconds": -2.4000000000000004,
+        "compared_frames": 250
+      },
+      "pass_test": true
+    }
+  ],
+  "tracks": [
+    {
+      "id": "DKC-01",
+      "title": "Theme",
+      "candidates": [
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_theme.mid",
+          "name": "Theme",
+          "sha256": "8f78b840a4efd8104bfbe0782a238769a1acbdd00ff8ead303ba01a25eade5da",
+          "note_count": 1939,
+          "channels": 10,
+          "centered_chroma_similarity": 0.5724,
+          "midi_seconds_to_audio_scale": 0.9500000000000002,
+          "audio_offset_seconds": -0.4000000000000008,
+          "compared_frames": 316,
+          "held_out_65_to_100s": {
+            "similarity": 0.4085,
+            "frames": 65,
+            "offset_and_scale_frozen": true
+          }
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.3169,
+          "midi_seconds_to_audio_scale": 0.7,
+          "audio_offset_seconds": 1.5999999999999988,
+          "compared_frames": 282
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": 0.1976,
+          "midi_seconds_to_audio_scale": 0.8500000000000001,
+          "audio_offset_seconds": 5.999999999999998,
+          "compared_frames": 257
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.1809,
+          "midi_seconds_to_audio_scale": 1.1500000000000004,
+          "audio_offset_seconds": 3.599999999999998,
+          "compared_frames": 295
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://themushroomkingdom.net/sounds/mid/dkcountry_theme.mid"
+    },
+    {
+      "id": "DKC-02",
+      "title": "Simian Segue",
+      "candidates": [
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Map-KM.mid",
+          "name": "Simian Segue (2)",
+          "sha256": "5357c78c4901dd686839d143d849755d95ed2c08fda7a761af18b359384788bf",
+          "note_count": 3466,
+          "channels": 12,
+          "centered_chroma_similarity": 0.4717,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": -0.8000000000000007,
+          "compared_frames": 297,
+          "held_out_65_to_100s": {
+            "similarity": 0.4637,
+            "frames": 166,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_simian_segue.mid",
+          "name": "Simian Segue",
+          "sha256": "582f4902831e14b3f48db783c25ec0079914d7f987ef03ffb9949ff8e1e16966",
+          "note_count": 3222,
+          "channels": 6,
+          "centered_chroma_similarity": 0.086,
+          "midi_seconds_to_audio_scale": 1.4750000000000005,
+          "audio_offset_seconds": 5.1999999999999975,
+          "compared_frames": 270,
+          "held_out_65_to_100s": {
+            "similarity": -0.0613,
+            "frames": 161,
+            "offset_and_scale_frozen": true
+          }
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.2876,
+          "midi_seconds_to_audio_scale": 1.3000000000000005,
+          "audio_offset_seconds": 7.9999999999999964,
+          "compared_frames": 265
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": 0.0311,
+          "midi_seconds_to_audio_scale": 1.1000000000000003,
+          "audio_offset_seconds": -4,
+          "compared_frames": 295
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.221,
+          "midi_seconds_to_audio_scale": 1.4500000000000006,
+          "audio_offset_seconds": 7.599999999999998,
+          "compared_frames": 263
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Map-KM.mid"
+    },
+    {
+      "id": "DKC-03",
+      "title": "DK Island Swing",
+      "candidates": [
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_DK_Island_Swing-1.mid",
+          "name": "DK Island Swing (3)",
+          "sha256": "4c4f2a6c490a43290638516e415664736669297b6d618a2b1de091f062de020a",
+          "note_count": 2781,
+          "channels": 12,
+          "centered_chroma_similarity": 0.4925,
+          "midi_seconds_to_audio_scale": 1.2250000000000005,
+          "audio_offset_seconds": 6.799999999999997,
+          "compared_frames": 89,
+          "held_out_65_to_100s": {
+            "similarity": 0.1451,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_dk_island_swing[2].mid",
+          "name": "DK Island Swing [2]",
+          "sha256": "32978cd412be5087d9a944cfa96a96308343d1bcf13007678f767c8a812c75d1",
+          "note_count": 2988,
+          "channels": 12,
+          "centered_chroma_similarity": 0.4323,
+          "midi_seconds_to_audio_scale": 1.5000000000000007,
+          "audio_offset_seconds": 7.599999999999998,
+          "compared_frames": 124,
+          "held_out_65_to_100s": {
+            "similarity": 0.117,
+            "frames": 158,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Jungle-KM.mid",
+          "name": "DK Island Swing (4)",
+          "sha256": "34e0f083893fb515233664791317d91eb095a5af0015f64853c5ea2705479700",
+          "note_count": 6758,
+          "channels": 16,
+          "centered_chroma_similarity": 0.1393,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": 7.9999999999999964,
+          "compared_frames": 268,
+          "held_out_65_to_100s": {
+            "similarity": 0.2236,
+            "frames": 163,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_dk_island_swing.mid",
+          "name": "DK Island Swing",
+          "sha256": "58cfadabf3594d5495667802ff287f16bae0792a5b0946b55c6ba095b01788d6",
+          "note_count": 7740,
+          "channels": 16,
+          "centered_chroma_similarity": 0.1329,
+          "midi_seconds_to_audio_scale": 1.2000000000000004,
+          "audio_offset_seconds": -2.0000000000000004,
+          "compared_frames": 294,
+          "held_out_65_to_100s": {
+            "similarity": 0.1627,
+            "frames": 171,
+            "offset_and_scale_frozen": true
+          }
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.1884,
+          "midi_seconds_to_audio_scale": 1.3500000000000005,
+          "audio_offset_seconds": 6.399999999999999,
+          "compared_frames": 219
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": 0.2154,
+          "midi_seconds_to_audio_scale": 1.5000000000000007,
+          "audio_offset_seconds": 7.599999999999998,
+          "compared_frames": 47
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.3697,
+          "midi_seconds_to_audio_scale": 1.4750000000000005,
+          "audio_offset_seconds": 7.599999999999998,
+          "compared_frames": 47
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_DK_Island_Swing-1.mid"
+    },
+    {
+      "id": "DKC-04",
+      "title": "Cranky's Theme",
+      "candidates": [
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_cranky_cabin.mid",
+          "name": "Cranky's Cabin",
+          "sha256": "81202a3607e738d79e4bb63bd74355576dc9f88c15d194dbc935cc1448ad0312",
+          "note_count": 1359,
+          "channels": 5,
+          "centered_chroma_similarity": 0.7149,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": 0.7999999999999989,
+          "compared_frames": 306,
+          "held_out_65_to_100s": {
+            "similarity": 0.5886,
+            "frames": 58,
+            "offset_and_scale_frozen": true
+          }
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.3044,
+          "midi_seconds_to_audio_scale": 1.2500000000000004,
+          "audio_offset_seconds": 3.1999999999999984,
+          "compared_frames": 304
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": 0.0696,
+          "midi_seconds_to_audio_scale": 1.2000000000000004,
+          "audio_offset_seconds": -0.4000000000000008,
+          "compared_frames": 311
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.2775,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": 2.3999999999999986,
+          "compared_frames": 298
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://themushroomkingdom.net/sounds/mid/dkcountry_cranky_cabin.mid"
+    },
+    {
+      "id": "DKC-05",
+      "title": "Cave Dweller Concert",
+      "candidates": [
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_Cave_Dweller_Concert.mid",
+          "name": "Cave Dweller Concert",
+          "sha256": "7efc21631feebd76315d21309e4e8c82271b1e4b04d956a5476b5222bad70d60",
+          "note_count": 1266,
+          "channels": 12,
+          "centered_chroma_similarity": 0.5335,
+          "midi_seconds_to_audio_scale": 1.0250000000000004,
+          "audio_offset_seconds": -8.881784197001252e-16,
+          "compared_frames": 301,
+          "held_out_65_to_100s": {
+            "similarity": 0.5293,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.138,
+          "midi_seconds_to_audio_scale": 1.3000000000000005,
+          "audio_offset_seconds": -3.2,
+          "compared_frames": 309
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": 0.053,
+          "midi_seconds_to_audio_scale": 0.8250000000000001,
+          "audio_offset_seconds": 7.9999999999999964,
+          "compared_frames": 267
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.0374,
+          "midi_seconds_to_audio_scale": 1.1750000000000003,
+          "audio_offset_seconds": -3.2,
+          "compared_frames": 296
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_Cave_Dweller_Concert.mid"
+    },
+    {
+      "id": "DKC-06",
+      "title": "Bonus Room Blitz",
+      "candidates": [
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC1-BonusRoomBlitz.mid",
+          "name": "Bonus Stage (2)",
+          "sha256": "364c9606c867615682be67b28f8d5b2c675db6de193ae320b6483e07b83494bd",
+          "note_count": 2848,
+          "channels": 7,
+          "centered_chroma_similarity": 0.5539,
+          "midi_seconds_to_audio_scale": 0.9500000000000002,
+          "audio_offset_seconds": 0.7999999999999989,
+          "compared_frames": 234,
+          "held_out_65_to_100s": {
+            "similarity": null,
+            "frames": 0,
+            "reason": "Reference or alignment too short"
+          }
+        },
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Bonus-KM.mid",
+          "name": "Bonus Stage (3)",
+          "sha256": "4ea98ea1ffb16a67e5305275f18f2acf16a9343a1d0151e2a680052613fd0ce7",
+          "note_count": 2733,
+          "channels": 14,
+          "centered_chroma_similarity": 0.5287,
+          "midi_seconds_to_audio_scale": 0.9750000000000002,
+          "audio_offset_seconds": 0.7999999999999989,
+          "compared_frames": 287,
+          "held_out_65_to_100s": {
+            "similarity": null,
+            "frames": 0,
+            "reason": "Reference or alignment too short"
+          }
+        },
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_bonus_stage.mid",
+          "name": "Bonus Stage",
+          "sha256": "4fd92a7ddc8bcdd21f22bde232bed4d1fda297d6942c08fd0ed458ec56a9ced3",
+          "note_count": 718,
+          "channels": 6,
+          "centered_chroma_similarity": null,
+          "midi_seconds_to_audio_scale": null,
+          "audio_offset_seconds": null,
+          "compared_frames": 0,
+          "held_out_65_to_100s": {
+            "similarity": null,
+            "frames": 0,
+            "reason": "Reference or alignment too short"
+          },
+          "measurement_status": "NO_VALID_ALIGNMENT"
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.229,
+          "midi_seconds_to_audio_scale": 1.3000000000000005,
+          "audio_offset_seconds": 1.1999999999999993,
+          "compared_frames": 242
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": 0.2547,
+          "midi_seconds_to_audio_scale": 1.5000000000000007,
+          "audio_offset_seconds": 4.399999999999999,
+          "compared_frames": 251
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.2444,
+          "midi_seconds_to_audio_scale": 0.9250000000000002,
+          "audio_offset_seconds": 3.9999999999999982,
+          "compared_frames": 224
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://www.vgmusic.com/music/console/nintendo/snes/DKC1-BonusRoomBlitz.mid"
+    },
+    {
+      "id": "DKC-07",
+      "title": "Aquatic Ambiance",
+      "candidates": [
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_aquatic_ambiance[2].mid",
+          "name": "Aquatic Ambiance [2]",
+          "sha256": "256f0568841d968a8603da96369d2036639141cbb3fe4b16b04a0295dac38ddd",
+          "note_count": 2324,
+          "channels": 14,
+          "centered_chroma_similarity": 0.7429,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": 0.3999999999999986,
+          "compared_frames": 322,
+          "held_out_65_to_100s": {
+            "similarity": 0.6943,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_aquatic_ambiance[3].mid",
+          "name": "Aquatic Ambiance [3]",
+          "sha256": "4de3937fc95cba98e021aa8289e6ab193e01752817b9b2473a0ac3482014610b",
+          "note_count": 2588,
+          "channels": 15,
+          "centered_chroma_similarity": 0.7204,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": -1.2000000000000006,
+          "compared_frames": 324,
+          "held_out_65_to_100s": {
+            "similarity": 0.6901,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_aquatic_ambiance.mid",
+          "name": "Aquatic Ambiance",
+          "sha256": "07200924bee8f153c5ca12fb28159779bdf3290b6a72d1b02d85205555baab96",
+          "note_count": 1733,
+          "channels": 14,
+          "centered_chroma_similarity": 0.6595,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": -8.881784197001252e-16,
+          "compared_frames": 324,
+          "held_out_65_to_100s": {
+            "similarity": 0.6557,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Water-KM.mid",
+          "name": "Aquatic Ambience (4)",
+          "sha256": "07792a520968c6bef40f8a241719f665b9e62c9da2eed553e127b17acb2583c6",
+          "note_count": 4125,
+          "channels": 15,
+          "centered_chroma_similarity": 0.4685,
+          "midi_seconds_to_audio_scale": 1.1000000000000003,
+          "audio_offset_seconds": 0.7999999999999989,
+          "compared_frames": 321,
+          "held_out_65_to_100s": {
+            "similarity": 0.3189,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_Aquatic_Ambience.mid",
+          "name": "Aquatic Ambience (5)",
+          "sha256": "27d3d4c447c492ce3f52cfd06a235b8bda96d96db509294a007778eb9a379edc",
+          "note_count": 3904,
+          "channels": 11,
+          "centered_chroma_similarity": -0.0057,
+          "midi_seconds_to_audio_scale": 1.3750000000000004,
+          "audio_offset_seconds": -4,
+          "compared_frames": 324,
+          "held_out_65_to_100s": {
+            "similarity": -0.2095,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.424,
+          "midi_seconds_to_audio_scale": 0.9750000000000002,
+          "audio_offset_seconds": 1.9999999999999982,
+          "compared_frames": 315
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": 0.2862,
+          "midi_seconds_to_audio_scale": 0.8250000000000001,
+          "audio_offset_seconds": 7.9999999999999964,
+          "compared_frames": 284
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.1994,
+          "midi_seconds_to_audio_scale": 1.4000000000000006,
+          "audio_offset_seconds": 4.399999999999999,
+          "compared_frames": 302
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://themushroomkingdom.net/sounds/mid/dkcountry_aquatic_ambiance[2].mid"
+    },
+    {
+      "id": "DKC-08",
+      "title": "Candy's Love Song",
+      "candidates": [],
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json."
+    },
+    {
+      "id": "DKC-09",
+      "title": "Bad Boss Boogie",
+      "candidates": [
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_Bad_Boss_Boogie.mid",
+          "name": "Bad Boss Boogie",
+          "sha256": "c972d24cc9fd84983026577c71a56097e7665bb1ca6ce59083b9948560761a34",
+          "note_count": 5848,
+          "channels": 11,
+          "centered_chroma_similarity": 0.5599,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": -8.881784197001252e-16,
+          "compared_frames": 323,
+          "held_out_65_to_100s": {
+            "similarity": 0.5673,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.1843,
+          "midi_seconds_to_audio_scale": 1.5000000000000007,
+          "audio_offset_seconds": 5.1999999999999975,
+          "compared_frames": 297
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": 0.1557,
+          "midi_seconds_to_audio_scale": 1.3500000000000005,
+          "audio_offset_seconds": 5.599999999999998,
+          "compared_frames": 294
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.1276,
+          "midi_seconds_to_audio_scale": 0.8500000000000001,
+          "audio_offset_seconds": 6.799999999999997,
+          "compared_frames": 289
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_Bad_Boss_Boogie.mid"
+    },
+    {
+      "id": "DKC-10",
+      "title": "Mine Cart Madness",
+      "candidates": [
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/Mine_Cart_Madness.mid",
+          "name": "Mine Cart Madness",
+          "sha256": "0c35ac7c0ec181dffb1a77b976ba83a04c5ab764290b76ecc1250c56c8718004",
+          "note_count": 4656,
+          "channels": 10,
+          "centered_chroma_similarity": 0.7216,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": -1.6000000000000005,
+          "compared_frames": 325,
+          "held_out_65_to_100s": {
+            "similarity": 0.822,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.2085,
+          "midi_seconds_to_audio_scale": 1.1750000000000003,
+          "audio_offset_seconds": -0.8000000000000007,
+          "compared_frames": 324
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": -0.0289,
+          "midi_seconds_to_audio_scale": 0.9000000000000001,
+          "audio_offset_seconds": 5.1999999999999975,
+          "compared_frames": 299
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.0531,
+          "midi_seconds_to_audio_scale": 0.8250000000000001,
+          "audio_offset_seconds": -4,
+          "compared_frames": 325
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://www.vgmusic.com/music/console/nintendo/snes/Mine_Cart_Madness.mid"
+    },
+    {
+      "id": "DKC-11",
+      "title": "Life in the Mines",
+      "candidates": [
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Mines-KM.mid",
+          "name": "Life in the Mines (4)",
+          "sha256": "7cc8a94a78f4d354113909b8ee01ec9a49f601d7f1005cf139a8bfe62cddca02",
+          "note_count": 5246,
+          "channels": 13,
+          "centered_chroma_similarity": 0.8458,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": 0.7999999999999989,
+          "compared_frames": 321,
+          "held_out_65_to_100s": {
+            "similarity": 0.8674,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_Life_in_the_Mines.mid",
+          "name": "Life in the Mines (5)",
+          "sha256": "c7f2fc7d6e81e1aaf03c1bb7b7f300d159b1becc1339fb6a884c5e8ce549981c",
+          "note_count": 3888,
+          "channels": 8,
+          "centered_chroma_similarity": 0.8388,
+          "midi_seconds_to_audio_scale": 1.0500000000000003,
+          "audio_offset_seconds": 0.3999999999999986,
+          "compared_frames": 323,
+          "held_out_65_to_100s": {
+            "similarity": 0.3119,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/winky.mid",
+          "name": "Life in the Mines (3)",
+          "sha256": "2245932fa97f82f2a6d522fa6faae97b972c3c61715142a26da29f2d6ec6c2e1",
+          "note_count": 1577,
+          "channels": 8,
+          "centered_chroma_similarity": 0.7607,
+          "midi_seconds_to_audio_scale": 0.9500000000000002,
+          "audio_offset_seconds": 1.5999999999999988,
+          "compared_frames": 317,
+          "held_out_65_to_100s": {
+            "similarity": 0.5201,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_life_in_the_mines(GM).mid",
+          "name": "Life in the Mines (GM)",
+          "sha256": "ffbd8d4235cfbafe8d7361b66643937d566e3edf276d9487508bc12d3d8b8a7b",
+          "note_count": 15456,
+          "channels": 14,
+          "centered_chroma_similarity": 0.6968,
+          "midi_seconds_to_audio_scale": 0.9750000000000002,
+          "audio_offset_seconds": -0.8000000000000007,
+          "compared_frames": 321,
+          "held_out_65_to_100s": {
+            "similarity": 0.768,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_life_in_the_mines.mid",
+          "name": "Life in the Mines",
+          "sha256": "8fedaaf571d42209298bac9c20ff096c2828b50597a4520806cf3f1bdb63ca7f",
+          "note_count": 7080,
+          "channels": 16,
+          "centered_chroma_similarity": 0.6941,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": -0.4000000000000008,
+          "compared_frames": 321,
+          "held_out_65_to_100s": {
+            "similarity": 0.7688,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKCMinesMSGS.mid",
+          "name": "Life in the Mines (GS)",
+          "sha256": "4938c7f0e49d24415430b26324bb76e9b98d073912916fe3b380582ab4d8cc6a",
+          "note_count": 14206,
+          "channels": 16,
+          "centered_chroma_similarity": 0.6894,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": -1.2000000000000006,
+          "compared_frames": 323,
+          "held_out_65_to_100s": {
+            "similarity": 0.6238,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_life_in_the_mines(RolandSC8850).mid",
+          "name": "Life in the Mines (Roland SC-8850)",
+          "sha256": "88a43fc6966db799e93787892420f513d607313943c218ce281aebe3e9a8f9df",
+          "note_count": 14580,
+          "channels": 15,
+          "centered_chroma_similarity": 0.6622,
+          "midi_seconds_to_audio_scale": 0.9750000000000002,
+          "audio_offset_seconds": -0.8000000000000007,
+          "compared_frames": 321,
+          "held_out_65_to_100s": {
+            "similarity": 0.743,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.3518,
+          "midi_seconds_to_audio_scale": 1.5000000000000007,
+          "audio_offset_seconds": 3.1999999999999984,
+          "compared_frames": 309
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": 0.1833,
+          "midi_seconds_to_audio_scale": 1.4500000000000006,
+          "audio_offset_seconds": 6.799999999999997,
+          "compared_frames": 291
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.181,
+          "midi_seconds_to_audio_scale": 0.75,
+          "audio_offset_seconds": -4,
+          "compared_frames": 323
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Mines-KM.mid"
+    },
+    {
+      "id": "DKC-12",
+      "title": "Voices of the Temple",
+      "candidates": [
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_temple_tempest.mid",
+          "name": "Temple Tempest",
+          "sha256": "1ca3273476ad3601ef0924dfadb672931ebf24c0ce775db0b2fba2531e0be366",
+          "note_count": 8124,
+          "channels": 9,
+          "centered_chroma_similarity": 0.8174,
+          "midi_seconds_to_audio_scale": 0.9250000000000002,
+          "audio_offset_seconds": 3.1999999999999984,
+          "compared_frames": 309,
+          "held_out_65_to_100s": {
+            "similarity": 0.6521,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_Voices_of_the_Temple.mid",
+          "name": "Voices of the Temple",
+          "sha256": "db28ba4d7860a8f95780df192014001bd5fd068ef78e59d5ab1bd6cafce4c929",
+          "note_count": 2406,
+          "channels": 6,
+          "centered_chroma_similarity": 0.4889,
+          "midi_seconds_to_audio_scale": 1.0500000000000003,
+          "audio_offset_seconds": 0.7999999999999989,
+          "compared_frames": 321,
+          "held_out_65_to_100s": {
+            "similarity": 0.4226,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.6198,
+          "midi_seconds_to_audio_scale": 0.775,
+          "audio_offset_seconds": 4.799999999999997,
+          "compared_frames": 300
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": 0.8262,
+          "midi_seconds_to_audio_scale": 1.3000000000000005,
+          "audio_offset_seconds": -0.4000000000000008,
+          "compared_frames": 324
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.011,
+          "midi_seconds_to_audio_scale": 1.5000000000000007,
+          "audio_offset_seconds": 7.9999999999999964,
+          "compared_frames": 285
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://themushroomkingdom.net/sounds/mid/dkcountry_temple_tempest.mid"
+    },
+    {
+      "id": "DKC-13",
+      "title": "Forest Frenzy",
+      "candidates": [
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_forest_frenzy[2].mid",
+          "name": "Forest Frenzy [2]",
+          "sha256": "5e90d053f8b9ab13cee72412a555b2237feb929cc943d2078459104064fc11ee",
+          "note_count": 2214,
+          "channels": 7,
+          "centered_chroma_similarity": 0.6445,
+          "midi_seconds_to_audio_scale": 0.9750000000000002,
+          "audio_offset_seconds": 0.7999999999999989,
+          "compared_frames": 298,
+          "held_out_65_to_100s": {
+            "similarity": 0.5787,
+            "frames": 165,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_forest_frenzy.mid",
+          "name": "Forest Frenzy",
+          "sha256": "c4871bd8ceaaf0537c0da41f5c1703c134a10eb3b078ad75e24b91033d0a0159",
+          "note_count": 2969,
+          "channels": 9,
+          "centered_chroma_similarity": 0.6157,
+          "midi_seconds_to_audio_scale": 1.0250000000000004,
+          "audio_offset_seconds": 0.7999999999999989,
+          "compared_frames": 314,
+          "held_out_65_to_100s": {
+            "similarity": 0.7305,
+            "frames": 173,
+            "offset_and_scale_frozen": true
+          }
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.4043,
+          "midi_seconds_to_audio_scale": 1.5000000000000007,
+          "audio_offset_seconds": 2.3999999999999986,
+          "compared_frames": 295
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": 0.2411,
+          "midi_seconds_to_audio_scale": 1.4250000000000007,
+          "audio_offset_seconds": -3.2,
+          "compared_frames": 299
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.1913,
+          "midi_seconds_to_audio_scale": 0.9750000000000002,
+          "audio_offset_seconds": 1.9999999999999982,
+          "compared_frames": 292
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://themushroomkingdom.net/sounds/mid/dkcountry_forest_frenzy[2].mid"
+    },
+    {
+      "id": "DKC-14",
+      "title": "Treetop Rock",
+      "candidates": [
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_tree_top_town.mid",
+          "name": "Tree Top Town",
+          "sha256": "e75500154b8518252d568bbcddc793876e36e184b6f9e1a72a1d333f44f63e89",
+          "note_count": 3545,
+          "channels": 8,
+          "centered_chroma_similarity": 0.7726,
+          "midi_seconds_to_audio_scale": 0.9500000000000002,
+          "audio_offset_seconds": -8.881784197001252e-16,
+          "compared_frames": 324,
+          "held_out_65_to_100s": {
+            "similarity": 0.7322,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.3309,
+          "midi_seconds_to_audio_scale": 1.4500000000000006,
+          "audio_offset_seconds": 7.599999999999998,
+          "compared_frames": 285
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": -0.0663,
+          "midi_seconds_to_audio_scale": 0.775,
+          "audio_offset_seconds": -3.6,
+          "compared_frames": 324
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.1938,
+          "midi_seconds_to_audio_scale": 1.3750000000000004,
+          "audio_offset_seconds": 6.399999999999999,
+          "compared_frames": 293
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://themushroomkingdom.net/sounds/mid/dkcountry_tree_top_town.mid"
+    },
+    {
+      "id": "DKC-15",
+      "title": "Funky's Fugue",
+      "candidates": [
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Funkys_Flights-KM.mid",
+          "name": "Funky's Flights (2)",
+          "sha256": "5d3bed6f446ed203ceceefa5424bbae04939aece6cd37da68a6af72a15dfaa98",
+          "note_count": 5709,
+          "channels": 10,
+          "centered_chroma_similarity": 0.5751,
+          "midi_seconds_to_audio_scale": 0.9750000000000002,
+          "audio_offset_seconds": -8.881784197001252e-16,
+          "compared_frames": 321,
+          "held_out_65_to_100s": {
+            "similarity": 0.5184,
+            "frames": 175,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_funky_flights.mid",
+          "name": "Funky's Flights",
+          "sha256": "db25e35fc29922f17d183455b0ac5e27ce42666832c2a2d0eb3351af9f7b3410",
+          "note_count": 4400,
+          "channels": 7,
+          "centered_chroma_similarity": 0.0692,
+          "midi_seconds_to_audio_scale": 0.8500000000000001,
+          "audio_offset_seconds": 3.9999999999999982,
+          "compared_frames": 286,
+          "held_out_65_to_100s": {
+            "similarity": 0.0453,
+            "frames": 158,
+            "offset_and_scale_frozen": true
+          }
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.3859,
+          "midi_seconds_to_audio_scale": 0.8500000000000001,
+          "audio_offset_seconds": -2.0000000000000004,
+          "compared_frames": 321
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": 0.2835,
+          "midi_seconds_to_audio_scale": 1.0250000000000004,
+          "audio_offset_seconds": 0.3999999999999986,
+          "compared_frames": 319
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.2029,
+          "midi_seconds_to_audio_scale": 0.9750000000000002,
+          "audio_offset_seconds": -3.2,
+          "compared_frames": 321
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Funkys_Flights-KM.mid"
+    },
+    {
+      "id": "DKC-16",
+      "title": "Misty Menace",
+      "candidates": [
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Mist-KM.mid",
+          "name": "Misty Menace (GS)",
+          "sha256": "c409deb701d46e0d46bfbedae6d213a5eca08a832857b37e97df3fe51e7c157f",
+          "note_count": 1434,
+          "channels": 4,
+          "centered_chroma_similarity": 0.0919,
+          "midi_seconds_to_audio_scale": 0.9750000000000002,
+          "audio_offset_seconds": 0.7999999999999989,
+          "compared_frames": 321,
+          "held_out_65_to_100s": {
+            "similarity": 0.1837,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.0179,
+          "midi_seconds_to_audio_scale": 1.3250000000000006,
+          "audio_offset_seconds": 2.3999999999999986,
+          "compared_frames": 313
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": -0.0231,
+          "midi_seconds_to_audio_scale": 0.7,
+          "audio_offset_seconds": -4,
+          "compared_frames": 109
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.1753,
+          "midi_seconds_to_audio_scale": 1.2500000000000004,
+          "audio_offset_seconds": -1.2000000000000006,
+          "compared_frames": 324
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Mist-KM.mid"
+    },
+    {
+      "id": "DKC-17",
+      "title": "Northern Hemispheres",
+      "candidates": [
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_northern_hemispheres.mid",
+          "name": "Northern Hemispheres",
+          "sha256": "cecdfcd515fa3b2fd0cde0913136f65c7cb5bd037f471fc903810e07ef307cc3",
+          "note_count": 3467,
+          "channels": 16,
+          "centered_chroma_similarity": 0.8447,
+          "midi_seconds_to_audio_scale": 1.0250000000000004,
+          "audio_offset_seconds": -0.8000000000000007,
+          "compared_frames": 324,
+          "held_out_65_to_100s": {
+            "similarity": 0.6755,
+            "frames": 175,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_Northern_Hemispheres.mid",
+          "name": "Northern Hemispheres (2)",
+          "sha256": "bafa518db7aeafa4a221983ad5b38bfe22c34ab4f8022002e7c55022a40bcf13",
+          "note_count": 3170,
+          "channels": 10,
+          "centered_chroma_similarity": 0.8179,
+          "midi_seconds_to_audio_scale": 1.3000000000000005,
+          "audio_offset_seconds": 7.9999999999999964,
+          "compared_frames": 285,
+          "held_out_65_to_100s": {
+            "similarity": 0.3972,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.6003,
+          "midi_seconds_to_audio_scale": 0.8250000000000001,
+          "audio_offset_seconds": 1.9999999999999982,
+          "compared_frames": 315
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": 0.0034,
+          "midi_seconds_to_audio_scale": 0.775,
+          "audio_offset_seconds": 5.999999999999998,
+          "compared_frames": 292
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.1697,
+          "midi_seconds_to_audio_scale": 0.8500000000000001,
+          "audio_offset_seconds": -3.6,
+          "compared_frames": 324
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://themushroomkingdom.net/sounds/mid/dkcountry_northern_hemispheres.mid"
+    },
+    {
+      "id": "DKC-18",
+      "title": "Ice Cave Chant",
+      "candidates": [
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_ice_cave_chant.mid",
+          "name": "Ice Cave Chant",
+          "sha256": "154b0bd1e49d367e2fc38b96985b2669c948113c2a34dcc3eeece8a453b57cb2",
+          "note_count": 3000,
+          "channels": 9,
+          "centered_chroma_similarity": 0.6636,
+          "midi_seconds_to_audio_scale": 0.9000000000000001,
+          "audio_offset_seconds": 1.9999999999999982,
+          "compared_frames": 315,
+          "held_out_65_to_100s": {
+            "similarity": 0.338,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_ice_cave_chant[2].mid",
+          "name": "Ice Cave Chant [2]",
+          "sha256": "350c63b2da8a0a066f27ce407eb8e0724a510733660eb449f5c10ab3081b11c1",
+          "note_count": 1931,
+          "channels": 6,
+          "centered_chroma_similarity": 0.6601,
+          "midi_seconds_to_audio_scale": 1.0250000000000004,
+          "audio_offset_seconds": 0.7999999999999989,
+          "compared_frames": 321,
+          "held_out_65_to_100s": {
+            "similarity": 0.5225,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.4018,
+          "midi_seconds_to_audio_scale": 1.0500000000000003,
+          "audio_offset_seconds": -0.8000000000000007,
+          "compared_frames": 324
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": -0.0847,
+          "midi_seconds_to_audio_scale": 0.775,
+          "audio_offset_seconds": 3.1999999999999984,
+          "compared_frames": 87
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.1126,
+          "midi_seconds_to_audio_scale": 0.8250000000000001,
+          "audio_offset_seconds": 7.599999999999998,
+          "compared_frames": 287
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://themushroomkingdom.net/sounds/mid/dkcountry_ice_cave_chant.mid"
+    },
+    {
+      "id": "DKC-19",
+      "title": "Fear Factory",
+      "candidates": [
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC1_FearFactory.mid",
+          "name": "Fear Factory (3)",
+          "sha256": "24241759be1eba3ad62fce72faf1fc483689cb23abf6fcb2067027d084691d58",
+          "note_count": 7779,
+          "channels": 16,
+          "centered_chroma_similarity": 0.8367,
+          "midi_seconds_to_audio_scale": 0.9750000000000002,
+          "audio_offset_seconds": -8.881784197001252e-16,
+          "compared_frames": 323,
+          "held_out_65_to_100s": {
+            "similarity": 0.8444,
+            "frames": 173,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_Fear_Factory.mid",
+          "name": "Fear Factory (4)",
+          "sha256": "2d9e4b9ebb9e845a2d771666780ab6356b9286a55a7806e588a7f5d233123f88",
+          "note_count": 5678,
+          "channels": 13,
+          "centered_chroma_similarity": 0.8278,
+          "midi_seconds_to_audio_scale": 1.0500000000000003,
+          "audio_offset_seconds": -8.881784197001252e-16,
+          "compared_frames": 323,
+          "held_out_65_to_100s": {
+            "similarity": 0.8151,
+            "frames": 175,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Factory-KM.mid",
+          "name": "Fear Factory (5)",
+          "sha256": "52701db4475fcce85a6682920e472a3a959b8bd120d4b5303538775d580f25e8",
+          "note_count": 7835,
+          "channels": 16,
+          "centered_chroma_similarity": 0.8254,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": 0.3999999999999986,
+          "compared_frames": 323,
+          "held_out_65_to_100s": {
+            "similarity": 0.8034,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DonkeyKongCountry-FearFactoryXG.mid",
+          "name": "Fear Factory (XG)",
+          "sha256": "1e1d8c27950b9e7e77c2a0d6a9c28fa4422082476cfebc834512d3bb0a6a5f76",
+          "note_count": 13296,
+          "channels": 14,
+          "centered_chroma_similarity": 0.8111,
+          "midi_seconds_to_audio_scale": 0.9750000000000002,
+          "audio_offset_seconds": -8.881784197001252e-16,
+          "compared_frames": 323,
+          "held_out_65_to_100s": {
+            "similarity": 0.8309,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_fear_factory[2].mid",
+          "name": "Fear Factory [2]",
+          "sha256": "eb732a493be91455af00f32e9fa6882ebd82714288138695a20abe67c58d561b",
+          "note_count": 4352,
+          "channels": 16,
+          "centered_chroma_similarity": 0.7819,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": 0.3999999999999986,
+          "compared_frames": 323,
+          "held_out_65_to_100s": {
+            "similarity": 0.7556,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_fear_factory.mid",
+          "name": "Fear Factory",
+          "sha256": "0bc2b53c22d41ddb4c5966797ab52041bc2a3e0b8f27f544ac7bfe7e62a14a18",
+          "note_count": 5284,
+          "channels": 12,
+          "centered_chroma_similarity": 0.6502,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": -0.4000000000000008,
+          "compared_frames": 320,
+          "held_out_65_to_100s": {
+            "similarity": 0.5673,
+            "frames": 174,
+            "offset_and_scale_frozen": true
+          }
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.6153,
+          "midi_seconds_to_audio_scale": 1.0500000000000003,
+          "audio_offset_seconds": -3.6,
+          "compared_frames": 320
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": 0.1219,
+          "midi_seconds_to_audio_scale": 0.9250000000000002,
+          "audio_offset_seconds": -0.4000000000000008,
+          "compared_frames": 323
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.1917,
+          "midi_seconds_to_audio_scale": 1.4750000000000005,
+          "audio_offset_seconds": 7.9999999999999964,
+          "compared_frames": 285
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://www.vgmusic.com/music/console/nintendo/snes/DKC1_FearFactory.mid"
+    },
+    {
+      "id": "DKC-20",
+      "title": "Gang-Plank Galleon",
+      "candidates": [
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_Gang-Plank_Galleon.mid",
+          "name": "Gang-Plank Galleon (3)",
+          "sha256": "0b3f43799ffb2dee83076bff066e13be53e87a2c7a55aed35644445f59be215b",
+          "note_count": 5073,
+          "channels": 9,
+          "centered_chroma_similarity": 0.6914,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": 0.3999999999999986,
+          "compared_frames": 316,
+          "held_out_65_to_100s": {
+            "similarity": 0.6384,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_gangplank_galleon[2].mid",
+          "name": "Gang-Plank Galleon [2]",
+          "sha256": "c66d4c071d9447b568080b423ece35010aee554c76d84d56f619b53f3fb648d7",
+          "note_count": 5230,
+          "channels": 13,
+          "centered_chroma_similarity": 0.5437,
+          "midi_seconds_to_audio_scale": 1.0250000000000004,
+          "audio_offset_seconds": 1.1999999999999993,
+          "compared_frames": 318,
+          "held_out_65_to_100s": {
+            "similarity": 0.5334,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_gangplank_galleon.mid",
+          "name": "Gang-Plank Galleon",
+          "sha256": "0d82239042763a81db66ed94e67cd48a0288d1707f3dc909162c1942129570fe",
+          "note_count": 3817,
+          "channels": 13,
+          "centered_chroma_similarity": 0.4543,
+          "midi_seconds_to_audio_scale": 1.0250000000000004,
+          "audio_offset_seconds": 0.3999999999999986,
+          "compared_frames": 320,
+          "held_out_65_to_100s": {
+            "similarity": 0.5018,
+            "frames": 174,
+            "offset_and_scale_frozen": true
+          }
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.336,
+          "midi_seconds_to_audio_scale": 1.4000000000000006,
+          "audio_offset_seconds": 4.799999999999997,
+          "compared_frames": 298
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": 0.1305,
+          "midi_seconds_to_audio_scale": 1.4500000000000006,
+          "audio_offset_seconds": 7.9999999999999964,
+          "compared_frames": 275
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.1958,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": 5.999999999999998,
+          "compared_frames": 288
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_Gang-Plank_Galleon.mid"
+    },
+    {
+      "id": "DKC-21",
+      "title": "K. Rool's Cacophony",
+      "candidates": [],
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json."
+    },
+    {
+      "id": "DKC-22",
+      "title": "The Credits Concerto",
+      "candidates": [
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_end_credits.mid",
+          "name": "End Credits",
+          "sha256": "194b0d3e963a7c7b1e33bb63608dbcd90bfa5c78bc93a9d98c5189c0ca67efa0",
+          "note_count": 2634,
+          "channels": 12,
+          "centered_chroma_similarity": 0.8196,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": 0.3999999999999986,
+          "compared_frames": 323,
+          "held_out_65_to_100s": {
+            "similarity": 0.8252,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.6452,
+          "midi_seconds_to_audio_scale": 1.4500000000000006,
+          "audio_offset_seconds": 5.599999999999998,
+          "compared_frames": 296
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": 0.1306,
+          "midi_seconds_to_audio_scale": 0.8500000000000001,
+          "audio_offset_seconds": 4.799999999999997,
+          "compared_frames": 301
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.2177,
+          "midi_seconds_to_audio_scale": 1.0500000000000003,
+          "audio_offset_seconds": 7.9999999999999964,
+          "compared_frames": 285
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://themushroomkingdom.net/sounds/mid/dkcountry_end_credits.mid"
+    },
+    {
+      "id": "DKC-23",
+      "title": "Fanfare",
+      "candidates": [],
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json."
+    },
+    {
+      "id": "DKC-24",
+      "title": "Level Goal",
+      "candidates": [
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_level_clear(XG).mid",
+          "name": "Level Clear XG",
+          "sha256": "f14fd014dfb8059662af2655a7ea7396a024a4a0f7a1132f76e7f6744a74e139",
+          "note_count": 246,
+          "channels": 15,
+          "centered_chroma_similarity": 0.7997,
+          "midi_seconds_to_audio_scale": 1.3500000000000005,
+          "audio_offset_seconds": -8.881784197001252e-16,
+          "compared_frames": 15,
+          "held_out_65_to_100s": {
+            "similarity": null,
+            "frames": 0,
+            "reason": "Reference or alignment too short"
+          }
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.8206,
+          "midi_seconds_to_audio_scale": 1.4500000000000006,
+          "audio_offset_seconds": 0.3999999999999986,
+          "compared_frames": 13
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": null,
+          "midi_seconds_to_audio_scale": null,
+          "audio_offset_seconds": null,
+          "compared_frames": 0,
+          "measurement_status": "NO_VALID_ALIGNMENT"
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.2664,
+          "midi_seconds_to_audio_scale": 1.4750000000000005,
+          "audio_offset_seconds": 0.3999999999999986,
+          "compared_frames": 13
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://themushroomkingdom.net/sounds/mid/dkcountry_level_clear(XG).mid"
+    },
+    {
+      "id": "DKC-25",
+      "title": "Bonus Win",
+      "candidates": [
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_bonus_boss_victory(XG).mid",
+          "name": "Bonus and Boss Victory XG",
+          "sha256": "0acc8f7e8629393b1fef3fea79b707223ad5b4f34bc746ffc7f538d7ec8e7e63",
+          "note_count": 548,
+          "channels": 15,
+          "centered_chroma_similarity": 0.8591,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": 0.3999999999999986,
+          "compared_frames": 31,
+          "held_out_65_to_100s": {
+            "similarity": null,
+            "frames": 0,
+            "reason": "Reference or alignment too short"
+          }
+        },
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_bonus_boss_victory.mid",
+          "name": "Bonus and Boss Victory",
+          "sha256": "1c0783038bc97820d8b4431333dde5fa589dcfbd1420bba0d73c817cb65ea9cc",
+          "note_count": 350,
+          "channels": 8,
+          "centered_chroma_similarity": 0.8485,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": 0.3999999999999986,
+          "compared_frames": 28,
+          "held_out_65_to_100s": {
+            "similarity": null,
+            "frames": 0,
+            "reason": "Reference or alignment too short"
+          }
+        },
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_win.mid",
+          "name": "Bonus Win",
+          "sha256": "eed16aa2cc0225949fdc40444e9670e00bb079aef000647d8cff8be17d98fa99",
+          "note_count": 269,
+          "channels": 6,
+          "centered_chroma_similarity": 0.7158,
+          "midi_seconds_to_audio_scale": 1.1250000000000004,
+          "audio_offset_seconds": -1.2000000000000006,
+          "compared_frames": 30,
+          "held_out_65_to_100s": {
+            "similarity": null,
+            "frames": 0,
+            "reason": "Reference or alignment too short"
+          }
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.5389,
+          "midi_seconds_to_audio_scale": 1.4500000000000006,
+          "audio_offset_seconds": -0.4000000000000008,
+          "compared_frames": 32
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": null,
+          "midi_seconds_to_audio_scale": null,
+          "audio_offset_seconds": null,
+          "compared_frames": 0,
+          "measurement_status": "NO_VALID_ALIGNMENT"
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.316,
+          "midi_seconds_to_audio_scale": 1.5000000000000007,
+          "audio_offset_seconds": -0.4000000000000008,
+          "compared_frames": 35
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://themushroomkingdom.net/sounds/mid/dkcountry_bonus_boss_victory(XG).mid"
+    },
+    {
+      "id": "DKC-26",
+      "title": "Bonus Lose",
+      "candidates": [
+        {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_bonus_lose.mid",
+          "name": "Bonus Lose",
+          "sha256": "88ae6479e302fa0e34b4f4d667923a5f31842b91d5e5519bd990f3ee494dc203",
+          "note_count": 221,
+          "channels": 6,
+          "centered_chroma_similarity": 0.7781,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": 0.3999999999999986,
+          "compared_frames": 26,
+          "held_out_65_to_100s": {
+            "similarity": null,
+            "frames": 0,
+            "reason": "Reference or alignment too short"
+          }
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": 0.2629,
+          "midi_seconds_to_audio_scale": 1.4750000000000005,
+          "audio_offset_seconds": -4,
+          "compared_frames": 25
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": null,
+          "midi_seconds_to_audio_scale": null,
+          "audio_offset_seconds": null,
+          "compared_frames": 0,
+          "measurement_status": "NO_VALID_ALIGNMENT"
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": 0.1167,
+          "midi_seconds_to_audio_scale": 1.2000000000000004,
+          "audio_offset_seconds": -1.2000000000000006,
+          "compared_frames": 25
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://themushroomkingdom.net/sounds/mid/dkcountry_bonus_lose.mid"
+    },
+    {
+      "id": "DKC-27",
+      "title": "Lost Life",
+      "candidates": [
+        {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Death-KM.mid",
+          "name": "Death",
+          "sha256": "3ade24a27363e40ed30a4a683e69a2f6b159be8630877a6ebc7c89ed8cd92794",
+          "note_count": 61,
+          "channels": 4,
+          "centered_chroma_similarity": null,
+          "midi_seconds_to_audio_scale": null,
+          "audio_offset_seconds": null,
+          "compared_frames": 0,
+          "held_out_65_to_100s": {
+            "similarity": null,
+            "frames": 0,
+            "reason": "Reference or alignment too short"
+          },
+          "measurement_status": "NO_VALID_ALIGNMENT"
+        }
+      ],
+      "controls": {
+        "shuffled_note_order": {
+          "centered_chroma_similarity": null,
+          "midi_seconds_to_audio_scale": null,
+          "audio_offset_seconds": null,
+          "compared_frames": 0,
+          "measurement_status": "NO_VALID_ALIGNMENT"
+        },
+        "wrong_original": {
+          "centered_chroma_similarity": null,
+          "midi_seconds_to_audio_scale": null,
+          "audio_offset_seconds": null,
+          "compared_frames": 0,
+          "measurement_status": "NO_VALID_ALIGNMENT"
+        },
+        "transposed_five_semitones": {
+          "centered_chroma_similarity": null,
+          "midi_seconds_to_audio_scale": null,
+          "audio_offset_seconds": null,
+          "compared_frames": 0,
+          "measurement_status": "NO_VALID_ALIGNMENT"
+        }
+      },
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json.",
+      "opening_diagnostic_leader": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Death-KM.mid"
+    },
+    {
+      "id": "DKC-28",
+      "title": "Bonus Room Opened!",
+      "candidates": [],
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json."
+    },
+    {
+      "id": "DKC-29",
+      "title": "Extra Life Balloon",
+      "candidates": [],
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json."
+    },
+    {
+      "id": "DKC-30",
+      "title": "Game Over",
+      "candidates": [],
+      "interpretation": "Diagnostic candidate ranking only; adopted selections and musical decisions live in working_interpretations.json."
+    }
+  ],
+  "holdout_method": "Original 65–100s uses each candidate’s opening-fit scale/offset without re-optimization. Fewer than ten frames does not support a holdout conclusion. Mirror copies deduplicated by SHA-256."
+}

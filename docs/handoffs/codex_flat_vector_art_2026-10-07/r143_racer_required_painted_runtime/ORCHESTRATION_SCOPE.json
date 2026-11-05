@@ -1,0 +1,8 @@
+{
+  "scope": "Verbatim orchestration and absolute staging paths retained as-run for provenance, not runtime scripts or portable entrypoints.",
+  "canonical_reproduction": "Use unchanged scripts/ci.sh plus the three declared focused probes and CAPTURE_INSTRUCTIONS.json in a clean isolated checkout with exact approved4.7.2. Do not rerun stopped jobs or historical absolute-path helpers.",
+  "current": "current_dev_80975b0051/evidence/orchestration",
+  "initial": "evidence/orchestration",
+  "healthy_continuation_source": "RESUME_COMBINED_STANDARD_LAUNCHER.py",
+  "all_engine_and_validator_floors_preserved": true
+}

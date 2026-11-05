@@ -1,0 +1,123 @@
+{
+  "state": "BROAD_THEATER_TEST_REPAIRED_AND_SEVEN_NEGATIVE_CONTROLS_PASS",
+  "at_utc": "2026-11-03T19:17:15.773717+00:00",
+  "initial_failure": "AUDIT|Rainbow Canvas theater: FAIL",
+  "diagnostic": {
+    "surface": false,
+    "curtains": false,
+    "tiles": true,
+    "spatial_descendants": 0,
+    "actual_proscenium_children": 41,
+    "actual_proscenium_size": [
+      1232,
+      684
+    ],
+    "cause": "Originalactor/fullcurtain/fourchild assumptions predate explicitly authorized composedpainted stage and budget-preserving mobileexports.",
+    "log": "diagnostics/theater_diagnostic.log"
+  },
+  "before_test_sha256": "3bd37bd6a8f53e251b447920745d27ce6cd2d28b49e56d4107a342c3a8c7b509",
+  "after_test_sha256": "7692300dce57c2ad2d0e5e2862f858be2f83bd8acc278cf46a06d59e151a8d0c",
+  "runtime_input_changes": [
+    "scripts/probe_audit.gd"
+  ],
+  "production_input_changes": [],
+  "artwork_changes": [],
+  "normal_save_changes": [],
+  "audio_reference_deltas": [],
+  "audio_ledger_rows": 862,
+  "preserved_floors": [
+    "ExactCanvas hierarchy andno spatialdescendants",
+    "Exactfournative1024tile bindings/transforms andzordering",
+    "Actor identity/wholetexturing/no flips/rotation/skew/regions/framechanges",
+    "Curtainvisibility/clip/enclosure/mouseIGNORE/aspect tolerance0.00001",
+    "ExactRGBA comparison to originalcurtaincrops; allpaintedcomponent SHA256pins",
+    "Originalonefinger/hit84and120/clock/scoring/save/teardown retained"
+  ],
+  "negative_controls": [
+    "wrongoriginaluncroppedcurtain",
+    "rotatedcloth",
+    "unclippedcloth",
+    "hiddencloth",
+    "extrastagechild",
+    "originaloversizedactor",
+    "flippedactor"
+  ],
+  "earlier_static_pass": "validation/STATIC_RESULT.json",
+  "earlier_five_probes_reused": [
+    {
+      "probe": "probe_melody",
+      "exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 37.381,
+      "failure_lines": [],
+      "output_nonempty": true,
+      "passed": true,
+      "log_sha256": "5dd8ff4b6b3aa4098af56e781e7d9fdf4a5a1a638250f93284a3c86dad967360"
+    },
+    {
+      "probe": "probe_mg2d",
+      "exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 22.364,
+      "failure_lines": [],
+      "output_nonempty": true,
+      "passed": true,
+      "log_sha256": "4d91bd5db4823c8cc3736c56cf3762f8ce28d83e7835b69ecc3991565feca6ff"
+    },
+    {
+      "probe": "probe_opera_2d",
+      "exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 51.517,
+      "failure_lines": [],
+      "output_nonempty": true,
+      "passed": true,
+      "log_sha256": "4ef5299e960e2cacc15d47151cde1eb836639e3daa5c3f5ec85533313c728bcd"
+    },
+    {
+      "probe": "probe_opera_gesture_quality",
+      "exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 2.553,
+      "failure_lines": [],
+      "output_nonempty": true,
+      "passed": true,
+      "log_sha256": "0fe3c38708145167a6f508e0b4c7215f3a9d19e82e926f762a23de447850732e"
+    },
+    {
+      "probe": "probe_dolls",
+      "exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 16.932,
+      "failure_lines": [],
+      "output_nonempty": true,
+      "passed": true,
+      "log_sha256": "659970ea99291b00fdc4f03206d99fa35477f422386c825f1e7c250c764c0090"
+    }
+  ],
+  "reuse_reason": "None of the five passing scripts loads scripts/probe_audit.gd; every production/code/asset input remains byte-identical. Updated harness alone reruns, then every remainingoriginalprobe.",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "revalidated_probe": {
+    "probe": "probe_audit",
+    "exit_code": 0,
+    "elapsed_seconds": 37.656,
+    "log": "validation/probe_audit_repaired_bindings/engine.log",
+    "log_sha256": "1d40e2b38b4111e79c6c523511c5c3768f4d5dc9dc0711bdc6d85d7c5f80fbbe",
+    "theater": "PASS",
+    "negative_controls": "ALL7_PASS"
+  },
+  "remaining_original_suite": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+  "updated_at_utc": "2026-11-03T19:20:17.403339+00:00",
+  "final_result": "validation/FINAL_RESULT.json",
+  "changed_test_parser_and_inference_lint": {
+    "state": "PASS",
+    "commands": [
+      "python -m gdtoolkit.parser scripts/probe_audit.gd",
+      "python -B tools/lint_inference.py scripts/probe_audit.gd"
+    ],
+    "evidence": "Guarded patch invocation returned0, followed by actualprobe_audit PASS and finalexactchangedscriptGodotanalyzer; no healthy suite repeated for bookkeeping."
+  }
+}

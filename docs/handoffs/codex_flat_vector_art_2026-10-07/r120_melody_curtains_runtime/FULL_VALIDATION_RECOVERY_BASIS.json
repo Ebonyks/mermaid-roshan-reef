@@ -1,0 +1,32 @@
+{
+  "state": "TEST_ART_ASSERTION_ONLY_RECOVERY_RETAINS_HEALTHY_CURRENT_GATES",
+  "original_validation": "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/ORIGINAL_FULL_VALIDATION_FAILURE.json",
+  "original_source_pin_sha256": "f149f598811cfa9aec8c5430895e86a539a02ba0aecfaabe0403cdbd223928b4",
+  "corrected_source_pin_sha256": "61de0d41efd39a76d3835c20811605767710de4e6e76ce8ae2ed8b4ffe23c847",
+  "only_changed_file": [
+    "scripts/probe_audit.gd"
+  ],
+  "no_gameplay_asset_or_rendering_change": true,
+  "native_reuse_only_changed_tests": [
+    "scripts/probe_audit.gd",
+    "scripts/probe_melody.gd"
+  ],
+  "retained": {
+    "complete_static_prefix": "PASS exit0 both original shells",
+    "Game2D_regression": "PASS; exact changed-probe3D projection unchanged",
+    "current_Melody": "PASS exit0",
+    "reef_districts": "PASS exit0",
+    "ocean_kingdoms": "PASS exit0",
+    "native": "165 effective checks;12 directly inspected stills; no new native events"
+  },
+  "refreshed": [
+    "changed test parser/inference",
+    "real Godot analyzer for corrected probe",
+    "original probe_audit retry",
+    "original remaining78 trusted scripts"
+  ],
+  "original_failure_preserved": true,
+  "Dev_integrated": false,
+  "formal_QA11": null,
+  "accepted_removed": 0
+}

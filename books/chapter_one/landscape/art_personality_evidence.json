@@ -1,0 +1,659 @@
+{
+  "method": "builtin image_gen",
+  "scope": "Owner-commissioned cover/nap; targeted pose and lighting; five background integrations. No game cinematic delivery claim.",
+  "original_reference_pdf": {
+    "path": "C:/Users/Peter/Downloads/Mermaid_Roshan_REVIEW-1.pdf",
+    "sha256": "3e1ba2413b213194e0dc1276172e58b8afcd16cc366a1ab0fc633d6daefc583c",
+    "page": 1
+  },
+  "jobs": [
+    {
+      "id": "border_06",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "Use case: precise-object-edit. Edit IMAGE_1, the 1484x1060 blue watercolor stationery. Preserve ratio, empty upper 85%, dotted frame, crisp coral/shells, blue wash and two BLUE banks. Tiny decorative story performance ONLY below y=.855 and above y=.98. Each object/figure <=.11 canvas width AND <=.11 canvas height. Banks at x<.38 and x>.62; keep central gap COMPLETELY empty. Native coral stays. Integrate bodies into bank texture with narrow contact shadows and natural bottom occlusion, no pasted look, no white outlines. Broad clean graphic value bands, crisp minimal watercolor, no noisy speckles. No text or large story illustration. Bunny identity comes from IMAGE_2: lavender cloud puff with spiral ear curls, forehead curl, pearl nubs, no furry rabbit legs/tail or human limbs. One tiny earnest bunny at x=.22,y=.92 leaning over a small pearly shell basin, squeezing a folded lavender washcloth with its two pearl nubs; exactly two droplets fall INTO basin, not floating bubbles. Basin x=.29,y=.95 width.075 height.035, bunny width.075 height.08, cloth width.04. Opposite right bank only a tiny pink shell soap dish with damp cloth edge, x=.79,y=.93, width.07 height.045. A small bath cleanup action, not a display of a comb, no brush or sponge.",
+          "refs": [
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/landscape_base_v2.png",
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/border_rollout/page_19.png"
+          ],
+          "file": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-5f39e6f1-2bb5-4e2d-b11c-46415083fbfb.png",
+          "sha256": "6feb1daf11de11e5f4e04dc52b0ed6d2f5bd7dbcc78786e4504570e46d61374e",
+          "prompt_sha256": "c9564f30b7bdde9eb2feb7149922141244765122cebf171eedd7b1f5add3b442",
+          "reference_evidence": [
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/landscape_base_v2.png",
+              "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82"
+            },
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/border_rollout/page_19.png",
+              "sha256": "e1247bc33087444d3a52e064f0d9ab5cb08b181318d0d9b067944d411a3c7db7"
+            }
+          ],
+          "status": "REJECTED_DECORATIVE_SIZE_OR_RESTRICTED_ZONE"
+        },
+        {
+          "attempt": 2,
+          "prompt": "Use case: precise-object-edit. Correct only sizes and grounding of decorative lower-bank objects in this stationery image; keep entire frame, blue background and ratio unchanged. No text. The wringing bunny is currently far too tall (top at y=.76). Reduce bunny, cloth, and basin GROUP to 55% of current size, reseat at x=.24,y=.92 on blue bank. Bunny height must be <=.095 of total canvas height with its TOP BELOW y=.87. Preserve the charming action and two drops. Right dish can stay.",
+          "refs": [
+            "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-5f39e6f1-2bb5-4e2d-b11c-46415083fbfb.png"
+          ],
+          "file": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-2a136c27-5ac0-425a-bb71-38060a08ce34.png",
+          "sha256": "baaa714dde472705d965e027e9114b6b48a0458696506e4a446f691f6bc41d54",
+          "prompt_sha256": "4871159dfd2709634d9887ea338ec96561c4dbc5ae74a44cb5cd4aeec9d006c3",
+          "reference_evidence": [
+            {
+              "path": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-5f39e6f1-2bb5-4e2d-b11c-46415083fbfb.png",
+              "sha256": "6feb1daf11de11e5f4e04dc52b0ed6d2f5bd7dbcc78786e4504570e46d61374e"
+            }
+          ],
+          "status": "REJECTED_DECORATIVE_SIZE_OR_RESTRICTED_ZONE"
+        },
+        {
+          "attempt": 3,
+          "prompt": "Use case: precise-object-edit. A narrowly bounded correction to this exact stationery. Keep ratio, blue wash, all native coral/shells and dotted border. The LEFT bunny is still too tall. Reduce ONLY the entire left bunny+cloth+basin group to HALF current size, including drops, then ground it low on the left slope near x=360,y=1000. On this 1484x1060 canvas, the WHOLE left action group MUST fit inside x=315..425, y=925..1015. NO part of any ear/curl can rise above y=925. This is a TINY marginal drawing with lots of blue above. Preserve full acting silhouette. Right soap dish unchanged.",
+          "refs": [
+            "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-2a136c27-5ac0-425a-bb71-38060a08ce34.png"
+          ],
+          "file": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-0b144b0a-c28a-4b81-aa6d-2646b1994cbd.png",
+          "sha256": "e347f9491de48bfb631a13f45e5cdb58aadf6e437d93bbe091dbc7eb346cee36",
+          "prompt_sha256": "2d2bb6a6134629fb809e4a431d4c6580b01414c23a090ecd767f322039c910b4",
+          "reference_evidence": [
+            {
+              "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-2a136c27-5ac0-425a-bb71-38060a08ce34.png",
+              "sha256": "baaa714dde472705d965e027e9114b6b48a0458696506e4a446f691f6bc41d54"
+            }
+          ],
+          "status": "SELECTED_REVIEW_CANDIDATE"
+        }
+      ],
+      "selected_file": "art/personality_v20/border_06.png",
+      "selected_sha256": "e347f9491de48bfb631a13f45e5cdb58aadf6e437d93bbe091dbc7eb346cee36",
+      "dimensions": [
+        1484,
+        1060
+      ]
+    },
+    {
+      "id": "border_20",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "Use case: precise-object-edit. Edit IMAGE_1, the 1484x1060 blue watercolor stationery. Preserve ratio, empty upper 85%, dotted frame, crisp coral/shells, blue wash and two BLUE banks. Tiny decorative story performance ONLY below y=.855 and above y=.98. Each object/figure <=.11 canvas width AND <=.11 canvas height. Banks at x<.38 and x>.62; keep central gap COMPLETELY empty. Native coral stays. Integrate bodies into bank texture with narrow contact shadows and natural bottom occlusion, no pasted look, no white outlines. Broad clean graphic value bands, crisp minimal watercolor, no noisy speckles. No text or large story illustration. Bunny identity comes from IMAGE_2: lavender cloud puff with spiral ear curls, forehead curl, pearl nubs, no furry rabbit legs/tail or human limbs. IMAGE_3 gives this game's pastel stacking-ring toy with little sailboat topper. On left bank x=.19,y=.91 one tiny puff tilted sideways nudges a loose pink toy ring toward a small incomplete stack x=.29,y=.92. The stack is 0.07 wide x0.09 high; puff0.085wide0.075high; loose ring0.045wide0.022high. On right x=.80,y=.92 a second delighted tiny puff steadies the little sailboat topper,0.025wide,with pearl nubs. Clear cooperative play, distinct silhouettes, no spilled cup or powder. Toy objects match reference.",
+          "refs": [
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/landscape_base_v2.png",
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/border_rollout/page_19.png",
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/assets/flats/castle/interactions/playroom_stacking_toy_atlas.png"
+          ],
+          "file": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-ab76a474-0e65-4758-a424-43b29e5e72d6.png",
+          "sha256": "e21aafb2667c53d3ea8156c367cb2326fce6b4c2e3b06219eb5594a69580ed0d",
+          "prompt_sha256": "d0d0bb109791e5769097e187901b0fd0bc9aa92fbed36dd6b1d03eace0b0884b",
+          "reference_evidence": [
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/landscape_base_v2.png",
+              "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82"
+            },
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/border_rollout/page_19.png",
+              "sha256": "e1247bc33087444d3a52e064f0d9ab5cb08b181318d0d9b067944d411a3c7db7"
+            },
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/assets/flats/castle/interactions/playroom_stacking_toy_atlas.png",
+              "sha256": "4f5548cf8d325b457f4a70edad81880f662336bb749d8211b35c0bef4ae563e8"
+            }
+          ],
+          "status": "REJECTED_DECORATIVE_SIZE_OR_RESTRICTED_ZONE"
+        },
+        {
+          "attempt": 2,
+          "prompt": "Use case: precise-object-edit. Correct only sizes and grounding of decorative lower-bank objects in this stationery image; keep entire frame, blue background and ratio unchanged. No text. Both play groups currently too high, especially right toy. Reduce BOTH groups to 65% of their current size and reseat on their own bank centered left x=.25,y=.925 and right x=.79,y=.925. ALL new pixels including sail and motion marks must be BELOW y=.86. Each whole toy and each bunny <=.11 canvas height. Preserve exact two different activities, toy identity and natural grounding.",
+          "refs": [
+            "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-ab76a474-0e65-4758-a424-43b29e5e72d6.png"
+          ],
+          "file": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-9c0bb373-d271-45fe-8238-01588da254ba.png",
+          "sha256": "54db57b20bb768e6d6bddc970c4ece0c9f92fc8385ba926d0e3cfd347d1a13e4",
+          "prompt_sha256": "ed97870bce625f0aa6626799be22c6048e9ddc4d751827820c6fa66f7ec1b3a3",
+          "reference_evidence": [
+            {
+              "path": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-ab76a474-0e65-4758-a424-43b29e5e72d6.png",
+              "sha256": "e21aafb2667c53d3ea8156c367cb2326fce6b4c2e3b06219eb5594a69580ed0d"
+            }
+          ],
+          "status": "REJECTED_DECORATIVE_SIZE_OR_RESTRICTED_ZONE"
+        },
+        {
+          "attempt": 3,
+          "prompt": "Use case: precise-object-edit. A narrowly bounded correction to this exact stationery. Keep ratio, blue wash, all native coral/shells and dotted border. Remove the three floating purple motion marks above the RIGHT bunny/sailboat, heal those tiny marks to plain blue wash. Keep ALL toys and bunnies exactly as they are, including positions and sizes. Nothing else changes. The purpose is a completely clear upper85%. No new marks.",
+          "refs": [
+            "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-9c0bb373-d271-45fe-8238-01588da254ba.png"
+          ],
+          "file": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-5f96151c-443c-4af7-b4cf-9311e58bdce3.png",
+          "sha256": "d1ec9475291d398c84a5f1f872b2127361639462b3318bd11844400457ccf166",
+          "prompt_sha256": "09d32f0e563b7b076342728658db4d9fcfcacf8c586ab0bdac1198dd67642a37",
+          "reference_evidence": [
+            {
+              "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-9c0bb373-d271-45fe-8238-01588da254ba.png",
+              "sha256": "54db57b20bb768e6d6bddc970c4ece0c9f92fc8385ba926d0e3cfd347d1a13e4"
+            }
+          ],
+          "status": "SELECTED_REVIEW_CANDIDATE"
+        }
+      ],
+      "selected_file": "art/personality_v20/border_20.png",
+      "selected_sha256": "d1ec9475291d398c84a5f1f872b2127361639462b3318bd11844400457ccf166",
+      "dimensions": [
+        1484,
+        1060
+      ]
+    },
+    {
+      "id": "border_24",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "Use case: precise-object-edit. Edit IMAGE_1, the 1484x1060 blue watercolor stationery. Preserve ratio, empty upper 85%, dotted frame, crisp coral/shells, blue wash and two BLUE banks. Tiny decorative story performance ONLY below y=.855 and above y=.98. Each object/figure <=.11 canvas width AND <=.11 canvas height. Banks at x<.38 and x>.62; keep central gap COMPLETELY empty. Native coral stays. Integrate bodies into bank texture with narrow contact shadows and natural bottom occlusion, no pasted look, no white outlines. Broad clean graphic value bands, crisp minimal watercolor, no noisy speckles. No text or large story illustration. Bunny identity comes from IMAGE_2: lavender cloud puff with spiral ear curls, forehead curl, pearl nubs, no furry rabbit legs/tail or human limbs. IMAGE_3 attic prop designs only, do not bring the room background. On LEFT bank x=.20,y=.92 a small closed dusty teal-and-lavender gold-banded chest from attic, width .105 height .075, a fine cobweb hangs ONLY along its lid corner. Beside it x=.30 a tiny lavender lidded jar from attic0.035wide0.04high. RIGHT bank x=.79,y=.92 one nervous flattened lavender puff with curled ears pulled down peers upward-left, mouth small O, eyes wide, leaning behind two low dusty attic books, each0.055wide0.015high. No generic grey smudge, no new full room.",
+          "refs": [
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/landscape_base_v2.png",
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/border_rollout/page_19.png",
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/dusty_attic_arena_native_1254.png"
+          ],
+          "file": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-b7e782a0-8764-4b68-bcd3-f98d2b593b3c.png",
+          "sha256": "96e8e1170437c9b70f62af7ac74ee9f0c538783afdb552dc3b7c7402e69a6c82",
+          "prompt_sha256": "43e999d1913eac33c8ced95d262bca69ca97a70f09661d2e078f60256f403426",
+          "reference_evidence": [
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/landscape_base_v2.png",
+              "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82"
+            },
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/border_rollout/page_19.png",
+              "sha256": "e1247bc33087444d3a52e064f0d9ab5cb08b181318d0d9b067944d411a3c7db7"
+            },
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/dusty_attic_arena_native_1254.png",
+              "sha256": "9cb4b02dc4a56e1436ea0a6b21dccf4ef751716d213e3ff7624571f15a9e2cb6"
+            }
+          ],
+          "status": "REJECTED_DECORATIVE_SIZE_OR_RESTRICTED_ZONE"
+        },
+        {
+          "attempt": 2,
+          "prompt": "Use case: precise-object-edit. Keep this exact blue stationery, frame, color and ratio. Reduce ALL added bottom story groups (left chest/cobweb/jar, right frightened bunny/books/motion marks) to 70% current size; reseat naturally into the same blue banks centered left x=.22,y=.93 and right x=.79,y=.93. The top of EVERY added object and cobweb and reaction mark MUST be below y=.865 normalized; each object width/height at most .105. Preserve expressive frightened looking-up face, chest identity, books, jar and cobweb, but tiny. Do not add other objects, no text, upper85% remains unchanged and central x.38-.62 empty. Integrate actual contact shading and bottom bank texture, no square patches or floating.",
+          "refs": [
+            "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-b7e782a0-8764-4b68-bcd3-f98d2b593b3c.png"
+          ],
+          "file": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-a4fe7a2d-c74a-47db-9b37-2361d427887a.png",
+          "sha256": "b8022481645c22ab9f76d74611dd165cf23751b1c0fd6540d04749ca0e4e0147",
+          "prompt_sha256": "b073b09d17eea83a2daf2b603810842a2d4dbb87ed162a6df22e5ce928384953",
+          "reference_evidence": [
+            {
+              "path": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-b7e782a0-8764-4b68-bcd3-f98d2b593b3c.png",
+              "sha256": "96e8e1170437c9b70f62af7ac74ee9f0c538783afdb552dc3b7c7402e69a6c82"
+            }
+          ],
+          "status": "SELECTED_REVIEW_CANDIDATE"
+        }
+      ],
+      "selected_file": "art/personality_v20/border_24.png",
+      "selected_sha256": "b8022481645c22ab9f76d74611dd165cf23751b1c0fd6540d04749ca0e4e0147",
+      "dimensions": [
+        1484,
+        1060
+      ]
+    },
+    {
+      "id": "border_25",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "Use case: precise-object-edit. Edit IMAGE_1, the 1484x1060 blue watercolor stationery. Preserve ratio, empty upper 85%, dotted frame, crisp coral/shells, blue wash and two BLUE banks. Tiny decorative story performance ONLY below y=.855 and above y=.98. Each object/figure <=.11 canvas width AND <=.11 canvas height. Banks at x<.38 and x>.62; keep central gap COMPLETELY empty. Native coral stays. Integrate bodies into bank texture with narrow contact shadows and natural bottom occlusion, no pasted look, no white outlines. Broad clean graphic value bands, crisp minimal watercolor, no noisy speckles. No text or large story illustration. Bunny identity comes from IMAGE_2: lavender cloud puff with spiral ear curls, forehead curl, pearl nubs, no furry rabbit legs/tail or human limbs. IMAGE_3 specifies pink pearl shell and puff underneath. IMAGE_4 attic props. On LOWER RIGHT bank a readable scared/cowering duet: at x=.72,y=.92 one tiny lavender puff squashes flat, curled ears tucked, trembling worried eyebrows eyes looking UP toward Grand Puff, closed scared mouth. At x=.83,y=.92 a SECOND tiny puff is HIDING UNDER the pink shell, only frightened wide eyes and lower pearl nubs peeking out, shell tilted down like shelter NOT a proud helmet. Each whole puff INCLUDING shell max.09wide .10high, all top edges below .855. On left bank x=.20,y=.935 a small gold-banded lavender attic chest closed, width .085 height .065 and two tiny closed dusty books beside it. A funny yet unmistakably frightened reaction; no happy faces, no duplicated pose, no smudge.",
+          "refs": [
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/landscape_base_v2.png",
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/border_rollout/page_19.png",
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/dusty_attic_arena_native_1254.png"
+          ],
+          "file": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-c80dcd07-a93c-4e99-bbed-602caa41af9f.png",
+          "sha256": "e17884358fcb2527e7a34c26a7949ab7946e2264dd13f2c316efe99b06a1d31f",
+          "prompt_sha256": "913177ab30096423d407fcfba5eec5149100e05e485249503b13738bc624db3d",
+          "reference_evidence": [
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/landscape_base_v2.png",
+              "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82"
+            },
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/border_rollout/page_19.png",
+              "sha256": "e1247bc33087444d3a52e064f0d9ab5cb08b181318d0d9b067944d411a3c7db7"
+            },
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+              "sha256": "b3fbe139d79ba9567213afeb70a25bd986d90230052be7a9b320802a65613293"
+            },
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/dusty_attic_arena_native_1254.png",
+              "sha256": "9cb4b02dc4a56e1436ea0a6b21dccf4ef751716d213e3ff7624571f15a9e2cb6"
+            }
+          ],
+          "status": "REJECTED_DECORATIVE_SIZE_OR_RESTRICTED_ZONE"
+        },
+        {
+          "attempt": 2,
+          "prompt": "Use case: precise-object-edit. Correct only sizes and grounding of decorative lower-bank objects in this stationery image; keep entire frame, blue background and ratio unchanged. No text. Dusty chest group currently too large and high: reduce WHOLE LEFT chest/books group to 65% of current size and re-ground centered x=.23,y=.93. Keep each prop <=.10 canvas width and height. All dusty texture below y=.87. Right bunnies: retain flat cower and shell shelter, but make the shell-hiding bunny clearly frightened with eyes looking UP, raised inner eyebrows and tiny worried open mouth. Reduce entire shell+bunny shape to 85% current size and re-ground at x=.82,y=.93 so shell top BELOW y=.86; no upright proud helmet. Motion marks tiny. Preserve base and all upper85% unchanged.",
+          "refs": [
+            "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-c80dcd07-a93c-4e99-bbed-602caa41af9f.png"
+          ],
+          "file": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-f69d7196-6b78-4957-8ad3-3c2020c8eaf9.png",
+          "sha256": "c3bdd8a1481d604ff6759fd9a981a20766709126f9be9eb27b51716111dfab87",
+          "prompt_sha256": "409ec96c2e0eee05a91b86cdab261d8a0ee7528086687c4cc460ac5c048dc721",
+          "reference_evidence": [
+            {
+              "path": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-c80dcd07-a93c-4e99-bbed-602caa41af9f.png",
+              "sha256": "e17884358fcb2527e7a34c26a7949ab7946e2264dd13f2c316efe99b06a1d31f"
+            }
+          ],
+          "status": "REJECTED_DECORATIVE_SIZE_OR_RESTRICTED_ZONE"
+        },
+        {
+          "attempt": 3,
+          "prompt": "Use case: precise-object-edit. A narrowly bounded correction to this exact stationery. Keep ratio, blue wash, all native coral/shells and dotted border. Remove the fluffy dust piles around and ABOVE the LEFT chest/books; show a thin dusty film ON the lid instead, no dust smudge or cloud. Chest and books retain size and positions, RIGHT frightened bunnies and shelter shell entirely unchanged. The chest's highest point should be its lid at about y=916 on1060high canvas; blue space above is empty. No decorative pixels may rise above y=905.",
+          "refs": [
+            "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-f69d7196-6b78-4957-8ad3-3c2020c8eaf9.png"
+          ],
+          "file": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-6bed275f-4319-4e38-a87d-06a569ff08e6.png",
+          "sha256": "a6ce70b6552230d823450c320f5f764ec7cbeacea9041a39ed119f946ae23f48",
+          "prompt_sha256": "0df62bec5e255a18eb80cab382929bb5bd7563827032f732b3e6f825e8e7d3b0",
+          "reference_evidence": [
+            {
+              "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-f69d7196-6b78-4957-8ad3-3c2020c8eaf9.png",
+              "sha256": "c3bdd8a1481d604ff6759fd9a981a20766709126f9be9eb27b51716111dfab87"
+            }
+          ],
+          "status": "SELECTED_REVIEW_CANDIDATE"
+        }
+      ],
+      "selected_file": "art/personality_v20/border_25.png",
+      "selected_sha256": "a6ce70b6552230d823450c320f5f764ec7cbeacea9041a39ed119f946ae23f48",
+      "dimensions": [
+        1484,
+        1060
+      ]
+    },
+    {
+      "id": "border_26",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "Use case: precise-object-edit. Edit IMAGE_1, the 1484x1060 blue watercolor stationery. Preserve ratio, empty upper 85%, dotted frame, crisp coral/shells, blue wash and two BLUE banks. Tiny decorative story performance ONLY below y=.855 and above y=.98. Each object/figure <=.11 canvas width AND <=.11 canvas height. Banks at x<.38 and x>.62; keep central gap COMPLETELY empty. Native coral stays. Integrate bodies into bank texture with narrow contact shadows and natural bottom occlusion, no pasted look, no white outlines. Broad clean graphic value bands, crisp minimal watercolor, no noisy speckles. No text or large story illustration. Bunny identity comes from IMAGE_2: lavender cloud puff with spiral ear curls, forehead curl, pearl nubs, no furry rabbit legs/tail or human limbs. IMAGE_3 attic prop reference. On LOWER RIGHT bank THREE small differently posed lavender puff spectators, total group x=.64-.88: first x=.68,y=.92 tilts up to left toward Roshan, delighted open smile, pearl nubs raised cheering; second x=.77,y=.93 stretches up cheerfully with eyes smiling and ear curls tilted differently; third x=.85,y=.94 relaxed watching, EATING POPCORN from tiny pink/cream striped popcorn carton, kernel held at mouth by pearl nub. Each puff width .055-.07 height .06-.085, whole carton .025wide .04high, all upper edges below .855. No arms, no legs, no fear. On LEFT bank one dusty teal attic jar .045wide .05high sitting next to two closed little lavender books each .065wide .018high at x=.20-.30,y=.94. Crisp comical readable acting, attentive cheering aimed upward-left, not a flat lineup.",
+          "refs": [
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/landscape_base_v2.png",
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/border_rollout/page_19.png",
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/dusty_attic_arena_native_1254.png"
+          ],
+          "file": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-1f39ae5e-3714-4228-848d-3245c9cf2f61.png",
+          "sha256": "3da5780ac8bb5ddc8d38c7a425b291e0b67c956d6501a456fbb6c0532089ffd8",
+          "prompt_sha256": "b6188359cae1b5fccfe43be8f06c863edc385230275a47be0d822b2faf531289",
+          "reference_evidence": [
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/landscape_base_v2.png",
+              "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82"
+            },
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/border_rollout/page_19.png",
+              "sha256": "e1247bc33087444d3a52e064f0d9ab5cb08b181318d0d9b067944d411a3c7db7"
+            },
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/dusty_attic_arena_native_1254.png",
+              "sha256": "9cb4b02dc4a56e1436ea0a6b21dccf4ef751716d213e3ff7624571f15a9e2cb6"
+            }
+          ],
+          "status": "REJECTED_DECORATIVE_SIZE_OR_RESTRICTED_ZONE"
+        },
+        {
+          "attempt": 2,
+          "prompt": "Use case: precise-object-edit. Preserve exact blue stationery, frame and aspect. Reduce entire RIGHT cheering trio including popcorn and ALL expressive marks to 70% current scale, reseat naturally on bank as broader asymmetric group x=.68-.87,y=.92-.96. EVERY new pixel above their heads must stay BELOW y=.855 of canvas height. Each bunny incl marks <=.11height, <=.10width. Keep exactly three distinct performances, especially right one holding kernel at mouth and popcorn carton; aim their gaze up-left. Reduce left jar/books group to85% and reseat with top below y=.87. Clear central gap; upper85% unchanged. Retain vivid smiles, not frightened. Ground figures with narrow natural contact and blue bank texture at bases, no floating or rectangular patches.",
+          "refs": [
+            "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-1f39ae5e-3714-4228-848d-3245c9cf2f61.png"
+          ],
+          "file": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-9d26c003-a1ab-4357-9afe-41dd4d5ad6e7.png",
+          "sha256": "abb8fdbb3f937426bbf67c06c60d6168f986760eae3b7dd932b8039a1dd38e24",
+          "prompt_sha256": "7c444c647145ed12bf6234c7597dbb3fae8066ba058ff61e39aed95867205e5c",
+          "reference_evidence": [
+            {
+              "path": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-1f39ae5e-3714-4228-848d-3245c9cf2f61.png",
+              "sha256": "3da5780ac8bb5ddc8d38c7a425b291e0b67c956d6501a456fbb6c0532089ffd8"
+            }
+          ],
+          "status": "SELECTED_REVIEW_CANDIDATE"
+        }
+      ],
+      "selected_file": "art/personality_v20/border_26.png",
+      "selected_sha256": "abb8fdbb3f937426bbf67c06c60d6168f986760eae3b7dd932b8039a1dd38e24",
+      "dimensions": [
+        1484,
+        1060
+      ]
+    },
+    {
+      "id": "door_glowing",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "Use case: lighting-weather. Targeted lighting edit of this exact complete royal shell double door and red-carpet stairs. Preserve architecture, exact stair count, gold shell details, proportions, front view. Output a clean RGBA transparent cutout, no room, no solid background, no rectangle. Door panels become deep plum-indigo; a strong eerie violet-magenta luminous seam leaks from between CLOSED door leaves and around inner jamb, a mysterious intense thin light under door washes top stair purple. Subtle soft lavender halo around arch, restrained eerie glow, luminous shell handles. Ominous storybook mystery suitable for a young child, no monster/eyes/skull. Preserve complete object silhouette with transparent outside and generous margins, no crop.",
+          "refs": [
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/archive/rough_v5/art/royal_door_isolated.png"
+          ],
+          "file": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-6da54691-7f65-4a7c-bad4-49f9ffe3be9a.png",
+          "sha256": "9d3a19132ff49ea428fd4973af4c635f1cdb996018e1d15d03ea51448206e3ed",
+          "prompt_sha256": "25ca9797bfdb2e12eb695466e13ce295400110b1280a8a535198a440ba0a86c0",
+          "reference_evidence": [
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/archive/rough_v5/art/royal_door_isolated.png",
+              "sha256": "d72b6bd7532330b60d24855006adb7ccf4082fa15400a003576fb5e1198c9c1b"
+            }
+          ],
+          "status": "SELECTED_REVIEW_CANDIDATE"
+        }
+      ],
+      "selected_file": "art/personality_v20/door_glowing.png",
+      "selected_sha256": "9d3a19132ff49ea428fd4973af4c635f1cdb996018e1d15d03ea51448206e3ed",
+      "dimensions": [
+        1157,
+        1359
+      ]
+    },
+    {
+      "id": "eagle_inviting",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "Use case: identity-preserve. Produce one new whole-body pose of this EXACT Baby Eagle for page20 turning to follow Roshan. Output genuine RGBA transparent background. Preserve pink three-lobed crest, pastel blue/mint scalloped body, yellow cheek patches, huge teal eyes, pink wings with BLACK feather tips, pale lavender upper beak and black beak tip, two LONG smooth grey legs and rounded grey three-toed feet with NO black talons. Pose in left-facing 3/4 view, happy eager expression, one wing extended toward left as a wave, other wing tucked close to body, one grey foot raised in a jaunty forward step and other supporting. Clearly different from reference's two-raised-wings stationary posture; preserve same identity, proportions, line thickness, polished 2D finish. Full silhouette with generous transparent margins, no text, no scenery, no accessories.",
+          "refs": [
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/stress_revision/eagle_original_isolated.png"
+          ],
+          "file": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-7900a7cf-e26e-426d-9f5d-e87097c99efc.png",
+          "sha256": "fb70f4660ad4a45ccb760c5e5e72dbb8f5f36c43e80e8c9a63a050e5a491b79b",
+          "prompt_sha256": "c1f78eeb78210de039ab7a1006edff951d9c9417a02ed83a91bca1ad768a24dd",
+          "reference_evidence": [
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/stress_revision/eagle_original_isolated.png",
+              "sha256": "166461427017b2624dcf1c342bde658c63a8247b522ad113c92f6ec1bb084bd9"
+            }
+          ],
+          "status": "SELECTED_REVIEW_CANDIDATE"
+        }
+      ],
+      "selected_file": "art/personality_v20/eagle_inviting.png",
+      "selected_sha256": "fb70f4660ad4a45ccb760c5e5e72dbb8f5f36c43e80e8c9a63a050e5a491b79b",
+      "dimensions": [
+        944,
+        1665
+      ]
+    },
+    {
+      "id": "cover_rendered",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "Use case: compositing. Owner commissioned NEW unified rendered picture-book cover, 7:5 LANDSCAPE, full bleed, no text. IMAGE_1 shows original cover's composition principle ONLY: one shared physical setting, heroine large, story objects integrated at varied depths, coherent perspective/light. Do NOT copy snow, dog, bag, cake, logos or title. IMAGE_2 locks current Roshan, Daddy, Rumi identities and Pearl Castle style. IMAGE_3 exact Baby Eagle identity with smooth grey feet. IMAGE_4 Grand Puff. IMAGE_5 messy paint objects. Compose polished 2D storybook illustration in Pearl Castle's luminous shell-arched hall/terrace, blue-lavender stone and warm pearl-gold. Upper 27% remains a quiet pale blue glowing wall/arch vault with no faces, props or strong lines so navy title will fit. Below it Roshan is central large, lively three-quarter welcoming pose, brown hair with rainbow locks, small gold/blue tiara, pink ruffle top, purple glitter tail and rainbow fin; holds yellow sponge with tiny suds. Baby Eagle stands beside her lower right, pink wings, mint-blue body, long smooth grey feet. Daddy and purple-braided Rumi smaller behind left, exact crowns/costumes/tails. Across same floor: blue pail and neatly placed brush, tipped pink paint jar and paint-marked paper with natural contact shadows. Through left shell arch a SMALL rainbow waterfall glints; through distant right doorway Grand Puff's lavender curled-ear face peeks curiously, mysterious not evil. These are unified rendered story elements, NOT isolated stickers, no panels/montage seams or floating icons. No rainbow bunny spoiler. Strong clear heroine hierarchy, generous readable silhouettes, clean broad shading consistent with game, richly composed without noisy decorative clutter. Keep all faces below top27%, and important tails/feet away from edges. Lower bottom8% calm blue-lavender floor for small subtitle.",
+          "refs": [
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/tmp/v20_refs/original_cover.png",
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/plan/source_art/R11_land.png",
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/stress_revision/eagle_original_isolated.png",
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/archive/rough_v5/art/boss_cut.png",
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/repo_details_v17/page_21.png"
+          ],
+          "file": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-8a27e6c0-3013-41a7-a6c9-9e24b3126f41.png",
+          "sha256": "7245b1a5edcb03c80ee4af75d5ca0fd7849574278b0a0bacbb63579f2d1bc1d2",
+          "prompt_sha256": "a8dcfdd0cd1ae215c060bcf5c96baf2a19f5cf40cc6e93d43c664deb6fda5728",
+          "reference_evidence": [
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/tmp/v20_refs/original_cover.png",
+              "sha256": "2ab64adf8225d36191e8bf064470358e15630a445655968813bf9d8e1d44fc08"
+            },
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/plan/source_art/R11_land.png",
+              "sha256": "d166ae3aa034d26beeda8e92dbc0da8da5347646b8b707746237d819e81a4e5a"
+            },
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/stress_revision/eagle_original_isolated.png",
+              "sha256": "166461427017b2624dcf1c342bde658c63a8247b522ad113c92f6ec1bb084bd9"
+            },
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/archive/rough_v5/art/boss_cut.png",
+              "sha256": "9333a2b1d892eb9cb8176eefb8b0fbbc4f74c18f35d4cb1b9fbfdbf7e667cb8d"
+            },
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/repo_details_v17/page_21.png",
+              "sha256": "4cf9860e7e838c441d2a99b9a658d04ab75b54f953072caaaae30492b3dc0138"
+            }
+          ],
+          "status": "SELECTED_REVIEW_CANDIDATE"
+        }
+      ],
+      "selected_file": "art/personality_v20/cover_rendered.png",
+      "selected_sha256": "7245b1a5edcb03c80ee4af75d5ca0fd7849574278b0a0bacbb63579f2d1bc1d2",
+      "dimensions": [
+        1484,
+        1060
+      ]
+    },
+    {
+      "id": "bubble_nap",
+      "attempts": [
+        {
+          "attempt": 1,
+          "prompt": "Use case: illustration-story. Owner explicitly commissions a new FINAL PAGE epilogue: everyone napping together in a BIG PILE OF BUBBLES. 7:5 LANDSCAPE full bleed, polished 2D game storybook art. IMAGE_1 exact identities of FIVE friends and attic: Daddy glasses/crown/dark blue gold-embroidered jacket/teal cape/rainbow mer-tail; little Roshan brown rainbow hair, gold blue tiara, pink ruffled top, purple rainbow mer-tail; Rumi long purple braid, purple blue gold jacket, teal-to-purple mer-tail with PINK fins; Baby Eagle; tiny rainbow spiral-eared puff friend. IMAGE_2 overrides Eagle foot identity: long smooth grey legs rounded grey toes, pink crest/wings with black tips, mint body yellow cheeks. IMAGE_3 room geography. Show all FIVE asleep peacefully, closed eyes gentle smiles, curled/leaning together in ONE huge fluffy iridescent white/lavender bubble pile across lower70% of page, bodies supported comfortably, faces all visible and distinct, each has correct single mer-tail except bird and puff. Daddy at left resting upright slightly reclined; Roshan nestled near center, Rumi right with braided hair; Eagle tucked at Roshan's side head resting on wing; tiny rainbow puff snoozes in front nestled in suds. One or two tiny lavender spiral-ear dust bunnies may sleep at edge of pile, keeping main five readable. No giant Grand Puff. NO tools in hands, no active brushing, no detached tails, no blanket, no bed. Attic now warm and calm, floor tidied, soft twilight through shell windows. Top20% a quiet dark lavender wall/ceiling with minimal lines and no chandelier/heads, for two white text lines later. Entire bubble mound grounded on room floor, rich but simple coherent lighting, tranquil last-page emotional release, no text generated.",
+          "refs": [
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/plan/source_art/R11_land.png",
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/stress_revision/eagle_original_isolated.png",
+            "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/dusty_attic_arena_native_1254.png"
+          ],
+          "file": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-2ec50a5f-958a-47d5-8dc8-8132ce217d00.png",
+          "sha256": "938a33de574edef7bde90ddbe89e7616e1448d26dc33b62f6415f694b0c344df",
+          "prompt_sha256": "9b6fdda6572d5b8f3e3672caab09942c10a3badda2f8ecd77361823691385226",
+          "reference_evidence": [
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/plan/source_art/R11_land.png",
+              "sha256": "d166ae3aa034d26beeda8e92dbc0da8da5347646b8b707746237d819e81a4e5a"
+            },
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/stress_revision/eagle_original_isolated.png",
+              "sha256": "166461427017b2624dcf1c342bde658c63a8247b522ad113c92f6ec1bb084bd9"
+            },
+            {
+              "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/dusty_attic_arena_native_1254.png",
+              "sha256": "9cb4b02dc4a56e1436ea0a6b21dccf4ef751716d213e3ff7624571f15a9e2cb6"
+            }
+          ],
+          "status": "SELECTED_REVIEW_CANDIDATE"
+        }
+      ],
+      "selected_file": "art/personality_v20/bubble_nap.png",
+      "selected_sha256": "938a33de574edef7bde90ddbe89e7616e1448d26dc33b62f6415f694b0c344df",
+      "dimensions": [
+        1484,
+        1060
+      ]
+    }
+  ],
+  "visible_bounds_pixels_xyxy": {
+    "6": [
+      [
+        318,
+        906,
+        410,
+        991
+      ],
+      [
+        371,
+        960,
+        438,
+        1001
+      ],
+      [
+        1093,
+        938,
+        1231,
+        1008
+      ]
+    ],
+    "20": [
+      [
+        268,
+        913,
+        386,
+        1005
+      ],
+      [
+        344,
+        953,
+        405,
+        1005
+      ],
+      [
+        398,
+        935,
+        474,
+        1009
+      ],
+      [
+        1066,
+        904,
+        1160,
+        1019
+      ],
+      [
+        1118,
+        913,
+        1221,
+        1008
+      ]
+    ],
+    "24": [
+      [
+        218,
+        902,
+        349,
+        998
+      ],
+      [
+        352,
+        939,
+        406,
+        1001
+      ],
+      [
+        1053,
+        963,
+        1149,
+        1009
+      ],
+      [
+        1114,
+        915,
+        1234,
+        1012
+      ]
+    ],
+    "25": [
+      [
+        172,
+        908,
+        301,
+        1001
+      ],
+      [
+        290,
+        948,
+        396,
+        1008
+      ],
+      [
+        963,
+        932,
+        1118,
+        1017
+      ],
+      [
+        1132,
+        905,
+        1293,
+        1015
+      ]
+    ],
+    "26": [
+      [
+        202,
+        905,
+        292,
+        998
+      ],
+      [
+        279,
+        947,
+        396,
+        1007
+      ],
+      [
+        983,
+        921,
+        1089,
+        1013
+      ],
+      [
+        1084,
+        904,
+        1185,
+        1007
+      ],
+      [
+        1181,
+        906,
+        1290,
+        1008
+      ],
+      [
+        1191,
+        953,
+        1236,
+        1005
+      ]
+    ]
+  },
+  "review": "Inspected native outputs: coherent cover setting and distinct five-character nap identities; complete transparent door and Eagle; final bank assets within lower15% and 12% individual extents. Generated contact shading is visual only, no numeric occlusion claim. Owner/child and print acceptance pending.",
+  "final_render_regression": {
+    "status": "PASS",
+    "changed_pdf_page_indices": [
+      0,
+      6,
+      20,
+      24,
+      25,
+      26,
+      32
+    ],
+    "unchanged_rendered_pages": 27,
+    "preserved_strong_backgrounds": [
+      4,
+      7,
+      10,
+      19,
+      21,
+      31
+    ],
+    "canonical_draw_operations_preserved": [
+      17,
+      18,
+      27,
+      28,
+      29,
+      30
+    ],
+    "fonts": [
+      "/AAAAAA+Sniglet-Regular",
+      "/Helvetica"
+    ],
+    "scope": "Exact byte/hash and placement comparisons; not final aesthetic/identity acceptance."
+  },
+  "final_visual_review": "Inspected full rendered changed pages: captions clear faces and cutout bounds, seven-page change set as intended. Cover and nap captions moved inside safety inset after first audit."
+}

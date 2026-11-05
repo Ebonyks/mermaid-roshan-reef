@@ -1,0 +1,101 @@
+{
+  "scope": "Only5failed/timed-out unchanged baseline gates retried after native render jobs finish; exact flags/floors unchanged, original failures retained. A retry does not accept source attachment/visual failures.",
+  "rows": [
+    {
+      "name": "probe_opera_2d",
+      "kind": "probe",
+      "args": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_opera_2d.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "pass": true,
+      "seconds": 91.48,
+      "log": "probe_opera_2d.log",
+      "sha256": "fb684853331b76b75e9edc89e52db5bf138b7b7eb482b27af50c2c9c7c9100e3",
+      "isolated_probe_home_retained": true
+    },
+    {
+      "name": "probe_chapter2",
+      "kind": "probe",
+      "args": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_chapter2.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "pass": true,
+      "seconds": 239.88,
+      "log": "probe_chapter2.log",
+      "sha256": "cdab292e5213df4072f351cbc947b39f0f710f6f7a91e476da163954acf80f5f",
+      "isolated_probe_home_retained": true
+    },
+    {
+      "name": "probe_audit",
+      "kind": "probe",
+      "args": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_audit.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "pass": true,
+      "seconds": 57.99,
+      "log": "probe_audit.log",
+      "sha256": "1b33ddae2d82ad933d7289212a975fea22a1c083b48d65501c709ec8d6e4af73",
+      "isolated_probe_home_retained": true
+    },
+    {
+      "name": "audit_audio_quality",
+      "kind": "static",
+      "args": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_audio_quality.py",
+        "--check"
+      ],
+      "exit": 124,
+      "pass": false,
+      "seconds": 901.03,
+      "log": "audit_audio_quality.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "isolated_probe_home_retained": false
+    },
+    {
+      "name": "visual_contract_unittest",
+      "kind": "static",
+      "args": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_visual_design"
+      ],
+      "exit": 124,
+      "pass": false,
+      "seconds": 902.08,
+      "log": "visual_contract_unittest.log",
+      "sha256": "57c455140fc15a9fa75a1f9245ad17f1275b56b95c7bb236525dc1eaf5b94889",
+      "isolated_probe_home_retained": false
+    }
+  ],
+  "complete": true,
+  "pass": false
+}

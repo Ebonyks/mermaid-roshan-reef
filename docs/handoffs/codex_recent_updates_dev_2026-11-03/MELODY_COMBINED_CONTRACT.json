@@ -1,0 +1,631 @@
+{
+  "state": "COMBINED_CONTRACT_IMPLEMENTED_PENDING_ACTUAL_ENGINE_VALIDATION",
+  "role_count": 10,
+  "source_controls_preserved": true,
+  "new_closed_live_texture_census": true,
+  "includes_all21_resident_pip_states": true,
+  "decoded_ceiling_bytes": 24117248,
+  "upload_ceiling_bytes": 12582912,
+  "alpha_grid": [
+    200,
+    90
+  ],
+  "alpha_threshold": 0.5,
+  "dominance_floor": 0.28,
+  "retired_geometry_not_counted": true,
+  "curtain_crop_sizes": [
+    [
+      302,
+      751
+    ],
+    [
+      213,
+      744
+    ]
+  ],
+  "pip_registration_threshold": 32,
+  "pip_alpha_bounds": [
+    {
+      "source": "assets/melody/progress_pip_current_blue_painted.png",
+      "source_sha256": "9315090d77bd38d3c37e5a51cf8422b8c408d04cd4413fa099b899fcd06f9b11",
+      "source_size": [
+        128,
+        128
+      ],
+      "target": "assets/melody/mobile/progress_pip_current_blue_painted.png",
+      "target_size": [
+        64,
+        64
+      ],
+      "crop": null,
+      "method": "Uniform Aseprite bilinear runtime resample; original/source native unchanged",
+      "target_sha256": "f6ee7ab463b8523cb8c3dd6f3f160b65581937423cf8b3e0f05d2c79d0805fa4",
+      "alpha_bbox_ge8": [
+        2,
+        1,
+        63,
+        63
+      ],
+      "alpha_bbox_ge32": [
+        2,
+        1,
+        62,
+        63
+      ]
+    },
+    {
+      "source": "assets/melody/progress_pip_current_green_painted.png",
+      "source_sha256": "83481cdaf3f8e3665228e432d90be009eae87be31f8edb728b60b00903fc5e28",
+      "source_size": [
+        128,
+        128
+      ],
+      "target": "assets/melody/mobile/progress_pip_current_green_painted.png",
+      "target_size": [
+        64,
+        64
+      ],
+      "crop": null,
+      "method": "Uniform Aseprite bilinear runtime resample; original/source native unchanged",
+      "target_sha256": "ff371611699d41819217d26d4bf7beb4af0901f59f68ec9fbd95aa1116f4ddec",
+      "alpha_bbox_ge8": [
+        2,
+        1,
+        62,
+        63
+      ],
+      "alpha_bbox_ge32": [
+        2,
+        1,
+        62,
+        63
+      ]
+    },
+    {
+      "source": "assets/melody/progress_pip_current_indigo_painted.png",
+      "source_sha256": "4a06f82e29d492f6130574e0d203fa3ca7797f1d8d1b81b73e88b112d11d9b77",
+      "source_size": [
+        128,
+        128
+      ],
+      "target": "assets/melody/mobile/progress_pip_current_indigo_painted.png",
+      "target_size": [
+        64,
+        64
+      ],
+      "crop": null,
+      "method": "Uniform Aseprite bilinear runtime resample; original/source native unchanged",
+      "target_sha256": "31ceb443be056a459ed78994bb9875381231ad3fb6a34bfc35e116b68e44976a",
+      "alpha_bbox_ge8": [
+        2,
+        1,
+        63,
+        63
+      ],
+      "alpha_bbox_ge32": [
+        2,
+        1,
+        62,
+        63
+      ]
+    },
+    {
+      "source": "assets/melody/progress_pip_current_orange_painted.png",
+      "source_sha256": "d7770b7601cd3891ce1d614bc22065808a660298617cc82082642bf0b4ad2a1b",
+      "source_size": [
+        128,
+        128
+      ],
+      "target": "assets/melody/mobile/progress_pip_current_orange_painted.png",
+      "target_size": [
+        64,
+        64
+      ],
+      "crop": null,
+      "method": "Uniform Aseprite bilinear runtime resample; original/source native unchanged",
+      "target_sha256": "f53c71fecf55f09ac4b9b39f585ddb1687519825c3d130e7d449a9b9d319cd77",
+      "alpha_bbox_ge8": [
+        2,
+        1,
+        62,
+        63
+      ],
+      "alpha_bbox_ge32": [
+        2,
+        1,
+        62,
+        63
+      ]
+    },
+    {
+      "source": "assets/melody/progress_pip_current_red_painted.png",
+      "source_sha256": "e9a12bfd56934a9a7c5787398dbfe9568d3d2f1381acbf0f126e997ef4a9e494",
+      "source_size": [
+        128,
+        128
+      ],
+      "target": "assets/melody/mobile/progress_pip_current_red_painted.png",
+      "target_size": [
+        64,
+        64
+      ],
+      "crop": null,
+      "method": "Uniform Aseprite bilinear runtime resample; original/source native unchanged",
+      "target_sha256": "8c602d8644de697945e71fb7571cd9a73dfe3ff235a576d2546e4941b064952c",
+      "alpha_bbox_ge8": [
+        2,
+        1,
+        63,
+        63
+      ],
+      "alpha_bbox_ge32": [
+        2,
+        1,
+        63,
+        63
+      ]
+    },
+    {
+      "source": "assets/melody/progress_pip_current_violet_painted.png",
+      "source_sha256": "1d9cfa232e530e9c4e14ab0f2690f1101cb609a8506074395e388128fb9a0cc2",
+      "source_size": [
+        128,
+        128
+      ],
+      "target": "assets/melody/mobile/progress_pip_current_violet_painted.png",
+      "target_size": [
+        64,
+        64
+      ],
+      "crop": null,
+      "method": "Uniform Aseprite bilinear runtime resample; original/source native unchanged",
+      "target_sha256": "7a494556cd92daa74b38f4da00e9cb50b0f83e5e1dc91476ddf11bb95b0ebd81",
+      "alpha_bbox_ge8": [
+        1,
+        1,
+        62,
+        63
+      ],
+      "alpha_bbox_ge32": [
+        1,
+        1,
+        62,
+        63
+      ]
+    },
+    {
+      "source": "assets/melody/progress_pip_current_yellow_painted.png",
+      "source_sha256": "167b573580690da9d23a181a3490d6a26d27a140eb5efbcdcec27cbbc274a109",
+      "source_size": [
+        128,
+        128
+      ],
+      "target": "assets/melody/mobile/progress_pip_current_yellow_painted.png",
+      "target_size": [
+        64,
+        64
+      ],
+      "crop": null,
+      "method": "Uniform Aseprite bilinear runtime resample; original/source native unchanged",
+      "target_sha256": "87d6a9a62933e554f02629fe733e4c4852433b5d128473f0a226a24ece1c66ae",
+      "alpha_bbox_ge8": [
+        2,
+        1,
+        63,
+        63
+      ],
+      "alpha_bbox_ge32": [
+        2,
+        1,
+        62,
+        63
+      ]
+    },
+    {
+      "source": "assets/melody/progress_pip_filled_blue_painted.png",
+      "source_sha256": "f9961374ffe822af8eb2f8a087ee8637265c792caee539f9da0a1ac945de5421",
+      "source_size": [
+        128,
+        128
+      ],
+      "target": "assets/melody/mobile/progress_pip_filled_blue_painted.png",
+      "target_size": [
+        64,
+        64
+      ],
+      "crop": null,
+      "method": "Uniform Aseprite bilinear runtime resample; original/source native unchanged",
+      "target_sha256": "ee7cd4d27686fd4272a0ccc6de7928f61b6f47ec9f15d2067cad827f237f736a",
+      "alpha_bbox_ge8": [
+        1,
+        0,
+        63,
+        63
+      ],
+      "alpha_bbox_ge32": [
+        1,
+        0,
+        62,
+        63
+      ]
+    },
+    {
+      "source": "assets/melody/progress_pip_filled_green_painted.png",
+      "source_sha256": "8b8f065b358e28deb320ce23f0ce1a00f20e006ea4602d241efd4204371316a0",
+      "source_size": [
+        128,
+        128
+      ],
+      "target": "assets/melody/mobile/progress_pip_filled_green_painted.png",
+      "target_size": [
+        64,
+        64
+      ],
+      "crop": null,
+      "method": "Uniform Aseprite bilinear runtime resample; original/source native unchanged",
+      "target_sha256": "ce4ccbee30c0439c1124bd2c754b41f336eb012baeb3ca9f3e0094a8f60574cd",
+      "alpha_bbox_ge8": [
+        1,
+        0,
+        62,
+        63
+      ],
+      "alpha_bbox_ge32": [
+        1,
+        1,
+        62,
+        63
+      ]
+    },
+    {
+      "source": "assets/melody/progress_pip_filled_indigo_painted.png",
+      "source_sha256": "ff5ca08c3237ffc32d31ef90ca92eb6b991ff87ce1a3ea2e11a5c48edfd5c78e",
+      "source_size": [
+        128,
+        128
+      ],
+      "target": "assets/melody/mobile/progress_pip_filled_indigo_painted.png",
+      "target_size": [
+        64,
+        64
+      ],
+      "crop": null,
+      "method": "Uniform Aseprite bilinear runtime resample; original/source native unchanged",
+      "target_sha256": "a57c2671f088b6602ca740109eeff34efb5bd340e961c9c21c9fb519383fe955",
+      "alpha_bbox_ge8": [
+        1,
+        0,
+        62,
+        63
+      ],
+      "alpha_bbox_ge32": [
+        1,
+        0,
+        62,
+        63
+      ]
+    },
+    {
+      "source": "assets/melody/progress_pip_filled_orange_painted.png",
+      "source_sha256": "3ef0627f259720318e7d1f0ba9770b96464ef7d4adb5c497c412943b01f12508",
+      "source_size": [
+        128,
+        128
+      ],
+      "target": "assets/melody/mobile/progress_pip_filled_orange_painted.png",
+      "target_size": [
+        64,
+        64
+      ],
+      "crop": null,
+      "method": "Uniform Aseprite bilinear runtime resample; original/source native unchanged",
+      "target_sha256": "d357e20ad1f81f522eff3bce33adde97bfc14f303e317d8d1a662be7b23e4fd9",
+      "alpha_bbox_ge8": [
+        2,
+        0,
+        63,
+        63
+      ],
+      "alpha_bbox_ge32": [
+        2,
+        1,
+        63,
+        63
+      ]
+    },
+    {
+      "source": "assets/melody/progress_pip_filled_red_painted.png",
+      "source_sha256": "9b4ba704beabfcf5e3f33d5da6f856ab50c0c3283593be307000b942650fe92a",
+      "source_size": [
+        128,
+        128
+      ],
+      "target": "assets/melody/mobile/progress_pip_filled_red_painted.png",
+      "target_size": [
+        64,
+        64
+      ],
+      "crop": null,
+      "method": "Uniform Aseprite bilinear runtime resample; original/source native unchanged",
+      "target_sha256": "c38df6fedfe896772679fd71269a02c36ef996a87e294512e9694d0c073b3ce8",
+      "alpha_bbox_ge8": [
+        1,
+        0,
+        63,
+        63
+      ],
+      "alpha_bbox_ge32": [
+        1,
+        1,
+        63,
+        63
+      ]
+    },
+    {
+      "source": "assets/melody/progress_pip_filled_violet_painted.png",
+      "source_sha256": "3839641ac6b8c11d7619df92e566da9fe8022f19f10e2fe5335f21175106d5d5",
+      "source_size": [
+        128,
+        128
+      ],
+      "target": "assets/melody/mobile/progress_pip_filled_violet_painted.png",
+      "target_size": [
+        64,
+        64
+      ],
+      "crop": null,
+      "method": "Uniform Aseprite bilinear runtime resample; original/source native unchanged",
+      "target_sha256": "a89694f33d1e6d8ee84abdcd21ad0464ec50463ce5a76d39d2cd35539d3440ed",
+      "alpha_bbox_ge8": [
+        1,
+        0,
+        63,
+        63
+      ],
+      "alpha_bbox_ge32": [
+        1,
+        0,
+        63,
+        63
+      ]
+    },
+    {
+      "source": "assets/melody/progress_pip_filled_yellow_painted.png",
+      "source_sha256": "2511f899af13ada340fb34cd0a51e180cfe2daac82283a9b2d3b8f00a771dfc8",
+      "source_size": [
+        128,
+        128
+      ],
+      "target": "assets/melody/mobile/progress_pip_filled_yellow_painted.png",
+      "target_size": [
+        64,
+        64
+      ],
+      "crop": null,
+      "method": "Uniform Aseprite bilinear runtime resample; original/source native unchanged",
+      "target_sha256": "a63c267bc7460f4488980ec1e82574915312d252b0e202e7b4694a17985c88eb",
+      "alpha_bbox_ge8": [
+        2,
+        0,
+        63,
+        63
+      ],
+      "alpha_bbox_ge32": [
+        2,
+        1,
+        62,
+        63
+      ]
+    },
+    {
+      "source": "assets/melody/progress_pip_idle_blue_painted.png",
+      "source_sha256": "bf334cb5b7b4b61926b83cf6ecd20d7fa5005db0cc2e4755050b11a8b3671fe4",
+      "source_size": [
+        128,
+        128
+      ],
+      "target": "assets/melody/mobile/progress_pip_idle_blue_painted.png",
+      "target_size": [
+        64,
+        64
+      ],
+      "crop": null,
+      "method": "Uniform Aseprite bilinear runtime resample; original/source native unchanged",
+      "target_sha256": "d219aa00d0ea77cc8c0e0178797dda74de6468eb31c9821c0f53bbf096b10e07",
+      "alpha_bbox_ge8": [
+        2,
+        1,
+        62,
+        64
+      ],
+      "alpha_bbox_ge32": [
+        2,
+        2,
+        62,
+        64
+      ]
+    },
+    {
+      "source": "assets/melody/progress_pip_idle_green_painted.png",
+      "source_sha256": "08e6b0b89b062ac98755c163c5d22c1d9c1855126b585c1d0b14590ea31a52fd",
+      "source_size": [
+        128,
+        128
+      ],
+      "target": "assets/melody/mobile/progress_pip_idle_green_painted.png",
+      "target_size": [
+        64,
+        64
+      ],
+      "crop": null,
+      "method": "Uniform Aseprite bilinear runtime resample; original/source native unchanged",
+      "target_sha256": "823a5cb5a8d0d26578bfdf4ccf9c554776c609e717680a108d41c2ef580076e2",
+      "alpha_bbox_ge8": [
+        2,
+        1,
+        62,
+        63
+      ],
+      "alpha_bbox_ge32": [
+        2,
+        1,
+        62,
+        63
+      ]
+    },
+    {
+      "source": "assets/melody/progress_pip_idle_indigo_painted.png",
+      "source_sha256": "dc4afb1485f1492060d22d1014f6c65c33e99063d326aab9d0c37c5b49c6ddd0",
+      "source_size": [
+        128,
+        128
+      ],
+      "target": "assets/melody/mobile/progress_pip_idle_indigo_painted.png",
+      "target_size": [
+        64,
+        64
+      ],
+      "crop": null,
+      "method": "Uniform Aseprite bilinear runtime resample; original/source native unchanged",
+      "target_sha256": "1ab4e45121bda1b18d4308d719ebd845cca376078336cfec3cb399e773c6c49d",
+      "alpha_bbox_ge8": [
+        2,
+        1,
+        62,
+        64
+      ],
+      "alpha_bbox_ge32": [
+        2,
+        1,
+        62,
+        64
+      ]
+    },
+    {
+      "source": "assets/melody/progress_pip_idle_orange_painted.png",
+      "source_sha256": "17733b77a4fd8e497738ed541b845c39ed83135096749b3043dd835631179b1b",
+      "source_size": [
+        128,
+        128
+      ],
+      "target": "assets/melody/mobile/progress_pip_idle_orange_painted.png",
+      "target_size": [
+        64,
+        64
+      ],
+      "crop": null,
+      "method": "Uniform Aseprite bilinear runtime resample; original/source native unchanged",
+      "target_sha256": "5742f6e0794a6b32140d602589843673ce946634ee52ff500975e2e2728f7f69",
+      "alpha_bbox_ge8": [
+        2,
+        1,
+        63,
+        63
+      ],
+      "alpha_bbox_ge32": [
+        2,
+        1,
+        63,
+        63
+      ]
+    },
+    {
+      "source": "assets/melody/progress_pip_idle_red_painted.png",
+      "source_sha256": "d0917d181d9890eefb93f15ee14e92c2da766d4c202230512494684d3c332f3f",
+      "source_size": [
+        128,
+        128
+      ],
+      "target": "assets/melody/mobile/progress_pip_idle_red_painted.png",
+      "target_size": [
+        64,
+        64
+      ],
+      "crop": null,
+      "method": "Uniform Aseprite bilinear runtime resample; original/source native unchanged",
+      "target_sha256": "359dc047cf4ac1139fb3c7b30a5ae9839a99e697139ccd94dddb20095870b2d1",
+      "alpha_bbox_ge8": [
+        2,
+        1,
+        63,
+        63
+      ],
+      "alpha_bbox_ge32": [
+        2,
+        1,
+        63,
+        63
+      ]
+    },
+    {
+      "source": "assets/melody/progress_pip_idle_violet_painted.png",
+      "source_sha256": "301798f5bd6ea2dcfd714345d2619a59d1a9b8c6779e159d48d20e2fe7d8a40e",
+      "source_size": [
+        128,
+        128
+      ],
+      "target": "assets/melody/mobile/progress_pip_idle_violet_painted.png",
+      "target_size": [
+        64,
+        64
+      ],
+      "crop": null,
+      "method": "Uniform Aseprite bilinear runtime resample; original/source native unchanged",
+      "target_sha256": "e94bdf73ea6cf052c3e23604ba723ac64ba56eb19a5c9eee853eef8c8da3e3d2",
+      "alpha_bbox_ge8": [
+        1,
+        1,
+        62,
+        64
+      ],
+      "alpha_bbox_ge32": [
+        1,
+        1,
+        62,
+        63
+      ]
+    },
+    {
+      "source": "assets/melody/progress_pip_idle_yellow_painted.png",
+      "source_sha256": "175d3bbaab4232f7193afd9810bcd1f86cbee7553604cd12ba029add6ee71da6",
+      "source_size": [
+        128,
+        128
+      ],
+      "target": "assets/melody/mobile/progress_pip_idle_yellow_painted.png",
+      "target_size": [
+        64,
+        64
+      ],
+      "crop": null,
+      "method": "Uniform Aseprite bilinear runtime resample; original/source native unchanged",
+      "target_sha256": "e3abef716c5b3b0504178ac2c411a6f77b2dcbc2a6d659155e9715ff6c0ea699",
+      "alpha_bbox_ge8": [
+        2,
+        1,
+        62,
+        64
+      ],
+      "alpha_bbox_ge32": [
+        2,
+        1,
+        62,
+        63
+      ]
+    }
+  ],
+  "runtime_files_sha256": {
+    "scripts/probe_melody.gd": "c2b5e0c1379f422749434ec774dd3d2122a61f325e62907918f86c3e439e3859",
+    "scripts/games/melody.gd": "976c0e2fa53fdfd5cf9c2fdb1f5e6c658552a7c27d3c02666a806c234dd10091"
+  },
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "current_controller_sha256": "195c64b3c17fe5fc75750c0fff4751ed9ceaea499796f90749c6b4c2b75955ed",
+  "current_probe_sha256": "2fd099a90948b0f68fd57f712cab77cb42e28a5cf28a4f0737a88d9d2d917420",
+  "current_scope_additions": [
+    "MELODY_NOTE_REGISTRATION.json",
+    "TELEMETRY_CONTEXT_APPLICABILITY.json"
+  ]
+}

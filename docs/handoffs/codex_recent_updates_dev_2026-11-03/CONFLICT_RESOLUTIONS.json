@@ -1,0 +1,554 @@
+{
+  "state": "ALL22_ORIGINAL_OVERLAPS_RESOLVED",
+  "original_conflict_count": 22,
+  "original_history": [
+    {
+      "branch": "origin/codex/opera-four-screen-v1-20261031",
+      "revision": "ad019f2235aed64e167da410743ca6c4abf43cdc",
+      "path": ".gitattributes",
+      "proposed": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\conflicts\\1\\.gitattributes",
+      "details": [
+        {
+          "reason": "Unresolved shared text changes"
+        }
+      ]
+    },
+    {
+      "branch": "origin/codex/opera-four-screen-v1-20261031",
+      "revision": "ad019f2235aed64e167da410743ca6c4abf43cdc",
+      "path": "audit/audio_quality_summary_2026-08-24.json",
+      "proposed": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\conflicts\\1\\audit\\audio_quality_summary_2026-08-24.json",
+      "details": [
+        {
+          "reason": "Unresolved shared text changes"
+        }
+      ]
+    },
+    {
+      "branch": "origin/codex/opera-four-screen-v1-20261031",
+      "revision": "ad019f2235aed64e167da410743ca6c4abf43cdc",
+      "path": "design/reference/owner_decisions.json",
+      "proposed": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\conflicts\\1\\design\\reference\\owner_decisions.json",
+      "details": [
+        {
+          "reason": "Unresolved shared text changes"
+        }
+      ]
+    },
+    {
+      "branch": "origin/codex/native-rig-costumes-20261031",
+      "revision": "b700b846d1d2f4b1843279f268e2bb12e4b1f4ec",
+      "path": "design/reference/owner_decisions.json",
+      "proposed": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\conflicts\\2\\design\\reference\\owner_decisions.json",
+      "details": [
+        {
+          "reason": "Unresolved shared text changes"
+        }
+      ]
+    },
+    {
+      "branch": "origin/codex/roshan-laura-docs-20261101",
+      "revision": "5168504c7914286ed11a84001aeca0b13a888e2c",
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "proposed": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\conflicts\\7\\audit\\MASTER_AUDIT_2026-08-09.md",
+      "details": [
+        {
+          "current": "| Roshan painter/astronaut source rig prototypes | [Isolated packet](../assets_src/animation/roshan_job_rig_creative_space_20261101/README.md); [impact](../design/audit_impacts/roshan-job-rig-creative-space-20261101.json) | Rejected source-only garment/object study against shared rig v1 provisional pin. Original curves/rest/common weights and seed fixtures preserved; new contour/geometry/timing failures and exact publication status stay in the packet. No production integration, finding closure or device/child/owner acceptance. |\n| Animation | [character animation branch](animation/README.md); [motion and acting rules](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#9-motion-acting-feedback-and-rewards) | [Roshan movement language](../design/animation/ROSHAN_MOVEMENT_LANGUAGE.md); [production protocol](../design/animation/ANIMATION_PRODUCTION_PROTOCOL.md); [character profile template](../design/templates/CHARACTER_MOVEMENT_PROFILE_V1.md); [measured2.5 blur study](../assets_src/cinematics/ltx25_8gb_wave_20261004/README.md); [continuous scale correction](../assets_src/cinematics/ltx25_scale_filter_v2_20261004/README.md); [size/focus corrective analysis](../assets_src/cinematics/ltx25_focus_repair_20261004/README.md); [actual Union structural-control trial](../assets_src/cinematics/ltx25_union_trial_20261004/README.md); [reusable whole-sprite preparation engine](../docs/animation/WHOLE_SPRITE_PIPELINE_V1.md); [actual owner-renewed wave repair campaign](../assets_src/animation/roshan_wave_repair_20261010/README.md) |\n",
+          "base": "| Animation | [character animation branch](animation/README.md); [motion and acting rules](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#9-motion-acting-feedback-and-rewards) | [Roshan movement language](../design/animation/ROSHAN_MOVEMENT_LANGUAGE.md); [production protocol](../design/animation/ANIMATION_PRODUCTION_PROTOCOL.md); [character profile template](../design/templates/CHARACTER_MOVEMENT_PROFILE_V1.md); [measured2.5 blur study](../assets_src/cinematics/ltx25_8gb_wave_20261004/README.md); [continuous scale correction](../assets_src/cinematics/ltx25_scale_filter_v2_20261004/README.md); [size/focus corrective analysis](../assets_src/cinematics/ltx25_focus_repair_20261004/README.md); [actual Union structural-control trial](../assets_src/cinematics/ltx25_union_trial_20261004/README.md); [reusable whole-sprite preparation engine](../docs/animation/WHOLE_SPRITE_PIPELINE_V1.md); [actual owner-renewed wave repair campaign](../assets_src/animation/roshan_wave_repair_20261010/README.md) |\n",
+          "incoming": "| Animation | [character animation branch](animation/README.md); [motion and acting rules](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#9-motion-acting-feedback-and-rewards) | [Roshan movement language](../design/animation/ROSHAN_MOVEMENT_LANGUAGE.md); [production protocol](../design/animation/ANIMATION_PRODUCTION_PROTOCOL.md); [character profile template](../design/templates/CHARACTER_MOVEMENT_PROFILE_V1.md); [measured2.5 blur study](../assets_src/cinematics/ltx25_8gb_wave_20261004/README.md); [continuous scale correction](../assets_src/cinematics/ltx25_scale_filter_v2_20261004/README.md); [size/focus corrective analysis](../assets_src/cinematics/ltx25_focus_repair_20261004/README.md); [actual Union structural-control trial](../assets_src/cinematics/ltx25_union_trial_20261004/README.md); [reusable whole-sprite preparation engine](../docs/animation/WHOLE_SPRITE_PIPELINE_V1.md); [actual owner-renewed wave repair campaign](../assets_src/animation/roshan_wave_repair_20261010/README.md); [Laura-led v2 profile and pose backlog](../design/animation/ROSHAN_MOVEMENT_LANGUAGE.md#laura-led-visual-movement-specification-v2-2026-11-01); [pre-test scope/evidence](../design/audit_impacts/roshan-laura-profile-20261101.json); [current-rig Laura test and pose-gap diagnosis](../assets_src/animation/roshan_laura_rig_test_20261101/README.md) |\n"
+        }
+      ]
+    },
+    {
+      "branch": "origin/claude/boxer-engine-handoff-20261101",
+      "revision": "034273ab3c9c2603eced2e04ef2cbf594e936149",
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "proposed": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\conflicts\\8\\audit\\MASTER_AUDIT_2026-08-09.md",
+      "details": [
+        {
+          "current": "| New chapter | [planning and creative scope](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#20-chapter-planning-creative-delegation-and-strategic-reuse) | [Chapter guide](../design/09_CHAPTER_DEVELOPMENT_GUIDE.md); [brief](../design/templates/CHAPTER_BRIEF_V1.md); [reference library](../design/10_CHAPTER_REFERENCE_LIBRARY.md); known gaps: [`MA-DOC-010`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-010) and the [chapter-guide handoff](../docs/handoffs/codex_chapter_guide_2026-10-31/README.md) |\n",
+          "base": "| New chapter | [planning and creative scope](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#20-chapter-planning-creative-delegation-and-strategic-reuse) | [Chapter guide](../design/09_CHAPTER_DEVELOPMENT_GUIDE.md); [brief](../design/templates/CHAPTER_BRIEF_V1.md); [reference library](../design/10_CHAPTER_REFERENCE_LIBRARY.md) |\n",
+          "incoming": "| Boxer phone/tablet contact engine | [Owner-directed revision](../design/BOXING_GAME_PROJECT_2026-08-09.md#2026-10-31-owner-directed-contact-engine); [`MA-OPERA-009`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-009) | [Impact](../design/audit_impacts/boxer-contact-engine-20261031.json); held or moving guards anywhere on the incoming flight, swept target contact, phone edge/tablet direct input and stress verification. Device/child/owner and final audit acceptance remain open. Evaluation 2026-11-01: [`MA-OPERA-015`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-015) and the [Codex handoff](../docs/handoffs/codex_boxer_engine_2026-11-01/README.md) for Editions 1-2 and the engine foundation. |\n| Geologist staged feedback rest | [Bounded lifecycle impact](../design/audit_impacts/geologist-staged-rest-20261031.json); [`MA-PLAY-003`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-play-003) | Record existing staged actor rests before success feedback; preserves artwork/positions and strict separation assertion. Focused machine evidence is separate from global geometry and external acceptance. |\n| New chapter | [planning and creative scope](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#20-chapter-planning-creative-delegation-and-strategic-reuse) | [Chapter guide](../design/09_CHAPTER_DEVELOPMENT_GUIDE.md); [brief](../design/templates/CHAPTER_BRIEF_V1.md); [reference library](../design/10_CHAPTER_REFERENCE_LIBRARY.md) |\n"
+        },
+        {
+          "current": "| [`MA-OPERA-014`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014) | P1 | `IN_PROGRESS` | V1 + owner report | The owner names Pop Star, Ballerina and Racer the weakest careers (2026-10-17): an untimed echo and hold/lane/circle chores with no beat, a ballet whose demonstration taps each answer and a trace and ring with no dance, and a race that any held touch completes while steering moves the kart about 19 px. A ground-up rebuild is directed | The [rebuild handoff](../docs/handoffs/codex_minigame_rebuilds_2026-10-17/README.md) MR0-MR8 lands; each career passes its machine legs, then phone, observed-child and owner acceptance |\n",
+          "base": "| [`MA-OPERA-014`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014) | P1 | `CONFIRMED_OPEN` | V1 + owner report | The owner names Pop Star, Ballerina and Racer the weakest careers (2026-10-17): an untimed echo and hold/lane/circle chores with no beat, a ballet whose demonstration taps each answer and a trace and ring with no dance, and a race that any held touch completes while steering moves the kart about 19 px. A ground-up rebuild is directed | The [rebuild handoff](../docs/handoffs/codex_minigame_rebuilds_2026-10-17/README.md) MR0-MR8 lands; each career passes its machine legs, then phone, observed-child and owner acceptance |\n",
+          "incoming": "| [`MA-OPERA-014`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014) | P1 | `CONFIRMED_OPEN` | V1 + owner report | The owner names Pop Star, Ballerina and Racer the weakest careers (2026-10-17): an untimed echo and hold/lane/circle chores with no beat, a ballet whose demonstration taps each answer and a trace and ring with no dance, and a race that any held touch completes while steering moves the kart about 19 px. A ground-up rebuild is directed | The [rebuild handoff](../docs/handoffs/codex_minigame_rebuilds_2026-10-17/README.md) MR0-MR8 lands; each career passes its machine legs, then phone, observed-child and owner acceptance |\n| [`MA-OPERA-015`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-015) | P1 | `CONFIRMED_OPEN` | V2 | Boxer Title Imp rules and timing work against the guard skill: high guards and finger lifts read as mistakes, help maxes on one slip, one parked glove blocks both lanes, blocking does not gate the counter, the 1.7 s window is too short and random input ties purposeful play | BX8 gates at an exact head, then device, child and owner acceptance ([handoff](../docs/handoffs/codex_boxer_engine_2026-11-01/README.md)) |\n"
+        }
+      ]
+    },
+    {
+      "branch": "origin/claude/boxer-engine-handoff-20261101",
+      "revision": "034273ab3c9c2603eced2e04ef2cbf594e936149",
+      "path": "design/05_DOC_LEDGER.md",
+      "proposed": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\conflicts\\8\\design\\05_DOC_LEDGER.md",
+      "details": [
+        {
+          "current": "| `design/GEOLOGIST_REBUILD_2026-09-05.md` | \ud83d\udd35 | `SUPPORTING_CURRENT`; scoped Geologist research, mechanics implementation and diagnostic evidence; not release, final-art, device or child acceptance. |\n| `design/RACER_CASTLE_INTEGRATION_2026-10-22.json` | \ud83d\udfe0 | `SUPPORTING_CURRENT`; owner-directed existing full Canvas Racer recovery and Castle-room route, current integration ownership and separate machine/native/art/device/child/owner evidence. No acceptance or closure. |\n",
+          "base": "| `design/GEOLOGIST_REBUILD_2026-09-05.md` | \ud83d\udd35 | `SUPPORTING_CURRENT`; scoped Geologist research, mechanics implementation and diagnostic evidence; not release, final-art, device or child acceptance. |\n",
+          "incoming": "| `design/GEOLOGIST_REBUILD_2026-09-05.md` | \ud83d\udd35 | `SUPPORTING_CURRENT`; scoped Geologist research, mechanics implementation and diagnostic evidence; not release, final-art, device or child acceptance. The bounded2026-10-31 actor-rest lifecycle repair is tracked in `design/audit_impacts/geologist-staged-rest-20261031.json`; original staged art/geometry stays intact and accepted-work bounce returns to that stage, with focused strict Opera PASS and full/external gates separate. |\n"
+        }
+      ]
+    },
+    {
+      "branch": "origin/claude/boxer-engine-handoff-20261101",
+      "revision": "034273ab3c9c2603eced2e04ef2cbf594e936149",
+      "path": "design/reference/owner_decisions.json",
+      "proposed": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\conflicts\\8\\design\\reference\\owner_decisions.json",
+      "details": [
+        {
+          "reason": "Unresolved shared text changes"
+        }
+      ]
+    },
+    {
+      "branch": "origin/codex/laura-swim-test-20261101",
+      "revision": "4e3b46da683e9f688ca13a59974c49c0e75cc95a",
+      "path": "design/reference/owner_decisions.json",
+      "proposed": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\conflicts\\9\\design\\reference\\owner_decisions.json",
+      "details": [
+        {
+          "reason": "Unresolved shared text changes"
+        }
+      ]
+    },
+    {
+      "branch": "origin/codex/mermaid-roshan-picture-book",
+      "revision": "4715efed9f62f1bbdfba3a9d4e6b365e89aa2308",
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "proposed": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\conflicts\\11\\audit\\MASTER_AUDIT_2026-08-09.md",
+      "details": [
+        {
+          "current": "Teacher object-art candidate (2026-10-18): [P2 impact](../design/audit_impacts/job-art-teacher-20261018.json) records24 painted ImageGen runtime objects, source rejects, two-aspect lesson/shape/crest/invitation context, actual GUI activation and the4.5/5 local AI floor. Full machine/remote integration and physical-device/child/owner/canonicalQA11 acceptance remain separately recorded; shared P8 scene work and MA-VIS-010 remain open.\n",
+          "base": "<!-- AUDIT_TASK_INDEX_END -->\n",
+          "incoming": "Scoped static Chapter One book: [book workspace](../books/chapter_one/README.md), [owner background and page design language](../books/chapter_one/DESIGN_LANGUAGE.md), and [impact](../design/audit_impacts/picture-book-dedicated-branch-20260920.json). No game finding closure or cinematic acceptance.\n\nScoped V45 static-book language review: [draft and critique](../books/chapter_one/landscape/revisions/v45_story_language/README.md), [impact](../design/audit_impacts/picture-book-v45-language-20261031.json).24exact proposed captions plus a declared concise page11 adaptation; unchanged art and game. Owner/child/SLP/print and inherited continuity remain open.\n\nScoped V46 static-book preschool-copy/lettering correction: [current review](../books/chapter_one/landscape/revisions/v46_preschool_legibility/README.md), [impact](../design/audit_impacts/picture-book-v46-preschool-legibility-20261101.json). Concise copy and opaque solid ink preserve artwork/font sizes; V45 histories remain. No game finding or owner/child/SLP/print closure.\n\n<!-- AUDIT_TASK_INDEX_END -->\n"
+        }
+      ]
+    },
+    {
+      "branch": "origin/codex/flat-vector-melody-header-20261101",
+      "revision": "621a098f6795d8aa2e0bd0838c2ff5e65aeb142c",
+      "path": "scripts/probe_melody.gd",
+      "proposed": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\conflicts\\12\\scripts\\probe_melody.gd",
+      "details": [
+        {
+          "function": "_check_rendered_stage_contract",
+          "tag": "replace",
+          "old": "\t_check(\"actual proscenium polygons visibly dominate the 1280x720 stage\",\n",
+          "new": "\t_check_header_alpha_metric_controls(surface, standard_viewport)\n\t_check(\"actual geometry and painted-header alpha visibly dominate the 1280x720 stage\",\n"
+        },
+        {
+          "function": "_check_runtime_texture_census",
+          "tag": "replace",
+          "old": "\t_check(\"live Canvas binds only four tiles, Daddy, and Roshan exactly once each\",\n",
+          "new": "\t_check(\"live Canvas binds four tiles, Daddy, Roshan and one painted header exactly once each\",\n"
+        },
+        {
+          "function": "_surface_structure_exact",
+          "tag": "replace",
+          "old": "\t\t\tor not _exact_typed_geometry_children(proscenium, [\n\t\t\t\t\"LeftCurtainGeometry\", \"RightCurtainGeometry\",\n\t\t\t\t\"CrownHeaderGeometry\", \"StageApronGeometry\",\n\t\t\t], []) \\\n",
+          "new": "\t\t\tor not _proscenium_structure_exact(proscenium) \\\n"
+        },
+        {
+          "function": "_polygon_union_metrics",
+          "tag": "insert",
+          "old": "",
+          "new": "\t\t\tif not opaque and header_image != null and header_alpha >= 0.5:\n\t\t\t\tvar local: Vector2 = header_inverse * point\n\t\t\t\tif Rect2(Vector2.ZERO, header_size).has_point(local):\n\t\t\t\t\tvar x: int = clampi(int(local.x / header_size.x\n\t\t\t\t\t\t* header_image.get_width()), 0, header_image.get_width() - 1)\n\t\t\t\t\tvar y: int = clampi(int(local.y / header_size.y\n\t\t\t\t\t\t* header_image.get_height()), 0, header_image.get_height() - 1)\n\t\t\t\t\tif header_image.get_pixel(x, y).a * header_alpha >= 0.5:\n\t\t\t\t\t\topaque = true\n\t\t\t\t\t\tunion_rect = union_rect.merge(Rect2(\n\t\t\t\t\t\t\tpoint - cell_size * 0.5, cell_size))\n\t\t\tif opaque:\n\t\t\t\tcovered += 1\n"
+        },
+        {
+          "function": "_polygon_union_metrics",
+          "tag": "delete",
+          "old": "\n",
+          "new": ""
+        }
+      ]
+    },
+    {
+      "branch": "origin/codex/flat-vector-melody-star-20261102",
+      "revision": "877fb264778f59b6f1d1602fd8af4f73970351be",
+      "path": "scripts/probe_melody.gd",
+      "proposed": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\conflicts\\13\\scripts\\probe_melody.gd",
+      "details": [
+        {
+          "function": "_check_runtime_texture_census",
+          "tag": "replace",
+          "old": "\t_check(\"live Canvas binds only four tiles, Daddy, and Roshan exactly once each\",\n",
+          "new": "\t_check(\"live Canvas binds four tiles, Daddy, Roshan, and painted star exactly once each\",\n"
+        }
+      ]
+    },
+    {
+      "branch": "origin/codex/flat-vector-melody-footlights-20261102",
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "scripts/probe_melody.gd",
+      "proposed": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\conflicts\\15\\scripts\\probe_melody.gd",
+      "details": [
+        {
+          "function": "_check_runtime_texture_census",
+          "tag": "replace",
+          "old": "\tvar expected_paths: Array[String] = TILE_PATHS.duplicate()\n\texpected_paths.append(DADDY_PATH)\n\texpected_paths.append(ROSHAN_PATH)\n\tvar exact_once := counts.size() == expected_paths.size()\n",
+          "new": "\tvar expected: Dictionary = {}\n\tfor path: String in TILE_PATHS:\n\t\texpected[path] = 1\n\texpected[DADDY_PATH] = 1\n\texpected[ROSHAN_PATH] = 1\n\texpected[FOOTLIGHT_RAIL_PATH] = 1\n\tfor index in range(13):\n\t\tvar path: String = FOOTLIGHT_GLOBE_PATHS[index % 7]\n\t\texpected[path] = int(expected.get(path, 0)) + 1\n\tvar exact_bindings: bool = counts.size() == expected.size()\n"
+        },
+        {
+          "function": "_check_runtime_texture_census",
+          "tag": "replace",
+          "old": "\t_check(\"live Canvas binds only four tiles, Daddy, and Roshan exactly once each\",\n\t\texact_once)\n",
+          "new": "\t_check(\"live Canvas binds four tiles/two actors/one rail and exact13-globe palette counts\",\n\t\texact_bindings)\n"
+        }
+      ]
+    },
+    {
+      "branch": "origin/codex/flat-vector-melody-apron-20261102",
+      "revision": "f1fe4a15eda241001e42eb0aa9629bbff5d69dec",
+      "path": "scripts/probe_melody.gd",
+      "proposed": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\conflicts\\16\\scripts\\probe_melody.gd",
+      "details": [
+        {
+          "function": "_check_runtime_texture_census",
+          "tag": "replace",
+          "old": "\t_check(\"live Canvas binds only four tiles, Daddy, and Roshan exactly once each\",\n",
+          "new": "\t_check(\"live Canvas binds four tiles, two actors and two painted apron textures exactly once\",\n"
+        },
+        {
+          "function": "_surface_structure_exact",
+          "tag": "replace",
+          "old": "\t\t\tor not _exact_typed_geometry_children(proscenium, [\n\t\t\t\t\"LeftCurtainGeometry\", \"RightCurtainGeometry\",\n\t\t\t\t\"CrownHeaderGeometry\", \"StageApronGeometry\",\n\t\t\t], []) \\\n",
+          "new": "\t\t\tor not _painted_apron_contract(proscenium) \\\n"
+        }
+      ]
+    },
+    {
+      "branch": "origin/codex/flat-vector-melody-bulbs-20261102",
+      "revision": "e4166d1b74e5f04ce3b7388b517d8127686dedaa",
+      "path": "scripts/games/melody.gd",
+      "proposed": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\conflicts\\17\\scripts\\games\\melody.gd",
+      "details": [
+        {
+          "tag": "insert",
+          "old": "",
+          "new": "\tconst CREAM_BULB: Texture2D = preload(\"res://assets/melody/theatre_bulb_cream_painted.png\")\n\tconst GOLD_BULB: Texture2D = preload(\"res://assets/melody/theatre_bulb_gold_painted.png\")\n\tvar upper_bulbs: Array[Sprite2D] = []\n\tvar lower_bulbs: Array[Sprite2D] = []\n"
+        }
+      ]
+    },
+    {
+      "branch": "origin/codex/flat-vector-melody-bulbs-20261102",
+      "revision": "e4166d1b74e5f04ce3b7388b517d8127686dedaa",
+      "path": "scripts/probe_melody.gd",
+      "proposed": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\conflicts\\17\\scripts\\probe_melody.gd",
+      "details": [
+        {
+          "function": "_check_runtime_texture_census",
+          "tag": "replace",
+          "old": "\t_check(\"live Canvas binds only four tiles, Daddy, and Roshan exactly once each\",\n",
+          "new": "\t_check(\"live Canvas binds original six textures once and two shared painted bulbs at exact row counts\",\n"
+        },
+        {
+          "function": "_surface_structure_exact",
+          "tag": "replace",
+          "old": "\t\t\tor not _exact_typed_geometry_children(proscenium, [\n\t\t\t\t\"LeftCurtainGeometry\", \"RightCurtainGeometry\",\n\t\t\t\t\"CrownHeaderGeometry\", \"StageApronGeometry\",\n\t\t\t], []) \\\n",
+          "new": "\t\t\tor not _painted_bulbs_contract(proscenium as Control) \\\n"
+        }
+      ]
+    },
+    {
+      "branch": "origin/codex/flat-vector-melody-note-20261102",
+      "revision": "7f21934d20f9d1abdb78b8c1b5869586efd0cd79",
+      "path": "scripts/probe_melody.gd",
+      "proposed": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\conflicts\\18\\scripts\\probe_melody.gd",
+      "details": [
+        {
+          "function": "_check_runtime_texture_census",
+          "tag": "replace",
+          "old": "\t_check(\"live Canvas binds only four tiles, Daddy, and Roshan exactly once each\",\n",
+          "new": "\t_check(\"live Canvas binds only four tiles, Daddy, Roshan and seven whole note textures exactly once each\",\n"
+        }
+      ]
+    },
+    {
+      "branch": "origin/codex/flat-vector-melody-progress-pips-20261102",
+      "revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+      "path": "scripts/probe_melody.gd",
+      "proposed": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\conflicts\\19\\scripts\\probe_melody.gd",
+      "details": [
+        {
+          "function": "_check_runtime_texture_census",
+          "tag": "replace",
+          "old": "\tvar expected_paths: Array[String] = TILE_PATHS.duplicate()\n\texpected_paths.append(DADDY_PATH)\n\texpected_paths.append(ROSHAN_PATH)\n\tvar exact_once := counts.size() == expected_paths.size()\n\tvar decoded_bytes := 0\n\tvar declared_upload_bytes := 0\n\tfor path: String in expected_paths:\n",
+          "new": "\tvar base_paths: Array[String] = TILE_PATHS.duplicate()\n\tbase_paths.append(DADDY_PATH)\n\tbase_paths.append(ROSHAN_PATH)\n\tvar live_paths: Array[String] = base_paths.duplicate()\n\tfor index in range(7):\n\t\tvar pip: Node = _stage_node(surface, \"ProgressPip%d\" % index)\n\t\tvar state_index: int = 2 if bool(pip.get(\"filled\")) else (\n\t\t\t1 if bool(pip.get(\"current\")) else 0)\n\t\tlive_paths.append(_pip_asset_path(state_index, index))\n\tvar exact_once: bool = counts.size() == live_paths.size()\n\tfor path: String in live_paths:\n"
+        },
+        {
+          "function": "_check_runtime_texture_census",
+          "tag": "replace",
+          "old": "\t_check(\"live Canvas binds only four tiles, Daddy, and Roshan exactly once each\",\n\t\texact_once)\n\t_check(\"unique live texture census stays within conservative decoded and declared-upload bounds\",\n",
+          "new": "\t\tif import_text.contains(\"mipmaps/generate=true\"):\n\t\t\tupload = ceili(float(upload) * 4.0 / 3.0)\n\t\tdeclared_upload_bytes += upload\n\t_check(\"live Canvas binds four tiles, Daddy, Roshan and seven whole pips exactly once each\",\n\t\texact_once and live_paths.size() == 13 and resident_paths.size() == 27)\n\t_check(\"all resident states stay within original conservative decoded and declared-upload bounds\",\n"
+        }
+      ]
+    },
+    {
+      "branch": "origin/codex/flat-vector-melody-timing-window-20261102",
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "scripts/probe_melody.gd",
+      "proposed": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\conflicts\\20\\scripts\\probe_melody.gd",
+      "details": [
+        {
+          "function": "_check_runtime_texture_census",
+          "tag": "replace",
+          "old": "\t_check(\"live Canvas binds only four tiles, Daddy, and Roshan exactly once each\",\n",
+          "new": "\t\t# Account for resident mip levels without increasing the original ceilings.\n\t\tif import_text.contains(\"mipmaps/generate=true\"):\n\t\t\tvar mip_width: int = image.get_width()\n\t\t\tvar mip_height: int = image.get_height()\n\t\t\twhile mip_width > 1 or mip_height > 1:\n\t\t\t\tmip_width = maxi(1, mip_width / 2)\n\t\t\t\tmip_height = maxi(1, mip_height / 2)\n\t\t\t\tdecoded_bytes += mip_width * mip_height * 4\n\t\t\t\tupload += mip_width * mip_height * 4\n\t\tdeclared_upload_bytes += upload\n\t_check(\"live Canvas binds four tiles, Daddy, Roshan and two complete timing paintings exactly once each\",\n"
+        }
+      ]
+    },
+    {
+      "branch": "origin/codex/flat-vector-melody-guide-20261102",
+      "revision": "75ea903d5d5679e90273fbb8faa80acba5ec5a65",
+      "path": "scripts/games/melody.gd",
+      "proposed": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\conflicts\\21\\scripts\\games\\melody.gd",
+      "details": [
+        {
+          "tag": "insert",
+          "old": "",
+          "new": "const GUIDE_HEAD_PATH := \"res://assets/melody/guide_arrow_head_painted.png\"\nconst GUIDE_BEAM_PATH := \"res://assets/melody/guide_beam_painted.png\"\nconst GUIDE_RING_PATH := \"res://assets/melody/guide_double_ring_painted.png\"\n"
+        }
+      ]
+    },
+    {
+      "branch": "origin/codex/flat-vector-melody-guide-20261102",
+      "revision": "75ea903d5d5679e90273fbb8faa80acba5ec5a65",
+      "path": "scripts/probe_melody.gd",
+      "proposed": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\conflicts\\21\\scripts\\probe_melody.gd",
+      "details": [
+        {
+          "function": "_check_runtime_texture_census",
+          "tag": "replace",
+          "old": "\t_check(\"live Canvas binds only four tiles, Daddy, and Roshan exactly once each\",\n",
+          "new": "\t\tif import_text.contains(\"mipmaps/generate=true\") and path.begins_with(\"res://assets/melody/guide_\"):\n\t\t\tdecoded_bytes += ceili(float(pixels * 4) / 3.0)\n\t\t\tdeclared_upload_bytes += ceili(float(pixels * 4) / 3.0)\n\n\t_check(\"live Canvas binds the original six textures and three painted guide textures exactly once each\",\n"
+        }
+      ]
+    },
+    {
+      "branch": "origin/codex/dkc-soundtrack-profile-20261102",
+      "revision": "ddb657c7b24a4b0c8369cba1b6c0c19a67ad3fa6",
+      "path": "design/reference/owner_decisions.json",
+      "proposed": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\conflicts\\22\\design\\reference\\owner_decisions.json",
+      "details": [
+        {
+          "reason": "Unresolved shared text changes"
+        }
+      ]
+    }
+  ],
+  "resolutions": [
+    {
+      "path": ".gitattributes",
+      "source_revision": "ad019f2235aed64e167da410743ca6c4abf43cdc",
+      "state": "RESOLVED",
+      "method": "Exact source metadata overlap resolution and restored Boxer authority rows; see attached resolution records. No finding closure or source-only promotion."
+    },
+    {
+      "path": "audit/audio_quality_summary_2026-08-24.json",
+      "source_revision": "ad019f2235aed64e167da410743ca6c4abf43cdc",
+      "state": "RESOLVED",
+      "method": "Current Dev actual summary retained; older source diagnostic is not current. Zero new runtime audio imported."
+    },
+    {
+      "path": "design/reference/owner_decisions.json",
+      "source_revision": "ad019f2235aed64e167da410743ca6c4abf43cdc",
+      "state": "RESOLVED",
+      "method": "Stable-ID three-way source-decision union; independent authority preserved; exact published Dev-open correction added."
+    },
+    {
+      "path": "design/reference/owner_decisions.json",
+      "source_revision": "b700b846d1d2f4b1843279f268e2bb12e4b1f4ec",
+      "state": "RESOLVED",
+      "method": "Stable-ID three-way source-decision union; independent authority preserved; exact published Dev-open correction added."
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "source_revision": "5168504c7914286ed11a84001aeca0b13a888e2c",
+      "state": "RESOLVED",
+      "method": "Exact source metadata overlap resolution and restored Boxer authority rows; see attached resolution records. No finding closure or source-only promotion."
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "source_revision": "034273ab3c9c2603eced2e04ef2cbf594e936149",
+      "state": "RESOLVED",
+      "method": "Exact source metadata overlap resolution and restored Boxer authority rows; see attached resolution records. No finding closure or source-only promotion."
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "source_revision": "034273ab3c9c2603eced2e04ef2cbf594e936149",
+      "state": "RESOLVED",
+      "method": "Exact source metadata overlap resolution and restored Boxer authority rows; see attached resolution records. No finding closure or source-only promotion."
+    },
+    {
+      "path": "design/reference/owner_decisions.json",
+      "source_revision": "034273ab3c9c2603eced2e04ef2cbf594e936149",
+      "state": "RESOLVED",
+      "method": "Stable-ID three-way source-decision union; independent authority preserved; exact published Dev-open correction added."
+    },
+    {
+      "path": "design/reference/owner_decisions.json",
+      "source_revision": "4e3b46da683e9f688ca13a59974c49c0e75cc95a",
+      "state": "RESOLVED",
+      "method": "Stable-ID three-way source-decision union; independent authority preserved; exact published Dev-open correction added."
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "source_revision": "4715efed9f62f1bbdfba3a9d4e6b365e89aa2308",
+      "state": "RESOLVED",
+      "method": "Exact source metadata overlap resolution and restored Boxer authority rows; see attached resolution records. No finding closure or source-only promotion."
+    },
+    {
+      "path": "scripts/probe_melody.gd",
+      "source_revision": "621a098f6795d8aa2e0bd0838c2ff5e65aeb142c",
+      "state": "RESOLVED",
+      "method": "All source negative controls retained. Explicit41live/55resident census and all10painted structures preserve23/12MiB and200x90alpha0.5coverage/floor0.28; actual focused/full/context evidence applies."
+    },
+    {
+      "path": "scripts/probe_melody.gd",
+      "source_revision": "877fb264778f59b6f1d1602fd8af4f73970351be",
+      "state": "RESOLVED",
+      "method": "All source negative controls retained. Explicit41live/55resident census and all10painted structures preserve23/12MiB and200x90alpha0.5coverage/floor0.28; actual focused/full/context evidence applies."
+    },
+    {
+      "path": "scripts/probe_melody.gd",
+      "source_revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "state": "RESOLVED",
+      "method": "All source negative controls retained. Explicit41live/55resident census and all10painted structures preserve23/12MiB and200x90alpha0.5coverage/floor0.28; actual focused/full/context evidence applies."
+    },
+    {
+      "path": "scripts/probe_melody.gd",
+      "source_revision": "f1fe4a15eda241001e42eb0aa9629bbff5d69dec",
+      "state": "RESOLVED",
+      "method": "All source negative controls retained. Explicit41live/55resident census and all10painted structures preserve23/12MiB and200x90alpha0.5coverage/floor0.28; actual focused/full/context evidence applies."
+    },
+    {
+      "path": "scripts/games/melody.gd",
+      "source_revision": "e4166d1b74e5f04ce3b7388b517d8127686dedaa",
+      "state": "RESOLVED",
+      "method": "All10painted components composed; class-local bulb definitions and guide paths retained. Forty deterministic exports plus0.328125pxwhole-note alpha registration preserve original gameplay."
+    },
+    {
+      "path": "scripts/probe_melody.gd",
+      "source_revision": "e4166d1b74e5f04ce3b7388b517d8127686dedaa",
+      "state": "RESOLVED",
+      "method": "All source negative controls retained. Explicit41live/55resident census and all10painted structures preserve23/12MiB and200x90alpha0.5coverage/floor0.28; actual focused/full/context evidence applies."
+    },
+    {
+      "path": "scripts/probe_melody.gd",
+      "source_revision": "7f21934d20f9d1abdb78b8c1b5869586efd0cd79",
+      "state": "RESOLVED",
+      "method": "All source negative controls retained. Explicit41live/55resident census and all10painted structures preserve23/12MiB and200x90alpha0.5coverage/floor0.28; actual focused/full/context evidence applies."
+    },
+    {
+      "path": "scripts/probe_melody.gd",
+      "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+      "state": "RESOLVED",
+      "method": "All source negative controls retained. Explicit41live/55resident census and all10painted structures preserve23/12MiB and200x90alpha0.5coverage/floor0.28; actual focused/full/context evidence applies."
+    },
+    {
+      "path": "scripts/probe_melody.gd",
+      "source_revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "state": "RESOLVED",
+      "method": "All source negative controls retained. Explicit41live/55resident census and all10painted structures preserve23/12MiB and200x90alpha0.5coverage/floor0.28; actual focused/full/context evidence applies."
+    },
+    {
+      "path": "scripts/games/melody.gd",
+      "source_revision": "75ea903d5d5679e90273fbb8faa80acba5ec5a65",
+      "state": "RESOLVED",
+      "method": "All10painted components composed; class-local bulb definitions and guide paths retained. Forty deterministic exports plus0.328125pxwhole-note alpha registration preserve original gameplay."
+    },
+    {
+      "path": "scripts/probe_melody.gd",
+      "source_revision": "75ea903d5d5679e90273fbb8faa80acba5ec5a65",
+      "state": "RESOLVED",
+      "method": "All source negative controls retained. Explicit41live/55resident census and all10painted structures preserve23/12MiB and200x90alpha0.5coverage/floor0.28; actual focused/full/context evidence applies."
+    },
+    {
+      "path": "design/reference/owner_decisions.json",
+      "source_revision": "ddb657c7b24a4b0c8369cba1b6c0c19a67ad3fa6",
+      "state": "RESOLVED",
+      "method": "Stable-ID three-way source-decision union; independent authority preserved; exact published Dev-open correction added."
+    }
+  ],
+  "additional_policy": {
+    "state": "EXACT_PUBLISHED_POLICY_SOURCE_COMPOSED_METADATA_ONLY",
+    "source": "ff2c94b746e15ad97ce366e93df4d98c3d5205ca",
+    "branch": "origin/codex/dev-open-integration-20261103",
+    "source_CI": "Owning chat healthy source CI still fetching; job and checkout untouched. Final combined exact-head validation still required.",
+    "source_files": [
+      {
+        "path": "audit/MASTER_AUDIT_2026-08-09.md",
+        "method": "exact text three-way",
+        "published_source_sha256": "04f80e65317c0e5151f49e4515e33944764e9627376aad4cf40938fc1e4a9c3c",
+        "combined_sha256": "e06b174eb9c6c59dcb7b2527e1c48c4ee05b7d1d30cf9461a38d3754e209721f"
+      },
+      {
+        "path": "audit/cycles/dev-open-integration-20261103/owner_answers.json",
+        "method": "exact published source",
+        "published_source_sha256": "5c3d1ff5b415370c551e1391d3c065222faee148ec8096bb549756ca5f53080e",
+        "combined_sha256": "5c3d1ff5b415370c551e1391d3c065222faee148ec8096bb549756ca5f53080e"
+      },
+      {
+        "path": "design/05_DOC_LEDGER.md",
+        "method": "exact text three-way",
+        "published_source_sha256": "7e08206edb2ad444b8f6087d06159c6e3020a624a718b0485320527e2e140a5e",
+        "combined_sha256": "7d76287e33c3e242cfb8cab145c0a99412990a6438355d5a386299405b0c8eba"
+      },
+      {
+        "path": "design/audit_impacts/dev-open-integration-20261103.json",
+        "method": "exact published source",
+        "published_source_sha256": "c393dd323ad34aa5d7923540dd1f9a3c888aad285606418e802de334caea7937",
+        "combined_sha256": "c393dd323ad34aa5d7923540dd1f9a3c888aad285606418e802de334caea7937"
+      },
+      {
+        "path": "design/reference/OWNER_DECISIONS.md",
+        "method": "independent EOF owner-decision rows union; no row deleted or rewritten",
+        "published_source_sha256": "9ffde432bbd89506a6a78e653ad143dc78bba772a60e4ea0ca37968968c54341",
+        "combined_sha256": "e9ed594cf5565f6d716b02cfbe678eeacf1ca976c0d9481b52232fc5be314e59"
+      },
+      {
+        "path": "design/reference/owner_decisions.json",
+        "method": "stable-ID semantic three-way",
+        "published_source_sha256": "39625a9a6d8e84be61da08cefb5eb6966869fa221b10d399465c298409779475",
+        "combined_sha256": "d9100dcfadb8a4963c065c7ebbf12f656b5107df23957325da07e6ed99e05378"
+      },
+      {
+        "path": "docs/handoffs/codex_demo_readiness_2026-10-31/AUDIT.md",
+        "method": "exact published source",
+        "published_source_sha256": "526be5a53c83bc378cf5ed6938155a5ee4572d04ff0d6800a60d243f0c1666bf",
+        "combined_sha256": "526be5a53c83bc378cf5ed6938155a5ee4572d04ff0d6800a60d243f0c1666bf"
+      },
+      {
+        "path": "docs/handoffs/codex_demo_readiness_2026-10-31/DEMO_RUNBOOK.md",
+        "method": "exact published source",
+        "published_source_sha256": "7ac3ae78de76e91b0762d55ec6eb73c293846e76276dd94156a11e5a0d8ea208",
+        "combined_sha256": "7ac3ae78de76e91b0762d55ec6eb73c293846e76276dd94156a11e5a0d8ea208"
+      },
+      {
+        "path": "docs/handoffs/codex_demo_readiness_2026-10-31/MANIFEST.json",
+        "method": "exact published source",
+        "published_source_sha256": "3c4483749cd2c4f0f410d1ce7e3d412bd1558d2adeba099a7adbf46f95c617a1",
+        "combined_sha256": "3c4483749cd2c4f0f410d1ce7e3d412bd1558d2adeba099a7adbf46f95c617a1"
+      },
+      {
+        "path": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md",
+        "method": "exact published source",
+        "published_source_sha256": "fde18f77063f82db1af1bf4cc596675d39b0c67d36bf80e710f2fe1001eeda35",
+        "combined_sha256": "fde18f77063f82db1af1bf4cc596675d39b0c67d36bf80e710f2fe1001eeda35"
+      },
+      {
+        "path": "docs/handoffs/codex_demo_readiness_2026-10-31/REMOTE_VERIFICATION.json",
+        "method": "exact published source",
+        "published_source_sha256": "7efc8dece2e3ae9a99665280cb48dc1a4a066a4c6b0fe093e0335ac45f5ef86d",
+        "combined_sha256": "7efc8dece2e3ae9a99665280cb48dc1a4a066a4c6b0fe093e0335ac45f5ef86d"
+      }
+    ],
+    "planned_merge_parent_count": 27,
+    "base": "27c88288bf6e39582072811443df79919e7bbb89",
+    "runtime_files_changed": 0,
+    "other_chat_messages_sent": 0,
+    "at_utc": "2026-11-03T17:45:04.844175+00:00"
+  },
+  "current_gates": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D"
+}

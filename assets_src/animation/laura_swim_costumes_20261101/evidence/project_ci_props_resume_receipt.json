@@ -1,0 +1,14 @@
+{
+  "exit": 0,
+  "start_utc": "2026-11-02T01:44:48.321195+00:00",
+  "end_utc": "2026-11-02T01:45:39.373997+00:00",
+  "source_ci_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e",
+  "executed_sha256": "0955b7e6b51be5beb0380b33b0028f0ffd71c6d3472b85e38c5b813e9f47a8fa",
+  "scope": "Only the failed final probe selected; canonical header, complete probe body, assertions, save isolation, timeouts and failure/runtime classifiers unchanged. Earlier full82 exit1 and two native baseline trials retained.",
+  "command": [
+    "C:/Program Files/Git/bin/bash.exe",
+    "-c",
+    "export PATH=\"$PWD/tmp/laura_swim_ci_bin:$PATH\"; exec bash tmp/laura_props_canonical_resume.sh"
+  ],
+  "production_or_probe_modified": false
+}

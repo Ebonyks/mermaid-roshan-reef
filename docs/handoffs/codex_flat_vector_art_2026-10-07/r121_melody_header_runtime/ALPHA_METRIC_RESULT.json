@@ -1,0 +1,18 @@
+{
+  "state": "PASS_CURRENT_REAL_ALPHA_METRIC_AND_COUNTEREXAMPLES",
+  "probe_log_sha256": "80458543b25ff8a74b9e51378e538a3d60fea90e04966d2a8f22e0e9cf30873f",
+  "observations": [
+    "MELODY|LAYOUT_FACTS|standard={ \"proscenium_dominant\": true, \"viewport_rect\": [P: (0.0, 0.0), S: (1280.0, 720.0)], \"proscenium_rect\": [P: (24.0, 0.0), S: (1232.0, 702.0)], \"proscenium_coverage\": 0.429, \"footlights_rect\": [P: (134.88, 524.4), S: (1010.24, 48.0)], \"stage_star_rect\": [P: (332.0, 33.0), S: (104.0, 104.0)], \"actors_readable\": true, \"note_readable\": true, \"pointer_geometry_unique\": true, \"critical_regions_clear\": true, \"z_order_valid\": true, \"backdrop_covers\": true }",
+    "MELODY|OK|fully transparent header cannot inflate measured stage bounds",
+    "MELODY|OK|empty header control cannot count as visible painted coverage",
+    "MELODY|OK|restored exact painted header retains original dominance floors",
+    "MELODY|LAYOUT_FACTS|tall={ \"proscenium_dominant\": true, \"viewport_rect\": [P: (0.0, 0.0), S: (1280.0, 800.0)], \"proscenium_rect\": [P: (24.0, 0.0), S: (1232.0, 780.0)], \"proscenium_coverage\": 0.41061111111111, \"footlights_rect\": [P: (134.88, 536.0), S: (1010.24, 53.33331)], \"stage_star_rect\": [P: (326.2222, 36.66666), S: (115.5555, 115.5556)], \"actors_readable\": true, \"note_readable\": true, \"pointer_geometry_unique\": true, \"critical_regions_clear\": true, \"z_order_valid\": true, \"backdrop_covers\": true }",
+    "MELODY|LAYOUT_FACTS|restored={ \"proscenium_dominant\": true, \"viewport_rect\": [P: (0.0, 0.0), S: (1280.0, 720.0)], \"proscenium_rect\": [P: (24.0, 0.0), S: (1232.0, 702.0)], \"proscenium_coverage\": 0.429, \"footlights_rect\": [P: (134.88, 524.4), S: (1010.24, 48.0)], \"stage_star_rect\": [P: (332.0, 33.0), S: (104.0, 104.0)], \"actors_readable\": true, \"note_readable\": true, \"pointer_geometry_unique\": true, \"critical_regions_clear\": true, \"z_order_valid\": true, \"backdrop_covers\": true }"
+  ],
+  "all_original_thresholds_unchanged": true,
+  "game_asset_source_and_native_frames_unchanged": true,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null
+}

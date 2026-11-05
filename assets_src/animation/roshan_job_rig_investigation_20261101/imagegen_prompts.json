@@ -1,0 +1,30 @@
+{
+  "calls": 3,
+  "prompts": [
+    {
+      "id": "detective_take01",
+      "native": "native/detective_take01.png",
+      "prompt": "Create a complete RGBA garment assembly for dressing the character in reference IMAGE1's exact 1024x1024 rest layout, using ONLY the detective costume motifs in IMAGE2. Image1 is a fixed position/scale and silhouette pose reference; Image2 is garment design authority, not pose. Output transparent garment-only parts in their wearing positions on one 1024 square canvas. No face, hair, eyes, skin, hands, arms, character anatomy, stand, mannequin or text. Keep the entire head hole and arm skin regions transparent. Include ONE purple plaid deerstalker cap with shell brooch at x460..633 y96..200, ONE teal waistcoat, peach cravat and plum plaid shoulder cape plus cream short loose sleeves at x440..644 y330..490; ONE brown shell satchel at hip; ONE complete iridescent rainbow scale mermaid tail from waist x486..617 y463 down curving to left and into the COMPLETE rainbow two-lobed fin at x224..451 y598..861, matching Image1 tail geometry. Waist garment and tail overlap generously across y460..490 with opaque genuine painted material. Arm skin and original clothing are omitted: no pink blouse, no lavender old sleeves, no tiara. The new detective shoulder/cuff/cape contours must exist and can differ from the pink outfit. Preserve polished painted 2D storybook style, warm precise painted contours and original detective palette. Exact rest canvas positions are essential so no full-figure redesign. A coherent garment assembly with transparent regions where Roshan's original face, hair and hands will show; no extra props.",
+      "prompt_sha256": "9adac2c246605081b13649cb7fd91d6a2ca4101fbbfc46f3122ceb3248d74ac6",
+      "transparent_background": true,
+      "provider": "built-in image_gen; model/revision/seed not exposed"
+    },
+    {
+      "id": "geologist_take01",
+      "native": "native/geologist_take01.png",
+      "prompt": "Create a complete RGBA GARMENT-ONLY assembly for dressing reference IMAGE1's exact 1024 square front rest pose using geologist attire in IMAGE2 COMPLETE full-fin pose3, not incomplete poses0/1. IMAGE1 is fixed position/scale/pose; IMAGE2 is clothing design only. Transparent background. No person, face, eyes, hair, skin, hands, human arms, dummy, mannequin or text. Output clothing in wearing positions: ONE tan-orange field helmet with round aqua lamp at x460..633 y96..200; lavender short sleeve shirt and teal multi-pocket field vest with brown belt and tiny field pouch at x440..644 y330..490; ONE complete cool aqua/lavender iridescent scale mermaid tail from waist x486..617 y463 following Image1's SAME curve down then left to complete two-lobed rainbow fin x224..451 y598..861. Waist shirt/belt and tail generously overlap across y460..490 with genuine opaque material; maintain own geologist silhouette, no old pink blouse/ruffled shoulders or tiara. Leave all head/face/hair and arm skin regions transparent. Polished hand-painted 2D storybook with warm crisp painted outlines, satin color, no pixel art, no 3D. Complete tail fin in canvas, no cut-off tail, no separate legs, no extra props. Garment assembly must fit the original unchanged anatomy, not redesign Roshan. Match exact canvas positions in IMAGE1.",
+      "prompt_sha256": "37eef4f374ed4f74637e47197a88943b8c1e7efd573051fdefdfe28a542fab94",
+      "transparent_background": true,
+      "provider": "built-in image_gen; model/revision/seed not exposed"
+    },
+    {
+      "id": "grip_take01",
+      "native": "native/grip_take01.png",
+      "prompt": "Create a single transparent RGBA painted hand-grip part atlas for Roshan's native2D source prototype. Reference1 supplies exact warm pale skin, delicate child mermaid hand proportions and painted outline identity. References2/3 show the handles to support, not objects to copy into the output. On one square canvas put TWO large separated hand poses with ample transparent space: left half a THREE-QUARTER hand seen from viewer front, short wrist entering from upper-right, palm angled down-left, four softly curled fingers and thumb visibly closing around a narrow imaginary cylinder that travels diagonally from upper-left to lower-right; right half the SAME hand and same wrist/palm orientation seen from slightly behind so thumb/fingers exchange occlusion. Keep an EMPTY TRANSPARENT thin channel for the removable tool shaft. Only two hands plus short wrists, no full arms, no clothing, no sleeves, no jewelry, no text, no actual brush or magnifier, no body. Warm precise painted contours, polished softly shaded 2D storybook art matching reference1, not chibi oversized fingers, no extra fingers. These are replacement grip views of her existing left-screen hand, not a different character. An actual wrapped grasp with believable thumb opposition is essential; an open dangling hand does not qualify.",
+      "prompt_sha256": "816a52dc1bd67e786fc1e4102298422fe3bfc80d0396105887e340e331fb8f8f",
+      "transparent_background": true,
+      "provider": "built-in image_gen; model/revision/seed not exposed"
+    }
+  ],
+  "input_roles": "Frozen seed rest/skin identity plus respective approved job sheet, and actual magnifier/brush handle references; exact source hashes are in source_inventory.json."
+}

@@ -1,0 +1,133 @@
+{
+  "id": "R134",
+  "stable_id": "FV-E96CD69662D1",
+  "name": "Picture-game star/sparkle burst",
+  "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+  "branch": "codex/flat-vector-picture-reward-stars-20261103",
+  "worktree": "C:\\Users\\Peter\\.codex\\worktrees\\recent-updates-dev-20261103\\mermaid-roshan-reef",
+  "scope": "Replace reachable Polygon2D four-point reward/burst artwork in sharedPictureGames feedback with whole paintedfour-point sparkletexturefamily. Preserve burstcaps/counts/radial endpoints/timing/fade/input/save/audio/teardown and actualfeedback meanings. Nine authoredcolorappearances, nativecontours/light retained; no runtimeRGB tint required. Snow/gardenaction hues and rainbowwinidentity kept; finitepalette mapping declared, not exact18HSVpixelcolor equivalence. Other medal/starUI remainsseparatelyunresolved.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MED-04",
+    "DL-MED-05",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-PERF-01",
+    "DL-PERF-02",
+    "DL-PERF-03",
+    "DL-PERF-04",
+    "DL-PERF-07",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-07",
+    "DL-QA-11",
+    "DL-QA-14",
+    "DL-QA-15"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008"
+  ],
+  "authority_sources": {
+    "audit/MASTER_AUDIT_2026-08-09.md": {
+      "sha256": "4e7097a0eb23056caa89e3f2c4f1689a51691e9a993d4637b8a24b5709173967",
+      "hash_mode": "LF-canonical text at exactA"
+    },
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md": {
+      "sha256": "1b0f0ec21d943e234da7d2d7a33263d61dbe9604817e9f43ff8952717b740d65",
+      "hash_mode": "LF-canonical text at exactA"
+    },
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md": {
+      "sha256": "8de43762c1bd2de135357a693a500ad6fa1f5ddff2f41eb08dc9a32e7bc2940c",
+      "hash_mode": "LF-canonical text at exactA"
+    },
+    "design/05_DOC_LEDGER.md": {
+      "sha256": "84b11b27ca899aa1ab21c738a448a5f61f04a430a5ec8cec00cadf7c659187c3",
+      "hash_mode": "LF-canonical text at exactA"
+    },
+    "design/AUDIT_DEVELOPMENT_CONTRACT.md": {
+      "sha256": "f2817f20cbf89b2b0da6d28b5d956ab0408239ecd9438f4b6a7057b45e9b5fd9",
+      "hash_mode": "LF-canonical text at exactA"
+    }
+  },
+  "owner_static_quality_rule": "2026-10-17canonicalworkflow: optionalreuse, no failedreuseproof; polishedpaintedquality notcallminimization. Existingcurrentrootpointer509740c2 andcanonical99cworkflowread. No oldreject accepted.",
+  "evidence_plan": [
+    "Exactsource/dependency/engine/savepins",
+    "ActualcurrentMobileSpeedyready/mid/end at1280x720 then samecandidatescene/aspects",
+    "WholeactualImageGenoutput/nativeeditable/exporthashes/prompt/reference roles/backendactualversionnull unlessreturned",
+    "Tenaxescontour/material/palette/light/perspective/scale/contact/occlusion/readability/actionstate to same scene",
+    "Newassetlicenses; parser/lint/import/focusedactualinput/strict2Dandcurrentrequiredenginegates onlyafterchangedcandidate",
+    "Authority/actualdiffcoverage, stableCHG, thinGitHubmanifest/anonymousimmutablebyteverification",
+    "Canonicalcurrentregistry/coverage/tally fromverifiedsourceandactualDev separately; noacceptedremovals"
+  ],
+  "candidate": "take02derived nativeeditablemaster and9runtime128PNG; acceptancepending",
+  "integration": null,
+  "runtime": null,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "funding": {
+    "item_specific_funded_budget": null,
+    "separately_funded_animation_caps": "Untouched; this isone staticprop replacement, notanimation",
+    "new_ImageGen_calls": 2,
+    "backend": "builtin image_gen.imagegen; no modelselector; request2.5preference retained but no inventedversion"
+  },
+  "source_function": "_mg2d_feedback_burst",
+  "retired_prior_selection": "assets_src/imagegen/picture_reward_stars_20261103/RETIRED_SLIDE_DISPOSITION.json",
+  "references": [
+    {
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-03/context/candidate_native/snowfield/1280x720/17_original_win.png",
+      "sha256": "be195d33dc40c46cb4679cf2b39fef7f1615a0c1c0f0b61206370fc4d8ea68c7",
+      "role": "ACTUAL_CURRENT_SCENE_CONTEXT_ONLY; reproduce noHUD/characters/medal/background",
+      "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+      "modifications": "None",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_stolen_sparkle.png",
+      "sha256": "fad456ad3641cf67e194945ba9208108cd1f0cf9f35b8ee10516e18bc88eb772",
+      "role": "PAINTED_MATERIAL_AND_CONTOUR_STYLE_ONLY; fivepointshape isnot target; drawfourtips",
+      "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+      "modifications": "None",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "assets/mg/trampoline_pad_painted.png",
+      "sha256": "5dbe87c969009046242a38564bdb2359a94cb16fd30a10a0f44404e8297acf04",
+      "role": "PAINTED_NEIGHBOR_STYLE_ONLY; no objectpixelscopied",
+      "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+      "modifications": "None",
+      "used_as_delivery_pixels": false
+    }
+  ],
+  "native_context_reuse": {
+    "frame_label": "17_original_win",
+    "frame_sha256": "be195d33dc40c46cb4679cf2b39fef7f1615a0c1c0f0b61206370fc4d8ea68c7",
+    "exact_published_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+    "source_pin_sha256": "7d79cf18f62ad4a6d039480cac36226738c4b32c53bdec35d977828eb2e8a634",
+    "applicability": "Selectedfeedbackfunction unchanged onA; sourcecurrentSnowfield/Roshan/body/coal/HUD scene. No new framecredit."
+  }
+}

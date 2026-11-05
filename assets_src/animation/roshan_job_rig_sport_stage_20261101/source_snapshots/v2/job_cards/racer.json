@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "id": "racer-object-action-v1",
+  "scope": "SOURCE_ONLY_PROTOTYPE",
+  "intention": "turn fixed mounted steering wheel left/right with both hands on its authored grips, return to centre",
+  "personality": "Attentive Ribbon Glide, small purposeful whole-figure counterbalance then quiet settle",
+  "sources": [
+    {
+      "path": "assets/opera/worlds/actors/roshan_racer.png",
+      "sha256": "b3e92a0f3204e2277e1fdd06988c9393288223fcfc98a9f4c8e033c8c517c6bc",
+      "role": "approved appearance source; derivative not accepted",
+      "modified": false
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_racer_sheet_a.png",
+      "sha256": "f62f881d42b439bde09a8bc7f6e0000125acd3e27aabf1fd39d90722ce75ca79",
+      "role": "approved appearance source; derivative not accepted",
+      "modified": false
+    }
+  ],
+  "method": "native Skeleton2D unchanged topology/rest; registered replacement garment textures, Aseprite RGBA parts, explicit socket binding/IK and authored changing-surface prop views",
+  "generated_takes_cap": 2,
+  "initial_take_count": 0,
+  "wall_minutes_cap": 90,
+  "cleanup_minutes_cap": 90,
+  "paid_external_budget": 0,
+  "imagegen_usage": "builtin owner-authorized; model/revision/seed and monetary usage unexposed, record call counts",
+  "required_evidence": [
+    "original arm_bend blink tail_bend exact regressions",
+    "mixed-slot waist/component/hole checks",
+    "support/contact maximum3native pixels",
+    "geometry/stretch/flips and loop/transition/interrupt",
+    "source-poison/reinsertion negatives",
+    "Aseprite roundtrip",
+    "full-speed and frame-step actual Mobile capture"
+  ],
+  "generation_prompt_file": "racer_garment_prompt.txt"
+}

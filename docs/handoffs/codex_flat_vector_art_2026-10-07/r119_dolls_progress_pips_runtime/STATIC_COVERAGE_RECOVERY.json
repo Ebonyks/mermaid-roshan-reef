@@ -1,0 +1,41 @@
+{
+  "state": "PLANNED_METADATA_ENUM_CORRECTION_SUFFIX_CONTINUATION",
+  "original_terminal_handle": 53192,
+  "original_failed_gate": "python3 tools/audit_development.py --base auto",
+  "reason": "Impact validation enum only permits PASS/FAIL/PENDING/NOT_APPLICABLE. Three rows incorrectly used FAIL_PRESERVED/PASS_SCOPED, invalidating otherwise complete file coverage. Convert to schema enums and preserve scope/history in separate fields. One duplicated row represented no second execution; metadata occurrence count retained.",
+  "original_static_result": {
+    "status": "FAIL",
+    "exit_code": 1,
+    "log_sha256": "e2d9ece571d8fb77deca8f8a0dabdb806a484fc55696a2f6eea10a29a0f3449e",
+    "prefix_sha256": "d5af3303e9aa0a2ba6d649d1fbfbc84a19aec5594f14567fae12e60cfdb82561",
+    "ci_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e",
+    "completed_at_utc": "2026-10-31T19:33:36.028230+00:00"
+  },
+  "original_static_log_sha256": "e2d9ece571d8fb77deca8f8a0dabdb806a484fc55696a2f6eea10a29a0f3449e",
+  "original_prefix_sha256": "d5af3303e9aa0a2ba6d649d1fbfbc84a19aec5594f14567fae12e60cfdb82561",
+  "remaining_suffix_sha256": "76da8451bb3209c04d3ea9b35ca5ca5dc88cff6c552fb706299106dfa85af8b1",
+  "suffix_commands_exact_original": true,
+  "runtime_source_pin_sha256": "f61ba4a69c0c6a4133336dc1608b951d78e3cf40344a4d942de026962b90ba70",
+  "runtime_pixels_engine_trusted_checks_changed": false,
+  "native_checks_or_captures_restarted": false,
+  "healthy_static_commands_before_failed_gate_restarted": false,
+  "trusted_probes_previously_started_at_repaired_source": 0,
+  "new_generation_calls": 0,
+  "new_frame_events": 0,
+  "impact_before_sha256": "67ad311845a417ab4ba55162d579f3d3f1ba3661ba980e557a9e3e68a41ae179",
+  "impact_after_sha256": "c2216c333628962dddb1076bb4ac1d9267ee82fc9c4fb8e4853ffe192a0d4438",
+  "at_utc": "2026-10-31T19:35:58.806569+00:00",
+  "terminal": "PASS_ALL_CURRENT_STATIC_COMPOSED_NO_HEALTHY_RESTART",
+  "recovered_static": {
+    "status": "PASS",
+    "exit_code": 0,
+    "log_sha256": "4a82c8c4740fb68097a9a336ed9d34edcf8d874a2b36d3b14bec5cbb63a5cce9",
+    "prefix_sha256": "d5af3303e9aa0a2ba6d649d1fbfbc84a19aec5594f14567fae12e60cfdb82561",
+    "ci_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e",
+    "method": "ORIGINAL_CURRENT_SOURCE_SUCCESSFUL_PREFIX_PLUS_FAILED_METADATA_GATE_AND_EXACT_REMAINING_SUFFIX",
+    "original_current_source_prefix_log_sha256": "e2d9ece571d8fb77deca8f8a0dabdb806a484fc55696a2f6eea10a29a0f3449e",
+    "suffix_sha256": "76da8451bb3209c04d3ea9b35ca5ca5dc88cff6c552fb706299106dfa85af8b1",
+    "runtime_source_pin_sha256": "f61ba4a69c0c6a4133336dc1608b951d78e3cf40344a4d942de026962b90ba70",
+    "completed_at_utc": "2026-10-31T20:37:39.389626+00:00"
+  }
+}

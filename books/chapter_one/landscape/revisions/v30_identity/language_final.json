@@ -1,0 +1,3423 @@
+{
+  "schema_version": 1,
+  "status": "PASS_EDITORIAL_SHARED_READING; PROFESSIONAL_PRINT_OWNER_CHILD_ACCEPTANCE_PENDING",
+  "reviewed_revision": "V30 · local identity and continuity polish · final frozen optimized proof",
+  "review_time_utc": "2026-10-01T03:18:24.511403+00:00",
+  "scope": "Language-development-informed editorial review of all 32 story captions, balloon dialogue, pacing and digital readability, covering all 34 pages including local identity derivatives of the owner-selected cover compositions. This is not clinical approval, creative owner acceptance or all-art/master-audit acceptance.",
+  "evidence": {
+    "book_json": "books\\chapter_one\\landscape\\book.json",
+    "book_json_sha256": "8e8c025fcca00c2c93c1ff52c529312dfd05bbc894a3422e86763b686db6ce54",
+    "page_provenance": "books\\chapter_one\\landscape\\revisions\\v30_identity\\complete\\page_provenance.json",
+    "page_provenance_sha256": "8bf4bac701a4b1266f1a6e18aa396d9c4d0a62e2b87fabbe7ae236ba9b65d96c",
+    "pdf": "books\\chapter_one\\landscape\\revisions\\v30_identity\\complete\\Mermaid_Roshan_LANDSCAPE_ROUGH.pdf",
+    "pdf_sha256_at_review": "5992922f2b3ce58d5dfc244edf3c8b2e05eac4955280f27cdc1b041e8ecdb049",
+    "font": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\picture-book-worktree\\books\\chapter_one\\archive\\rough_v5\\fonts\\Sniglet-Regular.ttf",
+    "font_sha256": "a20f3a50e8d92dfc143ee82e46df07f6e7f01e21b50f2d78081314a7c25bd9dd",
+    "prior_round2_sha256": "47c09a774e63051e9488ac88c36c251c956b43a502842d6ff7e261788677af3a",
+    "professional_packet": "books\\chapter_one\\landscape\\revisions\\v30_identity\\SLP_REVIEW_PACKET.html",
+    "professional_packet_sha256": "a170270b5e0b0b306df6a509e9d271a540db5c5213dbc2ecb190fc73defaa3e2",
+    "pdf_optimization_note": "Final losslessly optimized PDF inspected directly. The current verification receipt reports all 34 rendered pages pixel-identical to the frozen PNGs; its PDF and book/provenance hashes were checked against the actual files. Native text, embedded Sniglet and trim were independently rechecked by this language audit.",
+    "freeze_state": "ROOT_FROZEN_AND_EXACT_HASH_VERIFIED",
+    "final_verification_receipt": {
+      "path": "books\\chapter_one\\landscape\\revisions\\v30_identity\\complete\\verification.json",
+      "sha256": "4a87f1321086e2e7f34cf5a49a71144bd49b4775a869dd27553773d25a08b822",
+      "all_34_receipt_png_hashes_independently_match_current_files": true,
+      "all_34_pdf_pixel_match_claim": "PASS_RECEIPT; root performed raster comparison",
+      "native_text_fonts_trim": "INDEPENDENT_PASS_LANGUAGE_AUDIT"
+    }
+  },
+  "coverage": {
+    "pdf_pages_including_covers": 34,
+    "story_pages": 32,
+    "story_caption_words": 373,
+    "additional_bunny_dialogue_words": 5,
+    "all_34_visual_pages_covered": true,
+    "changed_native_pngs_directly_reinspected": [
+      0,
+      4,
+      5,
+      10,
+      33
+    ],
+    "unchanged_native_pngs_reusing_exact_hash_prior_review": [
+      1,
+      2,
+      3,
+      6,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ],
+    "method_note": "All five changed V30 pages (0, 4, 5, 10, 33) were directly inspected at native PNG size; final page 5 with both sponges received an additional freeze inspection. Other 29 PNGs are byte-identical to the final V29 proof and reuse its complete visual-language review. The only caption change is page 5; all current PDF text and page/font/trim evidence were checked against current provenance.",
+    "final_margin_reinspection_pages": [
+      4,
+      6,
+      10,
+      15,
+      23,
+      26,
+      27,
+      28,
+      29,
+      32
+    ],
+    "final_focal_clearance_reinspection_pages": [
+      3,
+      18
+    ]
+  },
+  "native_type_verification": {
+    "all_pages_504x360_points": true,
+    "sniglet_true_type_embedded": true,
+    "all_actual_nonempty_text_uses_sniglet": true,
+    "unused_helvetica_resource_note": "ReportLab retains a default Helvetica resource; no nonempty text run uses it.",
+    "story_native_sizes_points": [
+      18.0,
+      20.0
+    ],
+    "story_minimum18pt_pass": true,
+    "cover_size_note": "Approved front title/subtitle uses 30/22 pt; auxiliary cover line is 13 pt. The 18 pt rule applies to story captions and dialogue. Rear cover has no text.",
+    "all_text_matches_provenance": true,
+    "no_shadow_duplicate_text": true,
+    "all_text_with_contours_within_trim": true,
+    "minimum_story_text_insets_points_including_contours": {
+      "left": 28.0,
+      "bottom": 25.02,
+      "right": 42.74,
+      "top": 24.68
+    },
+    "editable_source": "Canonical book.json retains text and caption coordinates; PDF captions/dialogue are embedded text rather than lettering baked into art.",
+    "per_page": [
+      {
+        "page": 0,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 3,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          13.0,
+          22.0,
+          30.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 1,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          20.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 2,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          18.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 3,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          18.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 4,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 3,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          18.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 5,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          18.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 6,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          20.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 7,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          18.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 8,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          18.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 9,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          18.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 10,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          20.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 11,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 3,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          18.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 12,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          20.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 13,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          20.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 14,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          18.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 15,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          20.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 16,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 4,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          18.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 17,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          20.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 18,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          18.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 19,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          18.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 20,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 5,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          18.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 21,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          18.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 22,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          18.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 23,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          20.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 24,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 3,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          18.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 25,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          18.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 26,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          20.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 27,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          20.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 28,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          20.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 29,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          20.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 30,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          18.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 31,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          18.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 32,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 2,
+        "native_text_fonts": [
+          "/AAAAAA+Sniglet-Regular"
+        ],
+        "native_text_sizes_points": [
+          20.0
+        ],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      },
+      {
+        "page": 33,
+        "trim_points": [
+          0,
+          0,
+          504,
+          360
+        ],
+        "native_text_runs": 0,
+        "native_text_fonts": [],
+        "native_text_sizes_points": [],
+        "exact_text_matches_provenance_ignoring_whitespace": true,
+        "single_text_show_per_provenance_line": true
+      }
+    ],
+    "all_story_caption_and_dialogue_glyph_insets_at_least24pt": true,
+    "cover_margin_exception": {
+      "page": 0,
+      "text": "Mermaid Roshan",
+      "top_glyph_inset_points": 19.32,
+      "status": "ACCEPTED_TITLE_PLACEMENT_RETAINED; V30_COVER_DERIVATIVE_OWNER_AND_PHYSICAL_PRINT_ACCEPTANCE_PENDING",
+      "note": "All cover glyph boxes remain within trim. The inherited title position is unchanged; the new cover identity derivative is not labeled owner-approved. The 24 pt gate applies to story captions and dialogue."
+    },
+    "final_v30_pdf_verification": "PASS_FINAL_FROZEN_OPTIMIZED_PDF"
+  },
+  "operational_age4_5_rubric": [
+    {
+      "area": "Narrative sequence",
+      "criterion": "Each helping episode supplies a problem, action and result in text/picture together.",
+      "result": "PASS_EDITORIAL",
+      "evidence": "Pages 4–16, 17–20, 21–22 and 23–30 retain coherent episodes; the clearing action on 12 is narrated."
+    },
+    {
+      "area": "Character and speaker reference",
+      "criterion": "Introduce names/roles and make dialogue attribution or balloon speakers identifiable.",
+      "result": "PASS_EDITORIAL",
+      "evidence": "Rumi 10–11, Baby Eagle 18, Puff 24; Roshan attributions 3–4/19–20/25; two distinct balloon speakers 20."
+    },
+    {
+      "area": "Vocabulary support",
+      "criterion": "Concrete new nouns/actions are pictured or explained; any metaphor follows a visible referent.",
+      "result": "PASS_EDITORIAL_SHARED_READING",
+      "evidence": "Brush and both sponge shapes are pictured on page 5; fountain, streams and rainbow are supported. Centuries and the rainbow metaphor remain adult-supported shared-reading language rather than prescribed child number/decoding expectations."
+    },
+    {
+      "area": "Syntax and phrasing",
+      "criterion": "Keep grammatical language, brief idea groups and phrase-preserving line breaks.",
+      "result": "PASS_EDITORIAL",
+      "evidence": "All captions have 2–4 deliberate lines; attribution 4 remains intact. No arbitrary child vocabulary ceiling or diagnostic readability formula is used."
+    },
+    {
+      "area": "Social-emotional meaning",
+      "criterion": "Differentiate playful intention and unintended impact; show apology, guidance, reassurance and helping.",
+      "result": "PASS_EDITORIAL",
+      "evidence": "Pages 18–20 and 24–31 make these relationships explicit; Puff is cleaned with friends."
+    },
+    {
+      "area": "Read-aloud participation",
+      "criterion": "Use natural repetition and voluntary participation without requiring reading or an answer.",
+      "result": "PASS_EDITORIAL_DESK_REVIEW",
+      "evidence": "I’ll help, scoop, scrub and sound refrains recur. A real full adult read-aloud remains pending."
+    },
+    {
+      "area": "Typography and trim",
+      "criterion": "Require embedded native Sniglet caption/dialogue ≥18 pt, unclipped outlines, deliberate lines and readable digital contrast.",
+      "result": "PASS_MACHINE_AND_EDITORIAL",
+      "evidence": "34 pages at 504 × 360 pt; embedded native story type is 18–20 pt; actual glyph insets remain at least 24 pt including fine contours. Native text shows exactly match provenance; inherited cover-title top inset 19.32 pt is disclosed separately."
+    },
+    {
+      "area": "Speech balloons",
+      "criterion": "Keep readable native text inside rounded capsules, tails directed to small speakers and no key-character overlap.",
+      "result": "PASS_EDITORIAL_DIGITAL",
+      "evidence": "Page 20: 18 pt text, recorded insets ≥8.095 pt vertically and ≥33.608 pt horizontally; no clipping or Eagle overlap."
+    },
+    {
+      "area": "Art-language agreement",
+      "criterion": "Named objects, two-bunny rescue, stream states and care actions must agree with visible art.",
+      "result": "PASS_EDITORIAL_WITH_DECLARED_SOURCE_LIMIT",
+      "evidence": "Cup 14 and brushing 19 are visible; exactly two bunnies on 18; actual stream clearing between source states is narrated."
+    },
+    {
+      "area": "Pacing and attention",
+      "criterion": "Maintain episode/payoff rhythm and a calm inclusive close; marginal play remains secondary.",
+      "result": "PASS_EDITORIAL",
+      "evidence": "Episode/payoff rhythm is intact. Print plan separates covers from 32 interiors so story 1 starts on the right and 23→24/27→28 are actual turns. A real print dummy and child observation remain separate acceptance."
+    }
+  ],
+  "page_reviews": [
+    {
+      "page": 0,
+      "label": "front_cover",
+      "png_sha256": "a5c73b13738db498108db8e7168257561938e50e9b8eded8edfc877c43ce2eae",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V30_CHANGED_NATIVE_PNG_DIRECT_REVIEW",
+      "prior_png_sha256": "608206aa4813208d3599be36cb3bba0f111dd5e4c9f1ddc65a61021feb61308e",
+      "wording": "Mermaid Roshan\nand the Hidden Rainbow\nA Pearl Castle friendship story",
+      "additional_dialogue": [],
+      "observed_result": "Local identity derivatives preserve the rendered cover composition. The title/subtitle remain native type in the quiet sky; the ensemble, cleaning supplies and peeking Puff support the same story.",
+      "semantic_pacing_review": "Cover names the story and provides an ensemble introduction without adding plot or independent-reading demands.",
+      "text_lines": [
+        {
+          "page": "front_cover",
+          "text": "Mermaid Roshan",
+          "box": [
+            200.15,
+            303.33,
+            221.7,
+            37.35
+          ],
+          "font_size": 30,
+          "color": "navy",
+          "outline_margin_expansion_points": 0,
+          "trim_insets_points": {
+            "left": 200.15,
+            "bottom": 303.33,
+            "right": 82.15000000000003,
+            "top": 19.320000000000014
+          },
+          "within_trim": true
+        },
+        {
+          "page": "front_cover",
+          "text": "and the Hidden Rainbow",
+          "box": [
+            193.79500000000002,
+            275.642,
+            234.41,
+            27.39
+          ],
+          "font_size": 22,
+          "color": "navy",
+          "outline_margin_expansion_points": 0,
+          "trim_insets_points": {
+            "left": 193.79500000000002,
+            "bottom": 275.642,
+            "right": 75.79499999999999,
+            "top": 56.968
+          },
+          "within_trim": true
+        },
+        {
+          "page": "front_cover",
+          "text": "A Pearl Castle friendship story",
+          "box": [
+            166.213,
+            24.243,
+            171.574,
+            16.185
+          ],
+          "font_size": 13,
+          "color": "navy",
+          "outline_margin_expansion_points": 0,
+          "trim_insets_points": {
+            "left": 166.213,
+            "bottom": 24.243,
+            "right": 166.21300000000002,
+            "top": 319.572
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "608206aa4813208d3599be36cb3bba0f111dd5e4c9f1ddc65a61021feb61308e"
+    },
+    {
+      "page": 1,
+      "label": "story_01",
+      "png_sha256": "00f232e661553f613eefb4419bf8ad60b71571616e92995edad2720162a13d82",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "d605e5198f272badc29be6533fa248252f6c4fab39043c97f0e966ce7aa619e4",
+      "wording": "“Look, Daddy!\nPearl Castle!”",
+      "additional_dialogue": [],
+      "observed_result": "White quotation has a thin navy contour and remains clear in the quiet scene region; no face or important castle feature is covered.",
+      "semantic_pacing_review": "Direct address and a named destination establish excitement and the Daddy–Roshan relationship.",
+      "text_lines": [
+        {
+          "page": 1,
+          "text": "“Look, Daddy!",
+          "box": [
+            285,
+            66.22,
+            118.10000000000001,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 284.8,
+            "bottom": 66.02,
+            "right": 100.69999999999999,
+            "top": 268.68
+          },
+          "within_trim": true
+        },
+        {
+          "page": 1,
+          "text": "Pearl Castle!”",
+          "box": [
+            285,
+            40.22,
+            117.04,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 284.8,
+            "bottom": 40.019999999999996,
+            "right": 101.75999999999999,
+            "top": 294.68
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "00f232e661553f613eefb4419bf8ad60b71571616e92995edad2720162a13d82"
+    },
+    {
+      "page": 2,
+      "label": "story_02",
+      "png_sha256": "58e7e348fcffaa17b119de207bbd02be6406e00093f4af817211a41f608be428",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "58e7e348fcffaa17b119de207bbd02be6406e00093f4af817211a41f608be428",
+      "wording": "Roshan and Daddy landed at Sky Lagoon.\nPearl Castle was close by.",
+      "additional_dialogue": [],
+      "observed_result": "Navy caption on pale sky is clear; setting and arrival are explicit.",
+      "semantic_pacing_review": "Arrival and castle location are explicit; proper names recur in the next episode.",
+      "text_lines": [
+        {
+          "page": 2,
+          "text": "Roshan and Daddy landed at Sky Lagoon.",
+          "box": [
+            28,
+            312.798,
+            326.16,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 28.0,
+            "bottom": 312.798,
+            "right": 149.83999999999997,
+            "top": 24.791999999999998
+          },
+          "within_trim": true
+        },
+        {
+          "page": 2,
+          "text": "Pearl Castle was close by.",
+          "box": [
+            28,
+            289.398,
+            201.40200000000002,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 28.0,
+            "bottom": 289.398,
+            "right": 274.59799999999996,
+            "top": 48.19199999999998
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "58e7e348fcffaa17b119de207bbd02be6406e00093f4af817211a41f608be428"
+    },
+    {
+      "page": 3,
+      "label": "story_03",
+      "png_sha256": "4829f7c05c29f3da15ba63513c93a597d6873e700f5df29cb71af916f47f75e2",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "9348b5d66350ccf5c6c8682af8e43f7e1154f2c81ee50120cb81d6ce4337a43a",
+      "wording": "“Let’s look inside,\nDaddy,” said Roshan.",
+      "additional_dialogue": [],
+      "observed_result": "Two native 18 pt navy quotation lines sit on the lower-right lavender floor at x268 in a 206 pt caption region. Both phrases fit. The actor/fin envelope and all corrected focal boxes remain clear; the fin-to-caption horizontal gap is 12 pt.",
+      "semantic_pacing_review": "The invitation to enter supplies the cause for the interior page turn; said Roshan identifies the speaker.",
+      "text_lines": [
+        {
+          "page": 3,
+          "text": "“Let’s look inside,",
+          "box": [
+            268,
+            49.798,
+            132.912,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 268.0,
+            "bottom": 49.798,
+            "right": 103.088,
+            "top": 287.792
+          },
+          "within_trim": true
+        },
+        {
+          "page": 3,
+          "text": "Daddy,” said Roshan.",
+          "box": [
+            268,
+            26.397999999999996,
+            162.954,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 268.0,
+            "bottom": 26.397999999999996,
+            "right": 73.04599999999999,
+            "top": 311.19199999999995
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "4829f7c05c29f3da15ba63513c93a597d6873e700f5df29cb71af916f47f75e2"
+    },
+    {
+      "page": 4,
+      "label": "story_04",
+      "png_sha256": "565f3f5db1d0d481dfa481f2303b4b07caa15d1e832ed82d5c7d6fcf6ba2d1d6",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V30_CHANGED_NATIVE_PNG_DIRECT_REVIEW",
+      "prior_png_sha256": "feeec2cd222aedb663fc821f782c670d9941507612c8dd578ab630b428b3ab30",
+      "wording": "Inside, dust covered the floor.\n“Let’s clean it together!”\nsaid Roshan.",
+      "additional_dialogue": [],
+      "observed_result": "Local facial expression refinements retain the dirty hall, actor staging and shared-cleaning promise. Three 18 pt white lines with fine navy contours remain clear on the lower-right floor.",
+      "semantic_pacing_review": "The dirty floor establishes the shared problem and the proposal to clean it together.",
+      "text_lines": [
+        {
+          "page": 4,
+          "text": "Inside, dust covered the floor.",
+          "box": [
+            228,
+            79.798,
+            230.14800000000002,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 227.8,
+            "bottom": 79.598,
+            "right": 45.65199999999997,
+            "top": 257.592
+          },
+          "within_trim": true
+        },
+        {
+          "page": 4,
+          "text": "“Let’s clean it together!”",
+          "box": [
+            228,
+            56.397999999999996,
+            188.64000000000001,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 227.8,
+            "bottom": 56.19799999999999,
+            "right": 87.15999999999998,
+            "top": 280.99199999999996
+          },
+          "within_trim": true
+        },
+        {
+          "page": 4,
+          "text": "said Roshan.",
+          "box": [
+            228,
+            32.99799999999999,
+            98.65800000000002,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 227.8,
+            "bottom": 32.79799999999999,
+            "right": 177.142,
+            "top": 304.392
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "19baad86ba27f35bd79cb778eec0a18883b23a9fc552c0c8689328a3e5094f67"
+    },
+    {
+      "page": 5,
+      "label": "story_05",
+      "png_sha256": "9bdd345b5c48591d91a6da2a9ece1a9f7240d8851e31d0a3ee8b62ad83efd406",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V30_CHANGED_NATIVE_PNG_DIRECT_REVIEW",
+      "prior_png_sha256": "9e812bc5a78f1579a77e68519714cd474e11733c9b5f87038bd661ca22a51206",
+      "wording": "Daddy gave her a brush and some sponges.\n“One little job at a time.”",
+      "additional_dialogue": [],
+      "observed_result": "The final supply page clearly pictures one brush and both a pink star sponge and a yellow sponge as true isolated cutouts. The plural caption is now immediately supported, and both native 18 pt lines fit in quiet blue space without covering tools or marginal characters.",
+      "semantic_pacing_review": "Concrete brush/sponges nouns are pictured. Naming the supplies as a set accounts for later different sponge shapes/colors without adding a story event. One little job at a time still introduces the episodic helping rhythm.",
+      "text_lines": [
+        {
+          "page": 5,
+          "text": "Daddy gave her a brush and some sponges.",
+          "box": [
+            80.64899999999997,
+            310.798,
+            342.70200000000006,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 80.64899999999997,
+            "bottom": 310.798,
+            "right": 80.64899999999994,
+            "top": 26.791999999999998
+          },
+          "within_trim": true
+        },
+        {
+          "page": 5,
+          "text": "“One little job at a time.”",
+          "box": [
+            156.024,
+            287.398,
+            191.95200000000003,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 156.024,
+            "bottom": 287.398,
+            "right": 156.02399999999997,
+            "top": 50.19199999999998
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "9e812bc5a78f1579a77e68519714cd474e11733c9b5f87038bd661ca22a51206"
+    },
+    {
+      "page": 6,
+      "label": "story_06",
+      "png_sha256": "f20e6c719137455c287f03df2747b44b71de18bc1732d8cfa0404934b7576b8b",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "1da5a44d0f8b4a5d2cbff55acea454a3d457c3bd09bd85baedd9477350b61355",
+      "wording": "A dust bunny splashed in the dirty bath.\nIt loved to play. Splash, splash!",
+      "additional_dialogue": [],
+      "observed_result": "Playful bunny and splash refrain match the bath. The final caption field retains natural continuous tile and grout detail without a hard-edged panel; fine navy contours keep the white words distinct in the digital proof.",
+      "semantic_pacing_review": "A dust bunny is introduced through an observable playful action. Splash repetition invites voluntary participation.",
+      "text_lines": [
+        {
+          "page": 6,
+          "text": "A dust bunny splashed in the dirty bath.",
+          "box": [
+            78.19,
+            53.22,
+            347.62,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 77.99,
+            "bottom": 53.019999999999996,
+            "right": 77.99,
+            "top": 281.68
+          },
+          "within_trim": true
+        },
+        {
+          "page": 6,
+          "text": "It loved to play. Splash, splash!",
+          "box": [
+            118.78,
+            27.22,
+            266.44,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 118.58,
+            "bottom": 27.02,
+            "right": 118.58000000000003,
+            "top": 307.68
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "f20e6c719137455c287f03df2747b44b71de18bc1732d8cfa0404934b7576b8b"
+    },
+    {
+      "page": 7,
+      "label": "story_07",
+      "png_sha256": "44ce7bcc8d1b93bcd8e7cc49a0fc80e3109a85bc90a3084b09509623b48b4dbb",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "44ce7bcc8d1b93bcd8e7cc49a0fc80e3109a85bc90a3084b09509623b48b4dbb",
+      "wording": "Round and round went the sponge.\nRoshan wiped the sink clean.",
+      "additional_dialogue": [],
+      "observed_result": "Circular sponge contact and sink cleaning are visible; caption is distinct in blue writing space.",
+      "semantic_pacing_review": "Circular action and the clean sink result are concrete; the sponge links to the earlier named tool.",
+      "text_lines": [
+        {
+          "page": 7,
+          "text": "Round and round went the sponge.",
+          "box": [
+            114.71399999999997,
+            312.798,
+            274.57200000000006,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 114.71399999999997,
+            "bottom": 312.798,
+            "right": 114.714,
+            "top": 24.791999999999998
+          },
+          "within_trim": true
+        },
+        {
+          "page": 7,
+          "text": "Roshan wiped the sink clean.",
+          "box": [
+            139.08599999999998,
+            289.398,
+            225.82800000000003,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 139.08599999999998,
+            "bottom": 289.398,
+            "right": 139.08599999999996,
+            "top": 48.19199999999998
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "44ce7bcc8d1b93bcd8e7cc49a0fc80e3109a85bc90a3084b09509623b48b4dbb"
+    },
+    {
+      "page": 8,
+      "label": "story_08",
+      "png_sha256": "e6584998fdd2123e541b17633ee60ae85b2625ad3b2c736bb0250d4215018adb",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "e6584998fdd2123e541b17633ee60ae85b2625ad3b2c736bb0250d4215018adb",
+      "wording": "Roshan let the dirty bath water out.\nThen she scrubbed the tub. Scrub, scrub!",
+      "additional_dialogue": [],
+      "observed_result": "Empty bath and brush contact support the then sequence; two-line caption is clear.",
+      "semantic_pacing_review": "Then makes the drainage-before-scrubbing order explicit; scrub is repeated in a natural action context.",
+      "text_lines": [
+        {
+          "page": 8,
+          "text": "Roshan let the dirty bath water out.",
+          "box": [
+            111.303,
+            310.798,
+            281.394,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 111.303,
+            "bottom": 310.798,
+            "right": 111.303,
+            "top": 26.791999999999998
+          },
+          "within_trim": true
+        },
+        {
+          "page": 8,
+          "text": "Then she scrubbed the tub. Scrub, scrub!",
+          "box": [
+            91.92599999999999,
+            287.398,
+            320.148,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 91.92599999999999,
+            "bottom": 287.398,
+            "right": 91.92599999999999,
+            "top": 50.19199999999998
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "e6584998fdd2123e541b17633ee60ae85b2625ad3b2c736bb0250d4215018adb"
+    },
+    {
+      "page": 9,
+      "label": "story_09",
+      "png_sha256": "cece45ce1404fa7823953b42eef13b00ee498a2afa9144c50e0726dabbf1aa5b",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "cece45ce1404fa7823953b42eef13b00ee498a2afa9144c50e0726dabbf1aa5b",
+      "wording": "Clean water filled the bath.\nThe dust bunny splashed again!",
+      "additional_dialogue": [],
+      "observed_result": "Clean water payoff is visible and type remains distinct; no text prompt accompanies decorative discoveries.",
+      "semantic_pacing_review": "Clean water provides a visible payoff; the bunny remains playful rather than being punished.",
+      "text_lines": [
+        {
+          "page": 9,
+          "text": "Clean water filled the bath.",
+          "box": [
+            146.313,
+            49.798,
+            211.37400000000002,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 146.313,
+            "bottom": 49.798,
+            "right": 146.313,
+            "top": 287.792
+          },
+          "within_trim": true
+        },
+        {
+          "page": 9,
+          "text": "The dust bunny splashed again!",
+          "box": [
+            127.16099999999999,
+            26.397999999999996,
+            249.67800000000003,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 127.16099999999999,
+            "bottom": 26.397999999999996,
+            "right": 127.16099999999997,
+            "top": 311.19199999999995
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "cece45ce1404fa7823953b42eef13b00ee498a2afa9144c50e0726dabbf1aa5b"
+    },
+    {
+      "page": 10,
+      "label": "story_10",
+      "png_sha256": "d77d6c5dc0af639032a2fd1d86669eef096afdb9bbf5ac7538d7327089c12719",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V30_CHANGED_NATIVE_PNG_DIRECT_REVIEW",
+      "prior_png_sha256": "bb0478beadfc1c678e479799e4a2f9477f3c963b4dabb3a6cdd971c0ae9676f2",
+      "wording": "A mermaid named Rumi was stuck\nunder the gunk in the pool.",
+      "additional_dialogue": [],
+      "observed_result": "Rumi’s local face refinement keeps her visibly trapped under the same pool gunk, with rubbish net and blocked fountain preserved. Caption and depicted problem still agree.",
+      "semantic_pacing_review": "Rumi is introduced by name and category with a visible, present-tense problem.",
+      "text_lines": [
+        {
+          "page": 10,
+          "text": "A mermaid named Rumi was stuck",
+          "box": [
+            100.15,
+            51.22,
+            303.7,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 99.95,
+            "bottom": 51.019999999999996,
+            "right": 99.95000000000003,
+            "top": 283.68
+          },
+          "within_trim": true
+        },
+        {
+          "page": 10,
+          "text": "under the gunk in the pool.",
+          "box": [
+            135.32,
+            25.22,
+            233.36,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 135.12,
+            "bottom": 25.02,
+            "right": 135.12,
+            "top": 309.68
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "4cdcd3d6f9e48f113394d467822a241689d6850b0ed33c633324dc7b456bf4e5"
+    },
+    {
+      "page": 11,
+      "label": "story_11",
+      "png_sha256": "4c219bfb4b7dfa0c4125e1828805a026613c015a62153e80e259b476b29a8f95",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "580e2167b083be4fb6654c670bd8a430d6a5268a84db4965699ca036c8207027",
+      "wording": "Rumi had lived in Pearl Castle\nfor hundreds of years.\n“I’ll help!” said Roshan. Scoop, scoop!",
+      "additional_dialogue": [],
+      "observed_result": "Three-line wording clearly identifies Rumi and her centuries of residence, without assigning that duration to her entrapment. The rubbish net supports the helping action.",
+      "semantic_pacing_review": "Past residence is distinct from the current problem. Hundreds of years is a fantasy-context phrase for adult-supported shared reading, not an expected child number concept.",
+      "text_lines": [
+        {
+          "page": 11,
+          "text": "Rumi had lived in Pearl Castle",
+          "box": [
+            136.37699999999998,
+            310.798,
+            231.24600000000004,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 136.37699999999998,
+            "bottom": 310.798,
+            "right": 136.377,
+            "top": 26.791999999999998
+          },
+          "within_trim": true
+        },
+        {
+          "page": 11,
+          "text": "for hundreds of years.",
+          "box": [
+            166.47299999999998,
+            287.398,
+            171.05400000000003,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 166.47299999999998,
+            "bottom": 287.398,
+            "right": 166.473,
+            "top": 50.19199999999998
+          },
+          "within_trim": true
+        },
+        {
+          "page": 11,
+          "text": "“I’ll help!” said Roshan. Scoop, scoop!",
+          "box": [
+            109.30499999999998,
+            263.99800000000005,
+            285.39000000000004,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 109.30499999999998,
+            "bottom": 263.99800000000005,
+            "right": 109.305,
+            "top": 73.59199999999996
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "4c219bfb4b7dfa0c4125e1828805a026613c015a62153e80e259b476b29a8f95"
+    },
+    {
+      "page": 12,
+      "label": "story_12",
+      "png_sha256": "9c1eb061c3ddd6c36418e6a016d8ce706f4b7b75ec268fcc14131a663ee0d251",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "742584d7f1d173d6916994c59edf744400a7ac2320a73e8a3bd265f2784a10b6",
+      "wording": "One stream ran clear.\nThen Roshan cleared the other two.",
+      "additional_dialogue": [],
+      "observed_result": "One orange clear lane and two green obstructed lanes support the explicit one/other-two progression. The intervening clearing action is narrated rather than directly illustrated.",
+      "semantic_pacing_review": "One, then and other two support a simple count-and-action sequence. Roshan is named rather than implied.",
+      "text_lines": [
+        {
+          "page": 12,
+          "text": "One stream ran clear.",
+          "box": [
+            156.93,
+            52.22,
+            190.14000000000001,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 156.73000000000002,
+            "bottom": 52.019999999999996,
+            "right": 156.73,
+            "top": 282.68
+          },
+          "within_trim": true
+        },
+        {
+          "page": 12,
+          "text": "Then Roshan cleared the other two.",
+          "box": [
+            96.29999999999998,
+            26.22,
+            311.40000000000003,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 96.09999999999998,
+            "bottom": 26.02,
+            "right": 96.10000000000001,
+            "top": 308.68
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "9c1eb061c3ddd6c36418e6a016d8ce706f4b7b75ec268fcc14131a663ee0d251"
+    },
+    {
+      "page": 13,
+      "label": "story_13",
+      "png_sha256": "b94894cf61ec121cbfedbed3bc7629d06ca71ffa6b628b1133a7736ca9640bc5",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "e404fd6addf149566a3a80b8f2cab282f9f22bb1615071cbac9199b1b7bddd01",
+      "wording": "All three streams were clear.\nWhoosh! The waterfall turned rainbow!",
+      "additional_dialogue": [],
+      "observed_result": "All three rainbow streams provide a clear payoff. The quieter lower water and thin navy contour make the white 20 pt caption distinct.",
+      "semantic_pacing_review": "All three and turned rainbow close the stream episode with a visible result and a sound refrain.",
+      "text_lines": [
+        {
+          "page": 13,
+          "text": "All three streams were clear.",
+          "box": [
+            127.16,
+            52.22,
+            249.68,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 126.96,
+            "bottom": 52.019999999999996,
+            "right": 126.96000000000002,
+            "top": 282.68
+          },
+          "within_trim": true
+        },
+        {
+          "page": 13,
+          "text": "Whoosh! The waterfall turned rainbow!",
+          "box": [
+            83.6,
+            26.22,
+            336.8,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 83.39999999999999,
+            "bottom": 26.02,
+            "right": 83.39999999999996,
+            "top": 308.68
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "b94894cf61ec121cbfedbed3bc7629d06ca71ffa6b628b1133a7736ca9640bc5"
+    },
+    {
+      "page": 14,
+      "label": "story_14",
+      "png_sha256": "312285940ccae62f0ba8f0bcfcc60eb5b477099f7f6b7bfebf3f11df503d79c5",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "312285940ccae62f0ba8f0bcfcc60eb5b477099f7f6b7bfebf3f11df503d79c5",
+      "wording": "A cup was stuck in the seahorse fountain.\nRoshan pulled it free!",
+      "additional_dialogue": [],
+      "observed_result": "Pink cup is visible in Roshan’s hands; open seahorse mouth flows. The caption introduces the object/location and states removal.",
+      "semantic_pacing_review": "The cup and seahorse fountain are named before the removal result; the cup is visible in Roshan’s hands.",
+      "text_lines": [
+        {
+          "page": 14,
+          "text": "A cup was stuck in the seahorse fountain.",
+          "box": [
+            89.51399999999998,
+            49.798,
+            324.97200000000004,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 89.51399999999998,
+            "bottom": 49.798,
+            "right": 89.51399999999995,
+            "top": 287.792
+          },
+          "within_trim": true
+        },
+        {
+          "page": 14,
+          "text": "Roshan pulled it free!",
+          "box": [
+            169.38,
+            26.397999999999996,
+            165.24,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 169.38,
+            "bottom": 26.397999999999996,
+            "right": 169.38,
+            "top": 311.19199999999995
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "312285940ccae62f0ba8f0bcfcc60eb5b477099f7f6b7bfebf3f11df503d79c5"
+    },
+    {
+      "page": 15,
+      "label": "story_15",
+      "png_sha256": "96b66c55278a52f393540193c20ab0697298bc64602d16c5c960404c18f36c09",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "5f864e170163679dcb11f6c7e69e7f6012c1afe10e6212f8d1203b3e635a0018",
+      "wording": "Fresh water flowed. The gunk was gone.\nUp came Rumi. She was free!",
+      "additional_dialogue": [],
+      "observed_result": "Clear water and Rumi rising support the freedom payoff. Thin navy contours keep the white caption readable on the lower purple floor. The final 2 pt caption inset adjustment preserves readability and clears the 24 pt story glyph-margin target, including contour.",
+      "semantic_pacing_review": "Fresh water, no gunk and Rumi rising connect cleanup with freedom in an explicit cause-and-result sequence.",
+      "text_lines": [
+        {
+          "page": 15,
+          "text": "Fresh water flowed. The gunk was gone.",
+          "box": [
+            79.12,
+            51.22,
+            345.76,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 78.92,
+            "bottom": 51.019999999999996,
+            "right": 78.92,
+            "top": 283.68
+          },
+          "within_trim": true
+        },
+        {
+          "page": 15,
+          "text": "Up came Rumi. She was free!",
+          "box": [
+            127.00999999999999,
+            25.22,
+            249.98000000000002,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 126.80999999999999,
+            "bottom": 25.02,
+            "right": 126.80999999999999,
+            "top": 309.68
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "96b66c55278a52f393540193c20ab0697298bc64602d16c5c960404c18f36c09"
+    },
+    {
+      "page": 16,
+      "label": "story_16",
+      "png_sha256": "d8673bac60338cf8a3a574f4822a257f1c4bd2b0a415fe9489bc3027442a9486",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "d8673bac60338cf8a3a574f4822a257f1c4bd2b0a415fe9489bc3027442a9486",
+      "wording": "“You helped me!”\nsaid Rumi.\nShe gave Roshan\na great big hug.",
+      "additional_dialogue": [],
+      "observed_result": "Gratitude attribution and affectionate hug align; left caption and right connected action group are distinct.",
+      "semantic_pacing_review": "Gratitude attribution is explicit; a great big hug supplies a warm social payoff.",
+      "text_lines": [
+        {
+          "page": 16,
+          "text": "“You helped me!”",
+          "box": [
+            40,
+            257.798,
+            134.02800000000002,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 40.0,
+            "bottom": 257.798,
+            "right": 329.972,
+            "top": 79.792
+          },
+          "within_trim": true
+        },
+        {
+          "page": 16,
+          "text": "said Rumi.",
+          "box": [
+            40,
+            234.398,
+            79.632,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 40.0,
+            "bottom": 234.398,
+            "right": 384.368,
+            "top": 103.19200000000001
+          },
+          "within_trim": true
+        },
+        {
+          "page": 16,
+          "text": "She gave Roshan",
+          "box": [
+            40,
+            210.998,
+            135.46800000000002,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 40.0,
+            "bottom": 210.998,
+            "right": 328.532,
+            "top": 126.59200000000001
+          },
+          "within_trim": true
+        },
+        {
+          "page": 16,
+          "text": "a great big hug.",
+          "box": [
+            40,
+            187.59799999999998,
+            123.01200000000001,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 40.0,
+            "bottom": 187.59799999999998,
+            "right": 340.988,
+            "top": 149.99200000000002
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "d8673bac60338cf8a3a574f4822a257f1c4bd2b0a415fe9489bc3027442a9486"
+    },
+    {
+      "page": 17,
+      "label": "story_17",
+      "png_sha256": "e04d084fdd3a01fdedeb3febb29966075a9678bc1e0924a4731440918ece7965",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "4135577c4218b525fd64edc9c21d01cb86a957c5d235fc03e3a55fdc1d62f1ab",
+      "wording": "Chirp, chirp!\n“Someone needs help!” said Roshan.",
+      "additional_dialogue": [],
+      "observed_result": "Roshan’s listening gesture supports the chirp and help quotation. Page 18 now explicitly names the playroom, resolving the previously unmarked location transition.",
+      "semantic_pacing_review": "The chirp invites the next helping episode without prematurely describing its solution.",
+      "text_lines": [
+        {
+          "page": 17,
+          "text": "Chirp, chirp!",
+          "box": [
+            200.07999999999998,
+            52.22,
+            103.84,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 199.88,
+            "bottom": 52.019999999999996,
+            "right": 199.88000000000002,
+            "top": 282.68
+          },
+          "within_trim": true
+        },
+        {
+          "page": 17,
+          "text": "“Someone needs help!” said Roshan.",
+          "box": [
+            93.85,
+            26.22,
+            316.3,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 93.64999999999999,
+            "bottom": 26.02,
+            "right": 93.64999999999996,
+            "top": 308.68
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "e04d084fdd3a01fdedeb3febb29966075a9678bc1e0924a4731440918ece7965"
+    },
+    {
+      "page": 18,
+      "label": "story_18",
+      "png_sha256": "c8657641c9970754c1244819fdc523eefa899bb0321b7ff81ed92fcb470dc41f",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "83fb46aeafebb1333281b5fdbb5c320200a1badf5d2da895abd3ed523be349c8",
+      "wording": "In the playroom, two dust bunnies sat on Baby Eagle.\nThey wanted to play, but he was stuck.",
+      "additional_dialogue": [],
+      "observed_result": "Exactly two puffs sit on Eagle’s wings. The two-line native 18 pt caption names the playroom and distinguishes playful intent from being stuck. Lowered baseline y62 clears the 80 pt focal threshold: first-line glyph top is 79.208 pt, leaving 0.792 pt recorded-envelope clearance; no actor is covered in the native proof.",
+      "semantic_pacing_review": "The playroom cue locates the scene change. Exactly two bunnies, playful intent and Eagle’s discomfort are all explicit; sat on is literal rather than implying deliberate restraint.",
+      "text_lines": [
+        {
+          "page": 18,
+          "text": "In the playroom, two dust bunnies sat on Baby Eagle.",
+          "box": [
+            43.60499999999999,
+            56.798,
+            416.79,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 43.60499999999999,
+            "bottom": 56.798,
+            "right": 43.60499999999996,
+            "top": 280.792
+          },
+          "within_trim": true
+        },
+        {
+          "page": 18,
+          "text": "They wanted to play, but he was stuck.",
+          "box": [
+            99.67499999999998,
+            33.397999999999996,
+            304.65000000000003,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 99.67499999999998,
+            "bottom": 33.397999999999996,
+            "right": 99.67500000000001,
+            "top": 304.19199999999995
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "c8657641c9970754c1244819fdc523eefa899bb0321b7ff81ed92fcb470dc41f"
+    },
+    {
+      "page": 19,
+      "label": "story_19",
+      "png_sha256": "32f0a4397ba510dfd48e3469b1a03c4bb22880835dd41dfc50b3750445a71fcf",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "32f0a4397ba510dfd48e3469b1a03c4bb22880835dd41dfc50b3750445a71fcf",
+      "wording": "“I’ll help!” said Roshan.\nShe gently brushed one bunny away, then the other.",
+      "additional_dialogue": [],
+      "observed_result": "Brush contacts a puff while Eagle stands free with open wings; gently accurately frames the help. Two lines remain unclipped.",
+      "semantic_pacing_review": "Gently frames brush use as care. One, then the other supports the two-bunny sequence without violent language.",
+      "text_lines": [
+        {
+          "page": 19,
+          "text": "“I’ll help!” said Roshan.",
+          "box": [
+            165.834,
+            52.798,
+            172.33200000000002,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 165.834,
+            "bottom": 52.798,
+            "right": 165.83399999999997,
+            "top": 284.792
+          },
+          "within_trim": true
+        },
+        {
+          "page": 19,
+          "text": "She gently brushed one bunny away, then the other.",
+          "box": [
+            46.448999999999984,
+            29.397999999999996,
+            411.10200000000003,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 46.448999999999984,
+            "bottom": 29.397999999999996,
+            "right": 46.44900000000001,
+            "top": 308.19199999999995
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "32f0a4397ba510dfd48e3469b1a03c4bb22880835dd41dfc50b3750445a71fcf"
+    },
+    {
+      "page": 20,
+      "label": "story_20",
+      "png_sha256": "d0ce8e3f961ffa430dbb6a7b5f13be5b6a94e8f4465d33119c225be9b2a1126d",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "d0ce8e3f961ffa430dbb6a7b5f13be5b6a94e8f4465d33119c225be9b2a1126d",
+      "wording": "Baby Eagle was free!\n“Let’s play gently,” said Roshan.",
+      "additional_dialogue": [
+        "Sorry!",
+        "We were just\nplaying!"
+      ],
+      "observed_result": "Caption supplies explicit gentle-play guidance. Rounded speech capsules have generous text padding; each curved tail clearly points to its small bunny and avoids Eagle.",
+      "semantic_pacing_review": "Freedom, apology and the gentle-play invitation repair the accidental harm. Dialogue explains intent while Roshan supplies a clear, supportive next action.",
+      "text_lines": [
+        {
+          "page": 20,
+          "text": "Baby Eagle was free!",
+          "box": [
+            170.63099999999997,
+            312.798,
+            162.73800000000003,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 170.63099999999997,
+            "bottom": 312.798,
+            "right": 170.631,
+            "top": 24.791999999999998
+          },
+          "within_trim": true
+        },
+        {
+          "page": 20,
+          "text": "“Let’s play gently,” said Roshan.",
+          "box": [
+            128.93399999999997,
+            289.398,
+            246.13200000000003,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 128.93399999999997,
+            "bottom": 289.398,
+            "right": 128.934,
+            "top": 48.19199999999998
+          },
+          "within_trim": true
+        },
+        {
+          "page": 20,
+          "text": "Sorry!",
+          "box": [
+            88.231,
+            82.795,
+            47.538000000000004,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0,
+          "trim_insets_points": {
+            "left": 88.231,
+            "bottom": 82.795,
+            "right": 368.231,
+            "top": 254.795
+          },
+          "within_trim": true
+        },
+        {
+          "page": 20,
+          "text": "We were just",
+          "box": [
+            343.608,
+            101.495,
+            98.784,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0,
+          "trim_insets_points": {
+            "left": 343.608,
+            "bottom": 101.495,
+            "right": 61.60799999999999,
+            "top": 236.095
+          },
+          "within_trim": true
+        },
+        {
+          "page": 20,
+          "text": "playing!",
+          "box": [
+            361.788,
+            78.095,
+            62.42400000000001,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0,
+          "trim_insets_points": {
+            "left": 361.788,
+            "bottom": 78.095,
+            "right": 79.78799999999998,
+            "top": 259.49499999999995
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "d0ce8e3f961ffa430dbb6a7b5f13be5b6a94e8f4465d33119c225be9b2a1126d"
+    },
+    {
+      "page": 21,
+      "label": "story_21",
+      "png_sha256": "3f03383a354e977664021acfb553504d2fb9d9365a3016bdf546d486519c6061",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "6e43e91db0dd2f58a618de0269ea0c09ec1b0bfbee89acd8fd76f5702d7c8c03",
+      "wording": "Brushes here. Paints there.\nRoshan put each thing in its place.",
+      "additional_dialogue": [],
+      "observed_result": "Brush/paint sorting matches the caption. Navy type sits in quiet blue writing space; the action and the following clean-room payoff retain a short, coherent sequence.",
+      "semantic_pacing_review": "Concrete sorting language ties the art-room picture to cleaning rather than introducing an unrelated craft plot.",
+      "text_lines": [
+        {
+          "page": 21,
+          "text": "Brushes here. Paints there.",
+          "box": [
+            147.177,
+            310.798,
+            209.64600000000002,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 147.177,
+            "bottom": 310.798,
+            "right": 147.17699999999996,
+            "top": 26.791999999999998
+          },
+          "within_trim": true
+        },
+        {
+          "page": 21,
+          "text": "Roshan put each thing in its place.",
+          "box": [
+            117.279,
+            287.398,
+            269.442,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 117.279,
+            "bottom": 287.398,
+            "right": 117.279,
+            "top": 50.19199999999998
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "3f03383a354e977664021acfb553504d2fb9d9365a3016bdf546d486519c6061"
+    },
+    {
+      "page": 22,
+      "label": "story_22",
+      "png_sha256": "7952f4c646287bc43712dea9432124a56fed262f77c6a0d2426007acf715cb90",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "7952f4c646287bc43712dea9432124a56fed262f77c6a0d2426007acf715cb90",
+      "wording": "Scrub, scrub! The table was clean.\nEverything was back in its place.",
+      "additional_dialogue": [],
+      "observed_result": "Clean table and brush contact form a quick payoff. Caption stays below the story art in the floor space.",
+      "semantic_pacing_review": "The clean table and everything in its place give this short cleanup episode a clear payoff.",
+      "text_lines": [
+        {
+          "page": 22,
+          "text": "Scrub, scrub! The table was clean.",
+          "box": [
+            119.37599999999998,
+            49.798,
+            265.24800000000005,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 119.37599999999998,
+            "bottom": 49.798,
+            "right": 119.37599999999998,
+            "top": 287.792
+          },
+          "within_trim": true
+        },
+        {
+          "page": 22,
+          "text": "Everything was back in its place.",
+          "box": [
+            124.35299999999998,
+            26.397999999999996,
+            255.29400000000004,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 124.35299999999998,
+            "bottom": 26.397999999999996,
+            "right": 124.35300000000001,
+            "top": 311.19199999999995
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "7952f4c646287bc43712dea9432124a56fed262f77c6a0d2426007acf715cb90"
+    },
+    {
+      "page": 23,
+      "label": "story_23",
+      "png_sha256": "7b6d8da8d513f1c8d581aff781a57eab8513a6c142d0ddd51930666262bcffeb",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "4ee8e0aba0d10d493a4a422af5129c7e7e2c64879d99a2089087ecfc6c966a72",
+      "wording": "One last door began to glow.\nA rumble came from behind it...",
+      "additional_dialogue": [],
+      "observed_result": "Glowing final door, completed door markers and route lights support last/behind. Navy caption is distinct on pale upper wall. The final 2 pt caption inset adjustment preserves readability and clears the 24 pt story glyph-margin target, including contour.",
+      "semantic_pacing_review": "One last door and behind provide a spatial cue and a controlled anticipation page turn.",
+      "text_lines": [
+        {
+          "page": 23,
+          "text": "One last door began to glow.",
+          "box": [
+            126.66,
+            310.22,
+            250.68,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 126.66,
+            "bottom": 310.22,
+            "right": 126.66000000000003,
+            "top": 24.879999999999974
+          },
+          "within_trim": true
+        },
+        {
+          "page": 23,
+          "text": "A rumble came from behind it...",
+          "box": [
+            116.57999999999998,
+            284.22,
+            270.84000000000003,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 116.57999999999998,
+            "bottom": 284.22,
+            "right": 116.57999999999998,
+            "top": 50.879999999999974
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "7b6d8da8d513f1c8d581aff781a57eab8513a6c142d0ddd51930666262bcffeb"
+    },
+    {
+      "page": 24,
+      "label": "story_24",
+      "png_sha256": "7b6bdd46b7331746ac2801f1772d4106a1f51665f80f56a0832b64db8e4ab333",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "7b6bdd46b7331746ac2801f1772d4106a1f51665f80f56a0832b64db8e4ab333",
+      "wording": "Grand Puff!\nHe was so dusty.\nHe did not feel well.",
+      "additional_dialogue": [],
+      "observed_result": "Unwell Puff’s face supports discomfort language. Small frightened border bunnies remain secondary to the main figure.",
+      "semantic_pacing_review": "Puff is named and uncomfortable rather than villainized. So dusty and did not feel well set up care.",
+      "text_lines": [
+        {
+          "page": 24,
+          "text": "Grand Puff!",
+          "box": [
+            55,
+            251.798,
+            87.102,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 55.0,
+            "bottom": 251.798,
+            "right": 361.898,
+            "top": 85.792
+          },
+          "within_trim": true
+        },
+        {
+          "page": 24,
+          "text": "He was so dusty.",
+          "box": [
+            55,
+            228.398,
+            129.186,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 55.0,
+            "bottom": 228.398,
+            "right": 319.81399999999996,
+            "top": 109.19200000000001
+          },
+          "within_trim": true
+        },
+        {
+          "page": 24,
+          "text": "He did not feel well.",
+          "box": [
+            55,
+            204.998,
+            149.23800000000003,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 55.0,
+            "bottom": 204.998,
+            "right": 299.76199999999994,
+            "top": 132.592
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "7b6bdd46b7331746ac2801f1772d4106a1f51665f80f56a0832b64db8e4ab333"
+    },
+    {
+      "page": 25,
+      "label": "story_25",
+      "png_sha256": "4f2add55bf16b499b723f36f431af4ce9a9146c15921ddd21f4c54687e7aac21",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "4f2add55bf16b499b723f36f431af4ce9a9146c15921ddd21f4c54687e7aac21",
+      "wording": "“Hold on, we’ll make you feel\nclean and better!” said Roshan.",
+      "additional_dialogue": [],
+      "observed_result": "Owner-exact reassurance remains; soapy yellow sponge clearly communicates care. Caption is clean and unobstructed.",
+      "semantic_pacing_review": "Owner-approved reassurance explicitly promises feeling clean and better. The cleaning supply in Roshan’s hands makes the intention visible.",
+      "text_lines": [
+        {
+          "page": 25,
+          "text": "“Hold on, we’ll make you feel",
+          "box": [
+            142.029,
+            311.798,
+            219.94200000000004,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 142.029,
+            "bottom": 311.798,
+            "right": 142.02899999999997,
+            "top": 25.791999999999998
+          },
+          "within_trim": true
+        },
+        {
+          "page": 25,
+          "text": "clean and better!” said Roshan.",
+          "box": [
+            129.618,
+            288.398,
+            244.76400000000004,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 129.618,
+            "bottom": 288.398,
+            "right": 129.61799999999997,
+            "top": 49.19199999999998
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "4f2add55bf16b499b723f36f431af4ce9a9146c15921ddd21f4c54687e7aac21"
+    },
+    {
+      "page": 26,
+      "label": "story_26",
+      "png_sha256": "2d0d404247c232034019f3d0a47c75c2dcca4d05ad93aab2e0fb90ac8d39d14a",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "1c3382e4ec35c765c3c33a8015a595a78a4ebcb1f5829207856f6c6f54397b5e",
+      "wording": "Daddy, Rumi, and Baby Eagle helped Roshan.\nTogether, they washed Grand Puff. Scrub, scrub!",
+      "additional_dialogue": [],
+      "observed_result": "Four named helpers visibly wash smiling Puff. Together and the sound refrain communicate cooperative care. White type has a thin navy contour and avoids the faces. The final 2 pt caption inset adjustment preserves readability and clears the 24 pt story glyph-margin target, including contour.",
+      "semantic_pacing_review": "Names and Together unambiguously identify cooperative helpers; washed and scrub communicate cleaning.",
+      "text_lines": [
+        {
+          "page": 26,
+          "text": "Daddy, Rumi, and Baby Eagle helped Roshan.",
+          "box": [
+            56.81,
+            310.22,
+            390.38,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 56.61,
+            "bottom": 310.02000000000004,
+            "right": 56.61,
+            "top": 24.679999999999975
+          },
+          "within_trim": true
+        },
+        {
+          "page": 26,
+          "text": "Together, they washed Grand Puff. Scrub, scrub!",
+          "box": [
+            42.94,
+            284.22,
+            418.12,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 42.739999999999995,
+            "bottom": 284.02000000000004,
+            "right": 42.739999999999995,
+            "top": 50.67999999999997
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "2d0d404247c232034019f3d0a47c75c2dcca4d05ad93aab2e0fb90ac8d39d14a"
+    },
+    {
+      "page": 27,
+      "label": "story_27",
+      "png_sha256": "a3f1b5a2365d93c16ea21688ca9b6bb1c951a211c245746eff2863424bcb1b80",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "a9aa3638858d368b08b0be5969d485445b05e1cab78df0c0a2370099abb9dfb1",
+      "wording": "Soft bubbles covered Grand Puff.\nUnder the bubbles, his colors began to shine.",
+      "additional_dialogue": [],
+      "observed_result": "Words and bubble concealment retain the anticipated reveal. The PNG is byte-identical to the final V29 proof; that proof’s independent style_final.json closes STY-V29-05. This language audit records that closure by reference rather than issuing new art approval.",
+      "semantic_pacing_review": "Soft bubbles and colors began to shine prepare the reveal with concrete visual support.",
+      "text_lines": [
+        {
+          "page": 27,
+          "text": "Soft bubbles covered Grand Puff.",
+          "box": [
+            108.65,
+            310.22,
+            286.7,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 108.45,
+            "bottom": 310.02000000000004,
+            "right": 108.45000000000003,
+            "top": 24.679999999999975
+          },
+          "within_trim": true
+        },
+        {
+          "page": 27,
+          "text": "Under the bubbles, his colors began to shine.",
+          "box": [
+            57.01999999999998,
+            284.22,
+            389.96000000000004,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 56.81999999999998,
+            "bottom": 284.02000000000004,
+            "right": 56.81999999999998,
+            "top": 50.67999999999997
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "a3f1b5a2365d93c16ea21688ca9b6bb1c951a211c245746eff2863424bcb1b80"
+    },
+    {
+      "page": 28,
+      "label": "story_28",
+      "png_sha256": "47a8df8099fc08865b517bbc8d074f0281c2cf3b1570b11b92135e8f9ec2fa17",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "5a809fafd3107da4e234ecb6edbce5ebdc1688ca3c5f491e2f5962ef5f2d525b",
+      "wording": "POP! Grand Puff sprang out, rainbow bright!\nThe dust fell away.",
+      "additional_dialogue": [],
+      "observed_result": "Airborne rainbow Puff supports POP and sprang. The thin navy contour preserves white-letter separation without covering faces. The final 2 pt caption inset adjustment preserves readability and clears the 24 pt story glyph-margin target, including contour.",
+      "semantic_pacing_review": "POP and sprang convey the joyful reveal; dust falling away explains the change without attack or defeat.",
+      "text_lines": [
+        {
+          "page": 28,
+          "text": "POP! Grand Puff sprang out, rainbow bright!",
+          "box": [
+            61.870000000000005,
+            310.22,
+            380.26,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 61.67,
+            "bottom": 310.02000000000004,
+            "right": 61.67,
+            "top": 24.679999999999975
+          },
+          "within_trim": true
+        },
+        {
+          "page": 28,
+          "text": "The dust fell away.",
+          "box": [
+            171.66,
+            284.22,
+            160.68,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 171.46,
+            "bottom": 284.02000000000004,
+            "right": 171.46000000000004,
+            "top": 50.67999999999997
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "47a8df8099fc08865b517bbc8d074f0281c2cf3b1570b11b92135e8f9ec2fa17"
+    },
+    {
+      "page": 29,
+      "label": "story_29",
+      "png_sha256": "9110574d452daffacf1c9bd126e3a5d5c632449a65d0c4506287c4f3efff5ca0",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "4c07d18e345db42c87ec1e68ed1382ae347553b4bcbf6dfd87010cf2aae36113",
+      "wording": "Down came Grand Puff, soft and small.\nHe felt like himself again.",
+      "additional_dialogue": [],
+      "observed_result": "The retained canonical landing depicts Puff soft and small; recovery wording matches. White caption contours improve separation from the ceiling. The final 2 pt caption inset adjustment preserves readability and clears the 24 pt story glyph-margin target, including contour.",
+      "semantic_pacing_review": "Soft and small gives a concrete outcome before felt like himself again supplies a simple recovery meaning.",
+      "text_lines": [
+        {
+          "page": 29,
+          "text": "Down came Grand Puff, soft and small.",
+          "box": [
+            85.00999999999999,
+            310.22,
+            333.98,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 84.80999999999999,
+            "bottom": 310.02000000000004,
+            "right": 84.80999999999999,
+            "top": 24.679999999999975
+          },
+          "within_trim": true
+        },
+        {
+          "page": 29,
+          "text": "He felt like himself again.",
+          "box": [
+            144.26999999999998,
+            284.22,
+            215.46,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 144.07,
+            "bottom": 284.02000000000004,
+            "right": 144.07000000000002,
+            "top": 50.67999999999997
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "9110574d452daffacf1c9bd126e3a5d5c632449a65d0c4506287c4f3efff5ca0"
+    },
+    {
+      "page": 30,
+      "label": "story_30",
+      "png_sha256": "74aa90c82ffec8b309630ff4dac9b7a4c7a9eac7ccc0d77bd476adf2c4628d2a",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "74aa90c82ffec8b309630ff4dac9b7a4c7a9eac7ccc0d77bd476adf2c4628d2a",
+      "wording": "“Your rainbow was there all along,\nGrand Puff. We helped it shine!”",
+      "additional_dialogue": [],
+      "observed_result": "Roshan faces the visible rainbow Puff; metaphor follows the concrete reveal. Main figures and caption are separated.",
+      "semantic_pacing_review": "The rainbow metaphor follows the visible reveal. We helped it shine credits care while preserving Puff’s own identity.",
+      "text_lines": [
+        {
+          "page": 30,
+          "text": "“Your rainbow was there all along,",
+          "box": [
+            118.39499999999998,
+            310.798,
+            267.21000000000004,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 118.39499999999998,
+            "bottom": 310.798,
+            "right": 118.39499999999998,
+            "top": 26.791999999999998
+          },
+          "within_trim": true
+        },
+        {
+          "page": 30,
+          "text": "Grand Puff. We helped it shine!”",
+          "box": [
+            130.986,
+            287.398,
+            242.02800000000002,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 130.986,
+            "bottom": 287.398,
+            "right": 130.986,
+            "top": 50.19199999999998
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "74aa90c82ffec8b309630ff4dac9b7a4c7a9eac7ccc0d77bd476adf2c4628d2a"
+    },
+    {
+      "page": 31,
+      "label": "story_31",
+      "png_sha256": "2fed67e779ba66e601747ef8e667db420e9dacf36479e2d9946df305e2439e11",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "2fed67e779ba66e601747ef8e667db420e9dacf36479e2d9946df305e2439e11",
+      "wording": "“Come and play, Baby Eagle!”\nThe little dust bunnies played gently, too.",
+      "additional_dialogue": [],
+      "observed_result": "Eagle approaches the invitation; two small puffs play with toys. Readable caption gives a gentle bridge into the nap.",
+      "semantic_pacing_review": "The invitation and played gently demonstrate the earlier guidance in the happy ending.",
+      "text_lines": [
+        {
+          "page": 31,
+          "text": "“Come and play, Baby Eagle!”",
+          "box": [
+            135.521,
+            310.798,
+            230.95800000000003,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 135.521,
+            "bottom": 310.798,
+            "right": 137.52100000000002,
+            "top": 26.791999999999998
+          },
+          "within_trim": true
+        },
+        {
+          "page": 31,
+          "text": "The little dust bunnies played gently, too.",
+          "box": [
+            89.225,
+            287.398,
+            323.55,
+            22.41
+          ],
+          "font_size": 18,
+          "color": "navy",
+          "outline_margin_expansion_points": 0.0,
+          "trim_insets_points": {
+            "left": 89.225,
+            "bottom": 287.398,
+            "right": 91.22499999999997,
+            "top": 50.19199999999998
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "2fed67e779ba66e601747ef8e667db420e9dacf36479e2d9946df305e2439e11"
+    },
+    {
+      "page": 32,
+      "label": "story_32",
+      "png_sha256": "a8d3d463843d93286116985e1e0f80fe22e74b3fbc1183c54ee54bd894ef17ea",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V29_FINAL_NATIVE_REVIEW_REUSED_BY_EXACT_PNG_HASH",
+      "prior_png_sha256": "061d5a336e066f0d6264115da6dd9026efe3b29ca2e111dde8076b952050acb3",
+      "wording": "There was room for everyone.\nThey curled up in the bubbles and fell asleep.",
+      "additional_dialogue": [],
+      "observed_result": "Five main friends and two little puffs rest in bubbles. The inclusive closing words are clear against the subdued upper wall, with thin navy contours. The final 2 pt caption inset adjustment preserves readability and clears the 24 pt story glyph-margin target, including contour.",
+      "semantic_pacing_review": "Room for everyone and curled up together provide inclusion and a calm bedtime close.",
+      "text_lines": [
+        {
+          "page": 32,
+          "text": "There was room for everyone.",
+          "box": [
+            121.88999999999999,
+            310.22,
+            260.22,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 121.68999999999998,
+            "bottom": 310.02000000000004,
+            "right": 121.68999999999998,
+            "top": 24.679999999999975
+          },
+          "within_trim": true
+        },
+        {
+          "page": 32,
+          "text": "They curled up in the bubbles and fell asleep.",
+          "box": [
+            56.47,
+            284.22,
+            391.06,
+            24.9
+          ],
+          "font_size": 20,
+          "color": "white",
+          "outline_margin_expansion_points": 0.2,
+          "trim_insets_points": {
+            "left": 56.269999999999996,
+            "bottom": 284.02000000000004,
+            "right": 56.26999999999997,
+            "top": 50.67999999999997
+          },
+          "within_trim": true
+        }
+      ],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "a8d3d463843d93286116985e1e0f80fe22e74b3fbc1183c54ee54bd894ef17ea"
+    },
+    {
+      "page": 33,
+      "label": "back_cover",
+      "png_sha256": "ff38d51f5e252b00966933a017583ae8a8e27d3a76e5df41a380a60bbef3f44a",
+      "native_render_size": [
+        1512,
+        1080
+      ],
+      "visual_evidence_method": "V30_CHANGED_NATIVE_PNG_DIRECT_REVIEW",
+      "prior_png_sha256": "c8f5499578e1701db712c76f18ddbfecd32a5f07228c9301fd3b88b171d36ccb",
+      "wording": null,
+      "additional_dialogue": [],
+      "observed_result": "Local costume/face identity refinements preserve the accepted rear-cover composition, characters and dusty supplies. No new text or reading task is added.",
+      "semantic_pacing_review": "The full-art rear-cover identity derivative adds no plot change or reading task; current pixels remain subject to owner creative acceptance.",
+      "text_lines": [],
+      "digital_text_result": "PASS_EDITORIAL_SHARED_READING",
+      "wording_change_requested": null,
+      "professional_approval": "NOT_ASSESSED",
+      "prior_v29_png_sha256": "c8f5499578e1701db712c76f18ddbfecd32a5f07228c9301fd3b88b171d36ccb"
+    }
+  ],
+  "round2_finding_reconciliation": [
+    {
+      "id": "LANG-R2-01",
+      "pages": [
+        3
+      ],
+      "status": "RESOLVED_DIGITAL_PROOF",
+      "evidence": "Navy 18 pt type on lower-right lavender floor avoids the prior pale doorframe field."
+    },
+    {
+      "id": "LANG-R2-02",
+      "pages": [
+        6,
+        10
+      ],
+      "status": "RESOLVED_DIGITAL_PROOF; PHYSICAL_PRINT_PENDING",
+      "evidence": "Page 6 calmer caption region and thin navy contours on white captions improve local separation."
+    },
+    {
+      "id": "LANG-R2-03",
+      "pages": [
+        17,
+        18
+      ],
+      "status": "RESOLVED_MANUSCRIPT_AND_NATIVE_PROOF",
+      "evidence": "Page 18 now begins In the playroom and depicts exactly two bunnies sitting on Eagle."
+    },
+    {
+      "id": "LANG-R2-04",
+      "pages": [
+        27
+      ],
+      "status": "CLOSED_BY_REFERENCED_INDEPENDENT_STYLE_AUDIT",
+      "evidence": "V29 style_final.json closes STY-V29-05; current V30 page27 PNG is byte-identical to the final V29 page27 PNG. Closure is attributed to that visual audit, not clinical or new language-agent art approval.",
+      "style_audit_path": "books\\chapter_one\\landscape\\revisions\\v29_polish\\style_final.json",
+      "style_audit_sha256": "339e54cf838de6f51c84261de71b2745ade5577623196ba8b16da159941bd676"
+    },
+    {
+      "id": "LANG-R2-05",
+      "pages": [
+        12,
+        13
+      ],
+      "status": "DECLARED_SOURCE_ACTION_LIMIT_RETAINED",
+      "evidence": "One clear/two green lanes followed by rainbow state is visible; intervening clearing is narrated. No invented action is required for comprehension."
+    }
+  ],
+  "page20_speech_review": {
+    "bubble_boxes_points": [
+      [
+        50,
+        70,
+        124,
+        48
+      ],
+      [
+        310,
+        70,
+        166,
+        62
+      ]
+    ],
+    "tail_targets_points": [
+      [
+        117,
+        55
+      ],
+      [
+        389,
+        55
+      ]
+    ],
+    "text": "Sorry! / We were just\nplaying!",
+    "font_points": 18,
+    "minimum_glyph_box_inner_vertical_inset_points": 8.095,
+    "minimum_glyph_box_inner_horizontal_inset_points": 33.608,
+    "observed": "Rounded spacious capsules and short curved tails direct to two small bunny speakers; no Eagle overlap and no clipping.",
+    "acceptance": "PASS_EDITORIAL_DIGITAL; PHYSICAL_PRINT_OWNER_CHILD_PENDING"
+  },
+  "story_fact_checks": {
+    "34_total_including_covers": true,
+    "rumi_residence_not_entrapment_duration": "PASS",
+    "two_bunnies_not_blanket": "PASS_WORDS_AND_NATIVE_PICTURE",
+    "cooperative_puff_care_not_attack": "PASS_WORDS_AND_NATIVE_PICTURE",
+    "waterfall_clears_then_rainbow": "PASS_WITH_NARRATED_INTERVENING_ACTION",
+    "cup_object_context": "PASS_VISIBLE_CUP_AND_FOUNTAIN",
+    "gentle_play_resolution": "PASS",
+    "owner_reassurance": "EXACT_V29_ACCEPTED_TEXT_PRESERVED",
+    "no_hidden_visitor_reader_or_adult_prompt": {
+      "complete/READ_BOOK.html": {
+        "visible_visitor_name_absent": true,
+        "visible_search_hint_absent": true,
+        "sha256": "55dfcd9712635cf5163bf0d32200a62e231d050e1749e77e69ab7afe09fdca71"
+      },
+      "SLP_REVIEW_PACKET.html": {
+        "visible_visitor_name_absent": true,
+        "visible_search_hint_absent": true,
+        "sha256": "a170270b5e0b0b306df6a509e9d271a540db5c5213dbc2ecb190fc73defaa3e2"
+      }
+    },
+    "plural_sponge_introduction": "PASS_TWO_VISIBLE_SPONGE_CUTOUTS"
+  },
+  "primary_guidance": [
+    {
+      "title": "ASHA: Communication Milestones, 4–5 Years",
+      "url": "https://www.asha.org/public/developmental-milestones/communication-milestones-4-to-5-years/",
+      "use": "Connected storytelling, relational language, supported vocabulary and conversation; developmental variation is respected.",
+      "limit": "Not an assessment of Roshan and not approval of this manuscript."
+    },
+    {
+      "title": "IES REL Southeast: Preschool emergent-literacy instructional practices",
+      "url": "https://ies.ed.gov/rel-southeast/2025/01/instructional-practices-teaching-emergent-literacy-preschool-level",
+      "use": "Optional repeated interactive reading, discussion and adult expansion.",
+      "limit": "No child outcome or independent decoding level has been validated for this book."
+    },
+    {
+      "title": "IES What Works Clearinghouse: Shared Book Reading",
+      "url": "https://ies.ed.gov/ncee/wwc/InterventionReport/458",
+      "use": "Calibrate outcome claims; evidence is not a guarantee of gains from one book.",
+      "limit": "This book has not received a literacy-outcome study."
+    }
+  ],
+  "acceptance_lanes": {
+    "machine_text_geometry_and_font": "PASS_FINAL_V30_OPTIMIZED_PROOF",
+    "developmental_editorial_language_and_digital_readability": "PASS_SHARED_READING",
+    "professional_slp_endorsement": "PENDING; NO_NAMED_PROFESSIONAL_REVIEW_RECORDED",
+    "individual_child_comprehension_and_preference": "PENDING; NO_CHILD_ASSESSMENT_PERFORMED",
+    "physical_print_and_full_adult_read_aloud": "PENDING",
+    "owner_art_and_book_acceptance": "PENDING",
+    "all_objects4_9_master_quality_goal": "NOT_CERTIFIED_BY_THIS_AUDIT"
+  },
+  "limits": [
+    "ASHA guidance informs editorial decisions, not a clinical diagnosis or SLP endorsement.",
+    "The book is intended for shared reading and growing participation; it is not a systematically sequenced decodable reader and has no validated independent reading level.",
+    "Some source actions are represented by before/result states with accurate narration rather than a new illustration.",
+    "No child observation, clinical assessment, full performed adult read-aloud or physical print proof was conducted by this agent.",
+    "A digital language pass does not certify all artwork, print production, owner acceptance or a numerical master-audit score."
+  ],
+  "baseline_v29": {
+    "language_audit_path": "books\\chapter_one\\landscape\\revisions\\v29_polish\\language_final.json",
+    "language_audit_sha256": "ef1d510583a3de860ef6c5b8d4c6cf61e70ad112f245fad6b0f3646796f210e6",
+    "book_sha256": "185dc950b7d44916e2b09ddaaf78b303c32655f9d0992e90f002d3af8f5be6b1",
+    "provenance_sha256": "2f23dc39826e37601219b306ce64d866d885f6ebf98187f0248a2eb1360a28fa",
+    "new_manuscript_change_pages": [
+      5
+    ],
+    "historical_final_margin_reconciliation": {
+      "prior_book_json_sha256": "b0a2041bf60fb867d97c19ffd105b3f5553a70444bc56253652a27730b019de8",
+      "prior_page_provenance_sha256": "5efabd9caebc1b31495dc52c0ab3285151d8911e403d7d28aed3fccff9b80406",
+      "prior_pdf_sha256": "efff6e067448124b4f90c302ab637b5e5d98d96a0890c7c827e4c444ff3fdf52",
+      "current_book_json_sha256": "6745716b4aacbf8ce15bbec6e97fd99054ff11c1ce44abfdab696c344280c5c2",
+      "current_provenance_sha256": "8e0ec112c8cb3d54cc8d47c9067d7b576286f11d5aad7c089dff784070cfe1c7",
+      "current_pdf_sha256_before_lossless_optimization": "0648d3ceb4e60c4397a8a3ebda791b1ef30d06e4560960729d8efe70583730f0",
+      "pages_reinspected": [
+        4,
+        6,
+        10,
+        15,
+        23,
+        26,
+        27,
+        28,
+        29,
+        32
+      ],
+      "pngs_changed_since_previous_final_audit": [
+        4,
+        10,
+        15,
+        23,
+        26,
+        27,
+        28,
+        29,
+        32
+      ],
+      "unchanged_wording_verified": true,
+      "actual_24pt_story_glyph_insets_pass": true,
+      "minimum_insets_points": {
+        "left": 28.0,
+        "bottom": 25.02,
+        "right": 42.74,
+        "top": 24.68
+      },
+      "page4": "White with fine navy contour at x228/y85/width246, three 18 pt lines on lower-right floor.",
+      "page6": "Natural source-grout detail; no hard rectangular caption panel.",
+      "top_insets": "Pages 23/26/27/28/29/32 baseline y316; lower 10/15 captions moved up 2 pt.",
+      "cover_exception": "Accepted front title top glyph inset is 19.32 pt and remains disclosed; all story captions/dialogue pass the 24 pt target."
+    },
+    "historical_final_focal_clearance_reconciliation": {
+      "previous_inputs": {
+        "book_json_sha256": "6745716b4aacbf8ce15bbec6e97fd99054ff11c1ce44abfdab696c344280c5c2",
+        "page_provenance_sha256": "8e0ec112c8cb3d54cc8d47c9067d7b576286f11d5aad7c089dff784070cfe1c7",
+        "pdf_sha256_at_review": "0648d3ceb4e60c4397a8a3ebda791b1ef30d06e4560960729d8efe70583730f0"
+      },
+      "current_book_json_sha256": "185dc950b7d44916e2b09ddaaf78b303c32655f9d0992e90f002d3af8f5be6b1",
+      "current_page_provenance_sha256": "2f23dc39826e37601219b306ce64d866d885f6ebf98187f0248a2eb1360a28fa",
+      "pdf_sha256_read_from_immutable_buffer": "24c494d9a07ea0b39be58e156ee9f21b9c3b1a85346d32f7127168513787b563",
+      "png_pages_changed": [
+        3,
+        18
+      ],
+      "wording_and_art_unchanged": true,
+      "caption_positions_changed_only_on": [
+        3,
+        18
+      ],
+      "page3_fin_envelope_horizontal_gap_points": 12,
+      "page18_first_line_glyph_top_points": 79.208,
+      "page18_recorded_focal_threshold_points": 80,
+      "page18_vertical_recorded_envelope_clearance_points": 0.792,
+      "all_24pt_story_glyph_margins_still_pass": true,
+      "line_and_focal_checks": [
+        {
+          "page": 3,
+          "caption": {
+            "x": 268,
+            "y": 55,
+            "width": 206,
+            "size": 18,
+            "align": "left",
+            "color": "navy",
+            "shadow": false,
+            "halo": false,
+            "outline": 0
+          },
+          "line_widths_points": [
+            132.912,
+            162.954
+          ],
+          "available_width_points": 206,
+          "two_lines_still_fit": true,
+          "focal_boxes_points": [
+            [
+              0,
+              0,
+              145,
+              330
+            ],
+            [
+              176,
+              80,
+              110,
+              175
+            ],
+            [
+              258,
+              165,
+              72,
+              40
+            ],
+            [
+              95,
+              1,
+              161,
+              88
+            ]
+          ],
+          "glyph_box_focal_intersections": [],
+          "all_focal_boxes_clear": true
+        },
+        {
+          "page": 18,
+          "caption": {
+            "x": 33,
+            "y": 62,
+            "width": 438,
+            "size": 18,
+            "align": "center",
+            "color": "navy",
+            "shadow": false,
+            "halo": false,
+            "outline": 0
+          },
+          "line_widths_points": [
+            416.79,
+            304.65000000000003
+          ],
+          "available_width_points": 438,
+          "two_lines_still_fit": true,
+          "focal_boxes_points": [
+            [
+              115,
+              149,
+              88,
+              73
+            ],
+            [
+              250,
+              80,
+              168,
+              131
+            ],
+            [
+              0,
+              80,
+              504,
+              280
+            ]
+          ],
+          "glyph_box_focal_intersections": [],
+          "all_focal_boxes_clear": true
+        }
+      ]
+    }
+  },
+  "draft_open_checks": [],
+  "print_pagination": {
+    "review_pdf_total_pages": 34,
+    "interior_story_pages": 32,
+    "covers_separate_from_interior": true,
+    "front_cover_review_pdf_page": 1,
+    "interior_review_pdf_pages_1_based": [
+      2,
+      33
+    ],
+    "rear_cover_review_pdf_page": 34,
+    "first_story_page": "1 on right/recto, facing inside-front-cover surface; no added story page.",
+    "paired_story_pages_left_right": [
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        10,
+        11
+      ],
+      [
+        12,
+        13
+      ],
+      [
+        14,
+        15
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        18,
+        19
+      ],
+      [
+        20,
+        21
+      ],
+      [
+        22,
+        23
+      ],
+      [
+        24,
+        25
+      ],
+      [
+        26,
+        27
+      ],
+      [
+        28,
+        29
+      ],
+      [
+        30,
+        31
+      ]
+    ],
+    "last_story_page": "32 on left/verso, facing inside-back-cover surface.",
+    "reveal_turns": [
+      {
+        "right_before_turn": 23,
+        "left_after_turn": 24,
+        "purpose": "Glowing door precedes Grand Puff reveal."
+      },
+      {
+        "right_before_turn": 27,
+        "left_after_turn": 28,
+        "purpose": "Bubble concealment precedes rainbow reveal."
+      }
+    ],
+    "production_note": "Treat the 34-page cover-inclusive PDF as a review sequence. Supply its front/back covers separately and PDF pages 2–33 as 32 interiors. Do not duplex the entire 34-page sequence as one interior stream; that places story page 1 on the left and spoils the intended reveal turns. Confirm printer binding and endpapers in a physical dummy.",
+    "spread_dummy_path": "books\\chapter_one\\landscape\\revisions\\v30_identity\\PRINT_DUMMY.html",
+    "physical_imposition_acceptance": "PENDING_PRINT_DUMMY_AND_SELECTED_PRINTER; pagination plan supplied, no additional story pages"
+  },
+  "closed_v30_plural_supply_check": {
+    "page": 5,
+    "caption": "Daddy gave her a brush and some sponges.",
+    "visible_items": [
+      "brush",
+      "pink star sponge",
+      "yellow sponge"
+    ],
+    "observed_result": "Plural supplies are immediately visible as distinct true cutouts; no new scene or character action was introduced.",
+    "final_page5_sha256": "9bdd345b5c48591d91a6da2a9ece1a9f7240d8851e31d0a3ee8b62ad83efd406",
+    "status": "CLOSED_NATIVE_VISUAL_AND_TEXT"
+  }
+}

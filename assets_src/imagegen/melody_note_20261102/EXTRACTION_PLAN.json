@@ -1,0 +1,123 @@
+{
+  "native_dimensions": [
+    1774,
+    887
+  ],
+  "method": "Aseprite complete414-square token crops and uniform256-square bilinear resize only; read-only pixel analysis does not write image files",
+  "native_sha256": "e9ec6dde220272d9d4aeee56e7bb4ad68e106beee2d0cc5672c532af789d6f94",
+  "crop_planning": "Tentative408-square read-only test found one alpha2 orange speck outside bounds; selected414-square before any export retains all alpha>1. No re-export or painted edit.",
+  "tokens": [
+    {
+      "name": "red",
+      "crop": [
+        15,
+        21,
+        414,
+        414
+      ],
+      "crop_rgba_sha256": "547c2b12c186d8e69a35938daf4de05257ce475e67f0f792777a797fbd669f3f",
+      "outside_cell_crop_alpha_max": 1,
+      "runtime_size": [
+        256,
+        256
+      ],
+      "runtime_path": "assets/melody/rainbow_note_red_painted.png"
+    },
+    {
+      "name": "orange",
+      "crop": [
+        458,
+        21,
+        414,
+        414
+      ],
+      "crop_rgba_sha256": "b58e2dea2f81737ed9130535893ad737559ab2b88c92ba541f091bed1dfdd724",
+      "outside_cell_crop_alpha_max": 1,
+      "runtime_size": [
+        256,
+        256
+      ],
+      "runtime_path": "assets/melody/rainbow_note_orange_painted.png"
+    },
+    {
+      "name": "yellow",
+      "crop": [
+        902,
+        21,
+        414,
+        414
+      ],
+      "crop_rgba_sha256": "308ca71c4daa576d9309c83315c39ab0a2c59abf8420244f8c6231e7c26e2328",
+      "outside_cell_crop_alpha_max": 1,
+      "runtime_size": [
+        256,
+        256
+      ],
+      "runtime_path": "assets/melody/rainbow_note_yellow_painted.png"
+    },
+    {
+      "name": "green",
+      "crop": [
+        1345,
+        21,
+        414,
+        414
+      ],
+      "crop_rgba_sha256": "880241fc75b5f1470cbf9879d9ab0658c6590aa8e1908ab2b0c9844deca3767f",
+      "outside_cell_crop_alpha_max": 1,
+      "runtime_size": [
+        256,
+        256
+      ],
+      "runtime_path": "assets/melody/rainbow_note_green_painted.png"
+    },
+    {
+      "name": "blue",
+      "crop": [
+        15,
+        464,
+        414,
+        414
+      ],
+      "crop_rgba_sha256": "bbe1c1752413008f15f78c2c8b89d39a92dec05f4c41e0e9ce24299cc2b01058",
+      "outside_cell_crop_alpha_max": 1,
+      "runtime_size": [
+        256,
+        256
+      ],
+      "runtime_path": "assets/melody/rainbow_note_blue_painted.png"
+    },
+    {
+      "name": "indigo",
+      "crop": [
+        458,
+        464,
+        414,
+        414
+      ],
+      "crop_rgba_sha256": "56aa16d2b73b905f3b17fdc06ec51647cb41dd9bf44b73f431d40f7f0d178609",
+      "outside_cell_crop_alpha_max": 1,
+      "runtime_size": [
+        256,
+        256
+      ],
+      "runtime_path": "assets/melody/rainbow_note_indigo_painted.png"
+    },
+    {
+      "name": "violet",
+      "crop": [
+        902,
+        464,
+        414,
+        414
+      ],
+      "crop_rgba_sha256": "1ee244c7c2a1c8e2f1b374a57392e0d7c70d41eb383a5d96ded50238c48fcf9e",
+      "outside_cell_crop_alpha_max": 1,
+      "runtime_size": [
+        256,
+        256
+      ],
+      "runtime_path": "assets/melody/rainbow_note_violet_painted.png"
+    }
+  ]
+}

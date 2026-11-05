@@ -1,0 +1,756 @@
+{
+  "id": "sport-stage-source-v1",
+  "utc": "2026-11-01T08:21:26.231371+00:00",
+  "status": "SUPERSEDED_CONTROLLER_ENTRY_REPAIR",
+  "files": [
+    {
+      "path": "demo/actions.gd",
+      "sha256": "f2d576b73c059e92cc288408a415c824a5e01cf614317792e2c6f77961ee19a0"
+    },
+    {
+      "path": "demo/art/action_mask.png",
+      "sha256": "3edff5d9d63ad48eb03fd746165b8daa8633a476f7967d62b44cebad4320c78e"
+    },
+    {
+      "path": "demo/art/anatomy.png",
+      "sha256": "0221409d2b41fa50324ef929f120d6fa31b54382ed7819ac3efe5fefdc47bc6b"
+    },
+    {
+      "path": "demo/art/ballet_action_mask.png",
+      "sha256": "968a44433568b93dc319a10c170752098edc616080a74e2c21ab3aa1e09e20aa"
+    },
+    {
+      "path": "demo/art/ballet_ActionBody.png",
+      "sha256": "0c8ef0a70025e01be2ac87264fb525ae7a35f81684113dde4e61824dfe865ac3"
+    },
+    {
+      "path": "demo/art/ballet_body.png",
+      "sha256": "6cfa95d6a28aa022976f1b3f85066ade7cf16e0e5f10bb579d7bdefb4e3d8c8d"
+    },
+    {
+      "path": "demo/art/ballet_composed.png",
+      "sha256": "2470535f6ce319c3decfd4be67083aea444bf9a8c436e5a13ad58ecc5161ff05"
+    },
+    {
+      "path": "demo/art/ballet_head.png",
+      "sha256": "1108a5d77b37b594a7665dbf2c2b85f9956db534f607bbf9980b9bdd775ac2fc"
+    },
+    {
+      "path": "demo/art/ballet_LeftFore.png",
+      "sha256": "ac2af33bdb255aa7a5967487c0703e865b66ad668197524b3900cd800b0c5dc7"
+    },
+    {
+      "path": "demo/art/ballet_LeftHand.png",
+      "sha256": "f6879741ed0508a49ac2ecd4fc409cda992f86dcb11362b6d1ae64a713b9568e"
+    },
+    {
+      "path": "demo/art/ballet_LeftUpper.png",
+      "sha256": "bad27030cae5f850a28346cb68fce1581574a657f60f9aa6722c83ff2366e3e1"
+    },
+    {
+      "path": "demo/art/ballet_RightFore.png",
+      "sha256": "3fececc2732645c3e0d65357ad7d27ddda133160db59e3b8695db0422ce35ac0"
+    },
+    {
+      "path": "demo/art/ballet_RightHand.png",
+      "sha256": "eeb9cdecf480a3e571dbe4daafc62d504fae7d377901e89062f1c49dfb231000"
+    },
+    {
+      "path": "demo/art/ballet_RightUpper.png",
+      "sha256": "77391471570a1ee6b1b2b48a46d2827f5f03bd60235be1f33c2da8f79c575a44"
+    },
+    {
+      "path": "demo/art/ballet_scalp.png",
+      "sha256": "d354f2853ef1fd88cd8fd2c38c564529878591ab50dab85da48e6b97115914c6"
+    },
+    {
+      "path": "demo/art/ballet_tail.png",
+      "sha256": "558b3597ff3a22c8b46c61f96aa62718cd328211275fefa4ec5c3493c3aed708"
+    },
+    {
+      "path": "demo/art/body.png",
+      "sha256": "dded9a4df58f32b5b75a63c6d7be88c98f5dba3c64d88dd55def6ad44a6e3eea"
+    },
+    {
+      "path": "demo/art/boxer_action_mask.png",
+      "sha256": "f5668fe0b3a8082eaa3ddb2f016b53078c6cafbf92afb82e8a010f156747c0d9"
+    },
+    {
+      "path": "demo/art/boxer_ActionBody.png",
+      "sha256": "bf2ccbae38b6bb512050a2b9097c3ae3648a996969f63fb1d6884bde0d4522b7"
+    },
+    {
+      "path": "demo/art/boxer_body.png",
+      "sha256": "e2877691e530e625233c3373c8bd2198373e6e1fcad0677553c754d85f52dbd7"
+    },
+    {
+      "path": "demo/art/boxer_composed.png",
+      "sha256": "9e9a0669320f41d71b9803f27f7dd5071dd189245f621d0e15ec9e270069a29a"
+    },
+    {
+      "path": "demo/art/boxer_head.png",
+      "sha256": "47dcbe0cceefd6710f97bee1d3e877c1fbed02e6f817ded1b1bb483624e2b680"
+    },
+    {
+      "path": "demo/art/boxer_LeftFore.png",
+      "sha256": "ac2af33bdb255aa7a5967487c0703e865b66ad668197524b3900cd800b0c5dc7"
+    },
+    {
+      "path": "demo/art/boxer_LeftHand.png",
+      "sha256": "f6879741ed0508a49ac2ecd4fc409cda992f86dcb11362b6d1ae64a713b9568e"
+    },
+    {
+      "path": "demo/art/boxer_LeftUpper.png",
+      "sha256": "dc167800f0603dfe12d8176233558ddf1cd4506fd391b74b0bc1b542b7ea3a74"
+    },
+    {
+      "path": "demo/art/boxer_RightFore.png",
+      "sha256": "3fececc2732645c3e0d65357ad7d27ddda133160db59e3b8695db0422ce35ac0"
+    },
+    {
+      "path": "demo/art/boxer_RightHand.png",
+      "sha256": "eeb9cdecf480a3e571dbe4daafc62d504fae7d377901e89062f1c49dfb231000"
+    },
+    {
+      "path": "demo/art/boxer_RightUpper.png",
+      "sha256": "76bb283dd81a5799056916acf2900f176865694008dd783c3a9f93f5cf491a50"
+    },
+    {
+      "path": "demo/art/boxer_scalp.png",
+      "sha256": "83b853af249b583b2055b69502d6f14ade8b30a916754ceb6cc22e5d77edcb67"
+    },
+    {
+      "path": "demo/art/boxer_tail.png",
+      "sha256": "903658efaa4c6a5a92fcb2af49ccdf998a3a8a793c1009c23e041945e490213a"
+    },
+    {
+      "path": "demo/art/eyes_closed.png",
+      "sha256": "f6c5abdf1d00ab49e6f889a47a03c1070c3b43f3e4f4016b00c18bd5881a909b"
+    },
+    {
+      "path": "demo/art/eyes_half.png",
+      "sha256": "a28c55c2afc5e990d61e77ba283fac1e395515773b4dd48c8b3e811b0eb54739"
+    },
+    {
+      "path": "demo/art/focus_mitt.png",
+      "sha256": "7e992937b342b9c30d064e4e7b4d33bc6ed19c0df31b08e8a59603fd570b32d2"
+    },
+    {
+      "path": "demo/art/forearm.png",
+      "sha256": "565207ab35e95b50d1a2fd1fdca2cea637800030d11a377117604b94a560f00f"
+    },
+    {
+      "path": "demo/art/glove_guard.png",
+      "sha256": "8f11247c93e8bd0e01d6615734266457988a2927098ee3c9734ad5a02dd41f68"
+    },
+    {
+      "path": "demo/art/glove_jab.png",
+      "sha256": "7c4fc98a18077508c9ae2d60d38e9d687c3543e97bb2b874aa512c63df888d27"
+    },
+    {
+      "path": "demo/art/glove_palm.png",
+      "sha256": "0274d787078789eaf8a0e068169f06e1233d101287ae26b7beadb321cf3b9d27"
+    },
+    {
+      "path": "demo/art/LeftElbowCap.png",
+      "sha256": "eedecd456eae88b63c295f258f06812c01004c7b84a4979e47778f774b6b62d0"
+    },
+    {
+      "path": "demo/art/magician_action_mask.png",
+      "sha256": "968a44433568b93dc319a10c170752098edc616080a74e2c21ab3aa1e09e20aa"
+    },
+    {
+      "path": "demo/art/magician_ActionBody.png",
+      "sha256": "a82551f0954446a8fe1e79693aa33d09506de6b33eba4b056f92ab6ba5c6e60d"
+    },
+    {
+      "path": "demo/art/magician_body.png",
+      "sha256": "774e3cb5c763830c4f5bdf018d540b6e5de63ce38ae6ad74da54f8636962b877"
+    },
+    {
+      "path": "demo/art/magician_composed.png",
+      "sha256": "8f8a1f677f5fcaf97255b13898c2260c8d9e526c35515a9790771f24d12e4cd1"
+    },
+    {
+      "path": "demo/art/magician_head.png",
+      "sha256": "ad572b014036bae789a118b4e98a20ea2fbe865e800b0f49d738b5f468e32406"
+    },
+    {
+      "path": "demo/art/magician_LeftFore.png",
+      "sha256": "ac2af33bdb255aa7a5967487c0703e865b66ad668197524b3900cd800b0c5dc7"
+    },
+    {
+      "path": "demo/art/magician_LeftHand.png",
+      "sha256": "f6879741ed0508a49ac2ecd4fc409cda992f86dcb11362b6d1ae64a713b9568e"
+    },
+    {
+      "path": "demo/art/magician_LeftUpper.png",
+      "sha256": "b0dd2b4201f3b174cf2575d5c0742a881d0bb641c851c242133dae122a43a891"
+    },
+    {
+      "path": "demo/art/magician_RightFore.png",
+      "sha256": "3fececc2732645c3e0d65357ad7d27ddda133160db59e3b8695db0422ce35ac0"
+    },
+    {
+      "path": "demo/art/magician_RightHand.png",
+      "sha256": "eeb9cdecf480a3e571dbe4daafc62d504fae7d377901e89062f1c49dfb231000"
+    },
+    {
+      "path": "demo/art/magician_RightUpper.png",
+      "sha256": "cffc84349cd7ba395c6d558efd12d88dc7c44b64164800dbb8f2fb4e0b1e9f83"
+    },
+    {
+      "path": "demo/art/magician_scalp.png",
+      "sha256": "d354f2853ef1fd88cd8fd2c38c564529878591ab50dab85da48e6b97115914c6"
+    },
+    {
+      "path": "demo/art/magician_tail.png",
+      "sha256": "fd6b5cdb3b4247c360cb3d9db7f101982117f0711343c4bfdc7d770a281b023e"
+    },
+    {
+      "path": "demo/art/mic_lower.png",
+      "sha256": "bae28ed4483652e006716671c228e79bfdedc0689b4a39e1cfb20789b5c6c164"
+    },
+    {
+      "path": "demo/art/mic_upper.png",
+      "sha256": "a7176ba2023a70e01fb49792177788ae0f472c256e41bc24732f27faf726144e"
+    },
+    {
+      "path": "demo/art/microphone.png",
+      "sha256": "0a81e7c108234c4770730761704dcf16ca9b5c1d97b3ffee0c306c1c85e8c95a"
+    },
+    {
+      "path": "demo/art/original_action_mask.png",
+      "sha256": "968a44433568b93dc319a10c170752098edc616080a74e2c21ab3aa1e09e20aa"
+    },
+    {
+      "path": "demo/art/original_ActionBody.png",
+      "sha256": "6cf2d38a67e8f70cb705e550994e3390986d4687868834653bedf0f939602ee9"
+    },
+    {
+      "path": "demo/art/original_body.png",
+      "sha256": "17471c41c54b67a2a8da201e60c8fefa4f4e01f7b2d35a991a9aabd6c6fd460f"
+    },
+    {
+      "path": "demo/art/original_LeftFore.png",
+      "sha256": "ac2af33bdb255aa7a5967487c0703e865b66ad668197524b3900cd800b0c5dc7"
+    },
+    {
+      "path": "demo/art/original_LeftHand.png",
+      "sha256": "f6879741ed0508a49ac2ecd4fc409cda992f86dcb11362b6d1ae64a713b9568e"
+    },
+    {
+      "path": "demo/art/original_LeftUpper.png",
+      "sha256": "397d491a49ae80c3e4310374594ebc28b17d34542ba2acfcb4f5804a6b38bc21"
+    },
+    {
+      "path": "demo/art/original_RightFore.png",
+      "sha256": "1d3822aef0c350e788f1a1dfa847597eeba73bfbf4bf883c8c6f38bc6447127a"
+    },
+    {
+      "path": "demo/art/original_RightHand.png",
+      "sha256": "eeb9cdecf480a3e571dbe4daafc62d504fae7d377901e89062f1c49dfb231000"
+    },
+    {
+      "path": "demo/art/original_RightUpper.png",
+      "sha256": "8045ed87b12c8422be5accd83655f1e68c1cd2f32c529b1e825cd2d0c510fc1a"
+    },
+    {
+      "path": "demo/art/original_tail.png",
+      "sha256": "13857dc9638f6ab86ae2ca29c145cfeb8b9646b34174b489514a1e711eaf81df"
+    },
+    {
+      "path": "demo/art/ownership.png",
+      "sha256": "8c1674a81a141aca694f5d66bba2063443d2cb47851fee0d3e45de5b55ffdbd9"
+    },
+    {
+      "path": "demo/art/popstar_action_mask.png",
+      "sha256": "968a44433568b93dc319a10c170752098edc616080a74e2c21ab3aa1e09e20aa"
+    },
+    {
+      "path": "demo/art/popstar_ActionBody.png",
+      "sha256": "660161c78fc2131c16d35fa5e2a3e158c41ef0d4f15793af61bb7d9189ee384f"
+    },
+    {
+      "path": "demo/art/popstar_body.png",
+      "sha256": "77faf44a559323ee0b0099f90d8f5da77864cba6aaaa6f151582060e72cfae9c"
+    },
+    {
+      "path": "demo/art/popstar_composed.png",
+      "sha256": "6b579be860832bbbac898cadceddd3d781490f0682c59768ef00f68334261f14"
+    },
+    {
+      "path": "demo/art/popstar_grip.png",
+      "sha256": "cc07b50e74f30fb94da1bbe285222203a647c4001b86fc6dcf489d33262c87e1"
+    },
+    {
+      "path": "demo/art/popstar_head.png",
+      "sha256": "2fad86b56193b0b86e424c5181e163df867b07b897f20344eef3cc6212df8944"
+    },
+    {
+      "path": "demo/art/popstar_LeftFore.png",
+      "sha256": "ac2af33bdb255aa7a5967487c0703e865b66ad668197524b3900cd800b0c5dc7"
+    },
+    {
+      "path": "demo/art/popstar_LeftHand.png",
+      "sha256": "f6879741ed0508a49ac2ecd4fc409cda992f86dcb11362b6d1ae64a713b9568e"
+    },
+    {
+      "path": "demo/art/popstar_LeftUpper.png",
+      "sha256": "3f71b91436a44b04499c699bc9d4d394227df67fc6a76d76ae539b2a00a03e4e"
+    },
+    {
+      "path": "demo/art/popstar_RightFore.png",
+      "sha256": "a9544da89f1033f38a3f21b9f97c522bbc2b12b68baf051e534e42b0cb099e75"
+    },
+    {
+      "path": "demo/art/popstar_RightHand.png",
+      "sha256": "eeb9cdecf480a3e571dbe4daafc62d504fae7d377901e89062f1c49dfb231000"
+    },
+    {
+      "path": "demo/art/popstar_RightUpper.png",
+      "sha256": "ee3cf0124d35eb0ae759e09dd51c3ad2b813a75bbc4cb5b101d171c7b70a3d72"
+    },
+    {
+      "path": "demo/art/popstar_scalp.png",
+      "sha256": "83b853af249b583b2055b69502d6f14ade8b30a916754ceb6cc22e5d77edcb67"
+    },
+    {
+      "path": "demo/art/popstar_sleeve_backing.png",
+      "sha256": "7c49cdb5f8d87fc9bac25e56d01d7ed19d1e5ae87cbbc12464d930eba1c17093"
+    },
+    {
+      "path": "demo/art/popstar_tail.png",
+      "sha256": "e30097802f626a912136ff937755f88655751f470f6f409735d733de0b1bc41a"
+    },
+    {
+      "path": "demo/art/racer_action_mask.png",
+      "sha256": "968a44433568b93dc319a10c170752098edc616080a74e2c21ab3aa1e09e20aa"
+    },
+    {
+      "path": "demo/art/racer_ActionBody.png",
+      "sha256": "979dac5bd6889f0cc543730122ada5bf88cfbf56d1e513ccee6f29f5eb841326"
+    },
+    {
+      "path": "demo/art/racer_body.png",
+      "sha256": "7085802d9a55ee8a8c28ef15ffb08208d4eff1b37b9abfb0ad47aa7aa8494527"
+    },
+    {
+      "path": "demo/art/racer_composed.png",
+      "sha256": "b8f1b3d54fac8481757bad4c0ac45f7047e4d065846626b45f1599fd4cf9f432"
+    },
+    {
+      "path": "demo/art/racer_grip_left.png",
+      "sha256": "6d20310c3c70ea691940bc8fdce98419bc7cb7597db60866cfb53315a86f4bf5"
+    },
+    {
+      "path": "demo/art/racer_grip_right.png",
+      "sha256": "9747616580e8e8ce9dc36e92d82791832e909e7cfced50378193370702ea38fc"
+    },
+    {
+      "path": "demo/art/racer_head.png",
+      "sha256": "7bcefaa7650b17e98d60e026f4995b201e52189625d7b6535698e82c34e7fe31"
+    },
+    {
+      "path": "demo/art/racer_hip_panel.png",
+      "sha256": "2bc28f5113b9e82e81f954b6780e86b502111049bb4892c8eb65b2f112d75cce"
+    },
+    {
+      "path": "demo/art/racer_LeftFore.png",
+      "sha256": "ac2af33bdb255aa7a5967487c0703e865b66ad668197524b3900cd800b0c5dc7"
+    },
+    {
+      "path": "demo/art/racer_LeftHand.png",
+      "sha256": "f6879741ed0508a49ac2ecd4fc409cda992f86dcb11362b6d1ae64a713b9568e"
+    },
+    {
+      "path": "demo/art/racer_LeftUpper.png",
+      "sha256": "757946b536bfe9ade6c041063625c65108e6ed49142349a8c653bba3544d057b"
+    },
+    {
+      "path": "demo/art/racer_RightFore.png",
+      "sha256": "3fececc2732645c3e0d65357ad7d27ddda133160db59e3b8695db0422ce35ac0"
+    },
+    {
+      "path": "demo/art/racer_RightHand.png",
+      "sha256": "eeb9cdecf480a3e571dbe4daafc62d504fae7d377901e89062f1c49dfb231000"
+    },
+    {
+      "path": "demo/art/racer_RightUpper.png",
+      "sha256": "aaaaecebcf0ba6facb68a2cc383107dff5de0d6adf3518eae513d2a6105a69a6"
+    },
+    {
+      "path": "demo/art/racer_scalp.png",
+      "sha256": "83b853af249b583b2055b69502d6f14ade8b30a916754ceb6cc22e5d77edcb67"
+    },
+    {
+      "path": "demo/art/racer_tail.png",
+      "sha256": "4f9b6d1d13facfb931dca5ce703a1cf142c8ac0a7d8d5ec693bc649999afc867"
+    },
+    {
+      "path": "demo/art/RightElbowCap.png",
+      "sha256": "790663a0214ca34fdda6e2f96fb735fb9ab4618934253ca7ec7fa471b30c6ac0"
+    },
+    {
+      "path": "demo/art/upper_arm.png",
+      "sha256": "ae92c6911651a39d47db27a0171b2c459d1af77444a467c74e005fc68e1bb181"
+    },
+    {
+      "path": "demo/art/upper_clean.png",
+      "sha256": "40ba08f7ec416e559ce1eb388a92bd427b4f32c0b0df8622ceeb54203689459a"
+    },
+    {
+      "path": "demo/art/wheel.png",
+      "sha256": "c79553eab69670337d52dce05d9aa24d4b4d622336b48685bfcc455b15948f4c"
+    },
+    {
+      "path": "demo/base.gd",
+      "sha256": "5eceb5358128f985a329b8196079d5c65113f884716abe2400bc347f3e2787db"
+    },
+    {
+      "path": "demo/capture.gd",
+      "sha256": "6f7fba66ce9a89ec276777cdcd44f35b7ee1ebfead610f95a28adc6601d0373c"
+    },
+    {
+      "path": "demo/capture_mixes.gd",
+      "sha256": "53c2d34ddf91b0621d10fdfb7b3f6faf1d3bfb21f42ae7ab45652dac4e7e732f"
+    },
+    {
+      "path": "demo/contract.json",
+      "sha256": "b2a5dfe936d13ccdeb88e5c29ad268b19488de7cbe49d9b06abf84a94135fb5f"
+    },
+    {
+      "path": "demo/controls.gd",
+      "sha256": "c662f47f8f352827aa9e0219efc948f5e85e24abe0ad2c34284539f5aaa1dc9a"
+    },
+    {
+      "path": "demo/costume.gdshader",
+      "sha256": "5cae3cef69d387ffb8ab7421b99594cfca34c68db45d96d850b7dfb4d68775a5"
+    },
+    {
+      "path": "demo/costumes.json",
+      "sha256": "7ecb0724178d19289ef151bb75fe51065557f2efb3f534838415d238fe737df3"
+    },
+    {
+      "path": "demo/project.godot",
+      "sha256": "1bebf5b0768adcce5c0119bbe3b3fd3064379d3a69aeae3dde7e662b18916a5d"
+    },
+    {
+      "path": "demo/render_legacy.gd",
+      "sha256": "a03dacd9207a496afcb1df762f709891cc2d533313f19a671c63f295d453931f"
+    },
+    {
+      "path": "demo/rig.json",
+      "sha256": "3ff3e284ddf14597e106a6f982c76d2d140658ce3ed4cb8dfd0d4c0e67c27e5b"
+    },
+    {
+      "path": "demo/seed_rig_relocated.json",
+      "sha256": "0631902c9c40777c8e9e207c52dc9adb04f5b98048fc42489e8c8efa705ebf4f"
+    },
+    {
+      "path": "demo/seed_study.gd",
+      "sha256": "c0cae44eac990e1428e57513ba922cc036fadc53019b7edae81c0f67fe9d02c4"
+    },
+    {
+      "path": "demo/study.tscn",
+      "sha256": "e789a27843f584bee156b0be49f168eb325630c69ad4e2d73f5bf44bcd7e9250"
+    },
+    {
+      "path": "masters/ballet_action_parts_v1.aseprite",
+      "sha256": "aec43a23626151658c2fd1095033fae4973a4123c9b806ed99d8dba931f9131f"
+    },
+    {
+      "path": "masters/boxer_action_parts_v1.aseprite",
+      "sha256": "acd07af7d79e12a660c84c9e2db367969a3838e7db62ebf71212057fa3e67f34"
+    },
+    {
+      "path": "masters/boxer_skin_v1.aseprite",
+      "sha256": "4a1efbcbe490cf041b8c67de86eec4dfb80500028c0b8a2f68ee8bd144a2c430"
+    },
+    {
+      "path": "masters/magician_action_parts_v1.aseprite",
+      "sha256": "7d6d94ef5e6fe5d9a0d30dd3b1c3f093a21a862c4e7e6b29830e2549cbda2337"
+    },
+    {
+      "path": "masters/original_action_parts_v1.aseprite",
+      "sha256": "1c2897e5eab2f6f8891f640a6104c4985f5f77ba779851c80921c2506e006fd9"
+    },
+    {
+      "path": "masters/popstar_action_parts_v1.aseprite",
+      "sha256": "6c622313485c82090e479c5b93cf998edcf092d06978e156693f59ab0d262e0e"
+    },
+    {
+      "path": "masters/popstar_grip.aseprite",
+      "sha256": "6045a1b68124e6f067c88b25f4a24c40eb7ccbc71c1c706d3d1cb093f60df05a"
+    },
+    {
+      "path": "masters/popstar_skin_bound_v1.aseprite",
+      "sha256": "2e77d318472ff93ce23ecb6ef77b63734fdc49296536ea4737071880814b9ea6"
+    },
+    {
+      "path": "masters/popstar_skin_v1.aseprite",
+      "sha256": "e4a42719d10da299a7043938250f36a87708ac44ce1f70c347b5f562aed00aa0"
+    },
+    {
+      "path": "masters/racer_action_parts_v1.aseprite",
+      "sha256": "d95ba9aabb4f1282a2c11421e5be645166b53ce31b392f816de7b7be2ca20a37"
+    },
+    {
+      "path": "masters/racer_hip_panel.aseprite",
+      "sha256": "ba074a56023c3e4387c97be56f1ef68c161a92188977de03d1795696b9582478"
+    },
+    {
+      "path": "masters/racer_skin_bound_v1.aseprite",
+      "sha256": "9eac394b331a1f0f8f68bc9d7ebf18b6f451fe7e54ec5471023f4a6f3442853f"
+    },
+    {
+      "path": "masters/racer_skin_v1.aseprite",
+      "sha256": "fff0adb067e312aca694c6517e8cf80531fea9c7335845962a9bb23bac8fdb0d"
+    },
+    {
+      "path": "masters/shared_joint_caps.aseprite",
+      "sha256": "8c7cac26eebe2d7b0c64247b53702ce8dd0a34c1f6caf987bd45a17315de4f31"
+    },
+    {
+      "path": "native/boxer_garment_take01.png",
+      "sha256": "f42bfdfed589d11665aad5f015e50a95ff1518f2bc6d98678e10835ea69b0184"
+    },
+    {
+      "path": "native/glove_views_take01.png",
+      "sha256": "4f33fe5b5d688adc9cda802636a095bfefe7c7a67de889aac9c07c1da41bfe4b"
+    },
+    {
+      "path": "native/popstar_garment_take01.png",
+      "sha256": "3213c461bf2485ef820550169ac3bef4eefe505b2ca50d9315e2b7454bfb9c2e"
+    },
+    {
+      "path": "native/racer_garment_take01.png",
+      "sha256": "1e0f118f65fe98ee5e072d8fac9cc51bb600200a2cf91468eae9ee82372317ef"
+    },
+    {
+      "path": "native/wheel_take01.png",
+      "sha256": "53d154a6e09b8276c25e945e9ef1bbc2c6398551da73d22cc6f9bac04975a8c5"
+    },
+    {
+      "path": "contract/binding.schema.json",
+      "sha256": "d24481cd508b5cd409a356a03a8430f705bd799ad8439a470fec11ea89d5c585"
+    },
+    {
+      "path": "contract/boxer_binding.json",
+      "sha256": "98482606ba74afe89164f11c54aa941e3600e7bd48500214dd4cc296fe2cf106"
+    },
+    {
+      "path": "contract/consumer_limits.json",
+      "sha256": "1b0162f2e4bb191f15a602c7708b8d33cb983da1192893974881dd56657111d3"
+    },
+    {
+      "path": "contract/example_binding.json",
+      "sha256": "802f65a9f6dbe2771b54633588c38a7eab2652e9f734e1e3b4a40ec879af731c"
+    },
+    {
+      "path": "contract/FREEZE.json",
+      "sha256": "35f7bf3e044072fab614319fe12600873b071e4bbd91b2056128a4f3583de8f4"
+    },
+    {
+      "path": "contract/outline_thresholds_v1.json",
+      "sha256": "3a6c3be00b1f04736869e732006cf23beebaf5478dc2f2286aaedcbf068f4dff"
+    },
+    {
+      "path": "contract/popstar_binding.json",
+      "sha256": "7f427f039f7f5aeaf92f1a5f91b7f78bfced869deaf81e295a44e1f8bfe2fa1c"
+    },
+    {
+      "path": "contract/racer_binding.json",
+      "sha256": "b23e66f966004e79479d48c0b69a6bfa3a92af6b5db736640fc81fd56e4a46a3"
+    },
+    {
+      "path": "contract/rig_v1.json",
+      "sha256": "b2a5dfe936d13ccdeb88e5c29ad268b19488de7cbe49d9b06abf84a94135fb5f"
+    },
+    {
+      "path": "contract/validate_shared.py",
+      "sha256": "1fa093fb8d7c7e474b40a2981a087d5b1eeb770a037ae7ecbe2f01d1b385fb93"
+    },
+    {
+      "path": "job_cards/boxer.json",
+      "sha256": "6627cefd69bdc84f19d0996be2812495f26d9b4e80966837e71d066c08a9b538"
+    },
+    {
+      "path": "job_cards/boxer_garment_prompt.txt",
+      "sha256": "0e502e3113dff141e13432ada91c33921bb78c82e01bb00918600d421e75225c"
+    },
+    {
+      "path": "job_cards/glove_prompt.txt",
+      "sha256": "e2f8763e972f01c29ba2df863fd74bc37de4c2bc1f058c25847b85db383727eb"
+    },
+    {
+      "path": "job_cards/popstar.json",
+      "sha256": "52af76881001659250a814c5d78d4a2fb3230399f57c39e987eb1f08a89bc1c7"
+    },
+    {
+      "path": "job_cards/popstar_garment_prompt.txt",
+      "sha256": "d658ce4e112467698f99010051351377231e59723f00d37f54b6755195279549"
+    },
+    {
+      "path": "job_cards/racer.json",
+      "sha256": "0ea787a22c4912be6d53c3623541c254d7e70ca7ae5d28edb236d01f6a365e5a"
+    },
+    {
+      "path": "job_cards/racer_garment_prompt.txt",
+      "sha256": "215f0357170c0084d958e206eb1d86ca21eb10b844c839054f9c693364762e9e"
+    },
+    {
+      "path": "job_cards/wheel_prompt.txt",
+      "sha256": "27eb08cfe531624ff7100e7d99cb5a6a5373319fc7e7549a220ed39430574f99"
+    },
+    {
+      "path": "tools/audit_mixed_outlines.py",
+      "sha256": "b4efbd89f09cc9e91b388a476c060046b21e674e6e191a7a081fe09f458a486f"
+    },
+    {
+      "path": "tools/audit_motion.py",
+      "sha256": "110ce807be3a17b402928ad1552f7080ba3c59decb6c1bd5dfc69797cd76e51f"
+    },
+    {
+      "path": "tools/audit_study.py",
+      "sha256": "cdcd9ff5d299d054ea14268e21d43d6cd50461b7cbc55b8329f4547ac2d5dd40"
+    },
+    {
+      "path": "tools/build_mesh.py",
+      "sha256": "7c42d8698699553de6ff66c04c6adcdae2c54492c8d467fcea40d66ca8b8aba1"
+    },
+    {
+      "path": "tools/complete_runtime_gates.py",
+      "sha256": "3535be03c55b2cf1515948ff91035399bd09bd5d76610867961336fb90414d31"
+    },
+    {
+      "path": "tools/joint_caps.lua",
+      "sha256": "73063d715a84be88e39c087bfb546d8f090bcbc866be67ce35983143f40fb0f0"
+    },
+    {
+      "path": "tools/popstar_backing.lua",
+      "sha256": "b07b2926212571596b675d2247577ee2073da130e32f86ccbc817b064355aced"
+    },
+    {
+      "path": "tools/prepare_art.lua",
+      "sha256": "8217a1d8c4a49374507e0695fbb88192f0476ad100f429cd100e50943b045510"
+    },
+    {
+      "path": "tools/racer_panel.lua",
+      "sha256": "cbebb57b383954f8682687aaa0a3a24123fee98a5ff62aab76b00e0257571f27"
+    },
+    {
+      "path": "tools/run_derivation.ps1",
+      "sha256": "28fa44b35bf51fa57f52e1f1b7c22f8ad88f65cd151c21f775649f0c40ea524e"
+    },
+    {
+      "path": "tools/run_native_gates.py",
+      "sha256": "a887a337056ebcb489013eb4cd2231fa519d5c5301199f874c9ed13ed1d38888"
+    },
+    {
+      "path": "tools/run_runtime_gates.py",
+      "sha256": "bf22c4879537fece1550057fdfcb2b5cddd32dd6aad8c158c0d5f4ead5a2d987"
+    },
+    {
+      "path": "tools/segment_actions.lua",
+      "sha256": "46922583385718eae1def9c0f6d9251a2aa3a59cdc423e960ed1e7d81b4eb249"
+    },
+    {
+      "path": "seed/anatomy.png",
+      "sha256": "0221409d2b41fa50324ef929f120d6fa31b54382ed7819ac3efe5fefdc47bc6b"
+    },
+    {
+      "path": "seed/ballet_body.png",
+      "sha256": "6cfa95d6a28aa022976f1b3f85066ade7cf16e0e5f10bb579d7bdefb4e3d8c8d"
+    },
+    {
+      "path": "seed/ballet_composed.png",
+      "sha256": "2470535f6ce319c3decfd4be67083aea444bf9a8c436e5a13ad58ecc5161ff05"
+    },
+    {
+      "path": "seed/ballet_head.png",
+      "sha256": "1108a5d77b37b594a7665dbf2c2b85f9956db534f607bbf9980b9bdd775ac2fc"
+    },
+    {
+      "path": "seed/ballet_scalp.png",
+      "sha256": "d354f2853ef1fd88cd8fd2c38c564529878591ab50dab85da48e6b97115914c6"
+    },
+    {
+      "path": "seed/ballet_tail.png",
+      "sha256": "558b3597ff3a22c8b46c61f96aa62718cd328211275fefa4ec5c3493c3aed708"
+    },
+    {
+      "path": "seed/costume.gdshader",
+      "sha256": "a3c053fd724a057594521bbec8205fb26aa08b50d122c7f33cf6065c59243d95"
+    },
+    {
+      "path": "seed/costumes.json",
+      "sha256": "7ecb0724178d19289ef151bb75fe51065557f2efb3f534838415d238fe737df3"
+    },
+    {
+      "path": "seed/fitting.json",
+      "sha256": "6dce706f934fe6b189080bd5bf649f3e418bbf8121f708d456abf35c5b06d754"
+    },
+    {
+      "path": "seed/frozen_inputs_v8.json",
+      "sha256": "46134c276b8f639fa69d23745628de734abc0234a96b737c0f38fca08a71b057"
+    },
+    {
+      "path": "seed/magician_body.png",
+      "sha256": "774e3cb5c763830c4f5bdf018d540b6e5de63ce38ae6ad74da54f8636962b877"
+    },
+    {
+      "path": "seed/magician_composed.png",
+      "sha256": "8f8a1f677f5fcaf97255b13898c2260c8d9e526c35515a9790771f24d12e4cd1"
+    },
+    {
+      "path": "seed/magician_head.png",
+      "sha256": "ad572b014036bae789a118b4e98a20ea2fbe865e800b0f49d738b5f468e32406"
+    },
+    {
+      "path": "seed/magician_scalp.png",
+      "sha256": "d354f2853ef1fd88cd8fd2c38c564529878591ab50dab85da48e6b97115914c6"
+    },
+    {
+      "path": "seed/magician_tail.png",
+      "sha256": "fd6b5cdb3b4247c360cb3d9db7f101982117f0711343c4bfdc7d770a281b023e"
+    },
+    {
+      "path": "seed/original_body.png",
+      "sha256": "17471c41c54b67a2a8da201e60c8fefa4f4e01f7b2d35a991a9aabd6c6fd460f"
+    },
+    {
+      "path": "seed/original_tail.png",
+      "sha256": "13857dc9638f6ab86ae2ca29c145cfeb8b9646b34174b489514a1e711eaf81df"
+    },
+    {
+      "path": "seed/owner_correction.json",
+      "sha256": "b4c24637cbf06be836858487f8a6708b9e747a9f3c770e85f40171a44780d141"
+    },
+    {
+      "path": "seed/ownership.png",
+      "sha256": "8c1674a81a141aca694f5d66bba2063443d2cb47851fee0d3e45de5b55ffdbd9"
+    },
+    {
+      "path": "seed/provenance.json",
+      "sha256": "ee0538b3965bf6abe12db4bdf932cbad322c21ca1b232c6ec39735d44f5a4663"
+    },
+    {
+      "path": "seed/rig.json",
+      "sha256": "0023f07215712c50ad278d94bb7a2ebce371071c314c3b4b7811d5d16b76c327"
+    },
+    {
+      "path": "seed/study.gd",
+      "sha256": "c0cae44eac990e1428e57513ba922cc036fadc53019b7edae81c0f67fe9d02c4"
+    },
+    {
+      "path": "seed/upper_clean.png",
+      "sha256": "40ba08f7ec416e559ce1eb388a92bd427b4f32c0b0df8622ceeb54203689459a"
+    }
+  ],
+  "seed": "render_v8 local frozen provisional",
+  "shared_contract": "roshan.canvas.shared1.0.0 local frozen; shared waist convention/publication pending",
+  "art_budget": "Five builtin calls; local cleanup ended before90minutes from initial job-card creation; subsequent verification separately timed. No further art edit is accepted under this frozen candidate.",
+  "visual_limits": "Cap/sleeve/hand naturalness and fore-aft view transitions still require exact full-speed/frame-step/owner review. Matrices alone cannot accept these.",
+  "failure": "A fixed upright hand at the relaxed entry demanded a wrist outside the two-link arm reach. Retained exact old controller under rejected_frozen_v1. Interpolate the hand from its actual rest orientation and give the wrist roll2.5seconds each way; no art or rest/weight change."
+}

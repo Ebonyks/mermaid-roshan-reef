@@ -1,0 +1,135 @@
+{
+  "geometry_and_motion_pass": false,
+  "jobs": {
+    "pose_preview": {
+      "geometry_pass": false,
+      "min_visible_strain": 0.8351531628177848,
+      "max_visible_strain": 1.459484037670758,
+      "visible_flips": 0,
+      "failed_frames": [
+        1,
+        1
+      ],
+      "worst": [
+        {
+          "frame": 1,
+          "part": "ballet_tail_cover",
+          "min": 0.8374871903579745,
+          "max": 1.459484037670758,
+          "flips": 0
+        },
+        {
+          "frame": 1,
+          "part": "magician_tail_cover",
+          "min": 0.8351531628177848,
+          "max": 1.448208478743898,
+          "flips": 0
+        }
+      ],
+      "motion": {},
+      "motion_pass": null,
+      "outlines": [
+        {
+          "frame": 0,
+          "skin": "ballet",
+          "major_components": [
+            126596
+          ],
+          "largest_enclosed_gap_px": 2280,
+          "edge_alpha_pixels": 0,
+          "opaque_pixels": 126596
+        },
+        {
+          "frame": 1,
+          "skin": "ballet",
+          "major_components": [
+            125713
+          ],
+          "largest_enclosed_gap_px": 2279,
+          "edge_alpha_pixels": 58,
+          "opaque_pixels": 125713
+        },
+        {
+          "frame": 2,
+          "skin": "ballet",
+          "major_components": [
+            119490
+          ],
+          "largest_enclosed_gap_px": 2283,
+          "edge_alpha_pixels": 0,
+          "opaque_pixels": 119490
+        },
+        {
+          "frame": 3,
+          "skin": "ballet",
+          "major_components": [
+            125530
+          ],
+          "largest_enclosed_gap_px": 2270,
+          "edge_alpha_pixels": 0,
+          "opaque_pixels": 125530
+        },
+        {
+          "frame": 0,
+          "skin": "magician",
+          "major_components": [
+            126531
+          ],
+          "largest_enclosed_gap_px": 23,
+          "edge_alpha_pixels": 0,
+          "opaque_pixels": 126531
+        },
+        {
+          "frame": 1,
+          "skin": "magician",
+          "major_components": [
+            125630
+          ],
+          "largest_enclosed_gap_px": 9,
+          "edge_alpha_pixels": 58,
+          "opaque_pixels": 125630
+        },
+        {
+          "frame": 2,
+          "skin": "magician",
+          "major_components": [
+            119416
+          ],
+          "largest_enclosed_gap_px": 22,
+          "edge_alpha_pixels": 0,
+          "opaque_pixels": 119416
+        },
+        {
+          "frame": 3,
+          "skin": "magician",
+          "major_components": [
+            125502
+          ],
+          "largest_enclosed_gap_px": 30,
+          "edge_alpha_pixels": 0,
+          "opaque_pixels": 125502
+        }
+      ],
+      "max_components": 1,
+      "largest_gap_px": 2283,
+      "clipped_frames": [
+        1,
+        1
+      ]
+    }
+  },
+  "floors_unchanged": {
+    "strain": [
+      0.8,
+      1.2
+    ],
+    "flips": 0,
+    "speed_deg_s": 140,
+    "acceleration_deg_s2": 650
+  },
+  "alpha_rule": "Actual native image alpha>=32; component/gap measurements are diagnostics requiring semantic review, not automatic proof of natural movement.",
+  "human_review_accepted": false,
+  "device_verified": false,
+  "owner_accepted": false,
+  "production_accepted": false
+}

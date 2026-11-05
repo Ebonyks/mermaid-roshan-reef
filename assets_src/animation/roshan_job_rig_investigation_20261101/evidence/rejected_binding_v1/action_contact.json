@@ -1,0 +1,78 @@
+{
+  "detective": {
+    "work_frames": 193,
+    "motion": {
+      "max_angular_speed_deg_s": 115.41026380396421,
+      "max_angular_acceleration_deg_s2": 687.6110477661421
+    },
+    "max_bone_scale_error": 3.4302849105660727e-07,
+    "max_grip_error_native_px": 3.0517578125e-05,
+    "max_fixture_drift_native_px": 0.0,
+    "contact": {
+      "contact_begin_s": 1.6,
+      "contact_end_s": 4.1,
+      "contact_frames": 76
+    },
+    "layer_ownership_correct": true,
+    "faults": {
+      "grip_slip": {
+        "detected": true,
+        "changed_pixels": 10271
+      },
+      "fixture_drift": {
+        "detected": true,
+        "changed_pixels": 2601
+      },
+      "identity_scale": {
+        "detected": true,
+        "changed_pixels": 92763
+      },
+      "original_underlay": {
+        "detected": true,
+        "changed_pixels": 122684
+      }
+    },
+    "source_poison_changed_pixels": 0,
+    "old_underlay_reinsertion_changed_pixels": 150868,
+    "machine_contact_pass": false,
+    "limits": "Contact is independently rendered but uses authored sockets. Natural gripping fingers, brush support and acting require exact human review. Front view only; no facing change acceptance."
+  },
+  "geologist": {
+    "work_frames": 193,
+    "motion": {
+      "max_angular_speed_deg_s": 115.41026380396421,
+      "max_angular_acceleration_deg_s2": 687.6110477661421
+    },
+    "max_bone_scale_error": 3.4302849105660727e-07,
+    "max_grip_error_native_px": 3.0517578125e-05,
+    "max_fixture_drift_native_px": 0.0,
+    "contact": {
+      "contact_begin_s": 1.6,
+      "contact_end_s": 4.1,
+      "contact_frames": 76
+    },
+    "layer_ownership_correct": true,
+    "faults": {
+      "grip_slip": {
+        "detected": true,
+        "changed_pixels": 11261
+      },
+      "fixture_drift": {
+        "detected": true,
+        "changed_pixels": 55822
+      },
+      "identity_scale": {
+        "detected": true,
+        "changed_pixels": 91923
+      },
+      "original_underlay": {
+        "detected": true,
+        "changed_pixels": 115863
+      }
+    },
+    "source_poison_changed_pixels": 0,
+    "old_underlay_reinsertion_changed_pixels": 155130,
+    "machine_contact_pass": false,
+    "limits": "Contact is independently rendered but uses authored sockets. Natural gripping fingers, brush support and acting require exact human review. Front view only; no facing change acceptance."
+  }
+}

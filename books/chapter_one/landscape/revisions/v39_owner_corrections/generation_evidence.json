@@ -1,0 +1,457 @@
+{
+  "id": "picture-book-v39-owner-corrections",
+  "mode": "Built-in image_gen; precise-object-edit; document-level bounded masks only",
+  "attempt_policy": "Two takes per named repair; stop, diagnose and change inputs/method after two failures. Native bytes/prompts/references/rejects retained. Existing source reuse for Lamma, stained glass and demo landing.",
+  "calls": 8,
+  "records": [
+    {
+      "id": "COVER_TAILS",
+      "attempt": 1,
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is the exact edit-target crop from the existing book cover (545x335 framing). IMAGE_2 is Daddy's identity/tail anatomy; IMAGE_3 is Rumi's identity/tail anatomy. Repair ONLY Daddy's and Rumi's lower mermaid tails inside IMAGE_1. Keep the crop composition and their waist positions, body curves, scale, poses, separate depth and occlusion; keep all existing upper bodies, hair, coat/cape, floor, pot, Roshan's visible hand and her rainbow fin along the bottom EXACTLY as they are. Daddy remains behind Rumi: rainbow scales continue into ONE slender caudal peduncle and a clearly readable TWO-LOBED rainbow tail fin, with an open clean V-notch and natural fin rays, wholly inside his existing left-side tail footprint. Rumi's cyan-to-lavender scaled tail must narrow naturally into ONE distinct stalk and a graceful TWO-LOBED pink fin with a readable cleft; keep its present lower-left direction and footprint. Correct the current flattened ribbon-like tips and any disconnect, avoid overlapping/merging one mermaid's fin with the other or with Roshan's foreground fin. The anatomy must read instantly as two separate mermaid tails, not skirts or dangling fabric. Preserve polished painted 2D storybook shading, authored contours, colour gradients and scale detail; no new characters/props/text. Return this SAME exact cropped scene framing, not a new full cover or reference sheet.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/cover_tails.png",
+        "assets_src/cinematics/d1_c02_first_dirty_castle_discovery_visual_v1/handoff_art/characters/daddy_daddy_master.png",
+        "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png"
+      ],
+      "delivery_scope": "Only declared Daddy/Rumi tail polygons over exact V38 composed art; no generated Roshan, floor or whole-cover replacement.",
+      "call": 1,
+      "native_location": "C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-4faf4847-9de9-4d8d-b06d-db74e1e1cfd0.png",
+      "output": "books/chapter_one/landscape/revisions/v39_owner_corrections/art/cover_tails_attempt1.png",
+      "output_sha256": "ae0da0aaf5ab8981bc7b7e07a8da0d23e38974c3f1963f1acdb845b6d1c58abe",
+      "native_size": [
+        1600,
+        983
+      ],
+      "mode": "RGB",
+      "bound_reference_records": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/cover_tails.png",
+          "sha256": "426d5b8d7e6739885485b5edebe355dcd0a77494d21d0d0609481400b592ae20",
+          "native_size": [
+            545,
+            335
+          ]
+        },
+        {
+          "path": "assets_src/cinematics/d1_c02_first_dirty_castle_discovery_visual_v1/handoff_art/characters/daddy_daddy_master.png",
+          "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+          "native_size": [
+            1677,
+            2362
+          ]
+        },
+        {
+          "path": "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png",
+          "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+          "native_size": [
+            576,
+            1024
+          ]
+        }
+      ],
+      "provider": "Built-in image_gen; model/revision/seed/monetary usage not exposed",
+      "selected": false,
+      "review": "PARTIAL_REJECT: Daddy now has a readable fork, but Rumi fin still reads as a flattened single leaf. Use second focused take to expose a clear two-lobe cleft left of Roshan fin. Native preserved; not final acceptance.",
+      "recorded_at_utc": "2026-10-26T04:14:14.170678+00:00"
+    },
+    {
+      "id": "COVER_TAILS_T02",
+      "attempt": 2,
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is a cover-tail repair crop and the sole edit target. IMAGE_2 is the original cover-tail crop for exact staging/occlusion. IMAGE_3 is Rumi's canonical tail identity. Fix ONLY Rumi's pink caudal tail fin at the lower-left of her cyan/lavender tail. It STILL reads as one broad flattened leaf. Give it two clearly separated pink fin lobes, one upper-left and one lower-left, connected through a narrower lavender peduncle; a deep open V-shaped notch of visible floor must separate the two lobe tips. Both pink lobes and the cleft must be plainly visible LEFT of Roshan's foreground rainbow fin. Keep roughly the same fin footprint and direction; do not move her body, hip, visible scaled tail or anybody else. This is Rumi's final fin, not her two side fins. Preserve Daddy's improved two-lobed rainbow fluke from IMAGE_1 exactly; preserve Roshan's cropped rainbow fin and hand, Rumi's arms/cape/braid, the pot and floor, all lighting/style/colours and same image framing. Do not merge the three tails. Polished detailed painted 2D storybook, no text, no diagram, no new character.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/art/cover_tails_attempt1.png",
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/cover_tails.png",
+        "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png"
+      ],
+      "delivery_scope": "Rumi caudal-fluke correction only; keep Daddy candidate from take1, originals for all non-tail regions.",
+      "call": 2,
+      "native_location": "C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-44f07014-4505-4f33-b75b-0868a3b7d70f.png",
+      "output": "books/chapter_one/landscape/revisions/v39_owner_corrections/art/cover_tails_attempt2.png",
+      "output_sha256": "35151bac2a4274b04ce0647bdb4f00053d201a3e3b191ff55f9d4d2ee8245beb",
+      "native_size": [
+        1600,
+        983
+      ],
+      "mode": "RGB",
+      "bound_reference_records": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/art/cover_tails_attempt1.png",
+          "sha256": "ae0da0aaf5ab8981bc7b7e07a8da0d23e38974c3f1963f1acdb845b6d1c58abe",
+          "native_size": [
+            1600,
+            983
+          ]
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/cover_tails.png",
+          "sha256": "426d5b8d7e6739885485b5edebe355dcd0a77494d21d0d0609481400b592ae20",
+          "native_size": [
+            545,
+            335
+          ]
+        },
+        {
+          "path": "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png",
+          "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+          "native_size": [
+            576,
+            1024
+          ]
+        }
+      ],
+      "provider": "Built-in image_gen; model/revision/seed/monetary usage not exposed",
+      "selected": false,
+      "review": "REJECT_RUMI: generator enlarged a separate side fin instead of splitting the caudal fin; apparent two lobes have wrong connection. Preserve candidate1 Daddy only. Two takes exhausted: diagnose ambiguous crop with three tails and side fin, change to one narrow caudal-fin-only target and isolated canonical fin reference for one bounded correction.",
+      "recorded_at_utc": "2026-10-26T04:16:58.808135+00:00"
+    },
+    {
+      "id": "RUMI_CAUDAL_FOCUSED_T03",
+      "attempt": 3,
+      "diagnosis": "Two broad tail edits confused Rumi's side fin with her caudal fin. Stop broad takes. Change input to a single narrow caudal-only crop and exact isolated canonical fin, one bounded trial; preserve Daddy from take1.",
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is a narrow exact book-cover edit target. IMAGE_2 is Rumi's correct pink caudal fin isolated from her identity master, anatomy reference only. In IMAGE_1, replace ONLY the broad horizontal pink paddle at the left-centre, attached to Rumi's purple scaled tail on the right. It must be ONE proper caudal fin with TWO separate pink lobes and a deep open V-notch showing the floor between them, as IMAGE_2. Rotate that canonical two-lobed form so it fans to the LEFT from the purple tail stalk on the right. Both left-pointing lobe tips and the open cleft must be visible in the existing pink-fin area. Preserve the purple tail's entry, pose and scale; preserve the small separate pink SIDE FIN cropped at the very top, Daddy's tiny rainbow tail on far left, the foreground rainbow fin rising from the bottom-right, floor tiles and all exact framing. The central broad pink paddle is the ONLY edit. Do not count the little pink side fin at the top as one of the two caudal lobes. Detailed polished 2D painted storybook contour, same colour and light; no other new pixels or text outside the local fin repair.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/rumi_caudal_target.png",
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/rumi_caudal_reference.png"
+      ],
+      "call": 3,
+      "native_location": "C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-f3f49180-adca-42e8-975e-c8e155d26947.png",
+      "output": "books/chapter_one/landscape/revisions/v39_owner_corrections/art/rumi_caudal_focused_attempt3.png",
+      "output_sha256": "c49ad464fb059b314b47513397cfc222c3c0ddfecc8760afe173a07ee1be2339",
+      "native_size": [
+        2075,
+        758
+      ],
+      "mode": "RGB",
+      "bound_reference_records": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/rumi_caudal_target.png",
+          "sha256": "8c5ed0fba005a80a15a2b2dc100011584f6df20c1f24b279f1ce0d6110960dab",
+          "native_size": [
+            315,
+            115
+          ]
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/rumi_caudal_reference.png",
+          "sha256": "44ca32f2a3a21ca87ab329708c83d272f15bfba728c3b45e103b3727978dc4a8",
+          "native_size": [
+            305,
+            304
+          ]
+        }
+      ],
+      "provider": "Built-in image_gen; model/revision/seed/monetary usage not exposed",
+      "selected": true,
+      "review": "CANDIDATE: focused caudal-only input resolves side-fin ambiguity. One stalk connects two pink lobes with clear open V-notch showing original-style floor. Only declared fin/floor repair polygon may be used. Final composed/peer review pending.",
+      "recorded_at_utc": "2026-10-26T04:18:49.107432+00:00",
+      "selection_scope": "Rumi caudal-fin/floor gap only, document fit explicitly recorded"
+    },
+    {
+      "id": "CARE24_T01",
+      "attempt": 1,
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is the exact330x150 crop of the book's lower-right little-puff vignette under Grand Puff. IMAGE_2 is canonical LITTLE dust-bunny identity, not Grand Puff. Make these same TWO little lavender bunnies look gently under the weather: weary drooping or closed sneezing eyes and lightly flushed cheeks, still sweet and safe. Replace the loose white handkerchief in front of the left bunny with a CLEARLY RECOGNIZABLE small rectangular pastel aqua tissue BOX, with a top oval opening and one soft white tissue pulled up and fanning out. It must read as a box of tissues rather than a folded cloth. One little pearl hand may hold the tissue near the mouth. Keep the blue water flask between them, their existing positions, sizes, bodies, two spiral ears plus two pearl ear studs and two pearl hands EACH, and all foreground blue mound, contour, coral, stones, source light and exact crop framing unchanged. No additional bunny, Grand Puff diamond/star/stacked crest, cheering lines, fever gauge, text, logos or new props. Paint only the facial expressions and tiny tissue-box region; polished fine 2D storybook edges matching this source.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/puffs24.png",
+        "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png"
+      ],
+      "call": 4,
+      "native_location": "C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-6507e699-46c5-4634-824b-562ce6700caa.png",
+      "output": "books/chapter_one/landscape/revisions/v39_owner_corrections/art/care24_attempt1.png",
+      "output_sha256": "8363e753b3a05fb9299f28d0a83ab75ed65e485ab1c474486b01d22b791ef56c",
+      "native_size": [
+        1860,
+        846
+      ],
+      "mode": "RGB",
+      "bound_reference_records": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/puffs24.png",
+          "sha256": "1017b2dd47ab4ced8fd9adb9f2c87e8494db57a2f16f2336363ba08286f33261",
+          "native_size": [
+            330,
+            150
+          ]
+        },
+        {
+          "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
+          "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+          "native_size": [
+            512,
+            512
+          ]
+        }
+      ],
+      "provider": "Built-in image_gen; model/revision/seed/monetary usage not exposed",
+      "selected": true,
+      "review": "CANDIDATE: two gently unwell canonical little puffs, readable aqua tissue box with protruding white tissue, retained water flask. Use only facial/hand/tissue-box local masks; original ears/body/mound/stones remain. Composition and independent review pending.",
+      "recorded_at_utc": "2026-10-26T04:20:48.922988+00:00",
+      "selection_scope": "Named expression/hand/tissue-box masks only"
+    },
+    {
+      "id": "CARE25_T01",
+      "attempt": 1,
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is the exact220x130 crop of the tiny sofa vignette on the book's next Grand Puff care page. It is the edit target. IMAGE_2 is the just-repaired neighbouring-page little puffs and aqua tissue-box style; continuity only. IMAGE_3 is canonical LITTLE dust-bunny identity. Keep these same TWO little lavender bunnies seated on the SAME tiny blue-and-gold sofa in the same positions/scale with their original two spiral ears, two ear pearls and two pearl hands each. Make their faces gently under the weather, with drooping sleepy eyelids or a little closed-eye sneeze and softly flushed cheeks; not excited, celebrating or scared. Remove the yellow cheering marks above the left bunny. Replace the small blue handkerchief held by the right bunny with a clearly recognizable small rectangular aqua tissue BOX on the sofa cushion at its front, with a dark oval top opening and one white tissue sticking up and fanning out. Match the box on IMAGE_2, no logo. A pearl hand may hold the white tissue near the mouth. Do not just draw a loose folded cloth. Preserve sofa silhouette, gold scroll arms, cushion, cloud back, shells, plant, pale blue mound, stones, lighting, tiny low-bank composition and exact original crop framing; do not enlarge the figures or add new characters/props/text. Detailed painted 2D storybook, soft expressions, no Grand Puff crest or diamond.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/puffs25.png",
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/art/care24_attempt1.png",
+        "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png"
+      ],
+      "call": 5,
+      "native_location": "C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-2d989b74-03de-4774-9307-0eb52889f831.png",
+      "output": "books/chapter_one/landscape/revisions/v39_owner_corrections/art/care25_attempt1.png",
+      "output_sha256": "373f8606a99abc7d16d7a01ee7b447eedb24f6d5ea67ca2ce600a9dbd6748268",
+      "native_size": [
+        1632,
+        964
+      ],
+      "mode": "RGB",
+      "bound_reference_records": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/puffs25.png",
+          "sha256": "b9e6534f8e3537ef1192002484e5306ef972ef786d7b03981111a3b740c306c9",
+          "native_size": [
+            220,
+            130
+          ]
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/art/care24_attempt1.png",
+          "sha256": "8363e753b3a05fb9299f28d0a83ab75ed65e485ab1c474486b01d22b791ef56c",
+          "native_size": [
+            1860,
+            846
+          ]
+        },
+        {
+          "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
+          "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+          "native_size": [
+            512,
+            512
+          ]
+        }
+      ],
+      "provider": "Built-in image_gen; model/revision/seed/monetary usage not exposed",
+      "selected": true,
+      "review": "CANDIDATE: sofa and two existing little puffs retained; quiet unwell faces, aqua pop-up tissue box replaces cloth and cheering marks removed. Deliver only facial/hand/box/mark masks over original page. Composed and independent review pending.",
+      "recorded_at_utc": "2026-10-26T04:23:01.936296+00:00",
+      "selection_scope": "Named expression/hand/tissue-box and cheering-mark masks only"
+    },
+    {
+      "id": "DADDY_CAUDAL_FOCUSED_T03",
+      "attempt": 3,
+      "diagnosis": "Independent second AI confirms broad take1 membranes originate at different heights and scaled stalk ends in a third red point: side-fin/ribbon ambiguity, not a terminal fork. Two broad takes stopped. New caudal-only source crop and isolated actual Daddy fluke; one bounded anatomy correction, no silent take-budget reset.",
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is the sole edit target: exact cover crop325x285. IMAGE_2 is Daddy's actual terminal fluke from his approved master, anatomy/colour reference. Repair ONLY DADDY'S RAINBOW LOWER TAIL in IMAGE_1. It enters from the navy-coated waist at upper-right and curves toward lower-left. Replace its malformed ribbon tip and lateral fin spurs with ONE continuous tapering scaled stem ending at ONE narrow peduncle, then ONE two-lobed rainbow caudal fluke. The two broad fin lobes must begin at the SAME terminal root and have a deep open V-shaped notch of visible floor between their tips, like IMAGE_2, oriented toward the lower-left in this scene. The scaled stem MUST END at that shared fin root: NO separate scaled red point projecting between or past the two lobes, NO extra pair of side fins in this repair, NO ribbon/cloth ends. You may adjust only the lower-tail bend to fit a correct terminal fin naturally within its existing lower-left area. Keep Daddy's waist, coat and cape, Rumi's purple braid/scaled body/PINK fin in the foreground, Roshan's tiny rainbow fin corner, the pot, floor and exact crop framing unchanged. The pink fin is NOT Daddy. Leave enough visible fork on Daddy before it is occluded by the existing pot/Rumi. Detailed polished painted 2D storybook, same light and rainbow palette. No text, new characters or new props.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/daddy_caudal_target.png",
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/daddy_caudal_reference.png"
+      ],
+      "call": 6,
+      "native_location": "C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-f6ee8aca-11a9-4c74-a6d7-ed733a0f7c42.png",
+      "output": "books/chapter_one/landscape/revisions/v39_owner_corrections/art/daddy_caudal_focused_attempt3.png",
+      "output_sha256": "9e94d959ae9ad1468e3184c4a93e482fccde00b387720c487e3b8d58bb1abb98",
+      "native_size": [
+        1339,
+        1174
+      ],
+      "mode": "RGB",
+      "bound_reference_records": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/daddy_caudal_target.png",
+          "sha256": "a483738d4cea700f4d1999ee2d5b4c167ee8e72515d4e6d1ec9fc329cc6e8b93",
+          "native_size": [
+            325,
+            285
+          ]
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/daddy_caudal_reference.png",
+          "sha256": "8e0efad000b1082fcac81d66d33e1f478328389bebba10e260e2cdcd6c32fc52",
+          "native_size": [
+            777,
+            1320
+          ]
+        }
+      ],
+      "provider": "Built-in image_gen; model/revision/seed/monetary usage not exposed",
+      "selected": true,
+      "review": "CANDIDATE after independent diagnosis: scaled stem now ends in a crescent two-tip terminal fin rather than three scaled/ribbon projections. Exact original waist and neighbouring characters retained by local mask; final anatomical/composed peer review pending.",
+      "recorded_at_utc": "2026-10-26T04:38:53.665971+00:00",
+      "selection_scope": "Daddy terminal tail only; broad attempts fully rejected"
+    },
+    {
+      "id": "COVER_OCCLUSION_FLOOR_T01",
+      "attempt": 1,
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is the exact cropped cover edit target. IMAGE_2 is the original same crop, for marble floor continuity and the foreground rainbow fin contour only; IMAGE_3 is the selected Rumi native two-lobed pink fin identity. Keep IMAGE_1 new two-lobed Rumi caudal fin, Daddy crescent rainbow fin at far left, and Roshan foreground rainbow fin at lower right. Repair ONLY two tiny obsolete remnants in IMAGE_1: the old pink paddle tip on the floor immediately left of Rumi lower pink lobe, around target x32..52/y50..85; and the small purple triangular ledge below Rumi root, next to the LEFT outline of Roshan foreground rainbow fin, around x175..203/y48..90. Replace the obsolete scraps with clean continuous painted blue/lilac marble floor matching adjacent perspective lines, colours and soft reflections. Preserve every legitimate character fin contour, fin rays, shapes, stems, positions, scale, upper tail scales and occlusion. Do not clip Daddy fin, do not alter Roshan foreground fin, no new fin or tissue/sticker/white patch. Same exact crop framing, polished existing 2D storybook painting, no redesign. Only local floor infill around those two remnants; everything else locked.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/occlusion_floor_target.png",
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/occlusion_floor_reference.png",
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/art/rumi_caudal_focused_attempt3.png"
+      ],
+      "delivery_scope": "Only two small floor/obsolete-remnant windows; all original Roshan foreground silhouette and selected character bodies/fins remain masked out. Bounded native315fit and adjacent-floor reuse trials exposed missing occluded floor, could not join at correct perspective without a hard wedge/clipped Daddy fin; one local inpaint trial justified for this named gap.",
+      "call": 7,
+      "native_location": "C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-36f1491e-dcb7-45a2-a7a5-64fb8b79e772.png",
+      "output": "books/chapter_one/landscape/revisions/v39_owner_corrections/art/occlusion_floor_attempt1.png",
+      "output_sha256": "6c2ac0ee9269abd5e5541ebd49715c7e6f0be971e63076c4b3fb0fed61192988",
+      "native_size": [
+        2075,
+        758
+      ],
+      "mode": "RGB",
+      "bound_reference_records": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/occlusion_floor_target.png",
+          "sha256": "00d367061d704e4968ee11cad60c2fef6b33ef556b901769a658c4c86364b093",
+          "native_size": [
+            315,
+            115
+          ]
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/occlusion_floor_reference.png",
+          "sha256": "8c5ed0fba005a80a15a2b2dc100011584f6df20c1f24b279f1ce0d6110960dab",
+          "native_size": [
+            315,
+            115
+          ]
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/art/rumi_caudal_focused_attempt3.png",
+          "sha256": "c49ad464fb059b314b47513397cfc222c3c0ddfecc8760afe173a07ee1be2339",
+          "native_size": [
+            2075,
+            758
+          ]
+        }
+      ],
+      "provider": "Built-in image_gen; model/revision/seed/monetary usage not exposed",
+      "selected": false,
+      "review": "Native gap repair; floor and tiny obsolete-root-remnant windows only. No generated Roshan or Daddy fin is accepted. Composed pilot review pending.",
+      "recorded_at_utc": "2026-10-26T05:23:24.044516+00:00"
+    },
+    {
+      "id": "COVER_OCCLUSION_FLOOR_T02",
+      "attempt": 2,
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is the exact 315x115 cover-crop layout. Produce a CLEAN BACKGROUND PLATE for compositing: completely REMOVE the rainbow mermaid fin crossing the LOWER RIGHT foreground, including its pink leading tip, and completely REMOVE the separate rainbow tail entering from the FAR LEFT edge. Fill their former footprints with continuous blue/lilac painted marble floor, matching the existing floor perspective lines and reflections. Keep ONLY Rumi's central purple scaled tail ending in its TWO PINK LOBES; preserve that central tail and forked fin exactly, same position, dimensions, colours, contours, fin rays, and polished storybook shading. Do not turn the removed foreground rainbow fin into another tail, purple strip, object, sticker or white panel. Do not move, stretch or redesign the retained pink fin. This is a local clean plate; the two removed characters will be restored from exact original artwork during compositing. Same exact crop and framing. No text, no new objects, no background redesign.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/art/rumi_caudal_focused_attempt3.png"
+      ],
+      "delivery_scope": "Clean-floor plate only; original Daddy and Roshan restored separately from exact source artwork. Only floor/remnant gap masks may expose this output; Rumi remains original selected native through declared fin masks. Second bounded take changes input method to remove foreground occluders rather than ask model to retain missing-floor occlusion.",
+      "call": 8,
+      "native_location": "C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-17e9ab96-50a7-46c8-b8f7-b9b6ff7155e6.png",
+      "output": "books/chapter_one/landscape/revisions/v39_owner_corrections/art/occlusion_floor_cleanplate_attempt2.png",
+      "output_sha256": "ccdde449c184f3dec9235e7af348494ea30991775b363e885c3d52f2d1c79320",
+      "native_size": [
+        2075,
+        758
+      ],
+      "mode": "RGB",
+      "bound_reference_records": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/art/rumi_caudal_focused_attempt3.png",
+          "sha256": "c49ad464fb059b314b47513397cfc222c3c0ddfecc8760afe173a07ee1be2339",
+          "native_size": [
+            2075,
+            758
+          ]
+        }
+      ],
+      "provider": "Built-in image_gen; model/revision/seed/monetary usage not exposed",
+      "selected": true,
+      "review": "Bounded clean plate: only occlusion gap below Rumi root. Foreground Roshan restored from exact existing source. Other generated surfaces remain masked out; pilot pending.",
+      "recorded_at_utc": "2026-10-26T05:27:49.123902+00:00",
+      "selection_scope": "Only the occlusion-gap/root-remnant window; exact original Roshan foreground restored over it"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "COVER_TAILS",
+      "attempt": 1,
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is the exact edit-target crop from the existing book cover (545x335 framing). IMAGE_2 is Daddy's identity/tail anatomy; IMAGE_3 is Rumi's identity/tail anatomy. Repair ONLY Daddy's and Rumi's lower mermaid tails inside IMAGE_1. Keep the crop composition and their waist positions, body curves, scale, poses, separate depth and occlusion; keep all existing upper bodies, hair, coat/cape, floor, pot, Roshan's visible hand and her rainbow fin along the bottom EXACTLY as they are. Daddy remains behind Rumi: rainbow scales continue into ONE slender caudal peduncle and a clearly readable TWO-LOBED rainbow tail fin, with an open clean V-notch and natural fin rays, wholly inside his existing left-side tail footprint. Rumi's cyan-to-lavender scaled tail must narrow naturally into ONE distinct stalk and a graceful TWO-LOBED pink fin with a readable cleft; keep its present lower-left direction and footprint. Correct the current flattened ribbon-like tips and any disconnect, avoid overlapping/merging one mermaid's fin with the other or with Roshan's foreground fin. The anatomy must read instantly as two separate mermaid tails, not skirts or dangling fabric. Preserve polished painted 2D storybook shading, authored contours, colour gradients and scale detail; no new characters/props/text. Return this SAME exact cropped scene framing, not a new full cover or reference sheet.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/cover_tails.png",
+        "assets_src/cinematics/d1_c02_first_dirty_castle_discovery_visual_v1/handoff_art/characters/daddy_daddy_master.png",
+        "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png"
+      ],
+      "status": "NATIVE_ARCHIVED_REVIEW_PENDING",
+      "delivery_scope": "Only declared Daddy/Rumi tail polygons over exact V38 composed art; no generated Roshan, floor or whole-cover replacement."
+    },
+    {
+      "id": "COVER_TAILS_T02",
+      "attempt": 2,
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is a cover-tail repair crop and the sole edit target. IMAGE_2 is the original cover-tail crop for exact staging/occlusion. IMAGE_3 is Rumi's canonical tail identity. Fix ONLY Rumi's pink caudal tail fin at the lower-left of her cyan/lavender tail. It STILL reads as one broad flattened leaf. Give it two clearly separated pink fin lobes, one upper-left and one lower-left, connected through a narrower lavender peduncle; a deep open V-shaped notch of visible floor must separate the two lobe tips. Both pink lobes and the cleft must be plainly visible LEFT of Roshan's foreground rainbow fin. Keep roughly the same fin footprint and direction; do not move her body, hip, visible scaled tail or anybody else. This is Rumi's final fin, not her two side fins. Preserve Daddy's improved two-lobed rainbow fluke from IMAGE_1 exactly; preserve Roshan's cropped rainbow fin and hand, Rumi's arms/cape/braid, the pot and floor, all lighting/style/colours and same image framing. Do not merge the three tails. Polished detailed painted 2D storybook, no text, no diagram, no new character.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/art/cover_tails_attempt1.png",
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/cover_tails.png",
+        "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png"
+      ],
+      "status": "NATIVE_ARCHIVED_REVIEW_PENDING",
+      "delivery_scope": "Rumi caudal-fluke correction only; keep Daddy candidate from take1, originals for all non-tail regions."
+    },
+    {
+      "id": "RUMI_CAUDAL_FOCUSED_T03",
+      "attempt": 3,
+      "diagnosis": "Two broad tail edits confused Rumi's side fin with her caudal fin. Stop broad takes. Change input to a single narrow caudal-only crop and exact isolated canonical fin, one bounded trial; preserve Daddy from take1.",
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is a narrow exact book-cover edit target. IMAGE_2 is Rumi's correct pink caudal fin isolated from her identity master, anatomy reference only. In IMAGE_1, replace ONLY the broad horizontal pink paddle at the left-centre, attached to Rumi's purple scaled tail on the right. It must be ONE proper caudal fin with TWO separate pink lobes and a deep open V-notch showing the floor between them, as IMAGE_2. Rotate that canonical two-lobed form so it fans to the LEFT from the purple tail stalk on the right. Both left-pointing lobe tips and the open cleft must be visible in the existing pink-fin area. Preserve the purple tail's entry, pose and scale; preserve the small separate pink SIDE FIN cropped at the very top, Daddy's tiny rainbow tail on far left, the foreground rainbow fin rising from the bottom-right, floor tiles and all exact framing. The central broad pink paddle is the ONLY edit. Do not count the little pink side fin at the top as one of the two caudal lobes. Detailed polished 2D painted storybook contour, same colour and light; no other new pixels or text outside the local fin repair.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/rumi_caudal_target.png",
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/rumi_caudal_reference.png"
+      ],
+      "status": "NATIVE_ARCHIVED_REVIEW_PENDING"
+    },
+    {
+      "id": "CARE24_T01",
+      "attempt": 1,
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is the exact330x150 crop of the book's lower-right little-puff vignette under Grand Puff. IMAGE_2 is canonical LITTLE dust-bunny identity, not Grand Puff. Make these same TWO little lavender bunnies look gently under the weather: weary drooping or closed sneezing eyes and lightly flushed cheeks, still sweet and safe. Replace the loose white handkerchief in front of the left bunny with a CLEARLY RECOGNIZABLE small rectangular pastel aqua tissue BOX, with a top oval opening and one soft white tissue pulled up and fanning out. It must read as a box of tissues rather than a folded cloth. One little pearl hand may hold the tissue near the mouth. Keep the blue water flask between them, their existing positions, sizes, bodies, two spiral ears plus two pearl ear studs and two pearl hands EACH, and all foreground blue mound, contour, coral, stones, source light and exact crop framing unchanged. No additional bunny, Grand Puff diamond/star/stacked crest, cheering lines, fever gauge, text, logos or new props. Paint only the facial expressions and tiny tissue-box region; polished fine 2D storybook edges matching this source.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/puffs24.png",
+        "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png"
+      ],
+      "status": "NATIVE_ARCHIVED_REVIEW_PENDING"
+    },
+    {
+      "id": "CARE25_T01",
+      "attempt": 1,
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is the exact220x130 crop of the tiny sofa vignette on the book's next Grand Puff care page. It is the edit target. IMAGE_2 is the just-repaired neighbouring-page little puffs and aqua tissue-box style; continuity only. IMAGE_3 is canonical LITTLE dust-bunny identity. Keep these same TWO little lavender bunnies seated on the SAME tiny blue-and-gold sofa in the same positions/scale with their original two spiral ears, two ear pearls and two pearl hands each. Make their faces gently under the weather, with drooping sleepy eyelids or a little closed-eye sneeze and softly flushed cheeks; not excited, celebrating or scared. Remove the yellow cheering marks above the left bunny. Replace the small blue handkerchief held by the right bunny with a clearly recognizable small rectangular aqua tissue BOX on the sofa cushion at its front, with a dark oval top opening and one white tissue sticking up and fanning out. Match the box on IMAGE_2, no logo. A pearl hand may hold the white tissue near the mouth. Do not just draw a loose folded cloth. Preserve sofa silhouette, gold scroll arms, cushion, cloud back, shells, plant, pale blue mound, stones, lighting, tiny low-bank composition and exact original crop framing; do not enlarge the figures or add new characters/props/text. Detailed painted 2D storybook, soft expressions, no Grand Puff crest or diamond.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/puffs25.png",
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/art/care24_attempt1.png",
+        "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png"
+      ],
+      "status": "NATIVE_ARCHIVED_REVIEW_PENDING"
+    },
+    {
+      "id": "DADDY_CAUDAL_FOCUSED_T03",
+      "attempt": 3,
+      "diagnosis": "Independent second AI confirms broad take1 membranes originate at different heights and scaled stalk ends in a third red point: side-fin/ribbon ambiguity, not a terminal fork. Two broad takes stopped. New caudal-only source crop and isolated actual Daddy fluke; one bounded anatomy correction, no silent take-budget reset.",
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is the sole edit target: exact cover crop325x285. IMAGE_2 is Daddy's actual terminal fluke from his approved master, anatomy/colour reference. Repair ONLY DADDY'S RAINBOW LOWER TAIL in IMAGE_1. It enters from the navy-coated waist at upper-right and curves toward lower-left. Replace its malformed ribbon tip and lateral fin spurs with ONE continuous tapering scaled stem ending at ONE narrow peduncle, then ONE two-lobed rainbow caudal fluke. The two broad fin lobes must begin at the SAME terminal root and have a deep open V-shaped notch of visible floor between their tips, like IMAGE_2, oriented toward the lower-left in this scene. The scaled stem MUST END at that shared fin root: NO separate scaled red point projecting between or past the two lobes, NO extra pair of side fins in this repair, NO ribbon/cloth ends. You may adjust only the lower-tail bend to fit a correct terminal fin naturally within its existing lower-left area. Keep Daddy's waist, coat and cape, Rumi's purple braid/scaled body/PINK fin in the foreground, Roshan's tiny rainbow fin corner, the pot, floor and exact crop framing unchanged. The pink fin is NOT Daddy. Leave enough visible fork on Daddy before it is occluded by the existing pot/Rumi. Detailed polished painted 2D storybook, same light and rainbow palette. No text, new characters or new props.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/daddy_caudal_target.png",
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/daddy_caudal_reference.png"
+      ],
+      "status": "NATIVE_ARCHIVED_REVIEW_PENDING"
+    },
+    {
+      "id": "COVER_OCCLUSION_FLOOR_T01",
+      "attempt": 1,
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is the exact cropped cover edit target. IMAGE_2 is the original same crop, for marble floor continuity and the foreground rainbow fin contour only; IMAGE_3 is the selected Rumi native two-lobed pink fin identity. Keep IMAGE_1 new two-lobed Rumi caudal fin, Daddy crescent rainbow fin at far left, and Roshan foreground rainbow fin at lower right. Repair ONLY two tiny obsolete remnants in IMAGE_1: the old pink paddle tip on the floor immediately left of Rumi lower pink lobe, around target x32..52/y50..85; and the small purple triangular ledge below Rumi root, next to the LEFT outline of Roshan foreground rainbow fin, around x175..203/y48..90. Replace the obsolete scraps with clean continuous painted blue/lilac marble floor matching adjacent perspective lines, colours and soft reflections. Preserve every legitimate character fin contour, fin rays, shapes, stems, positions, scale, upper tail scales and occlusion. Do not clip Daddy fin, do not alter Roshan foreground fin, no new fin or tissue/sticker/white patch. Same exact crop framing, polished existing 2D storybook painting, no redesign. Only local floor infill around those two remnants; everything else locked.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/occlusion_floor_target.png",
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/occlusion_floor_reference.png",
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/art/rumi_caudal_focused_attempt3.png"
+      ],
+      "delivery_scope": "Only two small floor/obsolete-remnant windows; all original Roshan foreground silhouette and selected character bodies/fins remain masked out. Bounded native315fit and adjacent-floor reuse trials exposed missing occluded floor, could not join at correct perspective without a hard wedge/clipped Daddy fin; one local inpaint trial justified for this named gap.",
+      "status": "NATIVE_ARCHIVED_REVIEW_PENDING"
+    },
+    {
+      "id": "COVER_OCCLUSION_FLOOR_T02",
+      "attempt": 2,
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is the exact 315x115 cover-crop layout. Produce a CLEAN BACKGROUND PLATE for compositing: completely REMOVE the rainbow mermaid fin crossing the LOWER RIGHT foreground, including its pink leading tip, and completely REMOVE the separate rainbow tail entering from the FAR LEFT edge. Fill their former footprints with continuous blue/lilac painted marble floor, matching the existing floor perspective lines and reflections. Keep ONLY Rumi's central purple scaled tail ending in its TWO PINK LOBES; preserve that central tail and forked fin exactly, same position, dimensions, colours, contours, fin rays, and polished storybook shading. Do not turn the removed foreground rainbow fin into another tail, purple strip, object, sticker or white panel. Do not move, stretch or redesign the retained pink fin. This is a local clean plate; the two removed characters will be restored from exact original artwork during compositing. Same exact crop and framing. No text, no new objects, no background redesign.",
+      "references": [
+        "books/chapter_one/landscape/revisions/v39_owner_corrections/art/rumi_caudal_focused_attempt3.png"
+      ],
+      "delivery_scope": "Clean-floor plate only; original Daddy and Roshan restored separately from exact source artwork. Only floor/remnant gap masks may expose this output; Rumi remains original selected native through declared fin masks. Second bounded take changes input method to remove foreground occluders rather than ask model to retain missing-floor occlusion.",
+      "status": "NATIVE_ARCHIVED_REVIEW_PENDING"
+    }
+  ]
+}

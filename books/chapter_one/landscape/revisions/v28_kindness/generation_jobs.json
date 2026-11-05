@@ -1,0 +1,45 @@
+[
+  {
+    "id": "puff_reassurance",
+    "transparent": true,
+    "refs": [
+      "books/chapter_one/landscape/art/action_style_v25/shell_duel.png",
+      "books/chapter_one/landscape/art/language_v26/puff_unwell.png",
+      "books/chapter_one/archive/rough_v5/art/sponge.png"
+    ],
+    "prompt": "Use case: precise-object-edit. Target Image1 is the existing transparent Roshan-and-Grand-Puff cutout. Change ONLY the held object, action effects and Puff's expression for the owner's revised story: she is reassuring an uncomfortable dusty friend before cleaning him, never fighting him. Preserve the exact Roshan identity, face, rainbow hair, crown, purple top/tail, pose, proportions and right-side placement. Replace the pink seashell in her extended hand with the exact small PINK STAR-SHAPED SPONGE from Image3, held gently upright, with a few little white soap suds on its edge. Remove all airborne attack sparkles between them and all wobble lines. Keep Puff's lavender cloud silhouette, paired spiral ears, forehead marking and pearl hands exactly; replace spiral dizzy eyes and fangs with the tired, tender, uncomfortable glossy eyes and small mouth from Image2, looking toward Roshan with a little hope. No stars or magical projectile, no dizzy spirals, no beating, no extra arm or character. Do not change layout or turn this into a room scene. Complete natural contours and generous transparent margins; actual RGBA transparency throughout negative space, no sticker edge. No text or balloons; words will be typeset."
+  },
+  {
+    "id": "castle_entry_ceiling",
+    "refs": [
+      "books/chapter_one/landscape/revisions/v28_kindness/art/castle_entry_source.png"
+    ],
+    "transparent": false,
+    "prompt": "Use case: bounded upward outpainting for a picture-book page. Extend this EXACT existing wide Grok frame upward only to a 7:5 landscape canvas. Preserve the entire original frame unchanged, full width, at the bottom 79.75 percent. Add only the upper 20.25 percent by continuing the lavender castle masonry, upper arch, and distant blue/lavender wall. The new topmost 15 percent should be quiet pale lavender stone suitable for navy text, with broad simple painted tones. Do not insert extra windows, doorways, bands, characters, props, light effects or new scene action. Do not redraw the characters or existing doors. No duplication, no new horizontal seam, no text. Same 2D painted game style. The final page will use only the new upper wall pixels over the untouched source frame."
+  },
+  {
+    "id": "lamba_toy_peek",
+    "refs": [
+      "books/chapter_one/landscape/art/quality_v22/bg_20_final.png",
+      "assets/sprites/stuffie_studio/lamma.png"
+    ],
+    "transparent": false,
+    "prompt": "Use case: precise tiny Easter-egg inpaint. Keep Image1 EXACTLY unchanged except an extremely small edit at its lower-left stacking-ring toy, centered x=412,y=962 on the 1484x1060 canvas. Hide one tiny Lamb-a plush from Image2 behind the stack of rings. Only a little white forehead, two tiny rounded ears and her eyes should peek out beside/behind the tall central wooden peg above the cyan top ring. Head width about 35 pixels, height about 25 pixels (2.4 percent of canvas width); do not show her egg or body. She must look like the exact white round plush with dark eyelash eyes, never a long-neck llama. Keep the toy itself, both purple dust bunnies, blue mounds, empty center and all background pixels unchanged. Toy partially occludes Lamb-a. This is deliberately hard to spot, with no highlight, arrow, text or framing. Match the little toys' clean navy-outlined 2D game art. Preserve 7:5 aspect ratio and native page composition. No extra objects elsewhere."
+  },
+  {
+    "id": "apology_small_banks",
+    "refs": [
+      "books/chapter_one/landscape/art/story_detail_v23/bunny_apology_canvas.png"
+    ],
+    "transparent": false,
+    "prompt": "Use case: precise scale-and-ground inpaint of the TWO existing little dust bunnies, nothing else. Preserve this exact 1484x1060 blue stationery background. Each existing bunny is a little too tall. Make BOTH existing speaking lavender bunnies about 78 percent of their current size, preserving exactly their curl ears, pearl hands, facial expressions and poses. Keep their feet touching the same left/right mound slopes at y=978, and keep horizontal centers x=346 and x=1146. Each should be at most 105 pixels tall; topmost ear at or below y=875, ideally y=885. Extend the original quiet blue wash behind the vacated pixels above their heads. The final bunny silhouettes and speech-motion marks must stay inside the lower 15 percent (y>=901), preferably make them 90 pixels tall with feet at 991 if necessary. Do not enlarge any element. Keep the empty central writing area, all existing coral/shells/bubbles/bank contours and watercolor grain unchanged. Natural local ground shadows, not pasted sticker edges. No text, speech balloons or new objects. Only the two local lower-bank patches will be used over the original background."
+  },
+  {
+    "id": "castle_entry_join",
+    "refs": [
+      "books/chapter_one/landscape/revisions/v28_kindness/art/entry_layout_reference.png"
+    ],
+    "transparent": false,
+    "prompt": "Use case: narrow architectural seam inpaint. Target is a 1484x1060 picture-book layout. Repair ONLY the horizontal discontinuity at y=214 across the upper wall/arch/turrets. Make a smooth coherent join to the EXACT LOWER SOURCE IMAGE. Work solely in the horizontal band y=150 through y=254, above Daddy's crown: reconnect masonry edges, tower roof slopes and gold trim, red door top and arch, and right lavender column highlights. The lower scene at y>=255 must remain absolutely unchanged, including all of Daddy, his crown, Roshan, their expressions/poses, the dirty interior and the doors below the joint. Above y150 also unchanged. No duplicated roof, no doubled column edge, no horizontal seam, no new architecture, no new window, no added characters, no text, no wash over the characters. Same simple painted2D colors. Return same full canvas dimensions. Only the narrow repaired band will be taken from your output and integrated over the original source-preserving layout."
+  }
+]

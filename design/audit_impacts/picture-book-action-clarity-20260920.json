@@ -1,0 +1,75 @@
+{
+  "id": "picture-book-action-clarity-20260920",
+  "baseline": "745c81e875b0387cd9552f2cad0b3bb846e29cbe",
+  "scope": "Improve p6 object/action comprehension with complete existing alpha sink and sponge; align p23 caption with visible colour choice. No new scene generation.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static book adaptation only; no game defect closed.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "books/chapter_one/README.md",
+    "books/chapter_one/landscape/PAGE_PLAN.md",
+    "books/chapter_one/landscape/REVIEW.md",
+    "books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md",
+    "books/chapter_one/landscape/action_clarity_evidence.json",
+    "books/chapter_one/landscape/art/action_clarity_v18/sink_sheet.png",
+    "books/chapter_one/landscape/book.json",
+    "books/chapter_one/landscape/delivery_verification.json",
+    "books/chapter_one/landscape/layout_evidence.json",
+    "books/chapter_one/landscape/package_book.py",
+    "books/chapter_one/landscape/render_book.py",
+    "books/chapter_one/landscape/stress_review.json",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "Source inspection and rendered pages6/23",
+      "result": "PASS",
+      "evidence": "action_clarity_evidence.json: sink alpha selected; planning boards not mistaken for completed action frames. Colour-choice text aligned with visible paint."
+    },
+    {
+      "command": "audit_book.py --proof v18_action_clarity/complete --baseline v7_landscape/complete",
+      "result": "PASS",
+      "evidence": "34 pages,81 text lines,63 image operations; zero issues."
+    },
+    {
+      "command": "Changed-page regression against v17",
+      "result": "PASS",
+      "evidence": "Only pages6/23 changed; other32 JPEGs byte-identical."
+    },
+    {
+      "command": "Portable manifest verification and independent rebuild",
+      "result": "PASS",
+      "evidence": "86 payloads hash-verified; all34 JPEGs byte-identical. ZIP31bffd5804b827dda3b59f2f1c07e9f4b4c2c06a4db539534dad196a56a1df1f. delivery_verification.json."
+    },
+    {
+      "command": "Headless Edge review at1400/760",
+      "result": "PASS",
+      "evidence": "2 cards,2 decoded images,zero broken images or overflow."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH ALL OK;579 inventory/ledger entries."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV ALL OK;base5920c673305989ee29d91876480ff445dba9fc8b."
+    },
+    {
+      "command": "Godot gameplay/probe gates",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Static book source, layout and docs only; no runtime changes."
+    }
+  ],
+  "acceptance_gaps": "Rough source resolution and human/child/owner acceptance remain open; sink hand contact not depicted."
+}

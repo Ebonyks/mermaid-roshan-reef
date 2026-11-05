@@ -1,0 +1,433 @@
+{
+  "status": "RENDERED_REVIEW_CANDIDATE",
+  "base_original": "art/landscape_base.png",
+  "base_revision": "art/landscape_base_v2.png",
+  "revision_sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82",
+  "method": "Built-in imagegen blank-stationery edit; no story scene or prop redrawn. Existing alpha props placed unchanged by PDF renderer.",
+  "prompt_file": "border_base_prompt.txt",
+  "prompt_sha256": "f1b3d1df9fcb2714836aa52b3ac2e983e4547c36cb630d0137536e21926ef31f",
+  "reference_pages": [
+    3,
+    9,
+    15
+  ],
+  "reference_findings": "Original uses shaped shaded banks, small native coral, shells and asymmetric contextual groups. Prior base had flat thin arcs; props centered too high and too small.",
+  "placements": {
+    "4": [
+      {
+        "source": "mound_grime_left",
+        "box": [
+          52,
+          6,
+          60,
+          43
+        ],
+        "mound": "left"
+      },
+      {
+        "source": "mound_grime_right",
+        "box": [
+          392,
+          6,
+          60,
+          43
+        ],
+        "mound": "right"
+      },
+      {
+        "source": "cleanup_basket",
+        "box": [
+          126,
+          3,
+          36,
+          27
+        ],
+        "mound": "left"
+      }
+    ],
+    "6": [
+      {
+        "source": "bath_badge",
+        "box": [
+          52,
+          6,
+          60,
+          43
+        ],
+        "mound": "left"
+      },
+      {
+        "source": "brush",
+        "box": [
+          392,
+          6,
+          60,
+          43
+        ],
+        "mound": "right"
+      },
+      {
+        "source": "bubbles",
+        "box": [
+          126,
+          3,
+          36,
+          27
+        ],
+        "mound": "left"
+      }
+    ],
+    "7": [
+      {
+        "source": "bath_badge",
+        "box": [
+          52,
+          6,
+          60,
+          43
+        ],
+        "mound": "left"
+      },
+      {
+        "source": "bubbles",
+        "box": [
+          392,
+          6,
+          60,
+          43
+        ],
+        "mound": "right"
+      }
+    ],
+    "10": [
+      {
+        "source": "pool_float",
+        "box": [
+          52,
+          6,
+          60,
+          43
+        ],
+        "mound": "left"
+      },
+      {
+        "source": "cleanup_basket",
+        "box": [
+          392,
+          6,
+          60,
+          43
+        ],
+        "mound": "right"
+      },
+      {
+        "source": "bubbles",
+        "box": [
+          126,
+          3,
+          36,
+          27
+        ],
+        "mound": "left"
+      }
+    ],
+    "19": [
+      {
+        "source": "sleepy_bunny",
+        "box": [
+          52,
+          6,
+          60,
+          43
+        ],
+        "mound": "left"
+      },
+      {
+        "source": "cleanup_basket",
+        "box": [
+          392,
+          6,
+          60,
+          43
+        ],
+        "mound": "right"
+      },
+      {
+        "source": "mound_grime_left",
+        "box": [
+          342,
+          3,
+          36,
+          27
+        ],
+        "mound": "right"
+      }
+    ],
+    "20": [
+      {
+        "source": "cleanup_basket",
+        "box": [
+          52,
+          6,
+          60,
+          43
+        ],
+        "mound": "left"
+      },
+      {
+        "source": "sleepy_bunny",
+        "box": [
+          392,
+          6,
+          60,
+          43
+        ],
+        "mound": "right"
+      },
+      {
+        "source": "bubbles",
+        "box": [
+          126,
+          3,
+          36,
+          27
+        ],
+        "mound": "left"
+      }
+    ],
+    "21": [
+      {
+        "source": "mound_grime_left",
+        "box": [
+          52,
+          6,
+          60,
+          43
+        ],
+        "mound": "left"
+      },
+      {
+        "source": "mound_grime_right",
+        "box": [
+          392,
+          6,
+          60,
+          43
+        ],
+        "mound": "right"
+      },
+      {
+        "source": "blue_bottle",
+        "box": [
+          342,
+          3,
+          36,
+          27
+        ],
+        "mound": "right"
+      }
+    ],
+    "22": [
+      {
+        "source": "cups",
+        "box": [
+          52,
+          6,
+          60,
+          43
+        ],
+        "mound": "left"
+      },
+      {
+        "source": "blue_bottle",
+        "box": [
+          392,
+          6,
+          60,
+          43
+        ],
+        "mound": "right"
+      },
+      {
+        "source": "pink",
+        "box": [
+          126,
+          3,
+          36,
+          27
+        ],
+        "mound": "left"
+      }
+    ],
+    "24": [
+      {
+        "source": "mound_grime_left",
+        "box": [
+          52,
+          6,
+          60,
+          43
+        ],
+        "mound": "left"
+      },
+      {
+        "source": "cleanup_basket",
+        "box": [
+          392,
+          6,
+          60,
+          43
+        ],
+        "mound": "right"
+      },
+      {
+        "source": "mound_grime_right",
+        "box": [
+          126,
+          3,
+          36,
+          27
+        ],
+        "mound": "left"
+      }
+    ],
+    "25": [
+      {
+        "source": "brush",
+        "box": [
+          52,
+          6,
+          60,
+          43
+        ],
+        "mound": "left"
+      },
+      {
+        "source": "sponge",
+        "box": [
+          392,
+          6,
+          60,
+          43
+        ],
+        "mound": "right"
+      },
+      {
+        "source": "mound_grime_left",
+        "box": [
+          342,
+          3,
+          36,
+          27
+        ],
+        "mound": "right"
+      }
+    ],
+    "26": [
+      {
+        "source": "cleanup_basket",
+        "box": [
+          52,
+          6,
+          60,
+          43
+        ],
+        "mound": "left"
+      },
+      {
+        "source": "sponge",
+        "box": [
+          392,
+          6,
+          60,
+          43
+        ],
+        "mound": "right"
+      },
+      {
+        "source": "bubbles",
+        "box": [
+          126,
+          3,
+          36,
+          27
+        ],
+        "mound": "left"
+      }
+    ],
+    "31": [
+      {
+        "source": "bath_badge",
+        "box": [
+          52,
+          6,
+          60,
+          43
+        ],
+        "mound": "left"
+      },
+      {
+        "source": "pool_float",
+        "box": [
+          392,
+          6,
+          60,
+          43
+        ],
+        "mound": "right"
+      },
+      {
+        "source": "cups",
+        "box": [
+          342,
+          3,
+          36,
+          27
+        ],
+        "mound": "right"
+      }
+    ],
+    "32": [
+      {
+        "source": "brush",
+        "box": [
+          52,
+          6,
+          60,
+          43
+        ],
+        "mound": "left"
+      },
+      {
+        "source": "sponge",
+        "box": [
+          392,
+          6,
+          60,
+          43
+        ],
+        "mound": "right"
+      },
+      {
+        "source": "bubbles",
+        "box": [
+          126,
+          3,
+          36,
+          27
+        ],
+        "mound": "left"
+      }
+    ]
+  },
+  "limits": "Bottom 15%; 12% maximum in both axes; 10% base-texture occlusion; empty central gap; no repeated foreground source.",
+  "base_original_sha256": "626cbee1d7bda4696b9a1f3176a02984f59f12adcb8a842a5f13f34714062fd9",
+  "review": "Reviewed all 13 reduced pages in contact sheet and pages 4, 19, 22 enlarged: lower silhouette/value bands and activity grouping strengthened; no foreground/text collision. Existing bubbles/grime remain low contrast by source design. Owner acceptance remains open.",
+  "verification": {
+    "full_art_pages_byte_identical": 19,
+    "all_text_lines_identical": true,
+    "all_foreground_story_layers_identical": true,
+    "geometry_status": "PASS",
+    "contextual_assignments": 13
+  }
+}

@@ -1881,6 +1881,12 @@ func _stage_room_finale_partner() -> void:
 		# Feedback settles at the displayed task anchors, not the room approach.
 		_capture_actor_rest("player", player_actor)
 		_capture_actor_rest("rival", rival_actor)
+		# Reactions must settle at these activity marks, not the preceding
+		# walking rests. Cancel an older reaction before this task owns them.
+		_capture_actor_rest("player", player_actor)
+		_capture_actor_rest("rival", rival_actor)
+		_restore_actor("player", player_actor)
+		_restore_actor("rival", rival_actor)
 		return
 	# Room finales keep Roshan beside the object she deliberately reached. Pick
 	# a route rest that clears both Roshan and the already-laid-out activity;

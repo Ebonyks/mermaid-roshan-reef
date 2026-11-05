@@ -1,0 +1,49 @@
+{
+  "method": "Absolute RGB difference of two unmodified native game frames; same camera/player coordinate; regions exclude player and HUD",
+  "image_size": [
+    1600,
+    900
+  ],
+  "regions": [
+    {
+      "region": "ground_curtain",
+      "frame_rect": [
+        253,
+        198,
+        378,
+        373
+      ],
+      "changed_pixels": 15514,
+      "total_pixels": 21875,
+      "maximum_channel_delta": 131,
+      "mean_absolute_delta": 6.874133333333333
+    },
+    {
+      "region": "island_leaves",
+      "frame_rect": [
+        681,
+        463,
+        862,
+        582
+      ],
+      "changed_pixels": 2831,
+      "total_pixels": 21539,
+      "maximum_channel_delta": 77,
+      "mean_absolute_delta": 0.9351409071916059
+    },
+    {
+      "region": "ground_lamp",
+      "frame_rect": [
+        131,
+        226,
+        162,
+        301
+      ],
+      "changed_pixels": 1679,
+      "total_pixels": 2325,
+      "maximum_channel_delta": 18,
+      "mean_absolute_delta": 2.9251612903225808
+    }
+  ],
+  "result": "PASS"
+}

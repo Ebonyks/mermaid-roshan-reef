@@ -1,0 +1,97 @@
+{
+  "local_request_id": "R133_NATIVE_SNOWFIELD_CONTINUATION02_CALL05_BR",
+  "stable_id": "FV-55B5EF60A12C",
+  "backend": "builtin image_gen.imagegen",
+  "model_version": null,
+  "model_selector_exposed": false,
+  "call_index": 5,
+  "total_call_cap": 8,
+  "region": "br",
+  "prompt_path": "assets_src/imagegen/snowfield_20261103/PROMPT_05_br.txt",
+  "prompt_sha256": "c6beb277707adfdbbde648b22bb7c2f3bc2eb218889c5ace1cee947c92ca7887",
+  "references": [
+    {
+      "image": "IMAGE_1",
+      "region": "br",
+      "path": "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\export\\flat_vector_r133_guides\\br_position_only.png",
+      "sha256": "3fd093efc44632505a32c8882c195247ec352f34b71005fb26b418ab811f0c8e",
+      "source_global_rect": [
+        909,
+        909,
+        1254,
+        1254
+      ],
+      "core_crop": [
+        115,
+        115,
+        1024,
+        1024
+      ],
+      "core_global_position": [
+        1024,
+        1024
+      ],
+      "role": "position_only",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "image": "IMAGE_2",
+      "path": "assets_src/imagegen/snowfield_20261103/native/snowfield_02_01.png",
+      "sha256": "b879a94848a456b6d25bb07d4d68f68759889bbdc48b641216353acaf9d60ed0",
+      "role": "whole_field_appearance_reference_only_not_delivery"
+    },
+    {
+      "image": "IMAGE_3",
+      "path": "assets_src/imagegen/snowfield_20261103/native/snowfield_02_03_tr.png",
+      "sha256": "d02235ac96f71d2777b3ebff9ca4c7722b28936326c26637a5cbd9d99081d893",
+      "role": "actual_upper_right_native_material_reference_pending_master"
+    },
+    {
+      "image": "IMAGE_4",
+      "path": "assets_src/imagegen/snowfield_20261103/native/snowfield_02_04_bl.png",
+      "sha256": "15bf4b9edd4eb3aecaf026bb190a13c71db66a168c505c275f1ec69030690289",
+      "role": "actual_lower_left_native_material_reference_pending_master"
+    }
+  ],
+  "transparent_background": true,
+  "native_registration_trial": {
+    "state": "NATIVE_OUTPUT_REGISTRATION_TRIAL_PENDING_ALL_REGIONS",
+    "method": "Use returned1254regions at1:1, provisional anchors(0,0),(794,0),(0,794),(794,794) on2048canvas,460overlap; preserve all originals. Final authored contour/seam review determines viability before runtime slicing. No guide, enlarged concept or procedural art enters delivery.",
+    "global_master": [
+      2048,
+      2048
+    ],
+    "native_region_size": [
+      1254,
+      1254
+    ],
+    "anchors": {
+      "tl": [
+        0,
+        0
+      ],
+      "tr": [
+        794,
+        0
+      ],
+      "bl": [
+        0,
+        794
+      ],
+      "br": [
+        794,
+        794
+      ]
+    },
+    "seam_overlap": 460,
+    "guide_alignment_exact": false,
+    "guide_pixels_used": false,
+    "actual_master_created": false,
+    "native_dimension_floor_verified": false,
+    "formal_QA11": null
+  },
+  "actual_output_and_whole_master_review_pending": true,
+  "paid_CLI_calls": 0,
+  "animation_calls": 0,
+  "at_utc": "2026-11-03T14:25:28.728672+00:00"
+}

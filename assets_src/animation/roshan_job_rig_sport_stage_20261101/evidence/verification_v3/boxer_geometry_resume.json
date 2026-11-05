@@ -1,0 +1,43 @@
+{
+  "scope": "Resume only unfinished meshes after original1200second wrapper timeout; original FAIL retained. Same frozen inputs, native frames, unchanged audit functions and floors. No completed subreport repeated.",
+  "rows": [
+    {
+      "mesh": "Body",
+      "reused_exact_completed_subreport": true,
+      "exit": 0,
+      "seconds": 0.0,
+      "report": "evidence/verification_v3/raw/legacy/boxer/geometry_audit_Body.json",
+      "sha256": "e9bdea113072112101c9f0ea761ac23c856f00ead667fe841b5051f988b71e6d",
+      "pass": true
+    },
+    {
+      "mesh": "UpperArm",
+      "reused_exact_completed_subreport": true,
+      "exit": 0,
+      "seconds": 0.06,
+      "report": "evidence/verification_v3/raw/legacy/boxer/geometry_audit_UpperArm.json",
+      "sha256": "d96efc2f5595fc393aeb97352218b4740d33819c326a7876755c9ef9572359dc",
+      "pass": true
+    },
+    {
+      "mesh": "Forearm",
+      "reused_exact_completed_subreport": false,
+      "exit": 0,
+      "seconds": 53.28,
+      "report": "evidence/verification_v3/raw/legacy/boxer/geometry_audit_Forearm.json",
+      "sha256": "e5b04320afbade44335d61a18aafb0c34d3da95d4e1e41f93bd4b41719e5c8d2",
+      "pass": true
+    },
+    {
+      "mesh": "Headwear",
+      "reused_exact_completed_subreport": false,
+      "exit": 0,
+      "seconds": 40.14,
+      "report": "evidence/verification_v3/raw/legacy/boxer/geometry_audit_Headwear.json",
+      "sha256": "47e817f2674f77ecb8cda83593c63241bab8e45426627ee8c6c5cf8fd1a9c178",
+      "pass": true
+    }
+  ],
+  "complete": true,
+  "pass": true
+}
