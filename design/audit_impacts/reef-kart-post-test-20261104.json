@@ -1,0 +1,82 @@
+{
+  "id": "reef-kart-post-test-20261104",
+  "baseline": "897a3a2a3281cf6ab0fc6717de23914c302c402a",
+  "scope": "Implement the owner-prioritized Pearl Canal gate projection and texture repair, source-derived reef depth, and consumed-without-award item-source repair.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-INT-10",
+    "DL-INT-14",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-ASSET-01",
+    "DL-ASSET-04",
+    "DL-ASSET-06",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-07",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-OPERA-014"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets/racer/tracks/pearl_canal/billboards/pearl_arch.png",
+    "assets/racer/tracks/pearl_canal/billboards/pearl_arch.png.import",
+    "assets/racer/tracks/pearl_canal/billboards/pearl_arch.provenance.json",
+    "assets/racer/tracks/pearl_canal/billboards/pearl_start_arch.png",
+    "assets/racer/tracks/pearl_canal/billboards/pearl_start_arch.png.import",
+    "assets/racer/tracks/pearl_canal/billboards/pearl_start_arch.provenance.json",
+    "assets/racer/tracks/pearl_canal/billboards/reef_blue_shelf.png",
+    "assets/racer/tracks/pearl_canal/billboards/reef_blue_shelf.provenance.json",
+    "assets/racer/tracks/pearl_canal/billboards/reef_coral_ledge.png",
+    "assets/racer/tracks/pearl_canal/billboards/reef_coral_ledge.provenance.json",
+    "assets/racer/tracks/pearl_canal/billboards/reef_fan.png",
+    "assets/racer/tracks/pearl_canal/billboards/reef_fan.provenance.json",
+    "assets/racer/tracks/pearl_canal/billboards/reef_pearl_garden.png",
+    "assets/racer/tracks/pearl_canal/billboards/reef_pearl_garden.provenance.json",
+    "assets/racer/tracks/pearl_canal/billboards/reef_shell_terrace.png",
+    "assets/racer/tracks/pearl_canal/billboards/reef_shell_terrace.provenance.json",
+    "assets/racer/tracks/pearl_canal/billboards/ribbon_arch.png",
+    "assets/racer/tracks/pearl_canal/billboards/ribbon_arch.png.import",
+    "assets/racer/tracks/pearl_canal/billboards/ribbon_arch.provenance.json",
+    "assets/racer/tracks/pearl_canal/skyline.png",
+    "assets/racer/tracks/pearl_canal/skyline.provenance.json",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/POST_TEST_MOBILE_REVIEW.jpg",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/POST_TEST_RECONSTRUCTION.json",
+    "scripts/probe_racer_integration.gd",
+    "scripts/racer/reef_kart_race.gd",
+    "scripts/racer/reef_kart_track.gd"
+  ],
+  "validation": [
+    {
+      "command": "Pinned baseline 100 scripted playthroughs and 700 standard checkpoint images",
+      "result": "PASS",
+      "evidence": "Retained baseline QA from 897a3a2a3281cf6ab0fc6717de23914c302c402a; summary hash in docs/handoffs/codex_reef_kart_art_2026-11-03/POST_TEST_RECONSTRUCTION.json."
+    },
+    {
+      "command": "Godot 4.7.2 exact import, targeted Racer probe, 100 seeded logic replays and configured Mobile render review",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_reef_kart_art_2026-11-03/POST_TEST_RECONSTRUCTION.json; 45/45 focused checks and 100/100 completed races; all 39 imp restarts preserved pearls. No busy-pickup depletion or persistent active-input stall in the logic replay. Rendered comparisons include the prior gate occlusion at start and finish and the back straight. The first renderer replay was disrupted by desktop focus."
+    },
+    {
+      "command": "scripts/ci.sh with Godot 4.7.2-stable",
+      "result": "PASS",
+      "evidence": "Full final candidate import and 82/82 trusted probe exits 0; suite exit 0; log SHA-256 6c66b46bdd251d7e2de452360e13488950f399f3510c2dd2ee552076177e26b0. Opera Racer timed 30.18 s held and 26.0 s purposeful with 10 pearls. Existing visual-audit advisories remain open."
+    }
+  ],
+  "acceptance_gaps": "Natural desktop and Lenovo Tab M11 review including gate motion, backdrop density, touch and performance, child play, and owner acceptance. Demo freeze remains active."
+}

@@ -116,6 +116,23 @@ const LANDMARKS: Array[Dictionary] = [
 	{"id": "pearl_arch", "at": WEST_ARCH_POINT, "offset": 0.0, "lat": 0.0, "w": 330.0, "h": 260.0, "spans": true},
 	{"id": "coral_cluster", "at": 54, "offset": 0.0, "lat": 230.0, "w": 200.0, "h": 150.0},
 	{"id": "pearl_clam", "at": 61, "offset": 0.0, "lat": 230.0, "w": 170.0, "h": 110.0},
+	# Painted reef clusters at fixed stations fill the depth between the road and open water.
+	{"id": "reef_shell_terrace", "at": 1, "offset": 0.0, "lat": 415.0, "w": 375.0, "h": 166.0},
+	{"id": "reef_coral_ledge", "at": 4, "offset": 0.0, "lat": -490.0, "w": 410.0, "h": 209.0},
+	{"id": "reef_fan", "at": 10, "offset": 0.0, "lat": -365.0, "w": 278.0, "h": 244.0},
+	{"id": "reef_pearl_garden", "at": 15, "offset": 0.0, "lat": 402.0, "w": 420.0, "h": 188.0},
+	{"id": "reef_coral_ledge", "at": 20, "offset": 0.0, "lat": 472.0, "w": 450.0, "h": 225.0},
+	{"id": "reef_blue_shelf", "at": 23, "offset": 0.0, "lat": -340.0, "w": 262.0, "h": 170.0},
+	{"id": "reef_fan", "at": 27, "offset": 0.0, "lat": 395.0, "w": 302.0, "h": 242.0},
+	{"id": "reef_shell_terrace", "at": 32, "offset": 0.0, "lat": 427.0, "w": 389.0, "h": 165.0},
+	{"id": "reef_pearl_garden", "at": 35, "offset": 0.0, "lat": -495.0, "w": 420.0, "h": 175.0},
+	{"id": "reef_blue_shelf", "at": 40, "offset": 0.0, "lat": -395.0, "w": 320.0, "h": 171.0},
+	{"id": "reef_coral_ledge", "at": 42, "offset": 0.0, "lat": 467.0, "w": 425.0, "h": 220.0},
+	{"id": "reef_shell_terrace", "at": 46, "offset": 0.0, "lat": -390.0, "w": 370.0, "h": 168.0},
+	{"id": "reef_pearl_garden", "at": 50, "offset": 0.0, "lat": 435.0, "w": 405.0, "h": 173.0},
+	{"id": "reef_fan", "at": 53, "offset": 0.0, "lat": -405.0, "w": 285.0, "h": 235.0},
+	{"id": "reef_blue_shelf", "at": 57, "offset": 0.0, "lat": 402.0, "w": 309.0, "h": 187.0},
+	{"id": "reef_coral_ledge", "at": 60, "offset": 0.0, "lat": -480.0, "w": 440.0, "h": 215.0},
 ]
 const CHECKPOINTS := 8
 

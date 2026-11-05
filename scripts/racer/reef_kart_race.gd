@@ -263,6 +263,7 @@ func _build_view() -> void:
 	add_child(_floor)
 	_world = Node2D.new()
 	_world.name = "Racers"
+	_world.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	add_child(_world)
 	_world.draw.connect(_draw_world)
 	_hud = Node2D.new()
@@ -566,16 +567,19 @@ func _contact_features(k: Dictionary, delta: float) -> void:
 				if int(k["pearls"]) < MAX_PEARLS:
 					k["pearls"] = int(k["pearls"]) + 1
 				race_event.emit("pearl", float(k["pearls"]))
-	for source: Array in [track.bubbles, track.buoys]:
-		for bubble: Dictionary in source:
-			if float(bubble["respawn_t"]) <= 0.0 \
-					and pos.distance_to(bubble["pos"] as Vector2) <= PICK_RADIUS + 6.0:
-				bubble["respawn_t"] = 3.0
-				if String(k["item"]) == "" and float(k["roulette_t"]) <= 0.0:
+	if String(k["item"]) == "" and float(k["roulette_t"]) <= 0.0:
+		for source: Array in [track.bubbles, track.buoys]:
+			for pickup: Dictionary in source:
+				if float(pickup["respawn_t"]) <= 0.0 \
+						and pos.distance_to(pickup["pos"] as Vector2) <= PICK_RADIUS + 6.0:
+					pickup["respawn_t"] = 3.0
 					k["roulette_t"] = ROULETTE
 					k["pending"] = _pick_item(k)
 					if bool(k["player"]):
 						race_event.emit("item_roll", 0.0)
+					break
+			if float(k["roulette_t"]) > 0.0:
+				break
 	if float(k["roulette_t"]) > 0.0:
 		k["roulette_t"] = maxf(0.0, float(k["roulette_t"]) - delta)
 		if float(k["roulette_t"]) <= 0.0:
@@ -871,7 +875,14 @@ func _draw_world() -> void:
 	for index in range(track.landmarks.size()):
 		var landmark: Dictionary = track.landmarks[index]
 		if bool(landmark.get("spans", false)):
-			_queue_drawable(landmark["pos"] as Vector2, "span", index)
+			var center: Vector2 = landmark["pos"]
+			var depth := _depth(center)
+			# An oblique span can still have a visible side after its centre
+			# leaves the view. Its projected edges own the visibility test.
+			if _landmark_tex.has(String(landmark["id"])) and depth <= FAR:
+				_drawables.append([maxf(depth, NEAR), "span", index, center])
+			else:
+				_queue_drawable(center, "span", index)
 		elif _landmark_tex.has(String(landmark["id"])):
 			_queue_drawable(landmark["pos"] as Vector2, "landmark", index)
 	for index in range(traps.size()):
@@ -913,13 +924,18 @@ func _queue_drawable(world: Vector2, kind: String, index: int) -> void:
 
 ## An isolated painted landmark standing upright beside the road.
 func _draw_landmark(landmark: Dictionary, screen: Vector2, scale: float) -> void:
-	var texture := _landmark_tex.get(String(landmark["id"])) as Texture2D
+	var id := String(landmark["id"])
+	var texture := _landmark_tex.get(id) as Texture2D
 	if texture == null:
 		return
 	var size := Vector2(float(landmark["w"]), float(landmark["h"])) * scale
 	if size.x < 3.0:
 		return
 	var bottom := screen.y - float(landmark.get("lift", 0.0)) * scale
+	if id.begins_with("reef_"):
+		_world.draw_set_transform(screen, 0.0, Vector2(1.0, 0.16))
+		_world.draw_circle(Vector2.ZERO, size.x * 0.32, Color(0.24, 0.14, 0.31, 0.17), true, -1.0, true)
+		_world.draw_set_transform(Vector2.ZERO)
 	_world.draw_texture_rect(texture,
 		Rect2(screen.x - size.x * 0.5, bottom - size.y, size.x, size.y), false)
 
@@ -971,11 +987,55 @@ func _draw_art(key: String, center: Vector2, size: Vector2) -> bool:
 ## painting, otherwise an INTERIM_PLACEHOLDER arch in the painting's colours
 ## (cream shell arch with pearls at the start, pink checkered ribbon, lilac
 ## pearl arches over the back straight).
+func _draw_painted_span(art: Texture2D, left: Vector2, right: Vector2, height: float) -> void:
+	var left_depth := _depth(left)
+	var right_depth := _depth(right)
+	# Give the chase camera a clear view of the kart as it passes the arch.
+	var clear_depth := CAM_BACK + 4.0
+	var fade_end := clear_depth + 42.0
+	if maxf(left_depth, right_depth) <= clear_depth:
+		return
+	var first := 0.0
+	var last := 1.0
+	if left_depth < clear_depth:
+		first = inverse_lerp(left_depth, right_depth, clear_depth)
+	elif right_depth < clear_depth:
+		last = inverse_lerp(left_depth, right_depth, clear_depth)
+	# Each vertical edge is projected at its own depth. Strips keep the
+	# texture close to perspective-correct under the Canvas affine sampler.
+	var u0 := first
+	var depth0 := lerpf(left_depth, right_depth, first)
+	var foot0 := _screen(left.lerp(right, first), depth0)
+	var top0 := foot0 - Vector2(0.0, height * FOCAL / depth0)
+	var ink0 := Color(1.0, 1.0, 1.0, smoothstep(clear_depth, fade_end, depth0))
+	for column in range(1, 13):
+		var u1 := lerpf(first, last, float(column) / 12.0)
+		var depth1 := lerpf(left_depth, right_depth, u1)
+		var foot1 := _screen(left.lerp(right, u1), depth1)
+		var top1 := foot1 - Vector2(0.0, height * FOCAL / depth1)
+		var ink1 := Color(1.0, 1.0, 1.0, smoothstep(clear_depth, fade_end, depth1))
+		if foot1.x > foot0.x and foot1.x >= 0.0 and foot0.x <= VIEW.x:
+			_world.draw_polygon(
+				PackedVector2Array([top0, top1, foot1, foot0]),
+				PackedColorArray([ink0, ink1, ink1, ink0]),
+				PackedVector2Array([Vector2(u0, 0.0), Vector2(u1, 0.0), Vector2(u1, 1.0), Vector2(u0, 1.0)]),
+				art)
+		u0 = u1
+		foot0 = foot1
+		top0 = top1
+		ink0 = ink1
+
+
 func _draw_span(landmark: Dictionary, scale: float) -> void:
 	var s := float(landmark["s"])
 	var half := float(landmark["w"]) * 0.5
 	var left := track.point_at(s, -half)
 	var right := track.point_at(s, half)
+	var id := String(landmark["id"])
+	var art := _landmark_tex.get(id) as Texture2D
+	if art != null:
+		_draw_painted_span(art, left, right, float(landmark["h"]))
+		return
 	var dl := _depth(left)
 	var dr := _depth(right)
 	if dl < NEAR or dr < NEAR:
@@ -984,13 +1044,6 @@ func _draw_span(landmark: Dictionary, scale: float) -> void:
 	var base_r := _screen(right, dr)
 	var width_px := base_r.x - base_l.x
 	if width_px < 4.0:
-		return
-	var id := String(landmark["id"])
-	var art := _landmark_tex.get(id) as Texture2D
-	var ground := maxf(base_l.y, base_r.y)
-	if art != null:
-		var height := width_px * float(landmark["h"]) / float(landmark["w"])
-		_world.draw_texture_rect(art, Rect2(base_l.x, ground - height, width_px, height), false)
 		return
 	var tall := float(landmark["h"]) * 0.78
 	var top_l := base_l - Vector2(0.0, tall * FOCAL / dl)

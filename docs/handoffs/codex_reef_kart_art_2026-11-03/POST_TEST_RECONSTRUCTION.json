@@ -1,0 +1,158 @@
+{
+  "schema": "reef_kart_post_test_reconstruction/1",
+  "status": "CANDIDATE",
+  "source_revision": "897a3a2a3281cf6ab0fc6717de23914c302c402a",
+  "original_delivery": "docs/handoffs/codex_reef_kart_art_2026-11-03/ART_DELIVERY.json",
+  "finding": "MA-OPERA-014",
+  "baseline_review": {
+    "valid_playthroughs": 100,
+    "reviewed_rendered_checkpoints": 700,
+    "gate_peak_base_gap_px": 164.089447021484,
+    "runs_with_visible_post_pop": 20,
+    "center_finish_post_views": 30,
+    "busy_pickup_depletions_in_11_replays": 26,
+    "summary_sha256": "2250105738d2c42626c153d89bc0547200f2816051995b61b27d57444b316c6a"
+  },
+  "implementation": {
+    "gate": "Project each side at its own depth. Subdivide for perspective UVs, clip near sections and fade them before they obscure the chase view. Three gate assets are rebuilt from the same painting at doubled output dimensions and imported with mipmaps.",
+    "backdrop": "Source water and eight distant painted reef formations, plus five distinct native reef cutouts in 16 fixed track positions. Ground contact shadows reinforce placement.",
+    "item_sources": "A source goes on cooldown only when a kart with an empty slot starts an item roll. Overlapping sources remain available after the first eligible pickup."
+  },
+  "hash_basis": "Committed Git blob bytes; LF for text.",
+  "files": [
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/pearl_start_arch.png",
+      "bytes": 304059,
+      "sha256": "6bf16e5ba07e78dbcd846c8880ea55519a03d778764464a238e384a5af980952"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/pearl_start_arch.provenance.json",
+      "bytes": 966,
+      "sha256": "9c7ace2bb3eb6be29a72fec593db93989243666b01070c179e70496d8264ff5c"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/pearl_arch.png",
+      "bytes": 252556,
+      "sha256": "674f6b1cb180bb32ad6bfc5cd4ff72fb8b57e178ae04c38812dd9bd5acf8d62f"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/pearl_arch.provenance.json",
+      "bytes": 814,
+      "sha256": "04c27c38f3b9980abafeff10f14bcf9968da3e6586c722cb70da29cf2756619f"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/ribbon_arch.png",
+      "bytes": 317965,
+      "sha256": "791f5e258dd022bfd927ceb57abd0d1f2c3f4445d711e502e212a350eeab7105"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/ribbon_arch.provenance.json",
+      "bytes": 896,
+      "sha256": "09035fd393c8db21d8eeab73cfd38b2f115dd687430a54a1d636b2f703e66e83"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/reef_fan.png",
+      "bytes": 158544,
+      "sha256": "b6070d9783e0efd0f0d5a2917c38b9252970bfa194164a00de2473321033512a"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/reef_fan.provenance.json",
+      "bytes": 777,
+      "sha256": "47a02726099f0056014a0127a0f5e65df28cac107b71f7a89cda5dc668748a44"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/reef_shell_terrace.png",
+      "bytes": 81984,
+      "sha256": "7f9e81dff440ddd7f599de0fa4cebcb9bac6301f6027a340ee139a11954052b4"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/reef_shell_terrace.provenance.json",
+      "bytes": 794,
+      "sha256": "92847fbfaa5a1d254f4207b8b2d16ae8aa4ab6d67c00907a3a8c8084a8d69d1a"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/reef_blue_shelf.png",
+      "bytes": 70377,
+      "sha256": "66d0574233b368b84a03d59b47cd0a843f73a9badf1c07747ed31c9dd9342eca"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/reef_blue_shelf.provenance.json",
+      "bytes": 751,
+      "sha256": "e1ebf9bed0cc86cbfe8dba3b61e62bbc89568f66a892cae24d606d87d5a05791"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/reef_pearl_garden.png",
+      "bytes": 86926,
+      "sha256": "00b9d208d67d8fab64a37648503c71b1db096370c68a9ae71bf21ff6d7cab0d4"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/reef_pearl_garden.provenance.json",
+      "bytes": 761,
+      "sha256": "78a2dc6033b37ef698bba77d0a3bfca8ffed127196956c1e839fed198dde35a0"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/reef_coral_ledge.png",
+      "bytes": 67508,
+      "sha256": "eff3626c56654778eb96efbd8bac82694dd272b9af2eea7e188efcfe65ec7cd7"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/reef_coral_ledge.provenance.json",
+      "bytes": 768,
+      "sha256": "1ae66901a10920e1172b151a1220a9668fb31b3b56327d8267e501e8d770d30b"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/skyline.png",
+      "bytes": 596042,
+      "sha256": "6b5346b9c4a89b8bc7e203845d5ab61067048888f6b5b9f0f205f56c5e5c1ab8"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/skyline.provenance.json",
+      "bytes": 909,
+      "sha256": "605f4341e906f3931d1411037c3268810659665eee7d6d1b907ccd5d5cf94150"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/pearl_start_arch.png.import",
+      "bytes": 994,
+      "sha256": "8b7ae42a2515f95aaf0368c1754318d10389e9bef3c950a2813fa69b0c256a09"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/pearl_arch.png.import",
+      "bytes": 976,
+      "sha256": "fbc584eb362f3ecbea89c61b6ca15db301bad9052f5c0537a896b96e8eb15d56"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/ribbon_arch.png.import",
+      "bytes": 979,
+      "sha256": "263ed61ae2d2d092eb400308dd10e329a908e22aa03a98eaa13f4f5bc6eaac36"
+    },
+    {
+      "path": "docs/handoffs/codex_reef_kart_art_2026-11-03/POST_TEST_MOBILE_REVIEW.jpg",
+      "bytes": 378898,
+      "sha256": "0b230367bf80c7fc914f9a63c32abd2d3b7dcc7354108a403eedc373a586c1a9"
+    }
+  ],
+  "acceptance": "Candidate. Desktop evidence is separate from Lenovo Tab M11 performance, child play and owner acceptance.",
+  "validation": {
+    "engine": "Godot 4.7.2-stable official ed1daf0bf",
+    "focused_racer_checks": 45,
+    "focused_racer_log_sha256": "7efbb79d0ccf29d8f23601746802434276085bf1f7c5032f5b3e4f241fa9a516",
+    "replay": {
+      "completed": 100,
+      "imp_restarts": 39,
+      "pearls_preserved": true,
+      "stalls": 0,
+      "source_depletions_while_item_busy": 0,
+      "log_shas": [
+        "8db8e49a51ea96194f10356d3b67f965217bd0107e8c2b7876b906ee554ce986",
+        "aaf6099446ca50523a2cf4bbb1b85853e2bc78ff6080e65e3be46eab1261de24"
+      ],
+      "note": "The offscreen desktop driver lost input in one run. The repeatable logic replay completed all seeds headlessly in two processes. Desktop before/after uses the real Mobile renderer and the published baseline captures."
+    },
+    "desktop_mobile_review": "docs/handoffs/codex_reef_kart_art_2026-11-03/POST_TEST_MOBILE_REVIEW.jpg",
+    "full_project_suite": {
+      "trusted_probes_passed": 82,
+      "exit": 0,
+      "log_sha256": "6c66b46bdd251d7e2de452360e13488950f399f3510c2dd2ee552076177e26b0"
+    }
+  }
+}

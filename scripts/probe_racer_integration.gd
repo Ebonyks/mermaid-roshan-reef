@@ -71,6 +71,7 @@ func _run() -> void:
 	_check_fingers_and_brake()
 	_check_pearls()
 	_check_items()
+	_check_busy_pickups()
 	_check_wrong_way()
 	_check_imp_contest()
 	_check_tie()
@@ -314,6 +315,32 @@ func _check_items() -> void:
 	check("steering into a gem buoy pops its orb and deals an item",
 		reached and "item_roll" in events
 		and float(engine.track.buoys[0]["respawn_t"]) > 0.0)
+	s.free()
+
+
+func _check_busy_pickups() -> void:
+	var s := surface()
+	var engine := s._engine
+	var pl: Dictionary = engine._pl
+	var a: Dictionary = engine.track.bubbles[0]
+	var b: Dictionary = engine.track.bubbles[1]
+	pl["pos"] = (a["pos"] as Vector2).lerp(b["pos"] as Vector2, 0.5)
+	pl["item"] = "sparkle"
+	engine._contact_features(pl, STEP)
+	check("held items leave both overlapping bubbles available",
+		float(a["respawn_t"]) == 0.0 and float(b["respawn_t"]) == 0.0 and "item_roll" not in events)
+	pl["item"] = ""
+	pl["pending"] = "zoom"
+	pl["roulette_t"] = 0.6
+	engine._contact_features(pl, STEP)
+	check("a rolling item leaves both bubbles available",
+		float(a["respawn_t"]) == 0.0 and float(b["respawn_t"]) == 0.0 and "item_roll" not in events)
+	pl["pending"] = ""
+	pl["roulette_t"] = 0.0
+	engine._contact_features(pl, STEP)
+	check("one overlapping pickup goes on cooldown for one new roll",
+		float(a["respawn_t"]) > 0.0 and float(b["respawn_t"]) == 0.0
+		and events.count("item_roll") == 1)
 	s.free()
 
 

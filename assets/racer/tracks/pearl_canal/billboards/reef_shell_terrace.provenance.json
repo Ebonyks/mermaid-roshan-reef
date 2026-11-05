@@ -1,0 +1,20 @@
+{
+  "status": "CANDIDATE",
+  "output": "assets/racer/tracks/pearl_canal/billboards/reef_shell_terrace.png",
+  "dimensions": [
+    257,
+    139
+  ],
+  "sha256": "7f9e81dff440ddd7f599de0fa4cebcb9bac6301f6027a340ee139a11954052b4",
+  "sources": [
+    {
+      "path": "assets_src/imagegen/opera_codex_2026-08-02/native/world_racer_native.png",
+      "sha256": "d7a7cba283c0f06c7159949d63f1ca345ee4938c63374ec43bebc7c78e13deda"
+    }
+  ],
+  "license": "Project-owned original; inherit source terms in ASSET_LICENSES.md.",
+  "operations": [
+    "Lower-right warm clam-and-shell terrace with surrounding purple rocks; crop retains visible foreground overlap.",
+    "Native-size antialiased alpha isolation from the canal painting. The engine anchors the visible base on a fixed course position."
+  ]
+}
