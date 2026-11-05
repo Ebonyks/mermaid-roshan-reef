@@ -11,8 +11,8 @@
       "npm_package": "@satelliteoflove/godot-mcp@4.1.11",
       "npm_integrity": "sha512-XYAPURo4Yyw7eOijZ15fyrf21hbFi+Dw+lO2xELvPQ1F2QBo6ZiZKzQQw9yF5jruiIJ4fnP5sPdt0lpKHQQedw==",
       "license": "MIT",
-      "vendored_from": "godot/addons/godot_mcp at the tag (byte-identical to the npm package's addon/ folder) except the one local patch below; upstream test/ folder omitted; repository LICENSE copied in; editor .uid sidecars not tracked per .gitignore",
-      "role": "Editor plugin + WebSocket bridge (127.0.0.1:6550) for the godot-mcp MCP server; MCPGameBridge autoload returns early unless EngineDebugger is active, so it is inert in normal phone launches",
+      "vendored_from": "godot/addons/godot_mcp at the tag (byte-identical to the npm package's addon/ folder) except the two local patches below; upstream test/ folder omitted; repository LICENSE copied in; editor .uid sidecars not tracked per .gitignore",
+      "role": "Editor plugin + WebSocket bridge (127.0.0.1:6550) for the godot-mcp MCP server; MCPGameBridge autoload frees itself unless EngineDebugger is active, so it is absent from normal phone launches and SceneTree probes",
       "files": {
         "addons/godot_mcp/LICENSE": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
         "addons/godot_mcp/command_router.gd": "a217feb1c123e5ea1410c3776e5531af39e8fd4d2881338cf1e3f25421ab27cf",
@@ -44,7 +44,7 @@
         "addons/godot_mcp/game_bridge/key_names.gd": "ebd17a51b81ba28ce5e2103c37340df52926851d1d8a6d980652ade56c1a5679",
         "addons/godot_mcp/game_bridge/mcp_exec_guard.gd": "4a70542248f6a4028add00a1cfaaa217846deece6e1bc4631158deb5ea42db8c",
         "addons/godot_mcp/game_bridge/mcp_frame_profiler.gd": "149d11b070e9ca6d9d49ccfb5ce6bce9e39d7daa2ead995afcd70ea6c0446d1b",
-        "addons/godot_mcp/game_bridge/mcp_game_bridge.gd": "d6c73af709652ec1c0244cd958d4dddeda96ae30db9e0ff581ee187b0bfc17a9",
+        "addons/godot_mcp/game_bridge/mcp_game_bridge.gd": "4e0cf07232468e51627d9ce240902e32fc0c1fef7a45a280df517dde2ae1c727",
         "addons/godot_mcp/game_bridge/mcp_runtime_state_sampler.gd": "309922cc019504e5420bf32b9a452d0d02f83a110968d9c782c4191844922d89",
         "addons/godot_mcp/game_bridge/mesh_validator.gd": "1df3d00bda630874ce885752b7877591f8285aa43e1583b19c84990d314b2717",
         "addons/godot_mcp/game_bridge/onscreen.gd": "595d7908d7066ef47a14b39b2d44c33384ec44d5e805d0f4b15d7516975d4357",
@@ -59,6 +59,11 @@
           "file": "addons/godot_mcp/plugin.gd",
           "upstream_sha256": "95e3b275d461f5af9381bcd2c6be705e28a5ff97904682512c9aef2d75d955ef",
           "reason": "_ensure_bind_settings() saves project.godot only when it added a setting; upstream saved unconditionally on every editor open, which rewrote project.godot and dropped its Godot-baseline header comment required by tools/audit_godot_baseline.py"
+        },
+        {
+          "file": "addons/godot_mcp/game_bridge/mcp_game_bridge.gd",
+          "upstream_sha256": "d6c73af709652ec1c0244cd958d4dddeda96ae30db9e0ff581ee187b0bfc17a9",
+          "reason": "_ready() calls queue_free() instead of only returning when EngineDebugger is inactive; upstream left an inert node processing every frame, and as root's last child it broke the seven SceneTree probes that add main.tscn in _init() and then read root.get_child(root.get_child_count() - 1) (CI run 41975471867 attempt 2: probe_fetch, probe_verbs, probe_carry, probe_grotto, probe_flow)"
         }
       ]
     }
