@@ -6931,5 +6931,39 @@
     "child": null,
     "owner": null,
     "current_Dev_at_snapshot": "94c2a91512d2216deb26651f670469432c8f4242"
+  },
+  "immutable_r142_source_payload_revision": "5545a4ea5eb0498b514a7a59ae7b839fe8e2b410",
+  "r142_remote_verification": "r142_bubble_duel_source/REMOTE_VERIFICATION.json",
+  "current_Dev_delivery_snapshot": {
+    "checked_at_utc": "2026-11-05T13:45:03.295188+00:00",
+    "Dev_CI": {
+      "id": 42025443895,
+      "head_sha": "94c2a91512d2216deb26651f670469432c8f4242",
+      "head_branch": "dev",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "Android": {
+      "id": 42037578794,
+      "head_sha": "ff68f9550c28f7d979896d5c84d1214264c29165",
+      "head_branch": "master",
+      "status": "in_progress",
+      "conclusion": null,
+      "event": "workflow_run"
+    },
+    "Android_jobs": [
+      {
+        "id": 127279618691,
+        "name": "build",
+        "status": "in_progress",
+        "conclusion": null,
+        "active": [
+          "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5"
+        ]
+      }
+    ],
+    "Android_source_limit": "Workflow-run head is the workflow definition on master, not proof of APK input. Expected triggering Dev94; checkout/log/packaged source binding still unverified.",
+    "accepted_removed": 0,
+    "new_art_or_Dev_artifact_credit": 0
   }
 }

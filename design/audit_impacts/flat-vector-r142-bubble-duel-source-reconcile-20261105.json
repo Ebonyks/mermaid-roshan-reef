@@ -47,6 +47,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/GATE_RECEIPT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/MANIFEST.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/SOURCE_RUNTIME_EVIDENCE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/SOURCE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json",
@@ -79,8 +80,8 @@
     },
     {
       "command": "Published manifest and every required immutable file anonymously verified",
-      "result": "PENDING",
-      "evidence": "After normal canonical publication; exact revision/hash receipt retained with continuation and delivery link."
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/REMOTE_VERIFICATION.json; original130-file payload 5545a4ea5eb0498b514a7a59ae7b839fe8e2b410 verified, with identical110 source GETs retained from this turn. Final current/receipt binding separately fetched after publication."
     }
   ],
   "acceptance_gaps": "Source-only. Formal QA11 COVERAGE_GAP; full actor identity/proportions/motion/contact/seam and all routes/states, source icon alpha edges, native background coverage, font/voice authority, flat pointer/tethers/panels/meters, actual device, child and owner review remain open. Merged source remote gate and Dev delivery are separate. Whole-game denominators unknown.",
