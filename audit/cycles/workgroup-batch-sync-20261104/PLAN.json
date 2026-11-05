@@ -32,5 +32,20 @@
     "json_scan": "Live profiling identified quadratic repeated-suffix copies in the recovered JSON URL scanner. Use in-place matching with the same whitespace/colon semantics and add a structural regression control. Restart the unchanged full gate after focused tests.",
     "chapter_guide": "Source recovery applies DL-PLAN-01 through DL-PLAN-08, DL-CODE-10 and DL-CIN-16 with MA-DOC-010 retained IN_PROGRESS.",
     "draft_archive": "626 source snapshots in five independently inspected complete-document volumes."
+  },
+  "concurrent_dev_reconciliation": {
+    "dev": "8d16b9a5c8d3ada2c15b037c6701b396f33dd50d",
+    "checkpoint": "5988e751cfb463503f5fcae3c578b37207aee8d4",
+    "rules": [
+      "DL-AUTH-05",
+      "DL-AUTH-06",
+      "DL-AUTH-07",
+      "DL-QA-01",
+      "DL-QA-02",
+      "DL-ASSET-01",
+      "DL-MED-01"
+    ],
+    "scope": "Preserve concurrent R140 Dolls progress artwork, code and records. Reconcile append-only metadata, retain source-byte provenance, rerun full machine and exact-head remote gates. Canonical R140 keeps CHG-146 and the unpublished workgroup entry moves to CHG-147.",
+    "verified_input_result": "All runtime/art/validator subtree object IDs match the all82 tested checkpoint exactly. R140 production assets and code were already present byte-identically in the combined batch. Added metadata passes the unchanged artifact inspector. Runtime evidence remains directly applicable."
   }
 }

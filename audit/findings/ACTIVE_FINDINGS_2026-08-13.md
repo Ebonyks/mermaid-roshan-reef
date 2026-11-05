@@ -338,6 +338,8 @@ un-earned once Chapter 2 starts. No existing finding is closed.
 
 ## MA-VIS-006
 
+[Painted Dolls progress hearts](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/README.md) brings the archived progress states onto current source. The finding remains open.
+
 [Painted Dolls cradle focus cue](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/README.md) addresses the idle arcs. The finding remains open.
 
 [Painted Dolls safe-landing cue](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/README.md) addresses the uniform ring after a passive landing. Finding lifecycle remains open.
@@ -416,6 +418,8 @@ R124 source candidate: [painted Melody stage apron](../../docs/handoffs/codex_fl
 
 ## MA-VIS-008
 
+[Painted Dolls progress hearts](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/README.md) brings the archived progress states onto current source. The finding remains open.
+
 [Painted Dolls cradle focus cue](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/README.md) addresses the idle arcs. The finding remains open.
 
 [Painted Dolls safe-landing cue](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/README.md) addresses the uniform ring after a passive landing. Finding lifecycle remains open.
@@ -482,6 +486,8 @@ R132 source production2026-11-03: [painted Snowman coal candidate](../../docs/ha
 | history | 2026-10-04: carved from `MA-VIS-008`, repaired by Claude on the candidate from `a52f545f`, re-measured with the corrected meter; `FIXED_PENDING_VERIFICATION`. 2026-10-05: owner answers QP-1 and QP-3 applied by Claude on `356afeb9`. The castle and its caption stop drawing under story clips, `probe_day_one_story_clips` checks it (shown to fail under two mutations), and the meter was re-run. Lifecycle unchanged. 2026-10-17: owner-requested bounded visual repair from `d5e63a1e` reuses source art for water-contact trash, clear pink-float/star silhouettes, stable missed-item hands, canonical mouth-local seahorse blockage, calm shore/swimming bunnies, a stationary registered Rumi greeting and continuous painted clean water. The [impact](../../design/audit_impacts/pool-visual-repair-20261017.json) separates native Mobile diagnostics, focused/full gates and outstanding device/child/owner acceptance. QP-2a and the selected clip remain unchanged; no lifecycle closure. |
 
 ## MA-VIS-010
+
+[Painted Dolls progress hearts](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/README.md) brings the archived progress states onto current source. The finding remains open.
 
 [Painted Dolls cradle focus cue](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/README.md) addresses the idle arcs. The finding remains open.
 

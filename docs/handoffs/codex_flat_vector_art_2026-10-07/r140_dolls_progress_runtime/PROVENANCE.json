@@ -1,0 +1,129 @@
+{
+  "state": "R140_LOCAL_EXACT_ART_TRANSPLANTED_IMPORT_PENDING",
+  "stable_id": "FV-12A0922A07E6",
+  "source_revision": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+  "canonical_baseline": "ea9c8b077b5937c88a78b5fb7b511310cfc4922f",
+  "prior_art_revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+  "prior_manifest": {
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/MANIFEST.json",
+    "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+    "sha256": "97e584d0871e93364a4aa99ffbfaa02a0a21982de5bf58bddbbc97d04c10ea8c",
+    "bytes": 80408
+  },
+  "scope": "Transplant only the two archived painted progress states and the render-only Dolls pips patch onto current Dev. Keep exact count semantics, positions and independent cradle/safe-landing candidates.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-PERF-04",
+    "DL-READ-02",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14",
+    "DL-QA-15"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010"
+  ],
+  "assets": [
+    {
+      "path": "assets/dolls/progress_empty_painted.png",
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "sha256": "33f4460f116add379f27ff172363bfd43b36a3f7378e58aa4866ea9e9f3d6161",
+      "bytes": 289391
+    },
+    {
+      "path": "assets/dolls/progress_empty_painted.png.import",
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "sha256": "10801e72e529f9e061fb0ca6ecf0f9fe725f4c4effc6546715e5b6c223af94d8",
+      "bytes": 984
+    },
+    {
+      "path": "assets/dolls/progress_filled_painted.png",
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "sha256": "c93096eebb7213bddc36bc02d770e5e5ed6eb934e8129561ae127d5f6b0f1b58",
+      "bytes": 272304
+    },
+    {
+      "path": "assets/dolls/progress_filled_painted.png.import",
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "sha256": "47b7e2f63415cd9b453a991a670214c4db8343366ab0e7b35b5aa93c9b66c60f",
+      "bytes": 988
+    }
+  ],
+  "references": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1280/06_two_owned_catches.png",
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "sha256": "3c3ae7c2c76b9c49ad0a83d38caeb99980850b43f103c8a91b07f219426c90dd",
+      "bytes": 1102527
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/frames/candidate/1280/06_two_owned_catches.png",
+      "revision": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+      "sha256": "e0c4d0e923eba841de93550633b7b9faa307b326fbbbb52bf5ebc3576698a8f1",
+      "bytes": 1097250
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/capture_progress.gd",
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "sha256": "52f068dbca6df48118509610494b962574915cc2230604d99d345b4e5f26d444",
+      "bytes": 18142
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/FRAME_REVIEW.json",
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "sha256": "c3d02d6a3e8914e8832580aeb355944a2be4b520dcc11e3f58a46e9031774376",
+      "bytes": 4182
+    }
+  ],
+  "generation_calls": 0,
+  "animation_calls": 0,
+  "previous_freeze": "Archived R119 source and original acceptance remain exact. The owner's later Dev integration direction authorizes current bounded work after exact validation.",
+  "evidence_required": [
+    "Reverify two sprite blobs and imports",
+    "Compare actual current runtime at zero, one, two and three catches",
+    "Check original save/teardown and original idle and safe feedback",
+    "Full Godot 4.7.2 machine gates, exact source CI, immutable GitHub manifests",
+    "Separate Dev, QA11, device, child and owner"
+  ],
+  "worktree": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-dolls-safe-landing-20261104\\project",
+  "branch": "codex/flat-vector-dolls-progress-integration-20261105",
+  "handoff": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime",
+  "impact": "design/audit_impacts/flat-vector-dolls-progress-integration-20261105.json",
+  "candidate_controller_sha256": "31a15f83048c87b2806dfc8df13386585b1a865f1b69704f3fdb0f4f769be482",
+  "runtime_paths": [
+    "scripts/games/dolls.gd",
+    "assets/dolls/progress_empty_painted.png",
+    "assets/dolls/progress_empty_painted.png.import",
+    "assets/dolls/progress_filled_painted.png",
+    "assets/dolls/progress_filled_painted.png.import"
+  ],
+  "provenance": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/PROVENANCE.json",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "validation_recovery": {
+    "state": "TERMINAL_INITIAL_STATIC_INTERRUPTED_NO_TRUSTED_PROBES",
+    "reason": "Disk exhausted during static tests. Initial runner bound an older checkout; corrected before the actual-candidate static rerun.",
+    "at_utc": "2026-11-05T05:43:18.432048+00:00",
+    "old_static_log_sha256": "c92daccba92170a1fb3ed3946e336d1e79c995bf5f50b135e5a88689569d3386",
+    "corrected_prefix_sha256": "589445b3ee349f961261214b08bf2fcc819fb29b4cb9fdda55c61ee8b0f730df",
+    "actual_worktree": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-dolls-safe-landing-20261104\\project",
+    "free_bytes_at_recovery": 88933642240
+  }
+}

@@ -1,7 +1,7 @@
 {
   "id": "workgroup-batch-ci-recovery-20261104",
   "baseline": "65c63ae849b091e3fb91cdbeaf1e2837e10778fe",
-  "scope": "Owner-authorized checkout repair and reconciliation of the already published recent-updates batch with current dev. Preserve source history and later dev changes. Windows deterministic-music checkout includes its tools, score sources and output catalog. Linux retains full commit history while fetching historical blobs on demand. Reconcile append-only evidence/ledger rows and identical owner decisions, preserve current executable harness mode and later R135-R139 dev artwork. Reconcile the preserved local chapter-guide draft from a0bb2cf4, including the canon/book-source/map documents and chapter static checks. Retain newer source-specific receipts, the open-dev policy and existing failed-run history. Publish a compact source-labelled archive of 626 remaining local or separately published document snapshots, preserving draft status and original workspaces. Bound the recovered JSON URL scan to in-place suffix matching after live profiling identified quadratic copying on the combined provenance data. Preserve classifications and every gate limit.",
+  "scope": "Owner-authorized checkout repair and reconciliation of the already published recent-updates batch with current dev. Preserve source history and later dev changes. Windows deterministic-music checkout includes its tools, score sources and output catalog. Linux retains full commit history while fetching historical blobs on demand. Reconcile append-only evidence/ledger rows and identical owner decisions, preserve current executable harness mode and later R135-R139 dev artwork. Reconcile the preserved local chapter-guide draft from a0bb2cf4, including the canon/book-source/map documents and chapter static checks. Retain newer source-specific receipts, the open-dev policy and existing failed-run history. Publish a compact source-labelled archive of 626 remaining local or separately published document snapshots, preserving draft status and original workspaces. Bound the recovered JSON URL scan to in-place suffix matching after live profiling identified quadratic copying on the combined provenance data. Preserve classifications and every gate limit. Reconcile concurrent dev8d16b9a5 painted Dolls progress, retain its tested implementation and native evidence, and move the unpublished workgroup changelog label to CHG-147 because canonical CHG-146 now belongs to R140.",
   "rules": [
     "DL-AUTH-05",
     "DL-AUTH-06",
@@ -21,7 +21,9 @@
     "DL-PLAN-07",
     "DL-PLAN-08",
     "DL-CODE-10",
-    "DL-CIN-16"
+    "DL-CIN-16",
+    "DL-ASSET-01",
+    "DL-MED-01"
   ],
   "findings": [
     "MA-DOC-010"
@@ -152,18 +154,24 @@
     "audit/cycles/workgroup-batch-sync-20261104/verification/final-chapter-contract.log",
     "audit/cycles/workgroup-batch-sync-20261104/verification/final-development-coverage.log",
     "audit/cycles/workgroup-batch-sync-20261104/verification/final-document-authority.log",
-    "audit/cycles/workgroup-batch-sync-20261104/verification/whitespace-review.json"
+    "audit/cycles/workgroup-batch-sync-20261104/verification/whitespace-review.json",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/DEV_RECONCILIATION_CHECK.json",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/final-reconciliation-game2d.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/reconciliation-chapter-contract.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/reconciliation-development-coverage.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/reconciliation-document-authority.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/reconciliation-script-gates.log"
   ],
   "validation": [
     {
       "command": "python -B tools/audit_document_authority.py",
       "result": "PASS",
-      "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/final-document-authority.log. 914/914 documents, 75 active findings in 78 records."
+      "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/reconciliation-document-authority.log. 916/916 documents. Original 914/914 receipt retained."
     },
     {
       "command": "python -B tools/audit_development.py --base auto",
       "result": "PASS",
-      "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/final-development-coverage.log. All changed project paths covered against dev65c63ae."
+      "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/reconciliation-development-coverage.log. Full changed-file coverage passes against the selected dev65c63ae base, which includes the concurrent dev changes."
     },
     {
       "command": "scripts/ci.sh with approved Godot 4.7.2",
@@ -229,6 +237,21 @@
       "command": "Additional whole-batch Git whitespace review",
       "result": "FAIL",
       "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/whitespace-review.json. Preserved native CRLF/source-evidence and upstream EOF blank lines. This additional review does not change any required gate or source hash."
+    },
+    {
+      "command": "Full combined validation after dev8d16b9a5 reconciliation",
+      "result": "PASS",
+      "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/DEV_RECONCILIATION_CHECK.json proves all tested runtime, art and validator subtrees remain exact. New metadata individually inspected under unchanged model/coverage/archive rules. Original all82/158-test evidence stays bound to these same objects. Official final model and authority/coverage gates are separately rerun."
+    },
+    {
+      "command": "Final reconciled official 2D regression gate",
+      "result": "PASS",
+      "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/final-reconciliation-game2d.log. Exact NO_REGRESSION, master-audit status remains UNSATISFIED."
+    },
+    {
+      "command": "Reconciled changed-script parser and inference gates",
+      "result": "PASS",
+      "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/reconciliation-script-gates.log. 172 changed scripts against current dev. The original 173-script checkpoint is also preserved."
     }
   ],
   "acceptance_gaps": "Static-book, prototype, source-only, art/motion, formal QA11, actual-device, child and owner statuses retain their source-specific scopes. The master audit remains UNSATISFIED.",
@@ -258,5 +281,10 @@
       "lesson": "The chapter task table and its compact authority-reference footer share a checked boundary. Preserve the footer and keep dated receipts outside that boundary.",
       "write_back": "audit/MASTER_AUDIT_2026-08-09.md#development-task-index"
     }
-  ]
+  ],
+  "integration_reconciliation": {
+    "dev": "8d16b9a5c8d3ada2c15b037c6701b396f33dd50d",
+    "previous_tested_checkpoint": "5988e751cfb463503f5fcae3c578b37207aee8d4",
+    "scope": "Preserve current R140 art and original source records alongside the recent-updates batch. Reconcile append-only ledgers/provenance and keep the stable task index compact."
+  }
 }

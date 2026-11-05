@@ -1398,3 +1398,6 @@ The bounded 2026-11-01 [Chapter Two startup watchdog prerequisite](audit_impacts
 | `audit/cycles/chapter-guide-20261031/README.md` | 🔵 | `SUPPORTING_CURRENT`; review entry and package dispositions for MA-DOC-010 implementation. Machine evidence and owner/source gaps remain separate; no runtime or terminal acceptance. |
 
 | `audit/cycles/workgroup-batch-sync-20261104/draft_documents/README.md` | ⚪ | SOURCE_ARCHIVE / REVIEW_PENDING. Source-labelled workgroup document snapshots with original paths, heads, review states and byte hashes. Canonical authority follows each source classification. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/README.md` | 🟣 | SUPPORTING_CURRENT / CANDIDATE. Exact R119 progress states on current Dev-based source. |
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_reconcile/README.md` | 🟣 | SUPPORTING_CURRENT / VERIFIED_MERGE_CONTEXT. Reconciles tested R140 with current Dev policy and audit. |

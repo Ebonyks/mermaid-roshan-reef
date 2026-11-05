@@ -2474,3 +2474,12 @@ CHG-107 publication reconciliation2026-10-19: topic256e1f36 passes exact remoteP
 - CHG-133 / [R127 whole painted Melody progress pips](../docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/README.md): FV-E6549378F626,21 complete state/color pictures; candidate192 native checks and complete current all82/static/analyzer/2D gates pass. MA-VIS-006/008 remain CONFIRMED_OPEN; formal/device/child/owner/global evidence separate and Dev frozen. [Impact](../design/audit_impacts/flat-vector-melody-progress-pips-20261102.json).
 
 2026-11-05 workgroup reconciliation preserves the chapter draft and earlier failed receipts while validating its current combined inputs. [Bounded machine evidence](cycles/workgroup-batch-sync-20261104/verification/INPUT_BINDING.json) supplies 158 focused tests and all 82 trusted-probe results. MA-DOC-010 remains IN_PROGRESS for owner review and founding-source attribution. Exact-head remote CI controls integration. The master audit remains UNSATISFIED.
+
+### Painted Dolls progress receipts from current dev
+
+The two new R140 receipt rows from dev8d16b9a5 are retained here during workgroup reconciliation. Earlier source receipts retain their chapter-history route.
+
+| Receipt | Entry | Scope |
+|---|---|---|
+| Painted Dolls progress hearts | [Candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/README.md) | [Impact](../design/audit_impacts/flat-vector-dolls-progress-integration-20261105.json); exact archived art in the current Dolls route. |
+| R140 Dolls progress Dev reconciliation | [Merged context](../docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_reconcile/README.md) | [Impact](../design/audit_impacts/flat-vector-r140-dev-reconcile-20261105.json); tested runtime retained with current Dev policy and audit context. |
