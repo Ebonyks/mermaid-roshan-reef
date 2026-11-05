@@ -20803,6 +20803,9 @@ Derived from the project-owned approved v5 panorama, SHA-256 `017532ae864e534d9b
 
 ## Sky Lagoon stationary item-motion correction - 2026-11-05
 
+Revision2 preserves all identity sources and the flower GIF. Only the existing window light timing is refined with a cyclic fade; the original revision remains at immutable commit76eb6da3 with its manifest preserved in the packet. No new item art or license is introduced.
+
+
 Existing project identity stills and approved v5 background only. Review-only local 2D derivatives; no prior rejected animation frame reused. Full source paths, hashes, acceptance scopes and modifications are in `assets_src/sky_lagoon/item_motion_demo_20261105/derivation.json` and the frozen manifest. Original licensing remains in force.
 
 - `assets_src/sky_lagoon/item_motion_demo_20261105/bellflower.aseprite` - Inherits the project-owned source license and provenance. Source: `assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/native/cream-bellflower.png`. URL: https://github.com/Ebonyks/mermaid-roshan-reef/tree/5003d421b0de8771a59eafdcb2aadffd818a7246. Modifications: Non-destructive source-still isolation/normalization, declared local 2D keyed deformation or layer articulation, lossless atlas/editable-master export, or GIF/video review composite; exact role and hashes in packet manifest. Review candidate only; no runtime or creative acceptance.

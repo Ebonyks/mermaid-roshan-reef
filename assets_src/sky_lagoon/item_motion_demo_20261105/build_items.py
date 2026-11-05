@@ -63,7 +63,7 @@ def frame(im,k,i):
  if k=='glass':
   a=np.asarray(im).copy();rgb=a[:,:,:3].astype(float)
   mask=(((X-128)/24)**2+((Y-112)/36)**2<1)&(Y<153)
-  light=np.exp(-((X-(108+40*(1-math.cos(t))/2))/9)**2)*mask
+  light=np.exp(-((X-(108+40*(1-math.cos(t))/2))/9)**2)*mask*math.sin(t/2)**2
   rgb+=light[:,:,None]*np.array([32,38,20]);a[:,:,:3]=np.uint8(np.clip(np.rint(rgb),0,255));return Image.fromarray(a)
  raise ValueError(k)
 
@@ -123,10 +123,10 @@ def main():
  gif(P/'flowers-closeup.gif',flowers)
  gif(P/'fixed-camera-items.gif',[im.resize((1280,426),Image.Resampling.LANCZOS) for im in worlds]);gif(P/'individual-items.gif',[im.resize((768,720),Image.Resampling.LANCZOS) for im in boards])
  worlds[0].save(P/'fixed-camera-rest.png');worlds[10].save(P/'fixed-camera-breeze.png');boards[10].save(P/'item-board.png')
- lua=['local root=app.params["packet"]']
+ lua=['local root=app.params["packet"]','local only=app.params["only"]','local built=0']
  for k in TITLES:
-  lua += [f'do local sheet=Image{{fromFile=root.."/demo_project/items/{k}.png"}}','local s=Sprite(256,256,ColorMode.RGB)',f'local layer=s.layers[1];layer.name="{k}"','for i=0,39 do if i>0 then s:newEmptyFrame() end','local im=Image(256,256,ColorMode.RGB);im:drawImage(sheet,Point(-(i%8)*256,-math.floor(i/8)*256))','s:newCel(layer,i+1,im,Point(0,0));s.frames[i+1].duration=0.1 end',f's:saveAs(root.."/{k}.aseprite");s:close() end']
- lua.append('local f=io.open(root.."/evidence/aseprite-build.txt","w");f:write("Aseprite "..tostring(app.version).."; nine masters; 360 cels at 100ms");f:close()')
+  lua += [f'if only==nil or only=="{k}" then',f'do local sheet=Image{{fromFile=root.."/demo_project/items/{k}.png"}}','local s=Sprite(256,256,ColorMode.RGB)',f'local layer=s.layers[1];layer.name="{k}"','for i=0,39 do if i>0 then s:newEmptyFrame() end','local im=Image(256,256,ColorMode.RGB);im:drawImage(sheet,Point(-(i%8)*256,-math.floor(i/8)*256))','s:newCel(layer,i+1,im,Point(0,0));s.frames[i+1].duration=0.1 end',f's:saveAs(root.."/{k}.aseprite");s:close() end','built=built+1 end']
+ lua.append('local f=io.open(root.."/evidence/aseprite-build.txt","w");f:write("Aseprite "..tostring(app.version).."; masters_built="..built.."; 40 cels each at 100ms");f:close()')
  (P/'build_masters.lua').write_text('\n'.join(lua)+'\n')
  write(P/'derivation.json',{'status':'CANDIDATE_DEMO_ONLY','owner_correction':'2026-11-05: scrolling preview rejected; stationary item motion required','source_files':sources,'items':entries,'old_rejected_motion_frames_used':0,'generated_calls':0,'paid_cost':0,'method':'Local source-still 2D deformation and layer articulation. No generated new artwork. No character acting.','gaps':{'swing':'NOT_ANIMATED: accepted fore/aft views and changing seat surfaces missing.','gate':'Dark flat interior is a declared unpainted gap.','fir':'Standalone board only; excluded from panorama to preserve mountain path.','integration':'Illustrative demo foreground positions; production sockets unchanged.'},'tests':{'periodic_endpoint':'PASS','plant_support_bands_exact':'PASS','no_canvas_clipping':'PASS','source_bytes_unchanged':'PASS','camera_translation_pixels':0},'build_seconds':round(time.perf_counter()-start,3),'acceptance':'Human full-speed/frame-step, owner, device and child review pending'})
  print('ITEM_BUILD PASS: nine loops, stationary scene, zero rejected animation frames',flush=True)

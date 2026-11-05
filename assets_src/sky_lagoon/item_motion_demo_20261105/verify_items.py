@@ -1,12 +1,13 @@
 from pathlib import Path
 from hashlib import sha256
-import json, math, subprocess
+import json, math, subprocess, argparse
 import numpy as np
 from PIL import Image
 P=Path(__file__).resolve().parent
 R=P.parents[2]
 def sha(p):return sha256(p.read_bytes()).hexdigest()
 def main():
+ parser=argparse.ArgumentParser();parser.add_argument('--production-base',default='5003d421b0de8771a59eafdcb2aadffd818a7246');args=parser.parse_args()
  d=json.loads((P/'derivation.json').read_text());entries=json.loads((P/'demo_project/items.json').read_text())
  for e in d['source_files'].values():assert sha(R/e['path'])==e['sha256'],e['path']
  cels=0
@@ -36,7 +37,8 @@ def main():
   assert not diff[~mask].any(),('background/camera movement',i,int(diff[~mask].sum()))
   changed.append(int(diff.sum()))
  assert max(changed)>1000
- runtime_diff=subprocess.check_output(['git','diff','5003d421b0de8771a59eafdcb2aadffd818a7246','--name-only','--','scripts','scenes','assets','project.godot'],cwd=R,text=True).strip();assert not runtime_diff
- receipt={'result':'PASS','source_files_unchanged':len(d['source_files']),'master_and_atlas_cels_exact_rgba':cels,'master_frame_ms':100,'all_gif_loops_ms':4000,'root_band_pixels':'exact in all plant frames','clipped_border_pixels':0,'engine_frames_checked':40,'background_pixels_checked_per_frame':int((~mask).sum()),'changed_background_pixels':0,'max_changed_item_pixels':max(changed),'camera_translation_pixels':0,'atlas_base_rgba_mib':144,'native_background_base_rgba_mib':48,'device_memory_timing':'PENDING; these are base texture estimates, not GPU/device measurements','unchanged_production_ci':'https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41998350733','human_device_child_owner_acceptance':'PENDING'}
+ runtime_diff=subprocess.check_output(['git','diff',args.production_base,'--name-only','--','scripts','scenes','assets','project.godot'],cwd=R,text=True).strip();assert not runtime_diff
+ glass=Image.open(P/'demo_project/items/glass.png').convert('RGBA');g0=np.asarray(glass.crop((0,0,256,256))).astype(int);g39=np.asarray(glass.crop((1792,1024,2048,1280))).astype(int);seam_jump=int(np.abs(g0-g39).max());assert seam_jump<=2,('window glint seam',seam_jump)
+ receipt={'result':'PASS','production_baseline':subprocess.check_output(['git','rev-parse',args.production_base],cwd=R,text=True).strip(),'window_glint_seam_max_channel_jump':seam_jump,'source_files_unchanged':len(d['source_files']),'master_and_atlas_cels_exact_rgba':cels,'master_frame_ms':100,'all_gif_loops_ms':4000,'root_band_pixels':'exact in all plant frames','clipped_border_pixels':0,'engine_frames_checked':40,'background_pixels_checked_per_frame':int((~mask).sum()),'changed_background_pixels':0,'max_changed_item_pixels':max(changed),'camera_translation_pixels':0,'atlas_base_rgba_mib':144,'native_background_base_rgba_mib':48,'device_memory_timing':'PENDING; these are base texture estimates, not GPU/device measurements','historical_topic_ci':'https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41998350733','human_device_child_owner_acceptance':'PENDING'}
  (P/'evidence/machine-verification.json').write_text(json.dumps(receipt,indent=2)+'\n');print('ITEM_PACKET_VERIFY PASS',json.dumps(receipt))
 if __name__=='__main__':main()

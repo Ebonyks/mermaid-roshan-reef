@@ -28,7 +28,7 @@
     "MA-CHILD-001"
   ],
   "id": "sky-lagoon-item-motion-correction-20261105",
-  "scope": "Owner correction: reject the scrolling preview as evidence of item animation. Produce a fixed-camera source-only garden/playground demo with new isolated item loops from existing identity stills. No rejected motion frames, redesigned items, production route or protected-original changes. Swing remains an explicit missing-view gap unless real fore-and-aft surface changes can be sourced.",
+  "scope": "Owner correction: reject the scrolling preview as evidence of item animation. Produce a fixed-camera source-only garden/playground demo with new isolated item loops from existing identity stills. No rejected motion frames, redesigned items, production route or protected-original changes. Swing remains an explicit missing-view gap unless real fore-and-aft surface changes can be sourced. Revision2 corrects the agent-found window glint hard reset; flower GIF and eight other editable masters remain byte-identical.",
   "baseline": "5003d421b0de8771a59eafdcb2aadffd818a7246",
   "files": [
     "ASSET_LICENSES.md",
@@ -75,6 +75,7 @@
     "assets_src/sky_lagoon/item_motion_demo_20261105/evidence/aseprite-build.txt",
     "assets_src/sky_lagoon/item_motion_demo_20261105/evidence/aseprite-verification.json",
     "assets_src/sky_lagoon/item_motion_demo_20261105/evidence/aseprite-version.txt",
+    "assets_src/sky_lagoon/item_motion_demo_20261105/evidence/ci-42066798727-attempt1.log",
     "assets_src/sky_lagoon/item_motion_demo_20261105/evidence/flower-frame-step.jpg",
     "assets_src/sky_lagoon/item_motion_demo_20261105/evidence/fresh-import-default.log",
     "assets_src/sky_lagoon/item_motion_demo_20261105/evidence/import-diagnostic.log",
@@ -120,7 +121,7 @@
     "assets_src/sky_lagoon/item_motion_demo_20261105/jobs/seesaw.json",
     "assets_src/sky_lagoon/item_motion_demo_20261105/jobs/smoke.json",
     "assets_src/sky_lagoon/item_motion_demo_20261105/jobs/swing.json",
-    "assets_src/sky_lagoon/item_motion_demo_20261105/manifest.json",
+    "assets_src/sky_lagoon/item_motion_demo_20261105/prior_manifest_v1.json",
     "assets_src/sky_lagoon/item_motion_demo_20261105/README.md",
     "assets_src/sky_lagoon/item_motion_demo_20261105/record_version.lua",
     "assets_src/sky_lagoon/item_motion_demo_20261105/seesaw.aseprite",
@@ -149,7 +150,8 @@
     "assets_src/sky_lagoon/item_motion_demo_20261105/stills/smoke.png",
     "assets_src/sky_lagoon/item_motion_demo_20261105/stills/swing.png",
     "assets_src/sky_lagoon/item_motion_demo_20261105/verify_items.py",
-    "assets_src/sky_lagoon/item_motion_demo_20261105/verify_masters.lua"
+    "assets_src/sky_lagoon/item_motion_demo_20261105/verify_masters.lua",
+    "assets_src/sky_lagoon/item_motion_demo_20261105/manifest.json"
   ],
   "validation": [
     {
@@ -181,16 +183,31 @@
       "command": "Combined-branch source invariant, GDScript parser/inference and audit gates",
       "result": "PASS",
       "evidence": "Reconciled 80975b0051f6a5be29b0680e8b84e15f30d3c316. Both isolated demo scripts parse; new packet 114 frozen payload hashes and 23 bound originals match. No production/runtime/security/workflow delta from origin/dev. Current authority 919/919, active75, records78; development coverage ALL OK. Original 76eb6da3 frame evidence remains bound to unchanged packet bytes."
+    },
+    {
+      "command": "python -B assets_src/sky_lagoon/item_motion_demo_20261105/verify_items.py --production-base 80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "result": "PASS",
+      "evidence": "Revision2 machine-verification.json:360 exact RGBA cels,23 unchanged originals,40 rendered frames,626104 unchanged background pixels/frame,window rest-seam maximum jump0 (prior38),unchanged flower GIF/eight other masters. Refreshed actual Mobile controls/capture pass. No aquarium behavior, test or classifier changes."
+    },
+    {
+      "command": "Combined GitHub Probe suite at77969328",
+      "result": "FAIL",
+      "evidence": "Push run42066798727 attempt1 failed AUDIT|Tank idle rig: tanks4/sprite=true/swimming=false. Exact log evidence/ci-42066798727-attempt1.log SHA256 f5e510a4254ad6d7ba284194bdacc5b72b2894af3d060c174187d0c9c4c796bb. Parallel PR run42066799524 passed trusted-probe step. Unchanged retry requested; glint revision supersedes source. New exact-head CI required before integration. Parallel full PR run42066799524 subsequently completed success on the exact same77969328 head; this does not erase the failed push attempt. Fresh CI for revision2 remains required."
+    },
+    {
+      "command": "Revision2 document authority and development coverage",
+      "result": "PASS",
+      "evidence": "Local919/919 authority, ACTIVE75/RECORDS78; development coverage ALL OK against80975b0051f6a5be29b0680e8b84e15f30d3c316. GDScript parser/inference pass. Frozen116-file payload d44b1eacbfd3560b60595328a3c1681dab1b57aa698140c1882b4eab7bb78455."
     }
   ],
   "acceptance_gaps": "Candidate review only. Old scrolling preview owner-rejected. New exact human identity/motion/transition/seam/owner review pending. Swing not animated due missing accepted fore/aft surfaces; gate painted interior gap; illustrative placements/production overlap and lifecycle unaccepted. Base textures estimate 192MiB, actual device timing/memory/overdraw and child acceptance pending. No findings closed, no main game integration or release. Dev integration hold respected.",
-  "packet_payload_sha256": "1d268bc6572fd5b5da08afd7dba5db73e1b7c98203067b339c7f816e69c29073",
+  "packet_payload_sha256": "d44b1eacbfd3560b60595328a3c1681dab1b57aa698140c1882b4eab7bb78455",
   "integration_reconciliation": {
     "upstream": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
     "upstream_probe_run": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42055727050",
     "topic_source_probe_run": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42052258903",
     "conflict_resolution": "Preserve current upstream master/ledger/license content and append only the two topic source-packet records and license sections. Preserve the one current generated task-index boundary; do not resurrect removed historical campaign text.",
-    "source_packet_changes": "None; both frozen manifests and all source payload remain byte-identical to topic 76eb6da3.",
-    "combined_validation": "Local authority 919/919 and development coverage PASS against 80975b00; both packet payloads/original source bindings unchanged; no production/runtime/security/workflow delta from shared upstream. Exact combined-head GitHub CI remains required and tracked in PR45."
+    "source_packet_changes": "Revision2 after review: window-only cyclic fade and explicit seam gate; preserve prior manifest and failed CI log. Flower GIF and eight other masters unchanged.",
+    "combined_validation": "Fresh exact-head CI required after the glint revision. Prior combined push attempt1 failed the unchanged aquarium endpoint assertion; parallel PR trusted-probe step passed. Failure remains preserved."
   }
 }
