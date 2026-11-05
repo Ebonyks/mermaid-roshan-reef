@@ -6,6 +6,8 @@ const Race := preload("res://scripts/racer/reef_kart_race.gd")
 const TITLE_SCENE := "res://scenes/main.tscn"
 const VIEW := Vector2(1280, 720)
 const STEP := 1.0 / 60.0
+const STICK_DEADZONE := 0.10
+const PC_IMP_PACE := 0.89
 const VACANT := -1
 const KEYBOARD := -2
 const P_COLORS := [Color("#71dfeb"), Color("#ffc277")]
@@ -27,6 +29,7 @@ var _drivers: Array[int] = [0, 1]
 var _rides: Array[int] = [0, 0]
 var _ready_players: Array[bool] = [false, false]
 var _items_queued: Array[bool] = [false, false]
+var _rearm: Array[bool] = [false, false]
 var _race: ReefKartRace
 var _second_view: ReefKartRace
 var _paused := false
@@ -34,6 +37,7 @@ var _elapsed := 0.0
 var _stage: Control
 var _content: Control
 var _panel_labels: Array[Label] = []
+var _drive_labels: Array[Label] = []
 var _item_icons: Array[TextureRect] = []
 var _notice: Label
 var _notice_plate: Panel
@@ -115,7 +119,7 @@ func _pad(device: int, button: int) -> void:
 				_toggle_pause()
 			elif _paused and button == JOY_BUTTON_B and slot == 0:
 				_return_to_garage()
-			elif not _paused and button in [JOY_BUTTON_A, JOY_BUTTON_X]:
+			elif not _paused and button in [JOY_BUTTON_X, JOY_BUTTON_LEFT_SHOULDER]:
 				_items_queued[slot] = true
 		Screen.RESULT:
 			if button == JOY_BUTTON_A:
@@ -376,13 +380,15 @@ func _start_race() -> void:
 	_paused = false
 	_elapsed = 0.0
 	_items_queued = [false, false]
+	_rearm = [false, false]
 	var roster: Array = [Catalog.spec(_drivers[0], _rides[0], 0)]
 	if _count == 2:
 		roster.append(Catalog.spec(_drivers[1], _rides[1], 1))
 	else:
-		roster.append({"id": "imp", "player": false, "skill": ReefKartRace.IMP_PACE})
+		roster.append({"id": "imp", "player": false, "skill": PC_IMP_PACE})
 	_race = Race.new()
-	_race.setup({"racers": roster, "duel": _count == 2, "course": Courses.COURSES[_course_choice]})
+	_race.setup({"racers": roster, "duel": _count == 2, "course": Courses.COURSES[_course_choice],
+		"pc_handling": true})
 	var pane := 640 if _count == 2 else 1280
 	_race.use_pc_hud(pane)
 	_add_view(_race, 0, pane)
@@ -393,17 +399,24 @@ func _start_race() -> void:
 		_add_view(_second_view, 1, pane)
 		_panel(_content, Rect2(638, 0, 4, 720), Color("#b9eef0"), Color("#b9eef0"), 0)
 	_panel_labels.clear()
+	_drive_labels.clear()
 	_item_icons.clear()
 	for slot in range(_count):
 		var x := float(slot * pane)
 		_panel(_content, Rect2(x + 22, 16, 456, 64), Color("#183e61"), P_COLORS[slot])
 		_panel_labels.append(_label(_content, "", Rect2(x + 34, 19, 428, 56), 23))
+		_drive_labels.append(_label(_content, "", Rect2(x + 30, 80, 444, 34), 22, Color("#ffe6a4")))
 		var item_x := x + (float(pane) - 114.0 if slot == 1 else 30.0)
 		_panel(_content, Rect2(item_x, 609, 84, 84), Color("#183e61"), P_COLORS[slot], 42)
 		_item_icons.append(_picture(_content, null, Rect2(item_x + 12, 621, 60, 60)))
 	_notice_plate = _panel(_content, Rect2(216, 235, 848, 153), Color("#173653"), Color("#80d6ea"))
 	_notice_plate.hide()
 	_notice = _label(_content, "", Rect2(180, 229, 920, 170), 35)
+	var guide := "Left stick  Steer   ·   A / RT  Gas   ·   B / LT  Brake & reverse   ·   RB  Drift   ·   X / LB  Item"
+	if _devices[0] == KEYBOARD:
+		guide = "← / →  Steer   ·   W / ↑  Gas   ·   S / ↓  Brake & reverse   ·   Shift  Drift   ·   Space  Item"
+	_panel(_content, Rect2(220, 603, 840, 36), Color(0.08, 0.20, 0.30, 0.91), Color("#78abbf"), 13)
+	_label(_content, guide, Rect2(220, 603, 840, 36), 19)
 	_pause_button = _button(_content, "Pause", Rect2(546, 648, 188, 56), _toggle_pause)
 	_garage_button = _button(_content, "Garage", Rect2(755, 648, 172, 56), _return_to_garage)
 	_garage_button.hide()
@@ -446,27 +459,42 @@ func _physics_process(delta: float) -> void:
 	_update_race_ui()
 
 
+static func steer_from_axis(axis: float, deadzone: float = STICK_DEADZONE) -> float:
+	return signf(axis) * clampf((absf(axis) - deadzone) / (1.0 - deadzone), 0.0, 1.0)
+
+
 func _controls_for(slot: int) -> Dictionary:
 	var device := _devices[slot]
 	var steer := 0.0
 	var brake := false
+	var throttle := 0.0
+	var drift := false
 	if device == KEYBOARD:
 		steer = float(int(Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_D))
 			- int(Input.is_physical_key_pressed(KEY_LEFT) or Input.is_physical_key_pressed(KEY_A)))
 		brake = Input.is_physical_key_pressed(KEY_DOWN) or Input.is_physical_key_pressed(KEY_S)
+		throttle = float(Input.is_physical_key_pressed(KEY_UP) or Input.is_physical_key_pressed(KEY_W))
+		drift = Input.is_physical_key_pressed(KEY_SHIFT)
 	elif device >= 0:
-		var axis := Input.get_joy_axis(device, JOY_AXIS_LEFT_X)
-		steer = signf(axis) * inverse_lerp(0.22, 1.0, absf(axis)) if absf(axis) > 0.22 else 0.0
+		steer = steer_from_axis(Input.get_joy_axis(device, JOY_AXIS_LEFT_X))
 		var dpad := int(Input.is_joy_button_pressed(device, JOY_BUTTON_DPAD_RIGHT)) - int(Input.is_joy_button_pressed(device, JOY_BUTTON_DPAD_LEFT))
 		if dpad != 0:
 			steer = float(dpad)
-		brake = Input.is_joy_button_pressed(device, JOY_BUTTON_B) or Input.get_joy_axis(device, JOY_AXIS_TRIGGER_LEFT) > 0.55
-	return {"steer": steer, "brake": brake, "item_pressed": _items_queued[slot]}
+		brake = Input.is_joy_button_pressed(device, JOY_BUTTON_B) or Input.get_joy_axis(device, JOY_AXIS_TRIGGER_LEFT) > 0.35
+		throttle = 1.0 if Input.is_joy_button_pressed(device, JOY_BUTTON_A) else maxf(0.0, Input.get_joy_axis(device, JOY_AXIS_TRIGGER_RIGHT))
+		drift = Input.is_joy_button_pressed(device, JOY_BUTTON_RIGHT_SHOULDER)
+	if _rearm[slot]:
+		_rearm[slot] = brake or throttle > 0.05 or drift or not is_zero_approx(steer)
+		return {}
+	return {"steer": steer, "brake": brake, "throttle": throttle, "drift": drift, "item_pressed": _items_queued[slot]}
 
 
 func _pause() -> void:
 	_paused = true
 	_items_queued = [false, false]
+	_rearm = [true, true]
+	if is_instance_valid(_race):
+		_race.cancel_pc_input()
 	_elapsed = 0.0
 	_update_notice()
 
@@ -502,6 +530,12 @@ func _update_race_ui() -> void:
 		_panel_labels[slot].text = "P%d  %s   ·   Lap %d/%d   ·   ◉ %d" % [
 			slot + 1, driver["name"], lap, ReefKartRace.LAPS, int(kart["pearls"])]
 		_item_icons[slot].texture = ITEM_ICONS.get(String(kart["item"])) as Texture2D
+		var cue := "WRONG WAY" if bool(kart["wrong_way"]) else ""
+		if _rearm[slot] and not _paused:
+			cue = "RELEASE CONTROLS TO DRIVE"
+		if float(kart["drift_dir"]) != 0.0:
+			cue = "BOOST READY" if float(kart["drift_charge"]) >= float(_race._pc_tune["charge"]) else "DRIFT"
+		_drive_labels[slot].text = cue
 	if _paused:
 		return
 	match _race.state:

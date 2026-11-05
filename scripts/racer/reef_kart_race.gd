@@ -25,6 +25,7 @@ signal race_event(kind: String, value: float)
 
 const TrackScript := preload("res://scripts/racer/reef_kart_track.gd")
 const RoomCourses := preload("res://scripts/racer/reef_kart_courses.gd")
+const PCDrive := preload("res://scripts/racer/reef_kart_drive.gd")
 const FloorShader := preload("res://scripts/racer/reef_kart_floor.gdshader")
 
 const VIEW := Vector2(1280.0, 720.0)
@@ -152,6 +153,8 @@ var _count_mark := 3
 var _time := 0.0
 var _confetti_t := 0.0
 var _duel := false
+var pc_handling := false
+var _pc_tune: Dictionary
 var winner_slot := -1
 
 
@@ -159,6 +162,9 @@ func setup(options: Dictionary = {}) -> void:
 	set_process(false)
 	track = TrackScript.new(options.get("course", {}))
 	_duel = bool(options.get("duel", false))
+	pc_handling = bool(options.get("pc_handling", false))
+	if pc_handling:
+		_pc_tune = PCDrive.DEFAULTS.merged(options.get("pc_tune", {}), true)
 	winner_slot = -1
 	assist = clampf(float(options.get("assist", 0.75)), 0.0, 1.0)
 	rng.seed = int(options.get("seed", 20261103))
@@ -182,6 +188,8 @@ func setup(options: Dictionary = {}) -> void:
 func setup_camera_view(source: ReefKartRace, slot: int) -> void:
 	set_process(false)
 	track = source.track
+	pc_handling = source.pc_handling
+	_pc_tune = source._pc_tune
 	karts = source.karts
 	traps = source.traps
 	projectiles = source.projectiles
@@ -246,6 +254,8 @@ func _place_grid() -> void:
 		k["pos"] = track.point_at(slot.x, slot.y)
 		k["heading"] = track.heading_at(slot.x)
 		k["speed"] = 0.0
+		if pc_handling:
+			PCDrive.reset(k)
 		k["lap"] = 0
 		for key: String in ["roulette_t", "boost_t", "spin_t", "slow_t", "bump_t",
 				"finish_time", "steer_vis", "ai_item_t", "spin_vis"]:
@@ -421,7 +431,7 @@ func set_controls(next: Dictionary) -> void:
 		_controls.queue_redraw()
 
 
-## One fixed step. `input` carries steer (-1..1), brake and item_pressed.
+## One fixed step. Both modes accept steer, brake and item_pressed. PC also uses throttle and drift.
 func step_race(delta: float, input: Dictionary) -> void:
 	_time += delta
 	flash = maxf(0.0, flash - delta)
@@ -443,15 +453,13 @@ func step_race(delta: float, input: Dictionary) -> void:
 		"imp_beat":
 			clock -= delta
 			for k: Dictionary in karts:
-				k["speed"] = move_toward(float(k["speed"]), 0.0, BRAKE * 0.6 * delta)
-				_move(k, delta)
+				_settle_kart(k, 0.6, delta)
 			if clock <= 0.0:
 				_restart_attempt()
 		"finished":
 			_confetti_t += delta
 			for k: Dictionary in karts:
-				k["speed"] = move_toward(float(k["speed"]), 0.0, BRAKE * 0.45 * delta)
-				_move(k, delta)
+				_settle_kart(k, 0.45, delta)
 	_tick_pickups(delta)
 	_update_camera(delta, false)
 	_refresh_view()
@@ -460,22 +468,24 @@ func step_race(delta: float, input: Dictionary) -> void:
 func _step_racers(delta: float, input: Dictionary) -> void:
 	for k: Dictionary in karts:
 		if bool(k["finished"]):
-			k["speed"] = move_toward(float(k["speed"]), 0.0, BRAKE * 0.45 * delta)
-			_move(k, delta)
+			_settle_kart(k, 0.45, delta)
 			continue
-		var steer := 0.0
-		var braking := false
+		var controls_for_kart: Dictionary
 		if bool(k["player"]):
-			var controls_for_kart: Dictionary = input if is_same(k, _pl) else input.get("second", {})
+			controls_for_kart = input if is_same(k, _pl) else input.get("second", {})
 			if bool(controls_for_kart.get("item_pressed", false)) and String(k["item"]) != "" \
 					and float(k["roulette_t"]) <= 0.0:
 				_use_item(k)
-			steer = _player_steer(k, clampf(float(controls_for_kart.get("steer", 0.0)), -1.0, 1.0), delta)
-			braking = bool(controls_for_kart.get("brake", false))
 		else:
-			steer = _ai_steer(k)
+			controls_for_kart = {"steer": _ai_steer(k), "throttle": 1.0}
 			_ai_items(k, delta)
-		_drive(k, steer, braking, delta)
+		if pc_handling:
+			_drive_pc(k, controls_for_kart, delta)
+		else:
+			var steer := clampf(float(controls_for_kart.get("steer", 0.0)), -1.0, 1.0)
+			if bool(k["player"]):
+				steer = _player_steer(k, steer, delta)
+			_drive(k, steer, bool(controls_for_kart.get("brake", false)), delta)
 	_separate_karts()
 	_tick_projectiles(delta)
 	_tick_traps(delta)
@@ -559,7 +569,7 @@ func _top_speed(k: Dictionary, terrain: int) -> float:
 		top *= BOOST_TOP
 	if float(k["slow_t"]) > 0.0:
 		top *= 0.55
-	if bool(k["player"]):
+	if bool(k["player"]) and not pc_handling:
 		top = minf(top, _corner_speed(k, top))
 	return top
 
@@ -612,6 +622,64 @@ func _drive(k: Dictionary, steer: float, braking: bool, delta: float) -> void:
 	_contact_features(k, delta)
 
 
+func _drive_pc(k: Dictionary, command: Dictionary, delta: float) -> void:
+	for key: String in ["boost_t", "spin_t", "slow_t", "bump_t"]:
+		k[key] = maxf(0.0, float(k[key]) - delta)
+	var terrain := track.terrain_at_lat(float(k["lat"]))
+	PCDrive.step(k, command, terrain, _top_speed(k, terrain), _pc_tune, delta)
+	_move_pc(k, delta)
+	if bool(k["player"]):
+		var error := wrapf(track.heading_at(float(k["track_s"])) - float(k["heading"]), -PI, PI)
+		if absf(error) > WRONG_WAY and not bool(k["wrong_way"]):
+			race_event.emit("wrong_way", 0.0)
+		k["wrong_way"] = absf(error) > WRONG_WAY
+	_contact_features(k, delta)
+
+
+func cancel_pc_input() -> void:
+	for kart: Dictionary in karts:
+		PCDrive.cancel_drift(kart)
+
+
+func _settle_kart(k: Dictionary, braking: float, delta: float) -> void:
+	if pc_handling:
+		var velocity: Vector2 = k["velocity"]
+		velocity = velocity.move_toward(Vector2.ZERO, BRAKE * braking * delta)
+		k["velocity"] = velocity
+		k["speed"] = velocity.length()
+		_move_pc(k, delta)
+	else:
+		k["speed"] = move_toward(float(k["speed"]), 0.0, BRAKE * braking * delta)
+		_move(k, delta)
+
+
+func _move_pc(k: Dictionary, delta: float) -> void:
+	var velocity: Vector2 = k["velocity"]
+	var pos: Vector2 = k["pos"] as Vector2 + velocity * delta
+	var previous := float(k["track_s"])
+	# Projection identifies the nearby road and lap progress. It never
+	# supplies a driving heading or moves a kart on the open surface.
+	var proj := track.project(pos, previous, maxf(24.0, velocity.length() * delta * 3.0))
+	var lateral := proj.y
+	var limit := ReefKartTrack.RAIL - KART_RADIUS
+	if absf(lateral) > limit:
+		var side := signf(lateral)
+		var along := track.tangent_at(proj.x)
+		var outward := Vector2(-along.y, along.x) * side
+		var impact := maxf(0.0, velocity.dot(outward))
+		velocity -= outward * impact * (1.0 + float(_pc_tune["rail_rebound"]))
+		lateral = side * limit
+		pos = track.point_at(proj.x, lateral)
+		k["velocity"] = velocity
+		k["speed"] = velocity.length()
+		if impact > 48.0 and float(k["bump_t"]) <= 0.0:
+			k["bump_t"] = 0.23
+			PCDrive.cancel_drift(k)
+			if bool(k["player"]):
+				race_event.emit("bump", 0.0)
+	_apply_position(k, pos, proj.x, lateral)
+
+
 func _move(k: Dictionary, delta: float) -> void:
 	var forward := Vector2(sin(float(k["heading"])), -cos(float(k["heading"])))
 	var pos: Vector2 = k["pos"] as Vector2 + forward * float(k["speed"]) * delta
@@ -631,9 +699,13 @@ func _move(k: Dictionary, delta: float) -> void:
 			k["bump_t"] = 0.35
 			if bool(k["player"]):
 				race_event.emit("bump", 0.0)
-	var ds := wrapf(proj.x - float(k["track_s"]), -track.length * 0.5, track.length * 0.5)
+	_apply_position(k, pos, proj.x, lateral)
+
+
+func _apply_position(k: Dictionary, pos: Vector2, next_s: float, lateral: float) -> void:
+	var ds := wrapf(next_s - float(k["track_s"]), -track.length * 0.5, track.length * 0.5)
 	k["race_s"] = float(k["race_s"]) + ds
-	k["track_s"] = proj.x
+	k["track_s"] = next_s
 	k["lat"] = lateral
 	k["pos"] = pos
 	var lap := maxi(0, floori(float(k["race_s"]) / track.length))
@@ -643,7 +715,7 @@ func _move(k: Dictionary, delta: float) -> void:
 			race_event.emit("lap", float(lap))
 
 
-## Karts nudge apart sideways instead of overlapping; nobody loses speed.
+## Karts nudge apart. PC kart contact also exchanges normal momentum.
 func _separate_karts() -> void:
 	for a in range(karts.size()):
 		for b in range(a + 1, karts.size()):
@@ -652,9 +724,18 @@ func _separate_karts() -> void:
 			var gap := pa.distance_to(pb)
 			if gap >= KART_RADIUS * 2.0 or gap < 0.001:
 				continue
-			var push := (pb - pa) / gap * (KART_RADIUS * 2.0 - gap) * 0.5
+			var normal := (pb - pa) / gap
+			var push := normal * (KART_RADIUS * 2.0 - gap) * 0.5
 			karts[a]["pos"] = pa - push
 			karts[b]["pos"] = pb + push
+			if pc_handling:
+				var va: Vector2 = karts[a]["velocity"]
+				var vb: Vector2 = karts[b]["velocity"]
+				var impulse := normal * maxf(0.0, (va - vb).dot(normal)) * 0.54
+				karts[a]["velocity"] = va - impulse
+				karts[b]["velocity"] = vb + impulse
+				karts[a]["speed"] = (va - impulse).length()
+				karts[b]["speed"] = (vb + impulse).length()
 
 
 func _contact_features(k: Dictionary, delta: float) -> void:
@@ -775,7 +856,7 @@ func _tick_projectiles(delta: float) -> void:
 				continue
 			if (k["pos"] as Vector2).distance_to(p["pos"] as Vector2) <= KART_RADIUS + 16.0:
 				k["spin_t"] = 1.0
-				k["speed"] = float(k["speed"]) * 0.45
+				_scale_kart_speed(k, 0.45)
 				race_event.emit("bonk", 0.0 if bool(k["player"]) else 1.0)
 				hit = true
 				break
@@ -807,7 +888,7 @@ func _tick_traps(delta: float) -> void:
 				continue
 			if (k["pos"] as Vector2).distance_to(t["pos"] as Vector2) <= KART_RADIUS + 14.0:
 				k["slow_t"] = 0.9
-				k["speed"] = float(k["speed"]) * 0.6
+				_scale_kart_speed(k, 0.6)
 				used = true
 				if bool(k["player"]):
 					race_event.emit("slip", 0.0)
@@ -868,6 +949,12 @@ func _check_finish() -> void:
 				return
 
 
+func _scale_kart_speed(kart: Dictionary, factor: float) -> void:
+	kart["speed"] = float(kart["speed"]) * factor
+	if pc_handling:
+		kart["velocity"] = (kart["velocity"] as Vector2) * factor
+
+
 func _restart_attempt() -> void:
 	attempt += 1
 	projectiles.clear()
@@ -902,7 +989,8 @@ func _update_camera(delta: float, snap: bool) -> void:
 	if snap:
 		cam_heading = target
 	else:
-		cam_heading = lerp_angle(cam_heading, target, 1.0 - exp(-7.5 * delta))
+		var follow := float(_pc_tune["camera"]) if pc_handling else 7.5
+		cam_heading = lerp_angle(cam_heading, target, 1.0 - exp(-follow * delta))
 	var forward := Vector2(sin(cam_heading), -cos(cam_heading))
 	cam_pos = (_pl["pos"] as Vector2) - forward * CAM_BACK
 
@@ -1294,6 +1382,14 @@ func _draw_kart(k: Dictionary, screen: Vector2, scale: float) -> void:
 	if driver_color.a > 0.0:
 		_world.draw_arc(Vector2.ZERO, size * 0.43, 0.0, TAU, 20, driver_color, maxf(1.0, size * 0.035), true)
 	_world.draw_set_transform(Vector2.ZERO)
+	if pc_handling and float(k["drift_dir"]) != 0.0:
+		var charged := float(k["drift_charge"]) >= float(_pc_tune["charge"])
+		var spark := Color("#ffe4a3") if charged else Color("#9de8fa")
+		var side := float(k["drift_dir"])
+		for wheel: float in [-0.31, 0.31]:
+			var tire := screen + Vector2(wheel * size, -size * 0.04)
+			_world.draw_line(tire, tire + Vector2(-side * size * 0.09, size * 0.06),
+				spark, clampf(size * 0.024, 1.0, 5.0), true)
 	var center := screen - Vector2(0.0, size * 0.42)
 	var wobble := sin(float(k["spin_vis"])) * 0.45
 	_world.draw_set_transform(center, wobble, Vector2.ONE)
