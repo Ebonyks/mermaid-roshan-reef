@@ -1,0 +1,15 @@
+{
+  "scope": "One longer read-only existing audio audit after two local900second limits without final verdict. Existing CI has no per-command900second audio limit;862audio ledger files. No production/art/voice/gate changes.",
+  "started_utc": "2026-11-01T11:29:57.136897+00:00",
+  "limit_seconds": 3600,
+  "earlier_time_limits_retained": [
+    "evidence/static_gates/36_audit_audio_quality.log",
+    "evidence/baseline_retry_after_native/audit_audio_quality.log"
+  ],
+  "args": [
+    "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+    "-B",
+    "tools/audit_audio_quality.py",
+    "--check"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "contract_id": "roshan.canvas.shared",
+  "contract_version": "1.0.0",
+  "skin": "popstar",
+  "view": "front",
+  "prop": {
+    "path": "demo/art/microphone.png",
+    "native_size": [
+      512,
+      512
+    ],
+    "orientation": "authored front view, +X right +Y down; object-specific views declared below",
+    "support_point_px": [
+      256,
+      492
+    ],
+    "occlusion": {
+      "arm": 1,
+      "prop": 3,
+      "fingers": 6,
+      "headwear": 7
+    },
+    "grips": [
+      {
+        "socket": "grip.screen_left",
+        "prop_px": [
+          256,
+          270
+        ]
+      }
+    ]
+  },
+  "source_only": true,
+  "owner": "fixed_stand",
+  "contact_window_s": [
+    1.5,
+    6.5
+  ],
+  "release": "After6.5s hands return to rest through8s; wheel/stand/mitt remain fixture-owned, glove stays worn.",
+  "waist_join_status": "UNSUPPORTED_PENDING_SHARED_CONVENTION",
+  "perspective_views": [
+    "approved_front_grip_art"
+  ],
+  "acceptance": "Source binding only; naturalness/outline/owner/device/child pending",
+  "duration_s": 8,
+  "time_mapping": "Source keyed controller t=delivery_time/2; original three curves/timing remain exact.",
+  "hand_view": {
+    "path": "demo/art/popstar_grip.png",
+    "source": "assets/opera/worlds/actors/roshan_popstar.png",
+    "palm_px": [
+      95,
+      185
+    ],
+    "wrist_px": [
+      94,
+      210
+    ],
+    "source_region_role": "Approved gripping hand plus narrow gold microphone contact sliver retained as foreground occluder; no garment-underlay or new hand redesign."
+  }
+}

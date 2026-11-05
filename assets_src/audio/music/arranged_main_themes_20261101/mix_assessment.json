@@ -1,0 +1,118 @@
+{
+  "status": "PASS",
+  "album_target_lufs": -18.25,
+  "reason": "A quarter dB of additional album headroom preserves the acoustic guitar attacks while keeping all three masters matched inside the project -18 LUFS +/-0.5 window.",
+  "mixes": [
+    {
+      "id": "opera_house",
+      "raw": {
+        "input_i": "-21.62",
+        "input_tp": "-7.24",
+        "input_lra": "5.30",
+        "input_thresh": "-31.93",
+        "output_i": "-17.52",
+        "output_tp": "-3.39",
+        "output_lra": "4.90",
+        "output_thresh": "-27.81",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.48"
+      },
+      "glue": {
+        "input_i": "-22.18",
+        "input_tp": "-7.83",
+        "input_lra": "4.80",
+        "input_thresh": "-32.45",
+        "output_i": "-17.58",
+        "output_tp": "-3.50",
+        "output_lra": "4.50",
+        "output_thresh": "-27.83",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.42"
+      },
+      "compression": {
+        "median_attenuation_db": 0.199,
+        "p99_attenuation_db": 1.148,
+        "maximum_attenuation_db": 1.597
+      },
+      "master_gain_db": 3.93,
+      "predicted_unlimited_true_peak_dbtp": -3.9,
+      "peak_guard_ceiling_db": -3.8,
+      "predicted_peak_guard_reduction_db": 0,
+      "peak_guard": "Native ReaLimit with equal threshold/ceiling; verify final loudness and encoded true peaks independently."
+    },
+    {
+      "id": "sky_lagoon",
+      "raw": {
+        "input_i": "-21.45",
+        "input_tp": "-8.39",
+        "input_lra": "5.50",
+        "input_thresh": "-31.70",
+        "output_i": "-17.60",
+        "output_tp": "-3.00",
+        "output_lra": "5.20",
+        "output_thresh": "-27.69",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.40"
+      },
+      "glue": {
+        "input_i": "-21.95",
+        "input_tp": "-9.05",
+        "input_lra": "4.70",
+        "input_thresh": "-32.18",
+        "output_i": "-17.61",
+        "output_tp": "-3.00",
+        "output_lra": "4.80",
+        "output_thresh": "-27.69",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.39"
+      },
+      "compression": {
+        "median_attenuation_db": 0.261,
+        "p99_attenuation_db": 1.035,
+        "maximum_attenuation_db": 1.41
+      },
+      "master_gain_db": 3.7,
+      "predicted_unlimited_true_peak_dbtp": -5.35,
+      "peak_guard_ceiling_db": -3.8,
+      "predicted_peak_guard_reduction_db": 0,
+      "peak_guard": "Native ReaLimit with equal threshold/ceiling; verify final loudness and encoded true peaks independently."
+    },
+    {
+      "id": "castle",
+      "raw": {
+        "input_i": "-22.83",
+        "input_tp": "-6.78",
+        "input_lra": "5.60",
+        "input_thresh": "-33.02",
+        "output_i": "-17.19",
+        "output_tp": "-3.00",
+        "output_lra": "4.70",
+        "output_thresh": "-27.38",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.81"
+      },
+      "glue": {
+        "input_i": "-23.50",
+        "input_tp": "-7.28",
+        "input_lra": "4.90",
+        "input_thresh": "-33.67",
+        "output_i": "-17.31",
+        "output_tp": "-3.00",
+        "output_lra": "4.10",
+        "output_thresh": "-27.47",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.69"
+      },
+      "compression": {
+        "median_attenuation_db": 0.274,
+        "p99_attenuation_db": 1.45,
+        "maximum_attenuation_db": 1.859
+      },
+      "master_gain_db": 5.25,
+      "predicted_unlimited_true_peak_dbtp": -2.03,
+      "peak_guard_ceiling_db": -3.8,
+      "predicted_peak_guard_reduction_db": 1.77,
+      "peak_guard": "Native ReaLimit with equal threshold/ceiling; verify final loudness and encoded true peaks independently."
+    }
+  ]
+}

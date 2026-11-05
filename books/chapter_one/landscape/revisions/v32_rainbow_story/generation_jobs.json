@@ -1,0 +1,90 @@
+{
+  "jobs": [
+    {
+      "id": "dusty_chest",
+      "transparent": true,
+      "refs": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\picture-book-worktree\\books\\chapter_one\\landscape\\art\\event_borders\\attic_atlas.png"
+      ],
+      "prompt": "Use case: background-extraction. Extract ONLY the complete dusty blue-and-gold chest at the upper right of the supplied atlas onto genuine transparent alpha. Preserve its exact rounded arched lid, navy contours, gold bands, central shell/pearl lock, blue painted wood and fluffy pale-lavender cobweb dust on the lid and edges. Remove ALL backing squares, diffuse background halos and every other atlas item. Keep the entire authored chest silhouette with a generous transparent margin; no chopped edges. Render clean native contours at generous resolution for a children's book, without redesigning the chest or changing its texture/style. No sticker rim, no text, no scene, no new props. One isolated existing object only.",
+      "reference_hashes": [
+        {
+          "path": "books/chapter_one/landscape/art/event_borders/attic_atlas.png",
+          "sha256": "b5b1718202cbe7f971b0c491cfecf5d2e6a88c0866b3ae1b7cb364f124c3fd42"
+        }
+      ],
+      "prompt_sha256": "6260c4fdada2e4e16a1daa18f55d21619de338e1970654e700f94ef4d3c10d8d"
+    },
+    {
+      "id": "shell_cobweb",
+      "transparent": true,
+      "refs": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\picture-book-worktree\\books\\chapter_one\\landscape\\art\\event_borders\\attic_atlas.png"
+      ],
+      "prompt": "Use case: background-extraction. Extract ONLY the complete upper-middle group of the supplied atlas: the pale spiral conch on the left and pale scallop shell on the right joined by the existing fine dusty cobweb. Preserve both whole shell silhouettes, their exact colors/navy contours and the connecting web geometry. Genuine transparent alpha everywhere behind and BETWEEN all fine web strands. Remove diffuse grey/background halos and all other atlas items. No rectangular plate, outline sticker rim, new symbols, new objects or scene. Crisp generous native resolution for a children's book, retaining the supplied painted texture and proportions.",
+      "reference_hashes": [
+        {
+          "path": "books/chapter_one/landscape/art/event_borders/attic_atlas.png",
+          "sha256": "b5b1718202cbe7f971b0c491cfecf5d2e6a88c0866b3ae1b7cb364f124c3fd42"
+        }
+      ],
+      "prompt_sha256": "72ed0519dff55081574a55e4cdaf584a590553b08bc5ee5e064963767581ef04"
+    },
+    {
+      "id": "dirty_bank04",
+      "transparent": false,
+      "refs": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\picture-book-worktree\\books\\chapter_one\\landscape\\revisions\\v29_polish\\art\\bank30_tiny.png",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\picture-book-worktree\\books\\chapter_one\\archive\\rough_v5\\art\\grand_puff_jump_sheet.png",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\picture-book-worktree\\assets_src\\cinematics\\overnight_recut_repairs_2026-09-12\\references\\dusty_attic_arena_native_1254.png"
+      ],
+      "prompt": "Use case: precise-object-edit. IMAGE1 is the exact edit target: blue watercolor stationery with dotted borders and low dual mounds. Change ONLY the existing little object groups on the lower left and lower right banks. Keep the top85%, central38–62% void, frame size, blue wash, dots, bubbles, shells, mounds and all other pixels unchanged. Left bank: replace the two ring-playing bunnies and rings with ONE tiny canonical lavender curl-ear dust bunny peeking curiously beside a closed dusty castle book, nose tilted toward its dusty cover. IMAGE2 fixes bunny identity: two spiral ears with pearl joints, curled cloud body, pearl paws, large navy eyes; friendly curious rather than angry. Right bank: keep the small open castle book and curved shell lamp, but add very light cobweb dust across their own surfaces, echoing the dusty belongings in IMAGE3. No grey dust smear on the page, no brush, sponge, chest or separate web/shell group. Every visible new subject must begin below85% canvas height and be at most12% canvas width AND height, tucked into the slopes with subtle contact shadow and a little mound overlap. Small contextual bank performance, never large foreground mascots. No characters or props in the writing area. Clean crisp bubbles without codec noise. Same1484x1060 composition.",
+      "reference_hashes": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank30_tiny.png",
+          "sha256": "f3c8843f2acf8a8e6304d6b9014fec5c95ef26434c8675ca3cd64adc453cc39e"
+        },
+        {
+          "path": "books/chapter_one/archive/rough_v5/art/grand_puff_jump_sheet.png",
+          "sha256": "7f117638631841c31eb58b9c81224158d29d64f325980c75c475e0376e36788c"
+        },
+        {
+          "path": "assets_src/cinematics/overnight_recut_repairs_2026-09-12/references/dusty_attic_arena_native_1254.png",
+          "sha256": "9cb4b02dc4a56e1436ea0a6b21dccf4ef751716d213e3ff7624571f15a9e2cb6"
+        }
+      ],
+      "prompt_sha256": "db0f0316e963a98eca1e0365b8e9540eb774cc63353ebf236425545d1f9844cd"
+    },
+    {
+      "id": "clean_room30",
+      "transparent": false,
+      "refs": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\picture-book-worktree\\books\\chapter_one\\landscape\\revisions\\v29_polish\\art\\table22.png"
+      ],
+      "prompt": "Use case: precise-object-edit. This supplied existing clean craft-room painting is the exact edit target, not a scene-design reference. Remove ONLY Roshan and the brush she is holding, filling their vacated contour-shaped area with a natural continuation of the already existing brick wall, floor tiles and clean tabletop. Keep every other pixel/composition feature unchanged: room architecture, all tables, rims, feet, shelves, sorted paint bottles/cups, ribbon rack, picture board, palette and lighting. Preserve the right tabletop as clean, no paint spill. The complete existing room becomes a quiet completion/status picture after the cleaning story; do not invent a new room, camera, action, people, props or photorealistic materials. Keep painted2D pastel/navy-contour book style and1484x1060 framing. No text. This is bounded character/held-prop removal and local gap filling, not full-scene redraw.",
+      "reference_hashes": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/table22.png",
+          "sha256": "00f962db263e4e484462d81cefabce59e4a6e9657503e1c6349da57bf68f8312"
+        }
+      ],
+      "prompt_sha256": "1290e14e9b5f70a5f57d91b6b1934a90239ed49a9619b624e3d91fbe5dc55575"
+    },
+    {
+      "id": "dusty_chest_clean",
+      "transparent": true,
+      "refs": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\picture-book-worktree\\books\\chapter_one\\landscape\\revisions\\v32_rainbow_story\\art\\dusty_chest_attempt1.png"
+      ],
+      "prompt": "Use case: background-extraction. Correct the transparency of this supplied chest cutout. Preserve the blue/gold dusty chest itself EXACTLY. Remove the entire soft grey/black/lavender haze surrounding it: that haze is unwanted backing, not dust, shadow or part of the object. Every pixel beyond the chest's actual contour and the tiny cobweb strands ATTACHED to it must have alpha ZERO, including above, below, sides and corners. The chest itself must be fully opaque, with only fine edge antialias transparency. Keep the contour-following dust attached to the lid; no diffuse cloud outside it. No drop shadow, luminous aura, gradient, black background, sticker outline or new scene. One complete cleanly isolated existing chest on genuine transparent alpha. Keep generous clear margins.",
+      "reference_hashes": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v32_rainbow_story/art/dusty_chest_attempt1.png",
+          "sha256": "2f8e7bb41ba7f16d30d9f1948031f15e70f9f15267425676f3c9a498ce9cfaf1"
+        }
+      ],
+      "prompt_sha256": "05741e80855a1b0961a6aaa47937ce1f78970809671ff648e7c08fab96808656"
+    }
+  ],
+  "reason": "Existing atlas props have baked diffuse halos and insufficient large-page contours; the new early page needs a unique relevant low bank. Existing clean-room source depicts ongoing scrubbing, so bounded character/brush removal makes the closing status unambiguous. Rainbow source, character cutouts, door, covers and other scenes are reused."
+}

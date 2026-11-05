@@ -41,6 +41,8 @@ as design targets until observed. Describe any optional deeper replay.
 |---|---|---|---|---|---|---|---|
 | To fill | To fill | To fill | To fill | To fill | Exact approved cue or named gap | Help without free progress | To fill |
 
+Record estimated/observed sessions-to-finish, longest interval between saved milestones, longest clip before the next action, quiet beats and comfortable stopping points. No estimate is a measured acceptance result.
+
 ## 3. Continuity and navigation
 
 | Character/object/thread | Established source and identity | Entry state | Allowed change in this chapter | End state and future obligation |
@@ -51,6 +53,10 @@ as design targets until observed. Describe any optional deeper replay.
 |---|---|---|---|---|
 | To fill | To fill | To fill | To fill | To fill |
 
+Cite canon IDs and the exact controlling book in the [book source register](../reference/BOOK_SOURCES.md). Record book/game mismatches and required game adaptations; do not rewrite the book to fit current code. Review every carried-state item and open thread in the [chapter map](../chapters/CHAPTER_MAP.md), including companions/Rainbow Friend, outfits, medals, guide voice, story/global masks and free-play cards. Add a character card only for a new minor character.
+
+Every authored phase/beat must name its child-visible own-room object/hotspot/stage action and the static registry check (DL-PLAN-07); test an unbound step and a step bound in another room.
+
 Explain differences between required story order and global freeplay. Reference
 shared progression symbols instead of duplicating global numeric masks.
 
@@ -59,6 +65,8 @@ shared progression symbols instead of duplicating global numeric masks.
 | Milestone and prerequisite | Owning save field/default | Visible state before → after | Write boundary | Restart/re-entry reconstruction | Wrong/passive/repeat guard |
 |---|---|---|---|---|---|
 | To fill | Additive; preserve legacy/unknown fields | To fill | To fill | To fill | To fill |
+
+Name the fresh-save chapter traversal (DL-QA-02, DL-SAVE-04): visible doors and real production touches from new game or the previous chapter's end reached in the same probe, without callbacks, overrides, fixtures or probe-only gestures. Mark fixture diagnostics separately. List interruption/restart evidence at each earned milestone.
 
 Specify malformed/future-state handling, compatibility fixtures, one-time
 rewards, and meaningful interruption points. Do not copy a historical save
@@ -100,6 +108,7 @@ the standing delegation; reserved decisions still require answers.
 
 | Claim and applicable rules/findings | Required evidence | Build/path/command or review scenario | Actual result and limits | Next action |
 |---|---|---|---|---|
+| Fresh-save chapter traversal; own-room story bindings; reward/voice before clip | Trusted production route; static gate and both fault controls; minimum/maximum owner-process reward polling (DL-QA-02, DL-SAVE-04, DL-PLAN-07, DL-CIN-16, GS-21; lessons MA-PLAY-005/006) | To fill | Pending | To fill |
 | Static structure, source, imports, license, true-2D scope | V1 and applicable tests | To fill | Pending | To fill |
 | Intentional, wrong, passive, repeat, cancel, focus-loss, teardown, save/re-entry | V2/V3 as applicable | To fill | Pending | To fill |
 | Runtime identity, composition, meaningful before/after states, aspect ratios | V4 plus required human review | To fill | Pending | To fill |
@@ -107,7 +116,7 @@ the standing delegation; reserved decisions still require answers.
 | Comprehension, agency, enjoyment, pacing, adult assistance | V6 observed session | To fill | Pending; no invented observations | To fill |
 | Playable chapter and reserved visual/narrative decisions | V7 owner review | To fill | Pending | To fill |
 
-Development authorization, implementation progress, and acceptance are separate.
+Record the chapter status rung (guide section 8) with its exact evidence. Development authorization, implementation progress, and acceptance are separate.
 Report exact local/remote integration gates under existing workflow rules; a
 chapter pass does not satisfy outstanding game-wide audit requirements.
 

@@ -877,6 +877,82 @@ class Game2DAuditTests(unittest.TestCase):
 			inventory.configuration_3d_files["project.godot"],
 			{"<3d-configuration>": 2})
 
+	def test_large_book_html_is_fully_scanned_without_a_format_waiver(self) -> None:
+		document = b"<!doctype html><html><body>" + b"a" * (4 * 1024 * 1024) + b"</body></html>"
+		sample, coverage = game_2d._read_model_sample_with_coverage(
+			io.BytesIO(document), game_2d.MODEL_TEXT_SCAN_BYTES, declared_size=len(document))
+		self.assertEqual(sample, document)
+		self.assertFalse(coverage)
+		self.assertFalse(game_2d._sample_is_model_for_path(Path("REVIEW.html"), sample))
+
+	def test_larger_text_budget_keeps_real_and_truncated_models_as_debt(self) -> None:
+		document = json.dumps({
+			"extras": {"padding": "a" * (4 * 1024 * 1024)},
+			"asset": {"version": "2.0"},
+			"meshes": [],
+		}).encode("utf-8")
+		sample, coverage = game_2d._read_model_sample_with_coverage(
+			io.BytesIO(document), game_2d.MODEL_TEXT_SCAN_BYTES, declared_size=len(document))
+		self.assertFalse(coverage)
+		self.assertTrue(game_2d._sample_is_model_for_path(Path("review.html"), sample))
+		oversized = b'{"padding":"' + b"a" * game_2d.MODEL_TEXT_SCAN_BYTES + b'"}'
+		_sample, coverage = game_2d._read_model_sample_with_coverage(
+			io.BytesIO(oversized), game_2d.MODEL_TEXT_SCAN_BYTES, declared_size=len(oversized))
+		self.assertTrue(coverage)
+
+	def test_json_web_ids_do_not_become_godot_api_debt(self) -> None:
+		temp, root, _manifest = self.fixture(with_debt=False)
+		self.addCleanup(temp.cleanup)
+		(root / "assets").mkdir()
+		(root / "assets/runtime.json").write_text(json.dumps({
+			"urls": [
+				"https://www.youtube.com/watch?v=m3DZHWPowsA",
+				"https://www.youtube.com/watch?v=FTKnJ57B3DE",
+			],
+		}), encoding="utf-8")
+		inventory = game_2d.discover(root)
+		self.assertNotIn("assets/runtime.json", inventory.production_3d_files)
+
+	def test_json_web_ids_do_not_hide_classes_models_or_invalid_data(self) -> None:
+		text = json.dumps({
+			"url": "https://www.youtube.com/watch?v=m3DZHWPowsA",
+			"type": "Node3D",
+			"custom_type": "CharacterSomething3D",
+			"resource": "res://assets/legacy/prop.glb",
+		})
+		counts = game_2d._token_counts(text, json_data=True)
+		self.assertEqual(counts["Node3D"], 1)
+		self.assertEqual(counts["CharacterSomething3D"], 1)
+		self.assertNotIn("m3DZHWPowsA", counts)
+		self.assertEqual(counts["<model-reference>"], 1)
+		malformed = text[:-1]
+		self.assertIn("Node3D", game_2d._token_counts(malformed, json_data=True))
+		self.assertIn("m3DZHWPowsA", game_2d._token_counts(malformed, json_data=True))
+		self.assertIn("m3DZHWPowsA", game_2d._token_counts(text))
+
+	def test_json_web_id_scan_does_not_copy_each_remaining_suffix(self) -> None:
+		class NoSuffixCopy(str):
+			def __getitem__(self, key):
+				if isinstance(key, slice) and key.start and key.stop is None:
+					raise AssertionError("JSON scan copied the remaining document")
+				return super().__getitem__(key)
+
+		url = "https://example.test/Node3D"
+		text = NoSuffixCopy(json.dumps({url: [url] * 2000}, indent=2))
+		spans = game_2d._json_web_url_spans(text)
+		self.assertEqual(len(spans), 2000)
+		self.assertTrue(all(json.loads(text[start:end]) == url for start, end in spans))
+		self.assertEqual(game_2d._token_counts(text, json_data=True)["Node3D"], 1)
+
+	def test_web_urls_do_not_waive_a_disguised_model_document(self) -> None:
+		document = json.dumps({
+			"asset": {"version": "2.0"},
+			"meshes": [],
+			"extras": {"url": "https://www.youtube.com/watch?v=m3DZHWPowsA"},
+		}).encode("utf-8")
+		self.assertTrue(game_2d._sample_is_model_for_path(
+			Path("assets/disguised.json"), document))
+
 	def test_runtime_data_tokens_are_debt_but_provenance_data_is_not(self) -> None:
 		temp, root, manifest = self.fixture(with_debt=False)
 		self.addCleanup(temp.cleanup)
@@ -909,6 +985,26 @@ class Game2DAuditTests(unittest.TestCase):
 			"FABLE_CASTLE_DEPTH_MANIFEST_2026-07-26.json",
 			inventory.production_3d_files)
 		self.assertIn("G2D101", self.finding_ids(game_2d.audit(root, manifest)))
+
+	def test_audit_metadata_is_non_runtime_but_models_are_still_inventory(self) -> None:
+		temp, root, manifest = self.fixture(with_debt=False)
+		self.addCleanup(temp.cleanup)
+		folder = root / "design/audit_impacts"
+		folder.mkdir(parents=True)
+		record = folder / "tooling.json"
+		record.write_text(json.dumps({
+			"files": ["addons/tool/commands/scene3d_commands.gd"],
+			"scope": "production_3d_files remains at its historical baseline",
+		}), encoding="utf-8")
+		self.assertIn("design/audit_impacts/tooling.json",
+			game_2d.discover(root).production_3d_files)
+		(folder / ".gdignore").write_bytes(b"")
+		self.assertNotIn("design/audit_impacts/tooling.json",
+			game_2d.discover(root).production_3d_files)
+		(folder / "hidden.glb").write_bytes(b"glTF fixture")
+		result = game_2d.audit(root, manifest)
+		self.assertIn("design/audit_impacts/hidden.glb", result.inventory.model_files)
+		self.assertIn("G2D101", self.finding_ids(result))
 
 	def test_custom_godot_active_data_roots_are_scanned_and_gdignore_is_respected(self) -> None:
 		temp, root, manifest = self.fixture(with_debt=False)

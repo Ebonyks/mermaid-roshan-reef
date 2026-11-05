@@ -1,0 +1,116 @@
+{
+  "geometry_and_motion_pass": true,
+  "jobs": {
+    "pose_preview": {
+      "geometry_pass": true,
+      "min_visible_strain": 0.8677151706662573,
+      "max_visible_strain": 1.1169384401081248,
+      "visible_flips": 0,
+      "failed_frames": [],
+      "worst": [],
+      "motion": {},
+      "motion_pass": null,
+      "outlines": [
+        {
+          "frame": 0,
+          "skin": "ballet",
+          "major_components": [
+            126596
+          ],
+          "largest_enclosed_gap_px": 2280,
+          "edge_alpha_pixels": 0,
+          "opaque_pixels": 126596
+        },
+        {
+          "frame": 1,
+          "skin": "ballet",
+          "major_components": [
+            123215
+          ],
+          "largest_enclosed_gap_px": 2279,
+          "edge_alpha_pixels": 0,
+          "opaque_pixels": 123215
+        },
+        {
+          "frame": 2,
+          "skin": "ballet",
+          "major_components": [
+            120331
+          ],
+          "largest_enclosed_gap_px": 2283,
+          "edge_alpha_pixels": 0,
+          "opaque_pixels": 120331
+        },
+        {
+          "frame": 3,
+          "skin": "ballet",
+          "major_components": [
+            125529
+          ],
+          "largest_enclosed_gap_px": 2270,
+          "edge_alpha_pixels": 0,
+          "opaque_pixels": 125529
+        },
+        {
+          "frame": 0,
+          "skin": "magician",
+          "major_components": [
+            126531
+          ],
+          "largest_enclosed_gap_px": 23,
+          "edge_alpha_pixels": 0,
+          "opaque_pixels": 126531
+        },
+        {
+          "frame": 1,
+          "skin": "magician",
+          "major_components": [
+            123135
+          ],
+          "largest_enclosed_gap_px": 9,
+          "edge_alpha_pixels": 0,
+          "opaque_pixels": 123135
+        },
+        {
+          "frame": 2,
+          "skin": "magician",
+          "major_components": [
+            120288
+          ],
+          "largest_enclosed_gap_px": 22,
+          "edge_alpha_pixels": 0,
+          "opaque_pixels": 120288
+        },
+        {
+          "frame": 3,
+          "skin": "magician",
+          "major_components": [
+            125504
+          ],
+          "largest_enclosed_gap_px": 30,
+          "edge_alpha_pixels": 0,
+          "opaque_pixels": 125504
+        }
+      ],
+      "contour_pass": true,
+      "max_components": 1,
+      "largest_gap_px": 2283,
+      "clipped_frames": []
+    }
+  },
+  "floors_unchanged": {
+    "strain": [
+      0.8,
+      1.2
+    ],
+    "flips": 0,
+    "speed_deg_s": 140,
+    "acceleration_deg_s2": 650
+  },
+  "alpha_rule": "Actual native image alpha>=32; one connected component >=32px, no clipped boundary pixels. Holes are diagnostics requiring semantic review. Every source texel centre covered by a material triangle is tested for visible alpha; no whole-character mask substitution.",
+  "coverage_limit": "LBS triangle strain and declared fin-view control derivatives are measured. Source-colour/contour pose interpolation is a separate visual review lane; these numbers do not certify its appearance or natural movement.",
+  "human_review_accepted": false,
+  "device_verified": false,
+  "owner_accepted": false,
+  "production_accepted": false
+}

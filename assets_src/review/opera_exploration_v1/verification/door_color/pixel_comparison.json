@@ -1,0 +1,32 @@
+{
+  "checks": {
+    "all12_full_alpha_crests": true,
+    "three_resident_crests": true,
+    "fixed_shader_matches_source": true,
+    "negative_control_detects_squared_color": true,
+    "saved_state_unchanged": true
+  },
+  "all_pass": true,
+  "native_source_rgb_mean": [
+    148.04963112005365,
+    93.1851106639839,
+    61.15291750503018
+  ],
+  "fixed_shader_rgb_mean": [
+    148.04963112005365,
+    93.1851106639839,
+    61.15291750503018
+  ],
+  "negative_shader_rgb_mean": [
+    99.57344064386318,
+    46.756539235412475,
+    25.849094567404425
+  ],
+  "fixed_mean_absolute_error": 0.0,
+  "negative_mean_absolute_error": 43.40286161412922,
+  "fixed_maximum_error": 0.0,
+  "image_scale": 1.25,
+  "texture_reported_scale": 1.5625,
+  "scale_note": "Physical sampling uses actual decoded PNG dimensions1600x900; Texture.get_width reported2000 under current window DPI, so its reported scale is not used.",
+  "method": "Identical native Sprite2D texture samples, unshaded reference vs corrected shader vs deliberately texture-squared negative control; palette/motion disabled for this control; no screenshot pixel edits."
+}

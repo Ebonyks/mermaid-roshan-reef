@@ -1,0 +1,34 @@
+{
+  "original_game_methods": 71,
+  "unchanged_original_game_methods": 68,
+  "changed_game_methods": [
+    "FootlightsCanvas.setup",
+    "FootlightsCanvas.layout",
+    "FootlightsCanvas._draw"
+  ],
+  "removed_game_methods": [
+    "FootlightsCanvas._draw"
+  ],
+  "original_probe_methods": 88,
+  "unchanged_original_probe_methods": 84,
+  "changed_probe_methods": [
+    "root._check_asset_contract",
+    "root._check_runtime_texture_census",
+    "root._surface_structure_exact",
+    "root._collect_visual_rects"
+  ],
+  "added_probe_methods": [
+    "root._painted_footlights_contract",
+    "root._nine_patch_alpha_rect",
+    "root._nine_patch_axis"
+  ],
+  "all_controller_state_and_original_layout_call_code_LF_exact": true,
+  "full_game_probe_unchanged": true,
+  "rendering_method": "True2D Sprite2D globes and NinePatchRect support. Only painted center strip adapts horizontally;18px caps and whole sprites preserved.",
+  "existing_texture_ceilings_unchanged": {
+    "decoded_bytes": 24117248,
+    "declared_upload_bytes": 12582912
+  },
+  "new_base_RGBA8_bytes": 555808,
+  "no_new_functional_or_3D_geometry": true
+}

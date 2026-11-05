@@ -1,0 +1,14 @@
+{
+  "source": "scripts/ci.sh prefix before RUNTIME_ERROR_RE",
+  "source_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e",
+  "exit": 1,
+  "seconds": 717.4422825000001,
+  "pass": false,
+  "plumbing": "Git Bash, same installed native Python, source-only working directory; all gate commands/classifiers unmodified.",
+  "other_required_lanes": [
+    "project_import.log",
+    "game2d_retry.log",
+    "trusted_probe_completion.json"
+  ],
+  "source_quality": "strict_regression.json remains FAIL; this is an archive review draft, not an accepted performance."
+}

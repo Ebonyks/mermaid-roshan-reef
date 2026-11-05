@@ -648,7 +648,10 @@
         "design/reference/strengths.json",
         "design/09_CHAPTER_DEVELOPMENT_GUIDE.md",
         "design/templates/CHAPTER_BRIEF_V1.md",
-        "design/10_CHAPTER_REFERENCE_LIBRARY.md"
+        "design/10_CHAPTER_REFERENCE_LIBRARY.md",
+        "design/chapters/CHAPTER_MAP.md",
+        "design/reference/CANON.md",
+        "design/reference/BOOK_SOURCES.md"
       ],
       "strengths": [
         "S-01",
@@ -657,10 +660,14 @@
         "S-14"
       ],
       "expand": [
+        "Use the exact designated book as narrative authority when it differs from game code (DL-PLAN-08). Record required game adaptations; distinguish later revision proposals from the book. Cite canon IDs, carried state and open-thread owner marks.",
         "Fill chapter brief with source-bound canon/identity/room/causal dependencies, child desire, pacing, touch, persistent consequences, return and save defaults.",
         "Inventory unused/reusable families and inspect consumers/quality/licences; choose existing implemented extension path, label missing platform services.",
         "Build one representative playable activity and evaluate positive/passive/repeat/save/re-entry contact/cues; expand autonomously inside approved scope.",
-        "Collect source-bound visual/device/child/owner evidence and retro write-back to guide, references and sensors; a chapter template does not commission implementation."
+        "Collect source-bound visual/device/child/owner evidence and retro write-back to guide, references and sensors; a chapter template does not commission implementation.",
+        "Require fresh-save chapter traversal by visible doors and real production touches without callbacks/phase overrides/fixtures/probe-only gestures (DL-QA-02, DL-SAVE-04; MA-PLAY-005). Keep fixture diagnostics labelled.",
+        "Bind every authored story step to an own-room object/hotspot/stage action, run tools/audit_chapter_contract.py, and reject unbound/other-room fault controls (DL-PLAN-07; MA-PLAY-005).",
+        "Wait for authored reward acting and spoken line before the story clip; declare minimum and hard maximum, poll in the owning process and test interruption/re-entry (DL-CIN-16, GS-21; MA-PLAY-006)."
       ],
       "variety_rules": [
         "Connect familiar verbs to a new coherent desire, consequence and emotional arc, not a checklist of old jobs."
@@ -673,6 +680,7 @@
         }
       ],
       "gates": [
+        "python -B tools/audit_chapter_contract.py; python -B tools/design_reference.py --check",
         "python -B tools/audit_document_authority.py",
         "python -B tools/audit_development.py --base auto",
         "Changed GDScript: python -m gdtoolkit.parser plus tools/lint_inference.py; exact Godot 4.7.2-stable import/full scripts/ci.sh and exact-head green branch CI before integration. No high-risk workflow edits without explicit task authority.",
@@ -688,9 +696,10 @@
       "served_prompts": [],
       "revision_history": [
         "2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.",
-        "2026-10-03: Review fixes (Claude): the premise touchpoint waits for the owner (DL-PLAN-01)."
+        "2026-10-03: Review fixes (Claude): the premise touchpoint waits for the owner (DL-PLAN-01).",
+        "2026-10-31: CG1 chapter failure lessons and book-first Rumi-world source routing from owner correction; no chapter implementation commission."
       ],
-      "revision": 2
+      "revision": 3
     },
     {
       "id": "INT-REPAIR",

@@ -1,0 +1,16 @@
+from pathlib import Path
+import subprocess,json,hashlib,datetime,re,os
+root=Path.cwd();engine=subprocess.check_output(["python","-B","tools/resolve_godot.py"],text=True).strip()
+version=subprocess.check_output([engine,"--version"],text=True).strip();assert version.startswith("4.7.2.stable.")
+project=hashlib.sha256(Path("project.godot").read_bytes()).hexdigest();log=Path("tmp/godot_mcp_workgroup_import.log")
+r={"started_at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"engine":engine,"version":version,"project_before_sha256":project,"command":[engine,"--headless","--path",str(root),"--import"],"timeout_seconds":720}
+try:
+ with log.open("w",encoding="utf-8") as output:p=subprocess.run(r["command"],stdout=output,stderr=subprocess.STDOUT,timeout=720,env={**os.environ,"PYTHONUTF8":"1"})
+ code=p.returncode
+except subprocess.TimeoutExpired:code=124
+r.update({"exit_code":code,"completed_at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"project_after_sha256":hashlib.sha256(Path("project.godot").read_bytes()).hexdigest(),"log_sha256":hashlib.sha256(log.read_bytes()).hexdigest()})
+r["error_marker"]=bool(re.search(r"SCRIPT ERROR|Parse Error|Compile Error|ERR_FILE_CORRUPT|Error importing|Cannot load resource|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)",log.read_text(encoding="utf-8",errors="replace")))
+r["result"]="PASS" if code==0 and not r["error_marker"] and r["project_after_sha256"]==project else "FAIL"
+Path("tmp/godot_mcp_workgroup_import.json").write_text(json.dumps(r,indent=2)+"\n")
+print("WORKGROUP_IMPORT",r["result"],code,flush=True)
+raise SystemExit(0 if r["result"]=="PASS" else 1)

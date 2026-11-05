@@ -1,0 +1,16 @@
+{
+  "state": "CURRENT_FULL_STATIC_PASS_AND_FROZEN_STAGED_SOURCE_SNAPSHOT",
+  "at_utc": "2026-11-02T21:47:44.566437+00:00",
+  "full_static_result": {
+    "state": "PASS",
+    "exit_code": 0,
+    "log_sha256": "a873a0a30a08b41efbbb002c32a8f5899b3e7d7c3452f50f78d32fe02e7a59ed",
+    "prefix_sha256": "ce6aaf22e73ea76062e9a81a208208345889670946ea69d5da3fa1c5a353a243",
+    "ci_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e"
+  },
+  "git_index_snapshot_sha256": "edf19381835232d9077257384644761b2b0f0e9e1f6ce4f18717fa897a3b0db0",
+  "git_index_entries": 34013,
+  "unstaged_changes": [],
+  "candidate_source_pin_sha256": "4b842c9ce3c112cded16dde1dac569f7b550b93876d5a56797535d0ed04b0d49",
+  "purpose": "If the new verifier fails solely on the independently diagnosed orange/yellow boundary, retain this complete healthy static set. A subsequent verifier-only two-literal edit needs fresh parser/lint/authority/development/real analyzer/2D and all82 probes, while unchanged source-independent static checks remain source-bound; no automatic recovery authorized for other failures."
+}

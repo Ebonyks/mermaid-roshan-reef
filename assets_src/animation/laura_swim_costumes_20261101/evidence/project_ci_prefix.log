@@ -1,0 +1,786 @@
+GODOTBASELINE|ALL OK|4.7.2-stable|official.ed1daf0bf
+FASHION_BETA_AUDIT|ALL OK| {"new_pieces": 12, "new_layers": 156, "cells": 1752, "visual_fit_device_child_owner": "PENDING"}
+TYPOGRAPHY_AUDIT status=OPEN
+FONT assets=0 bindings=0 coverage=UNRESOLVED device=MISSING
+GLYPHS observed=133 unclassified=0 critical=124 critical_unresolved=124
+LABEL3D current=36 baseline=45 files=11 delta=-9
+LABEL3D_FILE  7 scripts/arena/sky_lagoon.gd
+LABEL3D_FILE  2 scripts/collection_system.gd
+LABEL3D_FILE  1 scripts/combat_arena.gd
+LABEL3D_FILE 11 scripts/companion.gd
+LABEL3D_FILE  1 scripts/dungeon_puzzle_room.gd
+LABEL3D_FILE  2 scripts/galaxy.gd
+LABEL3D_FILE  4 scripts/games/shop.gd
+LABEL3D_FILE  4 scripts/kart.gd
+LABEL3D_FILE  2 scripts/main.gd
+LABEL3D_FILE  1 scripts/reef_districts.gd
+LABEL3D_FILE  1 scripts/stuffie_battle.gd
+OPEN font authority, coverage, and/or device evidence remains unresolved
+ROSHAN2D| stress: 8 falsification cases ALL OK
+ROSHAN2D| RESULT: ALL OK - active project is 2D Roshan only
+GAME2D| stress: 14 falsification/control assertions ALL OK
+GAME2D| stress: 14 falsification/control assertions ALL OK
+naive 256px grid :      0 px of Roshan clipped,      0 px ghost
+shipped windows  :      0 px of Roshan clipped,      0 px ghost
+                   (0.00% -> 0.00% of her art lost)
+playground poses :     12 whole, single-silhouette 512px frames
+OK: every Roshan frame renders whole
+PROBE_PARITY|stress missing loop: OK
+PROBE_PARITY|stress duplicate probe: OK
+PROBE_PARITY|stress local/remote mismatch: OK
+PROBE_PARITY|stress missing probe file: OK
+PROBE_PARITY|stress missing separate invocation: OK
+PROBE_PARITY|stress missing parity gate: OK
+PROBE_PARITY|stress missing local music verifier: OK
+PROBE_PARITY|stress missing pinned music verifier: OK
+PROBE_PARITY|result: ALL OK
+DOCAUTH|STRESS|6/6
+DOCAUTH|STRESS|6/6
+GOLDSTAR|RENDER|design/reference/GOLD_STAR.md
+GOLDSTAR|RESULT|OK|2 games, 0 errors, 0 stale
+GOLDSTAR|STALE_PAGE|design/reference/GOLD_STAR.md|run --render
+GOLDSTAR|RESULT|OK|2 games, 0 errors, 0 stale
+GOLDSTAR|STALE_PAGE|design/reference/GOLD_STAR.md|run --render
+GOLDSTAR|RESULT|FAIL|2 games, 0 errors, 0 stale
+GOLDSTAR|STALE|astronaut|re-assess, then --rebind: scripts/chapter_two_career_scene_adapter.gd::PHASE_SETS[astronaut], scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus
+GOLDSTAR|STALE|ballerina|re-assess, then --rebind: scripts/chapter_two_career_scene_adapter.gd::PHASE_SETS[ballerina], scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations
+GOLDSTAR|STALE|boxer|re-assess, then --rebind: scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus, scripts/opera_boxing_surface.gd
+GOLDSTAR|STALE|candymaker|re-assess, then --rebind: scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus
+GOLDSTAR|STALE|chapter2_lawn|re-assess, then --rebind: scripts/chapter_two_lawn_finale_2d.gd
+GOLDSTAR|STALE|chapter2_party|re-assess, then --rebind: scripts/chapter_two_director.gd, scripts/chapter_two_career_scene_adapter.gd
+GOLDSTAR|STALE|chef|re-assess, then --rebind: scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus, scripts/opera_gesture_surface.gd::_draw_pour_scene, scripts/opera_gesture_surface.gd::_draw_chef_crank, scripts/opera_gesture_surface.gd::_draw_oven
+GOLDSTAR|STALE|combat_arena|re-assess, then --rebind: scripts/combat_arena.gd
+GOLDSTAR|STALE|combat_tutorial|re-assess, then --rebind: scripts/combat_tutorial.gd
+GOLDSTAR|STALE|comfy_games|re-assess, then --rebind: scripts/comfy_games.gd
+GOLDSTAR|STALE|companion_care|re-assess, then --rebind: scripts/companion.gd
+GOLDSTAR|STALE|critters|re-assess, then --rebind: scripts/collection_system.gd
+GOLDSTAR|STALE|day_one_bathroom|re-assess, then --rebind: scripts/games/day_one_dust_bunny_swimmer.gd
+GOLDSTAR|STALE|day_one_craft_room|re-assess, then --rebind: scripts/day_one_art_studio.gd
+GOLDSTAR|STALE|day_one_pool|re-assess, then --rebind: scripts/games/pool_skimmer_activity.gd, scripts/games/pool_waterfall_activity.gd, scripts/games/pool_seahorse_rescue_activity.gd, scripts/day_one_contact_action_2d.gd
+GOLDSTAR|STALE|detective|re-assess, then --rebind: scripts/chapter_two_career_scene_adapter.gd::PHASE_SETS[detective], scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus
+GOLDSTAR|STALE|doctor|re-assess, then --rebind: scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus, scripts/opera_gesture_surface.gd::_draw_doctor_basin_subject
+GOLDSTAR|STALE|dolls|re-assess, then --rebind: scripts/games/dolls.gd
+GOLDSTAR|STALE|dungeon|re-assess, then --rebind: scripts/dungeon_puzzle_room.gd
+GOLDSTAR|STALE|ember|re-assess, then --rebind: scripts/ember_fortress.gd
+GOLDSTAR|STALE|fairy_conservatory|re-assess, then --rebind: scripts/arena/fairy_conservatory_handoff_2d.gd
+GOLDSTAR|STALE|farmer|re-assess, then --rebind: scripts/chapter_two_career_scene_adapter.gd::PHASE_SETS[farmer], scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus, scripts/opera_gesture_surface.gd::_draw_garden_plant
+GOLDSTAR|STALE|galaxy|re-assess, then --rebind: scripts/galaxy.gd
+GOLDSTAR|STALE|geologist|re-assess, then --rebind: scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_geology_surface.gd, scripts/opera_world_backdrop_2d.gd::_draw_geologist
+GOLDSTAR|STALE|grand_puff|re-assess, then --rebind: scripts/games/dust_boss.gd, scripts/dust_bunny_boss_sprite.gd, scripts/dust_boss_lesson_2d.gd
+GOLDSTAR|STALE|kart|re-assess, then --rebind: scripts/kart.gd
+GOLDSTAR|STALE|magician|re-assess, then --rebind: scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_gesture_surface.gd::_draw_magic_vanish_scene
+GOLDSTAR|STALE|nursery|re-assess, then --rebind: scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus, scripts/opera_nursery_catch.gd, scripts/opera_gesture_surface.gd::_draw_nursery_feed_scene
+GOLDSTAR|STALE|painter|re-assess, then --rebind: scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus, scripts/opera_gesture_surface.gd::_draw_paint_reveal
+GOLDSTAR|STALE|pearl_castle|re-assess, then --rebind: scripts/arena/castle_rooms_25d.gd
+GOLDSTAR|STALE|pic_garden|re-assess, then --rebind: scripts/games/picture_games.gd::_mg_build_garden, scripts/games/picture_games.gd::_mg_garden_tap
+GOLDSTAR|STALE|popstar|re-assess, then --rebind: scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations
+GOLDSTAR|STALE|racer|re-assess, then --rebind: scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus, scripts/opera_racer_surface.gd
+GOLDSTAR|STALE|seek|re-assess, then --rebind: scripts/games/seek.gd
+GOLDSTAR|STALE|sky_lagoon|re-assess, then --rebind: scripts/arena/sky_lagoon_promenade.gd, scripts/arena/sky_lagoon_layout.json
+GOLDSTAR|STALE|teacher|re-assess, then --rebind: scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_teacher_surface.gd
+GOLDSTAR|STALE|wardrobe|re-assess, then --rebind: scripts/wardrobe_ui.gd
+GOLDSTAR|STALE_PATTERN|GS-01 scripts/day_one_contact_action_2d.gd
+GOLDSTAR|STALE_PATTERN|GS-04 scripts/games/pool_seahorse_rescue_activity.gd::_update_guide_hand
+GOLDSTAR|STALE_PATTERN|GS-07 scripts/games/pool_waterfall_activity.gd::_build_dirty_slices
+GOLDSTAR|STALE_PATTERN|GS-08 scripts/probe_day_one_pool_cleanup.gd::_probe_contact_action
+GOLDSTAR|STALE_PATTERN|GS-15 scripts/games/pool_seahorse_rescue_activity.gd::_register_tap
+GOLDSTAR|STALE_PATTERN|GS-15 scripts/games/pool_seahorse_rescue_activity.gd::_finish_tug
+GOLDSTAR|STALE_PATTERN|GS-11 scripts/audio_director.gd::DAY_ONE_REQUIRED_EVENTS
+GOLDSTAR|STALE_PATTERN|GS-11 scripts/audio_director.gd::_say
+GOLDSTAR|STALE_DRAWING|scripts/opera_world_backdrop_2d.gd|re-read what it draws, update the classification and its sha256
+GOLDSTAR|STALE_DRAWING|scripts/opera_world_hotspot_2d.gd|re-read what it draws, update the classification and its sha256
+GOLDSTAR|STALE_DRAWING|scripts/opera_gesture_surface.gd|re-read what it draws, update the classification and its sha256
+GOLDSTAR|STALE_DRAWING|scripts/opera_boxing_surface.gd|re-read what it draws, update the classification and its sha256
+GOLDSTAR|STALE_DRAWING|scripts/opera_geology_surface.gd|re-read what it draws, update the classification and its sha256
+GOLDSTAR|STALE_DRAWING|scripts/opera_racer_surface.gd|re-read what it draws, update the classification and its sha256
+GOLDSTAR|STALE_DRAWING|scripts/opera_teacher_surface.gd|re-read what it draws, update the classification and its sha256
+GOLDSTAR|STALE_DRAWING|scripts/opera_career_world_2d.gd|re-read what it draws, update the classification and its sha256
+GOLDSTAR|STALE_OVERDRAW|astronaut|re-measure: scripts/chapter_two_career_scene_adapter.gd, scripts/opera_career_world_2d.gd, scripts/opera_gesture_surface.gd, scripts/opera_world_backdrop_2d.gd
+GOLDSTAR|STALE_OVERDRAW|ballerina|re-measure: scripts/chapter_two_career_scene_adapter.gd, scripts/opera_career_world_2d.gd, scripts/opera_world_backdrop_2d.gd, scripts/opera_world_hotspot_2d.gd
+GOLDSTAR|STALE_OVERDRAW|boxer|re-measure: scripts/opera_boxing_surface.gd, scripts/opera_career_world_2d.gd, scripts/opera_world_backdrop_2d.gd, scripts/opera_world_hotspot_2d.gd
+GOLDSTAR|STALE_OVERDRAW|candymaker|re-measure: scripts/chapter_two_career_scene_adapter.gd, scripts/opera_career_world_2d.gd, scripts/opera_gesture_surface.gd, scripts/opera_world_backdrop_2d.gd
+GOLDSTAR|STALE_OVERDRAW|chef|re-measure: scripts/chapter_two_career_scene_adapter.gd, scripts/opera_career_world_2d.gd, scripts/opera_gesture_surface.gd, scripts/opera_world_backdrop_2d.gd
+GOLDSTAR|STALE_OVERDRAW|detective|re-measure: scripts/chapter_two_career_scene_adapter.gd, scripts/opera_career_world_2d.gd, scripts/opera_world_backdrop_2d.gd, scripts/opera_world_hotspot_2d.gd
+GOLDSTAR|STALE_OVERDRAW|doctor|re-measure: scripts/chapter_two_career_scene_adapter.gd, scripts/opera_career_world_2d.gd, scripts/opera_gesture_surface.gd, scripts/opera_world_backdrop_2d.gd
+GOLDSTAR|STALE_OVERDRAW|farmer|re-measure: scripts/chapter_two_career_scene_adapter.gd, scripts/opera_career_world_2d.gd, scripts/opera_gesture_surface.gd, scripts/opera_world_backdrop_2d.gd
+GOLDSTAR|STALE_OVERDRAW|geologist|re-measure: scripts/opera_career_world_2d.gd, scripts/opera_geology_surface.gd, scripts/opera_world_backdrop_2d.gd, scripts/opera_world_hotspot_2d.gd
+GOLDSTAR|STALE_OVERDRAW|magician|re-measure: scripts/opera_career_world_2d.gd, scripts/opera_gesture_surface.gd, scripts/opera_world_backdrop_2d.gd, scripts/opera_world_hotspot_2d.gd
+GOLDSTAR|STALE_OVERDRAW|nursery|re-measure: scripts/opera_career_world_2d.gd, scripts/opera_gesture_surface.gd, scripts/opera_nursery_catch.gd, scripts/opera_world_backdrop_2d.gd
+GOLDSTAR|STALE_OVERDRAW|painter|re-measure: scripts/chapter_two_career_scene_adapter.gd, scripts/opera_career_world_2d.gd, scripts/opera_gesture_surface.gd, scripts/opera_world_backdrop_2d.gd
+GOLDSTAR|STALE_OVERDRAW|popstar|re-measure: scripts/chapter_two_career_scene_adapter.gd, scripts/opera_career_world_2d.gd, scripts/opera_gesture_surface.gd, scripts/opera_world_backdrop_2d.gd
+GOLDSTAR|STALE_OVERDRAW|racer|re-measure: scripts/opera_career_world_2d.gd, scripts/opera_racer_surface.gd, scripts/opera_world_backdrop_2d.gd, scripts/opera_world_hotspot_2d.gd
+GOLDSTAR|STALE_OVERDRAW|teacher|re-measure: scripts/opera_career_world_2d.gd, scripts/opera_teacher_surface.gd, scripts/opera_world_backdrop_2d.gd, scripts/opera_world_hotspot_2d.gd
+GOLDSTAR|STALE_PAGE|design/reference/GOLD_STAR.md|run --render
+GOLDSTAR|RESULT|OK|60 games, 0 errors, 37 stale
+AUDITDEV|BASE|27c88288bf6e39582072811443df79919e7bbb89
+AUDITDEV|FAIL|design/audit_impacts/laura-swim-test-20261101.json: files contain an unsafe path, directory, or wildcard
+AUDITDEV|FAIL|design/audit_impacts/laura-swim-test-20261101.json: files contain an unsafe path, directory, or wildcard
+AUDITDEV|FAIL|design/audit_impacts/laura-swim-test-20261101.json: files contain an unsafe path, directory, or wildcard
+AUDITDEV|FAIL|no changed audit-impact record covers ASSET_LICENSES.md
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/.gdignore
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/.gitattributes
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/.gitignore
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/README.md
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/astronaut/loop_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/astronaut/loop_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/astronaut/loop_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/astronaut/travel_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/astronaut/travel_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/astronaut/travel_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/ballet/loop_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/ballet/loop_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/ballet/loop_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/ballet/travel_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/ballet/travel_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/ballet/travel_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/boxer/loop_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/boxer/loop_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/boxer/loop_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/boxer/travel_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/boxer/travel_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/boxer/travel_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/candymaker/loop_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/candymaker/loop_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/candymaker/loop_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/candymaker/travel_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/candymaker/travel_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/candymaker/travel_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/chef/loop_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/chef/loop_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/chef/loop_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/chef/travel_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/chef/travel_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/chef/travel_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/detective/loop_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/detective/loop_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/detective/loop_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/detective/travel_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/detective/travel_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/detective/travel_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/doctor/loop_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/doctor/loop_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/doctor/loop_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/doctor/travel_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/doctor/travel_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/doctor/travel_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/farmer/loop_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/farmer/loop_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/farmer/loop_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/farmer/travel_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/farmer/travel_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/farmer/travel_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/geologist/loop_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/geologist/loop_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/geologist/loop_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/geologist/travel_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/geologist/travel_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/geologist/travel_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/magician/loop_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/magician/loop_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/magician/loop_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/magician/travel_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/magician/travel_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/magician/travel_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/nursery/loop_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/nursery/loop_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/nursery/loop_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/nursery/travel_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/nursery/travel_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/nursery/travel_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/original/loop_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/original/loop_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/original/loop_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/original/travel_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/original/travel_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/original/travel_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/painter/loop_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/painter/loop_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/painter/loop_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/painter/travel_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/painter/travel_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/painter/travel_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/popstar/loop_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/popstar/loop_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/popstar/loop_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/popstar/travel_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/popstar/travel_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/popstar/travel_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/racer/loop_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/racer/loop_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/racer/loop_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/racer/travel_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/racer/travel_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/racer/travel_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/teacher/loop_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/teacher/loop_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/teacher/loop_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/teacher/travel_alpha.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/teacher/travel_receipt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/archives/teacher/travel_rgb.mkv
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/aseprite_import.log
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/aseprite_reopen.log
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/aseprite_roundtrip.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/astronaut.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/astronaut_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/ballet.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/ballet_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/boxer.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/boxer_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/candymaker.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/candymaker_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/chef.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/chef_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/detective.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/detective_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/doctor.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/doctor_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/farmer.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/farmer_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/geologist.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/geologist_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/magician.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/magician_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/nursery.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/nursery_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/original.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/original_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/painter.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/painter_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/popstar.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/popstar_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/racer.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/racer_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/teacher.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes/teacher_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/astronaut.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/astronaut_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/ballet.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/ballet_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/boxer.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/boxer_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/candymaker.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/candymaker_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/chef.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/chef_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/detective.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/detective_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/doctor.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/doctor_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/farmer.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/farmer_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/geologist.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/geologist_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/magician.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/magician_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/nursery.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/nursery_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/original.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/original_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/painter.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/painter_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/popstar.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/popstar_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/racer.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/racer_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/teacher.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/costumes_surface/teacher_frame_hashes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/initial_attempt.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/isolated_surface_capture.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/native_archives.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/native_full.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/project_ci.err
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/project_ci.log
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/review_mapping.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/swim_audit.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/evidence/swim_audit_surface.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/masters/astronaut.aseprite
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/masters/ballet.aseprite
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/masters/boxer.aseprite
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/masters/candymaker.aseprite
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/masters/chef.aseprite
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/masters/detective.aseprite
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/masters/doctor.aseprite
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/masters/farmer.aseprite
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/masters/geologist.aseprite
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/masters/magician.aseprite
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/masters/nursery.aseprite
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/masters/original.aseprite
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/masters/painter.aseprite
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/masters/popstar.aseprite
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/masters/racer.aseprite
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/masters/teacher.aseprite
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/references/laura_v2_profile.txt
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/references/task_start.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/review/all_16_overview.jpg
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/review/all_16_swimming.mp4
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/review/basic_swimming.mp4
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/review/comparison_1.mp4
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/review/comparison_2.mp4
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/review/comparison_3.mp4
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/review/comparison_4.mp4
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/review/comparison_concat.txt
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/review/costume_comparison.mp4
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/review/costumes_page_1.jpg
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/review/costumes_page_2.jpg
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/review/costumes_page_3.jpg
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/review/costumes_page_4.jpg
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/review/first_native_preview.jpg
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/shared/capture.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/shared/capture_surfaces.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/shared/swim_motion.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/capture.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/capture_surfaces.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/costume.gdshader
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/49c6f5e07dde/doctor_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/49c6f5e07dde/doctor_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/49c6f5e07dde/doctor_sleeve_left.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/49c6f5e07dde/doctor_sleeve_right.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/49c6f5e07dde/doctor_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/49c6f5e07dde/empty.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/49c6f5e07dde/teacher_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/49c6f5e07dde/teacher_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/49c6f5e07dde/teacher_sleeve_left.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/49c6f5e07dde/teacher_sleeve_right.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/49c6f5e07dde/teacher_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/f206592dffe8/anatomy.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/f206592dffe8/body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/f206592dffe8/eyes_closed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/f206592dffe8/eyes_half.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/f206592dffe8/forearm.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/f206592dffe8/frozen_inputs_v8.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/f206592dffe8/magician_scalp.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/f206592dffe8/neutral.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/f206592dffe8/original_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/f206592dffe8/original_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/f206592dffe8/ownership.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/f206592dffe8/rig.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/f206592dffe8/upper_arm.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/external/f206592dffe8/upper_clean.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/garments.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/project.godot
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/rig.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/study.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/swim_motion.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/care/swim_source.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/arm_no_hand.gdshader
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/anatomy.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/baby.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/ballet_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/ballet_composed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/ballet_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/ballet_scalp.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/ballet_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candy.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candy_pan.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_LeftFore.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_LeftHand.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_LeftUpper.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_RightFore.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_RightHand.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_RightUpper.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_Torso.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_action_Head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_action_LeftFore.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_action_LeftHand.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_action_LeftUpper.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_action_RightFore.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_action_RightHand.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_action_RightUpper.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_action_Tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_action_Torso.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_body_full.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_composed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_full_garment.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_preview.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_scalp.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_sleeve_left.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_sleeve_right.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/candymaker_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/cradle.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/cup_left.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/cup_right.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/eyes_closed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/eyes_half.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/forearm.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/magician_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/magician_composed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/magician_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/magician_scalp.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/magician_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_LeftFore.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_LeftHand.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_LeftUpper.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_RightFore.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_RightHand.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_RightUpper.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_Torso.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_action_Head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_action_LeftFore.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_action_LeftHand.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_action_LeftUpper.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_action_RightFore.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_action_RightHand.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_action_RightUpper.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_action_Tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_action_Torso.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_body_full.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_composed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_full_garment.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_preview.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_scalp.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_sleeve_left.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_sleeve_right.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/nursery_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/original_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/original_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/ownership.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/ownership_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/ownership_jobs.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/support_hand_source.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/tong_grip_source.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/tong_hand.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/tong_tool.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/upper_arm.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/art/upper_clean.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/capture.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/capture_surfaces.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/contract.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/costume.gdshader
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/costume_jobs.gdshader
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/costumes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/original_rig.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/project.godot
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/rig.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/rig_candymaker.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/rig_nursery.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/seed_study.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/sleeves.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/swim_motion.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/craft/swim_source.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/capture.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/capture_surfaces.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/costume.gdshader
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/costumes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/anatomy.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/astronaut_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/astronaut_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/astronaut_scalp.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/astronaut_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/ballet_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/ballet_composed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/ballet_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/ballet_scalp.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/ballet_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/banner.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/blank.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/brush.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/brush_grip.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/magician_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/magician_composed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/magician_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/magician_scalp.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/magician_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/neck_patch.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/original_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/original_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/ownership.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/painter_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/painter_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/painter_scalp.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/painter_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/painting.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/upper_clean.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/valve.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/12c23827e71b/valve_support.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/453ad5ec265c/arm.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/453ad5ec265c/body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/453ad5ec265c/eyes_closed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/453ad5ec265c/eyes_half.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/453ad5ec265c/forearm.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/453ad5ec265c/neutral.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/453ad5ec265c/neutral_composite.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/external/453ad5ec265c/upper_arm.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/project.godot
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/rig.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/seed_rig.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/study.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/swim_motion.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/creative/swim_source.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/anatomy.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/ballet_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/ballet_composed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/ballet_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/ballet_scalp.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/ballet_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/brush.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/detective_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/detective_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/detective_scalp.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/detective_sleeve.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/detective_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/eyes_closed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/eyes_half.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/fore_work.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/forearm.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/fossil.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/geologist_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/geologist_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/geologist_scalp.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/geologist_sleeve.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/geologist_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/grip_front.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/investigation_anatomy.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/investigation_ownership.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/magician_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/magician_composed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/magician_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/magician_scalp.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/magician_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/magnifier.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/magnifier_glass.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/new_anatomy_legacy_fin.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/original_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/original_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/ownership.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/seed_anatomy_no_fin.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/slab.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/soil.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/specimen.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/upper_arm.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/upper_clean.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/art/upper_work.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/audit_rig_detective.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/audit_rig_geologist.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/capture.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/capture_surfaces.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/costume.gdshader
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/costumes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/garment_meshes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/project.godot
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/rig.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/study.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/swim_motion.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/investigation/swim_source.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/LeftForeAction.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/LeftHandAction.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/LeftUpperAction.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/RightForeAction.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/RightHandAction.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/RightUpperAction.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/anatomy.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/anatomy_job.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/chef_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/chef_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/chef_scalp.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/chef_sleeve_left.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/chef_sleeve_right.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/chef_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/elbow_overlap_cap.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/eyes_closed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/eyes_half.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/farmer_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/farmer_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/farmer_scalp.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/farmer_sleeve_left.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/farmer_sleeve_right.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/farmer_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/forearm.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/original_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/original_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/ownership.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/transparent.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/upper_arm.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/art/upper_clean.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/capture.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/capture_surfaces.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/costume.gdshader
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/costumes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/garment.gdshader
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/project.godot
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/props/basket.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/props/basket_front.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/props/bowl.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/props/bowl_front.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/props/bowl_only.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/props/bowl_stirred.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/props/carrot.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/props/seed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/props/seed_bed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/props/spoon.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/rig.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/study.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/swim_motion.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/kitchen/swim_source.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/anatomy.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/ballet_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/ballet_composed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/ballet_goal.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/ballet_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/ballet_scalp.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/ballet_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/closed_grip.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/hat.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/lamb.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/magician_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/magician_composed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/magician_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/magician_scalp.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/magician_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/original_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/original_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/ownership.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/rope0.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/rope1.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/rope2.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/seed_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/seed_eyes_closed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/seed_eyes_half.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/seed_forearm.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/seed_upper_arm.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/upper_clean.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/art/wand.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/capture.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/capture_surfaces.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/costume.gdshader
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/costumes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/project.godot
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/rig.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/seed.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/swim_motion.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/performance/swim_source.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/LeftElbowCap.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/RightElbowCap.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/action_mask.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/anatomy.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/ballet_ActionBody.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/ballet_LeftFore.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/ballet_LeftHand.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/ballet_LeftUpper.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/ballet_RightFore.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/ballet_RightHand.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/ballet_RightUpper.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/ballet_action_mask.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/ballet_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/ballet_composed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/ballet_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/ballet_scalp.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/ballet_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/boxer_ActionBody.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/boxer_LeftFore.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/boxer_LeftHand.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/boxer_LeftUpper.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/boxer_RightFore.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/boxer_RightHand.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/boxer_RightUpper.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/boxer_action_mask.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/boxer_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/boxer_composed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/boxer_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/boxer_scalp.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/boxer_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/eyes_closed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/eyes_half.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/focus_mitt.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/forearm.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/glove_guard.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/glove_jab.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/glove_palm.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/magician_ActionBody.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/magician_LeftFore.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/magician_LeftHand.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/magician_LeftUpper.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/magician_RightFore.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/magician_RightHand.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/magician_RightUpper.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/magician_action_mask.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/magician_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/magician_composed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/magician_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/magician_scalp.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/magician_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/mic_lower.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/mic_upper.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/microphone.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/original_ActionBody.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/original_LeftFore.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/original_LeftHand.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/original_LeftUpper.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/original_RightFore.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/original_RightHand.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/original_RightUpper.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/original_action_mask.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/original_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/original_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/ownership.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/popstar_ActionBody.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/popstar_LeftFore.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/popstar_LeftHand.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/popstar_LeftUpper.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/popstar_RightFore.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/popstar_RightHand.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/popstar_RightUpper.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/popstar_action_mask.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/popstar_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/popstar_composed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/popstar_grip.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/popstar_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/popstar_scalp.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/popstar_sleeve_backing.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/popstar_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/racer_ActionBody.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/racer_LeftFore.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/racer_LeftHand.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/racer_LeftUpper.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/racer_RightFore.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/racer_RightHand.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/racer_RightUpper.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/racer_action_mask.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/racer_body.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/racer_composed.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/racer_grip_left.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/racer_grip_right.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/racer_head.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/racer_hip_panel.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/racer_scalp.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/racer_tail.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/upper_arm.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/upper_clean.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/art/wheel.png
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/base.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/capture.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/capture_surfaces.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/contract.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/costume.gdshader
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/costumes.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/project.godot
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/rig.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/seed_rig_relocated.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/swim_motion.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/sources/sport/swim_source.gd
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/tools/archive_native.py
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/tools/audit_swim.py
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/tools/audit_swim_initial.py.txt
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/tools/audit_swim_surfaces.py
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/tools/capture_surfaces.py
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/tools/finalize_records.py
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/tools/make_masters.py
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/tools/make_review.py
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/tools/masters.lua
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/tools/package_sources.py
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/tools/reference_audit_motion.py
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/tools/reference_audit_study.py
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/tools/render_all.py
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/animation/laura_swim_costumes_20261101/tools/run_project_gates.py
+AUDITDEV|FAIL|no changed audit-impact record covers audit/MASTER_AUDIT_2026-08-09.md
+AUDITDEV|FAIL|no changed audit-impact record covers design/05_DOC_LEDGER.md
+AUDITDEV|RESULT|669 ISSUE(S)
+AUDIT DEVELOPMENT COVERAGE FAIL

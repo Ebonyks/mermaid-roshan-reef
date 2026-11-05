@@ -1,0 +1,86 @@
+# Opera House — four-screen exploration v1
+
+Status: `REVIEW_PROTOTYPE`; owner commission 2026-10-31. This plan and the
+playable review are separate from production integration and acceptance.
+
+## Intended experience
+
+Roshan explores an opera house with four individually illustrated spaces in a
+2 × 2 arrangement. A touch chooses a destination; her authored swim animation
+carries her along a safe floor route before a doorway or stair activates.
+The original coral, ivory, gold and teal architecture remains recognizable.
+
+| Northwest | Northeast |
+|---|---|
+| Costume gallery: costume rail, mirror, hat boxes; Ballerina door | Rehearsal salon: theatre dais, barre, props; Magician door |
+| **Southwest** | **Southeast** |
+| Arrival lounge: shell fountain, conversation sofa; main entrance | Music gallery: grand piano, instruments, clock; Pop Star door |
+
+These are four different drawings, not four crops or repeated instances of the
+old foyer. The separate career crests sit above their physical door arches.
+An earned star remains beside its crest after an activity, with no blanket
+glow on every door. Existing Castle career ownership and Chapter Two story
+gates remain production authority. The v1 uses the three resident Opera jobs;
+it does not silently turn the venue into a new all-career story hub.
+
+## Implementation sequence
+
+1. **Review v1:** four new draft room drawings; independent doorway, crest,
+   Roshan and chandelier cards; one-finger approach-before-entry; connected
+   horizontal passages and paired stairs; a small read-only 2 × 2 locator.
+   Use a brief room transition at a passage landing. This v1 demonstrates
+   adjacency and travel, not accepted continuous panorama seams.
+2. **Living space:** reuse the approved eight-state chandelier performance,
+   localized soft curtain movement, sparse drifting motes and restrained
+   light/water highlights. Architecture stays fixed. Roshan advances authored
+   atlas cells while travelling. Pause/focus loss cancels a held gesture and
+   freezes ambient motion. Keep the playable band visually quiet.
+3. **Gameplay seam:** in the isolated review, enter the same shipping Canvas
+   Ballerina, Pop Star and Magician games using their existing developer
+   practice reward policy. Return to the same room and coordinate. A successful
+   callback marks the corresponding physical crest for this review session;
+   cancellation and passive observation never award it. No child save writes.
+4. **After evaluation:** refine area sizes, door positions, motion amplitude
+   and corridor/stair topology from the actual demo. Produce native background
+   masters with at least 2048 × 2048 coverage for **each** playable screen,
+   paint continuous joins, and slice losslessly to 1024 cards. Draft upscaling
+   never counts as native coverage. Separate every interactive/occluding prop
+   from its healed background exactly once. Register final navigation geometry.
+5. **Production integration:** replace the normal venue through its existing
+   lifecycle, preserve global and party-specific completion authority, saved
+   masks, return routing and sparse retired slots. Run full local CI and exact
+   topic-head CI before integration into dev. Check 1280 × 720 and wide phone,
+   performance on M11, focus/pause/re-entry, save restore, child and owner review.
+
+## Art and motion budget
+
+Inventory: original July 21 foyer, existing career crest family, Roshan's
+approved directional/swim atlases, existing chandelier animation sheet and
+completion star. Those remain unchanged. Missing asset gap: four individually
+drawn explorable spaces and a separate matching doorway; the old 1024 × 576
+foyer cannot supply them. Initial built-in ImageGen allocation: one candidate
+per drawing and one doorway. Retain raw files, prompts, dimensions and hashes;
+all are draft candidates pending runtime owner review. No paid API job or new
+character animation is commissioned by this allocation.
+
+Only the visible room runs ambient decoration. Target fewer than 24 motes,
+one chandelier, three depth roles, no new lights or 3D nodes, Mobile renderer
+and 30 fps on the target device. Desktop measurements do not establish device
+performance. Reuse authored character and fixture states, not whole-scene wobble.
+
+## Evidence and acceptance
+
+Baseline: `218ae766f8e60afb3f6338b8fafce28ec9fab7f2` (`origin/dev` at task start).
+Rules: `DL-AUTH-01`, `DL-AUTH-05`–`07`, `DL-AGE-01`–`07`, `DL-MED-01`–`05`,
+`DL-READ-01`–`06`, `DL-LAY-01`–`08`, `DL-INT-12`–`13`, `DL-MOT-01`–`07`,
+`DL-ASSET-01`–`06`; additive save/lifecycle and Mobile performance rules apply.
+Related finding `MA-OPERA-012` retains its lifecycle and historical evidence;
+this commissioned review neither closes it nor changes Castle job ownership.
+
+Required v1 evidence: exact engine, import/analyzer, routed tap and drag,
+arrival gating, all four connections, return coordinate, cancel/focus/pause,
+passive no-award, three above-arch crests, real win/cancel callback distinction,
+authored actor/chandelier frame changes and native Godot AI game captures.
+Remaining acceptance: native background detail, continuous joins, production
+story/save integration, final prop separation, complete suite/remote integration,
+phone/M11, child and owner visual/motion approval. The demo is not a release.

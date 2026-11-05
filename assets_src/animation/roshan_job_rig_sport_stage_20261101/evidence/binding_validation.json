@@ -1,0 +1,18 @@
+{
+  "checks": {
+    "boxer_binding_valid": true,
+    "racer_binding_valid": true,
+    "popstar_binding_valid": true,
+    "contract_sha_frozen": true
+  },
+  "negative_controls": {
+    "unknown_socket": true,
+    "version_fork": true,
+    "unsupported_view": true,
+    "nonfinite_coordinate": true,
+    "duplicate_grip": true,
+    "unknown_legacy_bone": true
+  },
+  "pass": true,
+  "limits": "Front-view semantic binding only; common-waist geometry, actual motion/contact/appearance and immutable remote seed/shared contract remain separate."
+}

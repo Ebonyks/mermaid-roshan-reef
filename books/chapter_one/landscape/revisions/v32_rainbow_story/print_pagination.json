@@ -1,0 +1,793 @@
+{
+  "revision": "V32 rainbow magic and story space",
+  "authored_pages": 34,
+  "interior_story_pages": 32,
+  "format_inches": [
+    7,
+    5
+  ],
+  "book_sha256": "21f602d1447a476a969ff07403d5b0ee928209b1d595cd82377131cd871f0271",
+  "pagination_sha256": "9e0fc25baa3de15ec452ec5c4e2ba86708ea86cc54bc60d3d388b33236e429bb",
+  "pdf": "complete/Mermaid_Roshan_LANDSCAPE_ROUGH.pdf",
+  "pdf_sha256": "35fd1c57348db7ad6e7e3133a696e4e66a4c0a2951fc519facb7724ae54c821d",
+  "exterior_covers": [
+    {
+      "role": "front",
+      "proof_page": 0,
+      "pdf_position_one_based": 1
+    },
+    {
+      "role": "rear",
+      "proof_page": 33,
+      "pdf_position_one_based": 34
+    }
+  ],
+  "interior_pdf_positions_one_based": [
+    2,
+    33
+  ],
+  "first_story_side": "right / recto",
+  "last_story_side": "left / verso",
+  "unprinted_inside_cover_surfaces": 2,
+  "reading_spreads": [
+    {
+      "id": "opening",
+      "left": null,
+      "right": 1
+    },
+    {
+      "id": "spread-2",
+      "left": 2,
+      "right": 3
+    },
+    {
+      "id": "spread-4",
+      "left": 4,
+      "right": 5
+    },
+    {
+      "id": "spread-6",
+      "left": 6,
+      "right": 7
+    },
+    {
+      "id": "spread-8",
+      "left": 8,
+      "right": 9
+    },
+    {
+      "id": "spread-10",
+      "left": 10,
+      "right": 11
+    },
+    {
+      "id": "spread-12",
+      "left": 12,
+      "right": 13
+    },
+    {
+      "id": "spread-14",
+      "left": 14,
+      "right": 15
+    },
+    {
+      "id": "spread-16",
+      "left": 16,
+      "right": 17
+    },
+    {
+      "id": "spread-18",
+      "left": 18,
+      "right": 19
+    },
+    {
+      "id": "spread-20",
+      "left": 20,
+      "right": 21
+    },
+    {
+      "id": "spread-22",
+      "left": 22,
+      "right": 23
+    },
+    {
+      "id": "spread-24",
+      "left": 24,
+      "right": 25
+    },
+    {
+      "id": "spread-26",
+      "left": 26,
+      "right": 27
+    },
+    {
+      "id": "spread-28",
+      "left": 28,
+      "right": 29
+    },
+    {
+      "id": "spread-30",
+      "left": 30,
+      "right": 31
+    },
+    {
+      "id": "ending",
+      "left": 32,
+      "right": null
+    }
+  ],
+  "reveals": [
+    {
+      "setup_story_page": 23,
+      "setup_side": "right / recto",
+      "reveal_story_page": 24,
+      "reveal_side": "left / verso"
+    },
+    {
+      "setup_story_page": 27,
+      "setup_side": "right / recto",
+      "reveal_story_page": 28,
+      "reveal_side": "left / verso"
+    }
+  ],
+  "comparison_display_order": [
+    4,
+    13,
+    14,
+    22,
+    30,
+    31,
+    0,
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    32,
+    33
+  ],
+  "story_mapping": [
+    {
+      "new_page": 1,
+      "baseline_page": 1,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 2,
+      "baseline_page": 2,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 3,
+      "baseline_page": 3,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 4,
+      "baseline_page": null,
+      "status": "NEW_INSERT"
+    },
+    {
+      "new_page": 5,
+      "baseline_page": 4,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 6,
+      "baseline_page": 5,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 7,
+      "baseline_page": 6,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 8,
+      "baseline_page": 7,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 9,
+      "baseline_page": 8,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 10,
+      "baseline_page": 9,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 11,
+      "baseline_page": 10,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 12,
+      "baseline_page": 11,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 13,
+      "baseline_page": 12,
+      "status": "REVISED"
+    },
+    {
+      "new_page": 14,
+      "baseline_page": 13,
+      "status": "REVISED"
+    },
+    {
+      "new_page": 15,
+      "baseline_page": 14,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 16,
+      "baseline_page": 15,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 17,
+      "baseline_page": 16,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 18,
+      "baseline_page": 17,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 19,
+      "baseline_page": 18,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 20,
+      "baseline_page": 19,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 21,
+      "baseline_page": 20,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 22,
+      "baseline_page": 21,
+      "status": "REVISED"
+    },
+    {
+      "new_page": 23,
+      "baseline_page": 23,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 24,
+      "baseline_page": 24,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 25,
+      "baseline_page": 25,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 26,
+      "baseline_page": 26,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 27,
+      "baseline_page": 27,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 28,
+      "baseline_page": 28,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 29,
+      "baseline_page": 29,
+      "status": "EXACT_REUSE"
+    },
+    {
+      "new_page": 30,
+      "baseline_page": 22,
+      "status": "REVISED"
+    },
+    {
+      "new_page": 31,
+      "baseline_page": 30,
+      "status": "REVISED"
+    },
+    {
+      "new_page": 32,
+      "baseline_page": 32,
+      "status": "EXACT_REUSE"
+    }
+  ],
+  "new_page_4_comparison": {
+    "before_page": null,
+    "source_context_baseline_page": 4
+  },
+  "new_page_31_comparison": {
+    "baseline_pages": [
+      30,
+      31
+    ],
+    "current_page": 31
+  },
+  "proofs": [
+    {
+      "page": 0,
+      "current_png": "complete/page_00.png",
+      "current_sha256": "a5c73b13738db498108db8e7168257561938e50e9b8eded8edfc877c43ce2eae",
+      "baseline_comparisons": [
+        {
+          "page": 0,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_00.png",
+          "sha256": "a5c73b13738db498108db8e7168257561938e50e9b8eded8edfc877c43ce2eae"
+        }
+      ]
+    },
+    {
+      "page": 1,
+      "current_png": "complete/page_01.png",
+      "current_sha256": "00f232e661553f613eefb4419bf8ad60b71571616e92995edad2720162a13d82",
+      "baseline_comparisons": [
+        {
+          "page": 1,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_01.png",
+          "sha256": "00f232e661553f613eefb4419bf8ad60b71571616e92995edad2720162a13d82"
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "current_png": "complete/page_02.png",
+      "current_sha256": "58e7e348fcffaa17b119de207bbd02be6406e00093f4af817211a41f608be428",
+      "baseline_comparisons": [
+        {
+          "page": 2,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_02.png",
+          "sha256": "58e7e348fcffaa17b119de207bbd02be6406e00093f4af817211a41f608be428"
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "current_png": "complete/page_03.png",
+      "current_sha256": "4829f7c05c29f3da15ba63513c93a597d6873e700f5df29cb71af916f47f75e2",
+      "baseline_comparisons": [
+        {
+          "page": 3,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_03.png",
+          "sha256": "4829f7c05c29f3da15ba63513c93a597d6873e700f5df29cb71af916f47f75e2"
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "current_png": "complete/page_04.png",
+      "current_sha256": "3c54d38f2d445ce14d60c126177eca279d44e4d9747f66e6f6ab2b0ba85bd884",
+      "baseline_comparisons": [
+        {
+          "page": 4,
+          "role": "source_context",
+          "png": "../v31_story_clarity/complete/page_04.png",
+          "sha256": "565f3f5db1d0d481dfa481f2303b4b07caa15d1e832ed82d5c7d6fcf6ba2d1d6"
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "current_png": "complete/page_05.png",
+      "current_sha256": "565f3f5db1d0d481dfa481f2303b4b07caa15d1e832ed82d5c7d6fcf6ba2d1d6",
+      "baseline_comparisons": [
+        {
+          "page": 4,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_04.png",
+          "sha256": "565f3f5db1d0d481dfa481f2303b4b07caa15d1e832ed82d5c7d6fcf6ba2d1d6"
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "current_png": "complete/page_06.png",
+      "current_sha256": "9bdd345b5c48591d91a6da2a9ece1a9f7240d8851e31d0a3ee8b62ad83efd406",
+      "baseline_comparisons": [
+        {
+          "page": 5,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_05.png",
+          "sha256": "9bdd345b5c48591d91a6da2a9ece1a9f7240d8851e31d0a3ee8b62ad83efd406"
+        }
+      ]
+    },
+    {
+      "page": 7,
+      "current_png": "complete/page_07.png",
+      "current_sha256": "f20e6c719137455c287f03df2747b44b71de18bc1732d8cfa0404934b7576b8b",
+      "baseline_comparisons": [
+        {
+          "page": 6,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_06.png",
+          "sha256": "f20e6c719137455c287f03df2747b44b71de18bc1732d8cfa0404934b7576b8b"
+        }
+      ]
+    },
+    {
+      "page": 8,
+      "current_png": "complete/page_08.png",
+      "current_sha256": "44ce7bcc8d1b93bcd8e7cc49a0fc80e3109a85bc90a3084b09509623b48b4dbb",
+      "baseline_comparisons": [
+        {
+          "page": 7,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_07.png",
+          "sha256": "44ce7bcc8d1b93bcd8e7cc49a0fc80e3109a85bc90a3084b09509623b48b4dbb"
+        }
+      ]
+    },
+    {
+      "page": 9,
+      "current_png": "complete/page_09.png",
+      "current_sha256": "e6584998fdd2123e541b17633ee60ae85b2625ad3b2c736bb0250d4215018adb",
+      "baseline_comparisons": [
+        {
+          "page": 8,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_08.png",
+          "sha256": "e6584998fdd2123e541b17633ee60ae85b2625ad3b2c736bb0250d4215018adb"
+        }
+      ]
+    },
+    {
+      "page": 10,
+      "current_png": "complete/page_10.png",
+      "current_sha256": "cece45ce1404fa7823953b42eef13b00ee498a2afa9144c50e0726dabbf1aa5b",
+      "baseline_comparisons": [
+        {
+          "page": 9,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_09.png",
+          "sha256": "cece45ce1404fa7823953b42eef13b00ee498a2afa9144c50e0726dabbf1aa5b"
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "current_png": "complete/page_11.png",
+      "current_sha256": "d77d6c5dc0af639032a2fd1d86669eef096afdb9bbf5ac7538d7327089c12719",
+      "baseline_comparisons": [
+        {
+          "page": 10,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_10.png",
+          "sha256": "d77d6c5dc0af639032a2fd1d86669eef096afdb9bbf5ac7538d7327089c12719"
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "current_png": "complete/page_12.png",
+      "current_sha256": "4c219bfb4b7dfa0c4125e1828805a026613c015a62153e80e259b476b29a8f95",
+      "baseline_comparisons": [
+        {
+          "page": 11,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_11.png",
+          "sha256": "4c219bfb4b7dfa0c4125e1828805a026613c015a62153e80e259b476b29a8f95"
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "current_png": "complete/page_13.png",
+      "current_sha256": "fa0e0a9e0a370fa4bc264da4da754c4bebc0524eaad8e371fd0003c0f9335bb9",
+      "baseline_comparisons": [
+        {
+          "page": 12,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_12.png",
+          "sha256": "f73afb2e0c956e07ae51dfd7721afbaf38931dac09827c725938353bc9c85063"
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "current_png": "complete/page_14.png",
+      "current_sha256": "a0b31a732cfa1013e73d40fe3d585899f5dfa7c0abcbfe161f86e47df705d0e2",
+      "baseline_comparisons": [
+        {
+          "page": 13,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_13.png",
+          "sha256": "84a74f64507fe7423e4143cac9b1194aea96e9426324ded6a6d626e4828a2a62"
+        }
+      ]
+    },
+    {
+      "page": 15,
+      "current_png": "complete/page_15.png",
+      "current_sha256": "312285940ccae62f0ba8f0bcfcc60eb5b477099f7f6b7bfebf3f11df503d79c5",
+      "baseline_comparisons": [
+        {
+          "page": 14,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_14.png",
+          "sha256": "312285940ccae62f0ba8f0bcfcc60eb5b477099f7f6b7bfebf3f11df503d79c5"
+        }
+      ]
+    },
+    {
+      "page": 16,
+      "current_png": "complete/page_16.png",
+      "current_sha256": "96b66c55278a52f393540193c20ab0697298bc64602d16c5c960404c18f36c09",
+      "baseline_comparisons": [
+        {
+          "page": 15,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_15.png",
+          "sha256": "96b66c55278a52f393540193c20ab0697298bc64602d16c5c960404c18f36c09"
+        }
+      ]
+    },
+    {
+      "page": 17,
+      "current_png": "complete/page_17.png",
+      "current_sha256": "d8673bac60338cf8a3a574f4822a257f1c4bd2b0a415fe9489bc3027442a9486",
+      "baseline_comparisons": [
+        {
+          "page": 16,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_16.png",
+          "sha256": "d8673bac60338cf8a3a574f4822a257f1c4bd2b0a415fe9489bc3027442a9486"
+        }
+      ]
+    },
+    {
+      "page": 18,
+      "current_png": "complete/page_18.png",
+      "current_sha256": "e04d084fdd3a01fdedeb3febb29966075a9678bc1e0924a4731440918ece7965",
+      "baseline_comparisons": [
+        {
+          "page": 17,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_17.png",
+          "sha256": "e04d084fdd3a01fdedeb3febb29966075a9678bc1e0924a4731440918ece7965"
+        }
+      ]
+    },
+    {
+      "page": 19,
+      "current_png": "complete/page_19.png",
+      "current_sha256": "c8657641c9970754c1244819fdc523eefa899bb0321b7ff81ed92fcb470dc41f",
+      "baseline_comparisons": [
+        {
+          "page": 18,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_18.png",
+          "sha256": "c8657641c9970754c1244819fdc523eefa899bb0321b7ff81ed92fcb470dc41f"
+        }
+      ]
+    },
+    {
+      "page": 20,
+      "current_png": "complete/page_20.png",
+      "current_sha256": "32f0a4397ba510dfd48e3469b1a03c4bb22880835dd41dfc50b3750445a71fcf",
+      "baseline_comparisons": [
+        {
+          "page": 19,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_19.png",
+          "sha256": "32f0a4397ba510dfd48e3469b1a03c4bb22880835dd41dfc50b3750445a71fcf"
+        }
+      ]
+    },
+    {
+      "page": 21,
+      "current_png": "complete/page_21.png",
+      "current_sha256": "d0ce8e3f961ffa430dbb6a7b5f13be5b6a94e8f4465d33119c225be9b2a1126d",
+      "baseline_comparisons": [
+        {
+          "page": 20,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_20.png",
+          "sha256": "d0ce8e3f961ffa430dbb6a7b5f13be5b6a94e8f4465d33119c225be9b2a1126d"
+        }
+      ]
+    },
+    {
+      "page": 22,
+      "current_png": "complete/page_22.png",
+      "current_sha256": "c1631e6f447e013cd78c4ea5066228f34daa949bd6ca1e3950927debf19316c9",
+      "baseline_comparisons": [
+        {
+          "page": 21,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_21.png",
+          "sha256": "3f03383a354e977664021acfb553504d2fb9d9365a3016bdf546d486519c6061"
+        }
+      ]
+    },
+    {
+      "page": 23,
+      "current_png": "complete/page_23.png",
+      "current_sha256": "5a1df98a55c3141b988d141711f275992152db7789fb867502aefe0c575f4e44",
+      "baseline_comparisons": [
+        {
+          "page": 23,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_23.png",
+          "sha256": "5a1df98a55c3141b988d141711f275992152db7789fb867502aefe0c575f4e44"
+        }
+      ]
+    },
+    {
+      "page": 24,
+      "current_png": "complete/page_24.png",
+      "current_sha256": "7b6bdd46b7331746ac2801f1772d4106a1f51665f80f56a0832b64db8e4ab333",
+      "baseline_comparisons": [
+        {
+          "page": 24,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_24.png",
+          "sha256": "7b6bdd46b7331746ac2801f1772d4106a1f51665f80f56a0832b64db8e4ab333"
+        }
+      ]
+    },
+    {
+      "page": 25,
+      "current_png": "complete/page_25.png",
+      "current_sha256": "4f2add55bf16b499b723f36f431af4ce9a9146c15921ddd21f4c54687e7aac21",
+      "baseline_comparisons": [
+        {
+          "page": 25,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_25.png",
+          "sha256": "4f2add55bf16b499b723f36f431af4ce9a9146c15921ddd21f4c54687e7aac21"
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "current_png": "complete/page_26.png",
+      "current_sha256": "2d0d404247c232034019f3d0a47c75c2dcca4d05ad93aab2e0fb90ac8d39d14a",
+      "baseline_comparisons": [
+        {
+          "page": 26,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_26.png",
+          "sha256": "2d0d404247c232034019f3d0a47c75c2dcca4d05ad93aab2e0fb90ac8d39d14a"
+        }
+      ]
+    },
+    {
+      "page": 27,
+      "current_png": "complete/page_27.png",
+      "current_sha256": "a3f1b5a2365d93c16ea21688ca9b6bb1c951a211c245746eff2863424bcb1b80",
+      "baseline_comparisons": [
+        {
+          "page": 27,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_27.png",
+          "sha256": "a3f1b5a2365d93c16ea21688ca9b6bb1c951a211c245746eff2863424bcb1b80"
+        }
+      ]
+    },
+    {
+      "page": 28,
+      "current_png": "complete/page_28.png",
+      "current_sha256": "47a8df8099fc08865b517bbc8d074f0281c2cf3b1570b11b92135e8f9ec2fa17",
+      "baseline_comparisons": [
+        {
+          "page": 28,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_28.png",
+          "sha256": "47a8df8099fc08865b517bbc8d074f0281c2cf3b1570b11b92135e8f9ec2fa17"
+        }
+      ]
+    },
+    {
+      "page": 29,
+      "current_png": "complete/page_29.png",
+      "current_sha256": "9110574d452daffacf1c9bd126e3a5d5c632449a65d0c4506287c4f3efff5ca0",
+      "baseline_comparisons": [
+        {
+          "page": 29,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_29.png",
+          "sha256": "9110574d452daffacf1c9bd126e3a5d5c632449a65d0c4506287c4f3efff5ca0"
+        }
+      ]
+    },
+    {
+      "page": 30,
+      "current_png": "complete/page_30.png",
+      "current_sha256": "95645bb4b07bd48253a4fb2f1b76a0ff1898e11fcb413d19d39e3637daf83fd3",
+      "baseline_comparisons": [
+        {
+          "page": 22,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_22.png",
+          "sha256": "7952f4c646287bc43712dea9432124a56fed262f77c6a0d2426007acf715cb90"
+        }
+      ]
+    },
+    {
+      "page": 31,
+      "current_png": "complete/page_31.png",
+      "current_sha256": "a3481c5afe8bd88c9508805efd342b764d29e78c82569b3a44f5cab3bb4bde33",
+      "baseline_comparisons": [
+        {
+          "page": 30,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_30.png",
+          "sha256": "74aa90c82ffec8b309630ff4dac9b7a4c7a9eac7ccc0d77bd476adf2c4628d2a"
+        },
+        {
+          "page": 31,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_31.png",
+          "sha256": "d4620302911b54d5190194a6f4c49c373a5eaa4495ee4a9c6cfa13d310025c9b"
+        }
+      ]
+    },
+    {
+      "page": 32,
+      "current_png": "complete/page_32.png",
+      "current_sha256": "a8d3d463843d93286116985e1e0f80fe22e74b3fbc1183c54ee54bd894ef17ea",
+      "baseline_comparisons": [
+        {
+          "page": 32,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_32.png",
+          "sha256": "a8d3d463843d93286116985e1e0f80fe22e74b3fbc1183c54ee54bd894ef17ea"
+        }
+      ]
+    },
+    {
+      "page": 33,
+      "current_png": "complete/page_33.png",
+      "current_sha256": "db40e3374bdbe7334a21c33fe103fd44a4e13bda4642209da970be2ed303b8a0",
+      "baseline_comparisons": [
+        {
+          "page": 33,
+          "role": "before",
+          "png": "../v31_story_clarity/complete/page_33.png",
+          "sha256": "db40e3374bdbe7334a21c33fe103fd44a4e13bda4642209da970be2ed303b8a0"
+        }
+      ]
+    }
+  ],
+  "binding_note": "Reading arrangement only; not printer-sheet imposition. Covers are separate from the 32-page interior."
+}

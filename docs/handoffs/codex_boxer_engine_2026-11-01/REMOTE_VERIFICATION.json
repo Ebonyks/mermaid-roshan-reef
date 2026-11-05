@@ -1,0 +1,121 @@
+{
+ "schema": "codex_handoff_remote_verification/1",
+ "handoff": "codex_boxer_engine_2026-11-01",
+ "repository": "https://github.com/Ebonyks/mermaid-roshan-reef",
+ "revision": "e450dc60883cd69536926b146b268abfbd2b7015",
+ "access_mode": "anonymous HTTPS GET to raw.githubusercontent.com with no token or cookies",
+ "checked_at_utc": "2026-11-02T01:47:27+00:00",
+ "manifest_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/e450dc60883cd69536926b146b268abfbd2b7015/docs/handoffs/codex_boxer_engine_2026-11-01/MANIFEST.json",
+ "manifest_sha256": "d59a0e67c6ea685ef11b905b8503e6986be9e87183a13af19afdf7fc54b8288b",
+ "manifest_bytes": 4916,
+ "files_checked": 15,
+ "files_matching": 15,
+ "result": "PASS",
+ "files": [
+  {
+   "path": ".gdignore",
+   "http_status": 200,
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "matches_manifest": true
+  },
+  {
+   "path": "README.md",
+   "http_status": 200,
+   "bytes": 26529,
+   "sha256": "d1d0d824aa554223134ce684b926e9a63b10b79568d584509bf059da8a574e1c",
+   "matches_manifest": true
+  },
+  {
+   "path": "EVALUATION.md",
+   "http_status": 200,
+   "bytes": 13089,
+   "sha256": "47fc3d7946a54a757a129bc486f91525b05448a50b4a7f08d6b463c5ef83f8e8",
+   "matches_manifest": true
+  },
+  {
+   "path": "ROADMAP.md",
+   "http_status": 200,
+   "bytes": 9365,
+   "sha256": "4a943d0c7855e49fdbd7a350afc9b7487de8ad43b2db0bb279706f639299f313",
+   "matches_manifest": true
+  },
+  {
+   "path": "data/results_22df5b75.txt",
+   "http_status": 200,
+   "bytes": 27672,
+   "sha256": "f2cb303fc6da2187836f0dfcd145e5d17b96dff939a30299eb0449ec9d94649d",
+   "matches_manifest": true
+  },
+  {
+   "path": "harness/run_iso.sh",
+   "http_status": 200,
+   "bytes": 1087,
+   "sha256": "2bfcaf33b3c6b41a3f71cbf2ec1ace15b6f73728127fd06c94117f33ad008896",
+   "matches_manifest": true
+  },
+  {
+   "path": "harness/geometry_check.gd",
+   "http_status": 200,
+   "bytes": 9244,
+   "sha256": "e3a723122206904a286185a51978d373aff3ac82592fd07218da8cf419b1ff80",
+   "matches_manifest": true
+  },
+  {
+   "path": "harness/collision_integration.gd",
+   "http_status": 200,
+   "bytes": 14151,
+   "sha256": "9b7557fca62aa411332ad5a9008e82da68dc70c776d02155c3a6f891dc35ad78",
+   "matches_manifest": true
+  },
+  {
+   "path": "harness/crossing_v3.gd",
+   "http_status": 200,
+   "bytes": 6706,
+   "sha256": "d0ef7e196c6c7edfa5388c482c7e74581f7652ed30aee0de56fc6099d9a2bcec",
+   "matches_manifest": true
+  },
+  {
+   "path": "harness/crossing_debug.gd",
+   "http_status": 200,
+   "bytes": 6675,
+   "sha256": "fbdc4644084274d17b26ea6ff3150e48377cd8636cc13cd3e4f938ec2be64039",
+   "matches_manifest": true
+  },
+  {
+   "path": "harness/boundary_checks.gd",
+   "http_status": 200,
+   "bytes": 6586,
+   "sha256": "c4b475ec4655babba4adeb169e96f13a34a9fad14d862ef181b3b81e12bda380",
+   "matches_manifest": true
+  },
+  {
+   "path": "harness/playthrough.gd",
+   "http_status": 200,
+   "bytes": 19781,
+   "sha256": "964f719824e114511e4c9a3fce9e8ae07e1eff7ba83e5efe5af074ab3cc580ee",
+   "matches_manifest": true
+  },
+  {
+   "path": "harness/geometry_numbers.py",
+   "http_status": 200,
+   "bytes": 5531,
+   "sha256": "3acf3942e46a2c107eb390b753e2781379af375e6b9a2cd5616a2077bf4ef677",
+   "matches_manifest": true
+  },
+  {
+   "path": "harness/high_guard.py",
+   "http_status": 200,
+   "bytes": 1344,
+   "sha256": "6acd6c6c59b00d1786aa1bcaaa5c9a02381c863c5ac6a6635078fea62e087022",
+   "matches_manifest": true
+  },
+  {
+   "path": "harness/hook_geometry.py",
+   "http_status": 200,
+   "bytes": 1588,
+   "sha256": "cd998e727ee62f3549f4bd1fd4e9463689d63ce66611a424a2283d3be57f148d",
+   "matches_manifest": true
+  }
+ ]
+}

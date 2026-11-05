@@ -1,0 +1,19 @@
+{
+  "state": "ORIGINAL_STATIC_FAILURE_PRESERVED_RECOVER_FROM_FAILED_COVERAGE_GATE",
+  "original_validation_session": 97750,
+  "original_publication_session": 20362,
+  "both_terminal": true,
+  "original_static_log_sha256": "239129729ba531f3f007af94029b1917d2c87642e2932b50570209ae17451a75",
+  "original_static_result": {
+    "state": "FAIL",
+    "exit_code": 1,
+    "log_sha256": "239129729ba531f3f007af94029b1917d2c87642e2932b50570209ae17451a75",
+    "prefix_sha256": "91a67d4da57e233f6c5e4ab2d135929471e44f26a174962c3af08a1420d90ea6",
+    "ci_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e"
+  },
+  "cause": "Invalid validation.result enum PASS_SCOPED_CANDIDATE. Corrected only to legal PASS with identical scoped evidence; coverage list and all native/runtime/probe pixels unchanged.",
+  "healthy_prefix_reused": "Every currentci.sh static command before audit_development.py --base auto completed successfully in original log. Remaining exact suffix starts at that failed gate. No original trusted probe or analyzer/2D step ran before the stop.",
+  "runtime_files_raw_exact": 5064,
+  "native87_checks_and6_frames_reused": true,
+  "Dev_frozen": true
+}

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/review/opera_translation_v1.gd" id="1"]
+
+[node name="OperaExplorationV1" type="Control"]
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 0
+script = ExtResource("1")

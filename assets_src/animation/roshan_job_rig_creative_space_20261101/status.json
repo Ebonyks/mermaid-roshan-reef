@@ -1,0 +1,104 @@
+{
+  "status": "REVIEW_CANDIDATE_NUMERICALLY_REJECTED",
+  "no_production_installation": true,
+  "generation_calls": 4,
+  "generation_cap": 4,
+  "new_art_production": "STOPPED; no further generation or cleanup after frozen source candidate",
+  "preserved": {
+    "source_integrity": "84 checks PASS",
+    "native_state_swaps": "1757 frames, 873 exact seed pixels, 375 fresh-instance comparisons, 27144 swaps PASS",
+    "object_contacts": "152 frames PASS",
+    "editable_masters": "9 pixel-exact reopen/export PASS"
+  },
+  "blocking_candidate_results": {
+    "painter_original_clips": "Tail-bend silhouette/component floor fails; arm/blink geometry and all original timing floors pass.",
+    "astronaut_original_clips": "Tail-bend silhouette and .788 minimum stretch fail .80 floor; arm/blink geometry and original timing pass.",
+    "paint_banner": {
+      "inverted_visible_triangles": 0,
+      "min_visible_stretch": 0.9564996870129775,
+      "max_visible_stretch": 1.0649595549597048,
+      "max_bone_scale_error": 3.0022999630840985e-07,
+      "rigid_head_distance_error_px": 1.8298419092843687e-05,
+      "pixel_seam_pass": false,
+      "joint_min_alpha": {
+        "LeftUpper": 255,
+        "LeftFore": 255,
+        "LeftHand": 252
+      },
+      "max_angular_speed_deg_s": 138.6799595964406,
+      "max_angular_acceleration_deg_s2": 609.5490063970647,
+      "endpoint_matrix_error": 0.0,
+      "endpoint_rgba_exact": true,
+      "passed": false
+    },
+    "turn_valve": {
+      "inverted_visible_triangles": 0,
+      "min_visible_stretch": 0.9461886605525,
+      "max_visible_stretch": 1.0636110115348218,
+      "max_bone_scale_error": 3.3349131745019633e-07,
+      "rigid_head_distance_error_px": 1.8298419092843687e-05,
+      "pixel_seam_pass": false,
+      "joint_min_alpha": {
+        "LeftUpper": 255,
+        "LeftFore": 255,
+        "LeftHand": 252
+      },
+      "max_angular_speed_deg_s": 142.21773335089776,
+      "max_angular_acceleration_deg_s2": 856.7339016913368,
+      "endpoint_matrix_error": 0.0,
+      "endpoint_rgba_exact": true,
+      "passed": false
+    },
+    "mixed_slot_outlines": {
+      "cases": 375,
+      "failures": 45,
+      "inherited_pairs": [
+        [
+          "original",
+          "magician"
+        ],
+        [
+          "ballet",
+          "original"
+        ],
+        [
+          "ballet",
+          "magician"
+        ]
+      ]
+    }
+  },
+  "repair_protocol": [
+    "Capture exact failing indices in actual 4.7.2 Mobile.",
+    "Classify whether source alpha/joint overlap, garment registration, extra visible strain or contact cadence is at fault.",
+    "Use a new bounded repair card; preserve original source, shared 14-bone rests, curves and common weights. Shared waist-domain repair belongs to shared-contract owner.",
+    "Rerun the same rejected frames, all three original actions, both job loops, independent mixes, live swaps, old-clothing poison/reinsertion, negative geometry and contact controls.",
+    "Require exact full-speed/frame-step identity/style/acting review; no numerical average can accept the failures."
+  ],
+  "review_limits": {
+    "normal_speed_desktop": "MPC-HC launch approval timed out; no claimed normal-speed agent playback acceptance",
+    "frame_step": "Agent inspected actual native frames and derived boards during repair; full formal review remains pending",
+    "unsupported_views": "front only; authored quarter/profile source gaps remain",
+    "pickup_release_transitions": "source gap; demo actions enter and exit held-tool context",
+    "device_child_owner": "PENDING",
+    "universal_wardrobe": "BLOCKED_SHARED_WAIST_JOIN"
+  },
+  "archive_complete": "PENDING_TRANSPORT_RECEIPT_AT_SNAPSHOT",
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "source_snapshot_publication": "UNPUBLISHED_AT_SNAPSHOT; a later audit/receipts remote-verification record binds the exact published payload revision.",
+  "verification_base": "93166ab1828ab9857227d038f8833b92dfb2f9f1",
+  "provenance_limits": [
+    "Per-IMAGE fitting reference order not separately recorded; complete source inventory retained.",
+    "Shared contract is an exact owner-local frozen copy; owner publication remains pending."
+  ],
+  "agent_static_visual_review": "REJECTED: painter hard neckline/shoulder boundary; astronaut lower-hood/neck and fin-join contour gaps. See evidence/agent_visual_review.json.",
+  "project_regression": {
+    "passed": true,
+    "static_checks": 58,
+    "trusted_probes": 82,
+    "evidence": "evidence/final_gates.json",
+    "baseline": "93166ab1828ab9857227d038f8833b92dfb2f9f1",
+    "candidate_acceptance": "FAIL; independent numerical/static-visual and provenance gaps remain"
+  }
+}

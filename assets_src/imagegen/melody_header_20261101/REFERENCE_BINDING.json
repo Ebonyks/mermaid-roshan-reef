@@ -1,0 +1,42 @@
+{
+  "stable_id": "FV-0671240CDB11",
+  "source_revision": "27c88288bf6e39582072811443df79919e7bbb89",
+  "intent": "precise-object edit/extraction of existing header, painted local replacement; no full-scene redraw",
+  "inputs": [
+    {
+      "name": "IMAGE_1",
+      "path": "assets_src/imagegen/melody_header_20261101/references/actual_melody_source_1280.png",
+      "sha256": "affa39bddaf3f04b2d5c168fa76b6e7220a85cba3b823e941ac2826f2c821e3d",
+      "role": "Existing actual source scene; local header/rainbow identity, palette, staging and negative constraints only. No other scene pixels in output.",
+      "source": "R120 same baseline native source frame; SOURCE_CONTEXT_REUSE.json verifies all5062 runtime files raw exact.",
+      "acceptance_scope": "Configured source context, not formalQA11 or whole-scene creative approval"
+    },
+    {
+      "name": "IMAGE_2",
+      "path": "assets_src/imagegen/melody_header_20261101/references/painted_cloth_material_reference.png",
+      "sha256": "04514c0cb26cb30425032b5ed23b130dbdbea73346a45e5fdde611acd7e480d9",
+      "role": "Painted cloth material/finish reference only; retain dark header palette, not pink.",
+      "source": "R120 native left curtain exec-58e56dc9-e9c2-4530-9654-486872d55505 at immutable source0e8095e656aaae795076b98b202cc453c3234e06",
+      "acceptance_scope": "Source candidate material reference only; no whole-room/owner approval implied"
+    }
+  ],
+  "observed_weakness": "Exact current source header is a flat filled polygon plus seven uniform code-drawn arcs, contrasting with the painted meadow and authored actors.",
+  "protected_originals_modified": false,
+  "Dev_integrated": false,
+  "take2_inputs": [
+    {
+      "name": "IMAGE_1",
+      "path": "assets_src/imagegen/melody_header_20261101/native/header_take1.png",
+      "sha256": "c879a8e26954929d34ea50d40e148efbab7756418acc269e2b658659be20db69",
+      "role": "Edit target; preserve painted material and palette, correct shallow proportions. Not accepted."
+    },
+    {
+      "name": "IMAGE_2",
+      "path": "assets_src/imagegen/melody_header_20261101/references/actual_melody_source_1280.png",
+      "sha256": "affa39bddaf3f04b2d5c168fa76b6e7220a85cba3b823e941ac2826f2c821e3d",
+      "role": "Actual source stage; shallow panel/partial-arch proportions and seven-color identity.",
+      "source": "R120 same baseline native source frame; SOURCE_CONTEXT_REUSE.json verifies all5062 runtime files raw exact.",
+      "acceptance_scope": "Configured source context, not formalQA11 or whole-scene creative approval"
+    }
+  ]
+}

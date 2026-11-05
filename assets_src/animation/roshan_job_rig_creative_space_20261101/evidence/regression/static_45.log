@@ -1,0 +1,7 @@
+zone                n |    clip% in->out |   crush% in->out | budget
+------------------------------------------------------------------------------
+castle_room        80 |   0.89 ->   0.89   |   1.25 ->   1.25   | clip<=6.0 crush<=2.5
+sky_lagoon         31 |   0.21 ->   0.08   |   0.00 ->   2.33   | clip<=1.0 crush<=4.0
+bright_pastel      80 |   6.08 ->  14.47   |   0.47 ->   2.16   | clip<=18.0 crush<=3.0
+
+GRADE HEADROOM OK

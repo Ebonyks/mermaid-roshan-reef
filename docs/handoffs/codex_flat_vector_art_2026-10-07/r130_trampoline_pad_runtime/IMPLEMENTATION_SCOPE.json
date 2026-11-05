@@ -1,0 +1,31 @@
+{
+  "stable_id": "FV-C6F64FAA2F32",
+  "baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+  "runtime_files": [
+    "scripts/games/picture_games.gd",
+    "assets/mg/trampoline_pad_painted.png",
+    "assets/mg/trampoline_pad_painted.png.import"
+  ],
+  "changed_method": "_mg_build_trampoline",
+  "other_existing_methods_unchanged": 29,
+  "shared_helper_unchanged": true,
+  "retired_local_drawing": "One400x56StyleBoxFlat pad, shadow and its detached170x120glossy child. Shared circle helper and all sibling consumers preserved.",
+  "replacement": "One whole painted TextureRect,403x129 center640534, aspect-preserving, ignore mouse, before original actor in existing Canvas. No procedural art fallback.",
+  "functional_invisible_geometry": "Original TrampolineArtTarget Control at440430,400x140 remains sole target with same GUI signal and one-finger bounce behavior; it is not artwork.",
+  "memory": {
+    "runtime_texture": [
+      512,
+      163
+    ],
+    "base_RGBA_bytes": 333824,
+    "mip_ceiling_bytes": 450000,
+    "resident_new_textures": 1,
+    "draw": "One whole static card, removed Panel/child/shadow drawing; active-stage lifetime; no new lights/particles."
+  },
+  "actor_star_input_bounce_save_reward_audio_unchanged": true,
+  "Dev_integrated": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null
+}

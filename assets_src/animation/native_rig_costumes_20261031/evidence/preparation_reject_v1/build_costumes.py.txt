@@ -1,0 +1,57 @@
+"""Register clothing paint onto the unchanged study silhouette and bind replaceable slots."""
+from pathlib import Path
+import json, hashlib, importlib.util
+import numpy as np
+from PIL import Image, ImageDraw, ImageFilter
+from scipy.interpolate import LinearNDInterpolator, NearestNDInterpolator
+from scipy.ndimage import map_coordinates
+ROOT=Path(__file__).resolve().parents[1]; OLD=ROOT.parent/'native_rig_stress_20261031'; REPO=ROOT.parents[2]
+spec=importlib.util.spec_from_file_location('original_builder',OLD/'scripts/build_study.py'); old=importlib.util.module_from_spec(spec);spec.loader.exec_module(old)
+def save(p,v):p.write_text(json.dumps(v,separators=(',',':'))+'\n',encoding='utf-8')
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def mask(poly):
+ im=Image.new('L',(1024,1024));ImageDraw.Draw(im).polygon(poly,fill=255);return np.array(im)/255.
+def main():
+ base=Image.open(OLD/'art/body.png').convert('RGBA');a=np.array(base); y,x=np.mgrid[:1024,:1024]
+ # Face/hair/skin and limbs are never accepted from a fitting generation.
+ cloth=(a[:,:,2]>a[:,:,0]*.84)&(a[:,:,2]>a[:,:,1]*1.08)&(y>=327)&(y<505)&(x>430)&(x<641)
+ body_mask=cloth.astype(float)
+ tail_mask=mask([(499,468),(591,468),(625,520),(662,620),(650,725),(615,797),(558,838),(493,840),(450,825),(416,804),(440,785),(495,790),(527,762),(539,717),(523,650),(489,588),(480,526)])
+ # Waist belongs to body; a shared stationary overlap is blended during offline preparation only.
+ body_mix=np.clip((510-y)/28,0,1);tail_mix=1-body_mix
+ target=np.array([[468,340],[552,350],[623,340],[503,451],[596,451],[489,482],[550,501],[616,480],[487,525],[627,525],[513,650],[658,650],[539,735],[639,735],[521,789],[608,789],[480,807],[567,831],[416,804],[455,825]],float)
+ sources={
+ 'ballet':[[514,401],[640,439],[760,399],[569,562],[717,560],[560,606],[640,637],[736,609],[553,663],[769,663],[599,827],[816,827],[626,975],[789,975],[607,1058],[742,1058],[556,1101],[660,1130],[459,1073],[501,1127]],
+ 'magician':[[548,405],[660,447],[792,402],[601,558],[737,558],[568,620],[666,660],[786,618],[587,685],[811,685],[637,835],[816,835],[642,973],[800,973],[611,1052],[747,1052],[554,1090],[655,1106],[477,1059],[522,1101]]}
+ rig=json.loads((OLD/'godot/rig.json').read_text(encoding='utf-8'))
+ for m in rig['meshes']:m['texture']='../../native_rig_stress_20261031/art/'+Path(m['texture']).name
+ registry={'schema':1,'rig_id':'roshan_front_native_v1','slots':['head','body','tail'],'themes':['original','ballet','magician'],'stable_catalog_ids':{},'replacement':'Replace the slot ID atomically; always rebuild body from original, never from previously composed paint. No skeleton or timeline recreation.','fitting':{},'source_hashes':{}}
+ heads=[]
+ for theme in ['ballet','magician']:
+  src=Image.open(ROOT/'native'/f'{theme}_fit.png').convert('RGBA');sa=np.array(src)
+  coords=np.c_[x.ravel(),y.ravel()];mapped=LinearNDInterpolator(target,np.array(sources[theme]))(coords)
+  outside=~np.isfinite(mapped[:,0]);mapped[outside]=NearestNDInterpolator(target,np.array(sources[theme]))(coords[outside]);mapped=mapped.reshape(1024,1024,2)
+  paint=np.stack([map_coordinates(sa[:,:,k].astype(float),[mapped[:,:,1],mapped[:,:,0]],order=1,mode='nearest') for k in range(3)],axis=-1).astype('uint8')
+  # Store replacement RGB plus explicit mask. Runtime preserves original alpha exactly.
+  for slot,selection in [('body',body_mask),('tail',tail_mask)]:
+   im=np.dstack([paint,np.uint8(selection*255)]);Image.fromarray(im).save(ROOT/'art'/f'{theme}_{slot}.png')
+  # Headwear reuses the actual wardrobe bitmap directly, no new face/head pixels.
+  hp=REPO/f'assets_src/fashion_designer/beta_20261025/native/{theme}_head.png';h=Image.open(hp).convert('RGBA');h=h.crop(h.getbbox())
+  width=215 if theme=='magician' else 190;h=h.resize((width,round(h.height*width/h.width)),Image.Resampling.LANCZOS)
+  head=Image.new('RGBA',(1024,1024));head.alpha_composite(h,(445,48 if theme=='magician' else 74));head.save(ROOT/'art'/f'{theme}_head.png');heads.append(head)
+  registry['stable_catalog_ids'][theme]={s:f'{s}_{theme}_v1' for s in ['head','body','tail']}
+  registry['fitting'][theme]={'target_landmarks':target.tolist(),'source_landmarks':sources[theme],'offline_mapping':'Piecewise affine garment RGB registration only; no generated face, skin, hair, arm or fin pixels. Original body alpha retained.','headwear':'Uniformly scaled original wardrobe source. Original tiara remains underneath as identity ornament.','body_texture_sha256':sha(ROOT/'art'/f'{theme}_body.png'),'tail_texture_sha256':sha(ROOT/'art'/f'{theme}_tail.png')}
+  for s in ['head','body','tail']:
+   f=REPO/f'assets_src/fashion_designer/beta_20261025/native/{theme}_{s}.png';registry['source_hashes'][str(f.relative_to(REPO)).replace('\\','/')]=sha(f)
+ union=heads[0].copy();union.alpha_composite(heads[1]);mesh=old.make_mesh(union,old.bone_specs(),rigid='Head');rig['meshes'].append(dict(mesh,name='Headwear',texture='../art/ballet_head.png',z=1))
+ save(ROOT/'godot/rig.json',rig);save(ROOT/'godot/costumes.json',registry)
+ # Audit-visible material variants have exactly the same mesh and weights.
+ for theme in ['ballet','magician']:
+  variant=json.loads(json.dumps(rig)); b=np.array(base).copy()
+  for s in ['tail','body']:
+   layer=np.array(Image.open(ROOT/'art'/f'{theme}_{s}.png'));mix=layer[:,:,3:4]/255.;b[:,:,:3]=np.uint8(b[:,:,:3]*(1-mix)+layer[:,:,:3]*mix)
+  Image.fromarray(b).save(ROOT/'art'/f'{theme}_composed.png')
+  variant['meshes'][0]['texture']=f'../art/{theme}_composed.png';variant['meshes'][-1]['texture']=f'../art/{theme}_head.png';save(ROOT/'godot'/f'rig_{theme}.json',variant)
+  preview=Image.open(OLD/'art/forearm.png').convert('RGBA');preview.alpha_composite(Image.open(OLD/'art/upper_arm.png').convert('RGBA'));preview.alpha_composite(Image.fromarray(b));preview.alpha_composite(Image.open(ROOT/'art'/f'{theme}_head.png'));preview.save(ROOT/'review'/f'{theme}_neutral.png')
+ print('COSTUME_PREPARATION_OK')
+if __name__=='__main__':main()

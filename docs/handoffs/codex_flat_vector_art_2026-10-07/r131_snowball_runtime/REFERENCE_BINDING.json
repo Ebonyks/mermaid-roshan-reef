@@ -1,0 +1,103 @@
+{
+  "stable_id": "FV-C99F706798D3",
+  "item": "Snowball rolling/stacked family",
+  "state": "ONE_NATIVE_STATIC_CANDIDATE_RETURNED_SCENE_REVIEW_NEXT",
+  "backend_tool": "image_gen.imagegen builtin",
+  "model_selector_exposed": false,
+  "model_version": "NOT_RETURNED_NOT_CLAIMED",
+  "owner_requested_version": "2.5 when available; built-in tool exposes no selector",
+  "static_call_cap": 2,
+  "request_number": 1,
+  "calls_completed": 1,
+  "animation_calls": 0,
+  "cost": "Not exposed; no paid CLI or separate animation budget used",
+  "transparent_background": true,
+  "prompt_sha256": "8167994c51434823e076b1c61ff78150e89251d8f783b8f0aae3ebb686f38068",
+  "references": [
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_farmer_piece_0.png",
+      "sha256": "9ec02fdd3e0ea6888ab3e3dce7f3a6436b752974798fd46fddf545a70f3e93dd",
+      "role": "style_only_actual_neighbor",
+      "used_as_delivery_pixels": false,
+      "protected": false,
+      "provenance": "Approved project carrot token, ASSET_LICENSES.md source/art identity preserved; generator reference only, no carrot redesign."
+    }
+  ],
+  "scene_context": [
+    {
+      "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-snowballs-20261103\\source_native\\1280x720\\output\\04_lower_settled.png",
+      "sha256": "7efe7dc54de1a70399104c367a4d81da23bfcee25a6925f8179da9f1642ebcd0",
+      "role": "actual_current_scene_inspected_context_text_only",
+      "exported_to_generator": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-snowballs-20261103\\source_native\\1280x720\\output\\08_three_stack_face.png",
+      "sha256": "0322aa19c05ab51438a9cbf72b4ec72998322d56aa91d9ca09e03f3f6b10ab8b",
+      "role": "actual_current_scene_inspected_context_text_only",
+      "exported_to_generator": false,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-snowballs-20261103\\source_native\\1280x720\\output\\10_chase_full.png",
+      "sha256": "1cb27a33e2d0af7c208c4afa5060aa58fc19cb1c6dc31fbfc4d4c9f2f43317bd",
+      "role": "actual_current_scene_inspected_context_text_only",
+      "exported_to_generator": false,
+      "used_as_delivery_pixels": false
+    }
+  ],
+  "protected_pixels_exported": false,
+  "actual_output": {
+    "native_original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-60432637-a5a2-4839-9e66-6940bc2a1c47.png",
+    "path": "assets_src/imagegen/snowball_20261103/native/snowball_01.png",
+    "sha256": "f3007a0b691011f7204dd7a3e9fb54175b33fcb11fb17a9680765cdddd6defb6",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox_alpha_gt1": [
+      142,
+      146,
+      1106,
+      1123
+    ],
+    "bbox_alpha_gt3": [
+      143,
+      148,
+      1105,
+      1122
+    ],
+    "bbox_alpha_gt32": [
+      145,
+      148,
+      1103,
+      1120
+    ],
+    "corners": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "backend_tool": "image_gen.imagegen builtin",
+    "returned_metadata_fields": [
+      "image_url",
+      "output_hint"
+    ],
+    "model_selector_exposed": false,
+    "model_version": "NOT_RETURNED_NOT_CLAIMED",
+    "static_generation_calls": 1,
+    "native_rejects": 0,
+    "animation_calls": 0,
+    "static_item_call_cap": 2,
+    "at_utc": "2026-11-03T08:44:43.712289+00:00",
+    "visual_inspection": "Whole nearly round white/chalky snow mass, calm broad blue-grey/lavender painted brush bands, softly handmade plum contour, no generated face/props/ground/halo. Provisional isolated candidate; scene registration/phone comparisons next, not owner approved."
+  },
+  "source_revision": "27c88288bf6e39582072811443df79919e7bbb89",
+  "at_utc": "2026-11-03T08:41:38.802576+00:00"
+}

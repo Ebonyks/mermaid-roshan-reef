@@ -1,0 +1,2208 @@
+{
+  "schema": "mermaid_roshan_independent_candidate_review_v1",
+  "revision": "V42 doublewide arrival",
+  "reviewer": "Independent second AI, /root/v38_peer_critic",
+  "checked_at_utc": "2026-10-27T06:07:32+00:00",
+  "baseline": "69276b5cd05eb9deec6b7080af09fb7c3029bef1",
+  "verdict": "SATISFIED_WITH_DECLARED_HOLDS",
+  "scope": "Exact mixed-width illustration-review candidate and its current export, source, review and machine evidence. This is not final physical imposition, owner creative approval, publication acceptance, or game/runtime/release acceptance.",
+  "summary": "The actual PDF now presents the existing complete Sky Lagoon setting as one substantially cropped doublewide scene. It retains both water areas, rope-post landing, grounded plane, native playground spacing, original route and four-tower Pearl Castle. The crop removes excess added sky/foreground instead of cutting away that geography. No further scoped correction is required for this on-screen review candidate. The centre swing proximity and unresolved physical page assignment are genuine declared print holds.",
+  "authority": {
+    "owner_direction": "Arrival should be a doublewide page with significant top/bottom cropping; full Sky Lagoon context remains required.",
+    "applicable_rules": [
+      "DL-ASSET-08: preserve approved existing scene and originals; source crop/layout allowed",
+      "DL-AUTH-05",
+      "DL-AUTH-06",
+      "DL-AUTH-07",
+      "BK-PG-03: scoped latest-owner doublewide exception for arrival, with physical imposition and gutter still held"
+    ],
+    "master_audit_scope": "Static-book review and handoff evidence only. No game MA finding or whole-master-audit satisfaction is invented.",
+    "source_precedence": "Latest owner-directed doublewide format overrides the former single-page arrival format. The owner has not yet answered the optional physical page-occupancy choice. That choice is not fabricated or treated as a prerequisite to this reversible review."
+  },
+  "review_method": {
+    "visual": "Inspected actual final master-proof and reading-PDF render, source crop preview, before/after board, landing, castle/route, centre, diagnostic fold and flight/arrival/entrance sequence. Final proof pixels were independently matched to actual PDFium master renders, not accepted from reports alone.",
+    "independent_computation": [
+      "All 34 actual master PDFium renders compared to saved PNG pixels",
+      "All 33 unchanged PNG bytes compared to V41; all 33 caption-free actual PDF renders independently compared in memory",
+      "Full wide embedded source decoded losslessly and compared pixel-for-pixel with the original full V41 source",
+      "324 original source/font files checked against pinned baseline Git blob identities; all 348 source records and all original caption words/manual breaks checked",
+      "Actual wide page geometry, continuous crop transform, standalone render/content, exact parts concatenation, reading-PDF vector/text/native dimensions/alpha and every-page PSNR independently checked",
+      "Actual current record_review AST executed with in-memory stale master, email, standalone and centre-detail hash substitutions; all rejected without changing files",
+      "Current Python AST syntax, HTML links and historical/protected-file Git preservation checked independently"
+    ],
+    "primary_evidence_limit": "The three contract commands and 52-test execution were performed by the primary agent. I independently inspected their captured command/output/return codes and exact receipt binding; I do not claim to have run that test suite again.",
+    "regression_limit": "I independently rendered and compared all 34 retained primary default-width regression PDF pages/PNGs to V41, and reviewed the current renderer width defaults/reset and HTML compatibility change. I did not create those primary regression outputs or rerun the renderer.",
+    "publication_limit": "The current staged/provisional manifest is not bound as a delivered publication. Anonymous immutable-remote verification and a separate publication-only verdict remain pending."
+  },
+  "criteria": [
+    {
+      "id": "V42-C1",
+      "requirement": "Actual doublewide canvas with substantial top/bottom crop and no distortion",
+      "result": "SATISFIED",
+      "evidence": "Master page index 2 is 2016x720 PDF points, proof 3024x1080; all other entries remain 1008x720 points. One source_region uses [0,1350,6144,3544.285714285714] mapped uniformly to [0,0,1008,360] logical points. This is a real 2.8:1 crop, not stretching a single-page image or independently cropping two halves."
+    },
+    {
+      "id": "V42-C2",
+      "requirement": "Preserve full setting and source identity",
+      "result": "SATISFIED",
+      "evidence": "All 6144 source columns and the complete native world band y1401..3449 survive. Approximately 50.0048823% of the old 4389px canvas height is removed, principally added sky/foreground. Original left water/posts, stone landing, plane, slide/swing/seesaw, landscape spacing, mountain trail, continuous castle route, right water and four towers remain visible. No otter or new generation enters this revision."
+    },
+    {
+      "id": "V42-C3",
+      "requirement": "Contact, joins, readable scene and caption",
+      "result": "SATISFIED_FOR_FLAT_REVIEW",
+      "evidence": "Landing closeup retains both wheels on the original stone path and existing contact shadows. Bridge meets the original path; stained glass and tower identities survive. The continuous image has no new centre seam or mismatched half crop. Caption x60 clears the pine; its original two lines and 20pt logical Sniglet remain. Native video plane softness is visible at larger presentation and is not claimed to satisfy print enlargement."
+    },
+    {
+      "id": "V42-C4",
+      "requirement": "Keep unrelated illustrations, characters, captions and source records unchanged",
+      "result": "SATISFIED",
+      "evidence": "All 33 other full-page proofs are byte-identical to V41 and their independently rendered caption-free artwork is pixel-identical. Cover/back, castle entrance, care-story tissue vignettes, stronger B1 dust, waterfall/rainbow, Eagle rescue and finale retain prior pixels. All 32 original caption texts/manual breaks and all 348 source records remain exact; only arrival crop/background description/width and caption x change."
+    },
+    {
+      "id": "V42-C5",
+      "requirement": "Fresh exact-artifact primary inspections and reliable machine evidence",
+      "result": "SATISFIED",
+      "evidence": "Five fresh focused primary passes bind 11 distinct inspected artifacts and the exact master/email/standalone. Current read-only review guards reject stale hashes instead of manufacturing observations. Normal strict gate is PASS_DOUBLEWIDE_REVIEW with zero issues, 324 source/font seals, 57 glyph/focal comparisons with zero overlap, and contrast 79 PASS / 7 OUTLINE_REQUIRED / 0 FAIL. Actual contract output is all green, including 52 tests and authority stress 6/6."
+    },
+    {
+      "id": "V42-C6",
+      "requirement": "Exact review exports and reproducibility instructions",
+      "result": "SATISFIED_FOR_LOCAL_CANDIDATE",
+      "evidence": "Three native binary parts reconstruct the exact lossless master. Standalone wide PDF renders pixel-identically to master page 2 and retains its text/content. Reading PDF is 24,134,853 bytes, preserves content streams, text, media boxes, native image dimensions and 94 alpha placements; independently reproduced minimum every-page PSNR is 40.04806054 dB. README explicitly reconstructs the V41 baseline and current V42 masters before strict checks. Final remote publication is a separate phase."
+    },
+    {
+      "id": "V42-C7",
+      "requirement": "Honest gutter, pagination and print claims",
+      "result": "SATISFIED_AS_DECLARED_HOLDS",
+      "evidence": "The final package explicitly labels this mixed-width illustration review. It preserves the entrance illustration and all captions pending the optional owner assignment answer; it does not call 34 PDF entries a 32-page imposed interior. Fold tint is diagnostic-only and absent from the actual art/PDF. Print pagination records 33 physical interior units if this arrival is split and keeps changed parity/reveal mapping and the swing gutter solution held."
+    }
+  ],
+  "findings": [
+    {
+      "id": "V42-H1",
+      "priority": "P1_FOR_PHYSICAL_PRINT",
+      "status": "DECLARED_HOLD_NOT_A_FLAT_REVIEW_BLOCKER",
+      "title": "Swing is genuinely close to the future fold",
+      "paths": [
+        "details/centre.png",
+        "details/fold_diagnostic.png",
+        "complete/print_pagination.json"
+      ],
+      "evidence": "Centre source x3072 crosses the swing beam. Seat document box starts x3100; visible alpha starts x3101.805. That visible edge is about 0.0679in from centre at nominal 14x5 spread size and enters the diagnostic +/-0.25in band. No face, plane, castle or caption occupies the fold. Actual printer/binding loss is not known; this band is a conservative diagnostic, not measured binding loss.",
+      "required_before_print_acceptance": "Review an actual selected-trim/binding solution and physical proof; do not silently relocate source playground fixtures or infer bound readability from the flat PDF."
+    },
+    {
+      "id": "V42-H2",
+      "priority": "P1_FOR_PHYSICAL_PRINT",
+      "status": "DECLARED_HOLD_NOT_A_REVIEW_BLOCKER",
+      "title": "Physical page assignment and later reveal parity remain unresolved",
+      "paths": [
+        "complete/print_pagination.json",
+        "README.md",
+        "BUILD_REPORT.md"
+      ],
+      "evidence": "One doublewidth arrival entry plus the retained separate entrance yields 33 physical interior page units if split. Later recto/verso and reveal turns shift; V41 pagination satisfaction cannot be inherited. Optional owner choice between occupying existing stories 2-3 and retaining a separate entrance has no recorded answer.",
+      "required_before_print_acceptance": "Record the selected physical mapping and re-audit actual bound-page sequence/reveals before print imposition. The current preserve-all mixed-width review fallback is appropriate and reversible."
+    },
+    {
+      "id": "V42-H3",
+      "priority": "P2_FOR_PRINT_QUALIFICATION",
+      "status": "DECLARED_HOLD",
+      "title": "Larger presentation does not certify native-detail sufficiency for print",
+      "paths": [
+        "details/landing.png",
+        "complete/Sky_Lagoon_Doublewide_V42.pdf",
+        "README.md"
+      ],
+      "evidence": "The plane retains the exact existing video-source painted pixels and visible native softness. The lossless source has not gained detail from the wider review presentation. Current 28x10in review MediaBox and nominal 14x5 viewing equivalent are not a final selected-trim/PPI/enlargement approval.",
+      "required_before_print_acceptance": "Perform the already-held source PPI/enlargement and physical-print checks at the selected trim. No regeneration, resampling or source substitution is authorized by this review."
+    },
+    {
+      "id": "V42-H4",
+      "priority": "EXTERNAL_ACCEPTANCE",
+      "status": "OPEN",
+      "title": "Owner, reader and final handoff acceptance remain separate",
+      "evidence": "No owner approval of this illustration, child/unprompted-reader check, qualified-SLP judgment, actual physical print/binding or immutable-remote publication completion is supplied by this AI verdict.",
+      "required_before_later_claims": "Obtain the applicable existing acceptance evidence; run the separate exact-remote publication review after sealing/push. P1-P8 print preparation stays held."
+    }
+  ],
+  "required_current_scope_corrections": [],
+  "crop_and_gutter_geometry": {
+    "crop_width": 6144,
+    "crop_height": 2194.285714285714,
+    "aspect_ratio": 2.8000000000000003,
+    "full_native_world_band_retained": true,
+    "native_world_fraction_of_crop_height": 0.9333333333333333,
+    "gutter_source_x": 3072,
+    "diagnostic_quarter_inch_each_side_native_x": [
+      2962.285714285714,
+      3181.714285714286
+    ],
+    "seat_source_alpha_bbox": [
+      5,
+      5,
+      549,
+      1018
+    ],
+    "seat_world_document_box": [
+      3100,
+      945,
+      200,
+      370
+    ],
+    "seat_visible_native_x_bounds": [
+      3101.8050541516245,
+      3298.1949458483755
+    ],
+    "seat_box_left_distance_inches_at14x5": 0.06380208333333334,
+    "seat_visible_left_distance_inches_at14x5": 0.06791516245487358,
+    "first_caption_x_logical": 60,
+    "source_sha256_verified": true
+  },
+  "independent_pdf_checks": {
+    "frozen_v41_comparison_master": {
+      "sha256": "2841e53057aa7b46add33ffab929535005f8a3e1a969563564c9f4580f6b5423",
+      "bytes": 155933363,
+      "exact_prior_reviewed_master_rechecked": true
+    },
+    "method": "Independent read-only PDFium renders and PDF structure checks, not copying primary receipt",
+    "master": {
+      "sha256": "8487a4419f43ce0ef10df4c350153e29dfd3437f34cd4642ca267f12bdaaaf1f",
+      "bytes": 155933362
+    },
+    "email": {
+      "sha256": "4717cebf145d9081e6f036118ab5f28c8868b02e956f196703ab440b1fb10ba6",
+      "bytes": 24134853
+    },
+    "standalone": {
+      "sha256": "d84bc5c0b694a11a945aa81c9fc83642f198b169ac7a4dad73f61d78bc441c0c",
+      "bytes": 27255600
+    },
+    "pages": [
+      {
+        "page": 0,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 40.77872510725822,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 1,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 40.88285815779276,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 2,
+        "size": [
+          3024,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          2016,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": false,
+        "email_psnr_db": 40.19751255650271,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 3,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 41.35146737871389,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 4,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 41.30333903209547,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 5,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 43.7404198195095,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 6,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 43.700417428341815,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 7,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 40.50831531843358,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 8,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 43.482625341781656,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 9,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 44.038942125146505,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 10,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 40.5524787292013,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 11,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 40.04806053985617,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 12,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 42.83492416353167,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 13,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 40.05686667053202,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 14,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 40.37564828787069,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 15,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 40.810626587527565,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 16,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 40.73354273626548,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 17,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 43.45814181296798,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 18,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 41.75260069551662,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 19,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 41.630796601873215,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 20,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 41.262099546816025,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 21,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 44.619189724373165,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 22,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 43.375278645845945,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 23,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 41.145981148867676,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 24,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 43.57557668775477,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 25,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 43.54750263209726,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 26,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 41.5911506863731,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 27,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 41.22189984875718,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 28,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 41.09765592715631,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 29,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 41.56793926262496,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 30,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 41.7269557117604,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 31,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 44.14593943004931,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 32,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 40.418190980477064,
+        "vector_content_and_text_exact": true
+      },
+      {
+        "page": 33,
+        "size": [
+          1512,
+          1080
+        ],
+        "media_box": [
+          0,
+          0,
+          1008,
+          720
+        ],
+        "proof_exact": true,
+        "baseline_proof_exact": true,
+        "email_psnr_db": 41.187302015659,
+        "vector_content_and_text_exact": true
+      }
+    ],
+    "exact_master_proofs": 34,
+    "unchanged_v41_proofs": 33,
+    "alpha_placements_exact": 94,
+    "native_image_placements": 179,
+    "minimum_email_psnr_db": 40.04806053985617,
+    "standalone_exact_to_master_page2": true,
+    "parts_verified": [
+      {
+        "file": "Mermaid_Roshan_V42_Lossless.pdf.part01",
+        "bytes": 52428800,
+        "sha256": "206f35bb693d9551ba78060e7668ec9b5d45d2606a2ce5a705a2aba1b182efb6"
+      },
+      {
+        "file": "Mermaid_Roshan_V42_Lossless.pdf.part02",
+        "bytes": 52428800,
+        "sha256": "f4d4b3e9fc751b28202a76addd3d7350a18b7bf0bb9e1c87840445872ea0f69d"
+      },
+      {
+        "file": "Mermaid_Roshan_V42_Lossless.pdf.part03",
+        "bytes": 51075762,
+        "sha256": "4a935ee9cb514e0efb7c2ceae82ec1b457d44d3d45f78a79f34c530d8e8e3531"
+      }
+    ],
+    "parts_reconstruct_exact_master": true
+  },
+  "independent_source_and_control_checks": {
+    "source_seal_count": 324,
+    "source_record_count": 348,
+    "source_records_exact": true,
+    "manuscript_manual_breaks_exact": true,
+    "cover_back_entrance_dust_controls_exact": true,
+    "root_controls_equal_frozen_controls": true,
+    "changed_page_keys": [
+      {
+        "page": 2,
+        "changed_keys": [
+          "art_crop",
+          "background_theme",
+          "caption",
+          "width_multiplier"
+        ]
+      }
+    ],
+    "arrival_layers": [
+      {
+        "page": 2,
+        "source_key": "v41_arrival_full_setting",
+        "file": "revisions/v41_final_review/art/arrival_full_setting_candidate.png",
+        "sha256": "71b917938f21235d0ac701db26438194fba43c0d405c430156d156c1c90ec67a",
+        "native_size": [
+          6144,
+          4389
+        ],
+        "source_box_pixels": [
+          0,
+          1350,
+          6144,
+          3544.285714285714
+        ],
+        "target_box_points": [
+          0,
+          0,
+          1008,
+          360
+        ],
+        "operation": "source_region",
+        "role": "story_art",
+        "alpha": false
+      }
+    ],
+    "arrival_pdf_embedded_source": [
+      {
+        "name": "/FormXob.2a985e8a8ac2ff0b85bbdc7239e39763",
+        "native_size": [
+          6144,
+          4389
+        ],
+        "lossless_full_source_rgb_exact": true,
+        "source_sha256": "71b917938f21235d0ac701db26438194fba43c0d405c430156d156c1c90ec67a"
+      }
+    ],
+    "arrival_pdf_operations": "1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET\n2 0 0 2 0 0 cm\nq\nn 0 0 1008 360 re W* n\nq\n1008 0 0 720.0703 0 -138.5859 cm\n/FormXob.2a985e8a8ac2ff0b85bbdc7239e39763 Do\nQ\nQ\nq\n.06 .16 .29 rg\nBT 1 0 0 1 60 316 Tm /F2+0 20 Tf 24 TL (The plane landed at Sky Lagoon.) Tj T* ET\nQ\nq\n.06 .16 .29 rg\nBT 1 0 0 1 60 290 Tm /F2+0 20 Tf 24 TL (Pearl Castle was close by.) Tj T* ET\nQ\n \n",
+    "canonical_controls_sha256": "df6415413ad1eff5243c0294e453415c04b499985f0fe9f2fc5006429641df02",
+    "source_seal_set_sha256": "43ef24caa8769b2d434174d0a7ea46bd1451b8b878b171d057617f9793abe9fa"
+  },
+  "independent_caption_free_contrast_and_dust_checks": {
+    "caption_free_unchanged_exact_pages": 33,
+    "contrast_method": "Independent text-stripped final PDFs rendered in memory; actual V37 median/worst10percent luminance thresholds, excluding stroke",
+    "contrast_counts": {
+      "PASS": 79,
+      "OUTLINE_REQUIRED": 7
+    },
+    "contrast_lines": [
+      {
+        "page": "front_cover",
+        "text": "Mermaid Roshan",
+        "typical": 10.512,
+        "worst": 9.782,
+        "verdict": "PASS"
+      },
+      {
+        "page": "front_cover",
+        "text": "and the Hidden Rainbow",
+        "typical": 10.368,
+        "worst": 8.971,
+        "verdict": "PASS"
+      },
+      {
+        "page": "front_cover",
+        "text": "A Pearl Castle",
+        "typical": 8.904,
+        "worst": 6.873,
+        "verdict": "PASS"
+      },
+      {
+        "page": "front_cover",
+        "text": "friendship story",
+        "typical": 8.406,
+        "worst": 6.561,
+        "verdict": "PASS"
+      },
+      {
+        "page": 1,
+        "text": "“Look, Daddy!",
+        "typical": 8.849,
+        "worst": 7.304,
+        "verdict": "PASS"
+      },
+      {
+        "page": 1,
+        "text": "Pearl Castle!”",
+        "typical": 6.93,
+        "worst": 4.981,
+        "verdict": "PASS"
+      },
+      {
+        "page": 2,
+        "text": "The plane landed at Sky Lagoon.",
+        "typical": 7.514,
+        "worst": 7.098,
+        "verdict": "PASS"
+      },
+      {
+        "page": 2,
+        "text": "Pearl Castle was close by.",
+        "typical": 8.244,
+        "worst": 7.907,
+        "verdict": "PASS"
+      },
+      {
+        "page": 3,
+        "text": "“Let’s look inside,",
+        "typical": 7.412,
+        "worst": 3.583,
+        "verdict": "PASS"
+      },
+      {
+        "page": 3,
+        "text": "Daddy,” said Roshan.",
+        "typical": 5.165,
+        "worst": 4.008,
+        "verdict": "PASS"
+      },
+      {
+        "page": 4,
+        "text": "Inside, dust covered the floor.",
+        "typical": 7.163,
+        "worst": 3.771,
+        "verdict": "PASS"
+      },
+      {
+        "page": 4,
+        "text": "“Let’s clean it together!”",
+        "typical": 6.458,
+        "worst": 4.266,
+        "verdict": "PASS"
+      },
+      {
+        "page": 4,
+        "text": "said Roshan.",
+        "typical": 5.861,
+        "worst": 4.632,
+        "verdict": "PASS"
+      },
+      {
+        "page": 5,
+        "text": "Sniff, sniff!",
+        "typical": 11.423,
+        "worst": 10.594,
+        "verdict": "PASS"
+      },
+      {
+        "page": 5,
+        "text": "Someone was sniffling",
+        "typical": 11.095,
+        "worst": 10.258,
+        "verdict": "PASS"
+      },
+      {
+        "page": 5,
+        "text": "behind a big shell door.",
+        "typical": 11.089,
+        "worst": 10.397,
+        "verdict": "PASS"
+      },
+      {
+        "page": 5,
+        "text": "“Hello?” said Roshan.",
+        "typical": 10.892,
+        "worst": 10.383,
+        "verdict": "PASS"
+      },
+      {
+        "page": 6,
+        "text": "Daddy gave her a brush and some sponges.",
+        "typical": 11.529,
+        "worst": 10.888,
+        "verdict": "PASS"
+      },
+      {
+        "page": 6,
+        "text": "“One little job at a time,” said Daddy.",
+        "typical": 11.045,
+        "worst": 10.633,
+        "verdict": "PASS"
+      },
+      {
+        "page": 7,
+        "text": "A dust bunny splashed in the dirty bath.",
+        "typical": 6.069,
+        "worst": 3.864,
+        "verdict": "PASS"
+      },
+      {
+        "page": 7,
+        "text": "It loved to play. Splash, splash!",
+        "typical": 5.887,
+        "worst": 3.889,
+        "verdict": "PASS"
+      },
+      {
+        "page": 8,
+        "text": "Round and round went the sponge.",
+        "typical": 11.496,
+        "worst": 11.038,
+        "verdict": "PASS"
+      },
+      {
+        "page": 8,
+        "text": "Roshan wiped the sink clean.",
+        "typical": 11.245,
+        "worst": 10.881,
+        "verdict": "PASS"
+      },
+      {
+        "page": 9,
+        "text": "Out went the dirty bath water.",
+        "typical": 11.48,
+        "worst": 11.038,
+        "verdict": "PASS"
+      },
+      {
+        "page": 9,
+        "text": "Roshan scrubbed the tub. Scrub, scrub!",
+        "typical": 11.277,
+        "worst": 10.881,
+        "verdict": "PASS"
+      },
+      {
+        "page": 10,
+        "text": "Clean water filled the bath.",
+        "typical": 8.113,
+        "worst": 6.272,
+        "verdict": "PASS"
+      },
+      {
+        "page": 10,
+        "text": "The dust bunny was ready to play!",
+        "typical": 7.539,
+        "worst": 6.061,
+        "verdict": "PASS"
+      },
+      {
+        "page": 11,
+        "text": "Rumi was stuck under the gunk.",
+        "typical": 4.956,
+        "worst": 3.003,
+        "verdict": "PASS"
+      },
+      {
+        "page": 11,
+        "text": "She needed help!",
+        "typical": 5.764,
+        "worst": 3.595,
+        "verdict": "PASS"
+      },
+      {
+        "page": 12,
+        "text": "“I’ll help!” said Roshan.",
+        "typical": 10.286,
+        "worst": 10.015,
+        "verdict": "PASS"
+      },
+      {
+        "page": 12,
+        "text": "Scoop, scoop!",
+        "typical": 10.003,
+        "worst": 9.78,
+        "verdict": "PASS"
+      },
+      {
+        "page": 13,
+        "text": "Rainbow colors",
+        "typical": 6.578,
+        "worst": 3.077,
+        "verdict": "PASS"
+      },
+      {
+        "page": 13,
+        "text": "peeked through the gunk.",
+        "typical": 6.509,
+        "worst": 4.006,
+        "verdict": "PASS"
+      },
+      {
+        "page": 14,
+        "text": "Whoosh! The waterfall turned rainbow!",
+        "typical": 6.481,
+        "worst": 3.315,
+        "verdict": "PASS"
+      },
+      {
+        "page": 14,
+        "text": "The swimming pool was magic!",
+        "typical": 10.596,
+        "worst": 6.096,
+        "verdict": "PASS"
+      },
+      {
+        "page": 14,
+        "text": "It made the water rainbow-colored.",
+        "typical": 13.09,
+        "worst": 8.91,
+        "verdict": "PASS"
+      },
+      {
+        "page": 15,
+        "text": "A cup was stuck in the fountain.",
+        "typical": 6.002,
+        "worst": 4.139,
+        "verdict": "PASS"
+      },
+      {
+        "page": 15,
+        "text": "Roshan pulled it free. Whoosh!",
+        "typical": 7.747,
+        "worst": 6.001,
+        "verdict": "PASS"
+      },
+      {
+        "page": 16,
+        "text": "The gunk was gone. Up came Rumi!",
+        "typical": 6.187,
+        "worst": 3.445,
+        "verdict": "PASS"
+      },
+      {
+        "page": 16,
+        "text": "She had lived in Pearl Castle for hundreds of years.",
+        "typical": 6.113,
+        "worst": 3.637,
+        "verdict": "PASS"
+      },
+      {
+        "page": 16,
+        "text": "Now she was free!",
+        "typical": 4.249,
+        "worst": 3.268,
+        "verdict": "OUTLINE_REQUIRED"
+      },
+      {
+        "page": 17,
+        "text": "“You helped me!”",
+        "typical": 11.318,
+        "worst": 10.888,
+        "verdict": "PASS"
+      },
+      {
+        "page": 17,
+        "text": "said Rumi.",
+        "typical": 11.538,
+        "worst": 10.928,
+        "verdict": "PASS"
+      },
+      {
+        "page": 17,
+        "text": "She gave Roshan",
+        "typical": 11.487,
+        "worst": 11.118,
+        "verdict": "PASS"
+      },
+      {
+        "page": 17,
+        "text": "a great big hug.",
+        "typical": 11.294,
+        "worst": 10.874,
+        "verdict": "PASS"
+      },
+      {
+        "page": 18,
+        "text": "Chirp, chirp!",
+        "typical": 5.214,
+        "worst": 3.929,
+        "verdict": "PASS"
+      },
+      {
+        "page": 18,
+        "text": "“Someone in the playroom",
+        "typical": 6.314,
+        "worst": 4.033,
+        "verdict": "PASS"
+      },
+      {
+        "page": 18,
+        "text": "needs help!” said Roshan.",
+        "typical": 8.944,
+        "worst": 6.509,
+        "verdict": "PASS"
+      },
+      {
+        "page": 19,
+        "text": "Two dust bunnies sat on Baby Eagle.",
+        "typical": 6.052,
+        "worst": 4.27,
+        "verdict": "PASS"
+      },
+      {
+        "page": 19,
+        "text": "They wanted to play, but he was stuck.",
+        "typical": 5.511,
+        "worst": 4.809,
+        "verdict": "PASS"
+      },
+      {
+        "page": 19,
+        "text": "“I’ll help!” said Roshan.",
+        "typical": 4.925,
+        "worst": 4.421,
+        "verdict": "PASS"
+      },
+      {
+        "page": 20,
+        "text": "She gently brushed one bunny away,",
+        "typical": 4.847,
+        "worst": 4.047,
+        "verdict": "PASS"
+      },
+      {
+        "page": 20,
+        "text": "then the other.",
+        "typical": 3.649,
+        "worst": 3.227,
+        "verdict": "OUTLINE_REQUIRED"
+      },
+      {
+        "page": 21,
+        "text": "Baby Eagle was free!",
+        "typical": 11.344,
+        "worst": 10.968,
+        "verdict": "PASS"
+      },
+      {
+        "page": 21,
+        "text": "“Let’s play gently,” said Roshan.",
+        "typical": 11.149,
+        "worst": 10.787,
+        "verdict": "PASS"
+      },
+      {
+        "page": 21,
+        "text": "Sorry!",
+        "typical": 14.6,
+        "worst": 14.6,
+        "verdict": "PASS"
+      },
+      {
+        "page": 21,
+        "text": "We were just",
+        "typical": 14.6,
+        "worst": 14.6,
+        "verdict": "PASS"
+      },
+      {
+        "page": 21,
+        "text": "playing!",
+        "typical": 14.6,
+        "worst": 14.6,
+        "verdict": "PASS"
+      },
+      {
+        "page": 22,
+        "text": "In the art room, Roshan put",
+        "typical": 11.007,
+        "worst": 10.633,
+        "verdict": "PASS"
+      },
+      {
+        "page": 22,
+        "text": "the paints in their places.",
+        "typical": 10.929,
+        "worst": 10.617,
+        "verdict": "PASS"
+      },
+      {
+        "page": 22,
+        "text": "Then she scrubbed the table. Scrub, scrub!",
+        "typical": 10.819,
+        "worst": 10.51,
+        "verdict": "PASS"
+      },
+      {
+        "page": 23,
+        "text": "Only the big shell door was still shut.",
+        "typical": 6.31,
+        "worst": 5.586,
+        "verdict": "PASS"
+      },
+      {
+        "page": 23,
+        "text": "Behind it, someone sneezed... AH-CHOO!",
+        "typical": 6.431,
+        "worst": 4.104,
+        "verdict": "PASS"
+      },
+      {
+        "page": 24,
+        "text": "Grand Puff!",
+        "typical": 11.389,
+        "worst": 10.507,
+        "verdict": "PASS"
+      },
+      {
+        "page": 24,
+        "text": "He was covered in dust.",
+        "typical": 11.15,
+        "worst": 10.516,
+        "verdict": "PASS"
+      },
+      {
+        "page": 24,
+        "text": "He did not feel well.",
+        "typical": 11.064,
+        "worst": 10.559,
+        "verdict": "PASS"
+      },
+      {
+        "page": 25,
+        "text": "“Hold on, we’ll make you feel",
+        "typical": 11.407,
+        "worst": 10.929,
+        "verdict": "PASS"
+      },
+      {
+        "page": 25,
+        "text": "clean and better!” said Roshan.",
+        "typical": 11.181,
+        "worst": 10.717,
+        "verdict": "PASS"
+      },
+      {
+        "page": 26,
+        "text": "Daddy, Rumi, and Baby Eagle helped Roshan.",
+        "typical": 4.636,
+        "worst": 3.854,
+        "verdict": "PASS"
+      },
+      {
+        "page": 26,
+        "text": "Together, they washed Grand Puff. Scrub, scrub!",
+        "typical": 4.869,
+        "worst": 3.826,
+        "verdict": "PASS"
+      },
+      {
+        "page": 27,
+        "text": "Soft bubbles covered Grand Puff.",
+        "typical": 4.387,
+        "worst": 3.811,
+        "verdict": "OUTLINE_REQUIRED"
+      },
+      {
+        "page": 27,
+        "text": "Little colors began to shine beneath them.",
+        "typical": 4.724,
+        "worst": 3.795,
+        "verdict": "PASS"
+      },
+      {
+        "page": 28,
+        "text": "POP! Grand Puff sprang out, rainbow bright!",
+        "typical": 4.612,
+        "worst": 3.848,
+        "verdict": "PASS"
+      },
+      {
+        "page": 28,
+        "text": "The dust fell away.",
+        "typical": 4.028,
+        "worst": 3.654,
+        "verdict": "OUTLINE_REQUIRED"
+      },
+      {
+        "page": 29,
+        "text": "Down came Grand Puff, soft and small.",
+        "typical": 4.502,
+        "worst": 3.832,
+        "verdict": "PASS"
+      },
+      {
+        "page": 29,
+        "text": "He felt like himself again.",
+        "typical": 4.176,
+        "worst": 3.7,
+        "verdict": "OUTLINE_REQUIRED"
+      },
+      {
+        "page": 30,
+        "text": "The art room was tidy.",
+        "typical": 7.973,
+        "worst": 6.03,
+        "verdict": "PASS"
+      },
+      {
+        "page": 30,
+        "text": "One little job at a time,",
+        "typical": 7.042,
+        "worst": 5.611,
+        "verdict": "PASS"
+      },
+      {
+        "page": 30,
+        "text": "Pearl Castle was clean again.",
+        "typical": 6.626,
+        "worst": 5.037,
+        "verdict": "PASS"
+      },
+      {
+        "page": 31,
+        "text": "“We helped your rainbow shine!” said Roshan.",
+        "typical": 11.585,
+        "worst": 10.991,
+        "verdict": "PASS"
+      },
+      {
+        "page": 31,
+        "text": "“Thank you!” said Grand Puff.",
+        "typical": 11.133,
+        "worst": 10.726,
+        "verdict": "PASS"
+      },
+      {
+        "page": 31,
+        "text": "Roshan smiled. “Come and rest with us!”",
+        "typical": 11.149,
+        "worst": 10.75,
+        "verdict": "PASS"
+      },
+      {
+        "page": 32,
+        "text": "There was room for everyone.",
+        "typical": 7.53,
+        "worst": 6.5,
+        "verdict": "PASS"
+      },
+      {
+        "page": 32,
+        "text": "They curled up and fell asleep.",
+        "typical": 6.196,
+        "worst": 5.113,
+        "verdict": "PASS"
+      },
+      {
+        "page": "back_cover",
+        "text": "Pearl Castle needs help.",
+        "typical": 4.131,
+        "worst": 3.395,
+        "verdict": "OUTLINE_REQUIRED"
+      },
+      {
+        "page": "back_cover",
+        "text": "Where will Roshan begin?",
+        "typical": 4.25,
+        "worst": 3.633,
+        "verdict": "OUTLINE_REQUIRED"
+      }
+    ],
+    "B1_independent": {
+      "changed_mask_max_RGB_delta_gt": 6,
+      "changed_pixels": 7622,
+      "bbox": [
+        985,
+        572,
+        1188,
+        635
+      ],
+      "height_inches": 0.2916666666666667,
+      "contrast_of_mean_linear_luminances": 2.2599406033545404,
+      "unchanged_from_v41": true
+    }
+  },
+  "independent_final_evidence_checks": {
+    "strict_gate": {
+      "status": "PASS_DOUBLEWIDE_REVIEW",
+      "sha256": "ee00cab0ef911dbbc5e67e8789158cdc6846571d34b08bd3f2ebfa7853af53de",
+      "issues": [],
+      "actual_glyph_focal_checks": 57,
+      "glyph_overlaps": 0,
+      "source_seal_count": 324,
+      "held": [
+        "Physical page assignment and33interiorunits if split; actual recto/verso/reveal parity and swing/gutter solution held",
+        "P1-P8 Part2 held until owner illustration acceptance; physical print,child reading,qualifiedSLP remain open"
+      ]
+    },
+    "validation_receipt": {
+      "sha256": "83ec17cfe33e062f3402b5c7b0db7aa0626ed9c07b1d142055d41c034220884e",
+      "checked_at_utc": "2026-10-27T06:03:32.050856+00:00",
+      "status": "PASS",
+      "contract_gate_runs": [
+        {
+          "command": [
+            "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+            "-X",
+            "utf8",
+            "-B",
+            "tools/audit_document_authority.py"
+          ],
+          "returncode": 0,
+          "output": "DOCAUTH|INVENTORY=618|LEDGER=618|ACTIVE=56|RECORDS=58\nDOCAUTH|RESULT|ALL OK\n"
+        },
+        {
+          "command": [
+            "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+            "-X",
+            "utf8",
+            "-B",
+            "tools/audit_development.py",
+            "--base",
+            "auto"
+          ],
+          "returncode": 0,
+          "output": "AUDITDEV|BASE|5920c673305989ee29d91876480ff445dba9fc8b\nAUDITDEV|RESULT|ALL OK\n"
+        },
+        {
+          "command": [
+            "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+            "-X",
+            "utf8",
+            "-B",
+            "-m",
+            "unittest",
+            "tools.tests.test_audit_document_authority",
+            "tools.tests.test_audit_development"
+          ],
+          "returncode": 0,
+          "output": "....................................................\n----------------------------------------------------------------------\nRan 52 tests in 10.801s\n\nOK\nDOCAUTH|STRESS|6/6\n"
+        }
+      ]
+    },
+    "five_primary_review_passes": {
+      "sha256": "c33c78ae559cfaff4f301ba0ee6b7c643a7f61fb9025fcb6ed4e2d9c37ac13b1",
+      "status": "FIVE_FOCUSED_PRIMARY_INSPECTIONS_COMPLETE",
+      "checked_at_utc": "2026-10-27T06:00:15.643354+00:00",
+      "actual_artifact_bindings": {
+        "complete/page_02.png": "b5d7d860d1d34c5c303702f807f197b06f45cc3683424cd7eee0ca8c9d504ece",
+        "details/arrival_crop_preview.png": "b2707434e70d8969d24f797d95174f92bf66b31966e97443720c71ba360e6b97",
+        "details/before_after.png": "f3ff1586b1e60a373900678f34c76645a795f7a81f2312dde6f1675840ec3e60",
+        "details/landing.png": "63c1498b6a09224a3e2d205d4391cafdcdcf905fb29f630a00d8cab836ed4128",
+        "details/castle_route.png": "34573e66faad3f44f25c6196643edc2d693796fd352015132136af03332ac075",
+        "details/caption.png": "1cdbac166ab280e2f88760ea5b862f25efdb4156855839d5b64dcbf09ca05179",
+        "details/centre.png": "c5c12deeedb5cd8d4e88a93a65f80c662d469bb723735427fc0fc01b3709858c",
+        "details/fold_diagnostic.png": "0b016f4da1cf98ee3541c452dd9c914467e2843eee890dfa3ab581b0319b8e96",
+        "details/sequence.png": "4af49f11b354d9a7c8de8c91c174f425df3cf5e3ed153aadb41c67b006b7f714",
+        "details/email_spread.png": "6ac9f1f6e3cd25d418409f9b8a56499371cf2affc255f54f0539ba16844c08d1",
+        "details/standalone_spread.png": "b5d7d860d1d34c5c303702f807f197b06f45cc3683424cd7eee0ca8c9d504ece"
+      }
+    },
+    "review_guard_normal_pass": true,
+    "negative_guard_trials": [
+      {
+        "substituted_in_memory_only": "complete/Mermaid_Roshan_LANDSCAPE_ROUGH.pdf",
+        "rejected": true,
+        "message": "Master changed; explicit visual re-review required"
+      },
+      {
+        "substituted_in_memory_only": "complete/Mermaid_Roshan_Book_V42_Email.pdf",
+        "rejected": true,
+        "message": "Email changed; explicit visual re-review required"
+      },
+      {
+        "substituted_in_memory_only": "complete/Sky_Lagoon_Doublewide_V42.pdf",
+        "rejected": true,
+        "message": "Wide standalone changed; new review required"
+      },
+      {
+        "substituted_in_memory_only": "details/centre.png",
+        "rejected": true,
+        "message": "('Stale inspected artifact', 'details/centre.png')"
+      }
+    ],
+    "review_json_unchanged": true,
+    "independent_python_ast_syntax_count": 11,
+    "independent_html_link_count": 45,
+    "historical_v41_and_protected_originals_no_git_diff": true
+  },
+  "default_width_regression_check": {
+    "guard_normal_pass": true,
+    "negative_guard_tests": [
+      {
+        "in_memory_substitution_only": "complete/Mermaid_Roshan_LANDSCAPE_ROUGH.pdf",
+        "rejected": true,
+        "message": "Master changed; explicit visual re-review required"
+      },
+      {
+        "in_memory_substitution_only": "details/centre.png",
+        "rejected": true,
+        "message": "('Stale inspected artifact', 'details/centre.png')"
+      }
+    ],
+    "review_json_unchanged": true,
+    "guard_script_sha256": "b6623205448fcab9f44b4061c8b5d6b99e5981c6021343addc351cd445e81696",
+    "default_width_regression_receipt_sha256": "0e3567a75d228ab61d827411aa7bc3277879c856977c29b0e30428821198ab06",
+    "independently_checked_primary_retained_regression_pdf_renders": 34,
+    "default_width_regression_method_limit": "Verified actual retained regression PDF/PNG bytes against all historical V41 proofs and reviewed current default-width code; did not rerun renderer or claim to create primary regression outputs.",
+    "regression_output_pdf_sha256": "c3711e54be400c924b50a3dc6d42207a6289214002961c384764c32db4416a3b",
+    "regression_pages": [
+      {
+        "page": 0,
+        "sha256": "9304bccfe16d0f1b5d9f5f5fa5cc269b8b27bfd32ee09e02041e83ee4ba071a1"
+      },
+      {
+        "page": 1,
+        "sha256": "e2f7f009d784fdcb5e831f50ed7ed1f9a7cdd10f67a81a76ced4a361e5354c6c"
+      },
+      {
+        "page": 2,
+        "sha256": "f8546bfd05643a64733735de94beada8e81889c569d0c15d2cfc1a765ec26d9c"
+      },
+      {
+        "page": 3,
+        "sha256": "84e971ab04e50fa5888472dc504d97ba634af1b9111f4cf4e5bbf596e6dd5954"
+      },
+      {
+        "page": 4,
+        "sha256": "68befbd229750de53024a04a8ce06f1a9edc89591bc4943dcbd4c47305749e4d"
+      },
+      {
+        "page": 5,
+        "sha256": "7a82b4c67c7343fd56c9684cb27fe903bcbb19bdc44bd470df29587030e0852b"
+      },
+      {
+        "page": 6,
+        "sha256": "4b6aa0941e91e211dcbd01f77424cc870e0fec4ecbdb46ed1c526df2fad7973f"
+      },
+      {
+        "page": 7,
+        "sha256": "96ccc3e78a0848fadfb771065a8d039e307daafcf46eaeb74cc4ffcb0091538e"
+      },
+      {
+        "page": 8,
+        "sha256": "093208805ed0b9ba71708866815273a7b72e2bd32d55836112bcaed13e23873b"
+      },
+      {
+        "page": 9,
+        "sha256": "0eaffc362e484c2adc04c72c4d1bf30767fdb4d729491f2bee6eb13a5a4e1389"
+      },
+      {
+        "page": 10,
+        "sha256": "9b7e61c0a26ed6d438556157777e9307e5e9bbbad0e568a6427022ab5d30af0c"
+      },
+      {
+        "page": 11,
+        "sha256": "a45e9dc274348f81757c6820ae0acc5867ca288c745ed0634e811e1d504ad940"
+      },
+      {
+        "page": 12,
+        "sha256": "5e435d5d33588d48997acb5a1121428756eacada3c4d6c3b5510bbf86662711c"
+      },
+      {
+        "page": 13,
+        "sha256": "5a148e336eb671a48b7df538c437f33f95d82e0bba994b12eefb06302ab9b458"
+      },
+      {
+        "page": 14,
+        "sha256": "61d14b848f0c0e697ff4e84426bcdbf3eb50289317db809a70cf676001177403"
+      },
+      {
+        "page": 15,
+        "sha256": "e4e26ead2e517e6ee690ffb90414388ab1c4aaa46db4eb4aca73ebb15dcc2b79"
+      },
+      {
+        "page": 16,
+        "sha256": "91056d37e98f13b744ebb5da264891ed6acf69b0529411d69e81850d7c163bf3"
+      },
+      {
+        "page": 17,
+        "sha256": "fdad58ee33bb8b6e5f630275487d95f47ac7bbcf428e576a79996d52593b454d"
+      },
+      {
+        "page": 18,
+        "sha256": "efc9290c601561f6e95c1900d9699e3596885527571806d7b178c5baeb6da3ee"
+      },
+      {
+        "page": 19,
+        "sha256": "f50dc0bca5cb2120fdcd0f3f05357ee85c37d260849ec55bc338e29cfd5bb5c7"
+      },
+      {
+        "page": 20,
+        "sha256": "4cf5e86598ad2dbd1d8fde803df0590bc935038dbc84d3d17bd5e97bf8627997"
+      },
+      {
+        "page": 21,
+        "sha256": "07b7a2f3681f7a1e8c702aadac74b1123721186ac962e47db67ecf6626e63d5c"
+      },
+      {
+        "page": 22,
+        "sha256": "9452a6cc0ace54a2c13b5c06cc0a88ad4f9b764ca93db74bf1499aa83e286a5a"
+      },
+      {
+        "page": 23,
+        "sha256": "44937445e36254b61c48c6502652454dcfbbe5eb7de39428e2d6059a199c85a9"
+      },
+      {
+        "page": 24,
+        "sha256": "45a75f4ec6f96b423481ca85714c116184cec35d42a5452ab9be05a32f099400"
+      },
+      {
+        "page": 25,
+        "sha256": "f5b2f23f6a0a4a1166dd94cebdcd5bb941ec558e1eb21bfca54255c1c2327b39"
+      },
+      {
+        "page": 26,
+        "sha256": "af2c2d8e7ff67003669fe888115787dbdbe1d7d42c397f5d9fbe68f93ed5a193"
+      },
+      {
+        "page": 27,
+        "sha256": "6e4cd51db0cbdb6d4b87d0778f58620155547f4a7134dbc856fa47351eb013a2"
+      },
+      {
+        "page": 28,
+        "sha256": "f505f2dd01da20ae7b1aaec3f888de0281b67707de9de6a495a73023ce295945"
+      },
+      {
+        "page": 29,
+        "sha256": "58253dccb6d0b45464ca6a928570c297fa6c8aad8bd81b153646ab3f8425adbd"
+      },
+      {
+        "page": 30,
+        "sha256": "9e7b44f88a160a220466f20605c74253c943513e8881d52ef49cc45da670feb9"
+      },
+      {
+        "page": 31,
+        "sha256": "ad52a8896363afa4b8dea4172581bad80b83e7926a811f2e1a1be3efd752ce66"
+      },
+      {
+        "page": 32,
+        "sha256": "0a7489a7bec9e13577800dc4e9779b6cbea8f57ce7954aef0ae4ce198b9442ac"
+      },
+      {
+        "page": 33,
+        "sha256": "a3d91bdd255152df45b57ece3c8edf6f311c4dbf4f8de9de9b775e6bfccf1e50"
+      }
+    ]
+  },
+  "exact_reviewed_bindings": [
+    {
+      "path": "books/chapter_one/DESIGN_LANGUAGE.md",
+      "bytes": 37339,
+      "sha256": "179a96ed728c912ef3086b49625be6960674f7579de889528b43777a59bd0049"
+    },
+    {
+      "path": "books/chapter_one/landscape/audit_book.py",
+      "bytes": 27326,
+      "sha256": "632aaf32debb1bcb84fc1a2bb9ef0ad18c990262c094bcde4ac5cc7a226fb2ab"
+    },
+    {
+      "path": "books/chapter_one/landscape/book.json",
+      "bytes": 389199,
+      "sha256": "7f6bb0ca5536e8c300295fcf8a35b649277be90ed5ff2e4d03d7c6515365b1a8"
+    },
+    {
+      "path": "books/chapter_one/landscape/PAGE_PLAN.md",
+      "bytes": 3853,
+      "sha256": "436071338cf7ae3fd3c61a8a3b1ec45cd5120e3cf505fbe773af3bc522e92038"
+    },
+    {
+      "path": "books/chapter_one/landscape/render_book.py",
+      "bytes": 19738,
+      "sha256": "f64ae50302805f46bc55afa30ea20f2590a2dceeca8c502fa6813a20e47a2f8e"
+    },
+    {
+      "path": "books/chapter_one/landscape/REVIEW.md",
+      "bytes": 1230,
+      "sha256": "4bc0b9f1a2c882301986746cd0f45705c99ee5fde1c444c5a4008358c501ac4a"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v41_final_review/art/arrival_full_setting_candidate.png",
+      "bytes": 27241396,
+      "sha256": "71b917938f21235d0ac701db26438194fba43c0d405c430156d156c1c90ec67a"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v41_final_review/art/sky_lagoon_full_world.png",
+      "bytes": 19181944,
+      "sha256": "13498d833fae601185a3bfb35aa48cbf12b982daf289ce672b08dec938530595"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v41_final_review/BOOK_CURRENT.json",
+      "bytes": 389152,
+      "sha256": "ceb869ccafdb11aa502cbd825f30132249a5b4c0169260f3fe9605732fb062a6"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/BOOK_BASELINE.json",
+      "bytes": 389152,
+      "sha256": "ceb869ccafdb11aa502cbd825f30132249a5b4c0169260f3fe9605732fb062a6"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/BOOK_CURRENT.json",
+      "bytes": 389199,
+      "sha256": "7f6bb0ca5536e8c300295fcf8a35b649277be90ed5ff2e4d03d7c6515365b1a8"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/build_manifest.py",
+      "bytes": 3724,
+      "sha256": "a5f5a5b95781597cc63fb4e95cb93831ccad347909b3556be620247f0b78b84b"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/BUILD_REPORT.md",
+      "bytes": 3307,
+      "sha256": "6d7dbda12d944a6a30464e70be47daf51dbef1168404486fec2747b32f99c69a"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/build_review.py",
+      "bytes": 5079,
+      "sha256": "c47b637fa9b8c3cc3e5a28db7f7008aed72240225fb297bce9e569f6e2867b96"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/changed_page_review.json",
+      "bytes": 728,
+      "sha256": "463b623fc3d585e2b8e8a323258fd72204723f155d0b635d0374b3e342ac96ce"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/email_verification.json",
+      "bytes": 10673,
+      "sha256": "f6ed58f85ed3c7602633fc9ba575edd525f9571e48b924731db0946ab584814f"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/master_parts/Mermaid_Roshan_V42_Lossless.pdf.part01",
+      "bytes": 52428800,
+      "sha256": "206f35bb693d9551ba78060e7668ec9b5d45d2606a2ce5a705a2aba1b182efb6"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/master_parts/Mermaid_Roshan_V42_Lossless.pdf.part02",
+      "bytes": 52428800,
+      "sha256": "f4d4b3e9fc751b28202a76addd3d7350a18b7bf0bb9e1c87840445872ea0f69d"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/master_parts/Mermaid_Roshan_V42_Lossless.pdf.part03",
+      "bytes": 51075762,
+      "sha256": "4a935ee9cb514e0efb7c2ceae82ec1b457d44d3d45f78a79f34c530d8e8e3531"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/master_parts/parts.json",
+      "bytes": 845,
+      "sha256": "1b613f6665fc51d370dec560d2f4680c25087ceff5c21a9ffbfea77c55233fa6"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/Mermaid_Roshan_Book_V42_Email.pdf",
+      "bytes": 24134853,
+      "sha256": "4717cebf145d9081e6f036118ab5f28c8868b02e956f196703ab440b1fb10ba6"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/Mermaid_Roshan_LANDSCAPE_ROUGH.pdf",
+      "bytes": 155933362,
+      "sha256": "8487a4419f43ce0ef10df4c350153e29dfd3437f34cd4642ca267f12bdaaaf1f"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_00.png",
+      "bytes": 2347416,
+      "sha256": "9304bccfe16d0f1b5d9f5f5fa5cc269b8b27bfd32ee09e02041e83ee4ba071a1"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_01.png",
+      "bytes": 2279614,
+      "sha256": "e2f7f009d784fdcb5e831f50ed7ed1f9a7cdd10f67a81a76ced4a361e5354c6c"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_02.png",
+      "bytes": 5128573,
+      "sha256": "b5d7d860d1d34c5c303702f807f197b06f45cc3683424cd7eee0ca8c9d504ece"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_03.png",
+      "bytes": 1891626,
+      "sha256": "84e971ab04e50fa5888472dc504d97ba634af1b9111f4cf4e5bbf596e6dd5954"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_04.png",
+      "bytes": 2433422,
+      "sha256": "68befbd229750de53024a04a8ce06f1a9edc89591bc4943dcbd4c47305749e4d"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_05.png",
+      "bytes": 1473336,
+      "sha256": "7a82b4c67c7343fd56c9684cb27fe903bcbb19bdc44bd470df29587030e0852b"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_06.png",
+      "bytes": 1500676,
+      "sha256": "4b6aa0941e91e211dcbd01f77424cc870e0fec4ecbdb46ed1c526df2fad7973f"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_07.png",
+      "bytes": 2772307,
+      "sha256": "96ccc3e78a0848fadfb771065a8d039e307daafcf46eaeb74cc4ffcb0091538e"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_08.png",
+      "bytes": 1577148,
+      "sha256": "093208805ed0b9ba71708866815273a7b72e2bd32d55836112bcaed13e23873b"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_09.png",
+      "bytes": 1521398,
+      "sha256": "0eaffc362e484c2adc04c72c4d1bf30767fdb4d729491f2bee6eb13a5a4e1389"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_10.png",
+      "bytes": 2495769,
+      "sha256": "9b7e61c0a26ed6d438556157777e9307e5e9bbbad0e568a6427022ab5d30af0c"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_11.png",
+      "bytes": 2789895,
+      "sha256": "a45e9dc274348f81757c6820ae0acc5867ca288c745ed0634e811e1d504ad940"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_12.png",
+      "bytes": 1522111,
+      "sha256": "5e435d5d33588d48997acb5a1121428756eacada3c4d6c3b5510bbf86662711c"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_13.png",
+      "bytes": 2613972,
+      "sha256": "5a148e336eb671a48b7df538c437f33f95d82e0bba994b12eefb06302ab9b458"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_14.png",
+      "bytes": 2553785,
+      "sha256": "61d14b848f0c0e697ff4e84426bcdbf3eb50289317db809a70cf676001177403"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_15.png",
+      "bytes": 2330529,
+      "sha256": "e4e26ead2e517e6ee690ffb90414388ab1c4aaa46db4eb4aca73ebb15dcc2b79"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_16.png",
+      "bytes": 2724421,
+      "sha256": "91056d37e98f13b744ebb5da264891ed6acf69b0529411d69e81850d7c163bf3"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_17.png",
+      "bytes": 1540805,
+      "sha256": "fdad58ee33bb8b6e5f630275487d95f47ac7bbcf428e576a79996d52593b454d"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_18.png",
+      "bytes": 2128692,
+      "sha256": "efc9290c601561f6e95c1900d9699e3596885527571806d7b178c5baeb6da3ee"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_19.png",
+      "bytes": 2172460,
+      "sha256": "f50dc0bca5cb2120fdcd0f3f05357ee85c37d260849ec55bc338e29cfd5bb5c7"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_20.png",
+      "bytes": 2141209,
+      "sha256": "4cf5e86598ad2dbd1d8fde803df0590bc935038dbc84d3d17bd5e97bf8627997"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_21.png",
+      "bytes": 1235897,
+      "sha256": "07b7a2f3681f7a1e8c702aadac74b1123721186ac962e47db67ecf6626e63d5c"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_22.png",
+      "bytes": 1470644,
+      "sha256": "9452a6cc0ace54a2c13b5c06cc0a88ad4f9b764ca93db74bf1499aa83e286a5a"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_23.png",
+      "bytes": 2274978,
+      "sha256": "44937445e36254b61c48c6502652454dcfbbe5eb7de39428e2d6059a199c85a9"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_24.png",
+      "bytes": 1524405,
+      "sha256": "45a75f4ec6f96b423481ca85714c116184cec35d42a5452ab9be05a32f099400"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_25.png",
+      "bytes": 1453215,
+      "sha256": "f5b2f23f6a0a4a1166dd94cebdcd5bb941ec558e1eb21bfca54255c1c2327b39"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_26.png",
+      "bytes": 2344471,
+      "sha256": "af2c2d8e7ff67003669fe888115787dbdbe1d7d42c397f5d9fbe68f93ed5a193"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_27.png",
+      "bytes": 2359148,
+      "sha256": "6e4cd51db0cbdb6d4b87d0778f58620155547f4a7134dbc856fa47351eb013a2"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_28.png",
+      "bytes": 2414477,
+      "sha256": "f505f2dd01da20ae7b1aaec3f888de0281b67707de9de6a495a73023ce295945"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_29.png",
+      "bytes": 2282935,
+      "sha256": "58253dccb6d0b45464ca6a928570c297fa6c8aad8bd81b153646ab3f8425adbd"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_30.png",
+      "bytes": 2057498,
+      "sha256": "9e7b44f88a160a220466f20605c74253c943513e8881d52ef49cc45da670feb9"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_31.png",
+      "bytes": 1540895,
+      "sha256": "ad52a8896363afa4b8dea4172581bad80b83e7926a811f2e1a1be3efd752ce66"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_32.png",
+      "bytes": 2282595,
+      "sha256": "0a7489a7bec9e13577800dc4e9779b6cbea8f57ce7954aef0ae4ce198b9442ac"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_33.png",
+      "bytes": 2354573,
+      "sha256": "a3d91bdd255152df45b57ece3c8edf6f311c4dbf4f8de9de9b775e6bfccf1e50"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/page_provenance.json",
+      "bytes": 227120,
+      "sha256": "6b907f75d277da6553885c53d11a3a927e25ba3b6ebe80f1e87548de1ad4b968"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/print_pagination.json",
+      "bytes": 683,
+      "sha256": "b39a1cd7ff79f10a303314e36afd5e885031415b277a301101658c06cb44acd1"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/READ_BOOK.html",
+      "bytes": 6895,
+      "sha256": "b697b3a12c07669fd5ddd373855528a4771d97f43308177e2b20287d8750aa75"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/Sky_Lagoon_Doublewide_V42.pdf",
+      "bytes": 27255600,
+      "sha256": "d84bc5c0b694a11a945aa81c9fc83642f198b169ac7a4dad73f61d78bc441c0c"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/stress_results.json",
+      "bytes": 588,
+      "sha256": "12cb0c60e9f1a28727c592a6883581933caeafd758b837db95edc3f597decb70"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/complete/verification.json",
+      "bytes": 80492,
+      "sha256": "ee00cab0ef911dbbc5e67e8789158cdc6846571d34b08bd3f2ebfa7853af53de"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/composed_caption_contrast.json",
+      "bytes": 18608,
+      "sha256": "f5f843521e798e83be7e45e7329342eafd45e2fb005ca25f2ce9938d8a7286ff"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/composed_caption_contrast.tsv",
+      "bytes": 4797,
+      "sha256": "f9c11dc0866170d98d1177633af84ed1c8745eb46d6ad0c508855cc258937cfc"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/default_width_regression.json",
+      "bytes": 4960,
+      "sha256": "0e3567a75d228ab61d827411aa7bc3277879c856977c29b0e30428821198ab06"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/details/arrival_crop_preview.png",
+      "bytes": 2540610,
+      "sha256": "b2707434e70d8969d24f797d95174f92bf66b31966e97443720c71ba360e6b97"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/details/before_after.png",
+      "bytes": 2214831,
+      "sha256": "f3ff1586b1e60a373900678f34c76645a795f7a81f2312dde6f1675840ec3e60"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/details/caption.png",
+      "bytes": 246854,
+      "sha256": "1cdbac166ab280e2f88760ea5b862f25efdb4156855839d5b64dcbf09ca05179"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/details/castle_route.png",
+      "bytes": 1194915,
+      "sha256": "34573e66faad3f44f25c6196643edc2d693796fd352015132136af03332ac075"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/details/centre.png",
+      "bytes": 328808,
+      "sha256": "c5c12deeedb5cd8d4e88a93a65f80c662d469bb723735427fc0fc01b3709858c"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/details/email_spread.png",
+      "bytes": 4685425,
+      "sha256": "6ac9f1f6e3cd25d418409f9b8a56499371cf2affc255f54f0539ba16844c08d1"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/details/fold_diagnostic.png",
+      "bytes": 5125929,
+      "sha256": "0b016f4da1cf98ee3541c452dd9c914467e2843eee890dfa3ab581b0319b8e96"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/details/landing.png",
+      "bytes": 259463,
+      "sha256": "63c1498b6a09224a3e2d205d4391cafdcdcf905fb29f630a00d8cab836ed4128"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/details/sequence.png",
+      "bytes": 1599040,
+      "sha256": "4af49f11b354d9a7c8de8c91c174f425df3cf5e3ed153aadb41c67b006b7f714"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/details/standalone_spread.png",
+      "bytes": 5128573,
+      "sha256": "b5d7d860d1d34c5c303702f807f197b06f45cc3683424cd7eee0ca8c9d504ece"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/dust_visibility.json",
+      "bytes": 600,
+      "sha256": "0781248c6b8313930675118d0e03a03b1fc7824dea53d0220c646b9f4e4312bd"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/email_export.py",
+      "bytes": 5171,
+      "sha256": "52ed8dd205cde8e36cda2590f660568ae7fba83e11384440ea6d343a7ef43a82"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/local_validation.py",
+      "bytes": 3907,
+      "sha256": "0ea049e459197b7a0a08e980b1b89b1a4a430b876b7de594d2b40ecb186fc180"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/optimize_pdf_lossless.py",
+      "bytes": 2918,
+      "sha256": "c89b41f7e98eb02dad017e6a9ae9084b12ccaa6a3b8425f17c89cbb0c1d3396f"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/README.md",
+      "bytes": 4161,
+      "sha256": "acdceb111311c06d0c6075c1a9ef675d62eff14e0ee35d66cec2bd6eb693a3f3"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/reassemble_master.py",
+      "bytes": 1658,
+      "sha256": "45aa054edc062323fa2996aa8a4a14fabce0f25c6522da30ec288d3dda385c5d"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/record_review.py",
+      "bytes": 1260,
+      "sha256": "b6623205448fcab9f44b4061c8b5d6b99e5981c6021343addc351cd445e81696"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/REVISION_REVIEW.html",
+      "bytes": 1180,
+      "sha256": "14cad68b73d49be5799a7b9127cd017141bb7a08b8df2f97160b681e5e754a80"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/revision_scope.json",
+      "bytes": 826,
+      "sha256": "465b9baf17aee60ea5930cd6adc25289feda38a0e7fc866791bad812c305b563"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/spread_recipe.json",
+      "bytes": 878,
+      "sha256": "a05ee5f3c7f4fd80c980249866004d8bd887f711089ed0b075baeac7b1c1261d"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/validation_results.json",
+      "bytes": 14186,
+      "sha256": "83ec17cfe33e062f3402b5c7b0db7aa0626ed9c07b1d142055d41c034220884e"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/verify_remote.py",
+      "bytes": 2561,
+      "sha256": "be4bfe9c4427645490981cb681ad18d15db2741af5d97a114003bda22f0a2636"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/verify_revision.py",
+      "bytes": 13981,
+      "sha256": "007e87ff0836a01850c7603f3ef0ef5b5de1d32da9214cb2388ea1b5d6cddbb6"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/visual_audits.json",
+      "bytes": 5233,
+      "sha256": "c33c78ae559cfaff4f301ba0ee6b7c643a7f61fb9025fcb6ed4e2d9c37ac13b1"
+    },
+    {
+      "path": "books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md",
+      "bytes": 1169,
+      "sha256": "01e9dd3b9579ff38370d321096cfb1ce669dca3c4d8ef1d56a348c01a1424063"
+    },
+    {
+      "path": "books/chapter_one/README.md",
+      "bytes": 1268,
+      "sha256": "ebd523d04978f50a3e1524a227e08075c56faaabd1cf762733f2f0bc24686f6f"
+    }
+  ],
+  "binding_notes": [
+    "All 91 listed working files are currently LF where text; no CRLF normalization mapping is needed for these V42 bindings. Historical renderer CRLF mappings do not substitute for the newly modified V42 renderer hash.",
+    "Hash bindings identify the reviewed candidate and evidence. This record does not bind the provisional manifest, changing audit-impact coverage metadata or later publication receipt/verdict; those are checked separately at immutable publication.",
+    "No production art, helper, source, control, PDF or evidence was changed by the independent critic. Only this review JSON is written."
+  ],
+  "acceptance_matrix": {
+    "mixed_width_illustration_review_candidate": "SATISFIED_WITH_DECLARED_HOLDS",
+    "master_audit_game_wide_satisfaction": "NOT_CLAIMED",
+    "owner_illustration_acceptance": "OPEN",
+    "physical_page_assignment_parity_gutter": "HELD",
+    "print_P1_through_P8": "HELD",
+    "child_unprompted_reader": "OPEN",
+    "qualified_SLP": "OPEN",
+    "runtime_device_game_release": "NOT_APPLICABLE_NOT_CLAIMED",
+    "remote_publication": "PENDING_SEPARATE_IMMUTABLE_REVISION_REVIEW"
+  }
+}

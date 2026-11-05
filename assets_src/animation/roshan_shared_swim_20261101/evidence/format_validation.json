@@ -1,0 +1,40 @@
+{
+  "pass": true,
+  "skins": [
+    {
+      "format_and_bindings_pass": true,
+      "skin_id": "ballet",
+      "rig_id": "roshan.canvas.shared.swim",
+      "rig_status": "prototype",
+      "views": [
+        "swim_right_quarter"
+      ],
+      "attachments": 5,
+      "live_actor_verified": false,
+      "garment_only_pixels_reviewed": false,
+      "seams_and_motion_accepted": false,
+      "device_verified": false,
+      "owner_accepted": false,
+      "production_accepted": false,
+      "limits": "Structural/reference/weight checks only. Actual garment-only pixels, registration, seam compatibility, strain, contacts and live-actor invariants require separate measured evidence."
+    },
+    {
+      "format_and_bindings_pass": true,
+      "skin_id": "magician",
+      "rig_id": "roshan.canvas.shared.swim",
+      "rig_status": "prototype",
+      "views": [
+        "swim_right_quarter"
+      ],
+      "attachments": 5,
+      "live_actor_verified": false,
+      "garment_only_pixels_reviewed": false,
+      "seams_and_motion_accepted": false,
+      "device_verified": false,
+      "owner_accepted": false,
+      "production_accepted": false,
+      "limits": "Structural/reference/weight checks only. Actual garment-only pixels, registration, seam compatibility, strain, contacts and live-actor invariants require separate measured evidence."
+    }
+  ],
+  "pose_state_scope": "Only the common anatomical fin changes authored state. Garment parts keep one supported view/binding throughout this prototype; no unsupported per-costume pose selectors added to v1."
+}

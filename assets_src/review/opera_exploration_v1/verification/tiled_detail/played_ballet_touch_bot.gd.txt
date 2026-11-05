@@ -1,0 +1,95 @@
+extends Node
+## Diagnostic touch-handler bot; never assigns progress or calls a win callback.
+var venue: Variant
+var age := 0.0
+var tick := 0.0
+var last_phase := -1
+var phases: Array[int] = []
+var gestures := 0
+var baseline_hash := 0
+var baseline_mask := 0
+var finished := false
+
+func _ready() -> void:
+	venue = get_tree().current_scene.find_child("OperaExplorationV1",true,false)
+	baseline_hash = venue.m.save_data.hash()
+	baseline_mask = venue.completed_mask
+
+func _touch(surface: Control, point: Vector2, pressed: bool) -> void:
+	var event := InputEventScreenTouch.new()
+	event.index = 0
+	event.position = point
+	event.pressed = pressed
+	surface._gui_input(event)
+	gestures += 1
+
+func _drag(surface: Control, point: Vector2) -> void:
+	var event := InputEventScreenDrag.new()
+	event.index = 0
+	event.position = point
+	surface._gui_input(event)
+	gestures += 1
+
+func _process(delta: float) -> void:
+	if finished: return
+	age += delta
+	tick += delta
+	if age > 180.0:
+		_finish(false,"180-second bounded diagnostic timeout")
+		return
+	if venue.job == null:
+		_finish((venue.completed_mask & (1<<2))!=0,"shipping activity returned")
+		return
+	if venue.job.act == null or venue.job.act.state != "play": return
+	var world: OperaCareerWorld2D = venue.job.act.career_world_2d as OperaCareerWorld2D
+	if world == null: return
+	if not world.task_open:
+		if not world.interaction_requested and world.reveal_t<=0.0:
+			world._on_hotspot_pressed(world.armed_station)
+		return
+	if tick < 0.06: return
+	tick = 0.0
+	var surface: Control = world.surface as Control
+	if surface.armed_only or surface.completion_accepted: return
+	if last_phase != world.phase_index:
+		last_phase = world.phase_index
+		phases.append(last_phase)
+	match str(surface.mode):
+		"ballet_pose":
+			if surface.demo_active or surface.pose_round>=3: return
+			var frames: Array[int] = surface.pose_option_frames()
+			var rects: Array[Rect2] = surface.pose_option_rects()
+			var index: int = frames.find(surface.pose_target_frame())
+			if index<0: return
+			_touch(surface,rects[index].get_center(),true)
+			_touch(surface,rects[index].get_center(),false)
+		"ballet_ribbon":
+			if not surface.held:
+				_touch(surface,surface.ribbon_point(surface.ribbon_progress),true)
+			else:
+				_drag(surface,surface.ribbon_point(minf(1.0,surface.ribbon_progress+0.015)))
+		"ballet_twirl":
+			if not surface.held:
+				_touch(surface,surface.twirl_handle_position(),true)
+			else:
+				var center: Vector2 = surface.twirl_center()
+				var angle: float = (surface.twirl_handle_position()-center).angle()+0.13
+				_drag(surface,center+Vector2.from_angle(angle)*surface.twirl_radius())
+
+func _finish(won: bool, reason: String) -> void:
+	finished = true
+	var out: Dictionary = {"result":"PASS" if won else "FAIL","reason":reason,"scope":"Programmatic hotspot and real touch-handler playthrough; no assigned phase/progress or forced win callbacks; not manual/child input acceptance.","seconds":age,"phases":phases,"gesture_events":gestures,"completed_mask":venue.completed_mask,"baseline_save_hash":baseline_hash,"final_save_hash":venue.m.save_data.hash(),"saved_stars":venue.m.opera_stars,"pearls":venue.m.pearl_count,"crest_visible":venue.badges[2].visible}
+	# Success arrives during the preceding result frame. Wait for the hall to
+	# actually render before reading back its earned physical crest.
+	await get_tree().process_frame
+	await get_tree().process_frame
+	out["capture_timing"] = "two rendered process frames after shipping return"
+	var image: Image = get_viewport().get_texture().get_image()
+	image.save_png("C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/opera_tiled_earned_return.png")
+	var file: FileAccess = FileAccess.open("C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/opera_tiled_playthrough.json",FileAccess.WRITE)
+	file.store_string(JSON.stringify(out,"\t"))
+	if venue.job != null:
+		venue.job._leave_early()
+	venue.completed_mask = baseline_mask
+	venue._refresh_badges()
+	venue.request_destination(Vector2(1280,1380))

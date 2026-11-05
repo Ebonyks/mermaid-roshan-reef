@@ -1,0 +1,265 @@
+[
+  {
+    "name": "static_39",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "tools/audit_visual_design.py",
+      "--stress"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 511.8478959999993,
+    "log": "remaining_static_39.log"
+  },
+  {
+    "name": "static_40",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "tools/audit_visual_design.py"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": true,
+    "seconds": 70.18588509999972,
+    "log": "remaining_static_40.log"
+  },
+  {
+    "name": "static_41",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "tools/audit_scene_congruency.py"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 38.0539804,
+    "log": "remaining_static_41.log"
+  },
+  {
+    "name": "static_42",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "tools/audit_sky_lagoon_layout.py"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 1.4543731000012485,
+    "log": "remaining_static_42.log"
+  },
+  {
+    "name": "static_43",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "tools/audit_castle_card_alpha.py"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 5.259239900005923,
+    "log": "remaining_static_43.log"
+  },
+  {
+    "name": "static_44",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-m",
+      "unittest",
+      "tools.tests.test_check_grade_headroom"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 1.960831699994742,
+    "log": "remaining_static_44.log"
+  },
+  {
+    "name": "static_45",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "tools/check_grade_headroom.py"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 33.50766220000514,
+    "log": "remaining_static_45.log"
+  },
+  {
+    "name": "static_46",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "tools/audit_castle_interactions.py"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 6.451819900001283,
+    "log": "remaining_static_46.log"
+  },
+  {
+    "name": "static_47",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "tools/normalize_castle_interaction_v2_sheets.py",
+      "--check"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 25.413255699997535,
+    "log": "remaining_static_47.log"
+  },
+  {
+    "name": "static_48",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "tools/audit_castle_interactions_v2.py"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 33.9819170999981,
+    "log": "remaining_static_48.log"
+  },
+  {
+    "name": "static_49",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "tools/build_castle_interaction_v4_delivery.py",
+      "--check"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 28.848529999995662,
+    "log": "remaining_static_49.log"
+  },
+  {
+    "name": "static_50",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "tools/audit_castle_native_interactions.py"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 46.12337059999845,
+    "log": "remaining_static_50.log"
+  },
+  {
+    "name": "static_51",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "tools/repair_castle_room_native_backgrounds.py",
+      "--check"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 20.315569900005357,
+    "log": "remaining_static_51.log"
+  },
+  {
+    "name": "static_52",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "tools/build_interactive_background_ownership.py",
+      "--check"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 14.83476260000316,
+    "log": "remaining_static_52.log"
+  },
+  {
+    "name": "static_53",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "tools/refine_castle_depth_cards.py",
+      "--check"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 3.873347400003695,
+    "log": "remaining_static_53.log"
+  },
+  {
+    "name": "static_54",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "tools/audit_castle_static_depth_cards.py"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 8.243571899998642,
+    "log": "remaining_static_54.log"
+  },
+  {
+    "name": "static_55",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-m",
+      "unittest",
+      "tools.test_audit_castle_native_interactions",
+      "tools.test_build_castle_interaction_v4_delivery",
+      "tools.test_castle_interaction_frame_qa",
+      "tools.test_review_castle_interaction_frames_v4",
+      "tools.test_refine_castle_depth_cards",
+      "tools.test_audit_castle_static_depth_cards",
+      "tools.test_repair_castle_room_native_backgrounds",
+      "tools.test_interactive_background_ownership"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 27.004474699999264,
+    "log": "remaining_static_55.log"
+  },
+  {
+    "name": "static_56",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "tools/review_castle_interaction_frames_v4.py",
+      "check"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 39.04596420000598,
+    "log": "remaining_static_56.log"
+  },
+  {
+    "name": "static_38",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-m",
+      "unittest",
+      "tools.tests.test_audit_visual_design"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 1630.8193950999994,
+    "log": "remaining_static_38.log"
+  },
+  {
+    "name": "static_57",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "tools/audit_game_2d.py",
+      "--regression-gate"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 460.933,
+    "log": "game_2d.log",
+    "evidence_reuse": "Same actual current-base 2D regression gate as CI static_57; no production file changed. Not a second execution."
+  }
+]

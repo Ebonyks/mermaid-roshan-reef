@@ -1,0 +1,298 @@
+{
+  "status": "PASS",
+  "source_sha256": "8487a4419f43ce0ef10df4c350153e29dfd3437f34cd4642ca267f12bdaaaf1f",
+  "output_sha256": "4717cebf145d9081e6f036118ab5f28c8868b02e956f196703ab440b1fb10ba6",
+  "output_bytes": 24134853,
+  "attempts": [
+    {
+      "iteration": 1,
+      "default_quality": 82,
+      "bytes": 23633079,
+      "failed_pages": [
+        7,
+        10,
+        14,
+        16
+      ],
+      "minimum_psnr_db": 37.897583331752436,
+      "quality_overrides": {
+        "6a553b877620c4a8bec87523b59ec196aa31e2b76b4883ba39cbd2a82b4b02d0": 55
+      }
+    },
+    {
+      "iteration": 2,
+      "default_quality": 82,
+      "bytes": 23804831,
+      "failed_pages": [
+        7,
+        10,
+        14,
+        16
+      ],
+      "minimum_psnr_db": 38.44255286731725,
+      "quality_overrides": {
+        "6a553b877620c4a8bec87523b59ec196aa31e2b76b4883ba39cbd2a82b4b02d0": 55,
+        "8b2f938762d55ef33c0cf58f217851c5c3839e25d175a9864aeb7d1c51b8abb5": 84,
+        "f393fa0c2862272f9d401b3996c7a3e169610171a0619e31492f5493ec722597": 84,
+        "9938faaf7a225588394bac3eadaf100501a76322da09f469671b0b03ab3e1bf1": 84,
+        "f54f5a07955383e2b92a5951904ae34359ce2eaa84358741c4f956fcbe3dc810": 84,
+        "a5d868efa071b4c74bd488b5a6a43872304b395e525798bc66bfab470d7f6c1c": 84,
+        "49da864e49fd7e888d45e33e888ef1b8d298d2a31ddd68b95edb98387d3b5c20": 84,
+        "aceb17a21d498656e3b7253e1c9f6e98a5a421c2c48c7fb9fbde66570adea839": 84,
+        "53128c2f405dac0c573dfcf6397647c0dcb39e20e146dd37d2cc31336854fdc8": 84,
+        "9290a30b3ca6e93a55f1c0dfdc0c189b11e7fd5859d2c4a1175ea8589f160f6b": 84,
+        "2fd6aff8acf5a9cf006bb43b086c10cd9e9ea569e7d8d9b022a0a53bd5bf02d8": 84,
+        "0fcf3318578517cbf1d78be78b3113b9df9e1f9a5c15a09c20b6878a07d509e7": 84,
+        "32ec7193cd1f6103108d7ad8eb135bdc7ad9fa957efd75091e7e6a398b967b23": 84
+      }
+    },
+    {
+      "iteration": 3,
+      "default_quality": 82,
+      "bytes": 24015120,
+      "failed_pages": [
+        16
+      ],
+      "minimum_psnr_db": 39.094778753549335,
+      "quality_overrides": {
+        "6a553b877620c4a8bec87523b59ec196aa31e2b76b4883ba39cbd2a82b4b02d0": 55,
+        "8b2f938762d55ef33c0cf58f217851c5c3839e25d175a9864aeb7d1c51b8abb5": 86,
+        "f393fa0c2862272f9d401b3996c7a3e169610171a0619e31492f5493ec722597": 86,
+        "9938faaf7a225588394bac3eadaf100501a76322da09f469671b0b03ab3e1bf1": 86,
+        "f54f5a07955383e2b92a5951904ae34359ce2eaa84358741c4f956fcbe3dc810": 86,
+        "a5d868efa071b4c74bd488b5a6a43872304b395e525798bc66bfab470d7f6c1c": 86,
+        "49da864e49fd7e888d45e33e888ef1b8d298d2a31ddd68b95edb98387d3b5c20": 86,
+        "aceb17a21d498656e3b7253e1c9f6e98a5a421c2c48c7fb9fbde66570adea839": 86,
+        "53128c2f405dac0c573dfcf6397647c0dcb39e20e146dd37d2cc31336854fdc8": 86,
+        "9290a30b3ca6e93a55f1c0dfdc0c189b11e7fd5859d2c4a1175ea8589f160f6b": 86,
+        "2fd6aff8acf5a9cf006bb43b086c10cd9e9ea569e7d8d9b022a0a53bd5bf02d8": 86,
+        "0fcf3318578517cbf1d78be78b3113b9df9e1f9a5c15a09c20b6878a07d509e7": 86,
+        "32ec7193cd1f6103108d7ad8eb135bdc7ad9fa957efd75091e7e6a398b967b23": 86
+      }
+    },
+    {
+      "iteration": 4,
+      "default_quality": 82,
+      "bytes": 24071004,
+      "failed_pages": [
+        16
+      ],
+      "minimum_psnr_db": 39.844348587057794,
+      "quality_overrides": {
+        "6a553b877620c4a8bec87523b59ec196aa31e2b76b4883ba39cbd2a82b4b02d0": 55,
+        "8b2f938762d55ef33c0cf58f217851c5c3839e25d175a9864aeb7d1c51b8abb5": 86,
+        "f393fa0c2862272f9d401b3996c7a3e169610171a0619e31492f5493ec722597": 86,
+        "9938faaf7a225588394bac3eadaf100501a76322da09f469671b0b03ab3e1bf1": 86,
+        "f54f5a07955383e2b92a5951904ae34359ce2eaa84358741c4f956fcbe3dc810": 86,
+        "a5d868efa071b4c74bd488b5a6a43872304b395e525798bc66bfab470d7f6c1c": 86,
+        "49da864e49fd7e888d45e33e888ef1b8d298d2a31ddd68b95edb98387d3b5c20": 86,
+        "aceb17a21d498656e3b7253e1c9f6e98a5a421c2c48c7fb9fbde66570adea839": 86,
+        "53128c2f405dac0c573dfcf6397647c0dcb39e20e146dd37d2cc31336854fdc8": 86,
+        "9290a30b3ca6e93a55f1c0dfdc0c189b11e7fd5859d2c4a1175ea8589f160f6b": 86,
+        "2fd6aff8acf5a9cf006bb43b086c10cd9e9ea569e7d8d9b022a0a53bd5bf02d8": 86,
+        "0fcf3318578517cbf1d78be78b3113b9df9e1f9a5c15a09c20b6878a07d509e7": 86,
+        "32ec7193cd1f6103108d7ad8eb135bdc7ad9fa957efd75091e7e6a398b967b23": 88
+      }
+    },
+    {
+      "iteration": 5,
+      "default_quality": 82,
+      "bytes": 24134853,
+      "failed_pages": [],
+      "minimum_psnr_db": 40.04806053985617,
+      "quality_overrides": {
+        "6a553b877620c4a8bec87523b59ec196aa31e2b76b4883ba39cbd2a82b4b02d0": 55,
+        "8b2f938762d55ef33c0cf58f217851c5c3839e25d175a9864aeb7d1c51b8abb5": 86,
+        "f393fa0c2862272f9d401b3996c7a3e169610171a0619e31492f5493ec722597": 86,
+        "9938faaf7a225588394bac3eadaf100501a76322da09f469671b0b03ab3e1bf1": 86,
+        "f54f5a07955383e2b92a5951904ae34359ce2eaa84358741c4f956fcbe3dc810": 86,
+        "a5d868efa071b4c74bd488b5a6a43872304b395e525798bc66bfab470d7f6c1c": 86,
+        "49da864e49fd7e888d45e33e888ef1b8d298d2a31ddd68b95edb98387d3b5c20": 86,
+        "aceb17a21d498656e3b7253e1c9f6e98a5a421c2c48c7fb9fbde66570adea839": 86,
+        "53128c2f405dac0c573dfcf6397647c0dcb39e20e146dd37d2cc31336854fdc8": 86,
+        "9290a30b3ca6e93a55f1c0dfdc0c189b11e7fd5859d2c4a1175ea8589f160f6b": 86,
+        "2fd6aff8acf5a9cf006bb43b086c10cd9e9ea569e7d8d9b022a0a53bd5bf02d8": 86,
+        "0fcf3318578517cbf1d78be78b3113b9df9e1f9a5c15a09c20b6878a07d509e7": 86,
+        "32ec7193cd1f6103108d7ad8eb135bdc7ad9fa957efd75091e7e6a398b967b23": 90
+      }
+    }
+  ],
+  "pages": [
+    {
+      "page": 0,
+      "render_psnr_db": 40.77872510725822,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 1,
+      "render_psnr_db": 40.88285815779276,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 2,
+      "render_psnr_db": 40.19751255650271,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 3,
+      "render_psnr_db": 41.35146737871389,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 4,
+      "render_psnr_db": 41.30333903209547,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 5,
+      "render_psnr_db": 43.7404198195095,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 6,
+      "render_psnr_db": 43.700417428341815,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 7,
+      "render_psnr_db": 40.50831531843358,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 8,
+      "render_psnr_db": 43.482625341781656,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 9,
+      "render_psnr_db": 44.038942125146505,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 10,
+      "render_psnr_db": 40.5524787292013,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 11,
+      "render_psnr_db": 40.04806053985617,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 12,
+      "render_psnr_db": 42.83492416353167,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 13,
+      "render_psnr_db": 40.05686667053202,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 14,
+      "render_psnr_db": 40.37564828787069,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 15,
+      "render_psnr_db": 40.810626587527565,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 16,
+      "render_psnr_db": 40.73354273626548,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 17,
+      "render_psnr_db": 43.45814181296798,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 18,
+      "render_psnr_db": 41.75260069551662,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 19,
+      "render_psnr_db": 41.630796601873215,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 20,
+      "render_psnr_db": 41.262099546816025,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 21,
+      "render_psnr_db": 44.619189724373165,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 22,
+      "render_psnr_db": 43.375278645845945,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 23,
+      "render_psnr_db": 41.145981148867676,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 24,
+      "render_psnr_db": 43.57557668775477,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 25,
+      "render_psnr_db": 43.54750263209726,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 26,
+      "render_psnr_db": 41.5911506863731,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 27,
+      "render_psnr_db": 41.22189984875718,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 28,
+      "render_psnr_db": 41.09765592715631,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 29,
+      "render_psnr_db": 41.56793926262496,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 30,
+      "render_psnr_db": 41.7269557117604,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 31,
+      "render_psnr_db": 44.14593943004931,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 32,
+      "render_psnr_db": 40.418190980477064,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    },
+    {
+      "page": 33,
+      "render_psnr_db": 41.187302015659,
+      "text_vector_content_trim_and_image_sizes_exact": true
+    }
+  ],
+  "alpha_mask_placements_byte_exact": 94,
+  "native_pixel_sizes_preserved": true,
+  "source_unchanged": true,
+  "minimum_render_psnr_db": 40.04806053985617,
+  "method": "Adaptive JPEG4:4:4;82default,55for the oversampled6144x4389 arrival only, with2-step increases only for images on pages below40dB. No resizing; vector text/clips/geometry and lossless alpha unchanged. Original master lossless.",
+  "visual_review": "Review candidate; owner/print acceptance open"
+}

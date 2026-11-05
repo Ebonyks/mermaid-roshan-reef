@@ -1,0 +1,47 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DAY_ONE_ART_ATTACK_STATE|child-friendly aqua attack default: OK
+DAY_ONE_ART_ATTACK_STATE|art begins empty and gated: OK
+DAY_ONE_ART_ATTACK_STATE|one pickup and one scrub cannot unlock the desk: OK
+DAY_ONE_ART_ATTACK_STATE|all seven cleanup actions unlock the desk: OK
+DAY_ONE_ART_ATTACK_STATE|customization is desk-gated: OK
+DAY_ONE_ART_ATTACK_STATE|art completion uses the existing room order: OK
+DAY_ONE_ART_ATTACK_STATE|serialized art state is JSON-safe: OK
+DAY_ONE_ART_ATTACK_STATE|malformed attack values use safe defaults: OK
+DAY_ONE_ART_ATTACK_STATE|partial unknown art collections remain safely gated: OK
+DAY_ONE_ART_ATTACK_STATE|studio builds seven large Canvas cleanup targets at castle scale: OK
+DAY_ONE_ART_ATTACK_STATE|art neighbours brushes/pink_paint have separate generous targets: OK
+DAY_ONE_ART_ATTACK_STATE|gap between brushes/pink_paint does not collect a neighbour: OK
+DAY_ONE_ART_ATTACK_STATE|art neighbours pink_paint/blue_paint have separate generous targets: OK
+DAY_ONE_ART_ATTACK_STATE|gap between pink_paint/blue_paint does not collect a neighbour: OK
+DAY_ONE_ART_ATTACK_STATE|art neighbours blue_paint/paint_cups have separate generous targets: OK
+DAY_ONE_ART_ATTACK_STATE|gap between blue_paint/paint_cups does not collect a neighbour: OK
+DAY_ONE_ART_ATTACK_STATE|hand points above visible brushes in its touch region: OK
+DAY_ONE_ART_ATTACK_STATE|one visible brushes tap collects only that supply: OK
+DAY_ONE_ART_ATTACK_STATE|art tap brushes never opens logo: OK
+DAY_ONE_ART_ATTACK_STATE|hand points above visible pink_paint in its touch region: OK
+DAY_ONE_ART_ATTACK_STATE|one visible pink_paint tap collects only that supply: OK
+DAY_ONE_ART_ATTACK_STATE|art tap pink_paint never opens logo: OK
+DAY_ONE_ART_ATTACK_STATE|hand points above visible blue_paint in its touch region: OK
+DAY_ONE_ART_ATTACK_STATE|one visible blue_paint tap collects only that supply: OK
+DAY_ONE_ART_ATTACK_STATE|art tap blue_paint never opens logo: OK
+DAY_ONE_ART_ATTACK_STATE|hand points above visible paint_cups in its touch region: OK
+DAY_ONE_ART_ATTACK_STATE|one visible paint_cups tap collects only that supply: OK
+DAY_ONE_ART_ATTACK_STATE|art tap paint_cups never opens logo: OK
+DAY_ONE_ART_ATTACK_STATE|hand points above visible left_counter: OK
+DAY_ONE_ART_ATTACK_STATE|visible left_counter touch cleans its own spot: OK
+DAY_ONE_ART_ATTACK_STATE|art tap left_counter never opens logo: OK
+DAY_ONE_ART_ATTACK_STATE|hand points above visible desk_counter: OK
+DAY_ONE_ART_ATTACK_STATE|visible desk_counter touch cleans its own spot: OK
+DAY_ONE_ART_ATTACK_STATE|art tap desk_counter never opens logo: OK
+DAY_ONE_ART_ATTACK_STATE|hand points above visible right_counter: OK
+DAY_ONE_ART_ATTACK_STATE|visible right_counter touch cleans its own spot: OK
+DAY_ONE_ART_ATTACK_STATE|art tap right_counter never opens logo: OK
+DAY_ONE_ART_ATTACK_STATE|seven art taps finish cleanup without logo hijack: OK
+DAY_ONE_ART_ATTACK_STATE|customizer opens with child guidance and picture confirmation: OK
+DAY_ONE_ART_ATTACK_STATE|dim tap before a choice does not confirm: OK
+DAY_ONE_ART_ATTACK_STATE|color choice is visible before confirmation: OK
+DAY_ONE_ART_ATTACK_STATE|dim tap after one choice confirms: OK
+DAY_ONE_ART_ATTACK_STATE|Grand Puff feedback uses saved color and splash effect: OK
+DAY_ONE_ART_ATTACK_STATE|Grand Puff feedback tears down with encounter: OK
+DAY_ONE_ART_ATTACK_STATE|RESULT: PASS failures=0

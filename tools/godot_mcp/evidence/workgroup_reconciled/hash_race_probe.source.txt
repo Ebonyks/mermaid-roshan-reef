@@ -1,0 +1,20 @@
+from pathlib import Path
+import tempfile,shutil,json
+from unittest.mock import patch
+from tools import audit_game_2d as audit
+source=Path.cwd();relative="addons/godot_mcp/commands/selection_commands.gd"
+with tempfile.TemporaryDirectory(prefix="mcp-hash-boundary-") as temp:
+ root=Path(temp);manifest=json.loads((source/"tools/godot_mcp/addon_manifest.json").read_text())
+ for name in [*manifest["files"],"tools/godot_mcp/addon_manifest.json"]:
+  target=root/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(source/name,target)
+ victim=root/relative;original=audit._approved_editor_tool_sources
+ def mutate_after_approval(candidate):
+  approved=original(candidate)
+  assert relative in approved
+  victim.write_bytes(victim.read_bytes()+b"\n# concurrent write counterexample\n")
+  return approved
+ with patch.object(audit,"_approved_editor_tool_sources",side_effect=mutate_after_approval):
+  pinned=audit._reviewed_tooling_hashes(root)
+ accepted=audit._is_reviewed_tooling(victim,root,pinned)
+ print(json.dumps({"scenario":"payload changes immediately after whole-payload approval","expected_accepted":False,"actual_accepted":accepted,"scope":"TemporaryDirectory copy only; production addon unchanged"}),flush=True)
+ assert not accepted,"A changed payload must not be approved by rehashing the changed bytes"

@@ -1,0 +1,110 @@
+{
+  "schema": "dkc-mastering-audit-plan/1",
+  "date": "2026-11-03",
+  "owner_direction": "mastering_owner_direction_20261103.json",
+  "requested_audit_range": [
+    5,
+    10
+  ],
+  "selected_round_count": 8,
+  "round_count_selected_by": "agent",
+  "source_commit": "d2d7d4f79d3057c1def36fd07cd8ed92f183248b",
+  "scope": "Six full-song private construction performances; mixing refinement and mastering, no new melody or runtime replacement.",
+  "criteria": [
+    {
+      "id": "source",
+      "requirement": "Exact six construction master and 80 input-stem hashes; preserve the note/tempo/instrument performance and prior versions."
+    },
+    {
+      "id": "hierarchy",
+      "requirement": "Review lead, support, bass and percussion duties; compare only coactive stem windows and retain intentional rests."
+    },
+    {
+      "id": "clarity",
+      "requirement": "Record every gain/EQ decision and its cue-specific purpose; spectral measures are diagnostic, not an aesthetic grade."
+    },
+    {
+      "id": "stage",
+      "requirement": "Inspect player position, depth, full-band correlation, low-side energy and mono retention; no score identity depends on width."
+    },
+    {
+      "id": "dynamics",
+      "requirement": "Measure integrated loudness, range, crest, true peak and gain-reduction amount/time; preserve source section contrast."
+    },
+    {
+      "id": "form_and_tails",
+      "requirement": "Keep exact song length, entrances and source timeline; inspect the existing one-second delivery tail fade."
+    },
+    {
+      "id": "translation",
+      "requirement": "Provide mono, quiet-level and band-limited proxies; distinguish these from physical-device or human listening evidence."
+    },
+    {
+      "id": "delivery",
+      "requirement": "Verify finite lossless/listening audio, hashes, codecs, editable-session recall and private archive integrity."
+    },
+    {
+      "id": "listening_and_approval",
+      "requirement": "Complete new-candidate source/tone, clarity, fatigue, soundstage and full-song listening before approval; never infer a listening pass from meters."
+    }
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "primary_focus": "Source lock and baseline",
+      "all_criteria_revisited": true,
+      "technical_status": "COMPLETE",
+      "listening_status": "PENDING_NO_LISTENING_GRADE"
+    },
+    {
+      "round": 2,
+      "primary_focus": "Layer hierarchy",
+      "all_criteria_revisited": true,
+      "technical_status": "COMPLETE",
+      "listening_status": "PENDING_NO_LISTENING_GRADE"
+    },
+    {
+      "round": 3,
+      "primary_focus": "Conditional clarity",
+      "all_criteria_revisited": true,
+      "technical_status": "COMPLETE",
+      "listening_status": "PENDING_NO_LISTENING_GRADE"
+    },
+    {
+      "round": 4,
+      "primary_focus": "Position and depth",
+      "all_criteria_revisited": true,
+      "technical_status": "COMPLETE",
+      "listening_status": "PENDING_NO_LISTENING_GRADE"
+    },
+    {
+      "round": 5,
+      "primary_focus": "Bounded dynamics",
+      "all_criteria_revisited": true,
+      "technical_status": "COMPLETE",
+      "listening_status": "PENDING_NO_LISTENING_GRADE"
+    },
+    {
+      "round": 6,
+      "primary_focus": "Cohesion and peak control",
+      "all_criteria_revisited": true,
+      "technical_status": "COMPLETE",
+      "listening_status": "PENDING_NO_LISTENING_GRADE"
+    },
+    {
+      "round": 7,
+      "primary_focus": "Translation and codec evaluation",
+      "all_criteria_revisited": true,
+      "technical_status": "COMPLETE",
+      "listening_status": "PENDING_NO_LISTENING_GRADE"
+    },
+    {
+      "round": 8,
+      "primary_focus": "Native recall and delivery evaluation",
+      "all_criteria_revisited": true,
+      "technical_status": "COMPLETE",
+      "listening_status": "PENDING_NO_LISTENING_GRADE"
+    }
+  ],
+  "approval_status": "PENDING_COMPLETE_LISTENING_AND_OWNER_REVIEW"
+}

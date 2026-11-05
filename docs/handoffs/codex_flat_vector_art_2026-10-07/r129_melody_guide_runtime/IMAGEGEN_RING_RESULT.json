@@ -1,0 +1,19 @@
+{
+  "call": 2,
+  "native_path": "assets_src/imagegen/melody_guide_20261102/native/ring_original.png",
+  "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-1c2245df-2f12-4e1c-82fb-252731954cf0.png",
+  "sha256": "158da429c7d10b9c3fbbce5f5191a5c45afc83b482fdd63df930fd50c82cbe31",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    254
+  ],
+  "backend": "Built-in image_gen.imagegen",
+  "model_version": "NOT_EXPOSED",
+  "native_review": "Actual RGBA measurement confirms zero-alpha center and outside; broad glow seen in RGB-only tool previews is hidden RGB, not an accepted visible aura. Opaque double bands and separated gap exist. Preserve original generated alpha with no matte painting or thresholding; validate actual Godot rendering after exact crop and uniform resampling.",
+  "alpha_check": "center(768,512) alpha0; outside RGB glow samples alpha0; alpha>3bounds309,59,1212,966; opaque cross-section intervals retained in derivation."
+}

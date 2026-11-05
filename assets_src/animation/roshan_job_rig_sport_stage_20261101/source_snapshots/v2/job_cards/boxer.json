@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "id": "boxer-object-action-v1",
+  "scope": "SOURCE_ONLY_PROTOTYPE",
+  "intention": "gentle forward jab into a focus mitt, visible contact, retract to guard",
+  "personality": "Attentive Ribbon Glide, small purposeful whole-figure counterbalance then quiet settle",
+  "sources": [
+    {
+      "path": "assets/opera/worlds/actors/roshan_boxer.png",
+      "sha256": "6e8bed8acab5232e86f317deeb728133a4292f4de495febfaa894872ef66d462",
+      "role": "approved appearance source; derivative not accepted",
+      "modified": false
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_boxer_sheet_a.png",
+      "sha256": "dbda6f6edd01e48b74095915f338fe3f6eb690ccd5f0f314d50e6940bb33c7c9",
+      "role": "approved appearance source; derivative not accepted",
+      "modified": false
+    }
+  ],
+  "method": "native Skeleton2D unchanged topology/rest; registered replacement garment textures, Aseprite RGBA parts, explicit socket binding/IK and authored changing-surface prop views",
+  "generated_takes_cap": 2,
+  "initial_take_count": 0,
+  "wall_minutes_cap": 90,
+  "cleanup_minutes_cap": 90,
+  "paid_external_budget": 0,
+  "imagegen_usage": "builtin owner-authorized; model/revision/seed and monetary usage unexposed, record call counts",
+  "required_evidence": [
+    "original arm_bend blink tail_bend exact regressions",
+    "mixed-slot waist/component/hole checks",
+    "support/contact maximum3native pixels",
+    "geometry/stretch/flips and loop/transition/interrupt",
+    "source-poison/reinsertion negatives",
+    "Aseprite roundtrip",
+    "full-speed and frame-step actual Mobile capture"
+  ],
+  "generation_prompt_file": "boxer_garment_prompt.txt"
+}

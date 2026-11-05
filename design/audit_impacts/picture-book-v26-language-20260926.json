@@ -1,0 +1,79 @@
+{
+  "id": "picture-book-v26-language-20260926",
+  "baseline": "3fbb5205bf084ea8f39d40b9acbf70c2042bdd0e",
+  "scope": "Continue unfinished V25 scoped edits; owner-authorized next draft with 32 story pages plus covers, read-aloud/emergent-reader language, playful dust bunnies, Rumi castle history and gunk rescue, continuous Grand Puff transformation, new speech geometry and targeted supporting art.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static book edits; no game finding closure or cinematic acceptance.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "books/chapter_one/DESIGN_LANGUAGE.md",
+    "books/chapter_one/landscape/PAGE_PLAN.md",
+    "books/chapter_one/landscape/REVIEW.md",
+    "books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md",
+    "books/chapter_one/landscape/action_style_evidence_v25.json",
+    "books/chapter_one/landscape/art/action_style_v25/art_simple.png",
+    "books/chapter_one/landscape/art/action_style_v25/door_routes.png",
+    "books/chapter_one/landscape/art/action_style_v25/route_lights_reference.png",
+    "books/chapter_one/landscape/art/action_style_v25/shell_duel.png",
+    "books/chapter_one/landscape/art/language_v26/puff_unwell.png",
+    "books/chapter_one/landscape/art/language_v26/rumi_free.png",
+    "books/chapter_one/landscape/art/language_v26/rumi_trapped.png",
+    "books/chapter_one/landscape/audit_book.py",
+    "books/chapter_one/landscape/book.json",
+    "books/chapter_one/landscape/delivery_verification.json",
+    "books/chapter_one/landscape/goal_requirements_audit.json",
+    "books/chapter_one/landscape/language_art_evidence_v26.json",
+    "books/chapter_one/landscape/language_revision_v26.json",
+    "books/chapter_one/landscape/layout_evidence.json",
+    "books/chapter_one/landscape/package_book.py",
+    "books/chapter_one/landscape/render_book.py",
+    "books/chapter_one/landscape/stress_review.json",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/picture-book-v25-action-style-20260920.json",
+    "design/audit_impacts/picture-book-v26-language-20260926.json"
+  ],
+  "validation": [
+    {
+      "command": "audit_book.py on V26 proof",
+      "result": "PASS",
+      "evidence": "34 PDF pages,32 story pages,52 image operations; geometry, source hashes, text safety and focal exclusion checks pass."
+    },
+    {
+      "command": "Manuscript sequential editorial review plus all34 page visual inspection",
+      "result": "PASS",
+      "evidence": "language_revision_v26.json and goal_requirements_audit.json current_proof; approved rear H and original finale retained, six scoped images from unfinished V25 plus V26 installed."
+    },
+    {
+      "command": "verify_v26.py independent portable rebuild and final metadata seal",
+      "result": "PASS",
+      "evidence": "delivery_verification.json:34 identical page PNGs;110 payload hashes; all rendering inputs unchanged by metadata seal."
+    },
+    {
+      "command": "Game import/probes",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Only static book assets, layout, manuscript and evidence; no runtime files changed."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH|RESULT|ALL OK; inventory579 ledger579 active56 records58."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV|RESULT|ALL OK; base5920c673305989ee29d91876480ff445dba9fc8b."
+    }
+  ],
+  "acceptance_gaps": "Whole-book owner/child/print acceptance remains open; reading-level certification not claimed."
+}

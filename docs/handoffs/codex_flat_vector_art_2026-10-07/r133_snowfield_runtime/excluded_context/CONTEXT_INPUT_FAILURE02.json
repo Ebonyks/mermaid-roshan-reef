@@ -1,0 +1,55 @@
+{
+  "state": "TERMINAL_REAL_FACE_INPUT_FAILURE_CAUSE_NOT_YET_RESOLVED",
+  "candidate_runtime_source_unchanged": true,
+  "source_pin_sha256": "660f35cce32dd4c1af2fc9567a9b0e405a63cc5465ec65faea94285075dc7ccb",
+  "original_session": 52627,
+  "native_frames_retained": 10,
+  "frame_events": {
+    "bounded": 0,
+    "excluded": 10,
+    "retained": 10
+  },
+  "files": [
+    {
+      "path": "1280x720\\output\\01_small.png",
+      "sha256": "be5d19f4d96256a3e82f10119529924f0001bd567ad43283d3f9e985d56cb76c"
+    },
+    {
+      "path": "1280x720\\output\\02_wrong_passive.png",
+      "sha256": "c41ab9ad095cd1abb652e1b82b12902521409880ab2f12de67e069ad7e90a8c5"
+    },
+    {
+      "path": "1280x720\\output\\03_growing_lower.png",
+      "sha256": "8a813916a8c422ce60efbf7fd98afad8ee312b8597c6c2dfdd0f22121755e148"
+    },
+    {
+      "path": "1280x720\\output\\04_lower_settled.png",
+      "sha256": "72df5c2468f6aaed71914781abfa0659152b1e036ebebc0fb4b0065a5038cb92"
+    },
+    {
+      "path": "1280x720\\output\\05_growing_middle.png",
+      "sha256": "c69d5a945dea31cb79a6c326e2bcadc13e34dcd24f39ab343d8450252002a9de"
+    },
+    {
+      "path": "1280x720\\output\\06_two_settled.png",
+      "sha256": "940962e0cc7957ec7e5000d63a66bd969f5ced83d1fae30dd32fc46aea6475cc"
+    },
+    {
+      "path": "1280x720\\output\\07_growing_head.png",
+      "sha256": "6eaab27ae1fed409105da7f92f7a6829fb1ea14e87285623fbf5a4a7b634f39d"
+    },
+    {
+      "path": "1280x720\\output\\08_three_stack_face.png",
+      "sha256": "224ee5868048e14e011b3e741e5ec7bab6a565adef4cd953152022ee9227a349"
+    },
+    {
+      "path": "1280x720\\output\\09_partial_face.png",
+      "sha256": "224ee5868048e14e011b3e741e5ec7bab6a565adef4cd953152022ee9227a349"
+    },
+    {
+      "path": "1280x720\\output\\10_chase_full.png",
+      "sha256": "224ee5868048e14e011b3e741e5ec7bab6a565adef4cd953152022ee9227a349"
+    }
+  ],
+  "failures": "Three real face taps did not place choices; subsequent original fixture accessed absent bites key and stalled. Exact failed owned process95996 stopped after timeout; original logs/images retained. Focus hypothesis will be measured; no false PASS or production-art rejection."
+}

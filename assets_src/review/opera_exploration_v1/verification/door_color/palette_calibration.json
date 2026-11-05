@@ -1,0 +1,36 @@
+{
+  "method": "Reference comparison from512x288 Gaussian3 analysis-only samples. Bounded mild94% chroma and nearly neutral RGB gains soften the restored palette and retain blue/teal separation. Values are an artistic candidate, not a fitted acceptance score. No raster pixels edited.",
+  "original_source": {
+    "path": "assets_src/concepts/opera_house_flat/opera_house_master_scene_key_2026-07-21.png",
+    "sha256": "4378b9eb65d7d009afc3dbbe4c92f45bbbb57e273f9ef762dd0c9f66e7029dd0"
+  },
+  "restored_source": {
+    "path": "assets_src/review/opera_exploration_v1/restoration_healed.png",
+    "sha256": "a9b2b27b4ca97c5da065f5b649eff0784e9f37e3c3f799cd665c3f1f0a0b8005"
+  },
+  "original_mean_rgb": [
+    0.621013,
+    0.413053,
+    0.338668
+  ],
+  "restored_mean_rgb": [
+    0.654332,
+    0.434205,
+    0.351274
+  ],
+  "original_mean_hsv_saturation": 0.451973,
+  "restored_mean_hsv_saturation": 0.472687,
+  "palette_saturation": 0.94,
+  "palette_gain": [
+    0.965,
+    0.955,
+    0.97
+  ],
+  "corrected_mean_rgb": [
+    0.621048,
+    0.417004,
+    0.347938
+  ],
+  "corrected_mean_hsv_saturation": 0.450736,
+  "limits": "Global palette comparison only; native runtime texture-once control and human review remain separately required. No AI regeneration, resolution increase or geometry change."
+}

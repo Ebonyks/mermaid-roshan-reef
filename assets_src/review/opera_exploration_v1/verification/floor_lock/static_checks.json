@@ -1,0 +1,84 @@
+{
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "final_parser",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/review/opera_translation_v1.gd",
+        "scripts/review/probe_opera_translation_v1.gd",
+        "scripts/review/opera_review_boot.gd"
+      ],
+      "exit_code": 0,
+      "log": "final_parser.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "final_inference",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/review/opera_translation_v1.gd",
+        "scripts/review/probe_opera_translation_v1.gd",
+        "scripts/review/opera_review_boot.gd"
+      ],
+      "exit_code": 0,
+      "log": "final_inference.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "final_opera_translation_v1_analyzer",
+      "command": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\opera-four-screen-v1-20261031",
+        "--check-only",
+        "--script",
+        "scripts/review/opera_translation_v1.gd"
+      ],
+      "exit_code": 0,
+      "log": "final_opera_translation_v1_analyzer.log",
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "name": "final_probe_opera_translation_v1_analyzer",
+      "command": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\opera-four-screen-v1-20261031",
+        "--check-only",
+        "--script",
+        "scripts/review/probe_opera_translation_v1.gd"
+      ],
+      "exit_code": 0,
+      "log": "final_probe_opera_translation_v1_analyzer.log",
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "name": "final_opera_review_boot_analyzer",
+      "command": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\opera-four-screen-v1-20261031",
+        "--check-only",
+        "--script",
+        "scripts/review/opera_review_boot.gd"
+      ],
+      "exit_code": 0,
+      "log": "final_opera_review_boot_analyzer.log",
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    }
+  ],
+  "source_pins": {
+    "scripts/review/opera_translation_v1.gd": "ed5c70cb44d2ba7cba7995ec5d0847a23a7ddc84dcd888260e7c72b3982fd538",
+    "scripts/review/probe_opera_translation_v1.gd": "128df9a7bc2bae3732920cc3e38231af291eff3802cdf5bec13f12cbd0cfb0e2",
+    "scripts/review/opera_review_boot.gd": "497da866383e909a2d7e65ff62144931f8425407967de27aeb9644eb35ff85d5"
+  }
+}

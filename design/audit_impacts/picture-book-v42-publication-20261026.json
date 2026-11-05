@@ -1,0 +1,52 @@
+{
+  "id": "picture-book-v42-publication-20261026",
+  "baseline": "2c6b7fee03e69718d76836879d24c2256da150da",
+  "scope": "Publication metadata only for sealed V42 mixed-width doublewide-crop review. Exact anonymous remote receipt and independent delivery verdict; no sealed art,controls,helpers,docs or candidate evidence changes. Actual bound page assignment/parity/gutter and printP1-P8 remain held.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static-book publication metadata; no game finding closed.",
+  "files": [
+    "books/chapter_one/landscape/revisions/v42_doublewide_arrival/remote_verification.json",
+    "books/chapter_one/landscape/revisions/v42_doublewide_arrival/peer_review/final_publication_acceptance.json",
+    "design/audit_impacts/picture-book-v42-publication-20261026.json"
+  ],
+  "validation": [
+    {
+      "command": "V42 verify_remote.py 2c6b7fee03e69718d76836879d24c2256da150da",
+      "result": "PASS",
+      "evidence": "Anonymous HTTPS every-file verification:672of672,1,568,954,595bytes; checked 2026-10-27T06:17:29.825962+00:00; manifestSHA256 6b832ae1d6f8cd0058ac135adce60b5e94519b1ae1182d77f32be5b42dc1b8ad; payloadSHA256 138104c2781c28b332f89267fadcedf281c6702bf4b75195f26613545c8f4613"
+    },
+    {
+      "command": "python -X utf8 -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH|INVENTORY=618|LEDGER=618|ACTIVE=56|RECORDS=58\nDOCAUTH|RESULT|ALL OK\n"
+    },
+    {
+      "command": "python -X utf8 -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV|BASE|5920c673305989ee29d91876480ff445dba9fc8b\nAUDITDEV|RESULT|ALL OK\n"
+    },
+    {
+      "command": "python -X utf8 -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "....................................................\n----------------------------------------------------------------------\nRan 52 tests in 8.466s\n\nOK\nDOCAUTH|STRESS|6/6\n"
+    },
+    {
+      "command": "Independent V42 final_publication_acceptance.json",
+      "result": "PASS",
+      "evidence": "All672pinnedGitblobs and receipt rows independently matched;37anonymousobjects/63,155,399bytes exact. All91candidatebindings unchanged. VerdictSATISFIED_WITH_DECLARED_HOLDS; recordSHA256 abdfcb47543dc6479a5cab6d77af77bc6b3eb3ec2985e435479e3aab224834cb"
+    }
+  ],
+  "acceptance_gaps": "Flat mixed-width review is not an imposed32-page interior. Optional page pairing,physical33interiorunits if split,swing/gutter,parity/reveals,print PPI/enlargement andP1-P8,owner illustration acceptance,physical test print,child andqualifiedSLP remain open. No runtime/device/game/release claim.",
+  "required_evidence": [
+    "Exact remote manifest/every required file at immutable payload revision",
+    "Anonymous access rather than authenticated-only access",
+    "Independent publication-only critique",
+    "Final three metadata files verified remotely; sealed payload unchanged"
+  ]
+}

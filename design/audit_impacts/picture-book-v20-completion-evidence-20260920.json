@@ -1,0 +1,50 @@
+{
+  "id": "picture-book-v20-completion-evidence-20260920",
+  "scope": "Correct stale v19 completion-audit claims inside the v20 editable source and measure current source resolution; preserve all artwork, text and delivered PDF.",
+  "baseline": "4ca185aba29c5812c88caefc56db74f87d11ea0e",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static publication evidence maintenance, not a game defect repair.",
+  "files": [
+    "books/chapter_one/landscape/goal_requirements_audit.json",
+    "books/chapter_one/landscape/delivery_verification.json"
+  ],
+  "validation": [
+    {
+      "command": "V20 PDF/source and rendered finale completion review",
+      "result": "PASS",
+      "evidence": "goal_requirements_audit.json now records actual V20 hash,57 placements,32 nap ending and specific owner exceptions;22 requirements considered;completion remains unproven."
+    },
+    {
+      "command": "Raster sampling-density audit against actual draw provenance",
+      "result": "PASS",
+      "evidence": "57 source hashes verified;minimum54.7ppi;14 main-art placements below descriptive100ppi grouping. SOURCE_RESOLUTION.json/CSV/HTML next to PDF."
+    },
+    {
+      "command": "Portable archive hash and render-input regression",
+      "result": "PASS",
+      "evidence": "All91 payloads verified;only goal_requirements_audit.json differs from prior independently rebuilt package;all rendering inputs identical. delivery_verification.json records exact archive hashes."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH ALL OK;579 ledger/inventory entries."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV ALL OK;base5920c673305989ee29d91876480ff445dba9fc8b."
+    },
+    {
+      "command": "Godot/runtime/visual regeneration tests",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Evidence JSON only. Existing PDF/manuscript/artwork unchanged."
+    }
+  ],
+  "acceptance_gaps": "Owner/child visual acceptance and reviewed higher-resolution source material remain missing. Stopped Resolve search remains stopped."
+}

@@ -1,0 +1,275 @@
+{
+  "id": "roshan-laura-profile-20261101",
+  "scope": "Documentation only: record owner-selected Laura reference and develop Roshan v2 visual movement specification, swimming/turn/gesture/settling phases and prioritized pose/view/paint backlog against integration atlas and later source-only native 2D rig. Update master navigation, coverage, ledger, owner register and scoped MA-ROSHAN-006 planning history. No runtime/art/generated assets or animation/Godot test runs.",
+  "baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-02",
+    "DL-AGE-07",
+    "DL-MOT-01",
+    "DL-MOT-02",
+    "DL-MOT-03",
+    "DL-MOT-05",
+    "DL-MOT-07",
+    "DL-MOT-09",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16"
+  ],
+  "findings": [
+    "MA-ROSHAN-005",
+    "MA-ROSHAN-006",
+    "MA-PLAY-004"
+  ],
+  "files": [
+    "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/animation/README.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/reference/owner_decisions.json",
+    "design/reference/OWNER_DECISIONS.md"
+  ],
+  "owner_request": {
+    "date": "2026-11-01",
+    "source": "Owner message in this Codex chat",
+    "verbatim": "Let's use Laura as the main reference. Develop a detailed movement profile for Roshan covering swimming, turns, gestures, and settling, and identify what new poses we'd need with the current setup. Identify a comprehensive visual description of the design language and nature of movements that can be contributed to master audit before making test runs"
+  },
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-ROSHAN-LAURA-REFERENCE-20261101",
+      "evidence": "owner_request.verbatim in this record; direct selection of Laura after rejecting classic references",
+      "write_back": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md; design/reference/owner_decisions.json"
+    }
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "Documentation candidate at baseline 27c88288bf6e39582072811443df79919e7bbb89: DOCAUTH inventory=752, ledger=752, active=74, records=77; RESULT ALL OK. Initial 943 missing-link issues were reduced-checkout omissions, resolved by materializing 877 exact baseline targets; no validator or rule changed."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV BASE 27c88288bf6e39582072811443df79919e7bbb89; RESULT ALL OK for the complete eight-file documentation diff, including this impact record."
+    },
+    {
+      "command": "python -B tools/record_owner_decision.py --check --base 27c88288bf6e39582072811443df79919e7bbb89",
+      "result": "PASS",
+      "evidence": "DECISIONS COUNT 73; RESULT ALL OK; previous decisions remain append-only and generated view matches."
+    },
+    {
+      "command": "Static source review and Roshan atlas visual inspection",
+      "result": "PASS",
+      "evidence": "Read immutable source-only rig documents/contract and integration callers; viewed directional, swim_front and gesture_a atlases at original workspace. Inventory hashes bind exact baseline inputs; no runtime or temporal review claimed. The three visually inspected atlas hashes independently match the frozen integration baseline."
+    },
+    {
+      "command": "Animation/Godot trial, generated performance and device review",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Owner requested specification before test runs; none performed or commissioned here."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development tools.tests.test_record_owner_decision",
+      "result": "PASS",
+      "evidence": "63 existing governance tests passed in 62.491 s; DOCAUTH stress 6/6. No animation/game trial."
+    },
+    {
+      "command": "git diff --check",
+      "result": "PASS",
+      "evidence": "No whitespace errors; only the seven existing documentation/register files and new impact JSON differ. No GDScript changes: parser/inference gates not applicable."
+    },
+    {
+      "command": "Published-head full project CI and dev integration",
+      "result": "PENDING",
+      "evidence": "Not yet published. No local game/animation suite run by this pre-test design task. Integration requires the existing exact-head green CI gate; this record grants no bypass."
+    }
+  ],
+  "source_inventory": [
+    {
+      "path": "assets/characters/roshan_25d/README.md",
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "sha256": "5d8e102a1fd8b9e4656b40334ac8a606dc4f948cbfa0eb91fb3df91991501ded",
+      "scope": "Existing integration source; no new performance acceptance"
+    },
+    {
+      "path": "scripts/player.gd",
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "sha256": "91ae8a4e9dccc090c7e1ce86bbec387ff8c761951e794e9d93b3c753be7c49b8",
+      "scope": "Existing integration source; no new performance acceptance"
+    },
+    {
+      "path": "scripts/roshan_sprite_loop.gd",
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "sha256": "ceb04426899c12124e983aaba843bba4183e8aba8daa7a1655ec1ec918d01b14",
+      "scope": "Existing integration source; no new performance acceptance"
+    },
+    {
+      "path": "scripts/roshan_sprite_frames.gd",
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "sha256": "41860fcd11e0ee071cc1c7c8bacc8242160b209b73c3a5d4bc1d2eda4a908d81",
+      "scope": "Existing integration source; no new performance acceptance"
+    },
+    {
+      "path": "scripts/roshan_sprite_anchors.gd",
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "sha256": "a4d1b54324bb8faa959ec88d82ccf728efeec9cdb4134fac761b119cfac731a5",
+      "scope": "Existing integration source; no new performance acceptance"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "sha256": "b1b919bfbac36d97fe8728513e980d0f4ef1ade557f3b8a9d48979b7dba96fe3",
+      "scope": "Existing integration source; no new performance acceptance"
+    },
+    {
+      "path": "scripts/day_one_contact_action_2d.gd",
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "sha256": "60e7f3c9743fb10ce5070f60645c01d1ec465aca9019818fd59d344aa43d3c84",
+      "scope": "Existing integration source; no new performance acceptance"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon_promenade.gd",
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "sha256": "a6c72599809ddace2e94e02ba10db518483008ace62655e9059a76d3eacd2dfa",
+      "scope": "Existing integration source; no new performance acceptance"
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "scope": "Existing integration source; no new performance acceptance",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_directional.png",
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+      "scope": "Existing integration source; no new performance acceptance",
+      "dimensions": [
+        1024,
+        512
+      ]
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_swim_front.png",
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01",
+      "scope": "Existing integration source; no new performance acceptance",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_swim_back.png",
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "sha256": "4e76c3c269039cf05a6a8b58bbaf70273746f520006d0af68128f863bdb99337",
+      "scope": "Existing integration source; no new performance acceptance",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+      "scope": "Existing integration source; no new performance acceptance",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_gesture_b.png",
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "sha256": "59daf2a2efdbabba1a28bedfed5312805b4351627f0882704b11c4b6ca488ead",
+      "scope": "Existing integration source; no new performance acceptance",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_gesture_c.png",
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "sha256": "43ebe0e42cd9db5cf612bfaa4acbc9f14a3ad99f49909535b5508707fad15a0e",
+      "scope": "Existing integration source; no new performance acceptance",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_gesture_d.png",
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "sha256": "03cbc5931806ddc17675fb741f9dafcff66e8b16e08feb6795bda94aa1165abc",
+      "scope": "Existing integration source; no new performance acceptance",
+      "dimensions": [
+        1024,
+        512
+      ]
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_play_a.png",
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "sha256": "31eb7efc2da0bfe33305f13097b59e959b2ed02637dc8d36116a47b3e2804a08",
+      "scope": "Existing integration source; no new performance acceptance",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_play_b.png",
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "sha256": "c72ba5279562b85f98d904a08e4d3e8953f11c698005b87d5b8068b790c27895",
+      "scope": "Existing integration source; no new performance acceptance",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    }
+  ],
+  "source_only_rig_inventory": [
+    {
+      "path": "assets_src/animation/native_rig_stress_20261031/README.md",
+      "revision": "b700b846d1d2f4b1843279f268e2bb12e4b1f4ec",
+      "sha256": "c658af637bc9d34f5088a792ed55b87ec3de9740095a838e50efce74c509ca1f",
+      "scope": "Read-only source-only prototype; not integrated, accepted or merged by this task"
+    },
+    {
+      "path": "assets_src/animation/native_rig_costumes_20261031/README.md",
+      "revision": "b700b846d1d2f4b1843279f268e2bb12e4b1f4ec",
+      "sha256": "c34ca485e8d33c9ed713d7a652f8a15008cf32d9b5b756522f8d285046d51341",
+      "scope": "Read-only source-only prototype; not integrated, accepted or merged by this task"
+    },
+    {
+      "path": "assets_src/animation/roshan_job_rig_investigation_20261101/README.md",
+      "revision": "0e479d064aaf2959fc04a8033af502b21f911620",
+      "sha256": "34e164b5feff8bdbc8f3105b76174d3b2bc5185210eabb28db3777da4a3490be",
+      "scope": "Read-only source-only prototype; not integrated, accepted or merged by this task"
+    },
+    {
+      "path": "assets_src/animation/roshan_job_rig_investigation_20261101/contract/rig_v1.json",
+      "revision": "0e479d064aaf2959fc04a8033af502b21f911620",
+      "sha256": "b2a5dfe936d13ccdeb88e5c29ad268b19488de7cbe49d9b06abf84a94135fb5f",
+      "scope": "Read-only source-only prototype; not integrated, accepted or merged by this task"
+    }
+  ],
+  "reference_evidence": {
+    "youtube": "https://www.youtube.com/watch?v=6kKGfl1wqlc",
+    "official_identity": "https://www.toei-anim.co.jp/tv/tropical-rouge_precure/character/chara5.php",
+    "review": "Owner-selected main reference; indexed YouTube entry only. Continuous playback, exact timestamps and quantitative Laura motion analysis not verified. V2 motion choices are authored Roshan direction, not measurements or accepted source pixels."
+  },
+  "acceptance_gaps": "Direction/reference choice documented. No new source artwork, animation test, runtime implementation, performance selection or visual/device/child/owner acceptance. Side/quarter view, grasp/release, turning/contact and wardrobe compatibility require exact future source review; source-only native-rig permissions do not transfer into production. Findings and game-wide UNSATISFIED remain unchanged."
+}

@@ -1,0 +1,6 @@
+{"scenario": "payload changes immediately after whole-payload approval", "expected_accepted": false, "actual_accepted": true, "scope": "TemporaryDirectory copy only; production addon unchanged"}
+Traceback (most recent call last):
+  File "C:\Users\Peter\Documents\mermaid-roshan-reef\tmp\probe_godot_mcp_reviewed_hash_race.py", line 20, in <module>
+    assert not accepted,"A changed payload must not be approved by rehashing the changed bytes"
+           ^^^^^^^^^^^^
+AssertionError: A changed payload must not be approved by rehashing the changed bytes

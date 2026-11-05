@@ -1,0 +1,94 @@
+{
+  "render_folder": "assets_src\\animation\\native_rig_stress_20261031\\evidence\\render_v5",
+  "thresholds": {
+    "visible_stretch": [
+      0.8,
+      1.2
+    ],
+    "bone_scale_error": 1e-05,
+    "rigid_head_distance_error_px": 0.01,
+    "inverted_visible_triangles": 0
+  },
+  "clips": {
+    "arm_bend": {
+      "frames": 97,
+      "visible_triangle_count": 9587,
+      "inverted_visible_triangles": 0,
+      "min_visible_area_ratio": 0.7149392409881667,
+      "max_visible_area_ratio": 2.269677546851045,
+      "max_visible_stretch": 2.409981500560387,
+      "min_visible_stretch": 0.71645356865481,
+      "max_bone_scale_error": 2.7677555280991584e-07,
+      "rigid_head_distance_error_px": 2.922553892403812e-05,
+      "max_alpha_components": 2,
+      "max_interior_hole_pixels": 265,
+      "edge_alpha_pixels": 0,
+      "worst_frame": {
+        "frame": 41,
+        "time": 1.36666666666667
+      },
+      "worst_triangle_source_center": [
+        490,
+        406
+      ],
+      "loop_endpoint_changed_pixels": 0,
+      "geometry_pass": false
+    },
+    "blink": {
+      "frames": 73,
+      "visible_triangle_count": 9587,
+      "inverted_visible_triangles": 0,
+      "min_visible_area_ratio": 0.9999997200000051,
+      "max_visible_area_ratio": 1.00000046860002,
+      "max_visible_stretch": 1.0000005774729581,
+      "min_visible_stretch": 0.999999707854822,
+      "max_bone_scale_error": 2.5764538014172444e-07,
+      "rigid_head_distance_error_px": 5.684341886080802e-14,
+      "max_alpha_components": 1,
+      "max_interior_hole_pixels": 261,
+      "edge_alpha_pixels": 0,
+      "worst_frame": {
+        "frame": 0,
+        "time": 0.0
+      },
+      "worst_triangle_source_center": [
+        705,
+        360
+      ],
+      "loop_endpoint_changed_pixels": 0,
+      "geometry_pass": true
+    },
+    "tail_bend": {
+      "frames": 121,
+      "visible_triangle_count": 9587,
+      "inverted_visible_triangles": 0,
+      "min_visible_area_ratio": 0.7978377205019113,
+      "max_visible_area_ratio": 1.1389681445885045,
+      "max_visible_stretch": 1.1407418308938684,
+      "min_visible_stretch": 0.7973542625982122,
+      "max_bone_scale_error": 3.3443021596468725e-07,
+      "rigid_head_distance_error_px": 2.1418314020138496e-05,
+      "max_alpha_components": 1,
+      "max_interior_hole_pixels": 266,
+      "edge_alpha_pixels": 0,
+      "worst_frame": {
+        "frame": 33,
+        "time": 1.1
+      },
+      "worst_triangle_source_center": [
+        500,
+        596
+      ],
+      "loop_endpoint_changed_pixels": 0,
+      "geometry_pass": false
+    }
+  },
+  "negative_controls": {
+    "interior_slit_detected": true,
+    "detached_piece_detected": true,
+    "scaled_head_detected": true
+  },
+  "machine_geometry_pass": false,
+  "visual_naturalness": "Requires exact normal-speed and frame-step review; metrics do not establish naturalness",
+  "owner_device_child_acceptance": "PENDING"
+}

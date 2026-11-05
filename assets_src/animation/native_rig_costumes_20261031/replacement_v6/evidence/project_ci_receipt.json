@@ -1,0 +1,17 @@
+{
+  "exit": 0,
+  "resumed_at_coverage": true,
+  "checkpoint": "project_ci_checkpoint.json",
+  "single_uninterrupted_full_run_pass": false,
+  "start_utc": "2026-11-01T07:57:47.341228+00:00",
+  "end_utc": "2026-11-01T11:11:45.015313+00:00",
+  "command": [
+    "C:/Program Files/Git/bin/bash.exe",
+    "-c",
+    "export PATH=\"$PWD/tmp/native_costume_ci_bin:$PATH\"; exec bash tmp/native_costume_ci_resume.sh"
+  ],
+  "source_ci_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e",
+  "executed_lf_helper_sha256": "c9e9a6b6b86bf49f9543b4bd37fb3723799e8e15bbf54b394397e3f86fb5a14c",
+  "canonical_commands_classifiers_deadlines_unchanged": true,
+  "scope": "Complete canonical scripts/ci.sh gates across recorded prefix plus coverage resume, or a full standalone run. Direct stdout/stderr files avoid PowerShell NativeCommandError on normal unittest stderr."
+}

@@ -1,0 +1,60 @@
+{
+  "contract_id": "roshan.canvas.shared",
+  "contract_version": "1.0.0",
+  "view": "front",
+  "skin": "original-source-example",
+  "prop": {
+    "path": "demo/art/tray.png",
+    "native_size": [
+      512,
+      512
+    ],
+    "grips": [
+      {
+        "socket": "grip.screen_left",
+        "prop_px": [
+          94,
+          366
+        ]
+      },
+      {
+        "socket": "grip.screen_right",
+        "prop_px": [
+          416,
+          366
+        ]
+      }
+    ],
+    "orientation": "rigid front/three-quarter painted tray; no affine stretch",
+    "scale": 0.43478260869565216,
+    "support_point_px": [
+      255,
+      400
+    ],
+    "occlusion": {
+      "tray_body_z": 2,
+      "hands_z": 4,
+      "arm_z": 1
+    },
+    "release_timing_seconds": {
+      "two_hand_carry": [
+        [
+          0.6,
+          7.4
+        ]
+      ],
+      "low_high_place": [
+        [
+          0.6,
+          6.5
+        ],
+        [
+          7.9,
+          9.4
+        ]
+      ]
+    },
+    "perspective": "authored alternative in view study is baked into its own whole drawing; cannot stretch this front tray into profile"
+  },
+  "view_status": "front support test; generated views not accepted"
+}

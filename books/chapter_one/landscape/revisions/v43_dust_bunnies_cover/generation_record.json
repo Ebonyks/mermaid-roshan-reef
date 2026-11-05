@@ -1,0 +1,34 @@
+{
+  "method": "Built-in image_gen imagegen",
+  "attempts": 1,
+  "reported_cost": "Not exposed; one call",
+  "provider_revision": "Not exposed",
+  "request_id": "Not exposed",
+  "native_output": "art/bunny_pair_native.png",
+  "native_sha256": "68f817bc11295926c7b9297603482e153c0d5c5c2782ce27cb124070d5efc0a9",
+  "native_dimensions": [
+    1086,
+    1448
+  ],
+  "references": [
+    {
+      "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
+      "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+      "role": "Canonical identity",
+      "packet_copy": "references/canonical_dust_bunny.png"
+    },
+    {
+      "path": "tmp/pdfs/v43/clean_cover.png",
+      "sha256": "4ed80af22d04f608bc269e57d6e71a330298de93f8e4500a7f7ec32ff2f37815",
+      "role": "Existing title-free cover style context",
+      "packet_copy": "references/existing_cover_without_type_or_lamma.png"
+    }
+  ],
+  "scope": "Two cover-only posed bunnies; no family,scene or runtime regeneration",
+  "edits": "Native transparent output unchanged; document alpha crop and uniform placement only",
+  "review": "Selected character group; exact final proof independently reviewed; owner acceptance open",
+  "prompt": "generation_prompt.txt",
+  "prompt_sha256": "87fc2f7a5e41b51c38d99a605a96ae0d66aea12a142ff84d821a7edcd2a36072",
+  "cleanup_minutes": 0,
+  "no_full_scene_regeneration": true
+}

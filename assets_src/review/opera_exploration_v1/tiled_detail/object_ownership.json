@@ -1,0 +1,701 @@
+{
+  "source": "assets_src/review/opera_exploration_v1/restoration_healed.png",
+  "source_sha256": "a9b2b27b4ca97c5da065f5b649eff0784e9f37e3c3f799cd665c3f1f0a0b8005",
+  "source_size": [
+    1672,
+    941
+  ],
+  "method": "Original source ownership crops, one pixel owner map; raw clean plate used only in owned interiors; unowned source planes retained exactly. Runtime objects use original source pixels once, never independently generated boundary copies.",
+  "raw_cleanup_limit": "Raw cleanup is an underlay only; exposed support shapes are not accepted as new visible architecture. The stencil retains every unowned original source pixel.",
+  "objects": [
+    {
+      "id": 1,
+      "name": "ceiling_moulding",
+      "original_bounds": [
+        0,
+        0,
+        1024,
+        58
+      ],
+      "native_rect": [
+        0,
+        0,
+        1672,
+        95
+      ]
+    },
+    {
+      "id": 2,
+      "name": "left_dressing",
+      "original_bounds": [
+        0,
+        52,
+        133,
+        576
+      ],
+      "native_rect": [
+        0,
+        85,
+        217,
+        941
+      ]
+    },
+    {
+      "id": 3,
+      "name": "right_dressing",
+      "original_bounds": [
+        891,
+        52,
+        1024,
+        576
+      ],
+      "native_rect": [
+        1455,
+        85,
+        1672,
+        941
+      ]
+    },
+    {
+      "id": 4,
+      "name": "left_lift",
+      "original_bounds": [
+        123,
+        48,
+        228,
+        435
+      ],
+      "native_rect": [
+        201,
+        78,
+        372,
+        711
+      ]
+    },
+    {
+      "id": 5,
+      "name": "right_lift",
+      "original_bounds": [
+        795,
+        48,
+        905,
+        435
+      ],
+      "native_rect": [
+        1298,
+        78,
+        1478,
+        711
+      ]
+    },
+    {
+      "id": 6,
+      "name": "left_chandelier",
+      "original_bounds": [
+        222,
+        20,
+        293,
+        124
+      ],
+      "native_rect": [
+        362,
+        33,
+        478,
+        203
+      ]
+    },
+    {
+      "id": 7,
+      "name": "right_chandelier",
+      "original_bounds": [
+        730,
+        20,
+        801,
+        124
+      ],
+      "native_rect": [
+        1192,
+        33,
+        1308,
+        203
+      ]
+    },
+    {
+      "id": 8,
+      "name": "upper_balcony",
+      "original_bounds": [
+        212,
+        122,
+        810,
+        178
+      ],
+      "native_rect": [
+        346,
+        199,
+        1323,
+        291
+      ]
+    },
+    {
+      "id": 9,
+      "name": "middle_balcony",
+      "original_bounds": [
+        212,
+        254,
+        810,
+        306
+      ],
+      "native_rect": [
+        346,
+        415,
+        1323,
+        500
+      ]
+    },
+    {
+      "id": 10,
+      "name": "left_stairs_counter",
+      "original_bounds": [
+        123,
+        260,
+        307,
+        439
+      ],
+      "native_rect": [
+        201,
+        425,
+        501,
+        717
+      ]
+    },
+    {
+      "id": 11,
+      "name": "right_stairs_rack",
+      "original_bounds": [
+        715,
+        260,
+        905,
+        439
+      ],
+      "native_rect": [
+        1167,
+        425,
+        1478,
+        717
+      ]
+    },
+    {
+      "id": 12,
+      "name": "left_lounge",
+      "original_bounds": [
+        127,
+        414,
+        310,
+        548
+      ],
+      "native_rect": [
+        207,
+        676,
+        506,
+        895
+      ]
+    },
+    {
+      "id": 13,
+      "name": "right_lounge",
+      "original_bounds": [
+        725,
+        414,
+        906,
+        548
+      ],
+      "native_rect": [
+        1184,
+        676,
+        1479,
+        895
+      ]
+    },
+    {
+      "id": 14,
+      "name": "left_service_edge",
+      "original_bounds": [
+        0,
+        374,
+        143,
+        576
+      ],
+      "native_rect": [
+        0,
+        611,
+        233,
+        941
+      ]
+    },
+    {
+      "id": 15,
+      "name": "right_service_edge",
+      "original_bounds": [
+        881,
+        321,
+        1024,
+        576
+      ],
+      "native_rect": [
+        1439,
+        524,
+        1672,
+        941
+      ]
+    },
+    {
+      "id": 16,
+      "name": "central_island",
+      "original_bounds": [
+        437,
+        423,
+        593,
+        558
+      ],
+      "native_rect": [
+        714,
+        691,
+        968,
+        912
+      ]
+    },
+    {
+      "id": 17,
+      "name": "door_0_0",
+      "original_bounds": [
+        305,
+        42,
+        409,
+        148
+      ],
+      "native_rect": [
+        498,
+        69,
+        668,
+        242
+      ]
+    },
+    {
+      "id": 18,
+      "name": "door_0_1",
+      "original_bounds": [
+        407,
+        42,
+        511,
+        148
+      ],
+      "native_rect": [
+        665,
+        69,
+        834,
+        242
+      ]
+    },
+    {
+      "id": 19,
+      "name": "door_0_2",
+      "original_bounds": [
+        513,
+        42,
+        617,
+        148
+      ],
+      "native_rect": [
+        838,
+        69,
+        1007,
+        242
+      ]
+    },
+    {
+      "id": 20,
+      "name": "door_0_3",
+      "original_bounds": [
+        615,
+        42,
+        719,
+        148
+      ],
+      "native_rect": [
+        1004,
+        69,
+        1174,
+        242
+      ]
+    },
+    {
+      "id": 21,
+      "name": "door_1_0",
+      "original_bounds": [
+        305,
+        171,
+        409,
+        274
+      ],
+      "native_rect": [
+        498,
+        279,
+        668,
+        448
+      ]
+    },
+    {
+      "id": 22,
+      "name": "door_1_1",
+      "original_bounds": [
+        407,
+        171,
+        511,
+        274
+      ],
+      "native_rect": [
+        665,
+        279,
+        834,
+        448
+      ]
+    },
+    {
+      "id": 23,
+      "name": "door_1_2",
+      "original_bounds": [
+        513,
+        171,
+        617,
+        274
+      ],
+      "native_rect": [
+        838,
+        279,
+        1007,
+        448
+      ]
+    },
+    {
+      "id": 24,
+      "name": "door_1_3",
+      "original_bounds": [
+        615,
+        171,
+        719,
+        274
+      ],
+      "native_rect": [
+        1004,
+        279,
+        1174,
+        448
+      ]
+    },
+    {
+      "id": 25,
+      "name": "door_2_0",
+      "original_bounds": [
+        305,
+        292,
+        409,
+        414
+      ],
+      "native_rect": [
+        498,
+        477,
+        668,
+        676
+      ]
+    },
+    {
+      "id": 26,
+      "name": "door_2_1",
+      "original_bounds": [
+        407,
+        292,
+        511,
+        414
+      ],
+      "native_rect": [
+        665,
+        477,
+        834,
+        676
+      ]
+    },
+    {
+      "id": 27,
+      "name": "door_2_2",
+      "original_bounds": [
+        513,
+        292,
+        617,
+        414
+      ],
+      "native_rect": [
+        838,
+        477,
+        1007,
+        676
+      ]
+    },
+    {
+      "id": 28,
+      "name": "door_2_3",
+      "original_bounds": [
+        615,
+        292,
+        719,
+        414
+      ],
+      "native_rect": [
+        1004,
+        477,
+        1174,
+        676
+      ]
+    },
+    {
+      "id": 29,
+      "name": "sconce_0_0",
+      "original_bounds": [
+        292,
+        88,
+        314,
+        121
+      ],
+      "native_rect": [
+        477,
+        144,
+        513,
+        198
+      ]
+    },
+    {
+      "id": 30,
+      "name": "sconce_0_1",
+      "original_bounds": [
+        396,
+        88,
+        418,
+        121
+      ],
+      "native_rect": [
+        647,
+        144,
+        683,
+        198
+      ]
+    },
+    {
+      "id": 31,
+      "name": "sconce_0_2",
+      "original_bounds": [
+        500,
+        88,
+        522,
+        121
+      ],
+      "native_rect": [
+        816,
+        144,
+        852,
+        198
+      ]
+    },
+    {
+      "id": 32,
+      "name": "sconce_0_3",
+      "original_bounds": [
+        604,
+        88,
+        626,
+        121
+      ],
+      "native_rect": [
+        986,
+        144,
+        1022,
+        198
+      ]
+    },
+    {
+      "id": 33,
+      "name": "sconce_0_4",
+      "original_bounds": [
+        708,
+        88,
+        730,
+        121
+      ],
+      "native_rect": [
+        1156,
+        144,
+        1192,
+        198
+      ]
+    },
+    {
+      "id": 34,
+      "name": "sconce_1_0",
+      "original_bounds": [
+        292,
+        217,
+        314,
+        250
+      ],
+      "native_rect": [
+        477,
+        355,
+        513,
+        408
+      ]
+    },
+    {
+      "id": 35,
+      "name": "sconce_1_1",
+      "original_bounds": [
+        396,
+        217,
+        418,
+        250
+      ],
+      "native_rect": [
+        647,
+        355,
+        683,
+        408
+      ]
+    },
+    {
+      "id": 36,
+      "name": "sconce_1_2",
+      "original_bounds": [
+        500,
+        217,
+        522,
+        250
+      ],
+      "native_rect": [
+        816,
+        355,
+        852,
+        408
+      ]
+    },
+    {
+      "id": 37,
+      "name": "sconce_1_3",
+      "original_bounds": [
+        604,
+        217,
+        626,
+        250
+      ],
+      "native_rect": [
+        986,
+        355,
+        1022,
+        408
+      ]
+    },
+    {
+      "id": 38,
+      "name": "sconce_1_4",
+      "original_bounds": [
+        708,
+        217,
+        730,
+        250
+      ],
+      "native_rect": [
+        1156,
+        355,
+        1192,
+        408
+      ]
+    },
+    {
+      "id": 39,
+      "name": "sconce_2_0",
+      "original_bounds": [
+        292,
+        346,
+        314,
+        381
+      ],
+      "native_rect": [
+        477,
+        565,
+        513,
+        622
+      ]
+    },
+    {
+      "id": 40,
+      "name": "sconce_2_1",
+      "original_bounds": [
+        396,
+        346,
+        418,
+        381
+      ],
+      "native_rect": [
+        647,
+        565,
+        683,
+        622
+      ]
+    },
+    {
+      "id": 41,
+      "name": "sconce_2_2",
+      "original_bounds": [
+        500,
+        346,
+        522,
+        381
+      ],
+      "native_rect": [
+        816,
+        565,
+        852,
+        622
+      ]
+    },
+    {
+      "id": 42,
+      "name": "sconce_2_3",
+      "original_bounds": [
+        604,
+        346,
+        626,
+        381
+      ],
+      "native_rect": [
+        986,
+        565,
+        1022,
+        622
+      ]
+    },
+    {
+      "id": 43,
+      "name": "sconce_2_4",
+      "original_bounds": [
+        708,
+        346,
+        730,
+        381
+      ],
+      "native_rect": [
+        1156,
+        565,
+        1192,
+        622
+      ]
+    }
+  ],
+  "source_owner_map": "object_ownership_ids.npy"
+}

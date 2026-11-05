@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-31",
+  "author": "Codex",
+  "revision": 1,
+  "baseline": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+  "output_lane": "gameplay review candidate",
+  "source_acceptance": "Original Opera layout is authority; restored raster is a new unaccepted detail candidate. Existing Roshan atlas identity and shipping animation family are reused.",
+  "aseprite": "Not used: these are editable engine procedural fixture effects and existing authored atlas playback, with no new painted sprite frames or matte edits.",
+  "limits": {
+    "generated_animation_calls": 0,
+    "paid_animation_cost_usd": 0,
+    "retrospective_limit_disclosure": "Per-action wall/cleanup ceilings were not recorded before this review implementation. Missing DL-MOT-16 preproduction evidence remains an acceptance gap; do not infer compliance retrospectively.",
+    "measured_cleanup_minutes": "not recorded",
+    "further_generation": "none in this fixture animation pass"
+  },
+  "stop_fallback": "On fixture drift, doubled cloth, seam, contact or identity failure, stop final acceptance and repair bounded local geometry; no automatic frame-generation campaign.",
+  "provenance": {
+    "sources": [
+      {
+        "path": "assets_src/review/opera_exploration_v1/restoration_healed.png",
+        "sha256": "a9b2b27b4ca97c5da065f5b649eff0784e9f37e3c3f799cd665c3f1f0a0b8005",
+        "dimensions": [
+          1672,
+          941
+        ]
+      },
+      {
+        "path": "assets_src/review/opera_exploration_v1/restoration_master.png",
+        "sha256": "b10b88feb7e999d2c0cc87869abc381cd389a8b4120b62289767c3c669f2bd1d",
+        "dimensions": [
+          1672,
+          941
+        ]
+      }
+    ],
+    "provider": "Godot 4.7.2 local procedural runtime; no animation generation backend",
+    "seed": "not applicable",
+    "frame_mapping": "continuous engine time; original source pixel crops retained",
+    "retiming_interpolation": "shader/tween curves declared per action; no new painted frame interpolation",
+    "position_guide": "none",
+    "reused_actor_sources": [
+      {
+        "path": "scripts/roshan_sprite_loop.gd",
+        "sha256": "9bee574db538d7bcb17fc3a58a46c12dfcb5b027f9d263e5e565e620bd60e743",
+        "modified": false,
+        "role": "existing approved character playback/source, not newly generated"
+      },
+      {
+        "path": "assets/characters/roshan_25d/roshan_directional.png",
+        "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+        "modified": false,
+        "role": "existing approved character playback/source, not newly generated"
+      },
+      {
+        "path": "assets/characters/roshan_25d/roshan_swim_front.png",
+        "sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01",
+        "modified": false,
+        "role": "existing approved character playback/source, not newly generated"
+      },
+      {
+        "path": "assets/characters/roshan_25d/roshan_swim_back.png",
+        "sha256": "4e76c3c269039cf05a6a8b58bbaf70273746f520006d0af68128f863bdb99337",
+        "modified": false,
+        "role": "existing approved character playback/source, not newly generated"
+      }
+    ]
+  },
+  "reviews": {
+    "agent_runtime": "verification/focused_runtime.json plus native captures; this is not owner acceptance",
+    "human_identity_topology_style": "PENDING exact candidate review",
+    "human_motion_contact_seams": "PENDING normal-speed and frame-step owner review",
+    "device": "PENDING Lenovo Tab M11 Mobile/Speedy 30fps, load/overdraw/memory",
+    "child_owner": "PENDING",
+    "full_local_ci": "PENDING",
+    "cinematic_machine": "NOT_APPLICABLE: engine gameplay effects, no cinematic footage",
+    "delivery_accepted": false,
+    "production_integrated": false,
+    "latest_agent_runtime": "verification/tiled_detail/final_review/focused_runtime.json plus actual shipping touch-handler ballet result in verification/tiled_detail/played_ballet.json. Device/child/owner pending."
+  },
+  "id": "OPERA-LIFT_TRAVEL",
+  "intention": "Roshan rides the two original shafts between original gallery stops with rising bubbles.",
+  "method": "logical x438 or2120; stops y342/665/1015; existing Roshan swim atlas; bubbles at38 worldpx/sec",
+  "timing_entry_exit": "arrival before ride; seven procedural bubble arcs per shaft, 810px wrap",
+  "fixed_elements": "shafts and supports fixed; route stays on authored navigation",
+  "runtime_size": "2560x1440 world;1280x720 viewport; source1672x941; six POT1024/2048 textures",
+  "editable_workflow": [
+    {
+      "path": "scripts/review/opera_translation_v1.gd",
+      "sha256": "e0e4b1436ceccff0bed3fc682b05179096dea9af2d686557bee37b83ec3461c6",
+      "dimensions": null
+    },
+    {
+      "path": "scripts/review/opera_translation_ambience_v1.gd",
+      "sha256": "199a3d6f6be6d592d2942465b1dd62f2339b0a254f30a60f7df7cc67b6933567",
+      "dimensions": null
+    }
+  ],
+  "motion_tolerances": "Candidate amplitudes declared above; exact owner/device review pending, not a pre-measured acceptance pass.",
+  "pre_final_ui_workflow": [
+    {
+      "path": "scripts/review/opera_translation_v1.gd",
+      "sha256": "71093e635a3fbdb72055f439b638461a0ca677bacf21494ec019e1d74751f16b",
+      "dimensions": null
+    },
+    {
+      "path": "scripts/review/opera_translation_ambience_v1.gd",
+      "sha256": "199a3d6f6be6d592d2942465b1dd62f2339b0a254f30a60f7df7cc67b6933567",
+      "dimensions": null
+    }
+  ]
+}

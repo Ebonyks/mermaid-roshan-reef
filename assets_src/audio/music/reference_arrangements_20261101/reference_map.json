@@ -1,0 +1,364 @@
+{
+  "stage": "REFERENCE_LED_ARRANGEMENT_REVIEW",
+  "owner_corrections": [
+    "Opera strongest; preserve its identity.",
+    "Specific reference songs, distinct verse/chorus forms and instrument changes required.",
+    "Original project melodies lightly reshaped into fixed hooks; do not copy the reference melodies."
+  ],
+  "reference_scope": "Section identities/order and ensemble functions; our bar counts, keys and melodic content are adaptations, not a verified bar-for-bar transcription.",
+  "references": {
+    "opera_house": {
+      "artist": "Harry Belafonte",
+      "track": "Jump in the Line",
+      "recording": "1961 RCA, Jump Up Calypso",
+      "url": "https://www.youtube.com/watch?v=dgWXF32nxLs",
+      "form_source": "https://lyricsweb.com/song/harry-belafonte/harry-belafonte-jump-in-the-line",
+      "application": "Retain C1 / verse / C2 cycles, the late instrumental break and final return. One steel pan carries the song; flute responses define C2. Separate full-band refrains from lighter guitar/conga verses."
+    },
+    "sky_lagoon": {
+      "artist": "Miriam Makeba",
+      "track": "Pata Pata",
+      "recording": "1967 original studio recording, stereo version on Strut reissue",
+      "url": "https://miriammakeba.bandcamp.com/track/pata-pata-stereo-version",
+      "form_source": "https://journal.ru.ac.za/index.php/africanmusic/article/view/1831",
+      "application": "Retain a recurring sung-refrain role, a contrasting melodic section and two speech-over-groove interludes, adapted as fixed valiha dialogues. Flute owns every refrain; the plucked rhythm and percussion change function between sections. Role-based adaptation; no claimed exact reference bar transcription."
+    },
+    "castle": {
+      "artist": "Bob Marley & the Wailers",
+      "track": "Three Little Birds",
+      "recording": "1977 Exodus studio recording",
+      "url": "https://shop.bobmarley.com/products/exodus-limited-edition-1lp-and-10",
+      "form_source": "https://charanga.com/file/download?digilearning_support_file_id=19853#page=1",
+      "application": "Retain intro / chorus / verse / chorus / verse / chorus / chorus / chorus. Sunbird guitar takes the vocal role; offbeat guitar, bass and one-drop drums anchor the verses; electric-piano voicings and shaker define the choruses."
+    }
+  },
+  "forms": [
+    {
+      "id": "opera_house",
+      "title": "The Curtain Opens - Calypso Revue",
+      "bpm": 112,
+      "bars": 104,
+      "duration_seconds": 228.99107142857142,
+      "sections": [
+        {
+          "name": "Chorus 1 - lantern hook",
+          "start_bar": 1,
+          "bars": 8,
+          "kind": "C1",
+          "start_qn": 4,
+          "foreground": "pan",
+          "layer_identity": "Full electric-piano / percussion refrain"
+        },
+        {
+          "name": "Verse 1 - the invitation",
+          "start_bar": 9,
+          "bars": 8,
+          "kind": "V",
+          "start_qn": 36,
+          "foreground": "pan",
+          "layer_identity": "Plucked verse rhythm"
+        },
+        {
+          "name": "Chorus 2 - the room answers",
+          "start_bar": 17,
+          "bars": 8,
+          "kind": "C2",
+          "start_qn": 68,
+          "foreground": "pan",
+          "layer_identity": "Full electric-piano / percussion refrain"
+        },
+        {
+          "name": "Chorus 1 - lantern hook",
+          "start_bar": 25,
+          "bars": 8,
+          "kind": "C1",
+          "start_qn": 100,
+          "foreground": "pan",
+          "layer_identity": "Full electric-piano / percussion refrain"
+        },
+        {
+          "name": "Verse 2 - footsteps",
+          "start_bar": 33,
+          "bars": 8,
+          "kind": "V",
+          "start_qn": 132,
+          "foreground": "pan",
+          "layer_identity": "Plucked verse rhythm"
+        },
+        {
+          "name": "Chorus 2 - the room answers",
+          "start_bar": 41,
+          "bars": 8,
+          "kind": "C2",
+          "start_qn": 164,
+          "foreground": "pan",
+          "layer_identity": "Full electric-piano / percussion refrain"
+        },
+        {
+          "name": "Chorus 1 - lantern hook",
+          "start_bar": 49,
+          "bars": 8,
+          "kind": "C1",
+          "start_qn": 196,
+          "foreground": "pan",
+          "layer_identity": "Full electric-piano / percussion refrain"
+        },
+        {
+          "name": "Verse 3 - a new doorway",
+          "start_bar": 57,
+          "bars": 8,
+          "kind": "V",
+          "start_qn": 228,
+          "foreground": "pan",
+          "layer_identity": "Plucked verse rhythm"
+        },
+        {
+          "name": "Chorus 2 - the room answers",
+          "start_bar": 65,
+          "bars": 8,
+          "kind": "C2",
+          "start_qn": 260,
+          "foreground": "pan",
+          "layer_identity": "Full electric-piano / percussion refrain"
+        },
+        {
+          "name": "Instrumental break - percussion feature",
+          "start_bar": 73,
+          "bars": 4,
+          "kind": "break",
+          "start_qn": 292,
+          "foreground": "rhythm ensemble",
+          "layer_identity": "Named instrumental handoff"
+        },
+        {
+          "name": "Chorus 1 - final lantern hook",
+          "start_bar": 77,
+          "bars": 8,
+          "kind": "C1",
+          "start_qn": 308,
+          "foreground": "pan",
+          "layer_identity": "Full electric-piano / percussion refrain"
+        },
+        {
+          "name": "Verse 4 - everyone arrives",
+          "start_bar": 85,
+          "bars": 8,
+          "kind": "V",
+          "start_qn": 340,
+          "foreground": "pan",
+          "layer_identity": "Plucked verse rhythm"
+        },
+        {
+          "name": "Chorus 2 - full celebration",
+          "start_bar": 93,
+          "bars": 8,
+          "kind": "C2",
+          "start_qn": 372,
+          "foreground": "pan",
+          "layer_identity": "Full electric-piano / percussion refrain"
+        },
+        {
+          "name": "Outro - final curtain",
+          "start_bar": 101,
+          "bars": 4,
+          "kind": "outro",
+          "start_qn": 404,
+          "foreground": "pan",
+          "layer_identity": "Named instrumental handoff"
+        }
+      ]
+    },
+    {
+      "id": "sky_lagoon",
+      "title": "Cloudwater Dance",
+      "bpm": 112,
+      "bars": 80,
+      "duration_seconds": 177.5625,
+      "sections": [
+        {
+          "name": "Intro - plucked invitation",
+          "start_bar": 1,
+          "bars": 4,
+          "kind": "intro",
+          "start_qn": 4,
+          "foreground": "rhythm ensemble",
+          "layer_identity": "Named instrumental handoff"
+        },
+        {
+          "name": "Refrain 1 - cloudwater hook",
+          "start_bar": 5,
+          "bars": 8,
+          "kind": "C1",
+          "start_qn": 20,
+          "foreground": "flute",
+          "layer_identity": "Full electric-piano / percussion refrain"
+        },
+        {
+          "name": "Verse 1 - crossing the water",
+          "start_bar": 13,
+          "bars": 8,
+          "kind": "V",
+          "start_qn": 52,
+          "foreground": "flute",
+          "layer_identity": "Plucked verse rhythm"
+        },
+        {
+          "name": "Refrain 2 - cloudwater hook",
+          "start_bar": 21,
+          "bars": 8,
+          "kind": "C1",
+          "start_qn": 84,
+          "foreground": "flute",
+          "layer_identity": "Full electric-piano / percussion refrain"
+        },
+        {
+          "name": "Dialogue 1 - valiha takes the voice",
+          "start_bar": 29,
+          "bars": 8,
+          "kind": "dialogue",
+          "start_qn": 116,
+          "foreground": "valiha",
+          "layer_identity": "Named instrumental handoff"
+        },
+        {
+          "name": "Refrain 3 - cloudwater hook",
+          "start_bar": 37,
+          "bars": 8,
+          "kind": "C1",
+          "start_qn": 148,
+          "foreground": "flute",
+          "layer_identity": "Full electric-piano / percussion refrain"
+        },
+        {
+          "name": "Dialogue 2 - rhythmic reply",
+          "start_bar": 45,
+          "bars": 8,
+          "kind": "dialogue",
+          "start_qn": 180,
+          "foreground": "valiha",
+          "layer_identity": "Named instrumental handoff"
+        },
+        {
+          "name": "Verse 2 - crossing the water",
+          "start_bar": 53,
+          "bars": 8,
+          "kind": "V",
+          "start_qn": 212,
+          "foreground": "flute",
+          "layer_identity": "Plucked verse rhythm"
+        },
+        {
+          "name": "Final refrain - twice around the clouds",
+          "start_bar": 61,
+          "bars": 16,
+          "kind": "C1",
+          "start_qn": 244,
+          "foreground": "flute",
+          "layer_identity": "Full electric-piano / percussion refrain"
+        },
+        {
+          "name": "Outro - landing",
+          "start_bar": 77,
+          "bars": 4,
+          "kind": "outro",
+          "start_qn": 308,
+          "foreground": "flute",
+          "layer_identity": "Named instrumental handoff"
+        }
+      ]
+    },
+    {
+      "id": "castle",
+      "title": "Welcome Home - Tide Song",
+      "bpm": 92,
+      "bars": 64,
+      "duration_seconds": 173.1195652173913,
+      "sections": [
+        {
+          "name": "Intro - the house groove",
+          "start_bar": 1,
+          "bars": 4,
+          "kind": "intro",
+          "start_qn": 4,
+          "foreground": "rhythm ensemble",
+          "layer_identity": "Named instrumental handoff"
+        },
+        {
+          "name": "Chorus 1 - welcome home",
+          "start_bar": 5,
+          "bars": 8,
+          "kind": "C1",
+          "start_qn": 20,
+          "foreground": "sunbird",
+          "layer_identity": "Full electric-piano / percussion refrain"
+        },
+        {
+          "name": "Verse 1 - through the rooms",
+          "start_bar": 13,
+          "bars": 8,
+          "kind": "V",
+          "start_qn": 52,
+          "foreground": "sunbird",
+          "layer_identity": "Plucked verse rhythm"
+        },
+        {
+          "name": "Chorus 2 - welcome home",
+          "start_bar": 21,
+          "bars": 8,
+          "kind": "C1",
+          "start_qn": 84,
+          "foreground": "sunbird",
+          "layer_identity": "Full electric-piano / percussion refrain"
+        },
+        {
+          "name": "Verse 2 - familiar faces",
+          "start_bar": 29,
+          "bars": 8,
+          "kind": "V",
+          "start_qn": 116,
+          "foreground": "sunbird",
+          "layer_identity": "Plucked verse rhythm"
+        },
+        {
+          "name": "Chorus 3 - everyone together",
+          "start_bar": 37,
+          "bars": 8,
+          "kind": "C1",
+          "start_qn": 148,
+          "foreground": "sunbird",
+          "layer_identity": "Full electric-piano / percussion refrain"
+        },
+        {
+          "name": "Chorus 4 - stronger response",
+          "start_bar": 45,
+          "bars": 8,
+          "kind": "C1",
+          "start_qn": 180,
+          "foreground": "sunbird",
+          "layer_identity": "Full electric-piano / percussion refrain"
+        },
+        {
+          "name": "Chorus 5 - home at last",
+          "start_bar": 53,
+          "bars": 8,
+          "kind": "C1",
+          "start_qn": 212,
+          "foreground": "sunbird",
+          "layer_identity": "Full electric-piano / percussion refrain"
+        },
+        {
+          "name": "Outro - lights in the windows",
+          "start_bar": 61,
+          "bars": 4,
+          "kind": "outro",
+          "start_qn": 244,
+          "foreground": "sunbird",
+          "layer_identity": "Named instrumental handoff"
+        }
+      ]
+    }
+  ],
+  "uvi_only": true,
+  "external_ai_audio_upload": false,
+  "no_runtime_replacement": true
+}

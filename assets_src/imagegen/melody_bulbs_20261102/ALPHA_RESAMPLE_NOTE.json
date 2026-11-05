@@ -1,0 +1,10 @@
+{
+  "initial_verification": "FAIL_EXPECTED_ALPHA_MAX255",
+  "actual_runtime_alpha_max": 254,
+  "diagnosis": "Aseprite bilinear RGBA resampling yields254 maximum alpha for both outputs. Native and crop roundtrip RGBA exact and runtime128square verified. Initial255-only expectation was an overstrict technical assertion; actual0..254 retained unchanged.",
+  "native_regeneration": 0,
+  "technical_reexports": 0,
+  "opacity_edits": 0,
+  "png_pixel_edits": 0,
+  "disposition": "Use actual nearly-opaque whole painted output and test in-scene; no forced alpha255 or hidden cleanup."
+}

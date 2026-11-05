@@ -1,0 +1,128 @@
+{
+  "status": "PASS_MACHINE_AUDIO_CHECKS_OWNER_LISTENING_PENDING",
+  "tests": [
+    {
+      "cue": "opera_house",
+      "duration_seconds": 212.1160625,
+      "score_sha256": "b29704fc6507afee8f29bd0710e076155ba1e227fa904db1363d82e9ce5d89da",
+      "measurements": {
+        ".wav": {
+          "lufs": -19.94,
+          "true_peak_dbtp": -5.46,
+          "dc": 7.816920166784021e-07,
+          "mono_rms_change_db": -0.034672828490442634,
+          "sha256": "82ff6fa7d288db790aca9eca4f081202db1de0876d5214790b4b11dea0366112"
+        },
+        ".ogg": {
+          "lufs": -19.9,
+          "true_peak_dbtp": -5.52,
+          "dc": 2.145700273104012e-05,
+          "mono_rms_change_db": -0.03600788116455078,
+          "sha256": "77089cbae54c0139bf5c801f72f2ebf1b63b9dac9e675f7e24e732b374e466aa"
+        }
+      },
+      "owner_acceptance": "PENDING",
+      "runtime_installed": false
+    },
+    {
+      "cue": "sky_lagoon",
+      "duration_seconds": 219.65,
+      "score_sha256": "39142b8082b173d1b4ef9c9993b1ceb47a95dba9ba382c4bab5ed99ca18e9833",
+      "measurements": {
+        ".wav": {
+          "lufs": -20.03,
+          "true_peak_dbtp": -4.92,
+          "dc": 9.997899900103965e-07,
+          "mono_rms_change_db": -1.634769557729424,
+          "sha256": "387c0c72927e4e2f538369f2896862d9a2e9c0f2516ca2af601b85cd02384aba"
+        },
+        ".ogg": {
+          "lufs": -19.98,
+          "true_peak_dbtp": -4.93,
+          "dc": 1.3508461051969789e-05,
+          "mono_rms_change_db": -1.6454627513885498,
+          "sha256": "b6b17360bed3a8484e926fd59d419723c9ef65ffd9b54637b51475222913d999"
+        }
+      },
+      "owner_acceptance": "PENDING",
+      "runtime_installed": false
+    },
+    {
+      "cue": "castle",
+      "duration_seconds": 212.25,
+      "score_sha256": "6040a3ba3f619db6a15ffec09695f2602925612d0c7a03b8f921b52fd1df978e",
+      "measurements": {
+        ".wav": {
+          "lufs": -20.02,
+          "true_peak_dbtp": -1.99,
+          "dc": 2.0851240141231686e-06,
+          "mono_rms_change_db": -0.5112817960137148,
+          "sha256": "3d6f92550c33928bc8304063b0628b8539a9ea7cc6101e125fe68c2b2599f15c"
+        },
+        ".ogg": {
+          "lufs": -19.98,
+          "true_peak_dbtp": -1.92,
+          "dc": 1.001811779133277e-05,
+          "mono_rms_change_db": -0.5127080678939819,
+          "sha256": "dc716cd2bd20f47e440697a8b5d960ed5f9ead929ddc7d03719b655b9ec30b2c"
+        }
+      },
+      "owner_acceptance": "PENDING",
+      "runtime_installed": false
+    }
+  ],
+  "native_score_construction": [
+    {
+      "cue": "opera_house",
+      "notes": 2969,
+      "parts": 10,
+      "bars": 96,
+      "seconds": 212.116,
+      "steel_pan_parts": 1
+    },
+    {
+      "cue": "sky_lagoon",
+      "notes": 1683,
+      "parts": 11,
+      "bars": 88,
+      "seconds": 219.65,
+      "steel_pan_parts": 0
+    },
+    {
+      "cue": "castle",
+      "notes": 1582,
+      "parts": 10,
+      "bars": 96,
+      "seconds": 212.25,
+      "steel_pan_parts": 0
+    }
+  ],
+  "mix_balance_refinement": {
+    "scope": "Castle foreground separation after original/new comparison; source MIDI and instrument EQ retained",
+    "castle_group_gain_changes_db": {
+      "foreground": 1.2,
+      "harmony": -1.5,
+      "bass": -0.5
+    },
+    "evidence": "Foreground level was close to combined backing; comparison suggested mild attack/low-mid competition. Subjective labels remain advisory; Sky has no steel pan despite the listening model mentioning one."
+  },
+  "original_draft_comparison": "Three 20-second level-matched original/new excerpts plus source-score/section role inspection; advisory listening is not full-song human acceptance.",
+  "native_instrument_tests": 34,
+  "installed_bank_count": 10,
+  "dsp_controls": {
+    "glue_ratio": 1.35,
+    "glue_attack_ms": 25,
+    "glue_release_ms": 150,
+    "native_peak_ceiling_db": -2,
+    "target_lufs": -20
+  },
+  "source_receipt_sha256": {
+    "native_stems.tsv": "bb92e63504a1ba3bb52cbd5484f662c239acc71d2f47d46c0237409d09cb7e55",
+    "native_eq.tsv": "6bae5e7e14ccc11df29476b92abef87e01ced1a523ceef8c5d0623c82ed23c2a",
+    "mix_controls.tsv": "d80c78fdee0fb52fa22ce57f588767b3869d64f310df8225baefcb34eda25443",
+    "native_mastering.tsv": "4be23b24a98caa75cabb4c5ad71109e8ce1d873bd69500c8ad8583135de5345e",
+    "group_measurements.json": "7112cfc7c359b93b70f60bf805e2c052ec49906cb8f1b94600b3628d33087213",
+    "premaster_measurements.json": "00af4d33b9ece967a9e1c15f1150fe09af6240150e8d8256dac549465641864b"
+  },
+  "acceptance_scope": "Private full-song review tests. Owner/full-song human listening, game voice mix, runtime loops, phone and child acceptance remain pending."
+}

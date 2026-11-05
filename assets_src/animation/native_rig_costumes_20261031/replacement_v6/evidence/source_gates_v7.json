@@ -1,0 +1,162 @@
+{
+  "pass": true,
+  "changed_gd": [
+    "assets_src/animation/native_rig_costumes_20261031/replacement_v6/godot/audit_replacement.gd",
+    "assets_src/animation/native_rig_costumes_20261031/replacement_v6/godot/quick_replacement.gd",
+    "assets_src/animation/native_rig_costumes_20261031/replacement_v6/godot/render_stress.gd",
+    "assets_src/animation/native_rig_costumes_20261031/replacement_v6/godot/stress_swaps.gd",
+    "assets_src/animation/native_rig_costumes_20261031/replacement_v6/godot/study.gd",
+    "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/actual_cutout_v7/godot/audit_replacement.gd",
+    "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/actual_cutout_v7/godot/quick_replacement.gd",
+    "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/actual_cutout_v7/godot/render_stress.gd",
+    "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/actual_cutout_v7/godot/stress_swaps.gd",
+    "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/actual_cutout_v7/godot/study.gd",
+    "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v2/godot/study.gd",
+    "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v3/godot/audit_replacement.gd",
+    "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v3/godot/render_stress.gd",
+    "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v3/godot/stress_swaps.gd",
+    "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v3/godot/study.gd",
+    "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v4/godot/study.gd",
+    "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v5/godot/study.gd",
+    "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v6/godot/study.gd"
+  ],
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "gdtoolkit.parser",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/godot/audit_replacement.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/godot/quick_replacement.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/godot/render_stress.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/godot/stress_swaps.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/godot/study.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/actual_cutout_v7/godot/audit_replacement.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/actual_cutout_v7/godot/quick_replacement.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/actual_cutout_v7/godot/render_stress.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/actual_cutout_v7/godot/stress_swaps.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/actual_cutout_v7/godot/study.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v2/godot/study.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v3/godot/audit_replacement.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v3/godot/render_stress.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v3/godot/stress_swaps.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v3/godot/study.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v4/godot/study.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v5/godot/study.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v6/godot/study.gd"
+      ],
+      "exit": 0,
+      "log": "parse_all_changed_v8.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/lint_inference.py",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/godot/audit_replacement.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/godot/quick_replacement.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/godot/render_stress.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/godot/stress_swaps.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/godot/study.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/actual_cutout_v7/godot/audit_replacement.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/actual_cutout_v7/godot/quick_replacement.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/actual_cutout_v7/godot/render_stress.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/actual_cutout_v7/godot/stress_swaps.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/actual_cutout_v7/godot/study.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v2/godot/study.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v3/godot/audit_replacement.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v3/godot/render_stress.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v3/godot/stress_swaps.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v3/godot/study.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v4/godot/study.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v5/godot/study.gd",
+        "assets_src/animation/native_rig_costumes_20261031/replacement_v6/rejects/registration_v6/godot/study.gd"
+      ],
+      "exit": 0,
+      "log": "inference_all_changed_v8.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef\\assets_src\\animation\\native_rig_costumes_20261031\\replacement_v6\\godot",
+        "--check-only",
+        "-s",
+        "audit_replacement.gd"
+      ],
+      "exit": 0,
+      "log": "analyzer_current_v8_audit_replacement.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef\\assets_src\\animation\\native_rig_costumes_20261031\\replacement_v6\\godot",
+        "--check-only",
+        "-s",
+        "quick_replacement.gd"
+      ],
+      "exit": 0,
+      "log": "analyzer_current_v8_quick_replacement.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef\\assets_src\\animation\\native_rig_costumes_20261031\\replacement_v6\\godot",
+        "--check-only",
+        "-s",
+        "render_stress.gd"
+      ],
+      "exit": 0,
+      "log": "analyzer_current_v8_render_stress.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef\\assets_src\\animation\\native_rig_costumes_20261031\\replacement_v6\\godot",
+        "--check-only",
+        "-s",
+        "stress_swaps.gd"
+      ],
+      "exit": 0,
+      "log": "analyzer_current_v8_stress_swaps.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef\\assets_src\\animation\\native_rig_costumes_20261031\\replacement_v6\\godot",
+        "--check-only",
+        "-s",
+        "study.gd"
+      ],
+      "exit": 0,
+      "log": "analyzer_current_v8_study.log"
+    }
+  ],
+  "compiled_python": [
+    "archive_swaps.py",
+    "audit_identity.py",
+    "audit_mixed_slots.py",
+    "audit_motion.py",
+    "audit_study.py",
+    "build_replacements.py",
+    "clothing_boards.py",
+    "comparison_reel.py",
+    "finalize_records.py",
+    "package_costumes.py",
+    "package_review.py",
+    "refresh_records.py",
+    "reproduce_v7.py",
+    "review_verify.py",
+    "run_full_project_gates.py",
+    "source_gates.py",
+    "verify_masters.py"
+  ]
+}

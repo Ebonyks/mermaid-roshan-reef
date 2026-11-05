@@ -1,0 +1,2826 @@
+{
+  "state": "PASS_192_CONFIGURED_NATIVE_CHECKS_21_QUALIFIED_FRAMES_7_FAILED_FIXTURE_FRAMES_RETAINED_EXCLUDED",
+  "cases": [
+    {
+      "width": 1280,
+      "height": 720,
+      "checks": 64,
+      "frames": [
+        {
+          "height": 720,
+          "note": 0,
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native\\1280x720\\output/01_red_active.png",
+          "pip_textures": [
+            {
+              "current": true,
+              "filled": false,
+              "index": 0,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.370968, 0.370968)",
+              "texture": "res://assets/melody/progress_pip_current_red_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 1,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_orange_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 2,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_yellow_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 3,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_green_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 4,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_blue_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 5,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_indigo_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 6,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_violet_painted.png"
+            }
+          ],
+          "progress": 0,
+          "sha256": "db386ad030492dd6c2f7a00c345ab3a6b5cb0ab290e01ee5baeb928fae1d509d",
+          "stage_snapshot": {
+            "active_note_color": "(1.0, 0.24, 0.28, 1.0)",
+            "active_note_hit_rect": "[P: (757.3315, 328.6934), S: (120.0, 120.0)]",
+            "active_note_visible_rect": "[P: (775.3315, 346.6934), S: (84.0, 84.0)]",
+            "blocked_sources": {},
+            "blocked_until_release": false,
+            "completed": false,
+            "daddy_path": "res://assets/characters/stickers/daddy.png",
+            "daddy_rect": "[P: (1052.0, 283.4), S: (172.0, 235.0)]",
+            "elapsed": 2.66139366666667,
+            "footlights_visible": true,
+            "has_timer": false,
+            "input_context_loss_reasons": [],
+            "input_context_lost": false,
+            "input_context_restore_guard": false,
+            "input_down": false,
+            "input_source": "",
+            "no_fail_state": true,
+            "note_colors": [
+              "(1.0, 0.24, 0.28, 1.0)",
+              "(1.0, 0.54, 0.18, 1.0)",
+              "(1.0, 0.86, 0.24, 1.0)",
+              "(0.3, 0.84, 0.42, 1.0)",
+              "(0.24, 0.68, 0.96, 1.0)",
+              "(0.39, 0.38, 0.88, 1.0)",
+              "(0.72, 0.4, 0.9, 1.0)"
+            ],
+            "pointer_rect": "[P: (785.3315, 356.6934), S: (64.0, 64.0)]",
+            "pointer_target_id": 0,
+            "proscenium_coverage": 0.4759321875,
+            "proscenium_geometry_nodes": [
+              "LeftCurtainGeometry",
+              "RightCurtainGeometry",
+              "CrownHeaderGeometry",
+              "StageApronGeometry"
+            ],
+            "proscenium_rect": "[P: (24.0, 18.0), S: (1232.0, 684.0)]",
+            "roshan_path": "res://assets/opera/worlds/actors/roshan_popstar.png",
+            "roshan_rect": "[P: (281.2, 338.4), S: (180.0, 180.0)]",
+            "spatial_descendants": 0,
+            "stage_star_visible": true,
+            "tick_count": 80,
+            "tile_paths": [
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png"
+            ],
+            "tile_source_rects": [
+              "[P: (0, 0), S: (1024, 1024)]",
+              "[P: (1024, 0), S: (1024, 1024)]",
+              "[P: (0, 1024), S: (1024, 1024)]",
+              "[P: (1024, 1024), S: (1024, 1024)]"
+            ],
+            "timing_zone_rect": "[P: (812.4, 280.8), S: (180.0, 180.0)]",
+            "touch_armed": false,
+            "viewport_size": "(1280.0, 720.0)"
+          },
+          "width": 1280
+        },
+        {
+          "height": 720,
+          "note": 1,
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native\\1280x720\\output/02_orange_active.png",
+          "pip_textures": [
+            {
+              "current": false,
+              "filled": true,
+              "index": 0,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_red_painted.png"
+            },
+            {
+              "current": true,
+              "filled": false,
+              "index": 1,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.368, 0.368)",
+              "texture": "res://assets/melody/progress_pip_current_orange_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 2,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_yellow_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 3,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_green_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 4,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_blue_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 5,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_indigo_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 6,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_violet_painted.png"
+            }
+          ],
+          "progress": 1,
+          "sha256": "9c95672ddb49d9c1045e4b696b7108b305fd6974f69692a467dc77276948f177",
+          "stage_snapshot": {
+            "active_note_color": "(1.0, 0.54, 0.18, 1.0)",
+            "active_note_hit_rect": "[P: (756.712, 323.4364), S: (120.0, 120.0)]",
+            "active_note_visible_rect": "[P: (774.712, 341.4364), S: (84.0, 84.0)]",
+            "blocked_sources": {},
+            "blocked_until_release": false,
+            "completed": false,
+            "daddy_path": "res://assets/characters/stickers/daddy.png",
+            "daddy_rect": "[P: (1052.0, 283.4), S: (172.0, 235.0)]",
+            "elapsed": 5.46626199999999,
+            "footlights_visible": true,
+            "has_timer": false,
+            "input_context_loss_reasons": [],
+            "input_context_lost": false,
+            "input_context_restore_guard": false,
+            "input_down": false,
+            "input_source": "",
+            "no_fail_state": true,
+            "note_colors": [
+              "(1.0, 0.24, 0.28, 1.0)",
+              "(1.0, 0.54, 0.18, 1.0)",
+              "(1.0, 0.86, 0.24, 1.0)",
+              "(0.3, 0.84, 0.42, 1.0)",
+              "(0.24, 0.68, 0.96, 1.0)",
+              "(0.39, 0.38, 0.88, 1.0)",
+              "(0.72, 0.4, 0.9, 1.0)"
+            ],
+            "pointer_rect": "[P: (784.712, 351.4364), S: (64.0, 64.0)]",
+            "pointer_target_id": 1,
+            "proscenium_coverage": 0.4759321875,
+            "proscenium_geometry_nodes": [
+              "LeftCurtainGeometry",
+              "RightCurtainGeometry",
+              "CrownHeaderGeometry",
+              "StageApronGeometry"
+            ],
+            "proscenium_rect": "[P: (24.0, 18.0), S: (1232.0, 684.0)]",
+            "roshan_path": "res://assets/opera/worlds/actors/roshan_popstar.png",
+            "roshan_rect": "[P: (281.2, 338.4), S: (180.0, 180.0)]",
+            "spatial_descendants": 0,
+            "stage_star_visible": true,
+            "tick_count": 162,
+            "tile_paths": [
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png"
+            ],
+            "tile_source_rects": [
+              "[P: (0, 0), S: (1024, 1024)]",
+              "[P: (1024, 0), S: (1024, 1024)]",
+              "[P: (0, 1024), S: (1024, 1024)]",
+              "[P: (1024, 1024), S: (1024, 1024)]"
+            ],
+            "timing_zone_rect": "[P: (812.4, 280.8), S: (180.0, 180.0)]",
+            "touch_armed": false,
+            "viewport_size": "(1280.0, 720.0)"
+          },
+          "width": 1280
+        },
+        {
+          "height": 720,
+          "note": 2,
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native\\1280x720\\output/03_yellow_active.png",
+          "pip_textures": [
+            {
+              "current": false,
+              "filled": true,
+              "index": 0,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_red_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 1,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_orange_painted.png"
+            },
+            {
+              "current": true,
+              "filled": false,
+              "index": 2,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.368, 0.368)",
+              "texture": "res://assets/melody/progress_pip_current_yellow_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 3,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_green_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 4,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_blue_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 5,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_indigo_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 6,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_violet_painted.png"
+            }
+          ],
+          "progress": 2,
+          "sha256": "d243fe85e3b1c11dabe9eb3806a4501f48293f4f9182b704b2fa1365f5266f22",
+          "stage_snapshot": {
+            "active_note_color": "(1.0, 0.86, 0.24, 1.0)",
+            "active_note_hit_rect": "[P: (757.2882, 311.9341), S: (120.0, 120.0)]",
+            "active_note_visible_rect": "[P: (775.2882, 329.9341), S: (84.0, 84.0)]",
+            "blocked_sources": {},
+            "blocked_until_release": false,
+            "completed": false,
+            "daddy_path": "res://assets/characters/stickers/daddy.png",
+            "daddy_rect": "[P: (1052.0, 283.4), S: (172.0, 235.0)]",
+            "elapsed": 8.26155366666665,
+            "footlights_visible": true,
+            "has_timer": false,
+            "input_context_loss_reasons": [],
+            "input_context_lost": false,
+            "input_context_restore_guard": false,
+            "input_down": false,
+            "input_source": "",
+            "no_fail_state": true,
+            "note_colors": [
+              "(1.0, 0.24, 0.28, 1.0)",
+              "(1.0, 0.54, 0.18, 1.0)",
+              "(1.0, 0.86, 0.24, 1.0)",
+              "(0.3, 0.84, 0.42, 1.0)",
+              "(0.24, 0.68, 0.96, 1.0)",
+              "(0.39, 0.38, 0.88, 1.0)",
+              "(0.72, 0.4, 0.9, 1.0)"
+            ],
+            "pointer_rect": "[P: (785.2882, 339.9341), S: (64.0, 64.0)]",
+            "pointer_target_id": 2,
+            "proscenium_coverage": 0.4759321875,
+            "proscenium_geometry_nodes": [
+              "LeftCurtainGeometry",
+              "RightCurtainGeometry",
+              "CrownHeaderGeometry",
+              "StageApronGeometry"
+            ],
+            "proscenium_rect": "[P: (24.0, 18.0), S: (1232.0, 684.0)]",
+            "roshan_path": "res://assets/opera/worlds/actors/roshan_popstar.png",
+            "roshan_rect": "[P: (281.2, 338.4), S: (180.0, 180.0)]",
+            "spatial_descendants": 0,
+            "stage_star_visible": true,
+            "tick_count": 244,
+            "tile_paths": [
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png"
+            ],
+            "tile_source_rects": [
+              "[P: (0, 0), S: (1024, 1024)]",
+              "[P: (1024, 0), S: (1024, 1024)]",
+              "[P: (0, 1024), S: (1024, 1024)]",
+              "[P: (1024, 1024), S: (1024, 1024)]"
+            ],
+            "timing_zone_rect": "[P: (812.4, 280.8), S: (180.0, 180.0)]",
+            "touch_armed": false,
+            "viewport_size": "(1280.0, 720.0)"
+          },
+          "width": 1280
+        },
+        {
+          "height": 720,
+          "note": 3,
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native\\1280x720\\output/04_green_active.png",
+          "pip_textures": [
+            {
+              "current": false,
+              "filled": true,
+              "index": 0,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_red_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 1,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_orange_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 2,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_yellow_painted.png"
+            },
+            {
+              "current": true,
+              "filled": false,
+              "index": 3,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.368, 0.368)",
+              "texture": "res://assets/melody/progress_pip_current_green_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 4,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_blue_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 5,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_indigo_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 6,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_violet_painted.png"
+            }
+          ],
+          "progress": 3,
+          "sha256": "7df10f77432e8421b8f451ca2f6b4f815b554fbfa4d7fb02eadbc06dc9aa81cc",
+          "stage_snapshot": {
+            "active_note_color": "(0.3, 0.84, 0.42, 1.0)",
+            "active_note_hit_rect": "[P: (756.7435, 300.3034), S: (120.0, 120.0)]",
+            "active_note_visible_rect": "[P: (774.7435, 318.3034), S: (84.0, 84.0)]",
+            "blocked_sources": {},
+            "blocked_until_release": false,
+            "completed": false,
+            "daddy_path": "res://assets/characters/stickers/daddy.png",
+            "daddy_rect": "[P: (1052.0, 283.4), S: (172.0, 235.0)]",
+            "elapsed": 11.051554,
+            "footlights_visible": true,
+            "has_timer": false,
+            "input_context_loss_reasons": [],
+            "input_context_lost": false,
+            "input_context_restore_guard": false,
+            "input_down": false,
+            "input_source": "",
+            "no_fail_state": true,
+            "note_colors": [
+              "(1.0, 0.24, 0.28, 1.0)",
+              "(1.0, 0.54, 0.18, 1.0)",
+              "(1.0, 0.86, 0.24, 1.0)",
+              "(0.3, 0.84, 0.42, 1.0)",
+              "(0.24, 0.68, 0.96, 1.0)",
+              "(0.39, 0.38, 0.88, 1.0)",
+              "(0.72, 0.4, 0.9, 1.0)"
+            ],
+            "pointer_rect": "[P: (784.7435, 328.3034), S: (64.0, 64.0)]",
+            "pointer_target_id": 3,
+            "proscenium_coverage": 0.4759321875,
+            "proscenium_geometry_nodes": [
+              "LeftCurtainGeometry",
+              "RightCurtainGeometry",
+              "CrownHeaderGeometry",
+              "StageApronGeometry"
+            ],
+            "proscenium_rect": "[P: (24.0, 18.0), S: (1232.0, 684.0)]",
+            "roshan_path": "res://assets/opera/worlds/actors/roshan_popstar.png",
+            "roshan_rect": "[P: (281.2, 338.4), S: (180.0, 180.0)]",
+            "spatial_descendants": 0,
+            "stage_star_visible": true,
+            "tick_count": 326,
+            "tile_paths": [
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png"
+            ],
+            "tile_source_rects": [
+              "[P: (0, 0), S: (1024, 1024)]",
+              "[P: (1024, 0), S: (1024, 1024)]",
+              "[P: (0, 1024), S: (1024, 1024)]",
+              "[P: (1024, 1024), S: (1024, 1024)]"
+            ],
+            "timing_zone_rect": "[P: (812.4, 280.8), S: (180.0, 180.0)]",
+            "touch_armed": false,
+            "viewport_size": "(1280.0, 720.0)"
+          },
+          "width": 1280
+        },
+        {
+          "height": 720,
+          "note": 4,
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native\\1280x720\\output/05_blue_active.png",
+          "pip_textures": [
+            {
+              "current": false,
+              "filled": true,
+              "index": 0,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_red_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 1,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_orange_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 2,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_yellow_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 3,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_green_painted.png"
+            },
+            {
+              "current": true,
+              "filled": false,
+              "index": 4,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.368, 0.368)",
+              "texture": "res://assets/melody/progress_pip_current_blue_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 5,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_indigo_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 6,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_violet_painted.png"
+            }
+          ],
+          "progress": 4,
+          "sha256": "bb2132a0d9cde7084c28a1108202d5f9b56d9ebfb90fcf2b68f26756fe3e53ed",
+          "stage_snapshot": {
+            "active_note_color": "(0.24, 0.68, 0.96, 1.0)",
+            "active_note_hit_rect": "[P: (759.8483, 293.0485), S: (120.0, 120.0)]",
+            "active_note_visible_rect": "[P: (777.8483, 311.0485), S: (84.0, 84.0)]",
+            "blocked_sources": {},
+            "blocked_until_release": false,
+            "completed": false,
+            "daddy_path": "res://assets/characters/stickers/daddy.png",
+            "daddy_rect": "[P: (1052.0, 283.4), S: (172.0, 235.0)]",
+            "elapsed": 13.877222,
+            "footlights_visible": true,
+            "has_timer": false,
+            "input_context_loss_reasons": [],
+            "input_context_lost": false,
+            "input_context_restore_guard": false,
+            "input_down": false,
+            "input_source": "",
+            "no_fail_state": true,
+            "note_colors": [
+              "(1.0, 0.24, 0.28, 1.0)",
+              "(1.0, 0.54, 0.18, 1.0)",
+              "(1.0, 0.86, 0.24, 1.0)",
+              "(0.3, 0.84, 0.42, 1.0)",
+              "(0.24, 0.68, 0.96, 1.0)",
+              "(0.39, 0.38, 0.88, 1.0)",
+              "(0.72, 0.4, 0.9, 1.0)"
+            ],
+            "pointer_rect": "[P: (787.8483, 321.0485), S: (64.0, 64.0)]",
+            "pointer_target_id": 4,
+            "proscenium_coverage": 0.4759321875,
+            "proscenium_geometry_nodes": [
+              "LeftCurtainGeometry",
+              "RightCurtainGeometry",
+              "CrownHeaderGeometry",
+              "StageApronGeometry"
+            ],
+            "proscenium_rect": "[P: (24.0, 18.0), S: (1232.0, 684.0)]",
+            "roshan_path": "res://assets/opera/worlds/actors/roshan_popstar.png",
+            "roshan_rect": "[P: (281.2, 338.4), S: (180.0, 180.0)]",
+            "spatial_descendants": 0,
+            "stage_star_visible": true,
+            "tick_count": 409,
+            "tile_paths": [
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png"
+            ],
+            "tile_source_rects": [
+              "[P: (0, 0), S: (1024, 1024)]",
+              "[P: (1024, 0), S: (1024, 1024)]",
+              "[P: (0, 1024), S: (1024, 1024)]",
+              "[P: (1024, 1024), S: (1024, 1024)]"
+            ],
+            "timing_zone_rect": "[P: (812.4, 280.8), S: (180.0, 180.0)]",
+            "touch_armed": false,
+            "viewport_size": "(1280.0, 720.0)"
+          },
+          "width": 1280
+        },
+        {
+          "height": 720,
+          "note": 5,
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native\\1280x720\\output/06_indigo_active.png",
+          "pip_textures": [
+            {
+              "current": false,
+              "filled": true,
+              "index": 0,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_red_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 1,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_orange_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 2,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_yellow_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 3,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_green_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 4,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.301587, 0.301587)",
+              "texture": "res://assets/melody/progress_pip_filled_blue_painted.png"
+            },
+            {
+              "current": true,
+              "filled": false,
+              "index": 5,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.368, 0.368)",
+              "texture": "res://assets/melody/progress_pip_current_indigo_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 6,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_violet_painted.png"
+            }
+          ],
+          "progress": 5,
+          "sha256": "36aa4fa62b658979894ad8072ad008932a3e637a5525e58844093cdb58e3c3b4",
+          "stage_snapshot": {
+            "active_note_color": "(0.39, 0.38, 0.88, 1.0)",
+            "active_note_hit_rect": "[P: (756.6642, 294.5897), S: (120.0, 120.0)]",
+            "active_note_visible_rect": "[P: (774.6642, 312.5897), S: (84.0, 84.0)]",
+            "blocked_sources": {},
+            "blocked_until_release": false,
+            "completed": false,
+            "daddy_path": "res://assets/characters/stickers/daddy.png",
+            "daddy_rect": "[P: (1052.0, 283.4), S: (172.0, 235.0)]",
+            "elapsed": 16.6676163333333,
+            "footlights_visible": true,
+            "has_timer": false,
+            "input_context_loss_reasons": [],
+            "input_context_lost": false,
+            "input_context_restore_guard": false,
+            "input_down": false,
+            "input_source": "",
+            "no_fail_state": true,
+            "note_colors": [
+              "(1.0, 0.24, 0.28, 1.0)",
+              "(1.0, 0.54, 0.18, 1.0)",
+              "(1.0, 0.86, 0.24, 1.0)",
+              "(0.3, 0.84, 0.42, 1.0)",
+              "(0.24, 0.68, 0.96, 1.0)",
+              "(0.39, 0.38, 0.88, 1.0)",
+              "(0.72, 0.4, 0.9, 1.0)"
+            ],
+            "pointer_rect": "[P: (784.6642, 322.5897), S: (64.0, 64.0)]",
+            "pointer_target_id": 5,
+            "proscenium_coverage": 0.4759321875,
+            "proscenium_geometry_nodes": [
+              "LeftCurtainGeometry",
+              "RightCurtainGeometry",
+              "CrownHeaderGeometry",
+              "StageApronGeometry"
+            ],
+            "proscenium_rect": "[P: (24.0, 18.0), S: (1232.0, 684.0)]",
+            "roshan_path": "res://assets/opera/worlds/actors/roshan_popstar.png",
+            "roshan_rect": "[P: (281.2, 338.4), S: (180.0, 180.0)]",
+            "spatial_descendants": 0,
+            "stage_star_visible": true,
+            "tick_count": 491,
+            "tile_paths": [
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png"
+            ],
+            "tile_source_rects": [
+              "[P: (0, 0), S: (1024, 1024)]",
+              "[P: (1024, 0), S: (1024, 1024)]",
+              "[P: (0, 1024), S: (1024, 1024)]",
+              "[P: (1024, 1024), S: (1024, 1024)]"
+            ],
+            "timing_zone_rect": "[P: (812.4, 280.8), S: (180.0, 180.0)]",
+            "touch_armed": false,
+            "viewport_size": "(1280.0, 720.0)"
+          },
+          "width": 1280
+        },
+        {
+          "height": 720,
+          "note": 6,
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native\\1280x720\\output/07_violet_active.png",
+          "pip_textures": [
+            {
+              "current": false,
+              "filled": true,
+              "index": 0,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_red_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 1,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_orange_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 2,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_yellow_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 3,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_green_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 4,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.301587, 0.301587)",
+              "texture": "res://assets/melody/progress_pip_filled_blue_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 5,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.301587, 0.301587)",
+              "texture": "res://assets/melody/progress_pip_filled_indigo_painted.png"
+            },
+            {
+              "current": true,
+              "filled": false,
+              "index": 6,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.368, 0.368)",
+              "texture": "res://assets/melody/progress_pip_current_violet_painted.png"
+            }
+          ],
+          "progress": 6,
+          "sha256": "c879223575fcaf8247b66e8d07794b90f3fb4b04994fcefeb9bc06a16d97d533",
+          "stage_snapshot": {
+            "active_note_color": "(0.72, 0.4, 0.9, 1.0)",
+            "active_note_hit_rect": "[P: (756.5203, 303.3802), S: (120.0, 120.0)]",
+            "active_note_visible_rect": "[P: (774.5203, 321.3802), S: (84.0, 84.0)]",
+            "blocked_sources": {},
+            "blocked_until_release": false,
+            "completed": false,
+            "daddy_path": "res://assets/characters/stickers/daddy.png",
+            "daddy_rect": "[P: (1052.0, 283.4), S: (172.0, 235.0)]",
+            "elapsed": 19.4645730000001,
+            "footlights_visible": true,
+            "has_timer": false,
+            "input_context_loss_reasons": [],
+            "input_context_lost": false,
+            "input_context_restore_guard": false,
+            "input_down": false,
+            "input_source": "",
+            "no_fail_state": true,
+            "note_colors": [
+              "(1.0, 0.24, 0.28, 1.0)",
+              "(1.0, 0.54, 0.18, 1.0)",
+              "(1.0, 0.86, 0.24, 1.0)",
+              "(0.3, 0.84, 0.42, 1.0)",
+              "(0.24, 0.68, 0.96, 1.0)",
+              "(0.39, 0.38, 0.88, 1.0)",
+              "(0.72, 0.4, 0.9, 1.0)"
+            ],
+            "pointer_rect": "[P: (784.5203, 331.3802), S: (64.0, 64.0)]",
+            "pointer_target_id": 6,
+            "proscenium_coverage": 0.4759321875,
+            "proscenium_geometry_nodes": [
+              "LeftCurtainGeometry",
+              "RightCurtainGeometry",
+              "CrownHeaderGeometry",
+              "StageApronGeometry"
+            ],
+            "proscenium_rect": "[P: (24.0, 18.0), S: (1232.0, 684.0)]",
+            "roshan_path": "res://assets/opera/worlds/actors/roshan_popstar.png",
+            "roshan_rect": "[P: (281.2, 338.4), S: (180.0, 180.0)]",
+            "spatial_descendants": 0,
+            "stage_star_visible": true,
+            "tick_count": 573,
+            "tile_paths": [
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png"
+            ],
+            "tile_source_rects": [
+              "[P: (0, 0), S: (1024, 1024)]",
+              "[P: (1024, 0), S: (1024, 1024)]",
+              "[P: (0, 1024), S: (1024, 1024)]",
+              "[P: (1024, 1024), S: (1024, 1024)]"
+            ],
+            "timing_zone_rect": "[P: (812.4, 280.8), S: (180.0, 180.0)]",
+            "touch_armed": false,
+            "viewport_size": "(1280.0, 720.0)"
+          },
+          "width": 1280
+        }
+      ],
+      "result_sha256": "35aa2aceb6cde4c122de1214f6fc558ec5a4a3df8fcc91adf9b6972eb6951661",
+      "source_directory": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native\\1280x720",
+      "retained_healthy": true,
+      "source_pin_sha256": "86a7a31f8d86dc4a55b683be2d2bac11231e8d34032031c591840162b6160eae"
+    },
+    {
+      "width": 1600,
+      "height": 720,
+      "checks": 64,
+      "frames": [
+        {
+          "height": 720,
+          "note": 0,
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native\\1600x720\\output/01_red_active.png",
+          "pip_textures": [
+            {
+              "current": true,
+              "filled": false,
+              "index": 0,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.370968, 0.370968)",
+              "texture": "res://assets/melody/progress_pip_current_red_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 1,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_orange_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 2,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_yellow_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 3,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_green_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 4,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_blue_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 5,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_indigo_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 6,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_violet_painted.png"
+            }
+          ],
+          "progress": 0,
+          "sha256": "a2c37f1366ac0849fc6b414822adbde1f19ee4eb76477ebb98df2ca31db19e5b",
+          "stage_snapshot": {
+            "active_note_color": "(1.0, 0.24, 0.28, 1.0)",
+            "active_note_hit_rect": "[P: (986.1777, 328.7493), S: (120.0, 120.0)]",
+            "active_note_visible_rect": "[P: (1004.178, 346.7493), S: (84.0, 84.0)]",
+            "blocked_sources": {},
+            "blocked_until_release": false,
+            "completed": false,
+            "daddy_path": "res://assets/characters/stickers/daddy.png",
+            "daddy_rect": "[P: (1366.0, 283.4), S: (172.0, 235.0)]",
+            "elapsed": 2.59992133333333,
+            "footlights_visible": true,
+            "has_timer": false,
+            "input_context_loss_reasons": [],
+            "input_context_lost": false,
+            "input_context_restore_guard": false,
+            "input_down": false,
+            "input_source": "",
+            "no_fail_state": true,
+            "note_colors": [
+              "(1.0, 0.24, 0.28, 1.0)",
+              "(1.0, 0.54, 0.18, 1.0)",
+              "(1.0, 0.86, 0.24, 1.0)",
+              "(0.3, 0.84, 0.42, 1.0)",
+              "(0.24, 0.68, 0.96, 1.0)",
+              "(0.39, 0.38, 0.88, 1.0)",
+              "(0.72, 0.4, 0.9, 1.0)"
+            ],
+            "pointer_rect": "[P: (1014.178, 356.7493), S: (64.0, 64.0)]",
+            "pointer_target_id": 0,
+            "proscenium_coverage": 0.47511875,
+            "proscenium_geometry_nodes": [
+              "LeftCurtainGeometry",
+              "RightCurtainGeometry",
+              "CrownHeaderGeometry",
+              "StageApronGeometry"
+            ],
+            "proscenium_rect": "[P: (30.0, 18.0), S: (1540.0, 684.0)]",
+            "roshan_path": "res://assets/opera/worlds/actors/roshan_popstar.png",
+            "roshan_rect": "[P: (374.0, 338.4), S: (180.0, 180.0)]",
+            "spatial_descendants": 0,
+            "stage_star_visible": true,
+            "tick_count": 78,
+            "tile_paths": [
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png"
+            ],
+            "tile_source_rects": [
+              "[P: (0, 0), S: (1024, 1024)]",
+              "[P: (1024, 0), S: (1024, 1024)]",
+              "[P: (0, 1024), S: (1024, 1024)]",
+              "[P: (1024, 1024), S: (1024, 1024)]"
+            ],
+            "timing_zone_rect": "[P: (1038.0, 280.8), S: (180.0, 180.0)]",
+            "touch_armed": false,
+            "viewport_size": "(1600.0, 720.0)"
+          },
+          "width": 1600
+        },
+        {
+          "height": 720,
+          "note": 1,
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native\\1600x720\\output/02_orange_active.png",
+          "pip_textures": [
+            {
+              "current": false,
+              "filled": true,
+              "index": 0,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_red_painted.png"
+            },
+            {
+              "current": true,
+              "filled": false,
+              "index": 1,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.368, 0.368)",
+              "texture": "res://assets/melody/progress_pip_current_orange_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 2,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_yellow_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 3,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_green_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 4,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_blue_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 5,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_indigo_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 6,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_violet_painted.png"
+            }
+          ],
+          "progress": 1,
+          "sha256": "31eaa3d10dce74d3ba6376adef3ff6a207bcf4b63116098dedd3ad55df835703",
+          "stage_snapshot": {
+            "active_note_color": "(1.0, 0.54, 0.18, 1.0)",
+            "active_note_hit_rect": "[P: (983.4729, 325.9042), S: (120.0, 120.0)]",
+            "active_note_visible_rect": "[P: (1001.473, 343.9042), S: (84.0, 84.0)]",
+            "blocked_sources": {},
+            "blocked_until_release": false,
+            "completed": false,
+            "daddy_path": "res://assets/characters/stickers/daddy.png",
+            "daddy_rect": "[P: (1366.0, 283.4), S: (172.0, 235.0)]",
+            "elapsed": 5.32700299999999,
+            "footlights_visible": true,
+            "has_timer": false,
+            "input_context_loss_reasons": [],
+            "input_context_lost": false,
+            "input_context_restore_guard": false,
+            "input_down": false,
+            "input_source": "",
+            "no_fail_state": true,
+            "note_colors": [
+              "(1.0, 0.24, 0.28, 1.0)",
+              "(1.0, 0.54, 0.18, 1.0)",
+              "(1.0, 0.86, 0.24, 1.0)",
+              "(0.3, 0.84, 0.42, 1.0)",
+              "(0.24, 0.68, 0.96, 1.0)",
+              "(0.39, 0.38, 0.88, 1.0)",
+              "(0.72, 0.4, 0.9, 1.0)"
+            ],
+            "pointer_rect": "[P: (1011.473, 353.9042), S: (64.0, 64.0)]",
+            "pointer_target_id": 1,
+            "proscenium_coverage": 0.47511875,
+            "proscenium_geometry_nodes": [
+              "LeftCurtainGeometry",
+              "RightCurtainGeometry",
+              "CrownHeaderGeometry",
+              "StageApronGeometry"
+            ],
+            "proscenium_rect": "[P: (30.0, 18.0), S: (1540.0, 684.0)]",
+            "roshan_path": "res://assets/opera/worlds/actors/roshan_popstar.png",
+            "roshan_rect": "[P: (374.0, 338.4), S: (180.0, 180.0)]",
+            "spatial_descendants": 0,
+            "stage_star_visible": true,
+            "tick_count": 158,
+            "tile_paths": [
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png"
+            ],
+            "tile_source_rects": [
+              "[P: (0, 0), S: (1024, 1024)]",
+              "[P: (1024, 0), S: (1024, 1024)]",
+              "[P: (0, 1024), S: (1024, 1024)]",
+              "[P: (1024, 1024), S: (1024, 1024)]"
+            ],
+            "timing_zone_rect": "[P: (1038.0, 280.8), S: (180.0, 180.0)]",
+            "touch_armed": false,
+            "viewport_size": "(1600.0, 720.0)"
+          },
+          "width": 1600
+        },
+        {
+          "height": 720,
+          "note": 2,
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native\\1600x720\\output/03_yellow_active.png",
+          "pip_textures": [
+            {
+              "current": false,
+              "filled": true,
+              "index": 0,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_red_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 1,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_orange_painted.png"
+            },
+            {
+              "current": true,
+              "filled": false,
+              "index": 2,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.368, 0.368)",
+              "texture": "res://assets/melody/progress_pip_current_yellow_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 3,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_green_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 4,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_blue_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 5,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_indigo_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 6,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_violet_painted.png"
+            }
+          ],
+          "progress": 2,
+          "sha256": "a7cd77e1e59134f3f9663326cca5e087971371062881c3459850778d426c39c6",
+          "stage_snapshot": {
+            "active_note_color": "(1.0, 0.86, 0.24, 1.0)",
+            "active_note_hit_rect": "[P: (984.5269, 315.7095), S: (120.0, 120.0)]",
+            "active_note_visible_rect": "[P: (1002.527, 333.7095), S: (84.0, 84.0)]",
+            "blocked_sources": {},
+            "blocked_until_release": false,
+            "completed": false,
+            "daddy_path": "res://assets/characters/stickers/daddy.png",
+            "daddy_rect": "[P: (1366.0, 283.4), S: (172.0, 235.0)]",
+            "elapsed": 8.05268599999999,
+            "footlights_visible": true,
+            "has_timer": false,
+            "input_context_loss_reasons": [],
+            "input_context_lost": false,
+            "input_context_restore_guard": false,
+            "input_down": false,
+            "input_source": "",
+            "no_fail_state": true,
+            "note_colors": [
+              "(1.0, 0.24, 0.28, 1.0)",
+              "(1.0, 0.54, 0.18, 1.0)",
+              "(1.0, 0.86, 0.24, 1.0)",
+              "(0.3, 0.84, 0.42, 1.0)",
+              "(0.24, 0.68, 0.96, 1.0)",
+              "(0.39, 0.38, 0.88, 1.0)",
+              "(0.72, 0.4, 0.9, 1.0)"
+            ],
+            "pointer_rect": "[P: (1012.527, 343.7095), S: (64.0, 64.0)]",
+            "pointer_target_id": 2,
+            "proscenium_coverage": 0.47511875,
+            "proscenium_geometry_nodes": [
+              "LeftCurtainGeometry",
+              "RightCurtainGeometry",
+              "CrownHeaderGeometry",
+              "StageApronGeometry"
+            ],
+            "proscenium_rect": "[P: (30.0, 18.0), S: (1540.0, 684.0)]",
+            "roshan_path": "res://assets/opera/worlds/actors/roshan_popstar.png",
+            "roshan_rect": "[P: (374.0, 338.4), S: (180.0, 180.0)]",
+            "spatial_descendants": 0,
+            "stage_star_visible": true,
+            "tick_count": 238,
+            "tile_paths": [
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png"
+            ],
+            "tile_source_rects": [
+              "[P: (0, 0), S: (1024, 1024)]",
+              "[P: (1024, 0), S: (1024, 1024)]",
+              "[P: (0, 1024), S: (1024, 1024)]",
+              "[P: (1024, 1024), S: (1024, 1024)]"
+            ],
+            "timing_zone_rect": "[P: (1038.0, 280.8), S: (180.0, 180.0)]",
+            "touch_armed": false,
+            "viewport_size": "(1600.0, 720.0)"
+          },
+          "width": 1600
+        },
+        {
+          "height": 720,
+          "note": 3,
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native\\1600x720\\output/04_green_active.png",
+          "pip_textures": [
+            {
+              "current": false,
+              "filled": true,
+              "index": 0,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_red_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 1,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_orange_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 2,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_yellow_painted.png"
+            },
+            {
+              "current": true,
+              "filled": false,
+              "index": 3,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.368, 0.368)",
+              "texture": "res://assets/melody/progress_pip_current_green_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 4,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_blue_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 5,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_indigo_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 6,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_violet_painted.png"
+            }
+          ],
+          "progress": 3,
+          "sha256": "0183e902c75bb3a2498850e3d457f5c44025314387e0cf719b4b4029c95f3719",
+          "stage_snapshot": {
+            "active_note_color": "(0.3, 0.84, 0.42, 1.0)",
+            "active_note_hit_rect": "[P: (985.6849, 303.0503), S: (120.0, 120.0)]",
+            "active_note_visible_rect": "[P: (1003.685, 321.0503), S: (84.0, 84.0)]",
+            "blocked_sources": {},
+            "blocked_until_release": false,
+            "completed": false,
+            "daddy_path": "res://assets/characters/stickers/daddy.png",
+            "daddy_rect": "[P: (1366.0, 283.4), S: (172.0, 235.0)]",
+            "elapsed": 10.796094,
+            "footlights_visible": true,
+            "has_timer": false,
+            "input_context_loss_reasons": [],
+            "input_context_lost": false,
+            "input_context_restore_guard": false,
+            "input_down": false,
+            "input_source": "",
+            "no_fail_state": true,
+            "note_colors": [
+              "(1.0, 0.24, 0.28, 1.0)",
+              "(1.0, 0.54, 0.18, 1.0)",
+              "(1.0, 0.86, 0.24, 1.0)",
+              "(0.3, 0.84, 0.42, 1.0)",
+              "(0.24, 0.68, 0.96, 1.0)",
+              "(0.39, 0.38, 0.88, 1.0)",
+              "(0.72, 0.4, 0.9, 1.0)"
+            ],
+            "pointer_rect": "[P: (1013.685, 331.0503), S: (64.0, 64.0)]",
+            "pointer_target_id": 3,
+            "proscenium_coverage": 0.47511875,
+            "proscenium_geometry_nodes": [
+              "LeftCurtainGeometry",
+              "RightCurtainGeometry",
+              "CrownHeaderGeometry",
+              "StageApronGeometry"
+            ],
+            "proscenium_rect": "[P: (30.0, 18.0), S: (1540.0, 684.0)]",
+            "roshan_path": "res://assets/opera/worlds/actors/roshan_popstar.png",
+            "roshan_rect": "[P: (374.0, 338.4), S: (180.0, 180.0)]",
+            "spatial_descendants": 0,
+            "stage_star_visible": true,
+            "tick_count": 318,
+            "tile_paths": [
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png"
+            ],
+            "tile_source_rects": [
+              "[P: (0, 0), S: (1024, 1024)]",
+              "[P: (1024, 0), S: (1024, 1024)]",
+              "[P: (0, 1024), S: (1024, 1024)]",
+              "[P: (1024, 1024), S: (1024, 1024)]"
+            ],
+            "timing_zone_rect": "[P: (1038.0, 280.8), S: (180.0, 180.0)]",
+            "touch_armed": false,
+            "viewport_size": "(1600.0, 720.0)"
+          },
+          "width": 1600
+        },
+        {
+          "height": 720,
+          "note": 4,
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native\\1600x720\\output/05_blue_active.png",
+          "pip_textures": [
+            {
+              "current": false,
+              "filled": true,
+              "index": 0,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_red_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 1,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_orange_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 2,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_yellow_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 3,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_green_painted.png"
+            },
+            {
+              "current": true,
+              "filled": false,
+              "index": 4,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.368, 0.368)",
+              "texture": "res://assets/melody/progress_pip_current_blue_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 5,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_indigo_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 6,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_violet_painted.png"
+            }
+          ],
+          "progress": 4,
+          "sha256": "387acfd053895fb63105a2e573c3616100e699a50b9e7238bb90b10ecc11102a",
+          "stage_snapshot": {
+            "active_note_color": "(0.24, 0.68, 0.96, 1.0)",
+            "active_note_hit_rect": "[P: (985.6892, 294.406), S: (120.0, 120.0)]",
+            "active_note_visible_rect": "[P: (1003.689, 312.406), S: (84.0, 84.0)]",
+            "blocked_sources": {},
+            "blocked_until_release": false,
+            "completed": false,
+            "daddy_path": "res://assets/characters/stickers/daddy.png",
+            "daddy_rect": "[P: (1366.0, 283.4), S: (172.0, 235.0)]",
+            "elapsed": 13.5466176666667,
+            "footlights_visible": true,
+            "has_timer": false,
+            "input_context_loss_reasons": [],
+            "input_context_lost": false,
+            "input_context_restore_guard": false,
+            "input_down": false,
+            "input_source": "",
+            "no_fail_state": true,
+            "note_colors": [
+              "(1.0, 0.24, 0.28, 1.0)",
+              "(1.0, 0.54, 0.18, 1.0)",
+              "(1.0, 0.86, 0.24, 1.0)",
+              "(0.3, 0.84, 0.42, 1.0)",
+              "(0.24, 0.68, 0.96, 1.0)",
+              "(0.39, 0.38, 0.88, 1.0)",
+              "(0.72, 0.4, 0.9, 1.0)"
+            ],
+            "pointer_rect": "[P: (1013.689, 322.406), S: (64.0, 64.0)]",
+            "pointer_target_id": 4,
+            "proscenium_coverage": 0.47511875,
+            "proscenium_geometry_nodes": [
+              "LeftCurtainGeometry",
+              "RightCurtainGeometry",
+              "CrownHeaderGeometry",
+              "StageApronGeometry"
+            ],
+            "proscenium_rect": "[P: (30.0, 18.0), S: (1540.0, 684.0)]",
+            "roshan_path": "res://assets/opera/worlds/actors/roshan_popstar.png",
+            "roshan_rect": "[P: (374.0, 338.4), S: (180.0, 180.0)]",
+            "spatial_descendants": 0,
+            "stage_star_visible": true,
+            "tick_count": 398,
+            "tile_paths": [
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png"
+            ],
+            "tile_source_rects": [
+              "[P: (0, 0), S: (1024, 1024)]",
+              "[P: (1024, 0), S: (1024, 1024)]",
+              "[P: (0, 1024), S: (1024, 1024)]",
+              "[P: (1024, 1024), S: (1024, 1024)]"
+            ],
+            "timing_zone_rect": "[P: (1038.0, 280.8), S: (180.0, 180.0)]",
+            "touch_armed": false,
+            "viewport_size": "(1600.0, 720.0)"
+          },
+          "width": 1600
+        },
+        {
+          "height": 720,
+          "note": 5,
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native\\1600x720\\output/06_indigo_active.png",
+          "pip_textures": [
+            {
+              "current": false,
+              "filled": true,
+              "index": 0,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_red_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 1,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_orange_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 2,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_yellow_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 3,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_green_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 4,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.301587, 0.301587)",
+              "texture": "res://assets/melody/progress_pip_filled_blue_painted.png"
+            },
+            {
+              "current": true,
+              "filled": false,
+              "index": 5,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.368, 0.368)",
+              "texture": "res://assets/melody/progress_pip_current_indigo_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 6,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_violet_painted.png"
+            }
+          ],
+          "progress": 5,
+          "sha256": "702b17b4bd7848293f628751f7e288bd30f92ac5be7b25928f5c3c60a6a9996b",
+          "stage_snapshot": {
+            "active_note_color": "(0.39, 0.38, 0.88, 1.0)",
+            "active_note_hit_rect": "[P: (983.6194, 293.2999), S: (120.0, 120.0)]",
+            "active_note_visible_rect": "[P: (1001.619, 311.2999), S: (84.0, 84.0)]",
+            "blocked_sources": {},
+            "blocked_until_release": false,
+            "completed": false,
+            "daddy_path": "res://assets/characters/stickers/daddy.png",
+            "daddy_rect": "[P: (1366.0, 283.4), S: (172.0, 235.0)]",
+            "elapsed": 16.2779043333333,
+            "footlights_visible": true,
+            "has_timer": false,
+            "input_context_loss_reasons": [],
+            "input_context_lost": false,
+            "input_context_restore_guard": false,
+            "input_down": false,
+            "input_source": "",
+            "no_fail_state": true,
+            "note_colors": [
+              "(1.0, 0.24, 0.28, 1.0)",
+              "(1.0, 0.54, 0.18, 1.0)",
+              "(1.0, 0.86, 0.24, 1.0)",
+              "(0.3, 0.84, 0.42, 1.0)",
+              "(0.24, 0.68, 0.96, 1.0)",
+              "(0.39, 0.38, 0.88, 1.0)",
+              "(0.72, 0.4, 0.9, 1.0)"
+            ],
+            "pointer_rect": "[P: (1011.619, 321.2999), S: (64.0, 64.0)]",
+            "pointer_target_id": 5,
+            "proscenium_coverage": 0.47511875,
+            "proscenium_geometry_nodes": [
+              "LeftCurtainGeometry",
+              "RightCurtainGeometry",
+              "CrownHeaderGeometry",
+              "StageApronGeometry"
+            ],
+            "proscenium_rect": "[P: (30.0, 18.0), S: (1540.0, 684.0)]",
+            "roshan_path": "res://assets/opera/worlds/actors/roshan_popstar.png",
+            "roshan_rect": "[P: (374.0, 338.4), S: (180.0, 180.0)]",
+            "spatial_descendants": 0,
+            "stage_star_visible": true,
+            "tick_count": 478,
+            "tile_paths": [
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png"
+            ],
+            "tile_source_rects": [
+              "[P: (0, 0), S: (1024, 1024)]",
+              "[P: (1024, 0), S: (1024, 1024)]",
+              "[P: (0, 1024), S: (1024, 1024)]",
+              "[P: (1024, 1024), S: (1024, 1024)]"
+            ],
+            "timing_zone_rect": "[P: (1038.0, 280.8), S: (180.0, 180.0)]",
+            "touch_armed": false,
+            "viewport_size": "(1600.0, 720.0)"
+          },
+          "width": 1600
+        },
+        {
+          "height": 720,
+          "note": 6,
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native\\1600x720\\output/07_violet_active.png",
+          "pip_textures": [
+            {
+              "current": false,
+              "filled": true,
+              "index": 0,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_red_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 1,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_orange_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 2,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_yellow_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 3,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_green_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 4,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.301587, 0.301587)",
+              "texture": "res://assets/melody/progress_pip_filled_blue_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 5,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.301587, 0.301587)",
+              "texture": "res://assets/melody/progress_pip_filled_indigo_painted.png"
+            },
+            {
+              "current": true,
+              "filled": false,
+              "index": 6,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.368, 0.368)",
+              "texture": "res://assets/melody/progress_pip_current_violet_painted.png"
+            }
+          ],
+          "progress": 6,
+          "sha256": "d3d02748ebc78d00ee21f8324f35ebef5a336a212014c6235d316992a38d78e9",
+          "stage_snapshot": {
+            "active_note_color": "(0.72, 0.4, 0.9, 1.0)",
+            "active_note_hit_rect": "[P: (984.0226, 300.2371), S: (120.0, 120.0)]",
+            "active_note_visible_rect": "[P: (1002.023, 318.2371), S: (84.0, 84.0)]",
+            "blocked_sources": {},
+            "blocked_until_release": false,
+            "completed": false,
+            "daddy_path": "res://assets/characters/stickers/daddy.png",
+            "daddy_rect": "[P: (1366.0, 283.4), S: (172.0, 235.0)]",
+            "elapsed": 19.0137210000001,
+            "footlights_visible": true,
+            "has_timer": false,
+            "input_context_loss_reasons": [],
+            "input_context_lost": false,
+            "input_context_restore_guard": false,
+            "input_down": false,
+            "input_source": "",
+            "no_fail_state": true,
+            "note_colors": [
+              "(1.0, 0.24, 0.28, 1.0)",
+              "(1.0, 0.54, 0.18, 1.0)",
+              "(1.0, 0.86, 0.24, 1.0)",
+              "(0.3, 0.84, 0.42, 1.0)",
+              "(0.24, 0.68, 0.96, 1.0)",
+              "(0.39, 0.38, 0.88, 1.0)",
+              "(0.72, 0.4, 0.9, 1.0)"
+            ],
+            "pointer_rect": "[P: (1012.023, 328.2371), S: (64.0, 64.0)]",
+            "pointer_target_id": 6,
+            "proscenium_coverage": 0.47511875,
+            "proscenium_geometry_nodes": [
+              "LeftCurtainGeometry",
+              "RightCurtainGeometry",
+              "CrownHeaderGeometry",
+              "StageApronGeometry"
+            ],
+            "proscenium_rect": "[P: (30.0, 18.0), S: (1540.0, 684.0)]",
+            "roshan_path": "res://assets/opera/worlds/actors/roshan_popstar.png",
+            "roshan_rect": "[P: (374.0, 338.4), S: (180.0, 180.0)]",
+            "spatial_descendants": 0,
+            "stage_star_visible": true,
+            "tick_count": 558,
+            "tile_paths": [
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png"
+            ],
+            "tile_source_rects": [
+              "[P: (0, 0), S: (1024, 1024)]",
+              "[P: (1024, 0), S: (1024, 1024)]",
+              "[P: (0, 1024), S: (1024, 1024)]",
+              "[P: (1024, 1024), S: (1024, 1024)]"
+            ],
+            "timing_zone_rect": "[P: (1038.0, 280.8), S: (180.0, 180.0)]",
+            "touch_armed": false,
+            "viewport_size": "(1600.0, 720.0)"
+          },
+          "width": 1600
+        }
+      ],
+      "result_sha256": "898e96950c8ca596eff9e5ac89efa151991da424edeb54b126fbde6b8fda4410",
+      "source_directory": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native\\1600x720",
+      "retained_healthy": true,
+      "source_pin_sha256": "86a7a31f8d86dc4a55b683be2d2bac11231e8d34032031c591840162b6160eae"
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "checks": 64,
+      "frames": [
+        {
+          "height": 800,
+          "note": 0,
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native_recovery\\1280x800\\output/01_red_active.png",
+          "pip_textures": [
+            {
+              "current": true,
+              "filled": false,
+              "index": 0,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.370968, 0.370968)",
+              "texture": "res://assets/melody/progress_pip_current_red_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 1,
+              "logical_size": "(47.99997, 48.0)",
+              "pivot": "(23.99998, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_orange_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 2,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_yellow_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 3,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_green_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 4,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_blue_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 5,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_indigo_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 6,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_violet_painted.png"
+            }
+          ],
+          "progress": 0,
+          "sha256": "3770f41f51633b76014be0caf4181c5cc240c51086ed0a3add7f378dcaa33626",
+          "stage_snapshot": {
+            "active_note_color": "(1.0, 0.24, 0.28, 1.0)",
+            "active_note_hit_rect": "[P: (754.2365, 369.0631), S: (120.0, 120.0)]",
+            "active_note_visible_rect": "[P: (772.2365, 387.0631), S: (84.0, 84.0)]",
+            "blocked_sources": {},
+            "blocked_until_release": false,
+            "completed": false,
+            "daddy_path": "res://assets/characters/stickers/daddy.png",
+            "daddy_rect": "[P: (1029.333, 268.8889), S: (191.1111, 261.1111)]",
+            "elapsed": 2.733308,
+            "footlights_visible": true,
+            "has_timer": false,
+            "input_context_loss_reasons": [],
+            "input_context_lost": false,
+            "input_context_restore_guard": false,
+            "input_down": false,
+            "input_source": "",
+            "no_fail_state": true,
+            "note_colors": [
+              "(1.0, 0.24, 0.28, 1.0)",
+              "(1.0, 0.54, 0.18, 1.0)",
+              "(1.0, 0.86, 0.24, 1.0)",
+              "(0.3, 0.84, 0.42, 1.0)",
+              "(0.24, 0.68, 0.96, 1.0)",
+              "(0.39, 0.38, 0.88, 1.0)",
+              "(0.72, 0.4, 0.9, 1.0)"
+            ],
+            "pointer_rect": "[P: (782.2365, 397.0631), S: (64.0, 64.0)]",
+            "pointer_target_id": 0,
+            "proscenium_coverage": 0.464646875,
+            "proscenium_geometry_nodes": [
+              "LeftCurtainGeometry",
+              "RightCurtainGeometry",
+              "CrownHeaderGeometry",
+              "StageApronGeometry"
+            ],
+            "proscenium_rect": "[P: (24.0, 20.0), S: (1232.0, 760.0)]",
+            "roshan_path": "res://assets/opera/worlds/actors/roshan_popstar.png",
+            "roshan_rect": "[P: (271.2, 330.0), S: (200.0, 200.0)]",
+            "spatial_descendants": 0,
+            "stage_star_visible": true,
+            "tick_count": 82,
+            "tile_paths": [
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png"
+            ],
+            "tile_source_rects": [
+              "[P: (0, 0), S: (1024, 1024)]",
+              "[P: (1024, 0), S: (1024, 1024)]",
+              "[P: (0, 1024), S: (1024, 1024)]",
+              "[P: (1024, 1024), S: (1024, 1024)]"
+            ],
+            "timing_zone_rect": "[P: (807.4, 317.0), S: (190.0, 190.0)]",
+            "touch_armed": false,
+            "viewport_size": "(1280.0, 800.0)"
+          },
+          "width": 1280
+        },
+        {
+          "height": 800,
+          "note": 1,
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native_recovery\\1280x800\\output/02_orange_active.png",
+          "pip_textures": [
+            {
+              "current": false,
+              "filled": true,
+              "index": 0,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_red_painted.png"
+            },
+            {
+              "current": true,
+              "filled": false,
+              "index": 1,
+              "logical_size": "(47.99997, 48.0)",
+              "pivot": "(23.99998, 24.0)",
+              "scale": "(0.368, 0.368)",
+              "texture": "res://assets/melody/progress_pip_current_orange_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 2,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_yellow_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 3,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_green_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 4,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_blue_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 5,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_indigo_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 6,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_violet_painted.png"
+            }
+          ],
+          "progress": 1,
+          "sha256": "024cf3d33bb240e46927a43f0cfa910491f73c02e99d9225f6a50bc8d33f1a97",
+          "stage_snapshot": {
+            "active_note_color": "(1.0, 0.54, 0.18, 1.0)",
+            "active_note_hit_rect": "[P: (753.1177, 361.8402), S: (120.0, 120.0)]",
+            "active_note_visible_rect": "[P: (771.1177, 379.8402), S: (84.0, 84.0)]",
+            "blocked_sources": {},
+            "blocked_until_release": false,
+            "completed": false,
+            "daddy_path": "res://assets/characters/stickers/daddy.png",
+            "daddy_rect": "[P: (1029.333, 268.8889), S: (191.1111, 261.1111)]",
+            "elapsed": 5.60012999999999,
+            "footlights_visible": true,
+            "has_timer": false,
+            "input_context_loss_reasons": [],
+            "input_context_lost": false,
+            "input_context_restore_guard": false,
+            "input_down": false,
+            "input_source": "",
+            "no_fail_state": true,
+            "note_colors": [
+              "(1.0, 0.24, 0.28, 1.0)",
+              "(1.0, 0.54, 0.18, 1.0)",
+              "(1.0, 0.86, 0.24, 1.0)",
+              "(0.3, 0.84, 0.42, 1.0)",
+              "(0.24, 0.68, 0.96, 1.0)",
+              "(0.39, 0.38, 0.88, 1.0)",
+              "(0.72, 0.4, 0.9, 1.0)"
+            ],
+            "pointer_rect": "[P: (781.1177, 389.8402), S: (64.0, 64.0)]",
+            "pointer_target_id": 1,
+            "proscenium_coverage": 0.464646875,
+            "proscenium_geometry_nodes": [
+              "LeftCurtainGeometry",
+              "RightCurtainGeometry",
+              "CrownHeaderGeometry",
+              "StageApronGeometry"
+            ],
+            "proscenium_rect": "[P: (24.0, 20.0), S: (1232.0, 760.0)]",
+            "roshan_path": "res://assets/opera/worlds/actors/roshan_popstar.png",
+            "roshan_rect": "[P: (271.2, 330.0), S: (200.0, 200.0)]",
+            "spatial_descendants": 0,
+            "stage_star_visible": true,
+            "tick_count": 166,
+            "tile_paths": [
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png"
+            ],
+            "tile_source_rects": [
+              "[P: (0, 0), S: (1024, 1024)]",
+              "[P: (1024, 0), S: (1024, 1024)]",
+              "[P: (0, 1024), S: (1024, 1024)]",
+              "[P: (1024, 1024), S: (1024, 1024)]"
+            ],
+            "timing_zone_rect": "[P: (807.4, 317.0), S: (190.0, 190.0)]",
+            "touch_armed": false,
+            "viewport_size": "(1280.0, 800.0)"
+          },
+          "width": 1280
+        },
+        {
+          "height": 800,
+          "note": 2,
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native_recovery\\1280x800\\output/03_yellow_active.png",
+          "pip_textures": [
+            {
+              "current": false,
+              "filled": true,
+              "index": 0,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_red_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 1,
+              "logical_size": "(47.99997, 48.0)",
+              "pivot": "(23.99998, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_orange_painted.png"
+            },
+            {
+              "current": true,
+              "filled": false,
+              "index": 2,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.368, 0.368)",
+              "texture": "res://assets/melody/progress_pip_current_yellow_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 3,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_green_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 4,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_blue_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 5,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_indigo_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 6,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_violet_painted.png"
+            }
+          ],
+          "progress": 2,
+          "sha256": "1d45855e24d22bd62a5d38e1f7237b6b8b9d8328fc95d78144ae3d70e75b3ab7",
+          "stage_snapshot": {
+            "active_note_color": "(1.0, 0.86, 0.24, 1.0)",
+            "active_note_hit_rect": "[P: (752.7172, 350.0191), S: (120.0, 120.0)]",
+            "active_note_visible_rect": "[P: (770.7172, 368.0191), S: (84.0, 84.0)]",
+            "blocked_sources": {},
+            "blocked_until_release": false,
+            "completed": false,
+            "daddy_path": "res://assets/characters/stickers/daddy.png",
+            "daddy_rect": "[P: (1029.333, 268.8889), S: (191.1111, 261.1111)]",
+            "elapsed": 8.46093766666665,
+            "footlights_visible": true,
+            "has_timer": false,
+            "input_context_loss_reasons": [],
+            "input_context_lost": false,
+            "input_context_restore_guard": false,
+            "input_down": false,
+            "input_source": "",
+            "no_fail_state": true,
+            "note_colors": [
+              "(1.0, 0.24, 0.28, 1.0)",
+              "(1.0, 0.54, 0.18, 1.0)",
+              "(1.0, 0.86, 0.24, 1.0)",
+              "(0.3, 0.84, 0.42, 1.0)",
+              "(0.24, 0.68, 0.96, 1.0)",
+              "(0.39, 0.38, 0.88, 1.0)",
+              "(0.72, 0.4, 0.9, 1.0)"
+            ],
+            "pointer_rect": "[P: (780.7172, 378.0191), S: (64.0, 64.0)]",
+            "pointer_target_id": 2,
+            "proscenium_coverage": 0.464646875,
+            "proscenium_geometry_nodes": [
+              "LeftCurtainGeometry",
+              "RightCurtainGeometry",
+              "CrownHeaderGeometry",
+              "StageApronGeometry"
+            ],
+            "proscenium_rect": "[P: (24.0, 20.0), S: (1232.0, 760.0)]",
+            "roshan_path": "res://assets/opera/worlds/actors/roshan_popstar.png",
+            "roshan_rect": "[P: (271.2, 330.0), S: (200.0, 200.0)]",
+            "spatial_descendants": 0,
+            "stage_star_visible": true,
+            "tick_count": 250,
+            "tile_paths": [
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png"
+            ],
+            "tile_source_rects": [
+              "[P: (0, 0), S: (1024, 1024)]",
+              "[P: (1024, 0), S: (1024, 1024)]",
+              "[P: (0, 1024), S: (1024, 1024)]",
+              "[P: (1024, 1024), S: (1024, 1024)]"
+            ],
+            "timing_zone_rect": "[P: (807.4, 317.0), S: (190.0, 190.0)]",
+            "touch_armed": false,
+            "viewport_size": "(1280.0, 800.0)"
+          },
+          "width": 1280
+        },
+        {
+          "height": 800,
+          "note": 3,
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native_recovery\\1280x800\\output/04_green_active.png",
+          "pip_textures": [
+            {
+              "current": false,
+              "filled": true,
+              "index": 0,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_red_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 1,
+              "logical_size": "(47.99997, 48.0)",
+              "pivot": "(23.99998, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_orange_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 2,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_yellow_painted.png"
+            },
+            {
+              "current": true,
+              "filled": false,
+              "index": 3,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.368, 0.368)",
+              "texture": "res://assets/melody/progress_pip_current_green_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 4,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_blue_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 5,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_indigo_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 6,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_violet_painted.png"
+            }
+          ],
+          "progress": 3,
+          "sha256": "14b2fcaf933cb86cf613f7c5207a164bf47851d6cf7d31bfe29183134e03b2ab",
+          "stage_snapshot": {
+            "active_note_color": "(0.3, 0.84, 0.42, 1.0)",
+            "active_note_hit_rect": "[P: (753.9752, 338.5262), S: (120.0, 120.0)]",
+            "active_note_visible_rect": "[P: (771.9752, 356.5262), S: (84.0, 84.0)]",
+            "blocked_sources": {},
+            "blocked_until_release": false,
+            "completed": false,
+            "daddy_path": "res://assets/characters/stickers/daddy.png",
+            "daddy_rect": "[P: (1029.333, 268.8889), S: (191.1111, 261.1111)]",
+            "elapsed": 11.3470723333333,
+            "footlights_visible": true,
+            "has_timer": false,
+            "input_context_loss_reasons": [],
+            "input_context_lost": false,
+            "input_context_restore_guard": false,
+            "input_down": false,
+            "input_source": "",
+            "no_fail_state": true,
+            "note_colors": [
+              "(1.0, 0.24, 0.28, 1.0)",
+              "(1.0, 0.54, 0.18, 1.0)",
+              "(1.0, 0.86, 0.24, 1.0)",
+              "(0.3, 0.84, 0.42, 1.0)",
+              "(0.24, 0.68, 0.96, 1.0)",
+              "(0.39, 0.38, 0.88, 1.0)",
+              "(0.72, 0.4, 0.9, 1.0)"
+            ],
+            "pointer_rect": "[P: (781.9752, 366.5262), S: (64.0, 64.0)]",
+            "pointer_target_id": 3,
+            "proscenium_coverage": 0.464646875,
+            "proscenium_geometry_nodes": [
+              "LeftCurtainGeometry",
+              "RightCurtainGeometry",
+              "CrownHeaderGeometry",
+              "StageApronGeometry"
+            ],
+            "proscenium_rect": "[P: (24.0, 20.0), S: (1232.0, 760.0)]",
+            "roshan_path": "res://assets/opera/worlds/actors/roshan_popstar.png",
+            "roshan_rect": "[P: (271.2, 330.0), S: (200.0, 200.0)]",
+            "spatial_descendants": 0,
+            "stage_star_visible": true,
+            "tick_count": 334,
+            "tile_paths": [
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png"
+            ],
+            "tile_source_rects": [
+              "[P: (0, 0), S: (1024, 1024)]",
+              "[P: (1024, 0), S: (1024, 1024)]",
+              "[P: (0, 1024), S: (1024, 1024)]",
+              "[P: (1024, 1024), S: (1024, 1024)]"
+            ],
+            "timing_zone_rect": "[P: (807.4, 317.0), S: (190.0, 190.0)]",
+            "touch_armed": false,
+            "viewport_size": "(1280.0, 800.0)"
+          },
+          "width": 1280
+        },
+        {
+          "height": 800,
+          "note": 4,
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native_recovery\\1280x800\\output/05_blue_active.png",
+          "pip_textures": [
+            {
+              "current": false,
+              "filled": true,
+              "index": 0,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_red_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 1,
+              "logical_size": "(47.99997, 48.0)",
+              "pivot": "(23.99998, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_orange_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 2,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_yellow_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 3,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_green_painted.png"
+            },
+            {
+              "current": true,
+              "filled": false,
+              "index": 4,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.368, 0.368)",
+              "texture": "res://assets/melody/progress_pip_current_blue_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 5,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_indigo_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 6,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_violet_painted.png"
+            }
+          ],
+          "progress": 4,
+          "sha256": "75d34015f51cf41ada9b4170889f33c105b936ec38376a39c1d71fac64e4578e",
+          "stage_snapshot": {
+            "active_note_color": "(0.24, 0.68, 0.96, 1.0)",
+            "active_note_hit_rect": "[P: (753.959, 334.0058), S: (120.0, 120.0)]",
+            "active_note_visible_rect": "[P: (771.959, 352.0058), S: (84.0, 84.0)]",
+            "blocked_sources": {},
+            "blocked_until_release": false,
+            "completed": false,
+            "daddy_path": "res://assets/characters/stickers/daddy.png",
+            "daddy_rect": "[P: (1029.333, 268.8889), S: (191.1111, 261.1111)]",
+            "elapsed": 14.227064,
+            "footlights_visible": true,
+            "has_timer": false,
+            "input_context_loss_reasons": [],
+            "input_context_lost": false,
+            "input_context_restore_guard": false,
+            "input_down": false,
+            "input_source": "",
+            "no_fail_state": true,
+            "note_colors": [
+              "(1.0, 0.24, 0.28, 1.0)",
+              "(1.0, 0.54, 0.18, 1.0)",
+              "(1.0, 0.86, 0.24, 1.0)",
+              "(0.3, 0.84, 0.42, 1.0)",
+              "(0.24, 0.68, 0.96, 1.0)",
+              "(0.39, 0.38, 0.88, 1.0)",
+              "(0.72, 0.4, 0.9, 1.0)"
+            ],
+            "pointer_rect": "[P: (781.959, 362.0058), S: (64.0, 64.0)]",
+            "pointer_target_id": 4,
+            "proscenium_coverage": 0.464646875,
+            "proscenium_geometry_nodes": [
+              "LeftCurtainGeometry",
+              "RightCurtainGeometry",
+              "CrownHeaderGeometry",
+              "StageApronGeometry"
+            ],
+            "proscenium_rect": "[P: (24.0, 20.0), S: (1232.0, 760.0)]",
+            "roshan_path": "res://assets/opera/worlds/actors/roshan_popstar.png",
+            "roshan_rect": "[P: (271.2, 330.0), S: (200.0, 200.0)]",
+            "spatial_descendants": 0,
+            "stage_star_visible": true,
+            "tick_count": 418,
+            "tile_paths": [
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png"
+            ],
+            "tile_source_rects": [
+              "[P: (0, 0), S: (1024, 1024)]",
+              "[P: (1024, 0), S: (1024, 1024)]",
+              "[P: (0, 1024), S: (1024, 1024)]",
+              "[P: (1024, 1024), S: (1024, 1024)]"
+            ],
+            "timing_zone_rect": "[P: (807.4, 317.0), S: (190.0, 190.0)]",
+            "touch_armed": false,
+            "viewport_size": "(1280.0, 800.0)"
+          },
+          "width": 1280
+        },
+        {
+          "height": 800,
+          "note": 5,
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native_recovery\\1280x800\\output/06_indigo_active.png",
+          "pip_textures": [
+            {
+              "current": false,
+              "filled": true,
+              "index": 0,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_red_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 1,
+              "logical_size": "(47.99997, 48.0)",
+              "pivot": "(23.99998, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_orange_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 2,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_yellow_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 3,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_green_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 4,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.301587, 0.301587)",
+              "texture": "res://assets/melody/progress_pip_filled_blue_painted.png"
+            },
+            {
+              "current": true,
+              "filled": false,
+              "index": 5,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.368, 0.368)",
+              "texture": "res://assets/melody/progress_pip_current_indigo_painted.png"
+            },
+            {
+              "current": false,
+              "filled": false,
+              "index": 6,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_idle_violet_painted.png"
+            }
+          ],
+          "progress": 5,
+          "sha256": "dfa532286e9e3d357d12dbc4d7c7adbe265ef454e15a8fd83ff86b312e1dee67",
+          "stage_snapshot": {
+            "active_note_color": "(0.39, 0.38, 0.88, 1.0)",
+            "active_note_hit_rect": "[P: (753.0129, 337.647), S: (120.0, 120.0)]",
+            "active_note_visible_rect": "[P: (771.0129, 355.647), S: (84.0, 84.0)]",
+            "blocked_sources": {},
+            "blocked_until_release": false,
+            "completed": false,
+            "daddy_path": "res://assets/characters/stickers/daddy.png",
+            "daddy_rect": "[P: (1029.333, 268.8889), S: (191.1111, 261.1111)]",
+            "elapsed": 17.0970683333334,
+            "footlights_visible": true,
+            "has_timer": false,
+            "input_context_loss_reasons": [],
+            "input_context_lost": false,
+            "input_context_restore_guard": false,
+            "input_down": false,
+            "input_source": "",
+            "no_fail_state": true,
+            "note_colors": [
+              "(1.0, 0.24, 0.28, 1.0)",
+              "(1.0, 0.54, 0.18, 1.0)",
+              "(1.0, 0.86, 0.24, 1.0)",
+              "(0.3, 0.84, 0.42, 1.0)",
+              "(0.24, 0.68, 0.96, 1.0)",
+              "(0.39, 0.38, 0.88, 1.0)",
+              "(0.72, 0.4, 0.9, 1.0)"
+            ],
+            "pointer_rect": "[P: (781.0129, 365.647), S: (64.0, 64.0)]",
+            "pointer_target_id": 5,
+            "proscenium_coverage": 0.464646875,
+            "proscenium_geometry_nodes": [
+              "LeftCurtainGeometry",
+              "RightCurtainGeometry",
+              "CrownHeaderGeometry",
+              "StageApronGeometry"
+            ],
+            "proscenium_rect": "[P: (24.0, 20.0), S: (1232.0, 760.0)]",
+            "roshan_path": "res://assets/opera/worlds/actors/roshan_popstar.png",
+            "roshan_rect": "[P: (271.2, 330.0), S: (200.0, 200.0)]",
+            "spatial_descendants": 0,
+            "stage_star_visible": true,
+            "tick_count": 502,
+            "tile_paths": [
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png"
+            ],
+            "tile_source_rects": [
+              "[P: (0, 0), S: (1024, 1024)]",
+              "[P: (1024, 0), S: (1024, 1024)]",
+              "[P: (0, 1024), S: (1024, 1024)]",
+              "[P: (1024, 1024), S: (1024, 1024)]"
+            ],
+            "timing_zone_rect": "[P: (807.4, 317.0), S: (190.0, 190.0)]",
+            "touch_armed": false,
+            "viewport_size": "(1280.0, 800.0)"
+          },
+          "width": 1280
+        },
+        {
+          "height": 800,
+          "note": 6,
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native_recovery\\1280x800\\output/07_violet_active.png",
+          "pip_textures": [
+            {
+              "current": false,
+              "filled": true,
+              "index": 0,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_red_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 1,
+              "logical_size": "(47.99997, 48.0)",
+              "pivot": "(23.99998, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_orange_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 2,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_yellow_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 3,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.304, 0.304)",
+              "texture": "res://assets/melody/progress_pip_filled_green_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 4,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.301587, 0.301587)",
+              "texture": "res://assets/melody/progress_pip_filled_blue_painted.png"
+            },
+            {
+              "current": false,
+              "filled": true,
+              "index": 5,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.301587, 0.301587)",
+              "texture": "res://assets/melody/progress_pip_filled_indigo_painted.png"
+            },
+            {
+              "current": true,
+              "filled": false,
+              "index": 6,
+              "logical_size": "(48.0, 48.0)",
+              "pivot": "(24.0, 24.0)",
+              "scale": "(0.368, 0.368)",
+              "texture": "res://assets/melody/progress_pip_current_violet_painted.png"
+            }
+          ],
+          "progress": 6,
+          "sha256": "d2b83e94e0267e0d85211d44fe442a764063009ce3d4c5a7a8db15f3f9fd9a16",
+          "stage_snapshot": {
+            "active_note_color": "(0.72, 0.4, 0.9, 1.0)",
+            "active_note_hit_rect": "[P: (753.2159, 348.1209), S: (120.0, 120.0)]",
+            "active_note_visible_rect": "[P: (771.2159, 366.1209), S: (84.0, 84.0)]",
+            "blocked_sources": {},
+            "blocked_until_release": false,
+            "completed": false,
+            "daddy_path": "res://assets/characters/stickers/daddy.png",
+            "daddy_rect": "[P: (1029.333, 268.8889), S: (191.1111, 261.1111)]",
+            "elapsed": 19.9823210000001,
+            "footlights_visible": true,
+            "has_timer": false,
+            "input_context_loss_reasons": [],
+            "input_context_lost": false,
+            "input_context_restore_guard": false,
+            "input_down": false,
+            "input_source": "",
+            "no_fail_state": true,
+            "note_colors": [
+              "(1.0, 0.24, 0.28, 1.0)",
+              "(1.0, 0.54, 0.18, 1.0)",
+              "(1.0, 0.86, 0.24, 1.0)",
+              "(0.3, 0.84, 0.42, 1.0)",
+              "(0.24, 0.68, 0.96, 1.0)",
+              "(0.39, 0.38, 0.88, 1.0)",
+              "(0.72, 0.4, 0.9, 1.0)"
+            ],
+            "pointer_rect": "[P: (781.2159, 376.1209), S: (64.0, 64.0)]",
+            "pointer_target_id": 6,
+            "proscenium_coverage": 0.464646875,
+            "proscenium_geometry_nodes": [
+              "LeftCurtainGeometry",
+              "RightCurtainGeometry",
+              "CrownHeaderGeometry",
+              "StageApronGeometry"
+            ],
+            "proscenium_rect": "[P: (24.0, 20.0), S: (1232.0, 760.0)]",
+            "roshan_path": "res://assets/opera/worlds/actors/roshan_popstar.png",
+            "roshan_rect": "[P: (271.2, 330.0), S: (200.0, 200.0)]",
+            "spatial_descendants": 0,
+            "stage_star_visible": true,
+            "tick_count": 586,
+            "tile_paths": [
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+              "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png"
+            ],
+            "tile_source_rects": [
+              "[P: (0, 0), S: (1024, 1024)]",
+              "[P: (1024, 0), S: (1024, 1024)]",
+              "[P: (0, 1024), S: (1024, 1024)]",
+              "[P: (1024, 1024), S: (1024, 1024)]"
+            ],
+            "timing_zone_rect": "[P: (807.4, 317.0), S: (190.0, 190.0)]",
+            "touch_armed": false,
+            "viewport_size": "(1280.0, 800.0)"
+          },
+          "width": 1280
+        }
+      ],
+      "result_sha256": "8df0e1bd4dbc0ae96a72c4889813349ef5b98e22888b47a07ef6c132ddcbbb21",
+      "source_directory": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-melody-progress-pips-20261102\\candidate_native_recovery\\1280x800",
+      "source_pin_sha256": "e58a2e9bbfe302f65d73df1bb005d71062ba9b1cce37bae4f9b3272f27b3eed7"
+    }
+  ],
+  "checks": 192,
+  "new_native_frame_events": 7,
+  "qualified_native_frame_events": 21,
+  "excluded_native_frame_events": 7,
+  "retained_native_frame_events": 28,
+  "source_drift": [],
+  "normal_before": {
+    "": "3816cbddaf4e7ea021e2194f9a30ad0503089dea573278f3da7fbaee5608542b",
+    ".bak": "d10bbad0fecc71b7f2a9efe1a397a476305ed656c606521a1c9a22b67a49b5af",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.bak": "absent",
+    ".before_new_game.tmp": "absent"
+  },
+  "normal_after": {
+    "": "3816cbddaf4e7ea021e2194f9a30ad0503089dea573278f3da7fbaee5608542b",
+    ".bak": "d10bbad0fecc71b7f2a9efe1a397a476305ed656c606521a1c9a22b67a49b5af",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.bak": "absent",
+    ".before_new_game.tmp": "absent"
+  },
+  "normal_unchanged": true,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "completed_at_utc": "2026-11-02T21:20:07.977821+00:00"
+}

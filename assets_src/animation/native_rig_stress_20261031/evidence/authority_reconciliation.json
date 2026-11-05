@@ -1,0 +1,79 @@
+{
+  "task_start_baseline": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+  "authority_revision": "a0bb2cf4691631a534e210a5fb60fd227213322f",
+  "method": "Fast-forward task branch to documentation-only incoming dev; regenerate backed-up study pointers using the idempotent evidence writer.",
+  "runtime_and_gate_source_entries": {
+    "scripts": {
+      "baseline_tree_entry": "040000 tree ad8f3ad8eb2d3d5efd11234bbf9c932a74b97e53\tscripts",
+      "incoming_tree_entry": "040000 tree ad8f3ad8eb2d3d5efd11234bbf9c932a74b97e53\tscripts",
+      "identical": true
+    },
+    "scenes": {
+      "baseline_tree_entry": "040000 tree c7ddda00b3f99ac43b0da8eac1125f031724917a\tscenes",
+      "incoming_tree_entry": "040000 tree c7ddda00b3f99ac43b0da8eac1125f031724917a\tscenes",
+      "identical": true
+    },
+    "assets": {
+      "baseline_tree_entry": "040000 tree be6af6adfde00a27ed8a16dc7d4d144bf62687b3\tassets",
+      "incoming_tree_entry": "040000 tree be6af6adfde00a27ed8a16dc7d4d144bf62687b3\tassets",
+      "identical": true
+    },
+    "tools": {
+      "baseline_tree_entry": "040000 tree ba62d9d24a950e67002c10807cea3501aa73e9bd\ttools",
+      "incoming_tree_entry": "040000 tree ba62d9d24a950e67002c10807cea3501aa73e9bd\ttools",
+      "identical": true
+    },
+    "project.godot": {
+      "baseline_tree_entry": "100644 blob 2351cb32085bcefe893ee220ed1b9ec88c4d2875\tproject.godot",
+      "incoming_tree_entry": "100644 blob 2351cb32085bcefe893ee220ed1b9ec88c4d2875\tproject.godot",
+      "identical": true
+    },
+    "export_presets.cfg": {
+      "baseline_tree_entry": "100644 blob f0160715093e3263e8f777462746e53178db0bc3\texport_presets.cfg",
+      "incoming_tree_entry": "100644 blob f0160715093e3263e8f777462746e53178db0bc3\texport_presets.cfg",
+      "identical": true
+    },
+    ".github/workflows": {
+      "baseline_tree_entry": "040000 tree c03afe71b405421d86303eeffe99721868223a21\t.github/workflows",
+      "incoming_tree_entry": "040000 tree c03afe71b405421d86303eeffe99721868223a21\t.github/workflows",
+      "identical": true
+    },
+    "AGENTS.md": {
+      "baseline_tree_entry": "100644 blob 29519f37b0b21cd4fe98d4420278d7d5a38e8e60\tAGENTS.md",
+      "incoming_tree_entry": "100644 blob 29519f37b0b21cd4fe98d4420278d7d5a38e8e60\tAGENTS.md",
+      "identical": true
+    },
+    "SECURITY.md": {
+      "baseline_tree_entry": "100644 blob 1dd738f87bf4c9ca0434f8e8ae46ce495ef47343\tSECURITY.md",
+      "incoming_tree_entry": "100644 blob 1dd738f87bf4c9ca0434f8e8ae46ce495ef47343\tSECURITY.md",
+      "identical": true
+    },
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md": {
+      "baseline_tree_entry": "100644 blob 6095d3c0d4bdeefabd4ad3aa6cff96eb7936423e\tdesign/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "incoming_tree_entry": "100644 blob 6095d3c0d4bdeefabd4ad3aa6cff96eb7936423e\tdesign/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "identical": true
+    },
+    "design/animation": {
+      "baseline_tree_entry": "040000 tree cf40dd7b797c4cf0b632f0fa976a34550146a418\tdesign/animation",
+      "incoming_tree_entry": "040000 tree cf40dd7b797c4cf0b632f0fa976a34550146a418\tdesign/animation",
+      "identical": true
+    }
+  },
+  "backups": {
+    "ASSET_LICENSES.md": {
+      "backup": "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef\\tmp\\native-rig-authority-reconcile\\ASSET_LICENSES.md",
+      "sha256": "d86c4a501a5d9cfd2b554fd7802189f1d62f158b703901fa0c0a02c5acb2061d"
+    },
+    "design/05_DOC_LEDGER.md": {
+      "backup": "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef\\tmp\\native-rig-authority-reconcile\\05_DOC_LEDGER.md",
+      "sha256": "bb6683bbb29eac5bbf36f0470fef4474946460020661590735cff3f877c2dc20"
+    },
+    "audit/MASTER_AUDIT_2026-08-09.md": {
+      "backup": "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef\\tmp\\native-rig-authority-reconcile\\MASTER_AUDIT_2026-08-09.md",
+      "sha256": "bb6e1d82eddc48e40e3dd3d3cb9124b00026595489a6b3d643bb5df610c4894e"
+    }
+  },
+  "generated_import_metadata_restored": 1315,
+  "checked_at": "2026-10-31T20:48:48.587099+00:00",
+  "publication": "source study branch only; no dev integration during demo freeze"
+}

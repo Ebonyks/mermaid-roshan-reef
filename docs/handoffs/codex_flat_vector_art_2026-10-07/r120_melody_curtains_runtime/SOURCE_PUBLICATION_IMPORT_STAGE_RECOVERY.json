@@ -1,0 +1,18 @@
+{
+  "state": "EXACT_TESTED_IMPORT_SIDECARS_EXPLICITLY_STAGED",
+  "reason": "New .png.import files were excluded by Git ignore from the initial untracked-file census. Missing index entries stopped publication before commit.",
+  "files": [
+    {
+      "path": "assets/melody/curtain_left_painted.png.import",
+      "sha256": "a7099f189a959639c42226adc7b248f9d97e767b9a3bfceda3b0f6aa64ec056a"
+    },
+    {
+      "path": "assets/melody/curtain_right_painted.png.import",
+      "sha256": "507a8e9517e878b217f7db7c50f58dc8ffb15a83b8dd78191aa3b21fd3f30acc"
+    }
+  ],
+  "runtime_or_pixel_changes": false,
+  "engine_or_native_restarts": false,
+  "original_failure_preserved": true,
+  "at_utc": "2026-11-02T03:07:35.423054+00:00"
+}

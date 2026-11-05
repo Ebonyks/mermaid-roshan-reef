@@ -1,0 +1,2309 @@
+{
+  "schema": "dkc-working-interpretations/1",
+  "policy": "Choose the best supported musical interpretation now; retain alternatives and revision triggers. Missing original patch names or downloadable MIDI do not block arranging. Original in-game sound outranks the roster.",
+  "tracks": [
+    {
+      "id": "DKC-01",
+      "title": "Theme",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Keep the contrast between the small retro opening and the full sampled groove.",
+      "working_parts": [
+        "square-like opening lead",
+        "bright sampled/synth lead",
+        "brassy accents",
+        "plucked electric bass",
+        "hand/electronic kit"
+      ],
+      "available_starting_route": "Falcon short synth lead, electric-bass candidate, BBA2 plus hand percussion",
+      "revision_trigger": "Replace the lead family only if a matched-register audition loses the source attack or the opening/full-groove contrast.",
+      "confidence": "MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=7XBJGVvYSBM",
+        "audio_analysis_sha256": "88a0f74eedc23d2f46e535cd682549c7cd87a4d0d43129fb3de385f6aef7b755",
+        "excerpt_spans": [
+          [
+            0,
+            20
+          ],
+          [
+            45,
+            65
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_theme.mid",
+          "name": "Theme",
+          "sha256": "8f78b840a4efd8104bfbe0782a238769a1acbdd00ff8ead303ba01a25eade5da",
+          "note_count": 1939,
+          "channels": 10,
+          "centered_chroma_similarity": 0.5724,
+          "midi_seconds_to_audio_scale": 0.9500000000000002,
+          "audio_offset_seconds": -0.4000000000000008,
+          "compared_frames": 316,
+          "held_out_65_to_100s": {
+            "similarity": 0.4085,
+            "frames": 65,
+            "offset_and_scale_frozen": true
+          }
+        },
+        "selection_reason": "Balance opening and later-section evidence, then use part logs and original-audio interpretation."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 3,
+            "range": [
+              29,
+              43
+            ],
+            "notes_below_48": 222,
+            "programs_zero_based": [
+              34
+            ]
+          }
+        ],
+        "pitch_bend_events": 0,
+        "controller_event_count": 8,
+        "echo_named_tracks": [],
+        "note_count": 1939
+      }
+    },
+    {
+      "id": "DKC-02",
+      "title": "Simian Segue",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Lead with a dry, slightly worn acoustic-piano attack and a bouncing low bass; keep the clipped string/reed replies.",
+      "working_parts": [
+        "acoustic-like piano lead",
+        "pizzicato chord pulses",
+        "clarinet-like answer",
+        "upright-like bass",
+        "light kit",
+        "optional thin synth support"
+      ],
+      "available_starting_route": "Tender Upright or Nordic Upright; Jazzistic Double Bass; short strings/reed guest",
+      "revision_trigger": "If piano cannot retain the original crisp contour without an EP-like ring, use a piano/sampled-pluck hybrid. Remove doubled echo channels before adding players.",
+      "confidence": "MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=b1xkXrzVQdU",
+        "audio_analysis_sha256": "69d4595d106f9ef9cacfcf8905f009b8a7010cb90d78e03f95b781a8e6675923",
+        "excerpt_spans": [
+          [
+            0,
+            20
+          ],
+          [
+            45,
+            65
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Map-KM.mid",
+          "name": "Simian Segue (2)",
+          "sha256": "5357c78c4901dd686839d143d849755d95ed2c08fda7a761af18b359384788bf",
+          "note_count": 3466,
+          "channels": 12,
+          "centered_chroma_similarity": 0.4717,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": -0.8000000000000007,
+          "compared_frames": 297,
+          "held_out_65_to_100s": {
+            "similarity": 0.4637,
+            "frames": 166,
+            "offset_and_scale_frozen": true
+          }
+        },
+        "selection_reason": "Balance opening and later-section evidence, then use part logs and original-audio interpretation."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 1,
+            "range": [
+              28,
+              43
+            ],
+            "notes_below_48": 390,
+            "programs_zero_based": [
+              32
+            ]
+          },
+          {
+            "channel": 2,
+            "range": [
+              45,
+              74
+            ],
+            "notes_below_48": 3,
+            "programs_zero_based": [
+              45
+            ]
+          },
+          {
+            "channel": 11,
+            "range": [
+              45,
+              74
+            ],
+            "notes_below_48": 3,
+            "programs_zero_based": [
+              90
+            ]
+          }
+        ],
+        "pitch_bend_events": 0,
+        "controller_event_count": 842,
+        "echo_named_tracks": [
+          "1 -- Acoustic Grand Piano (Main) (echo)",
+          "72 -- Clarinet (echo)"
+        ],
+        "note_count": 3466
+      }
+    },
+    {
+      "id": "DKC-03",
+      "title": "DK Island Swing",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Let hand percussion establish the place, then open into a breathy pipe/bottle-like hook over low bass and sustained backing.",
+      "working_parts": [
+        "multiple hand-drum strokes",
+        "woodblock/clicks",
+        "breathy flute-like lead",
+        "low bass",
+        "sustained strings/pad",
+        "bright accent voices"
+      ],
+      "available_starting_route": "World Suite percussion; breathy wind candidate; low bass; shaped synth pad",
+      "revision_trigger": "Revise the lead toward a blown-bottle synth when a natural flute becomes too lyrical. Preserve the section contrast rather than one unchanging groove.",
+      "confidence": "LOW_TO_MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=HG8YrDF6cDk",
+        "audio_analysis_sha256": "583c2c127c419fdf47be35ef5facb8e4f20a0fd52b4103dcf8e66a89b4088b52",
+        "excerpt_spans": [
+          [
+            20,
+            40
+          ],
+          [
+            100,
+            120
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_DK_Island_Swing-1.mid",
+          "name": "DK Island Swing (3)",
+          "sha256": "4c4f2a6c490a43290638516e415664736669297b6d618a2b1de091f062de020a",
+          "note_count": 2781,
+          "channels": 12,
+          "centered_chroma_similarity": 0.4925,
+          "midi_seconds_to_audio_scale": 1.2250000000000005,
+          "audio_offset_seconds": 6.799999999999997,
+          "compared_frames": 89,
+          "held_out_65_to_100s": {
+            "similarity": 0.1451,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        "selection_reason": "Best balanced opening/later-section score among this set, but later fit remains weak. Use as a section-by-section note scaffold; do not impose the global fit factor as performance timing."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 12,
+            "range": [
+              43,
+              53
+            ],
+            "notes_below_48": 128,
+            "programs_zero_based": [
+              11
+            ]
+          },
+          {
+            "channel": 2,
+            "range": [
+              38,
+              72
+            ],
+            "notes_below_48": 26,
+            "programs_zero_based": [
+              48
+            ]
+          },
+          {
+            "channel": 1,
+            "range": [
+              26,
+              38
+            ],
+            "notes_below_48": 153,
+            "programs_zero_based": [
+              32
+            ]
+          }
+        ],
+        "pitch_bend_events": 0,
+        "controller_event_count": 192,
+        "echo_named_tracks": [],
+        "note_count": 2781
+      }
+    },
+    {
+      "id": "DKC-04",
+      "title": "Cranky's Theme",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Use a playful wooden-mallet foreground, clipped bass and bright high replies.",
+      "working_parts": [
+        "marimba-like lead",
+        "pizzicato low strings/bass",
+        "piccolo-like reply",
+        "piano highlights",
+        "thin string support"
+      ],
+      "available_starting_route": "Short wooden mallet guest; pizzicato bass; wind/keys answers",
+      "revision_trigger": "Change mallet toward a sampled-key hybrid if the original attack cannot be matched; do not default to honky-tonk piano from character association.",
+      "confidence": "MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=_KycvSI-lkg",
+        "audio_analysis_sha256": "343e17fbf229d2cdbef9103bfa6b69f79032c9c9e7094f146e5d0830ef65000c",
+        "excerpt_spans": [
+          [
+            0,
+            20
+          ],
+          [
+            45,
+            65
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_cranky_cabin.mid",
+          "name": "Cranky's Cabin",
+          "sha256": "81202a3607e738d79e4bb63bd74355576dc9f88c15d194dbc935cc1448ad0312",
+          "note_count": 1359,
+          "channels": 5,
+          "centered_chroma_similarity": 0.7149,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": 0.7999999999999989,
+          "compared_frames": 306,
+          "held_out_65_to_100s": {
+            "similarity": 0.5886,
+            "frames": 58,
+            "offset_and_scale_frozen": true
+          }
+        },
+        "selection_reason": "Balance opening and later-section evidence, then use part logs and original-audio interpretation."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 1,
+            "range": [
+              41,
+              52
+            ],
+            "notes_below_48": 203,
+            "programs_zero_based": [
+              45
+            ]
+          }
+        ],
+        "pitch_bend_events": 0,
+        "controller_event_count": 14,
+        "echo_named_tracks": [],
+        "note_count": 1359
+      }
+    },
+    {
+      "id": "DKC-05",
+      "title": "Cave Dweller Concert",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Treat tuned percussion, echoes and dark sustained space as the arrangement’s core.",
+      "working_parts": [
+        "low tuned mallets",
+        "wood/skin percussion",
+        "harp/chime ripples",
+        "dark strings/pad",
+        "breathy high voice",
+        "noise/water-like events"
+      ],
+      "available_starting_route": "Tuned mallet guest; World Suite percussion; FM Harp softened; evolving pad",
+      "revision_trigger": "Swap low mallet for tuned-drum synthesis if sustain or pitch behavior demands it; keep the sparse space.",
+      "confidence": "MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=qQR4D0AsML8",
+        "audio_analysis_sha256": "7aa510a0394ed94f9f6a24825af16255cbf2b23c35b788ddb456cec44cf18aa9",
+        "excerpt_spans": [
+          [
+            0,
+            20
+          ],
+          [
+            45,
+            65
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_Cave_Dweller_Concert.mid",
+          "name": "Cave Dweller Concert",
+          "sha256": "7efc21631feebd76315d21309e4e8c82271b1e4b04d956a5476b5222bad70d60",
+          "note_count": 1266,
+          "channels": 12,
+          "centered_chroma_similarity": 0.5335,
+          "midi_seconds_to_audio_scale": 1.0250000000000004,
+          "audio_offset_seconds": -8.881784197001252e-16,
+          "compared_frames": 301,
+          "held_out_65_to_100s": {
+            "similarity": 0.5293,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        "selection_reason": "Balance opening and later-section evidence, then use part logs and original-audio interpretation."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 1,
+            "range": [
+              43,
+              50
+            ],
+            "notes_below_48": 80,
+            "programs_zero_based": [
+              11
+            ]
+          },
+          {
+            "channel": 2,
+            "range": [
+              43,
+              50
+            ],
+            "notes_below_48": 88,
+            "programs_zero_based": [
+              11
+            ]
+          },
+          {
+            "channel": 6,
+            "range": [
+              27,
+              77
+            ],
+            "notes_below_48": 21,
+            "programs_zero_based": [
+              48
+            ]
+          },
+          {
+            "channel": 7,
+            "range": [
+              27,
+              77
+            ],
+            "notes_below_48": 19,
+            "programs_zero_based": [
+              48
+            ]
+          },
+          {
+            "channel": 3,
+            "range": [
+              41,
+              52
+            ],
+            "notes_below_48": 44,
+            "programs_zero_based": [
+              115
+            ]
+          },
+          {
+            "channel": 4,
+            "range": [
+              41,
+              52
+            ],
+            "notes_below_48": 44,
+            "programs_zero_based": [
+              115
+            ]
+          },
+          {
+            "channel": 5,
+            "range": [
+              45,
+              45
+            ],
+            "notes_below_48": 4,
+            "programs_zero_based": [
+              122
+            ]
+          },
+          {
+            "channel": 12,
+            "range": [
+              43,
+              52
+            ],
+            "notes_below_48": 193,
+            "programs_zero_based": [
+              117
+            ]
+          }
+        ],
+        "pitch_bend_events": 0,
+        "controller_event_count": 27,
+        "echo_named_tracks": [],
+        "note_count": 1266
+      }
+    },
+    {
+      "id": "DKC-06",
+      "title": "Bonus Room Blitz",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Make a dry mallet/kalimba-like hook bounce against pizzicato bass and compact percussion.",
+      "working_parts": [
+        "xylophone/kalimba-like lead",
+        "pipe-flute reply",
+        "short nonverbal choir accent",
+        "pizzicato bass",
+        "kit",
+        "thin synth accents"
+      ],
+      "available_starting_route": "Wooden mallet guest plus pluck layer; short bass; BBA2 kit",
+      "revision_trigger": "Drop either doubled mallet layer when it only duplicates attack; preserve the hook’s readable edge.",
+      "confidence": "MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=QoNESthPhow",
+        "audio_analysis_sha256": "0bc2cfe1f26b34f667fa6f9ebc1e0eac4b8ef8c5abc92263491c901c6273a27b",
+        "excerpt_spans": [
+          [
+            0,
+            20
+          ],
+          [
+            40.09328798185941,
+            60.09328798185941
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC1-BonusRoomBlitz.mid",
+          "name": "Bonus Stage (2)",
+          "sha256": "364c9606c867615682be67b28f8d5b2c675db6de193ae320b6483e07b83494bd",
+          "note_count": 2848,
+          "channels": 7,
+          "centered_chroma_similarity": 0.5539,
+          "midi_seconds_to_audio_scale": 0.9500000000000002,
+          "audio_offset_seconds": 0.7999999999999989,
+          "compared_frames": 234,
+          "held_out_65_to_100s": {
+            "similarity": null,
+            "frames": 0,
+            "reason": "Reference or alignment too short"
+          }
+        },
+        "selection_reason": "Balance opening and later-section evidence, then use part logs and original-audio interpretation."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 1,
+            "range": [
+              36,
+              48
+            ],
+            "notes_below_48": 186,
+            "programs_zero_based": [
+              45
+            ]
+          }
+        ],
+        "pitch_bend_events": 0,
+        "controller_event_count": 453,
+        "echo_named_tracks": [],
+        "note_count": 2848
+      }
+    },
+    {
+      "id": "DKC-07",
+      "title": "Aquatic Ambiance",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Build a moving synth environment; the melody floats over a real low synth foundation and small bright figures.",
+      "working_parts": [
+        "evolving pads",
+        "rounded synthetic lead",
+        "mallet/pluck arpeggios",
+        "synth bass",
+        "sparse percussion",
+        "pitch/envelope motion"
+      ],
+      "available_starting_route": "Atmospherics starting layer plus custom Falcon modulation; rounded synth bass; softened FM pluck",
+      "revision_trigger": "A static pad is revised if held-note timbre stops moving. Preserve purposeful control/bend behavior instead of flattening to note-ons.",
+      "confidence": "MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=1XM8ReW9NvA",
+        "audio_analysis_sha256": "258a44cebc2e2ff67b33c48a18579a47e10ff88caeed5b2417f21061fc0879d7",
+        "excerpt_spans": [
+          [
+            20,
+            40
+          ],
+          [
+            80,
+            100
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_aquatic_ambiance[2].mid",
+          "name": "Aquatic Ambiance [2]",
+          "sha256": "256f0568841d968a8603da96369d2036639141cbb3fe4b16b04a0295dac38ddd",
+          "note_count": 2324,
+          "channels": 14,
+          "centered_chroma_similarity": 0.7429,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": 0.3999999999999986,
+          "compared_frames": 322,
+          "held_out_65_to_100s": {
+            "similarity": 0.6943,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        "selection_reason": "Balance opening and later-section evidence, then use part logs and original-audio interpretation."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 7,
+            "range": [
+              41,
+              50
+            ],
+            "notes_below_48": 147,
+            "programs_zero_based": [
+              45,
+              94
+            ]
+          },
+          {
+            "channel": 8,
+            "range": [
+              17,
+              50
+            ],
+            "notes_below_48": 291,
+            "programs_zero_based": [
+              39,
+              50
+            ]
+          },
+          {
+            "channel": 9,
+            "range": [
+              36,
+              50
+            ],
+            "notes_below_48": 99,
+            "programs_zero_based": [
+              89,
+              113
+            ]
+          },
+          {
+            "channel": 14,
+            "range": [
+              46,
+              96
+            ],
+            "notes_below_48": 2,
+            "programs_zero_based": [
+              46
+            ]
+          }
+        ],
+        "pitch_bend_events": 2645,
+        "controller_event_count": 6693,
+        "echo_named_tracks": [
+          "Melody Echo/ Melody 1"
+        ],
+        "note_count": 2324
+      }
+    },
+    {
+      "id": "DKC-08",
+      "title": "Candy's Love Song",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Use clipped brassy/workstation chord colors and a plucky, syncopated bass rather than assuming a soft piano ballad.",
+      "working_parts": [
+        "brass-like stabs/lead",
+        "short chord keys",
+        "plucked bass",
+        "crisp small percussion"
+      ],
+      "available_starting_route": "Short brass/synth guest; electric/synth bass; light electronic kit",
+      "revision_trigger": "If the brassy interpretation is too hard, test a muted-reed/key blend; keep the source syncopation. Transcribe a short source phrase instead of waiting for a downloadable score.",
+      "confidence": "LOW_TO_MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=M1KFN9GypiI",
+        "audio_analysis_sha256": "83ccc2e88c6793cd75a945224183b2afcf1811de487edcae7bd5ad83f2500014",
+        "excerpt_spans": [
+          [
+            0,
+            20
+          ],
+          [
+            45,
+            65
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": null,
+        "selection_reason": "Proceed with the role/timeline interpretation and transcribe the brief phrase or hook by ear during construction; do not wait for a downloadable MIDI."
+      },
+      "construction_notes": null
+    },
+    {
+      "id": "DKC-09",
+      "title": "Bad Boss Boogie",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Keep the sharp electric/synthetic edge and pulsing accompaniment.",
+      "working_parts": [
+        "guitar-like synth lead",
+        "pizzicato ostinato",
+        "electric bass",
+        "tight kit",
+        "brass/string stabs"
+      ],
+      "available_starting_route": "Electric-guitar/synth guest; short strings; electric bass; BBA2",
+      "revision_trigger": "Change lead synthesis versus guitar balance to match the attack; do not soften it into a generic lo-fi ensemble.",
+      "confidence": "MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=VDHXAil5iy0",
+        "audio_analysis_sha256": "0cb04f17cad5cde83ea8d92cdd867c9292fda17d2d6075c867b518cb361e3682",
+        "excerpt_spans": [
+          [
+            0,
+            20
+          ],
+          [
+            45,
+            65
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_Bad_Boss_Boogie.mid",
+          "name": "Bad Boss Boogie",
+          "sha256": "c972d24cc9fd84983026577c71a56097e7665bb1ca6ce59083b9948560761a34",
+          "note_count": 5848,
+          "channels": 11,
+          "centered_chroma_similarity": 0.5599,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": -8.881784197001252e-16,
+          "compared_frames": 323,
+          "held_out_65_to_100s": {
+            "similarity": 0.5673,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        "selection_reason": "Balance opening and later-section evidence, then use part logs and original-audio interpretation."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 9,
+            "range": [
+              40,
+              47
+            ],
+            "notes_below_48": 20,
+            "programs_zero_based": [
+              47
+            ]
+          },
+          {
+            "channel": 2,
+            "range": [
+              31,
+              38
+            ],
+            "notes_below_48": 738,
+            "programs_zero_based": [
+              34
+            ]
+          }
+        ],
+        "pitch_bend_events": 0,
+        "controller_event_count": 1193,
+        "echo_named_tracks": [],
+        "note_count": 5848
+      }
+    },
+    {
+      "id": "DKC-10",
+      "title": "Mine Cart Madness",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Keep a driving low pulse and bright lead/answer layers with sustained harmonic backing.",
+      "working_parts": [
+        "brass/synth lead",
+        "reed-like answer",
+        "sustained strings",
+        "low warm synth layer",
+        "plucked bass",
+        "driving kit"
+      ],
+      "available_starting_route": "Brass/reed synth guest; pad; single bass phrase with sub reinforcement; compact kit",
+      "revision_trigger": "Treat duplicated bass colors as reinforcement until distinct notes are demonstrated; retain the original drive.",
+      "confidence": "MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=iWCGQkGX1Zs",
+        "audio_analysis_sha256": "c7c73543b036c390b07cc246f733aad6fc10e4a41e2805f22645c57a039d0037",
+        "excerpt_spans": [
+          [
+            0,
+            20
+          ],
+          [
+            45,
+            65
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/Mine_Cart_Madness.mid",
+          "name": "Mine Cart Madness",
+          "sha256": "0c35ac7c0ec181dffb1a77b976ba83a04c5ab764290b76ecc1250c56c8718004",
+          "note_count": 4656,
+          "channels": 10,
+          "centered_chroma_similarity": 0.7216,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": -1.6000000000000005,
+          "compared_frames": 325,
+          "held_out_65_to_100s": {
+            "similarity": 0.822,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        "selection_reason": "Balance opening and later-section evidence, then use part logs and original-audio interpretation."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 1,
+            "range": [
+              36,
+              46
+            ],
+            "notes_below_48": 46,
+            "programs_zero_based": [
+              89
+            ]
+          },
+          {
+            "channel": 2,
+            "range": [
+              29,
+              49
+            ],
+            "notes_below_48": 931,
+            "programs_zero_based": [
+              32
+            ]
+          }
+        ],
+        "pitch_bend_events": 1972,
+        "controller_event_count": 220,
+        "echo_named_tracks": [],
+        "note_count": 4656
+      }
+    },
+    {
+      "id": "DKC-11",
+      "title": "Life in the Mines",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Use a breathy bottle/flute-like foreground against sustained synth strings, rounded picked bass and small rhythmic accents.",
+      "working_parts": [
+        "blown-bottle-like lead",
+        "layered synth strings",
+        "picked bass",
+        "kit and hand percussion",
+        "atmospheric answer"
+      ],
+      "available_starting_route": "Breathy Falcon/wind guest; moving pad; electric bass; small percussion",
+      "revision_trigger": "If a literal flute sounds too acoustic, use a breathy synthetic voice. Echo copies are space, not extra performers.",
+      "confidence": "MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=eGU3C6c2TDM",
+        "audio_analysis_sha256": "fabb239c8e5cbbc2dce5953f904feca86da8ebabc1aacf333c1b5e0dd842ba74",
+        "excerpt_spans": [
+          [
+            0,
+            20
+          ],
+          [
+            45,
+            65
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Mines-KM.mid",
+          "name": "Life in the Mines (4)",
+          "sha256": "7cc8a94a78f4d354113909b8ee01ec9a49f601d7f1005cf139a8bfe62cddca02",
+          "note_count": 5246,
+          "channels": 13,
+          "centered_chroma_similarity": 0.8458,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": 0.7999999999999989,
+          "compared_frames": 321,
+          "held_out_65_to_100s": {
+            "similarity": 0.8674,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        "selection_reason": "Balance opening and later-section evidence, then use part logs and original-audio interpretation."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 1,
+            "range": [
+              24,
+              50
+            ],
+            "notes_below_48": 90,
+            "programs_zero_based": [
+              50
+            ]
+          },
+          {
+            "channel": 3,
+            "range": [
+              24,
+              50
+            ],
+            "notes_below_48": 90,
+            "programs_zero_based": [
+              50
+            ]
+          },
+          {
+            "channel": 2,
+            "range": [
+              26,
+              48
+            ],
+            "notes_below_48": 532,
+            "programs_zero_based": [
+              34
+            ]
+          }
+        ],
+        "pitch_bend_events": 1736,
+        "controller_event_count": 78,
+        "echo_named_tracks": [
+          "Synth Strings 1 (echo)",
+          "Synth Strings 2 (echo)",
+          "Blown Bottle (low) (echo)",
+          "Blown Bottle (high) (echo)",
+          "Atmosphere FX (echo)"
+        ],
+        "note_count": 5246
+      }
+    },
+    {
+      "id": "DKC-12",
+      "title": "Voices of the Temple",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Choose a choir-like atmospheric center with low resonance, sparse melodic gestures and a defined percussive pulse.",
+      "working_parts": [
+        "nonverbal synthetic choir/pad",
+        "low drone/bass",
+        "soft melodic answer",
+        "sparse tuned percussion"
+      ],
+      "available_starting_route": "Nonverbal choir/synth guest; low pad; restrained World Suite percussion",
+      "revision_trigger": "Use the simpler named Voices transcription as the working scaffold if the denser Temple Tempest copy obscures entrances; tonal ranking is non-discriminating here.",
+      "confidence": "LOW_TO_MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=3TKs8xRd5mo",
+        "audio_analysis_sha256": "f2fff17a3f061d44216e34737b99154482d46a02e5403ae55f1dee4d08f397fa",
+        "excerpt_spans": [
+          [
+            0,
+            20
+          ],
+          [
+            45,
+            65
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_Voices_of_the_Temple.mid",
+          "name": "Voices of the Temple",
+          "sha256": "db28ba4d7860a8f95780df192014001bd5fd068ef78e59d5ab1bd6cafce4c929",
+          "note_count": 2406,
+          "channels": 6,
+          "centered_chroma_similarity": 0.4889,
+          "midi_seconds_to_audio_scale": 1.0500000000000003,
+          "audio_offset_seconds": 0.7999999999999989,
+          "compared_frames": 321,
+          "held_out_65_to_100s": {
+            "similarity": 0.4226,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        "selection_reason": "Prefer the simpler explicitly named six-channel version as a scaffold. The higher-scoring Temple Tempest candidate also matches a wrong recording, so its metric lead is not decisive."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 1,
+            "range": [
+              35,
+              60
+            ],
+            "notes_below_48": 58,
+            "programs_zero_based": [
+              49
+            ]
+          },
+          {
+            "channel": 2,
+            "range": [
+              39,
+              39
+            ],
+            "notes_below_48": 576,
+            "programs_zero_based": [
+              47
+            ]
+          },
+          {
+            "channel": 4,
+            "range": [
+              42,
+              74
+            ],
+            "notes_below_48": 20,
+            "programs_zero_based": [
+              46
+            ]
+          },
+          {
+            "channel": 5,
+            "range": [
+              42,
+              73
+            ],
+            "notes_below_48": 8,
+            "programs_zero_based": [
+              46
+            ]
+          }
+        ],
+        "pitch_bend_events": 0,
+        "controller_event_count": 988,
+        "echo_named_tracks": [],
+        "note_count": 2406
+      }
+    },
+    {
+      "id": "DKC-13",
+      "title": "Forest Frenzy",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Orchestrate the pulse as playful natural-sounding gestures: rattles, feet, birds and ripples translated into distinct musical voices.",
+      "working_parts": [
+        "rattle/shaker",
+        "low plucked bass",
+        "bird/pipe-like line",
+        "harp-like water figure",
+        "wooden mallet",
+        "humming/wind bed"
+      ],
+      "available_starting_route": "World Suite small percussion; bass; pipe/wind guest; FM/harp pluck; shaped noise pad",
+      "revision_trigger": "These are role metaphors supported by the fan track names, not zoological sample claims; change any voice that loses the original rhythmic function.",
+      "confidence": "MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=54owKVhMvHM",
+        "audio_analysis_sha256": "aec6cba033ca4d820b8aac42542532039e957f37b5e5c481a8b519888ebbd523",
+        "excerpt_spans": [
+          [
+            0,
+            20
+          ],
+          [
+            45,
+            65
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_forest_frenzy.mid",
+          "name": "Forest Frenzy",
+          "sha256": "c4871bd8ceaaf0537c0da41f5c1703c134a10eb3b078ad75e24b91033d0a0159",
+          "note_count": 2969,
+          "channels": 9,
+          "centered_chroma_similarity": 0.6157,
+          "midi_seconds_to_audio_scale": 1.0250000000000004,
+          "audio_offset_seconds": 0.7999999999999989,
+          "compared_frames": 314,
+          "held_out_65_to_100s": {
+            "similarity": 0.7305,
+            "frames": 173,
+            "offset_and_scale_frozen": true
+          }
+        },
+        "selection_reason": "Balance opening and later-section evidence, then use part logs and original-audio interpretation."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 1,
+            "range": [
+              26,
+              33
+            ],
+            "notes_below_48": 273,
+            "programs_zero_based": [
+              45
+            ]
+          },
+          {
+            "channel": 3,
+            "range": [
+              45,
+              74
+            ],
+            "notes_below_48": 2,
+            "programs_zero_based": [
+              108
+            ]
+          },
+          {
+            "channel": 6,
+            "range": [
+              43,
+              45
+            ],
+            "notes_below_48": 16,
+            "programs_zero_based": [
+              47
+            ]
+          }
+        ],
+        "pitch_bend_events": 0,
+        "controller_event_count": 622,
+        "echo_named_tracks": [],
+        "note_count": 2969
+      }
+    },
+    {
+      "id": "DKC-14",
+      "title": "Treetop Rock",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Use a bright mallet/pipe/pluck exchange over short bass rather than assigning one guitar as the whole identity.",
+      "working_parts": [
+        "vibraphone-like mallet",
+        "pizzicato figures and bass",
+        "pan-pipe/whistle-like replies",
+        "synthetic voice accents"
+      ],
+      "available_starting_route": "Mallet guest; short strings; wind/synth guest; plucked low part",
+      "revision_trigger": "Use synthetic rather than fully natural winds if acoustic phrasing blunts the original clipped articulation.",
+      "confidence": "MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=1kmRJgv-rDo",
+        "audio_analysis_sha256": "5828f1ac6ca9f79631000d05b9bbedf472526ec91accd8441f8dc225fadea82c",
+        "excerpt_spans": [
+          [
+            0,
+            20
+          ],
+          [
+            45,
+            65
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_tree_top_town.mid",
+          "name": "Tree Top Town",
+          "sha256": "e75500154b8518252d568bbcddc793876e36e184b6f9e1a72a1d333f44f63e89",
+          "note_count": 3545,
+          "channels": 8,
+          "centered_chroma_similarity": 0.7726,
+          "midi_seconds_to_audio_scale": 0.9500000000000002,
+          "audio_offset_seconds": -8.881784197001252e-16,
+          "compared_frames": 324,
+          "held_out_65_to_100s": {
+            "similarity": 0.7322,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        "selection_reason": "Balance opening and later-section evidence, then use part logs and original-audio interpretation."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 1,
+            "range": [
+              36,
+              72
+            ],
+            "notes_below_48": 14,
+            "programs_zero_based": [
+              11,
+              45
+            ]
+          },
+          {
+            "channel": 3,
+            "range": [
+              41,
+              65
+            ],
+            "notes_below_48": 4,
+            "programs_zero_based": [
+              45
+            ]
+          },
+          {
+            "channel": 4,
+            "range": [
+              45,
+              74
+            ],
+            "notes_below_48": 6,
+            "programs_zero_based": [
+              11,
+              75
+            ]
+          },
+          {
+            "channel": 5,
+            "range": [
+              36,
+              72
+            ],
+            "notes_below_48": 14,
+            "programs_zero_based": [
+              11,
+              45
+            ]
+          },
+          {
+            "channel": 6,
+            "range": [
+              45,
+              74
+            ],
+            "notes_below_48": 6,
+            "programs_zero_based": [
+              11,
+              79
+            ]
+          },
+          {
+            "channel": 8,
+            "range": [
+              36,
+              45
+            ],
+            "notes_below_48": 20,
+            "programs_zero_based": [
+              54
+            ]
+          }
+        ],
+        "pitch_bend_events": 98,
+        "controller_event_count": 73,
+        "echo_named_tracks": [],
+        "note_count": 3545
+      }
+    },
+    {
+      "id": "DKC-15",
+      "title": "Funky's Fugue",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Center the funk bass and short clean/muted guitar-like chops, with orchestral/vocal-like hits as punctuation.",
+      "working_parts": [
+        "picked/electric bass",
+        "clean guitar-like chops",
+        "muted guitar-like pulse",
+        "orchestra hit",
+        "applause/vocal-like accent",
+        "tight kit"
+      ],
+      "available_starting_route": "Electric-guitar guest required; electric/synth bass; BBA2; short hit/FX synthesis",
+      "revision_trigger": "Do not substitute nylon or steel acoustic guitar because it is installed. Synthetic chops are the fallback when no clean electric patch is suitable.",
+      "confidence": "MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=K3sj28wh6eM",
+        "audio_analysis_sha256": "51f28c311ccd1644a71223c5a9e7785889ea6384c185b056835f125181c241e3",
+        "excerpt_spans": [
+          [
+            0,
+            20
+          ],
+          [
+            45,
+            65
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Funkys_Flights-KM.mid",
+          "name": "Funky's Flights (2)",
+          "sha256": "5d3bed6f446ed203ceceefa5424bbae04939aece6cd37da68a6af72a15dfaa98",
+          "note_count": 5709,
+          "channels": 10,
+          "centered_chroma_similarity": 0.5751,
+          "midi_seconds_to_audio_scale": 0.9750000000000002,
+          "audio_offset_seconds": -8.881784197001252e-16,
+          "compared_frames": 321,
+          "held_out_65_to_100s": {
+            "similarity": 0.5184,
+            "frames": 175,
+            "offset_and_scale_frozen": true
+          }
+        },
+        "selection_reason": "Balance opening and later-section evidence, then use part logs and original-audio interpretation."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 1,
+            "range": [
+              29,
+              36
+            ],
+            "notes_below_48": 882,
+            "programs_zero_based": [
+              34
+            ]
+          },
+          {
+            "channel": 2,
+            "range": [
+              29,
+              36
+            ],
+            "notes_below_48": 882,
+            "programs_zero_based": [
+              32
+            ]
+          },
+          {
+            "channel": 6,
+            "range": [
+              40,
+              40
+            ],
+            "notes_below_48": 5,
+            "programs_zero_based": [
+              126
+            ]
+          }
+        ],
+        "pitch_bend_events": 14,
+        "controller_event_count": 46,
+        "echo_named_tracks": [
+          "Electric Guitar (Clean) (echo)",
+          "Orchestra Hit (echo)"
+        ],
+        "note_count": 5709
+      }
+    },
+    {
+      "id": "DKC-16",
+      "title": "Misty Menace",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Treat this as an authored soundscape with a loose pulse, not a melody waiting for a fuller band.",
+      "working_parts": [
+        "wind/noise wash",
+        "low resonant drone",
+        "soft filtered noise rolls",
+        "sparse metallic events"
+      ],
+      "available_starting_route": "Atmospherics/Ether Fields plus custom noise and filtered percussion",
+      "revision_trigger": "Retain the GS MIDI as an event guide only. Revise event timing by audio; weak pitch matching does not require inventing a tune.",
+      "confidence": "LOW_TO_MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=WGifPWVFre8",
+        "audio_analysis_sha256": "1c83867d5ae70ac24d9c2d5db9e6c13151a4a3cfb78ec3aaf91b59a2e3f41fb9",
+        "excerpt_spans": [
+          [
+            0,
+            20
+          ],
+          [
+            45,
+            65
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Mist-KM.mid",
+          "name": "Misty Menace (GS)",
+          "sha256": "c409deb701d46e0d46bfbedae6d213a5eca08a832857b37e97df3fe51e7c157f",
+          "note_count": 1434,
+          "channels": 4,
+          "centered_chroma_similarity": 0.0919,
+          "midi_seconds_to_audio_scale": 0.9750000000000002,
+          "audio_offset_seconds": 0.7999999999999989,
+          "compared_frames": 321,
+          "held_out_65_to_100s": {
+            "similarity": 0.1837,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        "selection_reason": "Use the GS file as a timed texture/event guide; weak tonal similarity is expected for the noise/drone interpretation and does not justify adding melody."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 1,
+            "range": [
+              9,
+              30
+            ],
+            "notes_below_48": 165,
+            "programs_zero_based": [
+              103
+            ]
+          }
+        ],
+        "pitch_bend_events": 811,
+        "controller_event_count": 1471,
+        "echo_named_tracks": [],
+        "note_count": 1434
+      }
+    },
+    {
+      "id": "DKC-17",
+      "title": "Northern Hemispheres",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Keep the dark wind/drone opening and the later bright repeated keys or arpeggio as a deliberate change of scale.",
+      "working_parts": [
+        "wind-like low texture",
+        "sustained strings/pad",
+        "bright short keyboard arpeggio",
+        "soft bass",
+        "restrained percussion"
+      ],
+      "available_starting_route": "Shaped noise pad; short piano/synth-key blend; sustained pad; low bass",
+      "revision_trigger": "Test a sampled-key blend before an acoustic piano alone. Preserve the exposed arpeggio instead of filling every gap.",
+      "confidence": "MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=i-amAggPrBU",
+        "audio_analysis_sha256": "a9a9a1f250f00a835e5856591ebcb2f1636711957c0a5bf1038d4c83f74db59d",
+        "excerpt_spans": [
+          [
+            0,
+            20
+          ],
+          [
+            45,
+            65
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_northern_hemispheres.mid",
+          "name": "Northern Hemispheres",
+          "sha256": "cecdfcd515fa3b2fd0cde0913136f65c7cb5bd037f471fc903810e07ef307cc3",
+          "note_count": 3467,
+          "channels": 16,
+          "centered_chroma_similarity": 0.8447,
+          "midi_seconds_to_audio_scale": 1.0250000000000004,
+          "audio_offset_seconds": -0.8000000000000007,
+          "compared_frames": 324,
+          "held_out_65_to_100s": {
+            "similarity": 0.6755,
+            "frames": 175,
+            "offset_and_scale_frozen": true
+          }
+        },
+        "selection_reason": "Balance opening and later-section evidence, then use part logs and original-audio interpretation."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 3,
+            "range": [
+              43,
+              63
+            ],
+            "notes_below_48": 32,
+            "programs_zero_based": [
+              1
+            ]
+          },
+          {
+            "channel": 9,
+            "range": [
+              36,
+              43
+            ],
+            "notes_below_48": 30,
+            "programs_zero_based": [
+              49
+            ]
+          },
+          {
+            "channel": 16,
+            "range": [
+              41,
+              43
+            ],
+            "notes_below_48": 4,
+            "programs_zero_based": [
+              48
+            ]
+          }
+        ],
+        "pitch_bend_events": 25,
+        "controller_event_count": 570,
+        "echo_named_tracks": [],
+        "note_count": 3467
+      }
+    },
+    {
+      "id": "DKC-18",
+      "title": "Ice Cave Chant",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Use a glassy mallet/harp weave with warm plucked bass and soft breathy sustained color.",
+      "working_parts": [
+        "bell highlights",
+        "harp/pluck pattern",
+        "vibraphone/marimba-like line",
+        "low plucked bass",
+        "warm pad",
+        "reed/choir-like hold"
+      ],
+      "available_starting_route": "Mallet/harp guests; soft bass; modulated pad; breathy synth",
+      "revision_trigger": "Let the source attack decide between harp and mallet; the MIDI’s old composer credit is not used as authority.",
+      "confidence": "MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=-sreLxmBC2g",
+        "audio_analysis_sha256": "7376f26bb2b63c46c445879c16bc4288850ea32e832f59bbe8c91accfbfa7070",
+        "excerpt_spans": [
+          [
+            0,
+            20
+          ],
+          [
+            45,
+            65
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_ice_cave_chant[2].mid",
+          "name": "Ice Cave Chant [2]",
+          "sha256": "350c63b2da8a0a066f27ce407eb8e0724a510733660eb449f5c10ab3081b11c1",
+          "note_count": 1931,
+          "channels": 6,
+          "centered_chroma_similarity": 0.6601,
+          "midi_seconds_to_audio_scale": 1.0250000000000004,
+          "audio_offset_seconds": 0.7999999999999989,
+          "compared_frames": 321,
+          "held_out_65_to_100s": {
+            "similarity": 0.5225,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        "selection_reason": "Balance opening and later-section evidence, then use part logs and original-audio interpretation."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 1,
+            "range": [
+              33,
+              74
+            ],
+            "notes_below_48": 14,
+            "programs_zero_based": [
+              46
+            ]
+          },
+          {
+            "channel": 4,
+            "range": [
+              28,
+              55
+            ],
+            "notes_below_48": 91,
+            "programs_zero_based": [
+              26
+            ]
+          },
+          {
+            "channel": 5,
+            "range": [
+              45,
+              45
+            ],
+            "notes_below_48": 1,
+            "programs_zero_based": [
+              50
+            ]
+          }
+        ],
+        "pitch_bend_events": 0,
+        "controller_event_count": 800,
+        "echo_named_tracks": [],
+        "note_count": 1931
+      }
+    },
+    {
+      "id": "DKC-19",
+      "title": "Fear Factory",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Keep a mechanical electronic rhythm section with distinct bass, ostinato and lead functions.",
+      "working_parts": [
+        "sharp synth lead",
+        "repeating pluck/string-like ostinato",
+        "active synth bass",
+        "electronic kick/snare/hat",
+        "pad",
+        "delayed accents"
+      ],
+      "available_starting_route": "Falcon synth bass and lead; BBA2; shaped pad; short pluck",
+      "revision_trigger": "Soul Bass or Soul Drums is optional here. Replace an acoustic default when it weakens the original electronic identity.",
+      "confidence": "MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=krnF4BeIPUU",
+        "audio_analysis_sha256": "56f1cbb38c6a1ff7d73ce0d3dc0570e4bd1a6defff87f6110881670fc5f91a59",
+        "excerpt_spans": [
+          [
+            0,
+            20
+          ],
+          [
+            45,
+            65
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC1_FearFactory.mid",
+          "name": "Fear Factory (3)",
+          "sha256": "24241759be1eba3ad62fce72faf1fc483689cb23abf6fcb2067027d084691d58",
+          "note_count": 7779,
+          "channels": 16,
+          "centered_chroma_similarity": 0.8367,
+          "midi_seconds_to_audio_scale": 0.9750000000000002,
+          "audio_offset_seconds": -8.881784197001252e-16,
+          "compared_frames": 323,
+          "held_out_65_to_100s": {
+            "similarity": 0.8444,
+            "frames": 173,
+            "offset_and_scale_frozen": true
+          }
+        },
+        "selection_reason": "Balance opening and later-section evidence, then use part logs and original-audio interpretation."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 2,
+            "range": [
+              35,
+              57
+            ],
+            "notes_below_48": 1574,
+            "programs_zero_based": [
+              81
+            ]
+          }
+        ],
+        "pitch_bend_events": 0,
+        "controller_event_count": 69,
+        "echo_named_tracks": [],
+        "note_count": 7779
+      }
+    },
+    {
+      "id": "DKC-20",
+      "title": "Gang-Plank Galleon",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Use a reed/accordion-like opening, then let the harder sustained lead and rhythm section take over.",
+      "working_parts": [
+        "accordion/reed-like melody",
+        "string/synth harmony",
+        "hard guitar-like lead",
+        "electric bass",
+        "driving kit"
+      ],
+      "available_starting_route": "Accordion/reed guest; electric/synth guitar guest; bass; compact kit",
+      "revision_trigger": "Do not preserve the MIDI’s string label when the audible attack is reed-like. Keep the later escalation rather than one uniform band texture.",
+      "confidence": "MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=T0H_gtLBeFo",
+        "audio_analysis_sha256": "75bbf06a8aa678cb08bc43575673d6f1a19067f3206319b7877a08673914437f",
+        "excerpt_spans": [
+          [
+            0,
+            20
+          ],
+          [
+            45,
+            65
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_Gang-Plank_Galleon.mid",
+          "name": "Gang-Plank Galleon (3)",
+          "sha256": "0b3f43799ffb2dee83076bff066e13be53e87a2c7a55aed35644445f59be215b",
+          "note_count": 5073,
+          "channels": 9,
+          "centered_chroma_similarity": 0.6914,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": 0.3999999999999986,
+          "compared_frames": 316,
+          "held_out_65_to_100s": {
+            "similarity": 0.6384,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        "selection_reason": "Balance opening and later-section evidence, then use part logs and original-audio interpretation."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 2,
+            "range": [
+              41,
+              72
+            ],
+            "notes_below_48": 22,
+            "programs_zero_based": [
+              48
+            ]
+          },
+          {
+            "channel": 12,
+            "range": [
+              26,
+              38
+            ],
+            "notes_below_48": 2,
+            "programs_zero_based": [
+              49
+            ]
+          },
+          {
+            "channel": 14,
+            "range": [
+              41,
+              50
+            ],
+            "notes_below_48": 1088,
+            "programs_zero_based": [
+              30
+            ]
+          },
+          {
+            "channel": 13,
+            "range": [
+              26,
+              38
+            ],
+            "notes_below_48": 931,
+            "programs_zero_based": [
+              34
+            ]
+          }
+        ],
+        "pitch_bend_events": 0,
+        "controller_event_count": 2606,
+        "echo_named_tracks": [],
+        "note_count": 5073
+      }
+    },
+    {
+      "id": "DKC-21",
+      "title": "K. Rool's Cacophony",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Use a sparse, subdued synthetic phrase with gentle plucked accents, low support and a lingering tail.",
+      "working_parts": [
+        "soft synthetic chord pad",
+        "gentle plucked/keyboard accents",
+        "warm sustained bass",
+        "reverberant tail"
+      ],
+      "available_starting_route": "Layered synth/brass guest with low pad and short impact",
+      "revision_trigger": "A simple ear-led phrase sketch is the working route; the unavailable sequencer file is not a reason to leave orchestration undecided.",
+      "confidence": "LOW_TO_MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=LTZ6ux_LjxM",
+        "audio_analysis_sha256": "f2474e0da5b95bcdea43b7a7f1321b113e63460eb775a92e9eaa27d98359376f",
+        "excerpt_spans": [
+          [
+            0,
+            20
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": null,
+        "selection_reason": "Proceed with the role/timeline interpretation and transcribe the brief phrase or hook by ear during construction; do not wait for a downloadable MIDI."
+      },
+      "construction_notes": null
+    },
+    {
+      "id": "DKC-22",
+      "title": "The Credits Concerto",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Use buoyant keys and pipe-like lead exchanges over a firm plucked bass and concise kit.",
+      "working_parts": [
+        "bright keys",
+        "pipe/calliope-like lead",
+        "sustained string harmony",
+        "plucked bass",
+        "drum kit",
+        "reversed/swish accents"
+      ],
+      "available_starting_route": "Acoustic/sampled keys; pipe synth; bass; BBA2; noise swell",
+      "revision_trigger": "Treat high doubled keyboard tracks and echo leads as one musical gesture until separate counterlines are audible.",
+      "confidence": "MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=q0JHa2NH0Rc",
+        "audio_analysis_sha256": "fa9710f66f9ae4d29e15ceaf4935970321cff481aad24278109d2db1c1fe9f32",
+        "excerpt_spans": [
+          [
+            0,
+            20
+          ],
+          [
+            45,
+            65
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_end_credits.mid",
+          "name": "End Credits",
+          "sha256": "194b0d3e963a7c7b1e33bb63608dbcd90bfa5c78bc93a9d98c5189c0ca67efa0",
+          "note_count": 2634,
+          "channels": 12,
+          "centered_chroma_similarity": 0.8196,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": 0.3999999999999986,
+          "compared_frames": 323,
+          "held_out_65_to_100s": {
+            "similarity": 0.8252,
+            "frames": 176,
+            "offset_and_scale_frozen": true
+          }
+        },
+        "selection_reason": "Balance opening and later-section evidence, then use part logs and original-audio interpretation."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 4,
+            "range": [
+              31,
+              31
+            ],
+            "notes_below_48": 512,
+            "programs_zero_based": [
+              34
+            ]
+          },
+          {
+            "channel": 12,
+            "range": [
+              31,
+              31
+            ],
+            "notes_below_48": 512,
+            "programs_zero_based": [
+              33
+            ]
+          },
+          {
+            "channel": 13,
+            "range": [
+              41,
+              59
+            ],
+            "notes_below_48": 24,
+            "programs_zero_based": [
+              119
+            ]
+          }
+        ],
+        "pitch_bend_events": 0,
+        "controller_event_count": 26,
+        "echo_named_tracks": [],
+        "note_count": 2634
+      }
+    },
+    {
+      "id": "DKC-23",
+      "title": "Fanfare",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Make a short coordinated brass-like statement with low reinforcement and a clean release.",
+      "working_parts": [
+        "brass-like ensemble stab/figure",
+        "low support",
+        "short decay/reverb"
+      ],
+      "available_starting_route": "Brass/synth guest and low layer",
+      "revision_trigger": "Use the corrected retail reference, not the beta intake. Fit the phrase by ear rather than borrowing DKC2’s fanfare.",
+      "confidence": "LOW_TO_MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=Ttm11SNDDFM",
+        "audio_analysis_sha256": "cbcda16aca5cb1eaa3bfdd05d32d0fa104df5a4722ad2d00eb51dee710c3fdf1",
+        "excerpt_spans": [
+          [
+            0,
+            5.525351473922902
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": null,
+        "selection_reason": "Proceed with the role/timeline interpretation and transcribe the brief phrase or hook by ear during construction; do not wait for a downloadable MIDI."
+      },
+      "construction_notes": null
+    },
+    {
+      "id": "DKC-24",
+      "title": "Level Goal",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Use a compact bright fanfare: lead/harmony and bass land together, followed by a small tail.",
+      "working_parts": [
+        "brass-like lead",
+        "short strings/pad",
+        "plucked bass",
+        "high pipe accent",
+        "brief drum flourish"
+      ],
+      "available_starting_route": "Brass/synth guest; bass; pipe accent; one-shot percussion",
+      "revision_trigger": "Simplify the XG duplicate/echo channels into musical roles. Short-cue pitch scores do not decide articulation.",
+      "confidence": "MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=AHh36eImV_w",
+        "audio_analysis_sha256": "938461d1722116c86db415fa53cefc4d66bc2d87b446fc60b6ab601b8461b1c1",
+        "excerpt_spans": [
+          [
+            0,
+            4.757369614512472
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_level_clear(XG).mid",
+          "name": "Level Clear XG",
+          "sha256": "f14fd014dfb8059662af2655a7ea7396a024a4a0f7a1132f76e7f6744a74e139",
+          "note_count": 246,
+          "channels": 15,
+          "centered_chroma_similarity": 0.7997,
+          "midi_seconds_to_audio_scale": 1.3500000000000005,
+          "audio_offset_seconds": -8.881784197001252e-16,
+          "compared_frames": 15,
+          "held_out_65_to_100s": {
+            "similarity": null,
+            "frames": 0,
+            "reason": "Reference or alignment too short"
+          }
+        },
+        "selection_reason": "Balance opening and later-section evidence, then use part logs and original-audio interpretation."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 2,
+            "range": [
+              29,
+              41
+            ],
+            "notes_below_48": 8,
+            "programs_zero_based": [
+              32
+            ]
+          },
+          {
+            "channel": 11,
+            "range": [
+              29,
+              41
+            ],
+            "notes_below_48": 8,
+            "programs_zero_based": [
+              32
+            ]
+          }
+        ],
+        "pitch_bend_events": 0,
+        "controller_event_count": 32,
+        "echo_named_tracks": [
+          "Trumpet Echo",
+          "Strings Echo",
+          "Pan Flute Echo",
+          "Trumpet2 Echo",
+          "Strings2 Echo",
+          "Pan Flute 2 Echo"
+        ],
+        "note_count": 246
+      }
+    },
+    {
+      "id": "DKC-25",
+      "title": "Bonus Win",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Use an expanded version of the success vocabulary with a distinct concluding phrase.",
+      "working_parts": [
+        "brass-like lead",
+        "supporting harmony",
+        "bouncy bass",
+        "high accent",
+        "compact percussion"
+      ],
+      "available_starting_route": "Same source-led success palette with the longer phrase retained",
+      "revision_trigger": "Keep its phrase distinct from Level Goal; collapse XG echoes before balancing the lead.",
+      "confidence": "MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=fjz51fXqz_g",
+        "audio_analysis_sha256": "d8e7ad8bb7e8da2538191ecad9617f428847e633beee1d8bee5940de0271d4f3",
+        "excerpt_spans": [
+          [
+            0,
+            6.710612244897959
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_bonus_boss_victory(XG).mid",
+          "name": "Bonus and Boss Victory XG",
+          "sha256": "0acc8f7e8629393b1fef3fea79b707223ad5b4f34bc746ffc7f538d7ec8e7e63",
+          "note_count": 548,
+          "channels": 15,
+          "centered_chroma_similarity": 0.8591,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": 0.3999999999999986,
+          "compared_frames": 31,
+          "held_out_65_to_100s": {
+            "similarity": null,
+            "frames": 0,
+            "reason": "Reference or alignment too short"
+          }
+        },
+        "selection_reason": "Balance opening and later-section evidence, then use part logs and original-audio interpretation."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 2,
+            "range": [
+              29,
+              41
+            ],
+            "notes_below_48": 16,
+            "programs_zero_based": [
+              32
+            ]
+          },
+          {
+            "channel": 11,
+            "range": [
+              29,
+              41
+            ],
+            "notes_below_48": 16,
+            "programs_zero_based": [
+              32
+            ]
+          }
+        ],
+        "pitch_bend_events": 0,
+        "controller_event_count": 44,
+        "echo_named_tracks": [
+          "Trumpet Echo",
+          "Synth Echo",
+          "Pan Echo",
+          "Trumpet2 Echo",
+          "Strings 2 Echo",
+          "Pan Flute 2 Echo"
+        ],
+        "note_count": 548
+      }
+    },
+    {
+      "id": "DKC-26",
+      "title": "Bonus Lose",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Keep a short descending/comic mallet phrase, bass punctuation and airy high reply.",
+      "working_parts": [
+        "wooden mallet",
+        "low pluck",
+        "airy synthetic high voice",
+        "brief percussion"
+      ],
+      "available_starting_route": "Wooden mallet guest; low bass; breathy synth",
+      "revision_trigger": "Match the contour and stop rather than imposing a standard “sad” orchestration. Reference study only; no Roshan fail-state commission.",
+      "confidence": "MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=a8PSfsy_acY",
+        "audio_analysis_sha256": "80b2ed520567b558d997ad61e3212b1a83e47af961301c64587ae522fbf7187a",
+        "excerpt_spans": [
+          [
+            0,
+            6.710612244897959
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://themushroomkingdom.net/sounds/mid/dkcountry_bonus_lose.mid",
+          "name": "Bonus Lose",
+          "sha256": "88ae6479e302fa0e34b4f4d667923a5f31842b91d5e5519bd990f3ee494dc203",
+          "note_count": 221,
+          "channels": 6,
+          "centered_chroma_similarity": 0.7781,
+          "midi_seconds_to_audio_scale": 1.0000000000000002,
+          "audio_offset_seconds": 0.3999999999999986,
+          "compared_frames": 26,
+          "held_out_65_to_100s": {
+            "similarity": null,
+            "frames": 0,
+            "reason": "Reference or alignment too short"
+          }
+        },
+        "selection_reason": "Balance opening and later-section evidence, then use part logs and original-audio interpretation."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 2,
+            "range": [
+              42,
+              70
+            ],
+            "notes_below_48": 7,
+            "programs_zero_based": [
+              12
+            ]
+          },
+          {
+            "channel": 4,
+            "range": [
+              29,
+              46
+            ],
+            "notes_below_48": 22,
+            "programs_zero_based": [
+              32
+            ]
+          }
+        ],
+        "pitch_bend_events": 0,
+        "controller_event_count": 20,
+        "echo_named_tracks": [],
+        "note_count": 221
+      }
+    },
+    {
+      "id": "DKC-27",
+      "title": "Lost Life",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Use the short fall/turn as a complete gesture, including its bent low voice and stop.",
+      "working_parts": [
+        "plucked low bass with pitch motion",
+        "short keys/strings",
+        "compact drum hit"
+      ],
+      "available_starting_route": "Short bass with authored bend; keys/string accent; one-shot kit",
+      "revision_trigger": "Use the parsed MIDI as a phrase sketch despite unavailable tonal fit; audition the fall and endpoint directly.",
+      "confidence": "LOW_TO_MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=2bMrUSNIU6A",
+        "audio_analysis_sha256": "f8745ff25bac73a16cfbf32f026adc522897cd28151504989bd5fa90eac0f206",
+        "excerpt_spans": [
+          [
+            0,
+            5.7004988662131515
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": {
+          "url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Death-KM.mid",
+          "name": "Death",
+          "sha256": "3ade24a27363e40ed30a4a683e69a2f6b159be8630877a6ebc7c89ed8cd92794",
+          "note_count": 61,
+          "channels": 4,
+          "centered_chroma_similarity": null,
+          "midi_seconds_to_audio_scale": null,
+          "audio_offset_seconds": null,
+          "compared_frames": 0,
+          "held_out_65_to_100s": {
+            "similarity": null,
+            "frames": 0,
+            "reason": "Reference or alignment too short"
+          },
+          "measurement_status": "NO_VALID_ALIGNMENT"
+        },
+        "selection_reason": "Use the parsed Death phrase as a contour/bend sketch; no valid tonal alignment was obtained, so do not claim quantitative agreement."
+      },
+      "construction_notes": {
+        "nonpercussion_low_register_channels": [
+          {
+            "channel": 1,
+            "range": [
+              31,
+              43
+            ],
+            "notes_below_48": 8,
+            "programs_zero_based": [
+              32
+            ]
+          }
+        ],
+        "pitch_bend_events": 17,
+        "controller_event_count": 7,
+        "echo_named_tracks": [],
+        "note_count": 61
+      }
+    },
+    {
+      "id": "DKC-28",
+      "title": "Bonus Room Opened!",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Treat this as a tiny reveal gesture whose attack and tail carry the meaning.",
+      "working_parts": [
+        "brief pitched accent",
+        "supporting impact",
+        "short spatial tail"
+      ],
+      "available_starting_route": "Short synth/mallet/bright accent candidate",
+      "revision_trigger": "Choose the bright attack that best matches the clip, then adjust pitch contour by ear. A full-song transcription is unnecessary.",
+      "confidence": "LOW_TO_MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=Mi6Dd2HjUVY",
+        "audio_analysis_sha256": "1e937124179259ff3984c77917c2ca00d560e03d704cbebe31573faf5c16deb3",
+        "excerpt_spans": [
+          [
+            0,
+            2.8444897959183675
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": null,
+        "selection_reason": "Proceed with the role/timeline interpretation and transcribe the brief phrase or hook by ear during construction; do not wait for a downloadable MIDI."
+      },
+      "construction_notes": null
+    },
+    {
+      "id": "DKC-29",
+      "title": "Extra Life Balloon",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Use a light, compact upward reward gesture with a crisp finish.",
+      "working_parts": [
+        "very brief bright synthetic flourish",
+        "fast pitch motion",
+        "little or no bass support"
+      ],
+      "available_starting_route": "Bright mallet/synth accent and minimal support",
+      "revision_trigger": "Keep the sound short; revise its contour from a direct A/B rather than inventing a long arrangement.",
+      "confidence": "LOW_TO_MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=7NaqE11lDoY",
+        "audio_analysis_sha256": "96ff356f0dbf7044dae65bd12f3fcca6999e4106b303fc2ccbdb9ef781ca5706",
+        "excerpt_spans": [
+          [
+            0,
+            2.5426303854875285
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": null,
+        "selection_reason": "Proceed with the role/timeline interpretation and transcribe the brief phrase or hook by ear during construction; do not wait for a downloadable MIDI."
+      },
+      "construction_notes": null
+    },
+    {
+      "id": "DKC-30",
+      "title": "Game Over",
+      "revision": 1,
+      "status": "ADOPTED_WORKING_INTERPRETATION",
+      "direction": "Preserve a slow, sparse final-state gesture and its silence/tail; do not assume it is identical to K. Rool’s cue.",
+      "working_parts": [
+        "low synthetic/organ-like support",
+        "sparse high accents",
+        "atmosphere/tail"
+      ],
+      "available_starting_route": "Low evolving pad plus restrained pitched accent",
+      "revision_trigger": "Use the exact screen clip as the timeline and compare it to K. Rool’s cue. Shared names in fan sites do not merge the two automatically.",
+      "confidence": "LOW_TO_MODERATE",
+      "basis": {
+        "audio_url": "https://www.youtube.com/watch?v=sZ9Akq3cwTw",
+        "audio_analysis_sha256": "b278080b567132f612721a126d2e44ff94e9c78f54df717e8ca64d1eb5bfd979",
+        "excerpt_spans": [
+          [
+            0,
+            20
+          ],
+          [
+            5.449115646258502,
+            25.4491156462585
+          ]
+        ],
+        "listening": "Automated listening descriptors critically interpreted alongside event logs; not a human acceptance grade.",
+        "selected_midi": null,
+        "selection_reason": "Proceed with the role/timeline interpretation and transcribe the brief phrase or hook by ear during construction; do not wait for a downloadable MIDI."
+      },
+      "construction_notes": null
+    }
+  ]
+}

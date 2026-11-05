@@ -1,0 +1,138 @@
+{
+  "id": "boxer-engine-handoff-20261101",
+  "scope": "Owner-requested evaluation of the Boxer phone/tablet contact engine (playing it repeatedly, analysing timing, rhythm and flow, and stress-testing the glove collision engine), followed by a written Codex work order for Editions 1-2 and the engine foundation, a roadmap for later editions, and the numbers-only harness that produced every figure. It opens MA-OPERA-015, records eleven owner decisions and adds cross-references. It benefits the child by making guard teachable: guards and finger lifts stop reading as mistakes, help stops maxing out on one slip, direction starts to matter, slow hands get time to counter, and purposeful play becomes faster than scribbling. No game script, scene, asset, audio, save key or workflow is changed, and no image is made.",
+  "baseline": "22df5b7541c7ddc28f8b7acd7f4947c8807e5dc0",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-05",
+    "DL-INT-09",
+    "DL-INT-14",
+    "DL-QA-02",
+    "DL-QA-12",
+    "DL-UI-04"
+  ],
+  "findings": [
+    "MA-OPERA-015",
+    "MA-OPERA-009"
+  ],
+  "finding_scope": "MA-OPERA-015 is opened CONFIRMED_OPEN P1 from harness runs on the exact Godot 4.7.2 engine at the Boxer branch head 22df5b75 plus code reading at dev 27c88288. MA-OPERA-009 gains a dated cross-reference history entry; its lifecycle, verification and acceptance scope are unchanged.",
+  "files": [
+    "docs/handoffs/codex_boxer_engine_2026-11-01/.gdignore",
+    "docs/handoffs/codex_boxer_engine_2026-11-01/README.md",
+    "docs/handoffs/codex_boxer_engine_2026-11-01/EVALUATION.md",
+    "docs/handoffs/codex_boxer_engine_2026-11-01/ROADMAP.md",
+    "docs/handoffs/codex_boxer_engine_2026-11-01/MANIFEST.json",
+    "docs/handoffs/codex_boxer_engine_2026-11-01/REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_boxer_engine_2026-11-01/data/results_22df5b75.txt",
+    "docs/handoffs/codex_boxer_engine_2026-11-01/harness/boundary_checks.gd",
+    "docs/handoffs/codex_boxer_engine_2026-11-01/harness/collision_integration.gd",
+    "docs/handoffs/codex_boxer_engine_2026-11-01/harness/crossing_debug.gd",
+    "docs/handoffs/codex_boxer_engine_2026-11-01/harness/crossing_v3.gd",
+    "docs/handoffs/codex_boxer_engine_2026-11-01/harness/geometry_check.gd",
+    "docs/handoffs/codex_boxer_engine_2026-11-01/harness/geometry_numbers.py",
+    "docs/handoffs/codex_boxer_engine_2026-11-01/harness/high_guard.py",
+    "docs/handoffs/codex_boxer_engine_2026-11-01/harness/hook_geometry.py",
+    "docs/handoffs/codex_boxer_engine_2026-11-01/harness/playthrough.gd",
+    "docs/handoffs/codex_boxer_engine_2026-11-01/harness/run_iso.sh",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/BOXING_GAME_PROJECT_2026-08-09.md",
+    "design/reference/owner_decisions.json",
+    "design/reference/OWNER_DECISIONS.md",
+    "audit/cycles/boxer-warning-20261101/owner_answers.json",
+    "audit/cycles/boxer-review-20261101/owner_answers.json",
+    "audit/cycles/boxer-roadmap-20261101/owner_answers.json"
+  ],
+  "validation": [
+    {
+      "command": "scripts/probe_boxing_contact.gd (Codex focused probe) via harness/run_iso.sh at 22df5b75",
+      "result": "PASS",
+      "evidence": "BOXINGCONTACT|COUNTS|geometry=14000|held_flights=224|adversarial_events=30000 and BOXINGCONTACT|RESULT|ALL OK; copied into data/results_22df5b75.txt."
+    },
+    {
+      "command": "harness/geometry_check.gd, harness/collision_integration.gd, harness/crossing_v3.gd (both modes), harness/boundary_checks.gd (finger-lift section), harness/playthrough.gd -- runs=120, plus the three Python geometry scripts",
+      "result": "PASS",
+      "evidence": "Measurement runs completed on Godot 4.7.2.stable.official.ed1daf0bf with isolated APPDATA; every result line is in data/results_22df5b75.txt. The boundary section of boundary_checks.gd exceeded its 40-minute limit and is superseded by crossing_v3.gd; collision_integration.gd's CROSS lines lag the glove one frame and are superseded by crossing_v3.gd."
+    },
+    {
+      "command": "python -B tools/record_owner_decision.py (three intakes) and --check",
+      "result": "PASS",
+      "evidence": "DECISIONS|COUNT|71, 76 and 81 after the three intakes; DECISIONS|RESULT|ALL OK."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH|INVENTORY=753|LEDGER=753|ACTIVE=74|RECORDS=77 and DOCAUTH|RESULT|ALL OK on the staged tree before the first commit."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV|BASE|a0bb2cf4691631a534e210a5fb60fd227213322f and AUDITDEV|RESULT|ALL OK after adding the three audit/cycles owner_answers.json files the decision tool writes (the first run named them as uncovered)."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "Ran 54 tests, OK; DOCAUTH|STRESS|6/6."
+    },
+    {
+      "command": "python -B tools/plan_prompt.py --check",
+      "result": "PASS",
+      "evidence": "PROMPTS: ALL OK."
+    },
+    {
+      "command": "python -B tools/audit_game_2d.py --regression-gate",
+      "result": "PASS",
+      "evidence": "GAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED (production 3D files 52, unchanged by this docs-only change), run on the staged tree before the first commit. This evidence text was then written into the record; the edited record was scanned for engine 3D class names, 3D identifiers and model paths before staging."
+    },
+    {
+      "command": "Probe Suite (GitHub Actions) on the pushed handoff-branch head",
+      "result": "PENDING",
+      "evidence": "Required green before any merge; the packet stays off dev during the demo freeze."
+    },
+    {
+      "command": "Anonymous raw.githubusercontent.com fetch of every packet file at the pushed revision, compared with MANIFEST.json SHA-256",
+      "result": "PASS",
+      "evidence": "Revision e450dc60883cd69536926b146b268abfbd2b7015 checked 2026-11-02T01:47:27+00:00 by anonymous HTTPS GET to raw.githubusercontent.com with no token or cookies: 15/15 files match MANIFEST.json bytes and SHA-256; manifest sha256 d59a0e67c6ea685ef11b905b8503e6986be9e87183a13af19afdf7fc54b8288b (4916 bytes). Receipt: docs/handoffs/codex_boxer_engine_2026-11-01/REMOTE_VERIFICATION.json."
+    }
+  ],
+  "acceptance_gaps": "Nothing in the game is implemented. Work packages BX0-BX9 and acceptance AC-1 to AC-10 remain open, including device (Lenovo Tab M11 and a phone), observed-child and owner review of the warning's look and the hooks' feel. The playthrough figures come from child timing models built from published averages, not from the intended child. No visual claim is made: no screenshots were taken.",
+  "lessons": [
+    {
+      "lesson": "A crossing harness that delivers a frame's input after _process lags the glove one frame and reported misses up to 118 px that were the harness's own error; Godot delivers a frame's input first and then advances time to the same moment.",
+      "write_back": "docs/handoffs/codex_boxer_engine_2026-11-01/README.md section 9 pitfalls and harness/crossing_v3.gd"
+    },
+    {
+      "lesson": "When a surface and its host both react to the same zero-amount gesture by raising help, one slip counts twice; give help a single owner.",
+      "write_back": "docs/handoffs/codex_boxer_engine_2026-11-01/README.md BX1 (C7)"
+    },
+    {
+      "lesson": "A random-input bot is a cheap check of DL-AGE-05: it exposed that Title Imp rewards scribbling as much as trying, which no existing probe measured.",
+      "write_back": "docs/handoffs/codex_boxer_engine_2026-11-01/README.md BX8 bot gate"
+    }
+  ],
+  "references_used": [
+    {
+      "path": "audit/boxer_contact_engine_20261031/verification.json",
+      "purpose": "Codex's own contact-engine evidence, so the evaluation tested what it did not"
+    },
+    {
+      "path": "scripts/probe_boxing_contact_cases.gd",
+      "purpose": "Existing contact cases that BX8 extends"
+    },
+    {
+      "path": "design/BOSS_SPLASH_DESIGN_LANGUAGE.md",
+      "purpose": "The Grand Puff warning trope the owner chose not to reuse for boxing"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "purpose": "DL-AGE-01 to DL-AGE-05, DL-INT-09, DL-INT-14 and DL-UI-04"
+    }
+  ]
+}

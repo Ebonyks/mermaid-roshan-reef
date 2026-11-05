@@ -1,0 +1,93 @@
+{
+  "state": "MEASURED_FOUR_NATIVE_REGION_ASSEMBLY_TRIAL_PENDING",
+  "native_size": [
+    2048,
+    2048
+  ],
+  "source_regions": {
+    "tl": {
+      "path": "assets_src/imagegen/snowfield_20261103/native/snowfield_02_02_tl.png",
+      "sha256": "4a1729f3d56c488ecc3afe22f8088f9c54a455d80bb4cca7b16904218d7f8209",
+      "size": [
+        1254,
+        1254
+      ],
+      "anchor": [
+        0,
+        0
+      ]
+    },
+    "tr": {
+      "path": "assets_src/imagegen/snowfield_20261103/native/snowfield_02_03_tr.png",
+      "sha256": "d02235ac96f71d2777b3ebff9ca4c7722b28936326c26637a5cbd9d99081d893",
+      "size": [
+        1254,
+        1254
+      ],
+      "anchor": [
+        794,
+        0
+      ]
+    },
+    "bl": {
+      "path": "assets_src/imagegen/snowfield_20261103/native/snowfield_02_04_bl.png",
+      "sha256": "15bf4b9edd4eb3aecaf026bb190a13c71db66a168c505c275f1ec69030690289",
+      "size": [
+        1254,
+        1254
+      ],
+      "anchor": [
+        0,
+        794
+      ]
+    },
+    "br": {
+      "path": "assets_src/imagegen/snowfield_20261103/native/snowfield_02_05_br.png",
+      "sha256": "208829462d6f1000767a570fb0169f92e4cdc4bdc17f10cde594f1150cdc2353",
+      "size": [
+        1254,
+        1254
+      ],
+      "anchor": [
+        794,
+        794
+      ]
+    }
+  },
+  "seams": {
+    "top": {
+      "position": 1053,
+      "boundary_a": 59,
+      "boundary_b": 59,
+      "contour_delta": 0,
+      "mean_RGB_delta": 5.248
+    },
+    "bottom": {
+      "position": 1085,
+      "boundary_a": 1217,
+      "boundary_b": 1217,
+      "contour_delta": 0,
+      "mean_RGB_delta": 5.229
+    },
+    "left": {
+      "position": 922,
+      "boundary_a": 36,
+      "boundary_b": 36,
+      "contour_delta": 0,
+      "mean_RGB_delta": 5.213
+    },
+    "right": {
+      "position": 935,
+      "boundary_a": 1242,
+      "boundary_b": 1242,
+      "contour_delta": 0,
+      "mean_RGB_delta": 2.87
+    }
+  },
+  "colour_method": "Separable smoothstep premultiplied native colour crossfade across460px overlaps; no output resampling/enlargement; native source alpha owned by a contour-matched seam crossing.",
+  "guide_used_as_delivery": false,
+  "whole1254reference_used_as_delivery": false,
+  "native_master_created": false,
+  "quality_pass": false,
+  "formal_QA11": null
+}

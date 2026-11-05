@@ -1,0 +1,24 @@
+E
+======================================================================
+ERROR: test_missing_facts_diagnostic_does_not_require_same_drive (tools.tests.test_audit_visual_design.VisualEvidenceContractTests.test_missing_facts_diagnostic_does_not_require_same_drive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "H:\Dev\Worktrees\workgroup-batch-sync-20261104\tools\tests\test_audit_visual_design.py", line 577, in test_missing_facts_diagnostic_does_not_require_same_drive
+    finding = next(ava._tap_targets(zone))
+  File "H:\Dev\Worktrees\workgroup-batch-sync-20261104\tools\audit_visual_design.py", line 3643, in _tap_targets
+    f"to produce {os.path.relpath(RUNTIME_FACTS_PATH, REPO)}")
+                  ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\unittest\mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\unittest\mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\unittest\mock.py", line 1234, in _execute_mock_call
+    raise effect
+ValueError: different drives
+
+----------------------------------------------------------------------
+Ran 1 test in 0.031s
+
+FAILED (errors=1)

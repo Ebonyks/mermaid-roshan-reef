@@ -1,0 +1,112 @@
+{
+  "render_folder": "C:\\Users\\Peter\\.codex\\worktrees\\roshan-creative-space-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_creative_space_20261101\\evidence\\raw\\painter",
+  "thresholds": {
+    "visible_stretch": [
+      0.8,
+      1.2
+    ],
+    "bone_scale_error": 1e-05,
+    "rigid_head_distance_error_px": 0.01,
+    "inverted_visible_triangles": 0
+  },
+  "clips": {
+    "arm_bend": {
+      "frames": 97,
+      "visible_triangle_count": 10,
+      "inverted_visible_triangles": 0,
+      "min_visible_area_ratio": 0.9715109627700041,
+      "max_visible_area_ratio": 1.005993180865096,
+      "max_visible_stretch": 1.0063979115389503,
+      "min_visible_stretch": 0.9694685306179613,
+      "max_bone_scale_error": 3.6936176650570474e-07,
+      "rigid_head_distance_error_px": 1.4003057742684177e-05,
+      "max_alpha_components": 1,
+      "max_interior_hole_pixels": 262,
+      "edge_alpha_pixels": 0,
+      "worst_frame": {
+        "frame": 41,
+        "time": 1.36666666666667
+      },
+      "pixel_seam_pass": true,
+      "max_total_interior_hole_pixels": 829,
+      "max_interior_hole_components": 7,
+      "worst_triangle_source_center": [
+        458,
+        532
+      ],
+      "loop_endpoint_changed_pixels": 0,
+      "geometry_pass": true
+    },
+    "blink": {
+      "frames": 73,
+      "visible_triangle_count": 10,
+      "inverted_visible_triangles": 0,
+      "min_visible_area_ratio": 0.999999999999981,
+      "max_visible_area_ratio": 1.0000000000000187,
+      "max_visible_stretch": 1.0000000000000093,
+      "min_visible_stretch": 0.9999999999999905,
+      "max_bone_scale_error": 2.3917538582995945e-07,
+      "rigid_head_distance_error_px": 0.0,
+      "max_alpha_components": 1,
+      "max_interior_hole_pixels": 258,
+      "edge_alpha_pixels": 0,
+      "worst_frame": {
+        "frame": 0,
+        "time": 0.0
+      },
+      "pixel_seam_pass": true,
+      "max_total_interior_hole_pixels": 829,
+      "max_interior_hole_components": 7,
+      "worst_triangle_source_center": [
+        454,
+        548
+      ],
+      "loop_endpoint_changed_pixels": 0,
+      "geometry_pass": true
+    },
+    "tail_bend": {
+      "frames": 121,
+      "visible_triangle_count": 10,
+      "inverted_visible_triangles": 0,
+      "min_visible_area_ratio": 0.9586167400572505,
+      "max_visible_area_ratio": 1.0295437953428253,
+      "max_visible_stretch": 1.0314601909993883,
+      "min_visible_stretch": 0.9555821412510882,
+      "max_bone_scale_error": 3.9761287840001103e-07,
+      "rigid_head_distance_error_px": 1.3072396143343212e-05,
+      "max_alpha_components": 2,
+      "max_interior_hole_pixels": 261,
+      "edge_alpha_pixels": 0,
+      "worst_frame": {
+        "frame": 33,
+        "time": 1.1
+      },
+      "pixel_seam_pass": false,
+      "max_total_interior_hole_pixels": 829,
+      "max_interior_hole_components": 8,
+      "worst_triangle_source_center": [
+        458,
+        532
+      ],
+      "loop_endpoint_changed_pixels": 0,
+      "geometry_pass": false
+    }
+  },
+  "negative_controls": {
+    "interior_slit_detected": true,
+    "detached_piece_detected": true,
+    "scaled_head_detected": true
+  },
+  "seam_reference": {
+    "large_components": 1,
+    "secondary_component_pixels": [],
+    "max_interior_hole_pixels": 258,
+    "interior_hole_pixels": 829,
+    "interior_hole_components": 7,
+    "edge_alpha_pixels": 0
+  },
+  "seam_raster_allowance_pixels": 8,
+  "machine_geometry_pass": false,
+  "visual_naturalness": "Requires exact normal-speed and frame-step review; metrics do not establish naturalness",
+  "owner_device_child_acceptance": "PENDING"
+}

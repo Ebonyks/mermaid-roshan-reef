@@ -103,7 +103,7 @@ class DevelopmentAuditTests(unittest.TestCase):
 		for path, body in {
 			"scripts/ci.sh": 'python3 tools/audit_development.py --base auto \\\n\t|| { echo "AUDIT DEVELOPMENT COVERAGE FAIL"; exit 1; }\n',
 			".github/workflows/probes.yml": "          python3 tools/audit_development.py --base auto\n",
-			str(development.authority.MASTER_PATH): "## 0. Planning entry\n" + development.INDEX_START + "\n### Development task index\n[planning](#0-planning-entry)\n" + "\n".join(f"| {topic} | [rules](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#1-rules) |" for topic in ("Every task", "New chapter", "Repair", "Code", "Art", "Touch", "Audio", "Cinematic", "Save", "Performance", "Acceptance")) + "\n" + development.INDEX_END + "\n## Sealed audit snapshot\n",
+			str(development.authority.MASTER_PATH): "## 0. Planning entry\n" + development.INDEX_START + "\n### Development task index\n[planning](#0-planning-entry)\n| Task | Start with | Then consult |\n|---|---|---|\n" + "\n".join(f"| {topic} | [rules](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#1-rules) |" for topic in ("Every task", "New chapter", "Repair", "Code", "Art", "Touch", "Audio", "Cinematic", "Save", "Performance", "Acceptance")) + "\n" + development.INDEX_END + "\n## Sealed audit snapshot\n",
 			str(development.authority.DESIGN_LANGUAGE_PATH): "## 1. Rules\n",
 			str(development.authority.FINDINGS_PATH): "# Findings\n",
 			str(development.authority.LEDGER_PATH): "# Ledger\n",
@@ -157,6 +157,18 @@ class DevelopmentAuditTests(unittest.TestCase):
 						self.assertTrue(any(issue.startswith(f"{name}: external handoff contract") for issue in issues), issues)
 						path.write_text(original, encoding="utf-8")
 				self.assertEqual([], development.navigation_issues(root))
+
+	def test_task_index_rejects_receipt_clutter_and_malformed_rows(self):
+		valid = "### Development task index\n\n| Task | Start with | Then consult |\n|---|---|---|\n| Art | [Art](../design/art.md) | Rules |\n\n[History](history.md)\n"
+		self.assertEqual([], development.stable_index_issues(valid))
+		self.assertEqual([], development.stable_index_issues(valid + "[History](history_2026-10-31.md) · [Rules](rules.md)\n"))
+		faults = [
+			"| Stranded | [Art](art.md) | Rules |\n" + valid,
+			valid.replace("../design/art.md", "../docs/handoffs/art/r115_props/README.md"),
+			valid + "Owner-requested candidate (2026-10-31): still pending.\n",
+		]
+		for fault in faults:
+			self.assertTrue(development.stable_index_issues(fault))
 
 	def init_repo(self, root: Path) -> str:
 		development.git(root, "init", "-q")
@@ -245,6 +257,37 @@ class DevelopmentAuditTests(unittest.TestCase):
 			self.assertTrue(any("baseline" in e for e in development.change_issues(root, integration)))
 			with contextlib.redirect_stdout(io.StringIO()):
 				self.assertEqual(1, development.main(["--root", str(root), "--base", "f" * 40]))
+
+	def test_pending_octopus_merge_accepts_all_parents_but_not_unrelated_history(self):
+		with tempfile.TemporaryDirectory() as directory:
+			root = Path(directory)
+			base = self.init_repo(root)
+			heads = []
+			for name in ("side_a", "side_b", "side_c", "unrelated"):
+				development.git(root, "checkout", "-qb", name, base)
+				(root / ("scripts/" + name + ".gd")).write_text(name + "\n", encoding="utf-8")
+				development.git(root, "add", ".")
+				development.git(root, "commit", "-qm", name)
+				heads.append(development.git(root, "rev-parse", "HEAD"))
+			development.git(root, "checkout", "-qb", "task", base)
+			development.git(root, "merge", "--no-ff", "--no-commit", "side_a", "side_b", "side_c")
+			self.assertEqual(tuple(heads[:3]), development.pending_merge_heads(root))
+			for head in heads[:3]:
+				development.validate_ancestor(root, head)
+			with self.assertRaises(subprocess.CalledProcessError):
+				development.validate_ancestor(root, heads[3])
+			with self.assertRaises(subprocess.CalledProcessError):
+				development.validate_ancestor(root, "f" * 40)
+
+	def test_pending_merge_parent_metadata_is_fail_closed(self):
+		with tempfile.TemporaryDirectory() as directory:
+			root = Path(directory)
+			self.init_repo(root)
+			merge_path = root / ".git/MERGE_HEAD"
+			for payload in ("HEAD\n", "f" * 40 + "\n"):
+				merge_path.write_text(payload, encoding="ascii")
+				with self.assertRaises((ValueError, subprocess.CalledProcessError)):
+					development.pending_merge_heads(root)
 
 	def test_renames_require_old_and_new_path_coverage(self):
 		with tempfile.TemporaryDirectory() as directory:

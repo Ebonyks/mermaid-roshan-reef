@@ -1,0 +1,1684 @@
+{
+  "engine": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "source_ci_sha256_lf": "99d4ade661f5d5492e24e29bb4c8c3cd14c8e6771f465b30b2834d2e3540af7c",
+  "probe_count_required": 82,
+  "method": "Direct approved Windows engine, original ci.sh commands, patterns, touch modes, deadlines and isolated saves",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "import",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\workgroup-batch-sync-20261104",
+        "--import"
+      ],
+      "timeout_seconds": 720,
+      "exit_code": 0,
+      "elapsed_seconds": 17.396,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\import.log",
+      "log_sha256": "6dfa91502ee58322f88988cbf02e28ff8d0a4d45f09eb656be0b2cbef2ee46a2",
+      "log_bytes": 3941,
+      "accepted": true
+    },
+    {
+      "name": "game_2d",
+      "arguments": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "timeout_seconds": null,
+      "exit_code": 0,
+      "elapsed_seconds": 93.526,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\game_2d.log",
+      "log_sha256": "a26005144782d6dcc8af8a0abe40ba23ff997d3adc80784373a4591db118f949",
+      "log_bytes": 574,
+      "accepted": true
+    },
+    {
+      "name": "probe_reef_districts",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_reef_districts.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 8.984,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_reef_districts.log",
+      "log_sha256": "97a6d8b58ab878973011b9bddb5709bdfdafcc6fd2f58069e7826b2cb095c0bd",
+      "log_bytes": 1790,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_ocean_kingdoms",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_ocean_kingdoms.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 10.696,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_ocean_kingdoms.log",
+      "log_sha256": "df234d3d43c3aa502846363ab085a2cdb54b8b65e295a3444595f275951f7b59",
+      "log_bytes": 1115,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_audit",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_audit.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 39.509,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_audit.log",
+      "log_sha256": "614af1d4e6ecf886dbe7b650ebb796c25eb2c97b04392422e24349da17dea75a",
+      "log_bytes": 31191,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_passive",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_passive.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 66.481,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_passive.log",
+      "log_sha256": "5946d5388fd2fe27c4d0d930f2a17e9df27da03dc37b8d7fe0a2ffe76fe5395f",
+      "log_bytes": 1016,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_living_world",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_living_world.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 13.03,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_living_world.log",
+      "log_sha256": "b18af2adbf40b63615f990dad8d30a8c0168ccd87eefe3c287993cb30d795f98",
+      "log_bytes": 1542,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_load",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_load.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 12.475,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_load.log",
+      "log_sha256": "d1b64a9cf36f331c655da3d789f62d551d78bca1fff25754445d3daa5c3ed1c8",
+      "log_bytes": 863,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_rank",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_rank.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 12.164,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_rank.log",
+      "log_sha256": "435e795685cc5cd4b9bbd6442e111d2b46ec44535660a0a13aae8d13f83c5c7d",
+      "log_bytes": 624,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_save_recovery",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_save_recovery.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 8.695,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_save_recovery.log",
+      "log_sha256": "113bce7f4f4618f7dadfe05c3dfbb527ddb58bc8cc0f915590c473f07c5de38f",
+      "log_bytes": 6054,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_galaxy_state",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_galaxy_state.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 9.728,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_galaxy_state.log",
+      "log_sha256": "ec54372bdad491d0aaa2ae6f3d2386b33ddfd01e4eedadf8f3bebbbe913b425a",
+      "log_bytes": 1164,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_collection",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_collection.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 9.082,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_collection.log",
+      "log_sha256": "b109f82b958ac2652e4b94d374fb4016f9ca24ac49ed0eb0d2b129d1aadff690",
+      "log_bytes": 739,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_mg2d",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_mg2d.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 17.67,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_mg2d.log",
+      "log_sha256": "77a40995547f8090257f4e62ec0104989876648bcac3554abb1782688f2621d0",
+      "log_bytes": 3533,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_fetch",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_fetch.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 10.727,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_fetch.log",
+      "log_sha256": "a58b17e578f534fed15406f5e748b1f8275217e400a237134efb550158c74f1c",
+      "log_bytes": 539,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_melody",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_melody.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 35.53,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_melody.log",
+      "log_sha256": "d66670ffef9601c0cb5a03b2accabf0859d661942be9e2ae6195b9a812e60257",
+      "log_bytes": 163842,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_dolls",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_dolls.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 18.863,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_dolls.log",
+      "log_sha256": "d6fe1bf694b8499806f1cb9c4d89e4e1242d6cdcd6da470ea49e401cd4249dbf",
+      "log_bytes": 3891,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_seek",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_seek.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 9.925,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_seek.log",
+      "log_sha256": "ad3d7281a2cfef86bd440a62afc6afd83cadf88ddc2fe62645894b7646f00b14",
+      "log_bytes": 3889,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_audio",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_audio.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 8.501,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_audio.log",
+      "log_sha256": "d6e4cc0d68e8a0c02fdd6beb01ca228bc3516847bc8a46dba833793bc19ed33b",
+      "log_bytes": 1638,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_dance",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_dance.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 8.69,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_dance.log",
+      "log_sha256": "e9d68243d211c408223d1196cf163535148aa1e6ee06258eef1fba2a6f60ad6e",
+      "log_bytes": 473,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_l2",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_l2.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 10.281,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_l2.log",
+      "log_sha256": "4306f51f0747f440b34bf2c66e854c1172c8e1ef61867302edb8efa247e9d8bc",
+      "log_bytes": 5946,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_l2_living_cards",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_l2_living_cards.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 8.89,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_l2_living_cards.log",
+      "log_sha256": "921b5cd605a190217e3358549c84c2a1c4c6445892701463b6dc6a7d9924eeb4",
+      "log_bytes": 808,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_sky_lagoon_animals",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_sky_lagoon_animals.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 10.747,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_sky_lagoon_animals.log",
+      "log_sha256": "1f403e7dc1d681de9f8ee0f2ffbb4158afc26142f61693fb695760e89c42fc08",
+      "log_bytes": 9843,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_l2_reenter",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_l2_reenter.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 8.619,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_l2_reenter.log",
+      "log_sha256": "0836edebc4578a0f6ad00c902b5b9db5457646438bb895b91e769498e18b9b94",
+      "log_bytes": 154,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_crown",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_crown.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 21.576,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_crown.log",
+      "log_sha256": "3489a9319209d0f67f02c47721026e68498fcfbfa4724bb9b295ee4332080a9e",
+      "log_bytes": 2260,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_throne",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_throne.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 30.719,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_throne.log",
+      "log_sha256": "057c603ebf0a120740201185c4de43f94e330d1761e46dbf05286457b845c54d",
+      "log_bytes": 2825,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_northern",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_northern.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 9.637,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_northern.log",
+      "log_sha256": "fba9e9483c9e24b53dd6437408ab313959bb7968d3a41347a011b6c0fa98013c",
+      "log_bytes": 1247,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_human_art_audit",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_human_art_audit.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 8.919,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_human_art_audit.log",
+      "log_sha256": "5b5415d1b810a7a04bf84518731c22c3121478261795d5c89429aeca2c966dc5",
+      "log_bytes": 153,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_train",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_train.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 9.73,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_train.log",
+      "log_sha256": "2617369a4b121d48b4e9cb8c9ced9a4fee3e787530afaa463169a19ab224ddb7",
+      "log_bytes": 290,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_verbs",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_verbs.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 48.161,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_verbs.log",
+      "log_sha256": "904526478c3c0387a73d845d67f984cfce1c37383b2acb1352e2d55a221aa49c",
+      "log_bytes": 850,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_skins",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_skins.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 9.556,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_skins.log",
+      "log_sha256": "8925983b17113d743ea7d1c6b17a05e8946c83d9b570c1c7f96aa7d35594909d",
+      "log_bytes": 157,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_touch_router",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_touch_router.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 11.433,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_touch_router.log",
+      "log_sha256": "c2892f8084bd847bc1ef4669ea66e602741a48571030e21b659066cb38aea07e",
+      "log_bytes": 158,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_touch_stress",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_touch_stress.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 17.377,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_touch_stress.log",
+      "log_sha256": "c65164a00b5b32f921effab9b66692f2f38f5ce7e1514492785fca626f104dcc",
+      "log_bytes": 1389,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_interaction",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_interaction.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 38.159,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_interaction.log",
+      "log_sha256": "75e9425089cda25286cf58484513493b928490e6fa9f0d6971cfab45fcf12a63",
+      "log_bytes": 95,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_touch_adversary",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_touch_adversary.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 91.761,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_touch_adversary.log",
+      "log_sha256": "7dce7b16bedf0a78e23f3951656cebf93faf911ab4ab7ef1e163c81feb2a5643",
+      "log_bytes": 1644,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_touch_look",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_touch_look.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 18.99,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_touch_look.log",
+      "log_sha256": "60351641e3a32197e818e5df8416233946f40c138599c4ae85a723642cdc25fb",
+      "log_bytes": 424,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_ui_system",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_ui_system.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 49.62,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_ui_system.log",
+      "log_sha256": "fd6065e09969b8da7bbeb040707d99c214a6f3a76e5db6e1f245bdd218e6b33b",
+      "log_bytes": 31656,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_voice",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_voice.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 14.667,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_voice.log",
+      "log_sha256": "3238753d67ea37cde8a93ca120333ce20bd07b9a8d2c792f55a569ceb7931453",
+      "log_bytes": 19962,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_day_one_voice",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_voice.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 16.152,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_day_one_voice.log",
+      "log_sha256": "50a7a84c1ce20b02a158485dab22961bc3b440dc9b823a60f9ef124cdca2dbea",
+      "log_bytes": 4919,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_day_one_d8_revisits",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_d8_revisits.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 1.044,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_day_one_d8_revisits.log",
+      "log_sha256": "8a62f8e03b7bbc051aa7e60d1919e69a59951770d17b526d811fe1d4aa1dc631",
+      "log_bytes": 766,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_day_one_handoffs",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_handoffs.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 10.918,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_day_one_handoffs.log",
+      "log_sha256": "908a3ed2410a386f95ff5d4b1a9190b6b2e049faf6f08be47f7dd399298c1a82",
+      "log_bytes": 2013,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_kart_feel",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_kart_feel.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 65.987,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_kart_feel.log",
+      "log_sha256": "86b2c9d0fb48a5a98e3a0f1164c9b5f917e2172f86afbbcefc80154cd79534c2",
+      "log_bytes": 1141,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_combat",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_combat.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 14.466,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_combat.log",
+      "log_sha256": "67aec55ee70333770a4faecb2cfd06051dfd5f0c3522629f4a522650ae60e613",
+      "log_bytes": 1981,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_dust_bunny",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_dust_bunny.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 0.889,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_dust_bunny.log",
+      "log_sha256": "4663fb2a0de3512c5d77b0e136a6a59139e23f411d0224912e38b45ebde441dc",
+      "log_bytes": 730,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_dust_bunny_boss",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_dust_bunny_boss.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 1.231,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_dust_bunny_boss.log",
+      "log_sha256": "8fc65c5380675ca971e99523bbe8e17c34f09c503cd2d87029fe79d4b73aed3d",
+      "log_bytes": 3858,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_dust_boss",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_dust_boss.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 50.314,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_dust_boss.log",
+      "log_sha256": "1d05616ae145a7dca0f3e940613bc73c3a1294489cac8053b80fab7a095c3316",
+      "log_bytes": 8698,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_hit",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_hit.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 10.477,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_hit.log",
+      "log_sha256": "785d740aaff6eb57e72a8ecc2fa239cfd66b6f84d956f2ff0bb0ab109e22aaf7",
+      "log_bytes": 2180,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_partner",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_partner.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 14.59,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_partner.log",
+      "log_sha256": "975f35172cb1329e2eb83c9d772ba96fdaf1c79126ba32f7b9a97a6e5a72ba5c",
+      "log_bytes": 850,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_combat_tutorial",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_combat_tutorial.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 17.269,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_combat_tutorial.log",
+      "log_sha256": "744b4d5752836b437e1eccd3dc9fa32b0328a8c7383acbaa1f367fb27cba925f",
+      "log_bytes": 1836,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_imp_ai",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_imp_ai.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 3.255,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_imp_ai.log",
+      "log_sha256": "9ae03f976731e38ad51ab9e60fa5e43461359f99af606bbb269f3c7c660ab874",
+      "log_bytes": 1637,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_mic",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_mic.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 18.159,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_mic.log",
+      "log_sha256": "4c186e6413f73aacf682d34e95d955e600da20b553d525b7b4d49cf7bdd8dd26",
+      "log_bytes": 1962,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_stuffie",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_stuffie.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 21.983,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_stuffie.log",
+      "log_sha256": "ce98c5879cc8f528799c7c4a8bcfdb583da7c27f90f837794b913fc5691b7455",
+      "log_bytes": 5021,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_dungeon",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_dungeon.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 21.395,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_dungeon.log",
+      "log_sha256": "e375bfcd6815b9b8d614c8ce0b555d08c2bc3c1c9daced36bc7bde6c04a5b836",
+      "log_bytes": 3979,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_ember",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_ember.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 21.067,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_ember.log",
+      "log_sha256": "bfd3bbf78d4afc8f0be1f7b1b24e83c9e1369694a5ad2ddf6f93502c08621e70",
+      "log_bytes": 3301,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_opera",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_opera.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 60.3,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_opera.log",
+      "log_sha256": "353e00099c991c605b0337fe55bdb49d34b260c9443d38eef13cc979576e2254",
+      "log_bytes": 13855,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_opera_2d",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_opera_2d.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 59.761,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_opera_2d.log",
+      "log_sha256": "970283c998ee12470c891420cadd3a09898ce1e0f0c7f0593b7abe7e1b15f055",
+      "log_bytes": 103889,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_opera_diegetic_paths",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_opera_diegetic_paths.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 5.946,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_opera_diegetic_paths.log",
+      "log_sha256": "8b4fa69dca1eb815b72a9592ac787d7f7cf9650e94c21745b3a3293da39dfeb8",
+      "log_bytes": 190,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_opera_detective",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_opera_detective.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 13.881,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_opera_detective.log",
+      "log_sha256": "ada2802f1fd8ddfa452d4ca6d40b560d95e2fe6a0d784f3c5ebc5161755a2498",
+      "log_bytes": 1138,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_opera_pipe",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_opera_pipe.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 1.335,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_opera_pipe.log",
+      "log_sha256": "9e37f1451cf963674947e78580377efe684cb07070ef3ded7221671a9cf74efc",
+      "log_bytes": 96,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_opera_nursery",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_opera_nursery.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 14.471,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_opera_nursery.log",
+      "log_sha256": "ea99b8b123e699dca13b66bab6a6a0fc607ad7af6509935a9623c08e23a24dac",
+      "log_bytes": 2172,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_opera_gesture_quality",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_opera_gesture_quality.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 3.726,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_opera_gesture_quality.log",
+      "log_sha256": "24092105cea880e323075053cccc45837478b6b5abc10532a055d8b64c5c5277",
+      "log_bytes": 120,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_kitchen_props",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_kitchen_props.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 1.366,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_kitchen_props.log",
+      "log_sha256": "085ee788c6a4ea61b380dc094a318f0546223c723a4a06343e564902678217fd",
+      "log_bytes": 2283,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_bathroom_props",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_bathroom_props.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 1.138,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_bathroom_props.log",
+      "log_sha256": "f1a9243fa397b4679dd72416d4e7b6fba6d21014c949cf112f3e3c29eefd494f",
+      "log_bytes": 909,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_castle_door_language",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_castle_door_language.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 15.112,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_castle_door_language.log",
+      "log_sha256": "4abaa12c13b1268f31ba2dcbd5a0d01bef5d51f9d72bfae4a3e1289ea6b2240b",
+      "log_bytes": 5234,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_bathroom_integration",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_bathroom_integration.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 33.431,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_bathroom_integration.log",
+      "log_sha256": "0b93b196a5572ccb0f9f76698bce1c3d2aa27084f08b0cca93da8ab561ace330",
+      "log_bytes": 4006,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_day_one_bathroom_bunny",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_bathroom_bunny.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 15.098,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_day_one_bathroom_bunny.log",
+      "log_sha256": "b2317cefbc14362cdb2509477c136b7ddbf79e88550d370040f165ad452d500c",
+      "log_bytes": 1162,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_day_one_bathroom_cleanup",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_bathroom_cleanup.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 18.562,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_day_one_bathroom_cleanup.log",
+      "log_sha256": "e3ac904c4ddad2ceec6937274324e0f46e845f5bc74095a74bd985a7a25a3d14",
+      "log_bytes": 7951,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_day_one_bathroom_movie_handoff",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_bathroom_movie_handoff.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 13.8,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_day_one_bathroom_movie_handoff.log",
+      "log_sha256": "3c38263a6313fdfe5cfb49b7378d9e9890d36373f6f014af0411e016529f5f86",
+      "log_bytes": 1137,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_day_one_director",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_director.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 12.418,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_day_one_director.log",
+      "log_sha256": "c55a83f10ed8b5e8f241a127a88fdfb1001bbdb65486d44989606a1ece6e1c0e",
+      "log_bytes": 1237,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_day_one_integration",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_integration.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 11.93,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_day_one_integration.log",
+      "log_sha256": "5d2a85cd038e521120be433551a63bdcaa394be2c493b151f616650805b1ab46",
+      "log_bytes": 2843,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_day_one_pool_cleanup",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_pool_cleanup.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 19.539,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_day_one_pool_cleanup.log",
+      "log_sha256": "cead482d6847419448f781ec079aa22d88a7a72430cee20e01248c902ef360e6",
+      "log_bytes": 10336,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_day_one_art_attack_state",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_art_attack_state.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 14.534,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_day_one_art_attack_state.log",
+      "log_sha256": "f60c2a724f4c1d99e78da2e83ed099fad0afd2bd2bbd4ba7e730c3ee1f1b6114",
+      "log_bytes": 3531,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_day_one_castle_dressing",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_castle_dressing.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 1.003,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_day_one_castle_dressing.log",
+      "log_sha256": "17ea5dbf7d18d174c7029081bb94f79ae44f439fb81b7c77093083efceba80a0",
+      "log_bytes": 789,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_day_one_story_clips",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_story_clips.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 29.48,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_day_one_story_clips.log",
+      "log_sha256": "811e20c6e97da8efb3aa06e7e0a74e02f822b74ca0ed33a9548abd5e4e8cf1a8",
+      "log_bytes": 6679,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_chapter2",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_chapter2.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 207.942,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_chapter2.log",
+      "log_sha256": "338d3fd29d3e99eefd353bca7b0d141fa4eb087a1b1267114b71b7508f000721",
+      "log_bytes": 49481,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_chapter2_farmer_resume",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_chapter2_farmer_resume.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 17.661,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_chapter2_farmer_resume.log",
+      "log_sha256": "2f43fc12adfc92b0ef5bfde77ceba276190604eb8b7471697746afcbe21d942d",
+      "log_bytes": 10001,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_chapter2_lawn",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_chapter2_lawn.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 13.73,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_chapter2_lawn.log",
+      "log_sha256": "b50aaf7aeae0823dcbfb26e58ab58b9b739c7780e04efb36fb554433be6d55e1",
+      "log_bytes": 4668,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_alpha_milestone_save",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_alpha_milestone_save.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 19.627,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_alpha_milestone_save.log",
+      "log_sha256": "c8fee9f0a438dd1b2493699c49a5d84994e818e7bd65fb0f6655fbfca08bc584",
+      "log_bytes": 16983,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_dust_boss_balance",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_dust_boss_balance.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 239.437,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_dust_boss_balance.log",
+      "log_sha256": "d745ee49849b348b69b95ca8bc0ba06fa6b86fb5fe60d19078345c0177cf5764",
+      "log_bytes": 664,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_start_menu_routing",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_start_menu_routing.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 13.092,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_start_menu_routing.log",
+      "log_sha256": "c192b57ce2a0672867a9ce4420e32fde1eab6d258fc7e9e200127891e4d0c163",
+      "log_bytes": 2161,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_start_menu_new_game",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_start_menu_new_game.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 36.652,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_start_menu_new_game.log",
+      "log_sha256": "1a881d3637f107a1317ab250e6a4cce29debfe347268cce12878f72e13db50e0",
+      "log_bytes": 3862,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_castle_pool_life_2d",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_castle_pool_life_2d.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 15.411,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_castle_pool_life_2d.log",
+      "log_sha256": "3c743dae2d362340c1369418a95b8feacb00f3f8933ddb78daa109c17bf5b6b9",
+      "log_bytes": 750,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_castle_pearl_art",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_castle_pearl_art.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 22.866,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_castle_pearl_art.log",
+      "log_sha256": "ecef9bfd78773602e76becb92a8253456056821653a9fab482e2398523c95f50",
+      "log_bytes": 5405,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_fairy_art",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_fairy_art.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 2.685,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_fairy_art.log",
+      "log_sha256": "97aa66835cca2cf482d202e46a6119b11319755d18c86c10f76174a009ff34c4",
+      "log_bytes": 1030,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    },
+    {
+      "name": "probe_props",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_props.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "exit_code": 0,
+      "elapsed_seconds": 18.501,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_04\\probe_props.log",
+      "log_sha256": "c2b732eb8c197eb5004fec74f7df0fb71d031b4dff532a6de5e16c2564a3125c",
+      "log_bytes": 1228,
+      "verdict_before_exit_timeout": false,
+      "accepted": true
+    }
+  ]
+}

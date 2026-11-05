@@ -1,0 +1,81 @@
+{
+  "revision": "V39/R04 after independent R03 rejection",
+  "reviewer": "Primary Codex AI; independent final verdict remains separate",
+  "checked_at_utc": "2026-10-26T05:43:53.081630+00:00",
+  "scope": "Five fresh focused inspections of completed R04 exports. Earlier V39R03 five-pass record is preserved and was superseded after peer found a defect; historical V37 twenty runs not reused.",
+  "pdf_sha256": "12e1f9b08f2ac91bfc83217315cf6ced0d3a2266a3c25a1c014e38758e773b26",
+  "email_sha256": "4fd297013bf2235fee8e272a4957763d82632d043b9652833ffa7b6ed75f50c3",
+  "book_sha256": "d1a26d22a32f4f685f4503cf6c3ce83c0fa68ff95cec2d97cfc2328ee05d3693",
+  "passes": [
+    {
+      "id": 1,
+      "title": "R04 cover identity, contour and contact",
+      "inspected": [
+        "complete/page_00.png",
+        "details/cover_tails.png",
+        "details/cover_lamma.png",
+        "art/occlusion_floor_cleanplate_attempt2.png"
+      ],
+      "observations": "Fresh final cover/tail enlargement after R03 rejection: Daddy crescent and Rumi shared-root twin pink lobes remain distinct. The foreground rainbow edge is continuous with the original silhouette; no ledge, purple wedge or rectangular floor swatch remains. Existing Lamma feet meet the restrained floor shadow. Native cleanplate is exposed only at the tiny gap; hidden generated surfaces are excluded.",
+      "result": "PASS_WITH_DECLARED_A9_HOLD",
+      "remaining_in_scope_defects": []
+    },
+    {
+      "id": 2,
+      "title": "R04 source/story truth",
+      "inspected": [
+        "details/window_portrait.png",
+        "complete/page_02.png",
+        "inputs/demo_landing_frame_408.png"
+      ],
+      "observations": "Reinspected final actual approved stained-glass portrait within gold arch and exact demo ground arrival. Roshan is recognizable in glass; plane wheels touch the path by slide/swings. The complete plane and otter remain inside the page. Far swing support is an intentional edge crop; native720p source remains a review-resolution limit.",
+      "result": "PASS_WITH_DECLARED_A9_HOLD",
+      "remaining_in_scope_defects": []
+    },
+    {
+      "id": 3,
+      "title": "R04 illness props, acting and local joins",
+      "inspected": [
+        "details/unwell_puffs_24.png",
+        "details/unwell_puffs_25.png",
+        "complete/contact_4.jpg"
+      ],
+      "observations": "Reinspected both final enlarged vignettes and book context: aqua pop-up tissue boxes, white tissues and tired/sneezing faces read clearly. Two spiral ears/two ear pearls/two hand pearls remain. Water flask and sofa retain contact. No old blue cloth lump or yellow cheer dash survives.",
+      "result": "PASS_WITH_DECLARED_A9_HOLD",
+      "remaining_in_scope_defects": []
+    },
+    {
+      "id": 4,
+      "title": "R04 whole-book consistency and composition",
+      "inspected": [
+        "complete/contact_1.jpg",
+        "complete/contact_2.jpg",
+        "complete/contact_3.jpg",
+        "complete/contact_4.jpg",
+        "complete/contact_5.jpg"
+      ],
+      "observations": "Freshly viewed all34 final thumbnails. Added cover Lamma remains secondary to the main cast; flight, ground arrival and castle entry read in sequence. Illness leads to help/washing and rainbow reveal. No new copy overlap, unexpected pose or numbering change is visible. Unnamed art remains independently byte-checked; these thumbnails do not prove print-resolution acceptance.",
+      "result": "PASS_WITH_DECLARED_A9_HOLD",
+      "remaining_in_scope_defects": []
+    },
+    {
+      "id": 5,
+      "title": "R04 final email export and readability",
+      "inspected": [
+        "details/email_export_review.png",
+        "details/cover_tails.png",
+        "details/window_portrait.png",
+        "details/unwell_puffs_24.png",
+        "details/unwell_puffs_25.png"
+      ],
+      "observations": "Freshly inspected exact final email renders of cover, window, landing, both illness pages and rear, with enlarged master details. The repaired foreground contour, Lamma, portrait, wheels/playground and boxes survive export; caption hierarchy remains clear. Email native sizes/vector text/geometry/97alpha placements are separately checked; no source-resolution or owner-approval claim is inferred.",
+      "result": "PASS_WITH_DECLARED_A9_HOLD",
+      "remaining_in_scope_defects": []
+    }
+  ],
+  "holds": [
+    "A9 bath native-resolution unchanged",
+    "Native720p demo still is not final-print-resolution approval",
+    "Owner/child/qualifiedSLP/finaltrim/PPI/physicalprint remain open"
+  ]
+}

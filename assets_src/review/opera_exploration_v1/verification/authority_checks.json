@@ -1,0 +1,40 @@
+[
+  {
+    "name": "authority",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "tools/audit_document_authority.py"
+    ],
+    "exit_code": 0,
+    "log": "assets_src/review/opera_exploration_v1/verification/authority.log",
+    "sha256": "a9764536a35f96f44049302c57d350aa6c92ffee7fe48d879b1ff56fecb95042"
+  },
+  {
+    "name": "development",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "tools/audit_development.py",
+      "--base",
+      "auto"
+    ],
+    "exit_code": 0,
+    "log": "assets_src/review/opera_exploration_v1/verification/development.log",
+    "sha256": "658f27262f418f9c74267009d66ffc926dd1ee24669cff91ed00b44876a03bd8"
+  },
+  {
+    "name": "authority_contracts",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "-m",
+      "unittest",
+      "tools.tests.test_audit_document_authority",
+      "tools.tests.test_audit_development"
+    ],
+    "exit_code": 0,
+    "log": "assets_src/review/opera_exploration_v1/verification/authority_contracts.log",
+    "sha256": "b7db8d1644d8a6d43b5a0316b90f0c03ff5438b8b3d883caae8dae2546940d2e"
+  }
+]

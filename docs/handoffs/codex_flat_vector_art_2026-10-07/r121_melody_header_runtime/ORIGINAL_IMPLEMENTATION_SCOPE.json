@@ -1,0 +1,35 @@
+{
+  "base": "27c88288bf6e39582072811443df79919e7bbb89",
+  "files": {
+    "scripts/games/melody.gd": {
+      "original_methods": 71,
+      "unchanged_original_methods": 68,
+      "changed_methods": [
+        "ProsceniumCanvas._draw",
+        "ProsceniumCanvas.layout",
+        "ProsceniumCanvas.setup"
+      ],
+      "new_methods": [],
+      "removed_methods": [],
+      "sha256": "117b59e96c26be2936587d04812434100942f490495b0c39720d1731963a2a22"
+    },
+    "scripts/probe_melody.gd": {
+      "original_methods": 88,
+      "unchanged_original_methods": 85,
+      "changed_methods": [
+        "_check_asset_contract",
+        "_check_runtime_texture_census",
+        "_surface_structure_exact"
+      ],
+      "new_methods": [
+        "_proscenium_structure_exact"
+      ],
+      "removed_methods": [],
+      "sha256": "72e21b49aa10df60cce72d748a370c65adeaa7b4157b7e9d6cbdc4e444b0b589"
+    }
+  },
+  "unchanged_gameplay_methods": true,
+  "unchanged_probe_limits": true,
+  "probe_audit_unchanged": true,
+  "Dev_integrated": false
+}

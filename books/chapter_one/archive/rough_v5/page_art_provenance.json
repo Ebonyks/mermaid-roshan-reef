@@ -1,0 +1,2935 @@
+{
+  "sources": {
+    "aqua_frame": {
+      "file": "art/aqua_frame.png",
+      "source": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-5c9a25ec-5183-45db-9b68-41d777d191a1.png",
+      "source_sha256": "c77a664a21fa6ac22584702fb2706bb6df5effd4671f3d07531023d1dcba11e9",
+      "output_sha256": "c77a664a21fa6ac22584702fb2706bb6df5effd4671f3d07531023d1dcba11e9",
+      "prior": {
+        "id": "aqua_frame",
+        "source": "v4/reference_page04.png",
+        "output": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-5c9a25ec-5183-45db-9b68-41d777d191a1.png",
+        "prompt": "Edit this exact existing book page only. Remove the two Roshan figures, their backpacks, and all lettering, including the black production footer. Inpaint just those removed foreground regions by continuing the surrounding pale aqua watercolour wash and subtle paper texture. Preserve the existing fine wavering dotted/bubble edge border and the exact soft sage seabed corners, shells, pebbles and muted coral at the bottom. Preserve their positions, delicacy, colours and hand-painted style. The centre remains quiet open wash. This is removal to obtain the existing reusable page background, not a redesign or a new scene. No new objects or ornate detail. Keep original portrait page proportions.",
+        "method": "built-in ImageGen edit",
+        "operation": "Targeted foreground removal and local inpainting of reference page background",
+        "review": "Source pose/action/identity compared visually; no invented scene; rough derivative pending owner review",
+        "source_sha256": "4631c0c6cedc23660ab1f486541b04a7299695ea8d0ae7f68fb79436ba039637",
+        "prompt_sha256": "dc613cb7b32ee5ccf9b9e72cd37e9151b05c912d2ed4bd1197fea4015461b818"
+      }
+    },
+    "arrival": {
+      "file": "art/arrival.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\arrival.png",
+      "source_sha256": "6fed99de13b61b068c528b101def01551b4fc61de6f4bd0a37ca66d9f58a5725",
+      "output_sha256": "6fed99de13b61b068c528b101def01551b4fc61de6f4bd0a37ca66d9f58a5725",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\arrival.png",
+        "sha256": "6fed99de13b61b068c528b101def01551b4fc61de6f4bd0a37ca66d9f58a5725",
+        "output": "art/arrival.png",
+        "prior": {
+          "id": "arrival",
+          "file": "art/arrival.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c01_lagoon_landing_castle_approach_visual_v1\\storyboards\\SCENE_SHOT_BOARD.png",
+          "source_sha256": "26dd27539a2cae8be644ce6638d208f0ad795fc721e0c77ae7cb704e94962305",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": [
+            8,
+            8,
+            838,
+            463
+          ],
+          "output_dimensions": [
+            830,
+            455
+          ],
+          "modifications": "Panel crop only; no subject repainting or compositing.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Storyboard panel, pending replacement with reviewed high-resolution still; original untouched.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "art_dirty": {
+      "file": "art/art_dirty.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\art_dirty.png",
+      "source_sha256": "c42996ac367b252e6444271b9395eeb2b7772ce8e6c51e47076d48fa1c788fbc",
+      "output_sha256": "c42996ac367b252e6444271b9395eeb2b7772ce8e6c51e47076d48fa1c788fbc",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\art_dirty.png",
+        "sha256": "c42996ac367b252e6444271b9395eeb2b7772ce8e6c51e47076d48fa1c788fbc",
+        "output": "art/art_dirty.png",
+        "prior": {
+          "id": "art_dirty",
+          "file": "art/art_dirty.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c09_art_room_dirty_discovery_visual_v1\\storyboards\\generated_keyframes\\D1-C09-S02_runtime_informed_candidate.png",
+          "source_sha256": "d4cadbd623e106600df342677a75e0a429664568f4988eea6ac67092989e5c31",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": null,
+          "output_dimensions": [
+            1672,
+            941
+          ],
+          "modifications": "Lossless format save; complete image retained.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Unapproved narrative keyframe, no HUD; art-room topology pending exact final still.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "art_ready": {
+      "file": "art/art_ready.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\art_ready.png",
+      "source_sha256": "006b736e59e261c2670717f268c76b39640b903373b1a75781cd464e135ddd0d",
+      "output_sha256": "006b736e59e261c2670717f268c76b39640b903373b1a75781cd464e135ddd0d",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\art_ready.png",
+        "sha256": "006b736e59e261c2670717f268c76b39640b903373b1a75781cd464e135ddd0d",
+        "output": "art/art_ready.png",
+        "prior": {
+          "id": "art_ready",
+          "file": "art/art_ready.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c10_art_room_restored_visual_v1\\handoff_art\\location\\room_craft_room_background.png",
+          "source_sha256": "006b736e59e261c2670717f268c76b39640b903373b1a75781cd464e135ddd0d",
+          "source_dimensions": [
+            1024,
+            576
+          ],
+          "crop_xyxy": null,
+          "output_dimensions": [
+            1024,
+            576
+          ],
+          "modifications": "Lossless format save; complete image retained.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Existing environment plate; illustrative establishing view, no new gameplay completion claimed.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "art_scrub": {
+      "file": "art/art_scrub.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\art_scrub.png",
+      "source_sha256": "8042c989d948f082fc843681626b502778fba2aa4411f4462733e44170e02e54",
+      "output_sha256": "8042c989d948f082fc843681626b502778fba2aa4411f4462733e44170e02e54",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\art_scrub.png",
+        "sha256": "8042c989d948f082fc843681626b502778fba2aa4411f4462733e44170e02e54",
+        "output": "art/art_scrub.png",
+        "prior": {
+          "id": "art_scrub",
+          "file": "art/art_scrub.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c10_art_room_restored_visual_v1\\storyboards\\generated_keyframes\\D1-C10-S01_runtime_informed_candidate.png",
+          "source_sha256": "e62e67088502bb4f43f848e7538e8e6a7f9db1fb4c938520f41a6f82c2a3163d",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": null,
+          "output_dimensions": [
+            1672,
+            941
+          ],
+          "modifications": "Lossless format save; complete image retained.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Unapproved narrative keyframe; source includes a marked desk and must be refined to current blank-desk endpoint.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "bath_dirty": {
+      "file": "art/bath_dirty.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\bath_dirty.png",
+      "source_sha256": "05426636cb92212eac76e44f2be7167916e6a4d3b63e9d8a5b67fe2e39f3c89a",
+      "output_sha256": "05426636cb92212eac76e44f2be7167916e6a4d3b63e9d8a5b67fe2e39f3c89a",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\bath_dirty.png",
+        "sha256": "05426636cb92212eac76e44f2be7167916e6a4d3b63e9d8a5b67fe2e39f3c89a",
+        "output": "art/bath_dirty.png",
+        "prior": {
+          "id": "bath_dirty",
+          "file": "art/bath_dirty.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c03_bathroom_dirty_entry_visual_v1\\storyboards\\SCENE_SHOT_BOARD.png",
+          "source_sha256": "1339749dafaed4a38c8b3538694b190b614f8524817460194329c4a16ee608c1",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": [
+            8,
+            480,
+            826,
+            932
+          ],
+          "output_dimensions": [
+            818,
+            452
+          ],
+          "modifications": "Panel crop only; no subject repainting or compositing.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Storyboard panel, pending replacement with reviewed high-resolution still; original untouched.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "bath_drained_local": {
+      "file": "art/bath_drained_local.png",
+      "source": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-dbc35138-7114-4ce9-90ff-c37333bdf2ff.png",
+      "source_sha256": "b33c3d90158d0618680803b1c9a3c9b2f61fee1bfd7db55fc57c138c14316dc3",
+      "output_sha256": "b33c3d90158d0618680803b1c9a3c9b2f61fee1bfd7db55fc57c138c14316dc3",
+      "prior": {
+        "id": "bath_drained_local",
+        "refs": [
+          "C:/Users/Peter/.codex/visualizations/2026/09/20/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/book/v4/complete/art/bath_isolated.png",
+          "C:/Users/Peter/Documents/mermaid-roshan-reef/assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png"
+        ],
+        "prompt": "Targeted inpainting of IMAGE 1 only. Change ONLY the murky water surface inside the shell bathtub: the dirty water has drained away, revealing the empty pale shell basin interior with remaining grime marks. IMAGE 2 is the existing game reference for a drained tub interior, not a composition reference. Preserve IMAGE 1's exact Roshan pose, face, clothing, hair, one tail, brush, brush contact on the dirty rim, hands, tap, outer tub, shell contours, proportions, colours and transparent alpha exterior. Keep grime on the rim where she is scrubbing. Do not move or redraw any character or object. This is a small local water-state correction inside an existing illustration, not a full-scene redraw. No new background or characters. Output transparent RGBA.",
+        "output": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-dbc35138-7114-4ce9-90ff-c37333bdf2ff.png",
+        "method": "built-in ImageGen targeted edit",
+        "reference_hashes": [
+          {
+            "path": "C:/Users/Peter/.codex/visualizations/2026/09/20/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/book/v4/complete/art/bath_isolated.png",
+            "sha256": "423533bfc5416bffdfc24494b112a8b7fd682f5c5db5950e246f71e6c8af2669"
+          },
+          {
+            "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png",
+            "sha256": "1382a8adcb37f1b0788989676e5412220878395727ac081ce1b8d6fc1335fd47"
+          }
+        ],
+        "prompt_sha256": "b13784fe3c0d388fc2112c79182989e2cb9613aa2dc421bce49c1b99dd6cdfb3",
+        "review": "Visually compared with references: local tub interior change / isolated existing doorway. No full-scene generation. Owner visual acceptance remains open."
+      }
+    },
+    "bath_recap": {
+      "file": "art/bath_recap.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\bath_recap.png",
+      "source_sha256": "79576effdc2a9553ad05841ac52960370be058e29df60a7c09c07941b691ec33",
+      "output_sha256": "79576effdc2a9553ad05841ac52960370be058e29df60a7c09c07941b691ec33",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\bath_recap.png",
+        "sha256": "79576effdc2a9553ad05841ac52960370be058e29df60a7c09c07941b691ec33",
+        "output": "art/bath_recap.png",
+        "prior": {
+          "id": "bath_recap",
+          "file": "art/bath_recap.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c12_restored_castle_finale_visual_v1\\storyboards\\SCENE_SHOT_BOARD.png",
+          "source_sha256": "454741e4db246707070d96bdbe903fdd2e917789ab1fcecfe7086db5ec2b415a",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": [
+            10,
+            10,
+            824,
+            309
+          ],
+          "output_dimensions": [
+            814,
+            299
+          ],
+          "modifications": "Panel crop only; no subject repainting or compositing.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Storyboard panel, pending replacement with reviewed high-resolution still; original untouched.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "bath_safe": {
+      "file": "art/bath_safe.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\bath_safe.png",
+      "source_sha256": "80aa6ebf7afbde59635138c5d9763a0c347e9fe8b8ff8f6b93165c201e9c3813",
+      "output_sha256": "80aa6ebf7afbde59635138c5d9763a0c347e9fe8b8ff8f6b93165c201e9c3813",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\bath_safe.png",
+        "sha256": "80aa6ebf7afbde59635138c5d9763a0c347e9fe8b8ff8f6b93165c201e9c3813",
+        "output": "art/bath_safe.png",
+        "prior": {
+          "id": "bath_safe",
+          "file": "art/bath_safe.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c04_bathroom_restored_visual_v1\\storyboards\\SCENE_SHOT_BOARD.png",
+          "source_sha256": "fc8a27c1bc171d82d78da67950a09baa2581fb9e5a1287c4410cae2add222c2a",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": [
+            8,
+            480,
+            826,
+            932
+          ],
+          "output_dimensions": [
+            818,
+            452
+          ],
+          "modifications": "Panel crop only; no subject repainting or compositing.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Storyboard panel, pending replacement with reviewed high-resolution still; original untouched.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "blue": {
+      "file": "art/blue.png",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets\\castle\\day_one_art_studio\\paint_bottle_blue.png",
+      "source_sha256": "ce6adb14e4d877108ae2748138417ef436f6e154b8c4321f69196795114319ff",
+      "output_sha256": "ce6adb14e4d877108ae2748138417ef436f6e154b8c4321f69196795114319ff",
+      "prior": {
+        "operation": "Unchanged existing transparent prop"
+      }
+    },
+    "boss_cut": {
+      "file": "art/boss_cut.png",
+      "source": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-0710cc0e-06f7-4be8-b41a-72abeae42f86.png",
+      "source_sha256": "9333a2b1d892eb9cb8176eefb8b0fbbc4f74c18f35d4cb1b9fbfdbf7e667cb8d",
+      "output_sha256": "9333a2b1d892eb9cb8176eefb8b0fbbc4f74c18f35d4cb1b9fbfdbf7e667cb8d",
+      "prior": {
+        "id": "boss_cut",
+        "output": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-0710cc0e-06f7-4be8-b41a-72abeae42f86.png",
+        "source": "C:/Users/Peter/.codex/visualizations/2026/09/20/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/book/v3/complete/art/boss_identity.png",
+        "method": "built-in ImageGen background isolation",
+        "prompt": "Remove only the beige background from this existing Grand Puff identity illustration, producing a genuinely transparent alpha background. Preserve the exact original character, every contour, purple colouring, facial expression, curled ears, forehead star, highlights and nearby loose dust curls. Do not redraw, redesign, repose or add anything. This is a source-faithful irregular character cutout, not a new scene."
+      }
+    },
+    "brush": {
+      "file": "art/brush.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\brush.png",
+      "source_sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "output_sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "prior": {
+        "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c04_bathroom_restored_visual_v1\\handoff_art\\objects\\magic_cleaning_brush.png",
+        "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+        "output": "art/brush.png",
+        "prior": null,
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "brushes": {
+      "file": "art/brushes.png",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets\\castle\\day_one_art_studio\\loose_brush_bundle.png",
+      "source_sha256": "7de7cf80939fe62e16d6931d1eb6b377ec2454107b855703b76f445aa8aad99a",
+      "output_sha256": "7de7cf80939fe62e16d6931d1eb6b377ec2454107b855703b76f445aa8aad99a",
+      "prior": {
+        "operation": "Unchanged existing transparent prop"
+      }
+    },
+    "bubbles": {
+      "file": "art/bubbles.png",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets\\castle\\dirty_cleanup_2d\\effects\\fx_soap_bubbles.png",
+      "source_sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+      "output_sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+      "prior": {
+        "operation": "Unchanged existing transparent prop"
+      }
+    },
+    "cups": {
+      "file": "art/cups.png",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets\\castle\\day_one_art_studio\\paint_cups.png",
+      "source_sha256": "fca25541d66e07bf28ee31a36ff049130af64c495a077759750f291e526780a0",
+      "output_sha256": "fca25541d66e07bf28ee31a36ff049130af64c495a077759750f291e526780a0",
+      "prior": {
+        "operation": "Unchanged existing transparent prop"
+      }
+    },
+    "daddy": {
+      "file": "art/daddy.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\daddy.png",
+      "source_sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+      "output_sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+      "prior": {
+        "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c13_grand_puff_friendship_completion_visual_v1\\handoff_art\\characters\\daddy_daddy_master.png",
+        "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+        "output": "art/daddy.png",
+        "prior": null,
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "daddy_brush": {
+      "file": "art/daddy_brush.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\daddy_brush.png",
+      "source_sha256": "98a5d3e727fe9fdcb7f27863b91e53521d1d0d0745277f49278456ad00fa032c",
+      "output_sha256": "98a5d3e727fe9fdcb7f27863b91e53521d1d0d0745277f49278456ad00fa032c",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\daddy_brush.png",
+        "sha256": "98a5d3e727fe9fdcb7f27863b91e53521d1d0d0745277f49278456ad00fa032c",
+        "output": "art/daddy_brush.png",
+        "prior": {
+          "id": "daddy_brush",
+          "file": "art/daddy_brush.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\overnight_recut_repairs_2026-09-12\\candidates\\R09_big_bunny_scrub_opening.png",
+          "source_sha256": "aa190981537396ab1da059cf799c23f69410a29aa1a09e51da0041267cc942ab",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": [
+            40,
+            70,
+            735,
+            480
+          ],
+          "output_dimensions": [
+            695,
+            410
+          ],
+          "modifications": "Panel crop only; no subject repainting or compositing.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Existing whole-scene detail crop for a separate picture-book panel; no retouching.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "eagle": {
+      "file": "art/eagle.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\eagle.png",
+      "source_sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76",
+      "output_sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76",
+      "prior": {
+        "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c13_grand_puff_friendship_completion_visual_v1\\handoff_art\\characters\\baby_eagle_standing_BABY_EAGLE_STANDING_IDENTITY.png",
+        "sha256": "90c54412aa59317b45d3d670ada181ee7ede20ba5fe91f051e61d81f70f0ef76",
+        "output": "art/eagle.png",
+        "prior": null,
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "flight": {
+      "file": "art/flight.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\flight.png",
+      "source_sha256": "833764ae558e033d77496b89d03d58675aee79620393483d9298b8aab374e4d7",
+      "output_sha256": "833764ae558e033d77496b89d03d58675aee79620393483d9298b8aab374e4d7",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\flight.png",
+        "sha256": "833764ae558e033d77496b89d03d58675aee79620393483d9298b8aab374e4d7",
+        "output": "art/flight.png",
+        "prior": {
+          "id": "flight",
+          "file": "art/flight.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c00_opening_flight_visual_v1\\storyboards\\SCENE_SHOT_BOARD.png",
+          "source_sha256": "c744a8b77ecfcc06b655bfa3a89a9dfc1b39a237efdf45f9d65a4683cae04882",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": [
+            8,
+            8,
+            550,
+            464
+          ],
+          "output_dimensions": [
+            542,
+            456
+          ],
+          "modifications": "Panel crop only; no subject repainting or compositing.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Storyboard panel, pending replacement with reviewed high-resolution still; original untouched.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "grand_puff_jump_sheet": {
+      "file": "art/grand_puff_jump_sheet.png",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c11_grand_puff_reveal_visual_v1\\handoff_art\\objects\\dust_bunny_boss_jump.png",
+      "source_sha256": "7f117638631841c31eb58b9c81224158d29d64f325980c75c475e0376e36788c",
+      "output_sha256": "7f117638631841c31eb58b9c81224158d29d64f325980c75c475e0376e36788c",
+      "prior": {
+        "operation": "Unchanged existing handoff jump atlas. Top-right frame isolated using PDF/HTML clipping, without changing raster pixels."
+      }
+    },
+    "hall": {
+      "file": "art/hall.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\hall.png",
+      "source_sha256": "0059d9a38a487d50a9dd7cc02db4fc208718106c086e4839c835ce67540252f4",
+      "output_sha256": "0059d9a38a487d50a9dd7cc02db4fc208718106c086e4839c835ce67540252f4",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\hall.png",
+        "sha256": "0059d9a38a487d50a9dd7cc02db4fc208718106c086e4839c835ce67540252f4",
+        "output": "art/hall.png",
+        "prior": {
+          "id": "hall",
+          "file": "art/hall.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c02_first_dirty_castle_discovery_visual_v1\\storyboards\\SCENE_SHOT_BOARD.png",
+          "source_sha256": "1021a1828b19480c79394c4226c4da1efc79b06965ca33c5d586369fa71476b4",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": [
+            8,
+            8,
+            827,
+            463
+          ],
+          "output_dimensions": [
+            819,
+            455
+          ],
+          "modifications": "Panel crop only; no subject repainting or compositing.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Storyboard panel, pending replacement with reviewed high-resolution still; original untouched.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "helpers": {
+      "file": "art/helpers.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\helpers.png",
+      "source_sha256": "ba13aae89ff764875e08c0332d8430bac707710b0328fdfe5c1079350ebf6a0e",
+      "output_sha256": "ba13aae89ff764875e08c0332d8430bac707710b0328fdfe5c1079350ebf6a0e",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\helpers.png",
+        "sha256": "ba13aae89ff764875e08c0332d8430bac707710b0328fdfe5c1079350ebf6a0e",
+        "output": "art/helpers.png",
+        "prior": {
+          "id": "helpers",
+          "file": "art/helpers.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\overnight_recut_repairs_2026-09-12\\candidates\\R09_big_bunny_scrub_opening.png",
+          "source_sha256": "aa190981537396ab1da059cf799c23f69410a29aa1a09e51da0041267cc942ab",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": null,
+          "output_dimensions": [
+            1672,
+            941
+          ],
+          "modifications": "Lossless format save; complete image retained.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Four-helper soapy contact narrative candidate. Human identity/topology acceptance pending.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "hug": {
+      "file": "art/hug.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\hug.png",
+      "source_sha256": "bf42761bdd1537a83edb9bd98b238e02cbb9c980c43e9f8d578b5ff410b014aa",
+      "output_sha256": "bf42761bdd1537a83edb9bd98b238e02cbb9c980c43e9f8d578b5ff410b014aa",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\hug.png",
+        "sha256": "bf42761bdd1537a83edb9bd98b238e02cbb9c980c43e9f8d578b5ff410b014aa",
+        "output": "art/hug.png",
+        "prior": {
+          "id": "hug",
+          "file": "art/hug.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c12_restored_castle_finale_visual_v1\\storyboards\\SCENE_SHOT_BOARD.png",
+          "source_sha256": "454741e4db246707070d96bdbe903fdd2e917789ab1fcecfe7086db5ec2b415a",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": [
+            840,
+            640,
+            1660,
+            931
+          ],
+          "output_dimensions": [
+            820,
+            291
+          ],
+          "modifications": "Panel crop only; no subject repainting or compositing.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Older reunion board; verify separate tails and Daddy identity when replacing with completed Resolve still.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "jump": {
+      "file": "art/jump.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\jump.png",
+      "source_sha256": "d7cc32cd245bbc5d0fcf521418e217909c06db703f22ce30ee5199e406a66d67",
+      "output_sha256": "d7cc32cd245bbc5d0fcf521418e217909c06db703f22ce30ee5199e406a66d67",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\jump.png",
+        "sha256": "d7cc32cd245bbc5d0fcf521418e217909c06db703f22ce30ee5199e406a66d67",
+        "output": "art/jump.png",
+        "prior": {
+          "id": "jump",
+          "file": "art/jump.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\overnight_recut_repairs_2026-09-12\\candidates\\R10_jump_from_suds.png",
+          "source_sha256": "13ff639019cccadd0675aea4ed9550505c57a84ae666d647df6097bb18793889",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": null,
+          "output_dimensions": [
+            1672,
+            941
+          ],
+          "modifications": "Lossless format save; complete image retained.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Narrative candidate: first appearance of small rainbow friend, casing collapses. Not cinematic delivery accepted.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "land": {
+      "file": "art/land.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\land.png",
+      "source_sha256": "52e3919f557ec102f7de4b63a59082bb078ff46eb4b8accf7aee6031d5908eeb",
+      "output_sha256": "52e3919f557ec102f7de4b63a59082bb078ff46eb4b8accf7aee6031d5908eeb",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\land.png",
+        "sha256": "52e3919f557ec102f7de4b63a59082bb078ff46eb4b8accf7aee6031d5908eeb",
+        "output": "art/land.png",
+        "prior": {
+          "id": "land",
+          "file": "art/land.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\overnight_recut_repairs_2026-09-12\\candidates\\R11_dust_settle.png",
+          "source_sha256": "d166ae3aa034d26beeda8e92dbc0da8da5347646b8b707746237d819e81a4e5a",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": null,
+          "output_dimensions": [
+            1672,
+            941
+          ],
+          "modifications": "Lossless format save; complete image retained.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Narrative candidate: one small rainbow friend, large casing gone; final anatomy/identity review pending.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "loose": {
+      "file": "art/loose.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\loose.png",
+      "source_sha256": "8aa92304a86d8b5795058e29349c91fc4b7e919c72cab691341dfed2b8e96aa3",
+      "output_sha256": "8aa92304a86d8b5795058e29349c91fc4b7e919c72cab691341dfed2b8e96aa3",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\frames\\clip00_2.5.png",
+        "sha256": "8aa92304a86d8b5795058e29349c91fc4b7e919c72cab691341dfed2b8e96aa3",
+        "output": "art/loose.png",
+        "prior": {
+          "id": "clip00_2.5",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\movie_longcut_20260919\\server_media\\COLD-START-20260919\\SHOT-EAGLE-FREE_A010.mp4",
+          "time_seconds": 2.5,
+          "path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\frames\\clip00_2.5.png",
+          "video_sha256": "ed6baae765f6a10384ad6440ff3fd929b5aedc77f00ef8b0725ee7b277b14cfd"
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "paint": {
+      "file": "art/paint.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\paint.png",
+      "source_sha256": "a5305eba8f0c6fc7d5b99b1899d4abc4365d4617362c62b498a046918759089e",
+      "output_sha256": "a5305eba8f0c6fc7d5b99b1899d4abc4365d4617362c62b498a046918759089e",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\frames\\clip08_2.5.png",
+        "sha256": "a5305eba8f0c6fc7d5b99b1899d4abc4365d4617362c62b498a046918759089e",
+        "output": "art/paint.png",
+        "prior": {
+          "id": "clip08_2.5",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\movie_longcut_20260919\\server_media\\BROLL-20260919\\SHOT-CRAFT-CUSTOMIZE-B01_A001.mp4",
+          "time_seconds": 2.5,
+          "path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\frames\\clip08_2.5.png",
+          "video_sha256": "952e824c7214a63b5317224482ba1f1548bf35a6662ee2d8fd76c452da6a9847"
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "pink": {
+      "file": "art/pink.png",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets\\castle\\day_one_art_studio\\paint_bottle_pink.png",
+      "source_sha256": "089bcaf7b7e27a4760ca70f05cfeb6954e72eb59ac4ecd125fd6b5cfe0ebba4a",
+      "output_sha256": "089bcaf7b7e27a4760ca70f05cfeb6954e72eb59ac4ecd125fd6b5cfe0ebba4a",
+      "prior": {
+        "operation": "Unchanged existing transparent prop"
+      }
+    },
+    "playroom": {
+      "file": "art/playroom.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\playroom.png",
+      "source_sha256": "f58a831b9aeed63f37596cb21db127e2255f2a5ebb4e4a87cffe02dd2be9117b",
+      "output_sha256": "f58a831b9aeed63f37596cb21db127e2255f2a5ebb4e4a87cffe02dd2be9117b",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\playroom.png",
+        "sha256": "f58a831b9aeed63f37596cb21db127e2255f2a5ebb4e4a87cffe02dd2be9117b",
+        "output": "art/playroom.png",
+        "prior": {
+          "id": "playroom",
+          "file": "art/playroom.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c08_stuffie_restoration_visual_v1\\storyboards\\SCENE_SHOT_BOARD.png",
+          "source_sha256": "6bd287827da148689ae197f45f0c72cdd23c8bc451ebfc86b9802d6d429e015a",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": [
+            1124,
+            482,
+            1657,
+            923
+          ],
+          "output_dimensions": [
+            533,
+            441
+          ],
+          "modifications": "Panel crop only; no subject repainting or compositing.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Older board count/topology candidate; final illustration must reconcile exact approved group.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "pool_clean": {
+      "file": "art/pool_clean.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\pool_clean.png",
+      "source_sha256": "420a26b831802720692437fe654a1e827d97be7b21ec6fc2a2a87f6634b16690",
+      "output_sha256": "420a26b831802720692437fe654a1e827d97be7b21ec6fc2a2a87f6634b16690",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\pool_clean.png",
+        "sha256": "420a26b831802720692437fe654a1e827d97be7b21ec6fc2a2a87f6634b16690",
+        "output": "art/pool_clean.png",
+        "prior": {
+          "id": "pool_clean",
+          "file": "art/pool_clean.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c06_pool_purification_rumi_hug_visual_v1\\storyboards\\SCENE_SHOT_BOARD.png",
+          "source_sha256": "1e3e6233830044d85c0a01401c808a20417780c87e114ed72d9ec176b2a5ebdc",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": [
+            1119,
+            318,
+            1665,
+            602
+          ],
+          "output_dimensions": [
+            546,
+            284
+          ],
+          "modifications": "Panel crop only; no subject repainting or compositing.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Storyboard panel, pending replacement with reviewed high-resolution still; original untouched.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "pool_dirty": {
+      "file": "art/pool_dirty.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\pool_dirty.png",
+      "source_sha256": "2cecf47490beb7b69e5148e6be187f77861e3f226934710fd6f19f505ab0b198",
+      "output_sha256": "2cecf47490beb7b69e5148e6be187f77861e3f226934710fd6f19f505ab0b198",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\pool_dirty.png",
+        "sha256": "2cecf47490beb7b69e5148e6be187f77861e3f226934710fd6f19f505ab0b198",
+        "output": "art/pool_dirty.png",
+        "prior": {
+          "id": "pool_dirty",
+          "file": "art/pool_dirty.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c05_pool_dirty_discovery_visual_v1\\storyboards\\SCENE_SHOT_BOARD.png",
+          "source_sha256": "bb9ad830ab96428d34ffbe13fd26fa22e4ff249ca74013b8fce77782ca65dc4e",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": [
+            8,
+            8,
+            828,
+            304
+          ],
+          "output_dimensions": [
+            820,
+            296
+          ],
+          "modifications": "Panel crop only; no subject repainting or compositing.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Storyboard panel, pending replacement with reviewed high-resolution still; original untouched.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "pool_net": {
+      "file": "art/pool_net.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\pool_net.png",
+      "source_sha256": "aeaf3e21fdfda8e498ef9299712ed37120771634aaab0d57a3174b5775158dfe",
+      "output_sha256": "aeaf3e21fdfda8e498ef9299712ed37120771634aaab0d57a3174b5775158dfe",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\pool_net.png",
+        "sha256": "aeaf3e21fdfda8e498ef9299712ed37120771634aaab0d57a3174b5775158dfe",
+        "output": "art/pool_net.png",
+        "prior": {
+          "id": "pool_net",
+          "file": "art/pool_net.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c05_pool_dirty_discovery_visual_v1\\storyboards\\SCENE_SHOT_BOARD.png",
+          "source_sha256": "bb9ad830ab96428d34ffbe13fd26fa22e4ff249ca74013b8fce77782ca65dc4e",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": [
+            8,
+            320,
+            828,
+            620
+          ],
+          "output_dimensions": [
+            820,
+            300
+          ],
+          "modifications": "Panel crop only; no subject repainting or compositing.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Storyboard panel, pending replacement with reviewed high-resolution still; original untouched.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "rainbow_cut": {
+      "file": "art/rainbow_cut.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\rainbow_cut.png",
+      "source_sha256": "3446d4c1c981b15c5f53e99af0a03c47fdfe7b6daa6f33e54b7ea5421351c9f8",
+      "output_sha256": "3446d4c1c981b15c5f53e99af0a03c47fdfe7b6daa6f33e54b7ea5421351c9f8",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-0e4033e2-8266-49e4-b4eb-97f969d8bfd4.png",
+        "sha256": "3446d4c1c981b15c5f53e99af0a03c47fdfe7b6daa6f33e54b7ea5421351c9f8",
+        "output": "art/rainbow_cut.png",
+        "prior": {
+          "operation": "ImageGen background isolation of the existing rainbow bunny; not a new scene.",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\overnight_recut_repairs_2026-09-12\\references\\rainbow_dust_bunny_concept.png",
+          "source_sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17"
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "rainbowfall": {
+      "file": "art/rainbowfall.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\rainbowfall.png",
+      "source_sha256": "0bb9383f849764bd8d65d532f562130153acdc033bcd2e989e3d33f6507e2c72",
+      "output_sha256": "0bb9383f849764bd8d65d532f562130153acdc033bcd2e989e3d33f6507e2c72",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\frames\\clip07_2.5.png",
+        "sha256": "0bb9383f849764bd8d65d532f562130153acdc033bcd2e989e3d33f6507e2c72",
+        "output": "art/rainbowfall.png",
+        "prior": {
+          "id": "clip07_2.5",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\export\\movie_recut_20260912\\media\\6458cc6f4fec_MERMAID_ROSHAN_CLEAN_POOL_REFINED_20260827_V01_REVIEW.mp4",
+          "time_seconds": 2.5,
+          "path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\frames\\clip07_2.5.png",
+          "video_sha256": "6458cc6f4fec4bb35a4226d88214b3e833df01209f20365c7c6b9e2a356677d1"
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "rescue_isolated": {
+      "file": "art/rescue_isolated.png",
+      "source": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-517e0da7-bfeb-4053-a291-63d6a754c2e7.png",
+      "source_sha256": "a5e1562af1875c5a87df86cd18d07f8c749a9181197731249495509dd9056ed1",
+      "output_sha256": "a5e1562af1875c5a87df86cd18d07f8c749a9181197731249495509dd9056ed1",
+      "prior": {
+        "id": "rescue_isolated",
+        "source": "v3/frames/clip00_0.png",
+        "output": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-517e0da7-bfeb-4053-a291-63d6a754c2e7.png",
+        "prompt": "Isolate only the existing central rescue action group from this exact image onto genuinely transparent alpha: Roshan holding the brush, Baby Eagle lying beneath EXACTLY TWO lavender dust bunnies, and those two bunnies touching/holding him exactly as in the source. Remove the room, floor, toy bins and background toys. Preserve source poses, relative locations, scale, faces, one Roshan tail, brush contact, bird and bunny anatomy, colours and drawing. Do not free the bird, add a blanket, change the action, or redraw a new scene. Source-faithful irregular cutout of the complete already-visible interaction.",
+        "method": "built-in ImageGen edit",
+        "operation": "Existing action group isolated to alpha",
+        "review": "Source pose/action/identity compared visually; no invented scene; rough derivative pending owner review",
+        "source_sha256": "417e3a44f098f49ca7ca94786b4d1f243ef0147f94df56712f8f312f94c2772a",
+        "prompt_sha256": "fd03401aaa88e2146aef54a13ba0d4f2dc8ceeca55da5fba945ce3da7c4e9431"
+      }
+    },
+    "roshan": {
+      "file": "art/roshan.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\roshan.png",
+      "source_sha256": "69892135ddb2249ce24968477311d0d0394c834b003fc0a14e0bab86745e9290",
+      "output_sha256": "69892135ddb2249ce24968477311d0d0394c834b003fc0a14e0bab86745e9290",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\roshan.png",
+        "sha256": "69892135ddb2249ce24968477311d0d0394c834b003fc0a14e0bab86745e9290",
+        "output": "art/roshan.png",
+        "prior": {
+          "id": "roshan",
+          "file": "art/roshan.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c10_art_room_restored_visual_v1\\handoff_art\\characters\\roshan_roshan_base.png",
+          "source_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "source_dimensions": [
+            256,
+            256
+          ],
+          "crop_xyxy": null,
+          "output_dimensions": [
+            256,
+            256
+          ],
+          "modifications": "Lossless format save; complete image retained.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Existing project identity cutout; original unchanged.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "royal_door_isolated": {
+      "file": "art/royal_door_isolated.png",
+      "source": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-671e7ce0-57e1-4bc7-84bc-0d2f046cab96.png",
+      "source_sha256": "d72b6bd7532330b60d24855006adb7ccf4082fa15400a003576fb5e1198c9c1b",
+      "output_sha256": "d72b6bd7532330b60d24855006adb7ccf4082fa15400a003576fb5e1198c9c1b",
+      "prior": {
+        "id": "royal_door_isolated",
+        "refs": [
+          "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/cinematics/d1_c11_grand_puff_reveal_visual_v1/storyboards/ENVIRONMENT_PERSPECTIVES.png"
+        ],
+        "prompt": "Extract ONLY the closed purple-and-gold arched Royal Hall door and its immediate stone arch, gold stair rails and red carpeted steps from the TOP LEFT panel of this existing storyboard. Output that exact doorway/stairs as a source-faithful irregular cutout on genuine transparent alpha. Remove the surrounding hall, columns, side doors, foreground floor and all other panels. Preserve the existing door design, proportions, gold shell details, hinges, purple double leaves, arched frame and carpet. Do not invent a door, redesign its architecture, change its state, or redraw a scene. No new environment, text, or characters. The purpose is to isolate the actual existing plot doorway for a picture-book vignette.",
+        "output": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-671e7ce0-57e1-4bc7-84bc-0d2f046cab96.png",
+        "method": "built-in ImageGen targeted edit",
+        "reference_hashes": [
+          {
+            "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/cinematics/d1_c11_grand_puff_reveal_visual_v1/storyboards/ENVIRONMENT_PERSPECTIVES.png",
+            "sha256": "ef2dd6c423c8ffcfa0c5033891ea5349171970608af53ba0cf4432cdceda2f0c"
+          }
+        ],
+        "prompt_sha256": "882778e3eb9f4b49f1ce8e5b631e8a37dcfe51eacac16deec083d519da2e891e",
+        "review": "Visually compared with references: local tub interior change / isolated existing doorway. No full-scene generation. Owner visual acceptance remains open."
+      }
+    },
+    "rumi": {
+      "file": "art/rumi.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\rumi.png",
+      "source_sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+      "output_sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+      "prior": {
+        "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c13_grand_puff_friendship_completion_visual_v1\\handoff_art\\characters\\rumi_rumi_full_body_identity.png",
+        "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+        "output": "art/rumi.png",
+        "prior": null,
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "rumi_hug": {
+      "file": "art/rumi_hug.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\rumi_hug.png",
+      "source_sha256": "7da50c706927cdc0fbadf666db6f397b9991dad4f4d9f9d2c815aa3e3434faab",
+      "output_sha256": "7da50c706927cdc0fbadf666db6f397b9991dad4f4d9f9d2c815aa3e3434faab",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\rumi_hug.png",
+        "sha256": "7da50c706927cdc0fbadf666db6f397b9991dad4f4d9f9d2c815aa3e3434faab",
+        "output": "art/rumi_hug.png",
+        "prior": {
+          "id": "rumi_hug",
+          "file": "art/rumi_hug.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c06_pool_purification_rumi_hug_visual_v1\\storyboards\\SCENE_SHOT_BOARD.png",
+          "source_sha256": "1e3e6233830044d85c0a01401c808a20417780c87e114ed72d9ec176b2a5ebdc",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": [
+            1119,
+            615,
+            1665,
+            932
+          ],
+          "output_dimensions": [
+            546,
+            317
+          ],
+          "modifications": "Panel crop only; no subject repainting or compositing.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Storyboard panel, pending replacement with reviewed high-resolution still; original untouched.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "rumi_sponge": {
+      "file": "art/rumi_sponge.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\rumi_sponge.png",
+      "source_sha256": "c3c5b6d626ff34ea12f1ff2c403600f64b4e9ee24f5e671a6eb62d2ebf16633f",
+      "output_sha256": "c3c5b6d626ff34ea12f1ff2c403600f64b4e9ee24f5e671a6eb62d2ebf16633f",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\rumi_sponge.png",
+        "sha256": "c3c5b6d626ff34ea12f1ff2c403600f64b4e9ee24f5e671a6eb62d2ebf16633f",
+        "output": "art/rumi_sponge.png",
+        "prior": {
+          "id": "rumi_sponge",
+          "file": "art/rumi_sponge.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\overnight_recut_repairs_2026-09-12\\candidates\\R09_big_bunny_scrub_opening.png",
+          "source_sha256": "aa190981537396ab1da059cf799c23f69410a29aa1a09e51da0041267cc942ab",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": [
+            1000,
+            120,
+            1672,
+            690
+          ],
+          "output_dimensions": [
+            672,
+            570
+          ],
+          "modifications": "Panel crop only; no subject repainting or compositing.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Existing whole-scene detail crop; separate action panel, pending final identity acceptance.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "seahorse_free": {
+      "file": "art/seahorse_free.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\seahorse_free.png",
+      "source_sha256": "0b8da3eddfdede123398c9770f44a39e841e3cb2ef7f2b4c1d7de12d1ee60628",
+      "output_sha256": "0b8da3eddfdede123398c9770f44a39e841e3cb2ef7f2b4c1d7de12d1ee60628",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\seahorse_free.png",
+        "sha256": "0b8da3eddfdede123398c9770f44a39e841e3cb2ef7f2b4c1d7de12d1ee60628",
+        "output": "art/seahorse_free.png",
+        "prior": {
+          "id": "seahorse_free",
+          "file": "art/seahorse_free.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c06_pool_purification_rumi_hug_visual_v1\\storyboards\\SCENE_SHOT_BOARD.png",
+          "source_sha256": "1e3e6233830044d85c0a01401c808a20417780c87e114ed72d9ec176b2a5ebdc",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": [
+            563,
+            7,
+            1105,
+            306
+          ],
+          "output_dimensions": [
+            542,
+            299
+          ],
+          "modifications": "Panel crop only; no subject repainting or compositing.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Storyboard panel, pending replacement with reviewed high-resolution still; original untouched.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "seahorse_isolated": {
+      "file": "art/seahorse_isolated.png",
+      "source": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-c959cb14-897c-4cbb-9d97-e89e4c8a21b9.png",
+      "source_sha256": "c958fed7ef2ebb93575f1540ae355c7fcb5f2db2262bf2d104b835d48a1f75e9",
+      "output_sha256": "c958fed7ef2ebb93575f1540ae355c7fcb5f2db2262bf2d104b835d48a1f75e9",
+      "prior": {
+        "id": "seahorse_isolated",
+        "source": "art/seahorse.png",
+        "output": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-c959cb14-897c-4cbb-9d97-e89e4c8a21b9.png",
+        "prompt": "Remove the room background only and isolate this existing action onto genuine transparent alpha: the seahorse fountain on the left, Roshan on the right, her hands and the pink blockage she is pulling. Preserve the source action, faces, expression, shapes, proportions, positions and style. Preserve visible source edges; do not invent a new full body or tail beyond the crop. This is a cutout of the existing frame, not a scene redraw. No blue rectangular plate or newly drawn backdrop.",
+        "method": "built-in ImageGen edit",
+        "operation": "Existing action group isolated to alpha",
+        "review": "Source pose/action/identity compared visually; no invented scene; rough derivative pending owner review",
+        "source_sha256": "77c74377a03e77c6b5f6dda6b25245df4983242d9dd10af234bda7aa3c6ed715",
+        "prompt_sha256": "c9f3826d9512455839bb803e19ed9865dc64602e1ade2d552f1ce1491bc29447"
+      }
+    },
+    "soap": {
+      "file": "art/soap.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\soap.png",
+      "source_sha256": "9b5e51cbe84df51499dbbac0d4fe0ceb1f166f8c5e8de3e9b5d226c52dd0dafa",
+      "output_sha256": "9b5e51cbe84df51499dbbac0d4fe0ceb1f166f8c5e8de3e9b5d226c52dd0dafa",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\soap.png",
+        "sha256": "9b5e51cbe84df51499dbbac0d4fe0ceb1f166f8c5e8de3e9b5d226c52dd0dafa",
+        "output": "art/soap.png",
+        "prior": {
+          "id": "soap",
+          "file": "art/soap.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\overnight_recut_repairs_2026-09-12\\candidates\\R09_suds_endpoint.png",
+          "source_sha256": "ed7f13735a560ee5a187bf1cbc4d40b1a04e2fc9a6375b7fb74ae6a81c285e2b",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": null,
+          "output_dimensions": [
+            1672,
+            941
+          ],
+          "modifications": "Lossless format save; complete image retained.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Narrative candidate; little bunny must remain fully hidden at this point.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "sponge": {
+      "file": "art/sponge.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\sponge.png",
+      "source_sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+      "output_sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+      "prior": {
+        "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c04_bathroom_restored_visual_v1\\handoff_art\\objects\\tool_star_sponge.png",
+        "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+        "output": "art/sponge.png",
+        "prior": null,
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "stuffie_entry": {
+      "file": "art/stuffie_entry.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\stuffie_entry.png",
+      "source_sha256": "32c1e4013fdbdc95908144da412770e24dbdae072df2404c8c1a0915b9418826",
+      "output_sha256": "32c1e4013fdbdc95908144da412770e24dbdae072df2404c8c1a0915b9418826",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\stuffie_entry.png",
+        "sha256": "32c1e4013fdbdc95908144da412770e24dbdae072df2404c8c1a0915b9418826",
+        "output": "art/stuffie_entry.png",
+        "prior": {
+          "id": "stuffie_entry",
+          "file": "art/stuffie_entry.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c07_stuffie_dirty_discovery_visual_v1\\storyboards\\SCENE_SHOT_BOARD.png",
+          "source_sha256": "421da8bcb61425e98f5c447f09a7b22236ae3f5b21068b58b16345c930f2a38f",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": [
+            745,
+            10,
+            1128,
+            460
+          ],
+          "output_dimensions": [
+            383,
+            450
+          ],
+          "modifications": "Panel crop only; no subject repainting or compositing.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Storyboard panel, pending replacement with reviewed high-resolution still; original untouched.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "waterfall": {
+      "file": "art/waterfall.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\waterfall.png",
+      "source_sha256": "10d2283bded5d3261999002fe9985f6cf38444c74536cf74c39a61aefd70f6da",
+      "output_sha256": "10d2283bded5d3261999002fe9985f6cf38444c74536cf74c39a61aefd70f6da",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\waterfall.png",
+        "sha256": "10d2283bded5d3261999002fe9985f6cf38444c74536cf74c39a61aefd70f6da",
+        "output": "art/waterfall.png",
+        "prior": {
+          "id": "waterfall",
+          "file": "art/waterfall.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c05_pool_dirty_discovery_visual_v1\\storyboards\\SCENE_SHOT_BOARD.png",
+          "source_sha256": "bb9ad830ab96428d34ffbe13fd26fa22e4ff249ca74013b8fce77782ca65dc4e",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": [
+            844,
+            320,
+            1663,
+            620
+          ],
+          "output_dimensions": [
+            819,
+            300
+          ],
+          "modifications": "Panel crop only; no subject repainting or compositing.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Storyboard panel, pending replacement with reviewed high-resolution still; original untouched.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "window": {
+      "file": "art/window.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\window.png",
+      "source_sha256": "d288e075760d5652e648fdc3fb3802486b3ce1f42a55fab71008932a064e9e5e",
+      "output_sha256": "d288e075760d5652e648fdc3fb3802486b3ce1f42a55fab71008932a064e9e5e",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\window.png",
+        "sha256": "d288e075760d5652e648fdc3fb3802486b3ce1f42a55fab71008932a064e9e5e",
+        "output": "art/window.png",
+        "prior": {
+          "id": "window",
+          "file": "art/window.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c00_opening_flight_visual_v1\\storyboards\\SCENE_SHOT_BOARD.png",
+          "source_sha256": "c744a8b77ecfcc06b655bfa3a89a9dfc1b39a237efdf45f9d65a4683cae04882",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": [
+            1118,
+            8,
+            1662,
+            462
+          ],
+          "output_dimensions": [
+            544,
+            454
+          ],
+          "modifications": "Panel crop only; no subject repainting or compositing.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Storyboard panel, pending replacement with reviewed high-resolution still; original untouched.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    },
+    "wing_whoosh": {
+      "file": "art/wing_whoosh.png",
+      "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\v3\\complete\\art\\wing_whoosh.png",
+      "source_sha256": "85666794908ef21cbb6f1ea25962c9c4847d052a1715335ec31aae038a79eaf5",
+      "output_sha256": "85666794908ef21cbb6f1ea25962c9c4847d052a1715335ec31aae038a79eaf5",
+      "prior": {
+        "source": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\09\\20\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\book\\art\\wing_whoosh.png",
+        "sha256": "85666794908ef21cbb6f1ea25962c9c4847d052a1715335ec31aae038a79eaf5",
+        "output": "art/wing_whoosh.png",
+        "prior": {
+          "id": "wing_whoosh",
+          "file": "art/wing_whoosh.png",
+          "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\cinematics\\d1_c08_stuffie_restoration_visual_v1\\storyboards\\SCENE_SHOT_BOARD.png",
+          "source_sha256": "6bd287827da148689ae197f45f0c72cdd23c8bc451ebfc86b9802d6d429e015a",
+          "source_dimensions": [
+            1672,
+            941
+          ],
+          "crop_xyxy": [
+            566,
+            482,
+            1102,
+            923
+          ],
+          "output_dimensions": [
+            536,
+            441
+          ],
+          "modifications": "Panel crop only; no subject repainting or compositing.",
+          "status": "ROUGH_REFERENCE_ONLY",
+          "review_notes": "Broad safe wing-cleaning beat; identity and exact room pending final still.",
+          "provenance": "Existing project artwork; repository ASSET_LICENSES.md and adjacent source manifests govern. No new generation."
+        },
+        "edits": "None to raster pixels. Page layout and framing only.",
+        "status": "ROUGH_REFERENCE_ONLY"
+      }
+    }
+  },
+  "placements": [
+    {
+      "story_page": 0,
+      "art": "roshan",
+      "image_rect": [
+        49.0,
+        126.5,
+        262.0,
+        262.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 70.4,
+      "role": "main art"
+    },
+    {
+      "story_page": 1,
+      "art": "flight",
+      "image_rect": [
+        23.0,
+        154.91143911439113,
+        314.0,
+        264.17712177121774
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 124.3,
+      "role": "main art"
+    },
+    {
+      "story_page": 2,
+      "art": "window",
+      "image_rect": [
+        -121.95594713656385,
+        0.0,
+        603.9118942731277,
+        504.0
+      ],
+      "clip_rect": [
+        0,
+        0,
+        360,
+        504
+      ],
+      "source_crop": null,
+      "effective_ppi": 64.9,
+      "role": "main art"
+    },
+    {
+      "story_page": 3,
+      "art": "arrival",
+      "image_rect": [
+        -99.69230769230774,
+        0.0,
+        919.3846153846155,
+        504.0
+      ],
+      "clip_rect": [
+        0,
+        0,
+        360,
+        504
+      ],
+      "source_crop": null,
+      "effective_ppi": 65.0,
+      "role": "main art"
+    },
+    {
+      "story_page": 4,
+      "art": "arrival",
+      "image_rect": [
+        -459.69230769230774,
+        0.0,
+        919.3846153846155,
+        504.0
+      ],
+      "clip_rect": [
+        0,
+        0,
+        360,
+        504
+      ],
+      "source_crop": null,
+      "effective_ppi": 65.0,
+      "role": "main art"
+    },
+    {
+      "story_page": 5,
+      "art": "hall",
+      "image_rect": [
+        22.0,
+        272.22222222222223,
+        316.0,
+        175.55555555555557
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 186.6,
+      "role": "main art"
+    },
+    {
+      "story_page": 5,
+      "art": "roshan",
+      "image_rect": [
+        132.0,
+        78.5,
+        96.0,
+        96.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 192.0,
+      "role": "main art"
+    },
+    {
+      "story_page": 6,
+      "art": "sponge",
+      "image_rect": [
+        27.0,
+        28.5,
+        43.0,
+        43.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 857.3,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 6,
+      "art": "brush",
+      "image_rect": [
+        280.43359375,
+        35.0,
+        41.1328125,
+        45.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 1638.4,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 6,
+      "art": "daddy",
+      "image_rect": [
+        34.0,
+        274.5834824090638,
+        122.0,
+        171.8330351818724
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 989.7,
+      "role": "main art"
+    },
+    {
+      "story_page": 6,
+      "art": "brush",
+      "image_rect": [
+        191.0,
+        246.68803418803418,
+        113.0,
+        123.62393162393163
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 596.4,
+      "role": "main art"
+    },
+    {
+      "story_page": 6,
+      "art": "sponge",
+      "image_rect": [
+        239.5,
+        111.0,
+        69.0,
+        69.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 534.3,
+      "role": "main art"
+    },
+    {
+      "story_page": 6,
+      "art": "roshan",
+      "image_rect": [
+        41.0,
+        109.5,
+        140.0,
+        140.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 131.7,
+      "role": "main art"
+    },
+    {
+      "story_page": 7,
+      "art": "brush",
+      "image_rect": [
+        37.390625,
+        36.0,
+        40.21875,
+        44.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 1675.6,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 7,
+      "art": "sponge",
+      "image_rect": [
+        273.5,
+        35.0,
+        45.0,
+        45.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 819.2,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 7,
+      "art": "bath_dirty",
+      "image_rect": [
+        20.0,
+        169.08924205378972,
+        320.0,
+        176.82151589242056
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 184.0,
+      "role": "main art"
+    },
+    {
+      "story_page": 7,
+      "art": "sponge",
+      "image_rect": [
+        148.5,
+        86.0,
+        66.0,
+        66.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 558.5,
+      "role": "main art"
+    },
+    {
+      "story_page": 8,
+      "art": "sponge",
+      "image_rect": [
+        45.0,
+        28.5,
+        43.0,
+        43.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 857.3,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 8,
+      "art": "brush",
+      "image_rect": [
+        270.43359375,
+        35.0,
+        41.1328125,
+        45.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 1638.4,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 8,
+      "art": "roshan",
+      "image_rect": [
+        39.0,
+        263.5,
+        166.0,
+        166.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 111.0,
+      "role": "main art"
+    },
+    {
+      "story_page": 8,
+      "art": "sponge",
+      "image_rect": [
+        213.0,
+        328.5,
+        112.0,
+        112.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 329.1,
+      "role": "main art"
+    },
+    {
+      "story_page": 8,
+      "art": "brush",
+      "image_rect": [
+        160.453125,
+        59.0,
+        84.09375,
+        92.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 801.4,
+      "role": "main art"
+    },
+    {
+      "story_page": 9,
+      "art": "brush",
+      "image_rect": [
+        28.390625,
+        36.0,
+        40.21875,
+        44.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 1675.6,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 9,
+      "art": "sponge",
+      "image_rect": [
+        278.5,
+        35.0,
+        45.0,
+        45.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 819.2,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 9,
+      "art": "bath_drained_local",
+      "image_rect": [
+        15.0,
+        165.19949653870358,
+        330.0,
+        205.60100692259283
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 346.7,
+      "role": "main art"
+    },
+    {
+      "story_page": 10,
+      "art": "bath_safe",
+      "image_rect": [
+        -325.7426548672566,
+        0.0,
+        912.1061946902654,
+        504.0
+      ],
+      "clip_rect": [
+        0,
+        0,
+        360,
+        504
+      ],
+      "source_crop": null,
+      "effective_ppi": 64.6,
+      "role": "main art"
+    },
+    {
+      "story_page": 11,
+      "art": "bubbles",
+      "image_rect": [
+        45.0,
+        36.5,
+        43.0,
+        43.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 857.3,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 11,
+      "art": "bubbles",
+      "image_rect": [
+        268.5,
+        35.0,
+        45.0,
+        45.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 819.2,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 11,
+      "art": "pool_dirty",
+      "image_rect": [
+        20.0,
+        252.7439024390244,
+        320.0,
+        115.51219512195122
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 184.5,
+      "role": "main art"
+    },
+    {
+      "story_page": 11,
+      "art": "roshan",
+      "image_rect": [
+        126.0,
+        83.0,
+        113.0,
+        113.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 163.1,
+      "role": "main art"
+    },
+    {
+      "story_page": 12,
+      "art": "bubbles",
+      "image_rect": [
+        27.0,
+        28.5,
+        43.0,
+        43.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 857.3,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 12,
+      "art": "bubbles",
+      "image_rect": [
+        278.5,
+        35.0,
+        45.0,
+        45.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 819.2,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 12,
+      "art": "pool_net",
+      "image_rect": [
+        25.0,
+        301.7926829268293,
+        310.0,
+        113.41463414634147
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 190.5,
+      "role": "main art"
+    },
+    {
+      "story_page": 12,
+      "art": "bubbles",
+      "image_rect": [
+        129.0,
+        88.0,
+        107.0,
+        107.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 344.5,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 13,
+      "art": "bubbles",
+      "image_rect": [
+        36.0,
+        36.5,
+        43.0,
+        43.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 857.3,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 13,
+      "art": "bubbles",
+      "image_rect": [
+        273.5,
+        35.0,
+        45.0,
+        45.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 819.2,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 13,
+      "art": "waterfall",
+      "image_rect": [
+        30.0,
+        246.55494505494505,
+        300.0,
+        109.89010989010988
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 196.6,
+      "role": "main art"
+    },
+    {
+      "story_page": 13,
+      "art": "brush",
+      "image_rect": [
+        215.0,
+        96.09829059829059,
+        83.0,
+        90.80341880341881
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 812.0,
+      "role": "main art"
+    },
+    {
+      "story_page": 14,
+      "art": "bubbles",
+      "image_rect": [
+        45.0,
+        28.5,
+        43.0,
+        43.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 857.3,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 14,
+      "art": "bubbles",
+      "image_rect": [
+        268.5,
+        35.0,
+        45.0,
+        45.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 819.2,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 14,
+      "art": "brush",
+      "image_rect": [
+        47.0,
+        324.03418803418805,
+        95.0,
+        103.93162393162393
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 709.4,
+      "role": "main art"
+    },
+    {
+      "story_page": 14,
+      "art": "waterfall",
+      "image_rect": [
+        53.0,
+        195.38095238095238,
+        260.0,
+        95.23809523809523
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 226.8,
+      "role": "main art"
+    },
+    {
+      "story_page": 15,
+      "art": "rainbowfall",
+      "image_rect": [
+        -88.0,
+        2.842170943040401e-14,
+        896.0,
+        503.99999999999994
+      ],
+      "clip_rect": [
+        0,
+        0,
+        360,
+        504
+      ],
+      "source_crop": null,
+      "effective_ppi": 102.9,
+      "role": "main art"
+    },
+    {
+      "story_page": 16,
+      "art": "rainbowfall",
+      "image_rect": [
+        -448.0,
+        2.842170943040401e-14,
+        896.0,
+        503.99999999999994
+      ],
+      "clip_rect": [
+        0,
+        0,
+        360,
+        504
+      ],
+      "source_crop": null,
+      "effective_ppi": 102.9,
+      "role": "main art"
+    },
+    {
+      "story_page": 17,
+      "art": "bubbles",
+      "image_rect": [
+        45.0,
+        36.5,
+        43.0,
+        43.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 857.3,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 17,
+      "art": "bubbles",
+      "image_rect": [
+        268.5,
+        35.0,
+        45.0,
+        45.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 819.2,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 17,
+      "art": "seahorse_isolated",
+      "image_rect": [
+        18.0,
+        219.05450236966823,
+        324.0,
+        178.89099526066352
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 375.1,
+      "role": "main art"
+    },
+    {
+      "story_page": 17,
+      "art": "seahorse_free",
+      "image_rect": [
+        227.0,
+        72.12361623616236,
+        92.0,
+        50.75276752767528
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 424.2,
+      "role": "main art"
+    },
+    {
+      "story_page": 18,
+      "art": "pool_clean",
+      "image_rect": [
+        -304.47887323943667,
+        0.0,
+        968.9577464788733,
+        504.0
+      ],
+      "clip_rect": [
+        0,
+        0,
+        360,
+        504
+      ],
+      "source_crop": null,
+      "effective_ppi": 40.6,
+      "role": "main art"
+    },
+    {
+      "story_page": 19,
+      "art": "bubbles",
+      "image_rect": [
+        36.0,
+        36.5,
+        43.0,
+        43.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 857.3,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 19,
+      "art": "bubbles",
+      "image_rect": [
+        273.5,
+        35.0,
+        45.0,
+        45.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 819.2,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 19,
+      "art": "rumi",
+      "image_rect": [
+        32.0,
+        251.22222222222223,
+        110.0,
+        195.55555555555554
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 377.0,
+      "role": "main art"
+    },
+    {
+      "story_page": 19,
+      "art": "rumi_hug",
+      "image_rect": [
+        43.0,
+        106.45970695970696,
+        274.0,
+        159.08058608058607
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 143.5,
+      "role": "main art"
+    },
+    {
+      "story_page": 20,
+      "art": "stuffie_entry",
+      "image_rect": [
+        -34.48000000000002,
+        -2.842170943040401e-14,
+        428.96000000000004,
+        504.00000000000006
+      ],
+      "clip_rect": [
+        0,
+        0,
+        360,
+        504
+      ],
+      "source_crop": null,
+      "effective_ppi": 64.3,
+      "role": "main art"
+    },
+    {
+      "story_page": 21,
+      "art": "bubbles",
+      "image_rect": [
+        27.0,
+        36.5,
+        43.0,
+        43.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 857.3,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 21,
+      "art": "bubbles",
+      "image_rect": [
+        278.5,
+        35.0,
+        45.0,
+        45.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 819.2,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 21,
+      "art": "rescue_isolated",
+      "image_rect": [
+        14.0,
+        179.57535885167465,
+        332.0,
+        186.84928229665073
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 362.6,
+      "role": "main art"
+    },
+    {
+      "story_page": 22,
+      "art": "bubbles",
+      "image_rect": [
+        36.0,
+        28.5,
+        43.0,
+        43.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 857.3,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 22,
+      "art": "bubbles",
+      "image_rect": [
+        273.5,
+        35.0,
+        45.0,
+        45.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 819.2,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 22,
+      "art": "loose",
+      "image_rect": [
+        22.0,
+        271.125,
+        316.0,
+        177.75
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 291.6,
+      "role": "main art"
+    },
+    {
+      "story_page": 22,
+      "art": "eagle",
+      "image_rect": [
+        160.39453125,
+        77.0,
+        81.2109375,
+        108.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 682.7,
+      "role": "main art"
+    },
+    {
+      "story_page": 23,
+      "art": "bubbles",
+      "image_rect": [
+        45.0,
+        36.5,
+        43.0,
+        43.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 857.3,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 23,
+      "art": "bubbles",
+      "image_rect": [
+        268.5,
+        35.0,
+        45.0,
+        45.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 819.2,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 23,
+      "art": "eagle",
+      "image_rect": [
+        74.7265625,
+        152.0,
+        210.546875,
+        280.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 263.3,
+      "role": "main art"
+    },
+    {
+      "story_page": 24,
+      "art": "wing_whoosh",
+      "image_rect": [
+        0.0,
+        0.0,
+        612.5714285714286,
+        504.0
+      ],
+      "clip_rect": [
+        0,
+        0,
+        360,
+        504
+      ],
+      "source_crop": null,
+      "effective_ppi": 63.0,
+      "role": "main art"
+    },
+    {
+      "story_page": 25,
+      "art": "playroom",
+      "image_rect": [
+        -124.57142857142856,
+        0.0,
+        609.1428571428571,
+        504.0
+      ],
+      "clip_rect": [
+        0,
+        0,
+        360,
+        504
+      ],
+      "source_crop": null,
+      "effective_ppi": 63.0,
+      "role": "main art"
+    },
+    {
+      "story_page": 26,
+      "art": "blue",
+      "image_rect": [
+        50.0,
+        28.0,
+        33.0,
+        44.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 837.8,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 26,
+      "art": "brushes",
+      "image_rect": [
+        268.0,
+        42.166666666666664,
+        46.0,
+        30.666666666666668
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 1202.1,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 26,
+      "art": "art_dirty",
+      "image_rect": [
+        24.0,
+        274.20334928229664,
+        312.0,
+        175.5933014354067
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 385.8,
+      "role": "main art"
+    },
+    {
+      "story_page": 26,
+      "art": "cups",
+      "image_rect": [
+        36.0,
+        116.16666666666666,
+        118.0,
+        78.66666666666667
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 468.6,
+      "role": "main art"
+    },
+    {
+      "story_page": 26,
+      "art": "brushes",
+      "image_rect": [
+        195.0,
+        102.83333333333334,
+        131.0,
+        87.33333333333333
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 422.1,
+      "role": "main art"
+    },
+    {
+      "story_page": 27,
+      "art": "brushes",
+      "image_rect": [
+        27.0,
+        43.666666666666664,
+        43.0,
+        28.666666666666668
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 1286.0,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 27,
+      "art": "cups",
+      "image_rect": [
+        278.0,
+        42.166666666666664,
+        46.0,
+        30.666666666666668
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 1202.1,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 27,
+      "art": "art_scrub",
+      "image_rect": [
+        20.0,
+        208.95215311004785,
+        320.0,
+        180.0956937799043
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 376.2,
+      "role": "main art"
+    },
+    {
+      "story_page": 27,
+      "art": "brushes",
+      "image_rect": [
+        141.0,
+        85.5,
+        126.0,
+        84.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 438.9,
+      "role": "main art"
+    },
+    {
+      "story_page": 28,
+      "art": "paint",
+      "image_rect": [
+        -268.0,
+        2.842170943040401e-14,
+        896.0,
+        503.99999999999994
+      ],
+      "clip_rect": [
+        0,
+        0,
+        360,
+        504
+      ],
+      "source_crop": null,
+      "effective_ppi": 102.9,
+      "role": "main art"
+    },
+    {
+      "story_page": 29,
+      "art": "pink",
+      "image_rect": [
+        50.0,
+        36.0,
+        33.0,
+        44.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 837.8,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 29,
+      "art": "blue",
+      "image_rect": [
+        274.125,
+        35.0,
+        33.75,
+        45.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 819.2,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 29,
+      "art": "royal_door_isolated",
+      "image_rect": [
+        94.86387049300957,
+        274.0,
+        170.27225901398086,
+        200.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 489.2,
+      "role": "main art"
+    },
+    {
+      "story_page": 29,
+      "art": "roshan",
+      "image_rect": [
+        121.0,
+        77.5,
+        119.0,
+        119.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 154.9,
+      "role": "main art"
+    },
+    {
+      "story_page": 30,
+      "art": "sponge",
+      "image_rect": [
+        27.0,
+        28.5,
+        43.0,
+        43.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 857.3,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 30,
+      "art": "bubbles",
+      "image_rect": [
+        278.5,
+        35.0,
+        45.0,
+        45.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 819.2,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 30,
+      "art": "boss_cut",
+      "image_rect": [
+        39.5,
+        151.0,
+        281.0,
+        281.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 321.3,
+      "role": "main art"
+    },
+    {
+      "story_page": 31,
+      "art": "bubbles",
+      "image_rect": [
+        36.0,
+        36.5,
+        43.0,
+        43.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 857.3,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 31,
+      "art": "sponge",
+      "image_rect": [
+        273.5,
+        35.0,
+        45.0,
+        45.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 819.2,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 31,
+      "art": "grand_puff_jump_sheet",
+      "image_rect": [
+        -177.0,
+        68.0,
+        410.0,
+        410.0
+      ],
+      "clip_rect": [
+        28.0,
+        273.0,
+        205.0,
+        205.0
+      ],
+      "source_crop": [
+        512,
+        0,
+        1024,
+        512
+      ],
+      "effective_ppi": 179.8,
+      "role": "main art"
+    },
+    {
+      "story_page": 31,
+      "art": "roshan",
+      "image_rect": [
+        215.0,
+        120.0,
+        110.0,
+        110.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 167.6,
+      "role": "main art"
+    },
+    {
+      "story_page": 32,
+      "art": "sponge",
+      "image_rect": [
+        45.0,
+        28.5,
+        43.0,
+        43.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 857.3,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 32,
+      "art": "bubbles",
+      "image_rect": [
+        268.5,
+        35.0,
+        45.0,
+        45.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 819.2,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 32,
+      "art": "helpers",
+      "image_rect": [
+        6.0,
+        184.07296650717703,
+        348.0,
+        195.85406698564594
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 345.9,
+      "role": "main art"
+    },
+    {
+      "story_page": 33,
+      "art": "bubbles",
+      "image_rect": [
+        27.0,
+        36.5,
+        43.0,
+        43.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 857.3,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 33,
+      "art": "sponge",
+      "image_rect": [
+        278.5,
+        35.0,
+        45.0,
+        45.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 819.2,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 33,
+      "art": "daddy_brush",
+      "image_rect": [
+        20.999999999999986,
+        322.568345323741,
+        232.00000000000003,
+        136.863309352518
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 215.7,
+      "role": "main art"
+    },
+    {
+      "story_page": 33,
+      "art": "rumi_sponge",
+      "image_rect": [
+        180.0,
+        132.50446428571428,
+        145.0,
+        122.99107142857143
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 333.7,
+      "role": "main art"
+    },
+    {
+      "story_page": 34,
+      "art": "soap",
+      "image_rect": [
+        -267.7619553666312,
+        2.842170943040401e-14,
+        895.5239107332624,
+        503.99999999999994
+      ],
+      "clip_rect": [
+        0,
+        0,
+        360,
+        504
+      ],
+      "source_crop": null,
+      "effective_ppi": 134.4,
+      "role": "main art"
+    },
+    {
+      "story_page": 35,
+      "art": "jump",
+      "image_rect": [
+        -267.7619553666312,
+        2.842170943040401e-14,
+        895.5239107332624,
+        503.99999999999994
+      ],
+      "clip_rect": [
+        0,
+        0,
+        360,
+        504
+      ],
+      "source_crop": null,
+      "effective_ppi": 134.4,
+      "role": "main art"
+    },
+    {
+      "story_page": 36,
+      "art": "land",
+      "image_rect": [
+        -267.7619553666312,
+        2.842170943040401e-14,
+        895.5239107332624,
+        503.99999999999994
+      ],
+      "clip_rect": [
+        0,
+        0,
+        360,
+        504
+      ],
+      "source_crop": null,
+      "effective_ppi": 134.4,
+      "role": "main art"
+    },
+    {
+      "story_page": 37,
+      "art": "bubbles",
+      "image_rect": [
+        36.0,
+        36.5,
+        43.0,
+        43.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 857.3,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 37,
+      "art": "bubbles",
+      "image_rect": [
+        273.5,
+        35.0,
+        45.0,
+        45.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 819.2,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 37,
+      "art": "rainbow_cut",
+      "image_rect": [
+        41.5,
+        147.0,
+        277.0,
+        277.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 325.9,
+      "role": "main art"
+    },
+    {
+      "story_page": 38,
+      "art": "bubbles",
+      "image_rect": [
+        45.0,
+        28.5,
+        43.0,
+        43.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 857.3,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 38,
+      "art": "bubbles",
+      "image_rect": [
+        268.5,
+        35.0,
+        45.0,
+        45.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 819.2,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 38,
+      "art": "bath_recap",
+      "image_rect": [
+        25.0,
+        370.9508599508599,
+        150.0,
+        55.0982800982801
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 390.7,
+      "role": "main art"
+    },
+    {
+      "story_page": 38,
+      "art": "pool_clean",
+      "image_rect": [
+        185.0,
+        359.489010989011,
+        150.0,
+        78.02197802197803
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 262.1,
+      "role": "main art"
+    },
+    {
+      "story_page": 38,
+      "art": "playroom",
+      "image_rect": [
+        29.0,
+        106.0140712945591,
+        145.0,
+        119.97185741088181
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 264.7,
+      "role": "main art"
+    },
+    {
+      "story_page": 38,
+      "art": "art_ready",
+      "image_rect": [
+        186.0,
+        132.21875,
+        145.0,
+        81.5625
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 508.5,
+      "role": "main art"
+    },
+    {
+      "story_page": 39,
+      "art": "hug",
+      "image_rect": [
+        -551.3072164948454,
+        0.0,
+        1420.2061855670104,
+        504.0
+      ],
+      "clip_rect": [
+        0,
+        0,
+        360,
+        504
+      ],
+      "source_crop": null,
+      "effective_ppi": 41.6,
+      "role": "main art"
+    },
+    {
+      "story_page": 40,
+      "art": "bubbles",
+      "image_rect": [
+        36.0,
+        28.5,
+        43.0,
+        43.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 857.3,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 40,
+      "art": "bubbles",
+      "image_rect": [
+        273.5,
+        35.0,
+        45.0,
+        45.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 819.2,
+      "role": "lower footing detail"
+    },
+    {
+      "story_page": 40,
+      "art": "land",
+      "image_rect": [
+        23.0,
+        214.64055023923444,
+        314.0,
+        176.7188995215311
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 383.4,
+      "role": "main art"
+    },
+    {
+      "story_page": 40,
+      "art": "rainbow_cut",
+      "image_rect": [
+        128.0,
+        80.0,
+        131.0,
+        131.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 689.2,
+      "role": "main art"
+    },
+    {
+      "story_page": 41,
+      "art": "rainbow_cut",
+      "image_rect": [
+        69.0,
+        229.5,
+        222.0,
+        222.0
+      ],
+      "clip_rect": null,
+      "source_crop": null,
+      "effective_ppi": 406.7,
+      "role": "main art"
+    }
+  ]
+}

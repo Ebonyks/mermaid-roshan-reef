@@ -1,0 +1,106 @@
+{
+  "checked_utc": "2026-11-03T05:42:52.639Z",
+  "baseline": "bc4bedfe965b99b5d498b43ce72cb2d77c46a600",
+  "result": "PASS",
+  "tracks": 30,
+  "source_layer_fields_per_track": 5,
+  "player_calls": 117,
+  "profile_checks": [
+    {
+      "id": "strings_a",
+      "revision": 1,
+      "sha256": "4abe1de6b19014b9def73373e026c89278135c3cb04bdef01c4539cb8366ce4f",
+      "registry_matches": true
+    },
+    {
+      "id": "strings_b",
+      "revision": 1,
+      "sha256": "8bfc1bce5f621ca25acf9f6b56dcdef8763f4bdbca2e960b4db8986a83a5e106",
+      "registry_matches": true
+    },
+    {
+      "id": "keys",
+      "revision": 1,
+      "sha256": "fa42d342ad275c9fd181bbe9590bc3d7a0c8eb6e9f9294a256f6adc8cc0601db",
+      "registry_matches": true
+    },
+    {
+      "id": "bass",
+      "revision": 1,
+      "sha256": "6606c86a014c4d97ac2be64204b466a20a8e67d2d3892e3469f2425efa3ecb7d",
+      "registry_matches": true
+    },
+    {
+      "id": "acoustic_drums",
+      "revision": 1,
+      "sha256": "23ebfd3f9ced8851a7deabab415939c44b92994f27fc2f37438e0fb8823448c3",
+      "registry_matches": true
+    },
+    {
+      "id": "afro_caribbean_percussion",
+      "revision": 1,
+      "sha256": "09b6ead457ed5b65c77bb84623994030b0739556f22ad2def99b365306e2ca40",
+      "registry_matches": true
+    },
+    {
+      "id": "traditional_percussion",
+      "revision": 1,
+      "sha256": "8d4edf806452c94c30b6dc0feb3295374f8506930bb1a21e7ec82e4fbe26b956",
+      "registry_matches": true
+    },
+    {
+      "id": "winds",
+      "revision": 1,
+      "sha256": "418aced2b9586f096bb570c6bc7689f46a2d791973fc98384090ac19be5a423c",
+      "registry_matches": true
+    },
+    {
+      "id": "pitched_percussion",
+      "revision": 1,
+      "sha256": "f40e736a550ba695b9bac264b8fc3710c4f0710539f0b74f5c184a27264adecf",
+      "registry_matches": true
+    },
+    {
+      "id": "producer",
+      "revision": 2,
+      "sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+      "registry_matches": true
+    },
+    {
+      "id": "kora",
+      "revision": 1,
+      "sha256": "301368241188f52454fb6a384106028d2e741388cd21f6cf95d474eb8178974d",
+      "registry_matches": true
+    },
+    {
+      "id": "harp",
+      "revision": 1,
+      "sha256": "a7e4651c15b63a3bd08a7f2ab1ea71c6a1c69a43e736c623c02958df901dd78e",
+      "registry_matches": true
+    },
+    {
+      "id": "fiddle",
+      "revision": 1,
+      "sha256": "74c5742e202138476ce4b483fbd9a075aebdc6e9d827ad1bf8ec643eea3da325",
+      "registry_matches": true
+    },
+    {
+      "id": "duduk",
+      "revision": 1,
+      "sha256": "e577a38c2b190b94ccb80ea14910c4b0a76316d9fbdd1cceea9c18ae05455dea",
+      "registry_matches": true
+    },
+    {
+      "id": "aux_percussion",
+      "revision": 1,
+      "sha256": "230c15916457499ecb3449e1685d008ce792fcb42fd6532e74352e96c4244a3a",
+      "registry_matches": true
+    }
+  ],
+  "local_link_checks": 72,
+  "new_influence_primary_sources": 6,
+  "guide_words": 12144,
+  "errors": [],
+  "scope": "Structural coverage and exact profile identity, not native performance or human musical acceptance.",
+  "reference_principle_checks": "117 specific instrument/profile principles plus named profile anchor and cue influence IDs"
+}

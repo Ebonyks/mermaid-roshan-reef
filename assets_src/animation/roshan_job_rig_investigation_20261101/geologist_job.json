@@ -1,0 +1,31 @@
+{
+  "id": "geologist-outfit-and-object-v1",
+  "intent": "Roshan brushes soil off an actual fossil on the fixed work slab, inspects it, and settles.",
+  "lane": "SOURCE_ONLY_NATIVE_CANVAS2D",
+  "sources": "source_inventory.json",
+  "method": "One complete garment RGBA generation from frozen seed pose plus existing job sheet; Aseprite separation/local cleanup, native fourteen-bone texture binding and authored object sockets.",
+  "identity": "Original face/hair/hands preserved; no old-clothes underlay; complete tail/fin; garment alpha owns its silhouette.",
+  "entry_exit": "Front rest, complete fin, object attached at grip for visible work only; reset has no progress/save.",
+  "geometry": "Pinned shared v1 1024 native pixels; grip.screen_left socket24,0; tolerance3nativepx; actual raster grip additionally reviewed.",
+  "fixed": [
+    "camera",
+    "clue/slab/target until explicitly released"
+  ],
+  "moving": [
+    "coordinated shoulder/torso/head/tail phrase",
+    "held tool"
+  ],
+  "attempt_limit": 2,
+  "wall_time_limit_minutes": 90,
+  "cleanup_limit_minutes": 60,
+  "monetary_cap": "built-in tool only; no paid API authorization inferred",
+  "calls": 1,
+  "acceptance": "machine/human/runtime/device/child/owner independent; no runtime changes",
+  "provider": "built-in image_gen; model/revision/seed/settings not exposed",
+  "output_sha256": "db707a5e56cea5d038bf7c5d501e9f6e0d33501b6c540759f8527d1d2f8ebeb7",
+  "disposition": "Source-only review v4; strict continuity and shared mixed-fit acceptance unresolved",
+  "perspective": "Front planar work only. Other facing surfaces are source gaps, not a frontal-image squash substitute.",
+  "cleanup_time_measured": false,
+  "calls_aggregate_all_briefs": 3,
+  "generation_budget_limit_per_brief": 2
+}

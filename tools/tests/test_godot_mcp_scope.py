@@ -4,6 +4,7 @@ import shutil
 import tempfile
 import subprocess
 import unittest
+from unittest.mock import patch
 from tools import audit_game_2d as audit
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -56,6 +57,37 @@ class GodotMCPScopeTests(unittest.TestCase):
 
     def test_game_spatial_code_still_detected(self):
         self.assertTrue(audit._token_counts('extends Node3D\nvar position: Vector3\n'))
+
+
+    def test_payload_changed_after_approval_is_not_reviewed(self):
+        relative = 'addons/godot_mcp/commands/selection_commands.gd'
+        victim = self.root / relative
+        original = audit._approved_editor_tool_sources
+
+        def change_after_approval(root):
+            approved = original(root)
+            self.assertIn(relative, approved)
+            victim.write_bytes(victim.read_bytes() + b'\n# concurrent mutation\n')
+            return approved
+
+        with patch.object(audit, '_approved_editor_tool_sources', side_effect=change_after_approval):
+            pinned = audit._reviewed_tooling_hashes(self.root)
+        self.assertFalse(audit._is_reviewed_tooling(victim, self.root, pinned))
+
+    def test_manifest_changed_after_approval_is_not_reviewed(self):
+        relative = 'addons/godot_mcp/commands/selection_commands.gd'
+        original = audit._approved_editor_tool_sources
+
+        def change_after_approval(root):
+            approved = original(root)
+            self.assertIn(relative, approved)
+            (self.root / 'tools/godot_mcp/addon_manifest.json').write_text('{"files":{}}')
+            return approved
+
+        with patch.object(audit, '_approved_editor_tool_sources', side_effect=change_after_approval):
+            pinned = audit._reviewed_tooling_hashes(self.root)
+        self.assertFalse(pinned)
+        self.assertFalse(audit._is_reviewed_tooling(self.root / relative, self.root, pinned))
 
 if __name__ == '__main__':
     unittest.main()

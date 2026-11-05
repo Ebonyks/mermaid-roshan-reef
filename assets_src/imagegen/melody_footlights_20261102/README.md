@@ -1,0 +1,7 @@
+# R123 painted footlight source and technical exports
+
+Two static built-in ImageGen designs: `exec-2ee5cc8c-c0cd-45ad-bcce-9ec5ea35ee3a` (seven-color globe atlas) and `exec-e1e196fc-000b-4da7-af4e-27763ce0a58f` (painted support). Native originals remain under `native/`; exact prompts, per-call role bindings and exposed metadata limits are retained. IMAGE_1 is current actual stage context; IMAGE_2 is R121 candidate material only; the rail's IMAGE_3 is the new globe contour family, not approved artwork.
+
+Aseprite1.3.18.4 performs every technical crop/export. Whole native and object-crop PNG roundtrips are pixel-exact. Every globe is isolated whole in a square source region and uniformly bilinear-resized to128px. The whole painted rail becomes674×36. `EXTRACTION_PLAN.json`, actual Lua scripts, editable masters and `EXPORT.json` bind all operations. Four scale-float exports initially produced127px; they remain in `technical_scale_rounding/`, and `FIX_POT_EXPORTS.lua` corrects only those four with explicit128px sizing. No Python pixel edits, native repainting, per-part warps or source-original modification.
+
+Two calls within static cap2; no model selector or returned model/version/seed/cost; no animation. Runtime displays thirteen complete globes and one support, eight unique textures. This directory is non-runtime under `.gdignore`. Candidate only; Dev frozen; formal/device/child/owner/global acceptance remains open.

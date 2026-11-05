@@ -1,0 +1,83 @@
+{
+  "status": "INSTALLED_NATIVE_HOST_AND_RECALL_VERIFIED",
+  "installed_utc": "2026-11-02T00:31:53.002389+00:00",
+  "release": "v0.7.4",
+  "official_release": "https://github.com/tommitytom/RetroPlug/releases/tag/v0.7.4",
+  "vst3": "C:\\Users\\Peter\\AppData\\Local\\Programs\\Common\\VST3\\RetroPlug.vst3",
+  "cli": "C:\\Users\\Peter\\AppData\\Local\\Programs\\RetroPlug\\v0.7.4\\packages\\retroplug-v0.7.4-windows-x86_64-cli\\retroplug-cli.exe",
+  "lsdj_rom": "C:\\Users\\Peter\\Documents\\REAPER Media\\Mermaid Roshan Soundtrack 20261031\\Game Boy Tools 20261101\\LSDJ\\lsdj9_4_2.gb",
+  "lsdj_version": "9.4.2 stable",
+  "lsdj_rom_sha256": "511467aef585d531a0cdb53bbc53f17f15c5ce8297d1ea39aa184f78ed0e5251",
+  "original_lsdj_archive_sha256": "253785fd9425ce5824d651b256bb9286f3ed4529b9430f37f1ce02ebfed7129a",
+  "files": [
+    {
+      "path": "C:\\Users\\Peter\\AppData\\Local\\Programs\\Common\\VST3\\RetroPlug.vst3\\Contents\\x86_64-win\\retroplug.vst3",
+      "sha256": "68416bcbf9f7a11a5c8c56906fca589809a270edd8056b2d1fb9dc0d60f5bbda"
+    }
+  ],
+  "archive_verification": "Both official Windows archive SHA-256 digests matched GitHub release API digests before extraction.",
+  "preservation": "Existing different installation files preserved; original LSDJ archive untouched; software/ROMs stay outside Git.",
+  "verified_utc": "2026-11-02T00:51:43.316298+00:00",
+  "native_host": {
+    "reaper": "7.80/x64",
+    "plugin": "VST3i: RetroPlug (tommitytom) (8 out)",
+    "audio_device": "Dummy Audio 48000 Hz",
+    "tracks": 5,
+    "separate_stereo_returns": [
+      "Pulse 1",
+      "Pulse 2",
+      "Wave",
+      "Noise"
+    ],
+    "source_track_main_send": false,
+    "return_linear_gain": 0.25,
+    "project_sample_rate": 48000,
+    "working_tempo_bpm": 104,
+    "tempo_status": "Writing-desk placeholder, inherited from current Ember-area cue; character-theme tempo not accepted.",
+    "model": "cgbC",
+    "highpass": "accurate",
+    "lsdj_sync_mode": "midiSync",
+    "auto_start": false
+  },
+  "recall": {
+    "pass": true,
+    "without_autoload_environment": true,
+    "rom_reference_and_native_state_restored": true,
+    "sram_restored": true,
+    "channel_split_restored": true,
+    "four_source_channel_pairs_verified": [
+      0,
+      2,
+      4,
+      6
+    ],
+    "evidence": "build/retroplug_20261101/recall_receipt.txt; recalled_project_config.json"
+  },
+  "boot_render": {
+    "purpose": "Two-second blank-ROM boot check, not music or a tone audition",
+    "sample_rate": 44100,
+    "frames": 88200,
+    "channels": 2,
+    "finite": true,
+    "raw_peak": 0.0,
+    "dtype": "int16"
+  },
+  "owner_project": "C:\\Users\\Peter\\Documents\\REAPER Media\\Mermaid Roshan Soundtrack 20261031\\Game Boy Tools 20261101\\Ember King - LSDJ.RPP",
+  "owner_retroplug_project": "C:\\Users\\Peter\\Documents\\REAPER Media\\Mermaid Roshan Soundtrack 20261031\\Game Boy Tools 20261101\\Ember King - LSDJ.rplg.zip",
+  "authorization": {
+    "source": "design/music/retroplug_owner_direction_20261101.json",
+    "exception": "RetroPlug/LSDJ Game Boy/chiptune lane",
+    "character": "Ember King",
+    "genre": "chiptune"
+  },
+  "limits": [
+    "Blank tracker writing desk; no character-theme notes or arrangement composed.",
+    "LSDJ song clock configuration/arming and transport timing need verification once a song exists.",
+    "Model defaults to Game Boy Color CGB-C; compare hardware-model tone choices during the planned sound audition.",
+    "Music quality, EQ/master, voice/mono/phone/child and release acceptance not established by installation."
+  ],
+  "user_environment": "Per-user VST3 folder already present in user REAPER scan paths; user audio settings/projects not changed. All verification used an isolated profile. No keyboard or mouse input was sent.",
+  "software_provenance": "Official RetroPlug v0.7.4 Windows VST3/CLI archives; original user-downloaded LSDJ 9.4.2 archive preserved. Runtime software, ROM and snapshot/SRAM files stay outside Git.",
+  "lsdj_license": "Downloaded LICENSE.txt states personal/educational use and prohibits software redistribution; retained privately beside the ROM. Current project is the owner’s personal child game.",
+  "verification_workers_stopped": true
+}

@@ -1,0 +1,3361 @@
+{
+  "schema": "dkc-performed-call-sheets/3",
+  "owner_direction": "production_owner_direction_20261103.json",
+  "profile_registry": "design/music/performers/registry.json",
+  "tracks": [
+    {
+      "id": "DKC-02",
+      "selected_version": 11,
+      "source_and_cast_outline": "revision_call_sheets_v2.json",
+      "actual_parts": [
+        {
+          "part": "thin_color_left",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "texture",
+          "instrument_alias": "synth_strings",
+          "native_programs": [
+            {
+              "name": "Warmth",
+              "path": "$Atmospherics.ufs/Presets/Pure Pads/Warmth.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            45,
+            74
+          ],
+          "note_count": 296,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-02_thin_color_left_performed.wav",
+            "sha256": "65da20a6219265dd4013cd4403dd54028595686bb5b8a0e9ffd46851ff3679b4"
+          },
+          "editable_native_project": "native/DKC-02_thin_color_left_performed.rpp",
+          "recalled_state_sha256": "4460de8c9853c68bd5ce0534b36478a646c702333be585a4ee213eacfbb4937f",
+          "printed_stem": "final_stems/DKC-02/thin_color_left.flac",
+          "balance_gain": 0.14984061269319376,
+          "pan": -0.165,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Piano offbeats about 52 percent; pizzicato/small-percussion accompaniment 54 percent; bass anchor retained; support yields to the source reed activity.",
+          "capability_extension": null,
+          "printed_stem_sha256": "a939de825efe2f1ef1013e1559199694c1f496f11504d797c7a3507fcf93c6ae"
+        },
+        {
+          "part": "pizz_left",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "harmony",
+          "instrument_alias": "pizz_strings",
+          "native_programs": [
+            {
+              "name": "pizz_strings",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            45,
+            74
+          ],
+          "note_count": 296,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-02_pizz_left_phrased_r7.wav",
+            "sha256": "03d15072dd5470d136ed5a78cf760f26dc7f9d9e58b984768fd26be362085c95"
+          },
+          "editable_native_project": "native/DKC-02_pizz_left_phrased_r7.rpp",
+          "recalled_state_sha256": "f5b134c49d4b740b310208785c3c4d69d04d82be33342a795db1c4a30c5b1d8d",
+          "printed_stem": "final_stems/DKC-02/pizz_left.flac",
+          "balance_gain": 1.7589005463863263,
+          "pan": -0.165,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Piano offbeats about 52 percent; pizzicato/small-percussion accompaniment 54 percent; bass anchor retained; support yields to the source reed activity.",
+          "capability_extension": null,
+          "printed_stem_sha256": "637393247f7acbbc353b95d7c6f00066f1b1345fc5baba89786a016515b43617"
+        },
+        {
+          "part": "thin_color_right",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "texture",
+          "instrument_alias": "synth_strings",
+          "native_programs": [
+            {
+              "name": "Warmth",
+              "path": "$Atmospherics.ufs/Presets/Pure Pads/Warmth.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            62,
+            79
+          ],
+          "note_count": 273,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-02_thin_color_right_performed.wav",
+            "sha256": "fec2504bd280088d5771edfe32100875b6a1766365cfb1cc2491b8dbb28eb404"
+          },
+          "editable_native_project": "native/DKC-02_thin_color_right_performed.rpp",
+          "recalled_state_sha256": "4460de8c9853c68bd5ce0534b36478a646c702333be585a4ee213eacfbb4937f",
+          "printed_stem": "final_stems/DKC-02/thin_color_right.flac",
+          "balance_gain": 0.1858911051993622,
+          "pan": 0.165,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Piano offbeats about 52 percent; pizzicato/small-percussion accompaniment 54 percent; bass anchor retained; support yields to the source reed activity.",
+          "capability_extension": null,
+          "printed_stem_sha256": "0fb9e8832dd2e38ea809b638475e16aaf93cf1c7f9d1ee168f838cc4b208a07f"
+        },
+        {
+          "part": "bass",
+          "profile_id": "bass",
+          "profile_revision": 1,
+          "profile_sha256": "6606c86a014c4d97ac2be64204b466a20a8e67d2d3892e3469f2425efa3ecb7d",
+          "role": "bass",
+          "instrument_alias": "upright_bass",
+          "native_programs": [
+            {
+              "name": "Jazzistic Double Bass",
+              "path": "$Jazzistic.ufs/Presets/03 Instruments/02 Jazz Double Bass/Jazzistic Double Bass.M5p"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            28,
+            43
+          ],
+          "note_count": 390,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-02_bass_performed.wav",
+            "sha256": "f94b377f5171e842c0c7f00f3ff0e348129be76940c961433ce498e68ac963ab"
+          },
+          "editable_native_project": "native/DKC-02_bass_performed.rpp",
+          "recalled_state_sha256": "8d86d2490b6b29bf79521fe9d20e3fb412671c3632b43b8f169a89e8e7645392",
+          "printed_stem": "final_stems/DKC-02/bass.flac",
+          "balance_gain": 3.3860163242204826,
+          "pan": 0,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "George Porter Jr. reference: make the original low contour recognizable through controlled endings and its relationship to the groove.",
+          "profile_source": "design/music/performers/bass.md",
+          "physical_model": "One principal plucked bass; source note contour retained and releases controlled.",
+          "phrase_plan": "Piano offbeats about 52 percent; pizzicato/small-percussion accompaniment 54 percent; bass anchor retained; support yields to the source reed activity.",
+          "capability_extension": null,
+          "printed_stem_sha256": "6899ebec5e3d49c2dd741c2aff0feb2615d74f682e426cad3c41c280d5d8f317"
+        },
+        {
+          "part": "pizz_right",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "harmony",
+          "instrument_alias": "pizz_strings",
+          "native_programs": [
+            {
+              "name": "pizz_strings",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            62,
+            79
+          ],
+          "note_count": 273,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-02_pizz_right_phrased_r7.wav",
+            "sha256": "d15b3231d7bb404a331231311021ad28bb5b8c03b34eff8daf7e46490ea47862"
+          },
+          "editable_native_project": "native/DKC-02_pizz_right_phrased_r7.rpp",
+          "recalled_state_sha256": "f5b134c49d4b740b310208785c3c4d69d04d82be33342a795db1c4a30c5b1d8d",
+          "printed_stem": "final_stems/DKC-02/pizz_right.flac",
+          "balance_gain": 1.4438302680706847,
+          "pan": 0.165,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Piano offbeats about 52 percent; pizzicato/small-percussion accompaniment 54 percent; bass anchor retained; support yields to the source reed activity.",
+          "capability_extension": null,
+          "printed_stem_sha256": "83af00d682e74605557796d6c04dd9464e946ae34aa039234f181afff6513f7d"
+        },
+        {
+          "part": "piano_theme",
+          "profile_id": "keys",
+          "profile_revision": 1,
+          "profile_sha256": "fa42d342ad275c9fd181bbe9590bc3d7a0c8eb6e9f9294a256f6adc8cc0601db",
+          "role": "foreground",
+          "instrument_alias": "piano_nordic",
+          "native_programs": [
+            {
+              "name": "Nordic Upright Piano 1 Full",
+              "path": "$World Suite 3.ufs/Presets/01 Types/Keyboards/Nordic Upright Piano/Nordic Upright Piano 1 Full.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            69,
+            96
+          ],
+          "note_count": 141,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-02_piano_theme_nordic_alternate.wav",
+            "sha256": "6ee1c4f94c3e9984a7f2badb34f9136d26959a750674c781d15e43d97cf4809d"
+          },
+          "editable_native_project": "native/DKC-02_piano_theme_nordic_alternate.rpp",
+          "recalled_state_sha256": "d1f269a4d98734ccf26fb569503895d2526ce7b658e1368a69a66bc8be9142f6",
+          "printed_stem": "final_stems/DKC-02/piano_theme.flac",
+          "balance_gain": 7.827933577653659,
+          "pan": 0.0225,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Monty Alexander reference: separate the memorable melody from quieter support and yield to the reply.",
+          "profile_source": "design/music/performers/keys.md",
+          "physical_model": "Two-hand piano role with independent melody and support; the separate Simian piano sources are successive/overlapping written roles, not three continuous pianists.",
+          "phrase_plan": "Piano offbeats about 52 percent; pizzicato/small-percussion accompaniment 54 percent; bass anchor retained; support yields to the source reed activity.",
+          "capability_extension": null,
+          "printed_stem_sha256": "674bdaf8b1b5b300bcd98ced11405c79233911a55f910a682df548503050103a"
+        },
+        {
+          "part": "reed_reply",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "foreground",
+          "instrument_alias": "reed_answer",
+          "native_programs": [
+            {
+              "name": "reed_answer",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            57,
+            67
+          ],
+          "note_count": 122,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-02_reed_reply_performed_verified.wav",
+            "sha256": "706e703ba96bf0896f382f07eb5b53ae3f96f2e5ffc2c3d38a468176820ff2a8"
+          },
+          "editable_native_project": "native/DKC-02_reed_reply_performed_verified.rpp",
+          "recalled_state_sha256": "df68ac34ce82bbf11e4b28a2fa9f5a49fdde5fa7a2baa70e233f8238f46e72f6",
+          "printed_stem": "final_stems/DKC-02/reed_reply.flac",
+          "balance_gain": 3.8523267134946537,
+          "pan": -0.0225,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Piano offbeats about 52 percent; pizzicato/small-percussion accompaniment 54 percent; bass anchor retained; support yields to the source reed activity.",
+          "capability_extension": null,
+          "printed_stem_sha256": "0f211ba23106324382216592f00ef932d1aa85191f4e1c449264d6f8510a43cf"
+        },
+        {
+          "part": "piano_left",
+          "profile_id": "keys",
+          "profile_revision": 1,
+          "profile_sha256": "fa42d342ad275c9fd181bbe9590bc3d7a0c8eb6e9f9294a256f6adc8cc0601db",
+          "role": "foreground",
+          "instrument_alias": "piano_nordic",
+          "native_programs": [
+            {
+              "name": "Nordic Upright Piano 1 Full",
+              "path": "$World Suite 3.ufs/Presets/01 Types/Keyboards/Nordic Upright Piano/Nordic Upright Piano 1 Full.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            69,
+            90
+          ],
+          "note_count": 296,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-02_piano_left_nordic_alternate.wav",
+            "sha256": "197c3ef647c22a3f0b58d6ba02b45dfb489d22960287a7caecd1ce69bfc92fcd"
+          },
+          "editable_native_project": "native/DKC-02_piano_left_nordic_alternate.rpp",
+          "recalled_state_sha256": "d1f269a4d98734ccf26fb569503895d2526ce7b658e1368a69a66bc8be9142f6",
+          "printed_stem": "final_stems/DKC-02/piano_left.flac",
+          "balance_gain": 4.047679222833389,
+          "pan": -0.165,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Monty Alexander reference: separate the memorable melody from quieter support and yield to the reply.",
+          "profile_source": "design/music/performers/keys.md",
+          "physical_model": "Two-hand piano role with independent melody and support; the separate Simian piano sources are successive/overlapping written roles, not three continuous pianists.",
+          "phrase_plan": "Piano offbeats about 52 percent; pizzicato/small-percussion accompaniment 54 percent; bass anchor retained; support yields to the source reed activity.",
+          "capability_extension": null,
+          "printed_stem_sha256": "5dc7a9f27b96546a2c718760850b9c01ba3db2e81f3a324c85de813a05856077"
+        },
+        {
+          "part": "piano_right",
+          "profile_id": "keys",
+          "profile_revision": 1,
+          "profile_sha256": "fa42d342ad275c9fd181bbe9590bc3d7a0c8eb6e9f9294a256f6adc8cc0601db",
+          "role": "foreground",
+          "instrument_alias": "piano_nordic",
+          "native_programs": [
+            {
+              "name": "Nordic Upright Piano 1 Full",
+              "path": "$World Suite 3.ufs/Presets/01 Types/Keyboards/Nordic Upright Piano/Nordic Upright Piano 1 Full.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            74,
+            95
+          ],
+          "note_count": 206,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-02_piano_right_nordic_alternate.wav",
+            "sha256": "6b5beb549ce86321c48c17bf97707c3feaa6e69b218dad8acbd8ad3b8d62ec88"
+          },
+          "editable_native_project": "native/DKC-02_piano_right_nordic_alternate.rpp",
+          "recalled_state_sha256": "d1f269a4d98734ccf26fb569503895d2526ce7b658e1368a69a66bc8be9142f6",
+          "printed_stem": "final_stems/DKC-02/piano_right.flac",
+          "balance_gain": 4.531385939276775,
+          "pan": 0.165,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Monty Alexander reference: separate the memorable melody from quieter support and yield to the reply.",
+          "profile_source": "design/music/performers/keys.md",
+          "physical_model": "Two-hand piano role with independent melody and support; the separate Simian piano sources are successive/overlapping written roles, not three continuous pianists.",
+          "phrase_plan": "Piano offbeats about 52 percent; pizzicato/small-percussion accompaniment 54 percent; bass anchor retained; support yields to the source reed activity.",
+          "capability_extension": null,
+          "printed_stem_sha256": "99e795919d3a0f64b008b98342c811cd49d5055d7a87d37d540783bc8af12fda"
+        },
+        {
+          "part": "frame_jingles",
+          "profile_id": "aux_percussion",
+          "profile_revision": 1,
+          "profile_sha256": "230c15916457499ecb3449e1685d008ce792fcb42fd6532e74352e96c4244a3a",
+          "role": "percussion",
+          "instrument_alias": "frame_jingles",
+          "native_programs": [
+            {
+              "name": "Congas",
+              "path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [
+            {
+              "processor": "EventProcessor0",
+              "selection": "12"
+            }
+          ],
+          "native_note_or_trigger_range": [
+            60,
+            60
+          ],
+          "note_count": 390,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-02_frame_jingles_phrased_r7.wav",
+            "sha256": "b0be3dd915d0a1c4f6ea4a6070d2b46dd41bab2f6da92515744886097a7bbdea"
+          },
+          "editable_native_project": "native/DKC-02_frame_jingles_phrased_r7.rpp",
+          "recalled_state_sha256": "c4d7eb4f066b93cb9729ece779556cbafc98deedb2e6df55744a1068df4578ea",
+          "printed_stem": "final_stems/DKC-02/frame_jingles.flac",
+          "balance_gain": 1.7938695768483348,
+          "pan": 0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Willie Bobo profile: a necessary small-percussion voice with a clear phrase role; distinct studio layers when hands or instrument changes would conflict.",
+          "profile_source": "design/music/performers/aux_percussion.md",
+          "physical_model": "Distinct native part; simultaneous conga/bongo or auxiliary wood/metal/jingle material may use explicitly declared studio overdubs, rather than a single impossible setup.",
+          "phrase_plan": "Piano offbeats about 52 percent; pizzicato/small-percussion accompaniment 54 percent; bass anchor retained; support yields to the source reed activity.",
+          "capability_extension": "Source-directed cabasa/frame-jingle, wood and metallic roles, as applicable; separate layers and provisional timbre proxies are explicit.",
+          "printed_stem_sha256": "809c074ea37dd80b6a53ebd35e47981bddd6ffd6882fe4f03981ccffeb607254"
+        },
+        {
+          "part": "cabasa",
+          "profile_id": "aux_percussion",
+          "profile_revision": 1,
+          "profile_sha256": "230c15916457499ecb3449e1685d008ce792fcb42fd6532e74352e96c4244a3a",
+          "role": "percussion",
+          "instrument_alias": "cabasa",
+          "native_programs": [
+            {
+              "name": "Congas",
+              "path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [
+            {
+              "processor": "EventProcessor0",
+              "selection": "4"
+            }
+          ],
+          "native_note_or_trigger_range": [
+            60,
+            60
+          ],
+          "note_count": 325,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-02_cabasa_phrased_r7.wav",
+            "sha256": "357ab1a52eff6efaa5dbc52f967b63b9b9aedaa871e309697d0e25f5ea4c1e17"
+          },
+          "editable_native_project": "native/DKC-02_cabasa_phrased_r7.rpp",
+          "recalled_state_sha256": "b46601af94710b2944462c538089f531ac2df67c6d049d69561a78204b4fd5df",
+          "printed_stem": "final_stems/DKC-02/cabasa.flac",
+          "balance_gain": 4.865583251155122,
+          "pan": -0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Willie Bobo profile: a necessary small-percussion voice with a clear phrase role; distinct studio layers when hands or instrument changes would conflict.",
+          "profile_source": "design/music/performers/aux_percussion.md",
+          "physical_model": "Distinct native part; simultaneous conga/bongo or auxiliary wood/metal/jingle material may use explicitly declared studio overdubs, rather than a single impossible setup.",
+          "phrase_plan": "Piano offbeats about 52 percent; pizzicato/small-percussion accompaniment 54 percent; bass anchor retained; support yields to the source reed activity.",
+          "capability_extension": "Source-directed cabasa/frame-jingle, wood and metallic roles, as applicable; separate layers and provisional timbre proxies are explicit.",
+          "printed_stem_sha256": "3ad9f8d06edb3c8c4270a5d15894d31b2ffe0c0dfa84142bbf682d7d056bf63c"
+        },
+        {
+          "part": "kit",
+          "profile_id": "acoustic_drums",
+          "profile_revision": 1,
+          "profile_sha256": "23ebfd3f9ced8851a7deabab415939c44b92994f27fc2f37438e0fb8823448c3",
+          "role": "kit",
+          "instrument_alias": "jazz_kit",
+          "native_programs": [
+            {
+              "name": "Jazz Kit",
+              "path": "$LoFi Dreams.ufs/Presets/Drums/Jazz Kit.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            44,
+            44
+          ],
+          "note_count": 195,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-02_kit_performed_r3.wav",
+            "sha256": "b01fc9ce683003e53ba3902e3df07f35edf47472f645942b752b49028b4e9ef5"
+          },
+          "editable_native_project": "native/DKC-02_kit_performed_r3.rpp",
+          "recalled_state_sha256": "64065c4ab8d44dd5d16ae1092602782077ca46ba0ba730e635d26a8cf023b5c5",
+          "printed_stem": "final_stems/DKC-02/kit.flac",
+          "balance_gain": 32.56420778263301,
+          "pan": 0,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Zigaboo Modeliste reference: principal strokes, lighter connecting events and intentional space; do not describe discrete brush hits as a continuous sweep.",
+          "profile_source": "design/music/performers/acoustic_drums.md",
+          "physical_model": "Compact discrete kit strokes within a two-hand/two-foot role; no unsupported brush sweep claimed.",
+          "phrase_plan": "Piano offbeats about 52 percent; pizzicato/small-percussion accompaniment 54 percent; bass anchor retained; support yields to the source reed activity.",
+          "capability_extension": null,
+          "printed_stem_sha256": "436d6a29f5fa4b0644b530b735214d927ead2e838074809b84d48fd61947e87f"
+        }
+      ],
+      "mix_project": "01-Simian-Segue-mix.rpp",
+      "native_part_projects_editable": true,
+      "mix_project_verification": "PASS_NATIVE_RELOAD_AND_RENDER",
+      "physical_model": "Fictional studio ensemble; guitars split between strings A and B; simultaneous percussion layers use declared overdubs; no real artist performance claimed",
+      "mix_project_sha256": "3f9a7bb6f24062a78e3ce6f4dfedfade841355091cab00cd61262641b639596b"
+    },
+    {
+      "id": "DKC-03",
+      "selected_version": 11,
+      "source_and_cast_outline": "revision_call_sheets_v2.json",
+      "actual_parts": [
+        {
+          "part": "bass",
+          "profile_id": "bass",
+          "profile_revision": 1,
+          "profile_sha256": "6606c86a014c4d97ac2be64204b466a20a8e67d2d3892e3469f2425efa3ecb7d",
+          "role": "bass",
+          "instrument_alias": "electric_bass",
+          "native_programs": [
+            {
+              "name": "Cuba Bass",
+              "path": "$World Suite 3.ufs/Presets/01 Types/Fretted/Electric Bass/Cuba Bass.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [
+            {
+              "processor": "EventProcessor0",
+              "selection": "1"
+            }
+          ],
+          "native_note_or_trigger_range": [
+            26,
+            38
+          ],
+          "note_count": 153,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-03_bass_performed_verified.wav",
+            "sha256": "25c39b9878c14e74663112b7946f0a40be336d5ce68e751b4a11d4f9041a85a0"
+          },
+          "editable_native_project": "native/DKC-03_bass_performed_verified.rpp",
+          "recalled_state_sha256": "3b62e3b4d5292481a8fcfbedda9b83a8b85a9511ab92b2ad3c6bfb7016608e0e",
+          "printed_stem": "final_stems/DKC-03/bass.flac",
+          "balance_gain": 1.3307634452283992,
+          "pan": 0,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "George Porter Jr. reference: make the original low contour recognizable through controlled endings and its relationship to the groove.",
+          "profile_source": "design/music/performers/bass.md",
+          "physical_model": "One principal plucked bass; source note contour retained and releases controlled.",
+          "phrase_plan": "Mostly straight foundation; hand-drum accent hierarchy and bottle phrase releases; reduce skin percussion in the slower contrasting passage; later low mallet gains responsibility.",
+          "capability_extension": null,
+          "printed_stem_sha256": "ce814c24e57f1345c3bf4f1c8c8987f1be0eeae6af969da4604312393c9f49de"
+        },
+        {
+          "part": "strings",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "harmony",
+          "instrument_alias": "synth_strings",
+          "native_programs": [
+            {
+              "name": "Warmth",
+              "path": "$Atmospherics.ufs/Presets/Pure Pads/Warmth.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            38,
+            72
+          ],
+          "note_count": 128,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-03_strings_performed.wav",
+            "sha256": "ff925c3c39a5c136fa2e4f5f54a34d54d0c6b98fba9a8d7000decdc99f766d9a"
+          },
+          "editable_native_project": "native/DKC-03_strings_performed.rpp",
+          "recalled_state_sha256": "f362743f55b9917d24309470817a8f884af64006da25f90173f7683844c72e3c",
+          "printed_stem": "final_stems/DKC-03/strings.flac",
+          "balance_gain": 0.6495186335266467,
+          "pan": -0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Mostly straight foundation; hand-drum accent hierarchy and bottle phrase releases; reduce skin percussion in the slower contrasting passage; later low mallet gains responsibility.",
+          "capability_extension": null,
+          "printed_stem_sha256": "75eefa37389db4e49343385736c7ed5eb93e4db133cf4c94b9a97437c1158363"
+        },
+        {
+          "part": "string_answer",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "harmony",
+          "instrument_alias": "synth_strings",
+          "native_programs": [
+            {
+              "name": "Warmth",
+              "path": "$Atmospherics.ufs/Presets/Pure Pads/Warmth.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            55,
+            64
+          ],
+          "note_count": 48,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-03_string_answer_performed.wav",
+            "sha256": "a582b3fe3f244abf2e4c43b9440dd75583b43ebbcc2337d04725100446a4aa32"
+          },
+          "editable_native_project": "native/DKC-03_string_answer_performed.rpp",
+          "recalled_state_sha256": "f362743f55b9917d24309470817a8f884af64006da25f90173f7683844c72e3c",
+          "printed_stem": "final_stems/DKC-03/string_answer.flac",
+          "balance_gain": 1.059584767881322,
+          "pan": 0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Mostly straight foundation; hand-drum accent hierarchy and bottle phrase releases; reduce skin percussion in the slower contrasting passage; later low mallet gains responsibility.",
+          "capability_extension": null,
+          "printed_stem_sha256": "1bcb682ef4cd658e57051ccbac7cb21fad4407843648f86abb23c05e0abf8acb"
+        },
+        {
+          "part": "keys_reply",
+          "profile_id": "keys",
+          "profile_revision": 1,
+          "profile_sha256": "fa42d342ad275c9fd181bbe9590bc3d7a0c8eb6e9f9294a256f6adc8cc0601db",
+          "role": "foreground",
+          "instrument_alias": "piano_tender",
+          "native_programs": [
+            {
+              "name": "TDR Mellow Dark",
+              "path": "$Key Suite Acoustic.ufs/Presets/2 Upright Pianos/Tender Upright/TDR Mellow Dark.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            81,
+            91
+          ],
+          "note_count": 18,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-03_keys_reply_performed.wav",
+            "sha256": "699337f977e8b99922b39f128aac0fd515d76a04b586ac144da741fafa5e5e99"
+          },
+          "editable_native_project": "native/DKC-03_keys_reply_performed.rpp",
+          "recalled_state_sha256": "bd4f7416f86b8cd194dd6bde138f1409c75da8a758326497425371e3dbd4193a",
+          "printed_stem": "final_stems/DKC-03/keys_reply.flac",
+          "balance_gain": 2.6537242389304807,
+          "pan": 0.0225,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Monty Alexander reference: separate the memorable melody from quieter support and yield to the reply.",
+          "profile_source": "design/music/performers/keys.md",
+          "physical_model": "Two-hand piano role with independent melody and support; the separate Simian piano sources are successive/overlapping written roles, not three continuous pianists.",
+          "phrase_plan": "Mostly straight foundation; hand-drum accent hierarchy and bottle phrase releases; reduce skin percussion in the slower contrasting passage; later low mallet gains responsibility.",
+          "capability_extension": null,
+          "printed_stem_sha256": "a9fb46fef7ff4be86041867c12e77fef72ed06240e009a82d3ffe63fd436d8a4"
+        },
+        {
+          "part": "pipe_theme",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "foreground",
+          "instrument_alias": "bottle_lead",
+          "native_programs": [
+            {
+              "name": "bottle_lead",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator",
+            "NoiseOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            63,
+            81
+          ],
+          "note_count": 76,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-03_pipe_theme_phrased_r7.wav",
+            "sha256": "4be98a024d73133a0c7a5cee82dd4b35923234446ef23d515046e4ab755c5333"
+          },
+          "editable_native_project": "native/DKC-03_pipe_theme_phrased_r7.rpp",
+          "recalled_state_sha256": "9c3114922cdd185c1499aedbcb360c7ff02f23647882e89a9bd74be149d77110",
+          "printed_stem": "final_stems/DKC-03/pipe_theme.flac",
+          "balance_gain": 4.9517393374377345,
+          "pan": -0.0225,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Mostly straight foundation; hand-drum accent hierarchy and bottle phrase releases; reduce skin percussion in the slower contrasting passage; later low mallet gains responsibility.",
+          "capability_extension": null,
+          "printed_stem_sha256": "64241cd8bf1d6bfc75063e02ad2f5e2c7991d7bab2b87715b73a93c6718faad3"
+        },
+        {
+          "part": "brass_reply",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "foreground",
+          "instrument_alias": "brass_stab",
+          "native_programs": [
+            {
+              "name": "brass_stab",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            52,
+            74
+          ],
+          "note_count": 47,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-03_brass_reply_performed_verified.wav",
+            "sha256": "532016123062378bb187f9734b3d7a5c2131ebc022b1ffc79c76dd26ee6e729d"
+          },
+          "editable_native_project": "native/DKC-03_brass_reply_performed_verified.rpp",
+          "recalled_state_sha256": "3f58f95fc95b39ec04246db4803e396c1653ee06718a38f8f32fce6784d922fb",
+          "printed_stem": "final_stems/DKC-03/brass_reply.flac",
+          "balance_gain": 1.95576081780631,
+          "pan": 0.0225,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Mostly straight foundation; hand-drum accent hierarchy and bottle phrase releases; reduce skin percussion in the slower contrasting passage; later low mallet gains responsibility.",
+          "capability_extension": null,
+          "printed_stem_sha256": "e90b2ea30a0bbee7c6e4acd3d3cd3ebea37aa457cf99454be18c727b3f9e29e6"
+        },
+        {
+          "part": "flute_contrast",
+          "profile_id": "winds",
+          "profile_revision": 1,
+          "profile_sha256": "418aced2b9586f096bb570c6bc7689f46a2d791973fc98384090ac19be5a423c",
+          "role": "foreground",
+          "instrument_alias": "flute_djafe",
+          "native_programs": [
+            {
+              "name": "Djafe Flute Sustain",
+              "path": "$World Suite 3.ufs/Presets/01 Types/Woodwinds/African Flutes/Djafe Flute Sustain.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [
+            {
+              "processor": "EventProcessor0",
+              "selection": "6"
+            }
+          ],
+          "native_note_or_trigger_range": [
+            65,
+            82
+          ],
+          "note_count": 39,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-03_flute_contrast_performed.wav",
+            "sha256": "e15aac3e7a9553739ba9ac21135ffbd582f2f5abcf223e6e17355c9990094497"
+          },
+          "editable_native_project": "native/DKC-03_flute_contrast_performed.rpp",
+          "recalled_state_sha256": "14083efc8701ad322c6d9e829b56a2aa3f7ce8d49fe84f4111113466f53c145d",
+          "printed_stem": "final_stems/DKC-03/flute_contrast.flac",
+          "balance_gain": 1.4931508194236716,
+          "pan": -0.0225,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Herbie Mann profile: source-compatible breath-shaped statements and a complete release before the next phrase; Djafe is the selected candidate, not an identified historical concert flute.",
+          "profile_source": "design/music/performers/winds.md",
+          "physical_model": "Monophonic Djafe contrast in the selected Island arrangement; the natural-flute alternatives may use separate studio takes.",
+          "phrase_plan": "Mostly straight foundation; hand-drum accent hierarchy and bottle phrase releases; reduce skin percussion in the slower contrasting passage; later low mallet gains responsibility.",
+          "capability_extension": null,
+          "printed_stem_sha256": "976ef5c9ae3bbdcc30e92535dee0bd59dfd313c562776f7f31444eddb921e2d0"
+        },
+        {
+          "part": "low_mallet",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "harmony",
+          "instrument_alias": "wood_pluck",
+          "native_programs": [
+            {
+              "name": "wood_pluck",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            43,
+            53
+          ],
+          "note_count": 224,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-03_low_mallet_performed_verified.wav",
+            "sha256": "7e630790169d9590b70c9716b349199b134a8a45253943b3a49303bd66327b64"
+          },
+          "editable_native_project": "native/DKC-03_low_mallet_performed_verified.rpp",
+          "recalled_state_sha256": "339b7c11045d7a2e361bb02a8b3dc08c4a52eaa9ca3cb134f85f028b15b9645a",
+          "printed_stem": "final_stems/DKC-03/low_mallet.flac",
+          "balance_gain": 0.7096660563932322,
+          "pan": -0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Mostly straight foundation; hand-drum accent hierarchy and bottle phrase releases; reduce skin percussion in the slower contrasting passage; later low mallet gains responsibility.",
+          "capability_extension": null,
+          "printed_stem_sha256": "62750616ee3c53f6ffe1fa2e938645c3b35cd4e035b44c77f9d75a8ba2581f2c"
+        },
+        {
+          "part": "high_color",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "texture",
+          "instrument_alias": "fm_harp",
+          "native_programs": [
+            {
+              "name": "FM Harp",
+              "path": "$Ether Fields.ufs/Presets/Bells - Plucks/FM Harp.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            69,
+            77
+          ],
+          "note_count": 240,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-03_high_color_performed.wav",
+            "sha256": "80e765b4b31ba8b12a576f2ea4a888233e0e50a5c2483923b868fd425503959e"
+          },
+          "editable_native_project": "native/DKC-03_high_color_performed.rpp",
+          "recalled_state_sha256": "6e6926fb7dd5be176a80ac9a213040371f850a98d1605d124de7f926b5d41820",
+          "printed_stem": "final_stems/DKC-03/high_color.flac",
+          "balance_gain": 0.43136466164709003,
+          "pan": 0.165,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Mostly straight foundation; hand-drum accent hierarchy and bottle phrase releases; reduce skin percussion in the slower contrasting passage; later low mallet gains responsibility.",
+          "capability_extension": null,
+          "printed_stem_sha256": "11b70625a7dca2733d160ec74d33bbb3e01094343f8c3c4b0df8f606cce190a5"
+        },
+        {
+          "part": "hand_low",
+          "profile_id": "afro_caribbean_percussion",
+          "profile_revision": 1,
+          "profile_sha256": "09b6ead457ed5b65c77bb84623994030b0739556f22ad2def99b365306e2ca40",
+          "role": "percussion",
+          "instrument_alias": "congas",
+          "native_programs": [
+            {
+              "name": "Congas",
+              "path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [
+            {
+              "processor": "EventProcessor0",
+              "selection": "7"
+            }
+          ],
+          "native_note_or_trigger_range": [
+            48,
+            55
+          ],
+          "note_count": 960,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-03_hand_low_phrased_r7.wav",
+            "sha256": "4a3ae932d95b4ee69de52189608975c142d61404a095890bf916318bb7c0b053"
+          },
+          "editable_native_project": "native/DKC-03_hand_low_phrased_r7.rpp",
+          "recalled_state_sha256": "1459ada15f9c7ba62f57f4142fec9b80a78fc17370b6973d82617ce636cc90d0",
+          "printed_stem": "final_stems/DKC-03/hand_low.flac",
+          "balance_gain": 0.5519726649301997,
+          "pan": 0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Mongo Santamaria profile: distinct hand-drum registers and purposeful answers around a stable cycle; do not label unverified sample triggers as specific traditional strokes.",
+          "profile_source": "design/music/performers/afro_caribbean_percussion.md",
+          "physical_model": "Distinct native part; simultaneous conga/bongo or auxiliary wood/metal/jingle material may use explicitly declared studio overdubs, rather than a single impossible setup.",
+          "phrase_plan": "Mostly straight foundation; hand-drum accent hierarchy and bottle phrase releases; reduce skin percussion in the slower contrasting passage; later low mallet gains responsibility.",
+          "capability_extension": null,
+          "printed_stem_sha256": "d16deb387b3fb1f14c14b1a2b0dd908afb63987ea957dba0fb35df143429eb64"
+        },
+        {
+          "part": "bongos",
+          "profile_id": "afro_caribbean_percussion",
+          "profile_revision": 1,
+          "profile_sha256": "09b6ead457ed5b65c77bb84623994030b0739556f22ad2def99b365306e2ca40",
+          "role": "percussion",
+          "instrument_alias": "bongos",
+          "native_programs": [
+            {
+              "name": "Congas",
+              "path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [
+            {
+              "processor": "EventProcessor0",
+              "selection": "3"
+            }
+          ],
+          "native_note_or_trigger_range": [
+            48,
+            50
+          ],
+          "note_count": 168,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-03_bongos_phrased_r7.wav",
+            "sha256": "74b13085e91470e8ccb6f7c54ffab8ad15aa21c210c20619994d0a331d313c23"
+          },
+          "editable_native_project": "native/DKC-03_bongos_phrased_r7.rpp",
+          "recalled_state_sha256": "d27135e60d2c166cf91ef8b7ef027b7868dc7456707543d7e9f388f39b2b4f8a",
+          "printed_stem": "final_stems/DKC-03/bongos.flac",
+          "balance_gain": 0.950073146983105,
+          "pan": -0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Mongo Santamaria profile: distinct hand-drum registers and purposeful answers around a stable cycle; do not label unverified sample triggers as specific traditional strokes.",
+          "profile_source": "design/music/performers/afro_caribbean_percussion.md",
+          "physical_model": "Distinct native part; simultaneous conga/bongo or auxiliary wood/metal/jingle material may use explicitly declared studio overdubs, rather than a single impossible setup.",
+          "phrase_plan": "Mostly straight foundation; hand-drum accent hierarchy and bottle phrase releases; reduce skin percussion in the slower contrasting passage; later low mallet gains responsibility.",
+          "capability_extension": null,
+          "printed_stem_sha256": "eb459f056042cc59740389f0677a5ab9c464c8c319414087721df899261a82c3"
+        },
+        {
+          "part": "kit",
+          "profile_id": "acoustic_drums",
+          "profile_revision": 1,
+          "profile_sha256": "23ebfd3f9ced8851a7deabab415939c44b92994f27fc2f37438e0fb8823448c3",
+          "role": "kit",
+          "instrument_alias": "jazz_kit",
+          "native_programs": [
+            {
+              "name": "Jazz Kit",
+              "path": "$LoFi Dreams.ufs/Presets/Drums/Jazz Kit.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            36,
+            49
+          ],
+          "note_count": 497,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-03_kit_performed_r3.wav",
+            "sha256": "8ed11388512161d65b6b5f53ef64dbe5e050552f53cd9e4e8de63b096e4627da"
+          },
+          "editable_native_project": "native/DKC-03_kit_performed_r3.rpp",
+          "recalled_state_sha256": "8fcbc55e71772afb8507125d6f5a18809b21cbf5b726015ca8b64b18a84a05cc",
+          "printed_stem": "final_stems/DKC-03/kit.flac",
+          "balance_gain": 1.2502754188730456,
+          "pan": 0,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Zigaboo Modeliste reference: principal strokes, lighter connecting events and intentional space; do not describe discrete brush hits as a continuous sweep.",
+          "profile_source": "design/music/performers/acoustic_drums.md",
+          "physical_model": "Compact discrete kit strokes within a two-hand/two-foot role; no unsupported brush sweep claimed.",
+          "phrase_plan": "Mostly straight foundation; hand-drum accent hierarchy and bottle phrase releases; reduce skin percussion in the slower contrasting passage; later low mallet gains responsibility.",
+          "capability_extension": null,
+          "printed_stem_sha256": "f6f37dc836bf17db467c9b004da63c8a20537503a97fe8445f8f5131e428062e"
+        },
+        {
+          "part": "claves",
+          "profile_id": "aux_percussion",
+          "profile_revision": 1,
+          "profile_sha256": "230c15916457499ecb3449e1685d008ce792fcb42fd6532e74352e96c4244a3a",
+          "role": "percussion",
+          "instrument_alias": "claves",
+          "native_programs": [
+            {
+              "name": "Congas",
+              "path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [
+            {
+              "processor": "EventProcessor0",
+              "selection": "6"
+            }
+          ],
+          "native_note_or_trigger_range": [
+            60,
+            60
+          ],
+          "note_count": 48,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-03_claves_performed_r3.wav",
+            "sha256": "751f564f0fef493156f44e5beb6667f48efe1d233c6c8fa96371e8fa2d723bec"
+          },
+          "editable_native_project": "native/DKC-03_claves_performed_r3.rpp",
+          "recalled_state_sha256": "a6a1441b6f3e7f0ac5859fdc343e58fcd97391f653f3e9bcd7c3a1490b600b1c",
+          "printed_stem": "final_stems/DKC-03/claves.flac",
+          "balance_gain": 1.574826246588543,
+          "pan": -0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Willie Bobo profile: a necessary small-percussion voice with a clear phrase role; distinct studio layers when hands or instrument changes would conflict.",
+          "profile_source": "design/music/performers/aux_percussion.md",
+          "physical_model": "Distinct native part; simultaneous conga/bongo or auxiliary wood/metal/jingle material may use explicitly declared studio overdubs, rather than a single impossible setup.",
+          "phrase_plan": "Mostly straight foundation; hand-drum accent hierarchy and bottle phrase releases; reduce skin percussion in the slower contrasting passage; later low mallet gains responsibility.",
+          "capability_extension": "Source-directed cabasa/frame-jingle, wood and metallic roles, as applicable; separate layers and provisional timbre proxies are explicit.",
+          "printed_stem_sha256": "8cf3ccf4e9f72a903d27acf12ffb29d4ad5b1c8d28198d30326ce0ffcf1e24af"
+        },
+        {
+          "part": "woodblocks",
+          "profile_id": "aux_percussion",
+          "profile_revision": 1,
+          "profile_sha256": "230c15916457499ecb3449e1685d008ce792fcb42fd6532e74352e96c4244a3a",
+          "role": "percussion",
+          "instrument_alias": "woodblock",
+          "native_programs": [
+            {
+              "name": "DKC wood native string model",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "PluckOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            79,
+            84
+          ],
+          "note_count": 96,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-03_woodblocks_performed_r3.wav",
+            "sha256": "a95c61c1e4365d5ff1737278a96716997a4f250e9d75fee3c93668f5eb18063e"
+          },
+          "editable_native_project": "native/DKC-03_woodblocks_performed_r3.rpp",
+          "recalled_state_sha256": "2c9eb7bb59db3bc2a786bd89066b31ea83d0ee7012d7bc246720318356cf6379",
+          "printed_stem": "final_stems/DKC-03/woodblocks.flac",
+          "balance_gain": 12.504016578611829,
+          "pan": 0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Willie Bobo profile: a necessary small-percussion voice with a clear phrase role; distinct studio layers when hands or instrument changes would conflict.",
+          "profile_source": "design/music/performers/aux_percussion.md",
+          "physical_model": "Distinct native part; simultaneous conga/bongo or auxiliary wood/metal/jingle material may use explicitly declared studio overdubs, rather than a single impossible setup.",
+          "phrase_plan": "Mostly straight foundation; hand-drum accent hierarchy and bottle phrase releases; reduce skin percussion in the slower contrasting passage; later low mallet gains responsibility.",
+          "capability_extension": "Source-directed cabasa/frame-jingle, wood and metallic roles, as applicable; separate layers and provisional timbre proxies are explicit.",
+          "printed_stem_sha256": "bedaeb2b2c4f8e36686af1581bcbddb09eb422eb6ed8ef61e302334ebd0acec6"
+        }
+      ],
+      "mix_project": "02-DK-Island-Swing-mix.rpp",
+      "native_part_projects_editable": true,
+      "mix_project_verification": "PASS_NATIVE_RELOAD_AND_RENDER",
+      "physical_model": "Fictional studio ensemble; guitars split between strings A and B; simultaneous percussion layers use declared overdubs; no real artist performance claimed",
+      "mix_project_sha256": "f63a07673d6d16c2a14613928acdb5e088b9c1d4314e80c4ca9c7af52caf65f4"
+    },
+    {
+      "id": "DKC-07",
+      "selected_version": 12,
+      "source_and_cast_outline": "revision_call_sheets_v2.json",
+      "actual_parts": [
+        {
+          "part": "intro_high",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "texture",
+          "instrument_alias": "warmth_pad",
+          "native_programs": [
+            {
+              "name": "Warmth",
+              "path": "$Atmospherics.ufs/Presets/Pure Pads/Warmth.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            60,
+            75
+          ],
+          "note_count": 192,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-07_intro_high_performed.wav",
+            "sha256": "af82f33e889f2d229af1455edc199a973313099fa750095736b52bd2ebb52e5a"
+          },
+          "editable_native_project": "native/DKC-07_intro_high_performed.rpp",
+          "recalled_state_sha256": "950507e849554ba4411d551cf88ebdaf523dc9bbe4bc17c9974b2d9760758122",
+          "printed_stem": "final_stems_r12/DKC-07/intro_high.flac",
+          "balance_gain": 1.807231242393214,
+          "pan": 0.165,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "No imposed swing; sustained synth expression, source bends and small background modulation; support recedes during the main theme.",
+          "capability_extension": null,
+          "printed_stem_sha256": "0d1651691f1a8be7a22f56d3e8ab21ecb0ce00006103e964ff329b2f52b75a52"
+        },
+        {
+          "part": "echo_color",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "texture",
+          "instrument_alias": "rounded_lead",
+          "native_programs": [
+            {
+              "name": "rounded_lead",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            60,
+            94
+          ],
+          "note_count": 385,
+          "controller_event_count": 16117,
+          "native_audio": {
+            "file": "native/DKC-07_echo_color_modulated_r12.wav",
+            "sha256": "90c3678ae7a292da64a1ff10e5a619f968e57bc79facee848c2d4409c36a76b7"
+          },
+          "editable_native_project": "native/DKC-07_echo_color_modulated_r12.rpp",
+          "recalled_state_sha256": "c8b33419ab8966b8f9a73827360f58822b33c7394ce44229e4aaee7d373e78ca",
+          "printed_stem": "final_stems_r12/DKC-07/echo_color.flac",
+          "balance_gain": 0.19488851002736404,
+          "pan": -0.165,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "No imposed swing; sustained synth expression, source bends and small background modulation; support recedes during the main theme.",
+          "capability_extension": null,
+          "printed_stem_sha256": "92782668bb752fee6c40d146b04805f99f8df0b5d388ce19ec9b3737f8c81ccf"
+        },
+        {
+          "part": "intro_swell_3",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "texture",
+          "instrument_alias": "warmth_pad",
+          "native_programs": [
+            {
+              "name": "Warmth",
+              "path": "$Atmospherics.ufs/Presets/Pure Pads/Warmth.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            80,
+            96
+          ],
+          "note_count": 5,
+          "controller_event_count": 513,
+          "native_audio": {
+            "file": "native/DKC-07_intro_swell_3_performed_verified.wav",
+            "sha256": "253d80bd6177f1acdb07c5eebcbc76ab1768f1aa1c3742dd6a2fd53724190599"
+          },
+          "editable_native_project": "native/DKC-07_intro_swell_3_performed_verified.rpp",
+          "recalled_state_sha256": "f12acec175e9752fc01d49cfaeae86b594d0df561fc1c9a087e4fb3d6a151b25",
+          "printed_stem": "final_stems_r12/DKC-07/intro_swell_3.flac",
+          "balance_gain": 1.1541275038612095,
+          "pan": 0.165,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "No imposed swing; sustained synth expression, source bends and small background modulation; support recedes during the main theme.",
+          "capability_extension": null,
+          "printed_stem_sha256": "10134b6570a2c2d2bd295c5f6e0b339cfd9ff95937b5f9749ef3fcdd84b95fae"
+        },
+        {
+          "part": "bass",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "bass",
+          "instrument_alias": "synth_bass",
+          "native_programs": [
+            {
+              "name": "synth_bass",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            41,
+            50
+          ],
+          "note_count": 294,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-07_bass_performed_verified.wav",
+            "sha256": "8dff7a7c16f95ed5ee0493afff10415882bebaab6e21000f2fdd4618f368f658"
+          },
+          "editable_native_project": "native/DKC-07_bass_performed_verified.rpp",
+          "recalled_state_sha256": "94c1eda381161cad93a09ecdc04b8e09ef61cbd6fd967c9ed39f3b3804955c74",
+          "printed_stem": "final_stems_r12/DKC-07/bass.flac",
+          "balance_gain": 3.0072267565268027,
+          "pan": 0,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "No imposed swing; sustained synth expression, source bends and small background modulation; support recedes during the main theme.",
+          "capability_extension": null,
+          "printed_stem_sha256": "7a9f2e278cbce7f39e7a341b932d813b15f3300779f3f3f833640e3ffc612d77"
+        },
+        {
+          "part": "low_shadow",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "bass",
+          "instrument_alias": "synth_bass",
+          "native_programs": [
+            {
+              "name": "synth_bass",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            17,
+            50
+          ],
+          "note_count": 294,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-07_low_shadow_performed_verified.wav",
+            "sha256": "998491cff93715cb1ddd127b30abd46431c7612f9e63693a18f94b7ecd0e120a"
+          },
+          "editable_native_project": "native/DKC-07_low_shadow_performed_verified.rpp",
+          "recalled_state_sha256": "94c1eda381161cad93a09ecdc04b8e09ef61cbd6fd967c9ed39f3b3804955c74",
+          "printed_stem": "final_stems_r12/DKC-07/low_shadow.flac",
+          "balance_gain": 0.19238868512391408,
+          "pan": 0,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "No imposed swing; sustained synth expression, source bends and small background modulation; support recedes during the main theme.",
+          "capability_extension": null,
+          "printed_stem_sha256": "5613149fef2bb84be6d01b3c19ec253ad9e3d723247fd0df132824042b393170"
+        },
+        {
+          "part": "low_color",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "texture",
+          "instrument_alias": "wood_pluck",
+          "native_programs": [
+            {
+              "name": "wood_pluck",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            36,
+            50
+          ],
+          "note_count": 102,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-07_low_color_performed_verified.wav",
+            "sha256": "aca65dd91a87089d11fb0db74250cfea69cdfb602f079f3cb70784fb6894da94"
+          },
+          "editable_native_project": "native/DKC-07_low_color_performed_verified.rpp",
+          "recalled_state_sha256": "4f49696548fdc544fa166cc0298db0347d6939c50e731f183ab4ec3adca3de92",
+          "printed_stem": "final_stems_r12/DKC-07/low_color.flac",
+          "balance_gain": 0.12856180256833355,
+          "pan": -0.165,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "No imposed swing; sustained synth expression, source bends and small background modulation; support recedes during the main theme.",
+          "capability_extension": null,
+          "printed_stem_sha256": "c0e1cd1d2b39583a1a1b5441a80a24c5b1deb21e3a45da09ef670c7b5f0b62b8"
+        },
+        {
+          "part": "intro_swell_1",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "texture",
+          "instrument_alias": "warmth_pad",
+          "native_programs": [
+            {
+              "name": "Warmth",
+              "path": "$Atmospherics.ufs/Presets/Pure Pads/Warmth.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            81,
+            97
+          ],
+          "note_count": 5,
+          "controller_event_count": 520,
+          "native_audio": {
+            "file": "native/DKC-07_intro_swell_1_performed_verified.wav",
+            "sha256": "7ac10e8ac04a2eeb388645130194e745944603a200e9e5f2c6cb6f9840c8c2c2"
+          },
+          "editable_native_project": "native/DKC-07_intro_swell_1_performed_verified.rpp",
+          "recalled_state_sha256": "f12acec175e9752fc01d49cfaeae86b594d0df561fc1c9a087e4fb3d6a151b25",
+          "printed_stem": "final_stems_r12/DKC-07/intro_swell_1.flac",
+          "balance_gain": 1.5416642806060012,
+          "pan": 0.165,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "No imposed swing; sustained synth expression, source bends and small background modulation; support recedes during the main theme.",
+          "capability_extension": null,
+          "printed_stem_sha256": "572b8158a260f414134911e76ea9e13533e02696080ec20aaacb8cf4b637263e"
+        },
+        {
+          "part": "intro_swell_4",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "texture",
+          "instrument_alias": "warmth_pad",
+          "native_programs": [
+            {
+              "name": "Warmth",
+              "path": "$Atmospherics.ufs/Presets/Pure Pads/Warmth.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            84,
+            98
+          ],
+          "note_count": 4,
+          "controller_event_count": 392,
+          "native_audio": {
+            "file": "native/DKC-07_intro_swell_4_performed_verified.wav",
+            "sha256": "819dd9ee047ad64ebf6dcebd56b9ad39054974cd9e07e281c50aa04436f05d1b"
+          },
+          "editable_native_project": "native/DKC-07_intro_swell_4_performed_verified.rpp",
+          "recalled_state_sha256": "f12acec175e9752fc01d49cfaeae86b594d0df561fc1c9a087e4fb3d6a151b25",
+          "printed_stem": "final_stems_r12/DKC-07/intro_swell_4.flac",
+          "balance_gain": 1.1789718508959883,
+          "pan": -0.165,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "No imposed swing; sustained synth expression, source bends and small background modulation; support recedes during the main theme.",
+          "capability_extension": null,
+          "printed_stem_sha256": "297a1de5338653c3863ec451a670a42f2d315c2ab2d44548c49a2cf9bf87c2b5"
+        },
+        {
+          "part": "intro_swell_2",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "texture",
+          "instrument_alias": "warmth_pad",
+          "native_programs": [
+            {
+              "name": "Warmth",
+              "path": "$Atmospherics.ufs/Presets/Pure Pads/Warmth.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            85,
+            93
+          ],
+          "note_count": 3,
+          "controller_event_count": 342,
+          "native_audio": {
+            "file": "native/DKC-07_intro_swell_2_performed_verified.wav",
+            "sha256": "195703783efc43d5a1cd03cd1e4ec0b27e469153e357c5d9bc239db710944ec7"
+          },
+          "editable_native_project": "native/DKC-07_intro_swell_2_performed_verified.rpp",
+          "recalled_state_sha256": "f12acec175e9752fc01d49cfaeae86b594d0df561fc1c9a087e4fb3d6a151b25",
+          "printed_stem": "final_stems_r12/DKC-07/intro_swell_2.flac",
+          "balance_gain": 1.1579522654688528,
+          "pan": 0.165,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "No imposed swing; sustained synth expression, source bends and small background modulation; support recedes during the main theme.",
+          "capability_extension": null,
+          "printed_stem_sha256": "c0c0d477a3da030780e69b88be2dc51744cf5fc7745fce04a666042ae19ed753"
+        },
+        {
+          "part": "strings",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "harmony",
+          "instrument_alias": "synth_strings",
+          "native_programs": [
+            {
+              "name": "Warmth",
+              "path": "$Atmospherics.ufs/Presets/Pure Pads/Warmth.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            60,
+            86
+          ],
+          "note_count": 84,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-07_strings_performed.wav",
+            "sha256": "98f1c3071ce4301965f2d3d4c6abcc01b6e786b1566e6682aead60f4bc5e18a4"
+          },
+          "editable_native_project": "native/DKC-07_strings_performed.rpp",
+          "recalled_state_sha256": "950507e849554ba4411d551cf88ebdaf523dc9bbe4bc17c9974b2d9760758122",
+          "printed_stem": "final_stems_r12/DKC-07/strings.flac",
+          "balance_gain": 0.9216823351337298,
+          "pan": -0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "No imposed swing; sustained synth expression, source bends and small background modulation; support recedes during the main theme.",
+          "capability_extension": null,
+          "printed_stem_sha256": "d26f06e6ec17c300148df1030e01b2bfd7f3d4a4481ee36db8805719df2d322d"
+        },
+        {
+          "part": "inner_answer",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "harmony",
+          "instrument_alias": "reed_answer",
+          "native_programs": [
+            {
+              "name": "reed_answer",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            60,
+            68
+          ],
+          "note_count": 192,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-07_inner_answer_performed_verified.wav",
+            "sha256": "c01d691986941770617c5d46b7c6b992060d95ad896e89eb8107f99e83c94848"
+          },
+          "editable_native_project": "native/DKC-07_inner_answer_performed_verified.rpp",
+          "recalled_state_sha256": "46d165e1d1e596384c000bfb8e822fb7c02e79fec5d9b0e765d3efd4152a25d4",
+          "printed_stem": "final_stems_r12/DKC-07/inner_answer.flac",
+          "balance_gain": 0.46634533031734243,
+          "pan": 0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "No imposed swing; sustained synth expression, source bends and small background modulation; support recedes during the main theme.",
+          "capability_extension": null,
+          "printed_stem_sha256": "8efe21d966eb2737522233e041ce2037dbc459900cb6a64982a162feafbfd2d0"
+        },
+        {
+          "part": "background_pluck",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "texture",
+          "instrument_alias": "wood_pluck",
+          "native_programs": [
+            {
+              "name": "wood_pluck",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            63,
+            86
+          ],
+          "note_count": 98,
+          "controller_event_count": 16117,
+          "native_audio": {
+            "file": "native/DKC-07_background_pluck_modulated_r12.wav",
+            "sha256": "d98f574fcd9f252820c7b54fe8aa0c58bcd547b25cb6b7bd330699188295cb9e"
+          },
+          "editable_native_project": "native/DKC-07_background_pluck_modulated_r12.rpp",
+          "recalled_state_sha256": "4f49696548fdc544fa166cc0298db0347d6939c50e731f183ab4ec3adca3de92",
+          "printed_stem": "final_stems_r12/DKC-07/background_pluck.flac",
+          "balance_gain": 0.6052887613939573,
+          "pan": -0.165,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "No imposed swing; sustained synth expression, source bends and small background modulation; support recedes during the main theme.",
+          "capability_extension": null,
+          "printed_stem_sha256": "5cfc5fceb9f01b9343835136651c3b8e422d01142f8a8628a497a29c98a3f3fc"
+        },
+        {
+          "part": "upper_arps",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "harmony",
+          "instrument_alias": "fm_harp",
+          "native_programs": [
+            {
+              "name": "FM Harp",
+              "path": "$Ether Fields.ufs/Presets/Bells - Plucks/FM Harp.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            46,
+            96
+          ],
+          "note_count": 146,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-07_upper_arps_performed.wav",
+            "sha256": "4c38223691fd8a0017ad3367c708ef006ec1d875fe10dd488a8e963c0a5b3c98"
+          },
+          "editable_native_project": "native/DKC-07_upper_arps_performed.rpp",
+          "recalled_state_sha256": "d64d903c585a9548305a06c09acd846995833b15309a5ba9653cc06ae2f97f42",
+          "printed_stem": "final_stems_r12/DKC-07/upper_arps.flac",
+          "balance_gain": 0.39189083788818646,
+          "pan": 0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "No imposed swing; sustained synth expression, source bends and small background modulation; support recedes during the main theme.",
+          "capability_extension": null,
+          "printed_stem_sha256": "4c97f4af16b1708fa044788f1fd3d90bb53ddf0455cd4a396604520c9677717d"
+        },
+        {
+          "part": "rounded_theme",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "foreground",
+          "instrument_alias": "rounded_lead",
+          "native_programs": [
+            {
+              "name": "rounded_lead",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            94,
+            106
+          ],
+          "note_count": 40,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-07_rounded_theme_phrased_r7.wav",
+            "sha256": "28f7ff71c36d2e8ae0a2a796f5b5f8f91269f472581ce94dcd2aa46d24a4c119"
+          },
+          "editable_native_project": "native/DKC-07_rounded_theme_phrased_r7.rpp",
+          "recalled_state_sha256": "201029866c444395da3d1142320b08c379cda1cc738e5ae86f37bddb541eb40f",
+          "printed_stem": "final_stems_r12/DKC-07/rounded_theme.flac",
+          "balance_gain": 3.9046256599607783,
+          "pan": 0.0225,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "No imposed swing; sustained synth expression, source bends and small background modulation; support recedes during the main theme.",
+          "capability_extension": null,
+          "printed_stem_sha256": "bd8b02dad84b310764a11167a5423e2a6dcc58b8ca540d82c961213f48037e33"
+        },
+        {
+          "part": "frame_jingles",
+          "profile_id": "aux_percussion",
+          "profile_revision": 1,
+          "profile_sha256": "230c15916457499ecb3449e1685d008ce792fcb42fd6532e74352e96c4244a3a",
+          "role": "percussion",
+          "instrument_alias": "frame_jingles",
+          "native_programs": [
+            {
+              "name": "Congas",
+              "path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [
+            {
+              "processor": "EventProcessor0",
+              "selection": "12"
+            }
+          ],
+          "native_note_or_trigger_range": [
+            60,
+            60
+          ],
+          "note_count": 288,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-07_frame_jingles_performed_r3.wav",
+            "sha256": "0412d88578679871259863f98d777d78cf23ee324ac19de53dc5b243a948111f"
+          },
+          "editable_native_project": "native/DKC-07_frame_jingles_performed_r3.rpp",
+          "recalled_state_sha256": "808127d35b0b46646702100d364d7ff738ed09b0fef47a2f20fac53c5d00909d",
+          "printed_stem": "final_stems_r12/DKC-07/frame_jingles.flac",
+          "balance_gain": 1.2694321864425295,
+          "pan": -0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Willie Bobo profile: a necessary small-percussion voice with a clear phrase role; distinct studio layers when hands or instrument changes would conflict.",
+          "profile_source": "design/music/performers/aux_percussion.md",
+          "physical_model": "Distinct native part; simultaneous conga/bongo or auxiliary wood/metal/jingle material may use explicitly declared studio overdubs, rather than a single impossible setup.",
+          "phrase_plan": "No imposed swing; sustained synth expression, source bends and small background modulation; support recedes during the main theme.",
+          "capability_extension": "Source-directed cabasa/frame-jingle, wood and metallic roles, as applicable; separate layers and provisional timbre proxies are explicit.",
+          "printed_stem_sha256": "a8e40da3963558cef70ef5526c10f4a1b788ee08db46c3387925aca11a6aeb5b"
+        },
+        {
+          "part": "kit",
+          "profile_id": "acoustic_drums",
+          "profile_revision": 1,
+          "profile_sha256": "23ebfd3f9ced8851a7deabab415939c44b92994f27fc2f37438e0fb8823448c3",
+          "role": "kit",
+          "instrument_alias": "jazz_kit",
+          "native_programs": [
+            {
+              "name": "Jazz Kit",
+              "path": "$LoFi Dreams.ufs/Presets/Drums/Jazz Kit.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            36,
+            36
+          ],
+          "note_count": 96,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-07_kit_performed_r3.wav",
+            "sha256": "bde5ca3f912ae3b2a7412429b05140e9fd362c8ff0bb1f1bcca7927e2dbb8623"
+          },
+          "editable_native_project": "native/DKC-07_kit_performed_r3.rpp",
+          "recalled_state_sha256": "b1dea499144a9d6c59c5b4bc2424589839284361cf3099399ac5c35156c0a18d",
+          "printed_stem": "final_stems_r12/DKC-07/kit.flac",
+          "balance_gain": 0.6719138700075764,
+          "pan": 0,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Zigaboo Modeliste reference: principal strokes, lighter connecting events and intentional space; do not describe discrete brush hits as a continuous sweep.",
+          "profile_source": "design/music/performers/acoustic_drums.md",
+          "physical_model": "Compact discrete kit strokes within a two-hand/two-foot role; no unsupported brush sweep claimed.",
+          "phrase_plan": "No imposed swing; sustained synth expression, source bends and small background modulation; support recedes during the main theme.",
+          "capability_extension": null,
+          "printed_stem_sha256": "9801e1b27f94464ce050c7a15f483d1770512bf5c31eaac31f65013929a63c0c"
+        },
+        {
+          "part": "claves",
+          "profile_id": "aux_percussion",
+          "profile_revision": 1,
+          "profile_sha256": "230c15916457499ecb3449e1685d008ce792fcb42fd6532e74352e96c4244a3a",
+          "role": "percussion",
+          "instrument_alias": "claves",
+          "native_programs": [
+            {
+              "name": "Congas",
+              "path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [
+            {
+              "processor": "EventProcessor0",
+              "selection": "6"
+            }
+          ],
+          "native_note_or_trigger_range": [
+            60,
+            60
+          ],
+          "note_count": 96,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-07_claves_performed_r3.wav",
+            "sha256": "7266a1c076ff1b1155d4162329c10c8763e91518ee454a975d7a0ea5d1d04812"
+          },
+          "editable_native_project": "native/DKC-07_claves_performed_r3.rpp",
+          "recalled_state_sha256": "a46fbfd88a9b32ea02a4762a0dd271f2ce2e7efb8d54a45eee2b4bbe5375866c",
+          "printed_stem": "final_stems_r12/DKC-07/claves.flac",
+          "balance_gain": 1.787991020070666,
+          "pan": -0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Willie Bobo profile: a necessary small-percussion voice with a clear phrase role; distinct studio layers when hands or instrument changes would conflict.",
+          "profile_source": "design/music/performers/aux_percussion.md",
+          "physical_model": "Distinct native part; simultaneous conga/bongo or auxiliary wood/metal/jingle material may use explicitly declared studio overdubs, rather than a single impossible setup.",
+          "phrase_plan": "No imposed swing; sustained synth expression, source bends and small background modulation; support recedes during the main theme.",
+          "capability_extension": "Source-directed cabasa/frame-jingle, wood and metallic roles, as applicable; separate layers and provisional timbre proxies are explicit.",
+          "printed_stem_sha256": "a8a99df86b8cd30fa8f8b715f9c0d41045f86bd23b11cbb32cf8cb301028f1ae"
+        }
+      ],
+      "mix_project": "03-Aquatic-Ambiance-mix.rpp",
+      "native_part_projects_editable": true,
+      "mix_project_verification": "PASS_NATIVE_RELOAD_AND_RENDER",
+      "physical_model": "Fictional studio ensemble; guitars split between strings A and B; simultaneous percussion layers use declared overdubs; no real artist performance claimed",
+      "mix_project_sha256": "1a7012e142b7ae9382201956c0d1738112daa10c87f9b67fa9165a4964ff6ff1"
+    },
+    {
+      "id": "DKC-19",
+      "selected_version": 11,
+      "source_and_cast_outline": "revision_call_sheets_v2.json",
+      "actual_parts": [
+        {
+          "part": "machine_theme",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "foreground",
+          "instrument_alias": "edge_lead",
+          "native_programs": [
+            {
+              "name": "edge_lead",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            52,
+            91
+          ],
+          "note_count": 1008,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-19_machine_theme_phrased_r7.wav",
+            "sha256": "ee86879891096df79f75fc08b8dcf7e44b4ea8456c3601648c9d55d83d2c310e"
+          },
+          "editable_native_project": "native/DKC-19_machine_theme_phrased_r7.rpp",
+          "recalled_state_sha256": "95e94ebab02c4c250040d32ed003f6ca55dae3b00f48dc08048934218a7acc2a",
+          "printed_stem": "final_stems/DKC-19/machine_theme.flac",
+          "balance_gain": 3.8227302205347446,
+          "pan": -0.0225,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Firm electronic engine; lighter/shorter secondary notes; brass punctuation receives space; acoustic answers remain an alternative.",
+          "capability_extension": null,
+          "printed_stem_sha256": "d22f93d5bc907313c31ea3023581d908f52afc291a28c9558104317a1fa2a74d"
+        },
+        {
+          "part": "synth_bass",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "bass",
+          "instrument_alias": "synth_bass",
+          "native_programs": [
+            {
+              "name": "synth_bass",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            35,
+            57
+          ],
+          "note_count": 1806,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-19_synth_bass_performed_verified.wav",
+            "sha256": "f71bc0c9e71a9f449dfe4b22a4f28f3864c1f3314830b50f2fb1b982b7606015"
+          },
+          "editable_native_project": "native/DKC-19_synth_bass_performed_verified.rpp",
+          "recalled_state_sha256": "cba7850fc041a8592555c8a9bdb0ded94d2cfc5ca0eaedda5bfc9a88cced66d4",
+          "printed_stem": "final_stems/DKC-19/synth_bass.flac",
+          "balance_gain": 3.645205314505376,
+          "pan": 0,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Firm electronic engine; lighter/shorter secondary notes; brass punctuation receives space; acoustic answers remain an alternative.",
+          "capability_extension": null,
+          "printed_stem_sha256": "83ac3aede77ef35799ba7393f396515801c5c86d1922e833bc33a9b6b15cbb9c"
+        },
+        {
+          "part": "short_ostinato",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "harmony",
+          "instrument_alias": "pizz_strings",
+          "native_programs": [
+            {
+              "name": "pizz_strings",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            52,
+            57
+          ],
+          "note_count": 652,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-19_short_ostinato_performed_verified.wav",
+            "sha256": "b24a9963dd3addefa9f569cb6fc64c26c1fb074b85fa4aa3f742fe4375c32405"
+          },
+          "editable_native_project": "native/DKC-19_short_ostinato_performed_verified.rpp",
+          "recalled_state_sha256": "5d790a7cb9c75be8c198a77252c96eaf3cf643e7616b4b4a75bca1e9d75d9b09",
+          "printed_stem": "final_stems/DKC-19/short_ostinato.flac",
+          "balance_gain": 0.6568603924100488,
+          "pan": 0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Firm electronic engine; lighter/shorter secondary notes; brass punctuation receives space; acoustic answers remain an alternative.",
+          "capability_extension": null,
+          "printed_stem_sha256": "cc3af9cdd814c0f941124009edfd8f13c048406b810e799830e93128f99c985b"
+        },
+        {
+          "part": "pluck_call",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "harmony",
+          "instrument_alias": "fm_harp",
+          "native_programs": [
+            {
+              "name": "FM Harp",
+              "path": "$Ether Fields.ufs/Presets/Bells - Plucks/FM Harp.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            62,
+            81
+          ],
+          "note_count": 112,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-19_pluck_call_performed.wav",
+            "sha256": "aa3324644da4608a996f88479a174b6edaf3f161a4571242d26a3fb632bbbaf2"
+          },
+          "editable_native_project": "native/DKC-19_pluck_call_performed.rpp",
+          "recalled_state_sha256": "dbaf0d66a06c854b0a4f3592e2b69c7b1ec57d23de1c4ba672728a39f294211c",
+          "printed_stem": "final_stems/DKC-19/pluck_call.flac",
+          "balance_gain": 0.5063482894277898,
+          "pan": -0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Firm electronic engine; lighter/shorter secondary notes; brass punctuation receives space; acoustic answers remain an alternative.",
+          "capability_extension": null,
+          "printed_stem_sha256": "05f5a9ca80051a309d6b16fb1423d3670292b62243d608bbbc2cafb186c3ee68"
+        },
+        {
+          "part": "pluck_echo",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "texture",
+          "instrument_alias": "fm_harp",
+          "native_programs": [
+            {
+              "name": "FM Harp",
+              "path": "$Ether Fields.ufs/Presets/Bells - Plucks/FM Harp.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            62,
+            81
+          ],
+          "note_count": 96,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-19_pluck_echo_performed.wav",
+            "sha256": "048f83e5548fc310678b91ac26226aa84c413d80340f53dd91a2b4b47bc9595c"
+          },
+          "editable_native_project": "native/DKC-19_pluck_echo_performed.rpp",
+          "recalled_state_sha256": "dbaf0d66a06c854b0a4f3592e2b69c7b1ec57d23de1c4ba672728a39f294211c",
+          "printed_stem": "final_stems/DKC-19/pluck_echo.flac",
+          "balance_gain": 0.38418052043467055,
+          "pan": 0.165,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Firm electronic engine; lighter/shorter secondary notes; brass punctuation receives space; acoustic answers remain an alternative.",
+          "capability_extension": null,
+          "printed_stem_sha256": "3bbc827e7eddf7ea0f42f93010dcaa44a4995db18719b6e51ae02fb2f3516c69"
+        },
+        {
+          "part": "held_strings",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "harmony",
+          "instrument_alias": "synth_strings",
+          "native_programs": [
+            {
+              "name": "Warmth",
+              "path": "$Atmospherics.ufs/Presets/Pure Pads/Warmth.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            57,
+            69
+          ],
+          "note_count": 56,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-19_held_strings_performed.wav",
+            "sha256": "6710dc47ff9cc50b04f3ac72c810f23cb8a4a8940a34bc1e51ccabcd18c21281"
+          },
+          "editable_native_project": "native/DKC-19_held_strings_performed.rpp",
+          "recalled_state_sha256": "20631f493cf38169481b1914f1782ff894367436e058fe4bbc50ef99a0330411",
+          "printed_stem": "final_stems/DKC-19/held_strings.flac",
+          "balance_gain": 0.517935957226602,
+          "pan": -0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Firm electronic engine; lighter/shorter secondary notes; brass punctuation receives space; acoustic answers remain an alternative.",
+          "capability_extension": null,
+          "printed_stem_sha256": "b01a2e781901db070539390d1aeaff769431803afe5dd91683ec5a74a7613086"
+        },
+        {
+          "part": "high_accent",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "texture",
+          "instrument_alias": "brass_stab",
+          "native_programs": [
+            {
+              "name": "brass_stab",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            74,
+            83
+          ],
+          "note_count": 12,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-19_high_accent_performed_verified.wav",
+            "sha256": "20f2c0b43ec1ffc8ebea74db19c85423ee2b4c508b16d53b4affe7ff50045af8"
+          },
+          "editable_native_project": "native/DKC-19_high_accent_performed_verified.rpp",
+          "recalled_state_sha256": "97c1c7e2790c442a3829c58af9d181304d257305df7636b261c6e5ae86e2db23",
+          "printed_stem": "final_stems/DKC-19/high_accent.flac",
+          "balance_gain": 0.7969000825615358,
+          "pan": 0.165,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Firm electronic engine; lighter/shorter secondary notes; brass punctuation receives space; acoustic answers remain an alternative.",
+          "capability_extension": null,
+          "printed_stem_sha256": "d0dc37206866e3e264479d4ae51f1524e8d4f8668d0a63d3eef941e052a283c2"
+        },
+        {
+          "part": "running_color",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "harmony",
+          "instrument_alias": "wood_pluck",
+          "native_programs": [
+            {
+              "name": "wood_pluck",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            52,
+            76
+          ],
+          "note_count": 976,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-19_running_color_performed_verified.wav",
+            "sha256": "ad068e9e6476d20b4630011485f73a085afb15a90a787759848c1c776d2463d4"
+          },
+          "editable_native_project": "native/DKC-19_running_color_performed_verified.rpp",
+          "recalled_state_sha256": "33531a6547695c9e38dde066f2fd7ca42a7270e1b8327bb170995f5cda62414f",
+          "printed_stem": "final_stems/DKC-19/running_color.flac",
+          "balance_gain": 0.40597427943324815,
+          "pan": -0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Firm electronic engine; lighter/shorter secondary notes; brass punctuation receives space; acoustic answers remain an alternative.",
+          "capability_extension": null,
+          "printed_stem_sha256": "e4123963cc05d44f45bc2e4da5d425d46b6d99e615a8354209c00d1381a74880"
+        },
+        {
+          "part": "string_answer",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "harmony",
+          "instrument_alias": "synth_strings",
+          "native_programs": [
+            {
+              "name": "Warmth",
+              "path": "$Atmospherics.ufs/Presets/Pure Pads/Warmth.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            52,
+            76
+          ],
+          "note_count": 36,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-19_string_answer_performed.wav",
+            "sha256": "9497f122ccc3c4e7224084866a8f1b7f9a14e25c49b1b0badc723f1797ede028"
+          },
+          "editable_native_project": "native/DKC-19_string_answer_performed.rpp",
+          "recalled_state_sha256": "20631f493cf38169481b1914f1782ff894367436e058fe4bbc50ef99a0330411",
+          "printed_stem": "final_stems/DKC-19/string_answer.flac",
+          "balance_gain": 0.4774160934676639,
+          "pan": 0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Firm electronic engine; lighter/shorter secondary notes; brass punctuation receives space; acoustic answers remain an alternative.",
+          "capability_extension": null,
+          "printed_stem_sha256": "4969f30f367af8b31503433c06c9b332b7ec4f98acd81c94452a7508177d0eda"
+        },
+        {
+          "part": "brass_call",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "foreground",
+          "instrument_alias": "brass_stab",
+          "native_programs": [
+            {
+              "name": "brass_stab",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            54,
+            69
+          ],
+          "note_count": 94,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-19_brass_call_performed_verified.wav",
+            "sha256": "be035f19654c45813dd73bb3c58fdc81e7ebb6521d31f082c9834e83f9579c8e"
+          },
+          "editable_native_project": "native/DKC-19_brass_call_performed_verified.rpp",
+          "recalled_state_sha256": "97c1c7e2790c442a3829c58af9d181304d257305df7636b261c6e5ae86e2db23",
+          "printed_stem": "final_stems/DKC-19/brass_call.flac",
+          "balance_gain": 3.675903204691417,
+          "pan": 0.0225,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Firm electronic engine; lighter/shorter secondary notes; brass punctuation receives space; acoustic answers remain an alternative.",
+          "capability_extension": null,
+          "printed_stem_sha256": "dd0cc6e90518d13c29d9488d5e5bb89d4196baf73c6d8647f643f268868e8b63"
+        },
+        {
+          "part": "upper_strings",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "harmony",
+          "instrument_alias": "synth_strings",
+          "native_programs": [
+            {
+              "name": "Warmth",
+              "path": "$Atmospherics.ufs/Presets/Pure Pads/Warmth.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            66,
+            81
+          ],
+          "note_count": 48,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-19_upper_strings_performed.wav",
+            "sha256": "10b476f944a37ef8be0a43f273a50eaac8664e0fb5fb17632d906e6d6f6efd36"
+          },
+          "editable_native_project": "native/DKC-19_upper_strings_performed.rpp",
+          "recalled_state_sha256": "20631f493cf38169481b1914f1782ff894367436e058fe4bbc50ef99a0330411",
+          "printed_stem": "final_stems/DKC-19/upper_strings.flac",
+          "balance_gain": 1.1445405841584528,
+          "pan": 0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Firm electronic engine; lighter/shorter secondary notes; brass punctuation receives space; acoustic answers remain an alternative.",
+          "capability_extension": null,
+          "printed_stem_sha256": "e2cc5a77a4ec043d1da7ce0ccdd04ddc847f0ed08aa02e6f9807131cbdeec3b5"
+        },
+        {
+          "part": "brass_arrival",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "foreground",
+          "instrument_alias": "brass_stab",
+          "native_programs": [
+            {
+              "name": "brass_stab",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            66,
+            76
+          ],
+          "note_count": 16,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-19_brass_arrival_performed_verified.wav",
+            "sha256": "aad9c82bca4d07ab7f705dd27c8b9aa7199fb39896f96a8bf08d0fac69b38bbc"
+          },
+          "editable_native_project": "native/DKC-19_brass_arrival_performed_verified.rpp",
+          "recalled_state_sha256": "97c1c7e2790c442a3829c58af9d181304d257305df7636b261c6e5ae86e2db23",
+          "printed_stem": "final_stems/DKC-19/brass_arrival.flac",
+          "balance_gain": 3.0542527300635296,
+          "pan": 0.0225,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Firm electronic engine; lighter/shorter secondary notes; brass punctuation receives space; acoustic answers remain an alternative.",
+          "capability_extension": null,
+          "printed_stem_sha256": "475da6fb76a3f582280fdd4d093e30f742d68916be5c2ae1ff8e571dd35f27cb"
+        },
+        {
+          "part": "claves",
+          "profile_id": "aux_percussion",
+          "profile_revision": 1,
+          "profile_sha256": "230c15916457499ecb3449e1685d008ce792fcb42fd6532e74352e96c4244a3a",
+          "role": "percussion",
+          "instrument_alias": "claves",
+          "native_programs": [
+            {
+              "name": "Congas",
+              "path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [
+            {
+              "processor": "EventProcessor0",
+              "selection": "6"
+            }
+          ],
+          "native_note_or_trigger_range": [
+            60,
+            60
+          ],
+          "note_count": 96,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-19_claves_performed_r3.wav",
+            "sha256": "55a20b69f83aa9981f626739e8f51bf1379c0f9bfdafc1c26d7d8f64978085d5"
+          },
+          "editable_native_project": "native/DKC-19_claves_performed_r3.rpp",
+          "recalled_state_sha256": "ed48fcf28fb801f177038cc6f76701ecfa62d17f85e08557ed485e3e1547ae88",
+          "printed_stem": "final_stems/DKC-19/claves.flac",
+          "balance_gain": 2.375894683465794,
+          "pan": -0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Willie Bobo profile: a necessary small-percussion voice with a clear phrase role; distinct studio layers when hands or instrument changes would conflict.",
+          "profile_source": "design/music/performers/aux_percussion.md",
+          "physical_model": "Distinct native part; simultaneous conga/bongo or auxiliary wood/metal/jingle material may use explicitly declared studio overdubs, rather than a single impossible setup.",
+          "phrase_plan": "Firm electronic engine; lighter/shorter secondary notes; brass punctuation receives space; acoustic answers remain an alternative.",
+          "capability_extension": "Source-directed cabasa/frame-jingle, wood and metallic roles, as applicable; separate layers and provisional timbre proxies are explicit.",
+          "printed_stem_sha256": "42b3db5b0ce6dcbf2890c2157200c70aa61e333c3615b02a69b0f848dc0280be"
+        },
+        {
+          "part": "engine_kick",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "kit",
+          "instrument_alias": "electronic_kit_fixed",
+          "native_programs": [
+            {
+              "name": "BeatBox Anthology 2",
+              "path": "$BeatBox Anthology 2.ufs/Presets/BeatBox Anthology 2.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "NoiseOscillator",
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            35,
+            36
+          ],
+          "note_count": 212,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-19_engine_kick_r6.wav",
+            "sha256": "fc131b39b1f238cc2c02f05111a023411a2e16e132cf3958dfc6fe7ea0b495f8"
+          },
+          "editable_native_project": "native/DKC-19_engine_kick_r6.rpp",
+          "recalled_state_sha256": "547c4c59e9d48e0bf4b548cea6387d73771b7afb5e30f169990a489c333649df",
+          "printed_stem": "final_stems/DKC-19/engine_kick.flac",
+          "balance_gain": 1.0313502402408523,
+          "pan": 0,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Firm electronic engine; lighter/shorter secondary notes; brass punctuation receives space; acoustic answers remain an alternative.",
+          "capability_extension": null,
+          "printed_stem_sha256": "cbb8dfaad78c64e2a9046bec1a1a8572e0064173c66d6d002404cbf1448cec47"
+        },
+        {
+          "part": "engine_snare",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "kit",
+          "instrument_alias": "electronic_kit_fixed",
+          "native_programs": [
+            {
+              "name": "BeatBox Anthology 2",
+              "path": "$BeatBox Anthology 2.ufs/Presets/BeatBox Anthology 2.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "NoiseOscillator",
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            38,
+            40
+          ],
+          "note_count": 272,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-19_engine_snare_r6.wav",
+            "sha256": "77152a201d06e7ad7cfcdb182f9e9699c844eaa80bfeb30e6baa32d7cf1cffdd"
+          },
+          "editable_native_project": "native/DKC-19_engine_snare_r6.rpp",
+          "recalled_state_sha256": "547c4c59e9d48e0bf4b548cea6387d73771b7afb5e30f169990a489c333649df",
+          "printed_stem": "final_stems/DKC-19/engine_snare.flac",
+          "balance_gain": 7.783567112513413,
+          "pan": 0,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Firm electronic engine; lighter/shorter secondary notes; brass punctuation receives space; acoustic answers remain an alternative.",
+          "capability_extension": null,
+          "printed_stem_sha256": "1af1fe43a0a1d8bb607c82104ce74ca27d685ac7f3cdc47f063ef468579a6d3c"
+        },
+        {
+          "part": "engine_hats",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "percussion",
+          "instrument_alias": "electronic_kit_fixed",
+          "native_programs": [
+            {
+              "name": "BeatBox Anthology 2",
+              "path": "$BeatBox Anthology 2.ufs/Presets/BeatBox Anthology 2.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "NoiseOscillator",
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            42,
+            46
+          ],
+          "note_count": 910,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-19_engine_hats_r6.wav",
+            "sha256": "2aa86deab867b813cc7234fd8a55aae836f80e312bdb827316cb9705fd46c10b"
+          },
+          "editable_native_project": "native/DKC-19_engine_hats_r6.rpp",
+          "recalled_state_sha256": "547c4c59e9d48e0bf4b548cea6387d73771b7afb5e30f169990a489c333649df",
+          "printed_stem": "final_stems/DKC-19/engine_hats.flac",
+          "balance_gain": 23.556890709328208,
+          "pan": 0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Firm electronic engine; lighter/shorter secondary notes; brass punctuation receives space; acoustic answers remain an alternative.",
+          "capability_extension": null,
+          "printed_stem_sha256": "597c7e956c7fa1cdd6e501df1945833249b4c722ae7cec231c45cda2acb5fb45"
+        },
+        {
+          "part": "engine_metal_toms",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "kit",
+          "instrument_alias": "electronic_kit_fixed",
+          "native_programs": [
+            {
+              "name": "BeatBox Anthology 2",
+              "path": "$BeatBox Anthology 2.ufs/Presets/BeatBox Anthology 2.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "NoiseOscillator",
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            43,
+            51
+          ],
+          "note_count": 226,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-19_engine_metal_toms_r6.wav",
+            "sha256": "4316027689b5fd5ad2db329aae9fc23e25cea9d90627c8b72413f764b6ee0faf"
+          },
+          "editable_native_project": "native/DKC-19_engine_metal_toms_r6.rpp",
+          "recalled_state_sha256": "547c4c59e9d48e0bf4b548cea6387d73771b7afb5e30f169990a489c333649df",
+          "printed_stem": "final_stems/DKC-19/engine_metal_toms.flac",
+          "balance_gain": 1.5663539893621408,
+          "pan": 0,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Firm electronic engine; lighter/shorter secondary notes; brass punctuation receives space; acoustic answers remain an alternative.",
+          "capability_extension": null,
+          "printed_stem_sha256": "fe4fed2eb7abb5a31d8b6d7ec23921cce727cc40d44d7293717bc0a2562f555b"
+        }
+      ],
+      "mix_project": "04-Fear-Factory-mix.rpp",
+      "native_part_projects_editable": true,
+      "mix_project_verification": "PASS_NATIVE_RELOAD_AND_RENDER",
+      "physical_model": "Fictional studio ensemble; guitars split between strings A and B; simultaneous percussion layers use declared overdubs; no real artist performance claimed",
+      "mix_project_sha256": "6651f0792ee8fcdba6f68a523d0e1b2df3d5262977127f23b3c7486cd703aa25"
+    },
+    {
+      "id": "DKC-11",
+      "selected_version": 11,
+      "source_and_cast_outline": "revision_call_sheets_v2.json",
+      "actual_parts": [
+        {
+          "part": "upper_strings",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "harmony",
+          "instrument_alias": "synth_strings",
+          "native_programs": [
+            {
+              "name": "Warmth",
+              "path": "$Atmospherics.ufs/Presets/Pure Pads/Warmth.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            53,
+            76
+          ],
+          "note_count": 152,
+          "controller_event_count": 868,
+          "native_audio": {
+            "file": "native/DKC-11_upper_strings_performed_verified.wav",
+            "sha256": "c35a7d72f8ff2b74018ea2e6db6c6b72a39b630e9ed083b52e64ca962e24b255"
+          },
+          "editable_native_project": "native/DKC-11_upper_strings_performed_verified.rpp",
+          "recalled_state_sha256": "eee2b985aabb2b1acdc7913fc9fe7a5b320aea9773d6e47d3768b728ab834725",
+          "printed_stem": "final_stems/DKC-11/upper_strings.flac",
+          "balance_gain": 1.1148141541847256,
+          "pan": 0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Grouped bottle dynamics and phrase-end breath gaps; preserve wide upper-string movement; low strings yield when the source bass arrives.",
+          "capability_extension": null,
+          "printed_stem_sha256": "252042e1235b5ea0441fcc5af326bf907ba4a0526daea63e6120fb0cd92cb675"
+        },
+        {
+          "part": "low_strings",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "harmony",
+          "instrument_alias": "synth_strings",
+          "native_programs": [
+            {
+              "name": "Warmth",
+              "path": "$Atmospherics.ufs/Presets/Pure Pads/Warmth.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            24,
+            50
+          ],
+          "note_count": 104,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-11_low_strings_performed.wav",
+            "sha256": "57b3669ed0cc24a040446d4453219c2d1af09343f22812b7b2b84e3f55c2e9d1"
+          },
+          "editable_native_project": "native/DKC-11_low_strings_performed.rpp",
+          "recalled_state_sha256": "9358d7b2894582f3abaac419c3bf5523d265a2cb49c948a0e8f9a6029d33b428",
+          "printed_stem": "final_stems/DKC-11/low_strings.flac",
+          "balance_gain": 0.4769171471646353,
+          "pan": -0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Grouped bottle dynamics and phrase-end breath gaps; preserve wide upper-string movement; low strings yield when the source bass arrives.",
+          "capability_extension": null,
+          "printed_stem_sha256": "77a19e77e4f24003239c220306ae38ecf650bcb61fec876a734d631ac5934855"
+        },
+        {
+          "part": "bottle_low",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "foreground",
+          "instrument_alias": "bottle_lead",
+          "native_programs": [
+            {
+              "name": "bottle_lead",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator",
+            "NoiseOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            70,
+            81
+          ],
+          "note_count": 116,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-11_bottle_low_phrased_r7.wav",
+            "sha256": "120f5639a6b61c4c55830263bba8d95489354028200d0badf2a02855d016c520"
+          },
+          "editable_native_project": "native/DKC-11_bottle_low_phrased_r7.rpp",
+          "recalled_state_sha256": "1bed78323b17564d42ff26711aa65b43761f7e839a66ca1c8d312a645bd619ba",
+          "printed_stem": "final_stems/DKC-11/bottle_low.flac",
+          "balance_gain": 6.5996573050609655,
+          "pan": -0.0225,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Grouped bottle dynamics and phrase-end breath gaps; preserve wide upper-string movement; low strings yield when the source bass arrives.",
+          "capability_extension": null,
+          "printed_stem_sha256": "61b4aee3c4a5a1e5ae407ec32f87e4707a673d3af9178281f8b98655909d7f6e"
+        },
+        {
+          "part": "bottle_high",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "foreground",
+          "instrument_alias": "bottle_lead",
+          "native_programs": [
+            {
+              "name": "bottle_lead",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator",
+            "NoiseOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            82,
+            89
+          ],
+          "note_count": 60,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-11_bottle_high_phrased_r7.wav",
+            "sha256": "1734dc497c91c630d280e5bb01b99e9991544ec80e74b9a2d78741f4887744e9"
+          },
+          "editable_native_project": "native/DKC-11_bottle_high_phrased_r7.rpp",
+          "recalled_state_sha256": "1bed78323b17564d42ff26711aa65b43761f7e839a66ca1c8d312a645bd619ba",
+          "printed_stem": "final_stems/DKC-11/bottle_high.flac",
+          "balance_gain": 4.532636349943463,
+          "pan": 0.0225,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Grouped bottle dynamics and phrase-end breath gaps; preserve wide upper-string movement; low strings yield when the source bass arrives.",
+          "capability_extension": null,
+          "printed_stem_sha256": "72ff2b0dc4f3f90aca55e52c14b658f6f2144ec888e1fb57b51fb13abdfea834"
+        },
+        {
+          "part": "atmospheric_reply",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "texture",
+          "instrument_alias": "rounded_lead",
+          "native_programs": [
+            {
+              "name": "rounded_lead",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            57,
+            65
+          ],
+          "note_count": 352,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-11_atmospheric_reply_performed_verified.wav",
+            "sha256": "dd7afcd1a411b49b8b4118d366fd6b26a45bf87aa4ba30bf2fb9fb5c59e41154"
+          },
+          "editable_native_project": "native/DKC-11_atmospheric_reply_performed_verified.rpp",
+          "recalled_state_sha256": "46517fa0014a5296d9c164dc7e4a3bf5400a9fa8162bceac021ff1715f692f98",
+          "printed_stem": "final_stems/DKC-11/atmospheric_reply.flac",
+          "balance_gain": 0.3768363089711868,
+          "pan": 0.165,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Grouped bottle dynamics and phrase-end breath gaps; preserve wide upper-string movement; low strings yield when the source bass arrives.",
+          "capability_extension": null,
+          "printed_stem_sha256": "fa8a1093e8ddef7f64ab1e628f5fed9f0c8de15067c2dbb6f6d7a12784b09bb1"
+        },
+        {
+          "part": "picked_bass",
+          "profile_id": "bass",
+          "profile_revision": 1,
+          "profile_sha256": "6606c86a014c4d97ac2be64204b466a20a8e67d2d3892e3469f2425efa3ecb7d",
+          "role": "bass",
+          "instrument_alias": "electric_bass",
+          "native_programs": [
+            {
+              "name": "Cuba Bass",
+              "path": "$World Suite 3.ufs/Presets/01 Types/Fretted/Electric Bass/Cuba Bass.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [
+            {
+              "processor": "EventProcessor0",
+              "selection": "1"
+            }
+          ],
+          "native_note_or_trigger_range": [
+            26,
+            48
+          ],
+          "note_count": 544,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-11_picked_bass_performed_verified.wav",
+            "sha256": "7255e4bdff2a809f9c9581482482d14e49cf3b24c37db89681e478bd471d1a6a"
+          },
+          "editable_native_project": "native/DKC-11_picked_bass_performed_verified.rpp",
+          "recalled_state_sha256": "af9bcf297b161313bb2555316f529bf64779ea6a82a74847d8c7ff0caea82c77",
+          "printed_stem": "final_stems/DKC-11/picked_bass.flac",
+          "balance_gain": 1.4985389848850799,
+          "pan": 0,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "George Porter Jr. reference: make the original low contour recognizable through controlled endings and its relationship to the groove.",
+          "profile_source": "design/music/performers/bass.md",
+          "physical_model": "One principal electric bass in a declared drop-D conceptual setup; native low D measured; no claim about the sample recording fingering.",
+          "phrase_plan": "Grouped bottle dynamics and phrase-end breath gaps; preserve wide upper-string movement; low strings yield when the source bass arrives.",
+          "capability_extension": "Drop-D low-register extension required by the source, with exact low-D native test.",
+          "printed_stem_sha256": "f3d111e8571b15652a2f8ed9d787d50ac563fdb428c8f9d957a89c71011e61c1"
+        },
+        {
+          "part": "bongos",
+          "profile_id": "afro_caribbean_percussion",
+          "profile_revision": 1,
+          "profile_sha256": "09b6ead457ed5b65c77bb84623994030b0739556f22ad2def99b365306e2ca40",
+          "role": "percussion",
+          "instrument_alias": "bongos",
+          "native_programs": [
+            {
+              "name": "Congas",
+              "path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [
+            {
+              "processor": "EventProcessor0",
+              "selection": "3"
+            }
+          ],
+          "native_note_or_trigger_range": [
+            48,
+            50
+          ],
+          "note_count": 390,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-11_bongos_performed_r3.wav",
+            "sha256": "6149c3ffe7bbe18008419770369d00d6b0da61d486d31e98ff267927ebdc646f"
+          },
+          "editable_native_project": "native/DKC-11_bongos_performed_r3.rpp",
+          "recalled_state_sha256": "b79d6364cd5e626a43fab439fd04bceb5a9d7ab8f1c961cfabcfc75e80acaad7",
+          "printed_stem": "final_stems/DKC-11/bongos.flac",
+          "balance_gain": 1.8726029409127973,
+          "pan": -0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Mongo Santamaria profile: distinct hand-drum registers and purposeful answers around a stable cycle; do not label unverified sample triggers as specific traditional strokes.",
+          "profile_source": "design/music/performers/afro_caribbean_percussion.md",
+          "physical_model": "Distinct native part; simultaneous conga/bongo or auxiliary wood/metal/jingle material may use explicitly declared studio overdubs, rather than a single impossible setup.",
+          "phrase_plan": "Grouped bottle dynamics and phrase-end breath gaps; preserve wide upper-string movement; low strings yield when the source bass arrives.",
+          "capability_extension": null,
+          "printed_stem_sha256": "8a07bb528901fb8f04251e9b78374bb52f00ce374657c8a667b544aca5b907df"
+        },
+        {
+          "part": "triangle_ring",
+          "profile_id": "aux_percussion",
+          "profile_revision": 1,
+          "profile_sha256": "230c15916457499ecb3449e1685d008ce792fcb42fd6532e74352e96c4244a3a",
+          "role": "percussion",
+          "instrument_alias": "triangle_open",
+          "native_programs": [
+            {
+              "name": "Original native metallic tick",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            84,
+            84
+          ],
+          "note_count": 312,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-11_triangle_ring_performed_r3.wav",
+            "sha256": "11ac0b65379ffb712915ccad237be0da05778640223563f725e87c09d2e7b459"
+          },
+          "editable_native_project": "native/DKC-11_triangle_ring_performed_r3.rpp",
+          "recalled_state_sha256": "bedbb47fbdb1880df2774964f7ceac0ff9a5111a18a6d7b4522f2cd889d13206",
+          "printed_stem": "final_stems/DKC-11/triangle_ring.flac",
+          "balance_gain": 0.4962741015255577,
+          "pan": 0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Willie Bobo profile: a necessary small-percussion voice with a clear phrase role; distinct studio layers when hands or instrument changes would conflict.",
+          "profile_source": "design/music/performers/aux_percussion.md",
+          "physical_model": "Distinct native part; simultaneous conga/bongo or auxiliary wood/metal/jingle material may use explicitly declared studio overdubs, rather than a single impossible setup.",
+          "phrase_plan": "Grouped bottle dynamics and phrase-end breath gaps; preserve wide upper-string movement; low strings yield when the source bass arrives.",
+          "capability_extension": "Source-directed cabasa/frame-jingle, wood and metallic roles, as applicable; separate layers and provisional timbre proxies are explicit.",
+          "printed_stem_sha256": "c6ddda54ad7794f7ef66cee159219bfca4430e7e3ebd64c89a1ff71006e8c698"
+        },
+        {
+          "part": "triangle_short",
+          "profile_id": "aux_percussion",
+          "profile_revision": 1,
+          "profile_sha256": "230c15916457499ecb3449e1685d008ce792fcb42fd6532e74352e96c4244a3a",
+          "role": "percussion",
+          "instrument_alias": "triangle_muted",
+          "native_programs": [
+            {
+              "name": "Original native metallic tick",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            84,
+            84
+          ],
+          "note_count": 936,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-11_triangle_short_performed_r3.wav",
+            "sha256": "ce6c903c5cd8a63d54a7d42cd1518f391d956aa46f923500695eb5a4aa36d87c"
+          },
+          "editable_native_project": "native/DKC-11_triangle_short_performed_r3.rpp",
+          "recalled_state_sha256": "2182338e86d0a291056f205012267ca57cadf4a543e0280374e1e9af42c79b14",
+          "printed_stem": "final_stems/DKC-11/triangle_short.flac",
+          "balance_gain": 0.817592423278732,
+          "pan": -0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Willie Bobo profile: a necessary small-percussion voice with a clear phrase role; distinct studio layers when hands or instrument changes would conflict.",
+          "profile_source": "design/music/performers/aux_percussion.md",
+          "physical_model": "Distinct native part; simultaneous conga/bongo or auxiliary wood/metal/jingle material may use explicitly declared studio overdubs, rather than a single impossible setup.",
+          "phrase_plan": "Grouped bottle dynamics and phrase-end breath gaps; preserve wide upper-string movement; low strings yield when the source bass arrives.",
+          "capability_extension": "Source-directed cabasa/frame-jingle, wood and metallic roles, as applicable; separate layers and provisional timbre proxies are explicit.",
+          "printed_stem_sha256": "6fecc5b05dedd067b498ef323e0a41a3cd0f1fb486e92827fa731a2169901694"
+        },
+        {
+          "part": "congas",
+          "profile_id": "afro_caribbean_percussion",
+          "profile_revision": 1,
+          "profile_sha256": "09b6ead457ed5b65c77bb84623994030b0739556f22ad2def99b365306e2ca40",
+          "role": "percussion",
+          "instrument_alias": "congas",
+          "native_programs": [
+            {
+              "name": "Congas",
+              "path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [
+            {
+              "processor": "EventProcessor0",
+              "selection": "7"
+            }
+          ],
+          "native_note_or_trigger_range": [
+            48,
+            53
+          ],
+          "note_count": 624,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-11_congas_performed_r3.wav",
+            "sha256": "ce26baa8797d9f702d142675b6a6771fa4160134ed47de3a3cd82025eea690b8"
+          },
+          "editable_native_project": "native/DKC-11_congas_performed_r3.rpp",
+          "recalled_state_sha256": "1395d6327ae6a51f25f8cb747acd37134fea3cd220aa859a2e0fcdb64e30673d",
+          "printed_stem": "final_stems/DKC-11/congas.flac",
+          "balance_gain": 2.0866222841668747,
+          "pan": 0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Mongo Santamaria profile: distinct hand-drum registers and purposeful answers around a stable cycle; do not label unverified sample triggers as specific traditional strokes.",
+          "profile_source": "design/music/performers/afro_caribbean_percussion.md",
+          "physical_model": "Distinct native part; simultaneous conga/bongo or auxiliary wood/metal/jingle material may use explicitly declared studio overdubs, rather than a single impossible setup.",
+          "phrase_plan": "Grouped bottle dynamics and phrase-end breath gaps; preserve wide upper-string movement; low strings yield when the source bass arrives.",
+          "capability_extension": null,
+          "printed_stem_sha256": "73daabe30ff382447a889cf14117ce4e51b639e8572fbdc7f91e35fe17eb3654"
+        },
+        {
+          "part": "woodblocks",
+          "profile_id": "aux_percussion",
+          "profile_revision": 1,
+          "profile_sha256": "230c15916457499ecb3449e1685d008ce792fcb42fd6532e74352e96c4244a3a",
+          "role": "percussion",
+          "instrument_alias": "woodblock",
+          "native_programs": [
+            {
+              "name": "DKC wood native string model",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "PluckOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            79,
+            84
+          ],
+          "note_count": 312,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-11_woodblocks_performed_r3.wav",
+            "sha256": "04c46080ee1d66909045a2ec2ff1b8cc4e8c7691b6fdbba95c87dcf8c471d8fd"
+          },
+          "editable_native_project": "native/DKC-11_woodblocks_performed_r3.rpp",
+          "recalled_state_sha256": "dfb1d9d274693ee5b0b4fe7c6c4905d5c30a33cbd1e2f52148267793c4d09a0f",
+          "printed_stem": "final_stems/DKC-11/woodblocks.flac",
+          "balance_gain": 38.065761711155545,
+          "pan": -0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Willie Bobo profile: a necessary small-percussion voice with a clear phrase role; distinct studio layers when hands or instrument changes would conflict.",
+          "profile_source": "design/music/performers/aux_percussion.md",
+          "physical_model": "Distinct native part; simultaneous conga/bongo or auxiliary wood/metal/jingle material may use explicitly declared studio overdubs, rather than a single impossible setup.",
+          "phrase_plan": "Grouped bottle dynamics and phrase-end breath gaps; preserve wide upper-string movement; low strings yield when the source bass arrives.",
+          "capability_extension": "Source-directed cabasa/frame-jingle, wood and metallic roles, as applicable; separate layers and provisional timbre proxies are explicit.",
+          "printed_stem_sha256": "564faba540398f3c8ef22fef6b7078cd67f9e553119c752acad5436e3b7a5f17"
+        },
+        {
+          "part": "kit",
+          "profile_id": "acoustic_drums",
+          "profile_revision": 1,
+          "profile_sha256": "23ebfd3f9ced8851a7deabab415939c44b92994f27fc2f37438e0fb8823448c3",
+          "role": "kit",
+          "instrument_alias": "jazz_kit",
+          "native_programs": [
+            {
+              "name": "Jazz Kit",
+              "path": "$LoFi Dreams.ufs/Presets/Drums/Jazz Kit.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            36,
+            46
+          ],
+          "note_count": 560,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-11_kit_performed_r3.wav",
+            "sha256": "0fc30707a1b63244543a3be520a7e11c1b557684cd39e87288bb27d92620c329"
+          },
+          "editable_native_project": "native/DKC-11_kit_performed_r3.rpp",
+          "recalled_state_sha256": "da3e42c18b58fd5d024a1bbe7ccc8774326b6f6d3cf6ebddc747313a9fece262",
+          "printed_stem": "final_stems/DKC-11/kit.flac",
+          "balance_gain": 5.208617849001288,
+          "pan": 0,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Zigaboo Modeliste reference: principal strokes, lighter connecting events and intentional space; do not describe discrete brush hits as a continuous sweep.",
+          "profile_source": "design/music/performers/acoustic_drums.md",
+          "physical_model": "Compact discrete kit strokes within a two-hand/two-foot role; no unsupported brush sweep claimed.",
+          "phrase_plan": "Grouped bottle dynamics and phrase-end breath gaps; preserve wide upper-string movement; low strings yield when the source bass arrives.",
+          "capability_extension": null,
+          "printed_stem_sha256": "ad7a52d5caac8ebf263acfa40dce453c632e805631f706a1d60951a585e9f6f1"
+        }
+      ],
+      "mix_project": "05-Life-in-the-Mines-mix.rpp",
+      "native_part_projects_editable": true,
+      "mix_project_verification": "PASS_NATIVE_RELOAD_AND_RENDER",
+      "physical_model": "Fictional studio ensemble; guitars split between strings A and B; simultaneous percussion layers use declared overdubs; no real artist performance claimed",
+      "mix_project_sha256": "20b1bdc16c9f97cd40f4e689ee190b8fcd609485b37bab1c28edea89297f7d1a"
+    },
+    {
+      "id": "DKC-15",
+      "selected_version": 12,
+      "source_and_cast_outline": "revision_call_sheets_v2.json",
+      "actual_parts": [
+        {
+          "part": "muted_guitar",
+          "profile_id": "strings_b",
+          "profile_revision": 1,
+          "profile_sha256": "8bfc1bce5f621ca25acf9f6b56dcdef8763f4bdbca2e960b4db8986a83a5e106",
+          "role": "foreground",
+          "instrument_alias": "guitar_muted_model",
+          "native_programs": [
+            {
+              "name": "DKC muted native string model",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "PluckOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            64,
+            72
+          ],
+          "note_count": 1024,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-15_muted_guitar_settled_r12.wav",
+            "sha256": "c136ff33ee0c4e12ade27cd04ef1b425a13c1204026fee31ff5aa14735aa1755"
+          },
+          "editable_native_project": "native/DKC-15_muted_guitar_settled_r12.rpp",
+          "recalled_state_sha256": "f7c4062604c3a2897883f4f36485927687c3078850c2200c78950a9218eab47b",
+          "printed_stem": "final_stems_r12/DKC-15/muted_guitar.flac",
+          "balance_gain": 70,
+          "pan": -0.0225,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Leo Nocentelli and the Meters reference: a short muted interlock that supports the bass and leaves the cleaner line distinct.",
+          "profile_source": "design/music/performers/strings_b.md",
+          "physical_model": "One dedicated guitar line; strings A and B split the clean and muted parts. Native physical-string synthesis, not a recording of a real player.",
+          "phrase_plan": "Clean guitar about 52 percent and muted interlock 54 percent; tighter upper muted releases; the selected final touch spreads simultaneous chord attacks and revises damping.",
+          "capability_extension": "Source-directed clean/muted electric-guitar function realized with a separately tested native physical-string model; sampled-electric realism not established.",
+          "printed_stem_sha256": "811bc8e46b26a94ef83facb4b39b79318139e8c170985c4d58e32a67000aee0f"
+        },
+        {
+          "part": "clean_guitar",
+          "profile_id": "strings_a",
+          "profile_revision": 1,
+          "profile_sha256": "4abe1de6b19014b9def73373e026c89278135c3cb04bdef01c4539cb8366ce4f",
+          "role": "foreground",
+          "instrument_alias": "guitar_clean_model",
+          "native_programs": [
+            {
+              "name": "DKC clean native string model",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "PluckOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            52,
+            60
+          ],
+          "note_count": 279,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-15_clean_guitar_settled_r12.wav",
+            "sha256": "b6809911ac61aed2a16648c90c49cf762d51e306a322b75804ec185bcf3f2663"
+          },
+          "editable_native_project": "native/DKC-15_clean_guitar_settled_r12.rpp",
+          "recalled_state_sha256": "e0a81fbbda0d70c19062a94ca85f6a3d56105d420e8d916d0104817ca9f57726",
+          "printed_stem": "final_stems_r12/DKC-15/clean_guitar.flac",
+          "balance_gain": 70,
+          "pan": 0.0225,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Ernest Ranglin reference: compact melodic sentences and economical voicings for the clean guitar figure.",
+          "profile_source": "design/music/performers/strings_a.md",
+          "physical_model": "One dedicated guitar line; strings A and B split the clean and muted parts. Native physical-string synthesis, not a recording of a real player.",
+          "phrase_plan": "Clean guitar about 52 percent and muted interlock 54 percent; tighter upper muted releases; the selected final touch spreads simultaneous chord attacks and revises damping.",
+          "capability_extension": "Source-directed clean/muted electric-guitar function realized with a separately tested native physical-string model; sampled-electric realism not established.",
+          "printed_stem_sha256": "9668951c13deded7314b920aaa306cac730370c5b18f5f09b85ef891ad5143fd"
+        },
+        {
+          "part": "picked_bass",
+          "profile_id": "bass",
+          "profile_revision": 1,
+          "profile_sha256": "6606c86a014c4d97ac2be64204b466a20a8e67d2d3892e3469f2425efa3ecb7d",
+          "role": "bass",
+          "instrument_alias": "electric_bass",
+          "native_programs": [
+            {
+              "name": "Cuba Bass",
+              "path": "$World Suite 3.ufs/Presets/01 Types/Fretted/Electric Bass/Cuba Bass.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [
+            {
+              "processor": "EventProcessor0",
+              "selection": "1"
+            }
+          ],
+          "native_note_or_trigger_range": [
+            29,
+            36
+          ],
+          "note_count": 882,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-15_picked_bass_performed_verified.wav",
+            "sha256": "177c81940d0e2374c75b5e04a47430532d50af4e80236c7ff69e2b6e9802f0e4"
+          },
+          "editable_native_project": "native/DKC-15_picked_bass_performed_verified.rpp",
+          "recalled_state_sha256": "7290006815b1020a0eac0024df9b00999e1f14a0053297354654bcccc6dcc823",
+          "printed_stem": "final_stems_r12/DKC-15/picked_bass.flac",
+          "balance_gain": 1.8144015468438366,
+          "pan": 0,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "George Porter Jr. reference: make the original low contour recognizable through controlled endings and its relationship to the groove.",
+          "profile_source": "design/music/performers/bass.md",
+          "physical_model": "One principal plucked bass; source note contour retained and releases controlled.",
+          "phrase_plan": "Clean guitar about 52 percent and muted interlock 54 percent; tighter upper muted releases; the selected final touch spreads simultaneous chord attacks and revises damping.",
+          "capability_extension": null,
+          "printed_stem_sha256": "4d755f6477fde3c4e00b1b9ad0993ad5a85aad6e2913c2d9270e263bea7b2553"
+        },
+        {
+          "part": "orchestra_hits",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "harmony",
+          "instrument_alias": "brass_stab",
+          "native_programs": [
+            {
+              "name": "brass_stab",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            62,
+            81
+          ],
+          "note_count": 336,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-15_orchestra_hits_performed_verified.wav",
+            "sha256": "dfb078a976fbc3b47b114570206c0f28a9da6c09c94ebd0d89ad3a48741ba37b"
+          },
+          "editable_native_project": "native/DKC-15_orchestra_hits_performed_verified.rpp",
+          "recalled_state_sha256": "d35205184aa6a9b584516942c9aafda9b85e861a87fe9210483a6cb2fdb26556",
+          "printed_stem": "final_stems_r12/DKC-15/orchestra_hits.flac",
+          "balance_gain": 1.087371727295788,
+          "pan": -0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Clean guitar about 52 percent and muted interlock 54 percent; tighter upper muted releases; the selected final touch spreads simultaneous chord attacks and revises damping.",
+          "capability_extension": null,
+          "printed_stem_sha256": "8b087d2efa29b3404b2aa2f4347645cf4341a44e1ccc2904db670ffce1c4dfa0"
+        },
+        {
+          "part": "kit",
+          "profile_id": "acoustic_drums",
+          "profile_revision": 1,
+          "profile_sha256": "23ebfd3f9ced8851a7deabab415939c44b92994f27fc2f37438e0fb8823448c3",
+          "role": "kit",
+          "instrument_alias": "jazz_kit",
+          "native_programs": [
+            {
+              "name": "Jazz Kit",
+              "path": "$LoFi Dreams.ufs/Presets/Drums/Jazz Kit.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            36,
+            46
+          ],
+          "note_count": 1584,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-15_kit_performed_r3.wav",
+            "sha256": "9282ab789b177dabde8d0b0cbe5f4b411fe4bd4015709743e80dd23bbbd85f53"
+          },
+          "editable_native_project": "native/DKC-15_kit_performed_r3.rpp",
+          "recalled_state_sha256": "ee4ee71bf740c7b55f2a8dfe4e8d149f04a4a368488c528b45626637ce019427",
+          "printed_stem": "final_stems_r12/DKC-15/kit.flac",
+          "balance_gain": 2.4286688195818416,
+          "pan": 0,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Zigaboo Modeliste reference: principal strokes, lighter connecting events and intentional space; do not describe discrete brush hits as a continuous sweep.",
+          "profile_source": "design/music/performers/acoustic_drums.md",
+          "physical_model": "Compact discrete kit strokes within a two-hand/two-foot role; no unsupported brush sweep claimed.",
+          "phrase_plan": "Clean guitar about 52 percent and muted interlock 54 percent; tighter upper muted releases; the selected final touch spreads simultaneous chord attacks and revises damping.",
+          "capability_extension": null,
+          "printed_stem_sha256": "e615b8b36177a45e0e941f02063dc29cb10eed490d4fae424dee9848193f3890"
+        },
+        {
+          "part": "electronic_clicks",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "percussion",
+          "instrument_alias": "electronic_click",
+          "native_programs": [
+            {
+              "name": "Original native electronic click",
+              "path": ""
+            }
+          ],
+          "native_oscillator_types": [
+            "FmOscillator"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            84,
+            91
+          ],
+          "note_count": 96,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-15_electronic_clicks_performed_r3.wav",
+            "sha256": "0b427279daedc634df02bb1c7e09b51dfa62e142d6ae385d5609160190bca364"
+          },
+          "editable_native_project": "native/DKC-15_electronic_clicks_performed_r3.rpp",
+          "recalled_state_sha256": "7296b14e7a607ac456ee40d260825029ac7695182c91a9349bc3d286269344b2",
+          "printed_stem": "final_stems_r12/DKC-15/electronic_clicks.flac",
+          "balance_gain": 0.8123805604868699,
+          "pan": 0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Clean guitar about 52 percent and muted interlock 54 percent; tighter upper muted releases; the selected final touch spreads simultaneous chord attacks and revises damping.",
+          "capability_extension": null,
+          "printed_stem_sha256": "4e8fb507961cd5ffe07d1c6a418f8539c357e1ba9e198209d231123352bf43cf"
+        },
+        {
+          "part": "cuica",
+          "profile_id": "aux_percussion",
+          "profile_revision": 1,
+          "profile_sha256": "230c15916457499ecb3449e1685d008ce792fcb42fd6532e74352e96c4244a3a",
+          "role": "percussion",
+          "instrument_alias": "cuica",
+          "native_programs": [
+            {
+              "name": "Congas",
+              "path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [
+            {
+              "processor": "EventProcessor0",
+              "selection": "9"
+            }
+          ],
+          "native_note_or_trigger_range": [
+            60,
+            60
+          ],
+          "note_count": 6,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-15_cuica_performed_r3.wav",
+            "sha256": "fc1db82b6001da611e2803f390f6a35561b28c503d1fe0deb075a11b5c08c6f8"
+          },
+          "editable_native_project": "native/DKC-15_cuica_performed_r3.rpp",
+          "recalled_state_sha256": "c82a0bb1d98d237e33185b6d794edcbaddfc1966b7dc95b8c8f6dc772d910b1b",
+          "printed_stem": "final_stems_r12/DKC-15/cuica.flac",
+          "balance_gain": 0.5510595969858827,
+          "pan": -0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Willie Bobo profile: a necessary small-percussion voice with a clear phrase role; distinct studio layers when hands or instrument changes would conflict.",
+          "profile_source": "design/music/performers/aux_percussion.md",
+          "physical_model": "Distinct native part; simultaneous conga/bongo or auxiliary wood/metal/jingle material may use explicitly declared studio overdubs, rather than a single impossible setup.",
+          "phrase_plan": "Clean guitar about 52 percent and muted interlock 54 percent; tighter upper muted releases; the selected final touch spreads simultaneous chord attacks and revises damping.",
+          "capability_extension": "Source-directed cabasa/frame-jingle, wood and metallic roles, as applicable; separate layers and provisional timbre proxies are explicit.",
+          "printed_stem_sha256": "3ade5717ed29896ef3ab50d79cd3d36c63e4ae30b27138e767994f283a4d04cf"
+        },
+        {
+          "part": "clap_gesture",
+          "profile_id": "producer",
+          "profile_revision": 2,
+          "profile_sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "role": "percussion",
+          "instrument_alias": "sampled_clap",
+          "native_programs": [
+            {
+              "name": "LoFi",
+              "path": "$LoFi Dreams.ufs/Presets/Drums/LoFi.uvip"
+            }
+          ],
+          "native_oscillator_types": [
+            "SamplePlayer"
+          ],
+          "saved_menu_selectors": [],
+          "native_note_or_trigger_range": [
+            50,
+            50
+          ],
+          "note_count": 40,
+          "controller_event_count": 0,
+          "native_audio": {
+            "file": "native/DKC-15_clap_gesture_alternate_r9.wav",
+            "sha256": "312ed26964c05768b056090774d877211dc8b78e327fc002b72f200ac85ab350"
+          },
+          "editable_native_project": "native/DKC-15_clap_gesture_alternate_r9.rpp",
+          "recalled_state_sha256": "fbd4f0c55634cc2936023015f617e25e1f04939f340f881da75e3950252d18c5",
+          "printed_stem": "final_stems_r12/DKC-15/clap_gesture.flac",
+          "balance_gain": 0.4816862008365111,
+          "pan": 0.12,
+          "readiness": "NATIVE_PRINT_IDENTIFIED; ROLE_SPECIFIC_STRESS_EVIDENCE_RECORDED; SOURCE_LIKENESS_AND_HUMAN_ACCEPTANCE_OPEN",
+          "reference_principle": "Bonobo profile: source choice, precise manual rhythm, evolving instrumental space and subtraction around the hook.",
+          "profile_source": "design/music/performers/producer.md",
+          "physical_model": "Layered studio keyboard/synthesis and electronic rhythm realization; concurrent source layers are declared separate passes.",
+          "phrase_plan": "Clean guitar about 52 percent and muted interlock 54 percent; tighter upper muted releases; the selected final touch spreads simultaneous chord attacks and revises damping.",
+          "capability_extension": null,
+          "printed_stem_sha256": "4d739701dc707741f4e86d3945e2a1213d7dba879f2b68b28bb843ec80d1fd24"
+        }
+      ],
+      "mix_project": "06-Funkys-Fugue-mix.rpp",
+      "native_part_projects_editable": true,
+      "mix_project_verification": "PASS_NATIVE_RELOAD_AND_RENDER",
+      "physical_model": "Fictional studio ensemble; guitars split between strings A and B; simultaneous percussion layers use declared overdubs; no real artist performance claimed",
+      "mix_project_sha256": "a43371d7a89960d02a309e04175d40ea69c444ef4d000f828f8ed835a1cf7a10"
+    }
+  ]
+}

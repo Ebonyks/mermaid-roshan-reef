@@ -1,0 +1,22 @@
+{
+  "checked_at_utc": "2026-10-01T03:25:41.695661+00:00",
+  "head": "82a6dc1dba381c0b3ef507a8397512fa09ef624e",
+  "checks": [
+    {
+      "command": "python -X utf8 -B tools/audit_document_authority.py",
+      "exit_code": 0,
+      "output": "DOCAUTH|INVENTORY=584|LEDGER=584|ACTIVE=56|RECORDS=58\nDOCAUTH|RESULT|ALL OK\n"
+    },
+    {
+      "command": "python -X utf8 -B tools/audit_development.py --base auto",
+      "exit_code": 0,
+      "output": "AUDITDEV|BASE|5920c673305989ee29d91876480ff445dba9fc8b\nAUDITDEV|RESULT|ALL OK\n"
+    },
+    {
+      "command": "python -X utf8 -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "exit_code": 0,
+      "output": "....................................................\n----------------------------------------------------------------------\nRan 52 tests in 49.557s\n\nOK\nDOCAUTH|STRESS|6/6\n"
+    }
+  ],
+  "scope": "Static book and documentation; no engine/runtime probes applicable."
+}

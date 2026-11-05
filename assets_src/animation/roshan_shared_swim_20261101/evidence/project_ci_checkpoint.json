@@ -1,0 +1,9 @@
+{
+  "source_ci_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e",
+  "failed_stage": "python3 tools/audit_game_2d.py --regression-gate",
+  "prefix_receipt": "evidence/history/ci_archive_gate/project_ci_receipt.json",
+  "prefix_log_sha256": "55b4234f655381358639cb53dd6e555b116b3801ae962529fa3ac5ce9d05f67e",
+  "prefix_completed_through": "Fresh Godot import, after all preceding canonical static/unit/art/audio/authority gates",
+  "reason": "Three diagnostic RGBA XOR ZIPs are conservatively treated as opaque model-bearing archives. Transcode the same numeric pixel differences into explicit lossless 2D video; no migration manifest or gate relaxation.",
+  "production_code_changes": false
+}

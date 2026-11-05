@@ -1,0 +1,30 @@
+{
+  "checked_utc": "2026-11-05T13:03:04.502312+00:00",
+  "failed_revision": "d8ecbfea3e26e764a0a218922d295599c557a4fe",
+  "failed_run": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42024605745",
+  "cause": "The production_3d_files inventory field name in developer audit prose entered the default runtime JSON scan. The pre-CI metadata check had covered model payloads and archives but omitted runtime API classification.",
+  "correction": "Declare the structured audit-impact folder outside Godot import/export through its existing .gdignore mechanism. Preserve the original document text and checker source.",
+  "boundary_file": "design/audit_impacts/.gdignore",
+  "production_design_reference_search": "Zero design/ references in production scripts, scenes or project settings. Python operational tools continue to read audit records through the filesystem.",
+  "unit_cases": 82,
+  "falsification_controls": 19,
+  "three_part_control": "Active metadata with the exact inventory marker is detected. The declared documentation folder is excluded. A model binary there still triggers G2D101.",
+  "fresh_import": "metadata-role-import.log and METADATA_ROLE_IMPORT_RESULT.json, approved4.7.2, original720s deadline and error patterns.",
+  "live_model_gate": "metadata-role-live-model-gate.log, exact NO_REGRESSION at52 production3D files and14 separately hash-pinned tooling files; zero model files/coverage gaps/archives.",
+  "changed_tool_paths": [
+    "tools/tests/test_audit_game_2d.py"
+  ],
+  "game_addon_and_native_validator_git_objects": "All mapped input objects remain exact. Only the additional test changes the tools subtree. The import boundary changes for structured documentation and is verified separately.",
+  "current_tools_git_tree": "a165812e40b3e7402998d246dfcdbd9329718cf0",
+  "current_acceptance": "159 focused cases across the retained77-case suite and current82-case model suite. The96-case visual suite, full prior static checks and all82 game probes retain their bound code/evidence. Fresh exact-head CI remains required.",
+  "latest_dev_wording_reconciliation": {
+    "dev": "94c2a91512d2216deb26651f670469432c8f4242",
+    "checkpoint": "6a73b72a5667d4848dcc175112569430c9a247da",
+    "paths": [
+      "design/audit_impacts/godot-mcp-editor-bridge-20261105.json"
+    ],
+    "record_sha256": "b624f23b366d25b4f45787c77df31017abb68a542d33cb20d75035bd8c8d0571",
+    "result": "PASS",
+    "scope": "Current dev rewords the inventory counter in the same audit record. Preserve that source revision. All game/art/addon/native-validator and current tools objects remain exact. The documentation-folder boundary and hidden-model control remain applicable."
+  }
+}

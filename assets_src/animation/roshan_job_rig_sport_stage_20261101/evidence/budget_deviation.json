@@ -1,0 +1,17 @@
+{
+  "job_card_cap_wall_minutes": 90,
+  "job_card_cap_cleanup_minutes": 90,
+  "initial_job_card_utc": "2026-11-01T06:58:18.603216+00:00",
+  "last_art_export_utc": "2026-11-01T08:09:29.962337+00:00",
+  "controller_entry_repair_utc": "2026-11-01T08:32:08.293159+00:00",
+  "controller_completion_minutes_since_card": 93.83,
+  "status": "WALL_CAP_OVERRUN_DISCLOSED; no further production or cleanup under this card",
+  "builtin_generation_calls": 5,
+  "external_paid_calls": 0,
+  "monetary_usage": "not exposed; no claimed dollar spend",
+  "notes": "Artwork export completed inside the90minute window. Verification revealed an unreachable fixed-wrist entry, repaired approximately4minutes after the total wall cap. This is a recorded process deviation, not cap compliance or a reset. Remaining work is verification, documentation and publication of the frozen review candidate.",
+  "subsequent_method_revision": "evidence/method_revision_v3.json",
+  "cumulative_production_limit_minutes": 120,
+  "cumulative_production_completed_minutes": 117.82,
+  "current_status": "Production stopped on frozenv3 before cumulative120minute bound. The first90minute overrun remains a process deviation; not erased or reset."
+}

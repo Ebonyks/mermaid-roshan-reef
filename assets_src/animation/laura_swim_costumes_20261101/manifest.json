@@ -1,0 +1,3965 @@
+{
+  "schema": 1,
+  "status": "OWNER_REJECTED_MULTI_BUILDER_DIAGNOSTIC_WITH_PROPOSED_CONVERSION_GUIDE",
+  "created_utc": "2026-11-02T01:52:33.004884+00:00",
+  "files": [
+    {
+      "path": ".gdignore",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "2162ee3b80d17577fcf1eb702bf23e8eedda25f8f1cfd3a069286d474f06f885",
+      "bytes": 282
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "e9a8268f63e3010037d15c4722628bdfc078892ef2be8e1cd8392a3394c9322b",
+      "bytes": 57
+    },
+    {
+      "path": "archives/astronaut/loop_alpha.mkv",
+      "sha256": "a56c754c8d7d98dd341a9a3c810b1c519fd95257f8d2424f5c2ed6bd333f3b18",
+      "bytes": 1455772
+    },
+    {
+      "path": "archives/astronaut/loop_receipt.json",
+      "sha256": "ee78761de27288c1f04704be2ea691caabfd205a5bd607db5ec71efe5276c6c3",
+      "bytes": 4459
+    },
+    {
+      "path": "archives/astronaut/loop_rgb.mkv",
+      "sha256": "a7a2a46456dca62783c190ad3a5980d37cf0883f92037b7f1ffead0ab1880632",
+      "bytes": 8094819
+    },
+    {
+      "path": "archives/astronaut/travel_alpha.mkv",
+      "sha256": "3383eeb8ffeda1764a48850a47250a3bafd9194b6e9260e01a185c0d05f3a355",
+      "bytes": 5748889
+    },
+    {
+      "path": "archives/astronaut/travel_receipt.json",
+      "sha256": "72c8a710c9a0ad2202477b69bc596ebf44fce918cb8dfa8519c2636148451c80",
+      "bytes": 16131
+    },
+    {
+      "path": "archives/astronaut/travel_rgb.mkv",
+      "sha256": "24821c94b6c0a60602a436faaa381f9e70d920b28d3a963cd415cf16b7cb7b2b",
+      "bytes": 36009486
+    },
+    {
+      "path": "archives/ballet/loop_alpha.mkv",
+      "sha256": "b1f5c812fcb2dc7b61b1305d5e4cc0b17fcba9618666f528e1cdd956dbc73e5c",
+      "bytes": 1606817
+    },
+    {
+      "path": "archives/ballet/loop_receipt.json",
+      "sha256": "75f512e6772ee7c8377d3173d7fe55a0262c1620c26cc7f760c0ecbddaa0a785",
+      "bytes": 4450
+    },
+    {
+      "path": "archives/ballet/loop_rgb.mkv",
+      "sha256": "8f6784a1675a23a68bb10956d59f627db4ec8d2560701aa27b98747f785d7832",
+      "bytes": 7738305
+    },
+    {
+      "path": "archives/ballet/travel_alpha.mkv",
+      "sha256": "1f85cf35571f2e553c79e9cac83ddd117cea37718bbf83b581ab62a4c5565ea9",
+      "bytes": 6356748
+    },
+    {
+      "path": "archives/ballet/travel_receipt.json",
+      "sha256": "61971a5a872a01ed931fd2342ea4eb8e3d6dcbe2061da3aea041e1b922ab0a90",
+      "bytes": 16122
+    },
+    {
+      "path": "archives/ballet/travel_rgb.mkv",
+      "sha256": "b971040867d72eb867691abbee361767fa9467e9fb960b926aef7a7e0ec112cf",
+      "bytes": 34472380
+    },
+    {
+      "path": "archives/boxer/loop_alpha.mkv",
+      "sha256": "9952c076c989da532c0f40c54efe6f48933b910c40b34c1e36a32112654eca7e",
+      "bytes": 1493676
+    },
+    {
+      "path": "archives/boxer/loop_receipt.json",
+      "sha256": "4526e4ddeb54bcc476686633fe387e962debf055416dfcf78debdcb3998ecb1b",
+      "bytes": 4447
+    },
+    {
+      "path": "archives/boxer/loop_rgb.mkv",
+      "sha256": "43c4acbe974f0d4111ce559e0cb08b2fd50eec2c13648419f36416f48f56fdb1",
+      "bytes": 6611565
+    },
+    {
+      "path": "archives/boxer/travel_alpha.mkv",
+      "sha256": "d2cc4e000bd740a380b7bf802499323dd15f4ffd309f1402fc57a16a7eb97bfa",
+      "bytes": 5903960
+    },
+    {
+      "path": "archives/boxer/travel_receipt.json",
+      "sha256": "fc0bce063dd9ece0ab8f4e5dad988bf9f954f89f30a2b378aa1aea07021f2bef",
+      "bytes": 16119
+    },
+    {
+      "path": "archives/boxer/travel_rgb.mkv",
+      "sha256": "91ba04b6d82e2697ccf4bf03da3c5edb7dc81206387e66ba1b7f3ea5e2f237a8",
+      "bytes": 29651675
+    },
+    {
+      "path": "archives/candymaker/loop_alpha.mkv",
+      "sha256": "43f5fa29e92f0dc4c4903495d53e51d57e9c8a1d0cb0d641be38f94146dfbad9",
+      "bytes": 1580873
+    },
+    {
+      "path": "archives/candymaker/loop_receipt.json",
+      "sha256": "65cdb4162cbc80c6b5fb8626c285d642eb97054efb5611d881d27858fcaa56ee",
+      "bytes": 4462
+    },
+    {
+      "path": "archives/candymaker/loop_rgb.mkv",
+      "sha256": "3c10e9046ac3bad33ae0535331da63cc0f0869fb35e814f171847ff7ef13e414",
+      "bytes": 7279186
+    },
+    {
+      "path": "archives/candymaker/travel_alpha.mkv",
+      "sha256": "d57662ca1cff577a73a0a4704e136591c6939a72cc8785271221a0d8d5d20702",
+      "bytes": 6263040
+    },
+    {
+      "path": "archives/candymaker/travel_receipt.json",
+      "sha256": "718109c07776d6299270b98099e108a00d64cf1e56b4f9b6b2ccf1a7d72e302f",
+      "bytes": 16134
+    },
+    {
+      "path": "archives/candymaker/travel_rgb.mkv",
+      "sha256": "ef54d8c4e0a24c80b50cb9a0604c1d1f7f3a1dd358281254a60bfb03f696baa8",
+      "bytes": 32610980
+    },
+    {
+      "path": "archives/chef/loop_alpha.mkv",
+      "sha256": "678af890eb08d8c289f36a563f39778c3ffa6551a28ccd421ab91cf03307b254",
+      "bytes": 1615064
+    },
+    {
+      "path": "archives/chef/loop_receipt.json",
+      "sha256": "e90f8d89fa571ef993a688c1826e89442f28e586d6f8e266c6adb870d8cfadd0",
+      "bytes": 4444
+    },
+    {
+      "path": "archives/chef/loop_rgb.mkv",
+      "sha256": "3dc70c80d829ee3d624a14109495ad0db9db926d433752d1dc80ff5fd87199b2",
+      "bytes": 7523068
+    },
+    {
+      "path": "archives/chef/travel_alpha.mkv",
+      "sha256": "2fedb99f9041a3ac2894f318297435095994ae81b9afd82425a184ce36c9cfcc",
+      "bytes": 6373467
+    },
+    {
+      "path": "archives/chef/travel_receipt.json",
+      "sha256": "facbc8536b66468027a49e6599fc51a0ca7f9c3051ccb211eff9f26e12069b3c",
+      "bytes": 16116
+    },
+    {
+      "path": "archives/chef/travel_rgb.mkv",
+      "sha256": "bb98ce2a00254efae59f69eedf7f0625af44a7a8c8169486c718ae6810edb528",
+      "bytes": 33344098
+    },
+    {
+      "path": "archives/detective/loop_alpha.mkv",
+      "sha256": "0d71e0b17a2876d99989cc2c568b04f114af49b4125553cf68b970055143195e",
+      "bytes": 1493929
+    },
+    {
+      "path": "archives/detective/loop_receipt.json",
+      "sha256": "d51c61d32d6c10b4c1735e4678cfae00cad9cc29c0c9e7cb823d2f9b5105b521",
+      "bytes": 4459
+    },
+    {
+      "path": "archives/detective/loop_rgb.mkv",
+      "sha256": "4223f29681bddcaf9c38d4e35b5a10fd752a1886d8a7f5242797d12218bbfe4f",
+      "bytes": 7591572
+    },
+    {
+      "path": "archives/detective/travel_alpha.mkv",
+      "sha256": "ece673bb4391e5339d771f7678c30f0af263d45ebb380cb6344c7f3b8d568eea",
+      "bytes": 5906893
+    },
+    {
+      "path": "archives/detective/travel_receipt.json",
+      "sha256": "c38bbeee890777366249996fb88b1eaaf034d1ae47ba1197b0190616f488dad0",
+      "bytes": 16131
+    },
+    {
+      "path": "archives/detective/travel_rgb.mkv",
+      "sha256": "5461383de47492653eda2bb6d157112bc6a76fa1040793f648c8105dbf98be99",
+      "bytes": 33980813
+    },
+    {
+      "path": "archives/doctor/loop_alpha.mkv",
+      "sha256": "14429fde7bf71e67a1c46ed42afd50b8d38daf53d865d07ca1a24f17bb596045",
+      "bytes": 1604690
+    },
+    {
+      "path": "archives/doctor/loop_receipt.json",
+      "sha256": "d6beff1564d274aa30f15e68b185e6bf61ba5f98aca4012a3fd400b29757bf78",
+      "bytes": 4450
+    },
+    {
+      "path": "archives/doctor/loop_rgb.mkv",
+      "sha256": "fe0b6988cd468c2331f32286f91d996da12396867ff490a54907ca1c34d7212a",
+      "bytes": 6921840
+    },
+    {
+      "path": "archives/doctor/travel_alpha.mkv",
+      "sha256": "c70f57cb0a65625ac4a21ee1d50c629bcd8dd3b9bcecc3feae4b1ad4a61ec3f0",
+      "bytes": 6346150
+    },
+    {
+      "path": "archives/doctor/travel_receipt.json",
+      "sha256": "55760acd7d6fda8bc01ca28621073a8b447b74e2c3e169fb27318d086dcfa76e",
+      "bytes": 16122
+    },
+    {
+      "path": "archives/doctor/travel_rgb.mkv",
+      "sha256": "08de5a7791836eefdddc5c90981b829e4469e09798c2a708fbfab4e1b9652e16",
+      "bytes": 30914645
+    },
+    {
+      "path": "archives/farmer/loop_alpha.mkv",
+      "sha256": "c9954f6042025a2255fe31a2658ea8f4f5534ee9c8df184e1a557d849c9fe3a3",
+      "bytes": 1711473
+    },
+    {
+      "path": "archives/farmer/loop_receipt.json",
+      "sha256": "7f6363441a869233003a6abea5c95d93fc9ae56bc8bd6216a26ff675043dcf6b",
+      "bytes": 4450
+    },
+    {
+      "path": "archives/farmer/loop_rgb.mkv",
+      "sha256": "c9b270b7ba22310569d2f1dc76ec924f39d9ad7655f7ef37144be82019463a58",
+      "bytes": 7857249
+    },
+    {
+      "path": "archives/farmer/travel_alpha.mkv",
+      "sha256": "168c3d10711c60750869d24614a1b64c009c4342d4be5bb4c0fc07e8251bb356",
+      "bytes": 6753857
+    },
+    {
+      "path": "archives/farmer/travel_receipt.json",
+      "sha256": "ec8bdf4dc86cb1d0028684504e98a2fef649bc176e0021ae7429d159c03f7cad",
+      "bytes": 16122
+    },
+    {
+      "path": "archives/farmer/travel_rgb.mkv",
+      "sha256": "9e44611c6763c05cd23a9c807148a9a42589e806962b1c49f4e0eb4c6c12c722",
+      "bytes": 34961129
+    },
+    {
+      "path": "archives/geologist/loop_alpha.mkv",
+      "sha256": "6487e0c7859c218bc2f7ef3c6364a3013d90bd99f5b00a87e6e1aaf106c8bed3",
+      "bytes": 1391745
+    },
+    {
+      "path": "archives/geologist/loop_receipt.json",
+      "sha256": "c00077fcefc5f862f66ef00e60617ea20c990316b6ca2819d45f11fc6a052878",
+      "bytes": 4459
+    },
+    {
+      "path": "archives/geologist/loop_rgb.mkv",
+      "sha256": "5f45787c1a6cf4d2d3f6a9d7e10a417ca8a57430ce9d48abf18b8db62afb18ca",
+      "bytes": 6978947
+    },
+    {
+      "path": "archives/geologist/travel_alpha.mkv",
+      "sha256": "8d86f6dee6075b0aa6e85288c066f60fdc4ff5568ae7a4234d87bea41918625c",
+      "bytes": 5497792
+    },
+    {
+      "path": "archives/geologist/travel_receipt.json",
+      "sha256": "d8dc1f45a3481c463b336d352a7b3becd10c90eb551fddcf74a03a6d0bd37f3e",
+      "bytes": 16131
+    },
+    {
+      "path": "archives/geologist/travel_rgb.mkv",
+      "sha256": "36593e91975f38cfac89943d43c86cbf74bfbaf6b74bf4e2aced56e7ed958714",
+      "bytes": 31230090
+    },
+    {
+      "path": "archives/magician/loop_alpha.mkv",
+      "sha256": "0580381d2d965e99d89f9a995f6c8ac2102f7d659fb694b17a8bf91630270471",
+      "bytes": 1617285
+    },
+    {
+      "path": "archives/magician/loop_receipt.json",
+      "sha256": "be4e00898e700c8411f64c0d903246fbc3c5ddea8d021de0120bba530e252c90",
+      "bytes": 4456
+    },
+    {
+      "path": "archives/magician/loop_rgb.mkv",
+      "sha256": "e5e19fcd6c62bd9fabe646db1ac64dfd1b465c7dc2dd39aa399f4914eff2cd82",
+      "bytes": 7855917
+    },
+    {
+      "path": "archives/magician/travel_alpha.mkv",
+      "sha256": "7612627e3f69b5aad6b47a8255c648860b7ee12623b34a7346206ada73ef7521",
+      "bytes": 6400294
+    },
+    {
+      "path": "archives/magician/travel_receipt.json",
+      "sha256": "662f69a03c4b3a070f6d5667857d551e78706e3d868518b98f5cdb900eaca433",
+      "bytes": 16128
+    },
+    {
+      "path": "archives/magician/travel_rgb.mkv",
+      "sha256": "ea14edd1b74e6c814a9b58df0248b5e9ac87f1d7c1fecc4fad02f8abdb8e41e2",
+      "bytes": 35237303
+    },
+    {
+      "path": "archives/nursery/loop_alpha.mkv",
+      "sha256": "fa4108097429d1f6ba991c44e844fcd467c4eb56f2ceea163d75822c4bd907c6",
+      "bytes": 1545598
+    },
+    {
+      "path": "archives/nursery/loop_receipt.json",
+      "sha256": "b772f3819dcd310e630111c5fad141a17493115f4930134523dd1b37a2e8e108",
+      "bytes": 4453
+    },
+    {
+      "path": "archives/nursery/loop_rgb.mkv",
+      "sha256": "b309bcdf47a03a281b9ecbb79707d129341230fbb60cf8e004fcc722f119a04a",
+      "bytes": 7248891
+    },
+    {
+      "path": "archives/nursery/travel_alpha.mkv",
+      "sha256": "7589eadb8fe5f265c368a3939863724502426cbdb876b4c2626c96c01a117e30",
+      "bytes": 6128365
+    },
+    {
+      "path": "archives/nursery/travel_receipt.json",
+      "sha256": "de7f3485058061912d424d5f29a720c6aab0e4286f200c7a054ec736021dd080",
+      "bytes": 16125
+    },
+    {
+      "path": "archives/nursery/travel_rgb.mkv",
+      "sha256": "a6064b8fde68225fb914363d470599c4bc643f54859ae844d578b81c0f8ca5a0",
+      "bytes": 32594698
+    },
+    {
+      "path": "archives/original/loop_alpha.mkv",
+      "sha256": "a8ca4991ad1ecb2760603e453de08f99ee930af89963110cabdf15ab26e284d9",
+      "bytes": 1641189
+    },
+    {
+      "path": "archives/original/loop_receipt.json",
+      "sha256": "0381e51006148ce3afc720a13495ce85e0f4cc0ad6bd18584f29c4e8d54deeb5",
+      "bytes": 4456
+    },
+    {
+      "path": "archives/original/loop_rgb.mkv",
+      "sha256": "596d3559d8fe2644f07f3efe4c20b58fe1a46ee06941d93ad5b072589f71bfbb",
+      "bytes": 6927628
+    },
+    {
+      "path": "archives/original/travel_alpha.mkv",
+      "sha256": "5d4146c648185f0fd7c3a54223b71ce9db71092c5433e0173d791f37f8004837",
+      "bytes": 6482772
+    },
+    {
+      "path": "archives/original/travel_receipt.json",
+      "sha256": "1c2b628a7b2a8bdf9897d1c3d1e301742d26be3b3d19fc04af9499cbfc32c369",
+      "bytes": 16128
+    },
+    {
+      "path": "archives/original/travel_rgb.mkv",
+      "sha256": "8c148a014a764024a4f535b6006e6d22bb409e334617068ada65e0691527c640",
+      "bytes": 30753384
+    },
+    {
+      "path": "archives/painter/loop_alpha.mkv",
+      "sha256": "d649169ce62aa4df697725fca1aa1e2f20b0e85be1d714c3e348f5bcf5de1aa4",
+      "bytes": 1557738
+    },
+    {
+      "path": "archives/painter/loop_receipt.json",
+      "sha256": "15ad955851f36ed8e61e144dd8145e02010488277b04d24794ab90112bfd58f6",
+      "bytes": 4453
+    },
+    {
+      "path": "archives/painter/loop_rgb.mkv",
+      "sha256": "2ac80150b43708f194c4ce3c603a0b4774dec5ffe329ab5c85bc592ff91a1ad6",
+      "bytes": 7749640
+    },
+    {
+      "path": "archives/painter/travel_alpha.mkv",
+      "sha256": "9cb1c4cf8fbbea7987dd6acba7a50eb07056fa2d59ee5e5a88bc9f0061da8b93",
+      "bytes": 6143768
+    },
+    {
+      "path": "archives/painter/travel_receipt.json",
+      "sha256": "12b92bbb91c7cbd585a5261c1fa7c3c62853703af67300974eb8c4bdafc77626",
+      "bytes": 16125
+    },
+    {
+      "path": "archives/painter/travel_rgb.mkv",
+      "sha256": "a47e93271c8fb160b40c0d0ffde34b24abd10433a98a53eeef0b119657389b6c",
+      "bytes": 34552800
+    },
+    {
+      "path": "archives/popstar/loop_alpha.mkv",
+      "sha256": "4be5185c6b2d34b38add4654d2908b5b7b1beec0d837db3217746194e9a367bb",
+      "bytes": 1471324
+    },
+    {
+      "path": "archives/popstar/loop_receipt.json",
+      "sha256": "cbcd9379f53d500fcc4207cfcbd7ea133c257fcb6b931dcaebdd5d34e94ec2f2",
+      "bytes": 4453
+    },
+    {
+      "path": "archives/popstar/loop_rgb.mkv",
+      "sha256": "308b56e2b412aef1f2ae36044e98aefc904620911600fd73f75851af00c3ee17",
+      "bytes": 7055128
+    },
+    {
+      "path": "archives/popstar/travel_alpha.mkv",
+      "sha256": "461e1affbb002010e739a6df5afad02f67566f0275d5b97f71c04b8ba19cc5cc",
+      "bytes": 5794533
+    },
+    {
+      "path": "archives/popstar/travel_receipt.json",
+      "sha256": "fbf030cca38447e7b387a07e1c77d071a960f21deead76540a0eba2d9ab59214",
+      "bytes": 16125
+    },
+    {
+      "path": "archives/popstar/travel_rgb.mkv",
+      "sha256": "29de0bc8e9e326b7bf106d870585be5300e1bf8ed081f3f81859fb82631eab16",
+      "bytes": 31663924
+    },
+    {
+      "path": "archives/racer/loop_alpha.mkv",
+      "sha256": "8ffcdf67e2e36fb5d68a1353b8750a14e898248f214af2a93baedb516d882da6",
+      "bytes": 1520001
+    },
+    {
+      "path": "archives/racer/loop_receipt.json",
+      "sha256": "6c312c079b00ae0472dfa43eb1de0de9e299328d5e4bee5a792dc32e1644b139",
+      "bytes": 4447
+    },
+    {
+      "path": "archives/racer/loop_rgb.mkv",
+      "sha256": "1ff2ef980ad3785d1d016179cb16a043189be77c0705cec703ccbaed6cf35f9f",
+      "bytes": 7185021
+    },
+    {
+      "path": "archives/racer/travel_alpha.mkv",
+      "sha256": "7797554904a40e919e57401e71d011f54d5746c1a01ab117646d3f9114128d4b",
+      "bytes": 5993954
+    },
+    {
+      "path": "archives/racer/travel_receipt.json",
+      "sha256": "128b85eb3720a2c12f68cccbdc4950cfa7b3f436b3cf3fc2496f0ef6f3292775",
+      "bytes": 16119
+    },
+    {
+      "path": "archives/racer/travel_rgb.mkv",
+      "sha256": "19b9f95bc494745e987d67d439fb86fb44fd7556187ea68af0249659580bc8b1",
+      "bytes": 32222111
+    },
+    {
+      "path": "archives/teacher/loop_alpha.mkv",
+      "sha256": "2e721d7a81f99b7bf7206879d43ecb92ad4a67a0ceb97135787dd7635847fa19",
+      "bytes": 1614447
+    },
+    {
+      "path": "archives/teacher/loop_receipt.json",
+      "sha256": "60ba9c06b955a158b38dc2cb048e9651e34d475887c28b3636ed1cf5fd1bea2f",
+      "bytes": 4453
+    },
+    {
+      "path": "archives/teacher/loop_rgb.mkv",
+      "sha256": "5f9fc52d544ef7fb9acf4bb38d8666270717930dfa4139071d17a466c86f2c03",
+      "bytes": 6991801
+    },
+    {
+      "path": "archives/teacher/travel_alpha.mkv",
+      "sha256": "62851cc998443abbaa74edcca155e8c5212b52df1f89598fd06c1a04a8cd3455",
+      "bytes": 6378496
+    },
+    {
+      "path": "archives/teacher/travel_receipt.json",
+      "sha256": "2ddca808352a0fcf49eb9208ec06f6f8b0b4b3f8853ef1efd60f201116b9aeb6",
+      "bytes": 16125
+    },
+    {
+      "path": "archives/teacher/travel_rgb.mkv",
+      "sha256": "afcb301a0070e8b9e23d87d6eb82dac464b76f0bb58c41967e3113b72d298901",
+      "bytes": 31225890
+    },
+    {
+      "path": "evidence/architecture_divergence.json",
+      "sha256": "7789aa50aa8039524a440e9ce185c79d1d43d71b92dcb94931f36c3939c3c877",
+      "bytes": 3787
+    },
+    {
+      "path": "evidence/aseprite_import.log",
+      "sha256": "58afe4359680a9a08f63e97bd2920883db1ac587b54770c2dea08a46e3b664a9",
+      "bytes": 449
+    },
+    {
+      "path": "evidence/aseprite_reopen.log",
+      "sha256": "8b05c4ceeaf43ef88c6dee0cef055446e65a238de897574ea5323af4550b8b6d",
+      "bytes": 449
+    },
+    {
+      "path": "evidence/aseprite_roundtrip.json",
+      "sha256": "5de0188813d2d42c87427c44f835aeef29428328db49deabce8b0dfb148be6a1",
+      "bytes": 3755
+    },
+    {
+      "path": "evidence/costume_format_gate.json",
+      "sha256": "b5005a4486f57a7aa5b104234e57881cac30e5dca371f0cae2d6d19f39a358d7",
+      "bytes": 867
+    },
+    {
+      "path": "evidence/costume_format_tests.log",
+      "sha256": "9f99b6612bd6d282544082ffb79084af5190b7894894697e817bf6774d924a27",
+      "bytes": 126
+    },
+    {
+      "path": "evidence/costumes/astronaut.json",
+      "sha256": "3f7c0b9080aae907fa3cffbf6a2579c0c34c113d09b70788f09cf4b9883c1fb9",
+      "bytes": 18397
+    },
+    {
+      "path": "evidence/costumes/astronaut_frame_hashes.json",
+      "sha256": "1b3c91701aea0c1e1d29cb8fbc5079aa138a909edb71d0ba3eddb5474022ae6c",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes/ballet.json",
+      "sha256": "d791afc1175024353fa90414b24f04db684246160492917e0813885d789340d0",
+      "bytes": 15971
+    },
+    {
+      "path": "evidence/costumes/ballet_frame_hashes.json",
+      "sha256": "3aa8c9cd801050b5a2498e4ce464b485e4e067d6c1962eae7b7b975d65d4d7cf",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes/boxer.json",
+      "sha256": "6c0be6c9be7f9f188aeea10e3645e441ba2f4cad79d21a700521e416b160633e",
+      "bytes": 15963
+    },
+    {
+      "path": "evidence/costumes/boxer_frame_hashes.json",
+      "sha256": "e4c50ea226cf3f9f3f6dfa0c7318be91ce207e23700a3bc44675839ee5caf69f",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes/candymaker.json",
+      "sha256": "2dbd372f4dae03646b19c169a335052f2c79fe869211494cf8040a4b3efae813",
+      "bytes": 24487
+    },
+    {
+      "path": "evidence/costumes/candymaker_frame_hashes.json",
+      "sha256": "b60f81f9ffbeba79bb65bdcaeab1dfda87170a571218015af8f5093fcef2975d",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes/chef.json",
+      "sha256": "49b9ee50ec429a1fbaeefcd3848c3a14a27116e84082f798cfdc020e746bce67",
+      "bytes": 16885
+    },
+    {
+      "path": "evidence/costumes/chef_frame_hashes.json",
+      "sha256": "9f9d1d5e7c6c9a33315d53e553a782b2237d025be78c1242096c88aec5b09f89",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes/detective.json",
+      "sha256": "81f722c689cbd5eac90160d17b4b0e9683e4a5c16c12022f76b064b4cd8e5510",
+      "bytes": 43618
+    },
+    {
+      "path": "evidence/costumes/detective_frame_hashes.json",
+      "sha256": "0b93652dc07f58ef4a3ac2680235f115d6d779c600e9b370c8900c5c090a6d4a",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes/doctor.json",
+      "sha256": "2980c93b93b518c3f9d41981344579e68733db9434426877e52d5dc96ee99cd0",
+      "bytes": 17001
+    },
+    {
+      "path": "evidence/costumes/doctor_frame_hashes.json",
+      "sha256": "9d250be24a636b2de35937880d7b3b75478f9bd56f818728744304fcd8344d97",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes/farmer.json",
+      "sha256": "7093eaed2507aa846fcd364b2f04a490976cc99b31541421aa740d46b2f98590",
+      "bytes": 16791
+    },
+    {
+      "path": "evidence/costumes/farmer_frame_hashes.json",
+      "sha256": "9dacfdec46ead24231b484222a6ac0ae749f5688774eed3110c4af70bafc1ea0",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes/geologist.json",
+      "sha256": "68cbcc1ffe05cd17934e1c3d3b44663f8c8b4687a017cd4cf2db66ca35f382d7",
+      "bytes": 24612
+    },
+    {
+      "path": "evidence/costumes/geologist_frame_hashes.json",
+      "sha256": "4c5a74249c7e70fe5cefac374904bfea5feacca82be0062ed8820cb355718252",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes/magician.json",
+      "sha256": "6448dc92dd64a109af5e18f01e03e25dcc2da9542da84cbc3ca60a1690a84fad",
+      "bytes": 16341
+    },
+    {
+      "path": "evidence/costumes/magician_frame_hashes.json",
+      "sha256": "6ec7ccf0aa16114a10cafa442561f7745c9f6268571cbe874bb5cc3d33d940c4",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes/nursery.json",
+      "sha256": "15bb4a668ca7d39f86c257878f3bfa46be9ba7b827041a76bcdfc4618b5e89c4",
+      "bytes": 121007
+    },
+    {
+      "path": "evidence/costumes/nursery_frame_hashes.json",
+      "sha256": "b924df24769f600db3f7b6bf2c8369494c8cc758826d7535dc1ac4d6e55be7e1",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes/original.json",
+      "sha256": "00de19d930b6699077cb622869333a98c979cae9fa6fcad546cb56dd7fcf2c65",
+      "bytes": 16316
+    },
+    {
+      "path": "evidence/costumes/original_frame_hashes.json",
+      "sha256": "890b5aa47efeddff22440a70442be118c8774589c19ad13edd56476ac2d58b5c",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes/painter.json",
+      "sha256": "a8dcd2eb3af8f62c4027bcff7719d823bd6a02feeeb29283f01b0bd7bb525529",
+      "bytes": 43050
+    },
+    {
+      "path": "evidence/costumes/painter_frame_hashes.json",
+      "sha256": "ca3c63e34c920747a0c0886d17d75959d8d6a058929c2d0c60023597bb38efd7",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes/popstar.json",
+      "sha256": "edd175dcf32c19e8eb099beace2efd22fb620c480c75e812da7970bb5c30b931",
+      "bytes": 15967
+    },
+    {
+      "path": "evidence/costumes/popstar_frame_hashes.json",
+      "sha256": "3a3ee548de3002b0e04c5a5cf54aae5a7efc137de388b50e2dede73bec8e065d",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes/racer.json",
+      "sha256": "ea1f60d449a9a8306bd08fba029944277ba3dbb18031b1a0833ca05cfd46e672",
+      "bytes": 121002
+    },
+    {
+      "path": "evidence/costumes/racer_frame_hashes.json",
+      "sha256": "2ca2c1c0c25316d8ec550d377a8a10788b457b83dcfffda1ad906bace24efb47",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes/teacher.json",
+      "sha256": "4a0530335d743f35efc00b17e483a58d4f7d94013daeacba5fc121054d8723a9",
+      "bytes": 17375
+    },
+    {
+      "path": "evidence/costumes/teacher_frame_hashes.json",
+      "sha256": "cd83bf7e66ba00f49872240ee164a5fbebe9777b0019baf069c4e3895285a9fc",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes_surface/astronaut.json",
+      "sha256": "b96b8a052762bbf91ff7ddd0927e95b81ccf322604d6ec44a9afaea170a4f9f8",
+      "bytes": 3522
+    },
+    {
+      "path": "evidence/costumes_surface/astronaut_frame_hashes.json",
+      "sha256": "1b3c91701aea0c1e1d29cb8fbc5079aa138a909edb71d0ba3eddb5474022ae6c",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes_surface/ballet.json",
+      "sha256": "d7f7f577875843bf6cfa6e71c4b74a79675f82cf39659ad5da20dfe484e8faff",
+      "bytes": 2125
+    },
+    {
+      "path": "evidence/costumes_surface/ballet_frame_hashes.json",
+      "sha256": "3aa8c9cd801050b5a2498e4ce464b485e4e067d6c1962eae7b7b975d65d4d7cf",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes_surface/boxer.json",
+      "sha256": "bd5bda73d9628b8b0a42193e37d427718a4606badb8ebf9b355ffc525d61642f",
+      "bytes": 2117
+    },
+    {
+      "path": "evidence/costumes_surface/boxer_frame_hashes.json",
+      "sha256": "e4c50ea226cf3f9f3f6dfa0c7318be91ce207e23700a3bc44675839ee5caf69f",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes_surface/candymaker.json",
+      "sha256": "2b043e6244c9941fc32a24cda9a7e7e802792d0458aa7fa11f49d30c59dd416e",
+      "bytes": 10642
+    },
+    {
+      "path": "evidence/costumes_surface/candymaker_frame_hashes.json",
+      "sha256": "b60f81f9ffbeba79bb65bdcaeab1dfda87170a571218015af8f5093fcef2975d",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes_surface/chef.json",
+      "sha256": "3a199663906cb2b1897492f3af1b5c129d248b44089d9fa7538a1c6a4c4784b1",
+      "bytes": 2192
+    },
+    {
+      "path": "evidence/costumes_surface/chef_frame_hashes.json",
+      "sha256": "9f9d1d5e7c6c9a33315d53e553a782b2237d025be78c1242096c88aec5b09f89",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes_surface/detective.json",
+      "sha256": "2795ec04d0c905354061476aa58a67d5c9b228e4e5da4b400c4a4fba5e9cdf40",
+      "bytes": 29773
+    },
+    {
+      "path": "evidence/costumes_surface/detective_frame_hashes.json",
+      "sha256": "0b93652dc07f58ef4a3ac2680235f115d6d779c600e9b370c8900c5c090a6d4a",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes_surface/doctor.json",
+      "sha256": "10e09da78f0d1b4b14b07a240ae4f658e90c27d9de4fca44c2b59b662153fb78",
+      "bytes": 3057
+    },
+    {
+      "path": "evidence/costumes_surface/doctor_frame_hashes.json",
+      "sha256": "9d250be24a636b2de35937880d7b3b75478f9bd56f818728744304fcd8344d97",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes_surface/farmer.json",
+      "sha256": "0a5b4a2594636fae397818228a71f6b17ab028f8e20040c34b5a1a083a79447f",
+      "bytes": 2195
+    },
+    {
+      "path": "evidence/costumes_surface/farmer_frame_hashes.json",
+      "sha256": "9dacfdec46ead24231b484222a6ac0ae749f5688774eed3110c4af70bafc1ea0",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes_surface/geologist.json",
+      "sha256": "60d8954c64cf04424bc85d5ed2e265f0e434a5caa68f488c93ad58508c08b605",
+      "bytes": 10767
+    },
+    {
+      "path": "evidence/costumes_surface/geologist_frame_hashes.json",
+      "sha256": "4c5a74249c7e70fe5cefac374904bfea5feacca82be0062ed8820cb355718252",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes_surface/magician.json",
+      "sha256": "130ec20b7522d7f6d9b2b799ba87cdf21927ae6b3e644a3ab082834ea001c2bd",
+      "bytes": 2496
+    },
+    {
+      "path": "evidence/costumes_surface/magician_frame_hashes.json",
+      "sha256": "6ec7ccf0aa16114a10cafa442561f7745c9f6268571cbe874bb5cc3d33d940c4",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes_surface/nursery.json",
+      "sha256": "f6f138264a6afb3862d22137ff45a417ccf9673532c39e506fd68fc69bd099d9",
+      "bytes": 107162
+    },
+    {
+      "path": "evidence/costumes_surface/nursery_frame_hashes.json",
+      "sha256": "b924df24769f600db3f7b6bf2c8369494c8cc758826d7535dc1ac4d6e55be7e1",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes_surface/original.json",
+      "sha256": "4712042793bedb400475f3c1ae429d1d089e068cc38b59f5add0d2d165078a96",
+      "bytes": 2471
+    },
+    {
+      "path": "evidence/costumes_surface/original_frame_hashes.json",
+      "sha256": "890b5aa47efeddff22440a70442be118c8774589c19ad13edd56476ac2d58b5c",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes_surface/painter.json",
+      "sha256": "b10294c894c2404a0b7ff633715e49c1c64e3c79eb225f8366ff21c7d1ed9add",
+      "bytes": 27880
+    },
+    {
+      "path": "evidence/costumes_surface/painter_frame_hashes.json",
+      "sha256": "ca3c63e34c920747a0c0886d17d75959d8d6a058929c2d0c60023597bb38efd7",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes_surface/popstar.json",
+      "sha256": "3531d3538dfa9aa66e2f3fd9a854593b37687f45acef65ca5354c0fb959b2868",
+      "bytes": 2121
+    },
+    {
+      "path": "evidence/costumes_surface/popstar_frame_hashes.json",
+      "sha256": "3a3ee548de3002b0e04c5a5cf54aae5a7efc137de388b50e2dede73bec8e065d",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes_surface/racer.json",
+      "sha256": "8b0aabde722ceb579d555753d4443408450b732a92126d614da8f8aff66c5ed6",
+      "bytes": 107157
+    },
+    {
+      "path": "evidence/costumes_surface/racer_frame_hashes.json",
+      "sha256": "2ca2c1c0c25316d8ec550d377a8a10788b457b83dcfffda1ad906bace24efb47",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/costumes_surface/teacher.json",
+      "sha256": "ea9cc0317a08df380fbb6edb23ec2b573d11886e84359dee10809c6e8b8f648f",
+      "bytes": 3431
+    },
+    {
+      "path": "evidence/costumes_surface/teacher_frame_hashes.json",
+      "sha256": "cd83bf7e66ba00f49872240ee164a5fbebe9777b0019baf069c4e3895285a9fc",
+      "bytes": 59830
+    },
+    {
+      "path": "evidence/final_gate_receipt.json",
+      "sha256": "5a2578a4fa2ea3285cecdc71eca869c06ef55d864927b297a4b66363a31458a7",
+      "bytes": 4030
+    },
+    {
+      "path": "evidence/final_summary.json",
+      "sha256": "d6b6ba19be354ed33e1a0c71009f74c0151bac282fdb01feae912283a306036c",
+      "bytes": 6596
+    },
+    {
+      "path": "evidence/gd_inference.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "evidence/gd_parser.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "evidence/import_metadata_scope.json",
+      "sha256": "dd89890c2749a5ccc7d846bd551bf41b2b98eef76203fe3486b34fe7b97a0049",
+      "bytes": 437
+    },
+    {
+      "path": "evidence/initial_attempt.json",
+      "sha256": "2463cf43182cb6b2ffccb01893b1d441b9a2e53513eb0119e5c1c06c96ad16a7",
+      "bytes": 704
+    },
+    {
+      "path": "evidence/isolated_surface_capture.json",
+      "sha256": "9a48dcbc119363744230c9671cc9f000556f772abe6c2f42c306ef52998810c6",
+      "bytes": 904
+    },
+    {
+      "path": "evidence/material_surface_hashes.json",
+      "sha256": "9ca4852819cb4a81f96ff87706d3344673096e5284c0299dea61991c08cab91e",
+      "bytes": 16150
+    },
+    {
+      "path": "evidence/material_surfaces/care/doctor/surface_Body.png",
+      "sha256": "3f0a19cd5653e7285f7f34aece38e2a947dfb3223cc618225947d70284dfadbd",
+      "bytes": 267479
+    },
+    {
+      "path": "evidence/material_surfaces/care/doctor/surface_doctor_body.png",
+      "sha256": "99802e12afdae5654897d3eae699681d50409a3c5815d52e8727b2664908b729",
+      "bytes": 74420
+    },
+    {
+      "path": "evidence/material_surfaces/care/doctor/surface_doctor_head.png",
+      "sha256": "4f29eb1942f4da5dfb3b1796bf56121546bd7afdea03181d2b8bf418b7e906f9",
+      "bytes": 13668
+    },
+    {
+      "path": "evidence/material_surfaces/care/doctor/surface_doctor_sleeve_left.png",
+      "sha256": "6a59eb3e88fa11ec22724c8a5a89ea9232d284fe117540e80ade1f89ce3ae048",
+      "bytes": 11479
+    },
+    {
+      "path": "evidence/material_surfaces/care/doctor/surface_doctor_sleeve_right.png",
+      "sha256": "987433448300487f555d9d4ea8f04e3f28ddf822f21d7b52f5517fe384ec89de",
+      "bytes": 14096
+    },
+    {
+      "path": "evidence/material_surfaces/care/doctor/surface_doctor_tail.png",
+      "sha256": "c22cd548dae7b1d774022e032bd0507f46352626b7518015a7b54adecb36b9a4",
+      "bytes": 118559
+    },
+    {
+      "path": "evidence/material_surfaces/care/doctor/surface_Forearm.png",
+      "sha256": "c5619e5cbdff8bc4af35ff5522c2f5998a11aa0722ccbec63d5753a57bba2a00",
+      "bytes": 19016
+    },
+    {
+      "path": "evidence/material_surfaces/care/doctor/surface_UpperArm.png",
+      "sha256": "66314da136f003a23546d2ed4e6c8dbf628127de718e9371aff5ce66fb92d8eb",
+      "bytes": 14709
+    },
+    {
+      "path": "evidence/material_surfaces/care/surfaces_receipt.json",
+      "sha256": "4f3ebdfac26772be6b39feee23f7f959932e0faa66994194f3cdd24d165751db",
+      "bytes": 466
+    },
+    {
+      "path": "evidence/material_surfaces/care/teacher/surface_Body.png",
+      "sha256": "3f0a19cd5653e7285f7f34aece38e2a947dfb3223cc618225947d70284dfadbd",
+      "bytes": 267479
+    },
+    {
+      "path": "evidence/material_surfaces/care/teacher/surface_Forearm.png",
+      "sha256": "c5619e5cbdff8bc4af35ff5522c2f5998a11aa0722ccbec63d5753a57bba2a00",
+      "bytes": 19016
+    },
+    {
+      "path": "evidence/material_surfaces/care/teacher/surface_teacher_body.png",
+      "sha256": "29ea7fdf9b6973445557f77d9c7e61e9f860cf996e0596238df0c592749bb691",
+      "bytes": 72065
+    },
+    {
+      "path": "evidence/material_surfaces/care/teacher/surface_teacher_head.png",
+      "sha256": "472160b8cdaa9413e883acacf133bbd751d1ac173148df93db6081069b6ee60f",
+      "bytes": 12616
+    },
+    {
+      "path": "evidence/material_surfaces/care/teacher/surface_teacher_sleeve_left.png",
+      "sha256": "e3c888bc53900f53363194f97f7da68fd14071e4ecb1b47912d43541c83c5778",
+      "bytes": 13455
+    },
+    {
+      "path": "evidence/material_surfaces/care/teacher/surface_teacher_sleeve_right.png",
+      "sha256": "03953ab1ece7ec4b30df3fe9eb3aaff7ee752c1f3bfe0fae032fc7b3c47f72e5",
+      "bytes": 17165
+    },
+    {
+      "path": "evidence/material_surfaces/care/teacher/surface_teacher_tail.png",
+      "sha256": "c22cd548dae7b1d774022e032bd0507f46352626b7518015a7b54adecb36b9a4",
+      "bytes": 118559
+    },
+    {
+      "path": "evidence/material_surfaces/care/teacher/surface_UpperArm.png",
+      "sha256": "66314da136f003a23546d2ed4e6c8dbf628127de718e9371aff5ce66fb92d8eb",
+      "bytes": 14709
+    },
+    {
+      "path": "evidence/material_surfaces/craft/candymaker/surface_Body.png",
+      "sha256": "1b401ab08be2f7d79cdfdeba348258c805797728e3f8f44dbf549d878cc85e11",
+      "bytes": 436355
+    },
+    {
+      "path": "evidence/material_surfaces/craft/candymaker/surface_Forearm.png",
+      "sha256": "c5619e5cbdff8bc4af35ff5522c2f5998a11aa0722ccbec63d5753a57bba2a00",
+      "bytes": 19016
+    },
+    {
+      "path": "evidence/material_surfaces/craft/candymaker/surface_Headwear.png",
+      "sha256": "3222edfeb7385a69eb35f15ae3fe6320f09833a1b5f65a4cf7b81855ee03afed",
+      "bytes": 32943
+    },
+    {
+      "path": "evidence/material_surfaces/craft/candymaker/surface_UpperArm.png",
+      "sha256": "66314da136f003a23546d2ed4e6c8dbf628127de718e9371aff5ce66fb92d8eb",
+      "bytes": 14709
+    },
+    {
+      "path": "evidence/material_surfaces/craft/nursery/surface_Body.png",
+      "sha256": "ec07239dd49009aea62ba78a06d2d50350185ca32ae7f3f5539043a409b330be",
+      "bytes": 442303
+    },
+    {
+      "path": "evidence/material_surfaces/craft/nursery/surface_Forearm.png",
+      "sha256": "c5619e5cbdff8bc4af35ff5522c2f5998a11aa0722ccbec63d5753a57bba2a00",
+      "bytes": 19016
+    },
+    {
+      "path": "evidence/material_surfaces/craft/nursery/surface_Headwear.png",
+      "sha256": "475bc3a07cecde40f6a783a672819532435f501e4fbbde653bfb022db4caf8b3",
+      "bytes": 18453
+    },
+    {
+      "path": "evidence/material_surfaces/craft/nursery/surface_UpperArm.png",
+      "sha256": "66314da136f003a23546d2ed4e6c8dbf628127de718e9371aff5ce66fb92d8eb",
+      "bytes": 14709
+    },
+    {
+      "path": "evidence/material_surfaces/craft/surfaces_receipt.json",
+      "sha256": "d76153bf18129972c3d99fbfe37ba94cfc2eb32c4f2b25f59e19dd05576bf82c",
+      "bytes": 470
+    },
+    {
+      "path": "evidence/material_surfaces/creative/astronaut/surface_Body.png",
+      "sha256": "1881f611ccee0cc07b44d1a89f82b9452c7e4985d1ae15c7880170532533eb80",
+      "bytes": 445823
+    },
+    {
+      "path": "evidence/material_surfaces/creative/astronaut/surface_Forearm.png",
+      "sha256": "c5619e5cbdff8bc4af35ff5522c2f5998a11aa0722ccbec63d5753a57bba2a00",
+      "bytes": 19016
+    },
+    {
+      "path": "evidence/material_surfaces/creative/astronaut/surface_GarmentExtension.png",
+      "sha256": "364a54df8d6bd37769fa0455fed83368d4773cfb211dcd56372095d9157a0742",
+      "bytes": 17149
+    },
+    {
+      "path": "evidence/material_surfaces/creative/astronaut/surface_UpperArm.png",
+      "sha256": "66314da136f003a23546d2ed4e6c8dbf628127de718e9371aff5ce66fb92d8eb",
+      "bytes": 14709
+    },
+    {
+      "path": "evidence/material_surfaces/creative/painter/surface_Body.png",
+      "sha256": "84d6b6374726c4cd4545a6acfaf6411eae266ffdfb8be613e7bd6429db9133be",
+      "bytes": 431925
+    },
+    {
+      "path": "evidence/material_surfaces/creative/painter/surface_Forearm.png",
+      "sha256": "c5619e5cbdff8bc4af35ff5522c2f5998a11aa0722ccbec63d5753a57bba2a00",
+      "bytes": 19016
+    },
+    {
+      "path": "evidence/material_surfaces/creative/painter/surface_GarmentExtension.png",
+      "sha256": "be13a931e9affdcbeaf12be79ab89e28c79afa8e2c898a4b160060dbf0f40fda",
+      "bytes": 5376
+    },
+    {
+      "path": "evidence/material_surfaces/creative/painter/surface_Headwear.png",
+      "sha256": "7a13c2bcb085dd6a3fc695a0d38d8ea820b0fe2a7a1ecf58576a6a3dfd87619a",
+      "bytes": 49499
+    },
+    {
+      "path": "evidence/material_surfaces/creative/painter/surface_UpperArm.png",
+      "sha256": "66314da136f003a23546d2ed4e6c8dbf628127de718e9371aff5ce66fb92d8eb",
+      "bytes": 14709
+    },
+    {
+      "path": "evidence/material_surfaces/creative/surfaces_receipt.json",
+      "sha256": "ca900301ecd6eb8f11318c9806a5116f972e66b1d65c9cbfc1264bd59ae6e2cf",
+      "bytes": 469
+    },
+    {
+      "path": "evidence/material_surfaces/investigation/detective/surface_Body.png",
+      "sha256": "6a58b9eb66e378a9731125121cf056e2b9637e60415bc671a9ac71816bcb9b93",
+      "bytes": 453835
+    },
+    {
+      "path": "evidence/material_surfaces/investigation/detective/surface_Forearm.png",
+      "sha256": "c5619e5cbdff8bc4af35ff5522c2f5998a11aa0722ccbec63d5753a57bba2a00",
+      "bytes": 19016
+    },
+    {
+      "path": "evidence/material_surfaces/investigation/detective/surface_Headwear.png",
+      "sha256": "697179d08c09086569705bb5c732710eaa669e08075ab198af4e4d72f27c2d9c",
+      "bytes": 36204
+    },
+    {
+      "path": "evidence/material_surfaces/investigation/detective/surface_UpperArm.png",
+      "sha256": "66314da136f003a23546d2ed4e6c8dbf628127de718e9371aff5ce66fb92d8eb",
+      "bytes": 14709
+    },
+    {
+      "path": "evidence/material_surfaces/investigation/geologist/surface_Body.png",
+      "sha256": "a5c87b755bb763e0bfb8de57b6d6ad1d3e31cdbb70130feaad8462e5ad5a2c61",
+      "bytes": 427506
+    },
+    {
+      "path": "evidence/material_surfaces/investigation/geologist/surface_Forearm.png",
+      "sha256": "c5619e5cbdff8bc4af35ff5522c2f5998a11aa0722ccbec63d5753a57bba2a00",
+      "bytes": 19016
+    },
+    {
+      "path": "evidence/material_surfaces/investigation/geologist/surface_Headwear.png",
+      "sha256": "39df0ca61e3aaf6604388806209f13c47315b854bb3b000bbe517f24c54ef7b2",
+      "bytes": 36226
+    },
+    {
+      "path": "evidence/material_surfaces/investigation/geologist/surface_UpperArm.png",
+      "sha256": "66314da136f003a23546d2ed4e6c8dbf628127de718e9371aff5ce66fb92d8eb",
+      "bytes": 14709
+    },
+    {
+      "path": "evidence/material_surfaces/investigation/surfaces_receipt.json",
+      "sha256": "2978e227774ff002138abe4fb4670ca64c8530011105c876d9bf1a1ae17a8fcb",
+      "bytes": 471
+    },
+    {
+      "path": "evidence/material_surfaces/kitchen/chef/surface_Body.png",
+      "sha256": "3f0a19cd5653e7285f7f34aece38e2a947dfb3223cc618225947d70284dfadbd",
+      "bytes": 267479
+    },
+    {
+      "path": "evidence/material_surfaces/kitchen/chef/surface_Forearm.png",
+      "sha256": "c5619e5cbdff8bc4af35ff5522c2f5998a11aa0722ccbec63d5753a57bba2a00",
+      "bytes": 19016
+    },
+    {
+      "path": "evidence/material_surfaces/kitchen/chef/surface_GarmentBody.png",
+      "sha256": "331c885c8242344073cc7a570495916da3c2d927f337c9b735792b36fe15ec04",
+      "bytes": 108667
+    },
+    {
+      "path": "evidence/material_surfaces/kitchen/chef/surface_GarmentTail.png",
+      "sha256": "5b3a9c05fee283a96329cacc786f9b6faf19ddf4774a52664e7638b8414c98ec",
+      "bytes": 84630
+    },
+    {
+      "path": "evidence/material_surfaces/kitchen/chef/surface_Headwear.png",
+      "sha256": "7a8a078be907f2be1308bc0e2fdd6cd6b2d61b31c4e04cb902a6ecf427fe07d0",
+      "bytes": 39102
+    },
+    {
+      "path": "evidence/material_surfaces/kitchen/chef/surface_SleeveLeft.png",
+      "sha256": "d37880806f2ff16e7ec620666c967a7a6c56860e12b8ac5377251e24cfc091a0",
+      "bytes": 24760
+    },
+    {
+      "path": "evidence/material_surfaces/kitchen/chef/surface_SleeveRight.png",
+      "sha256": "3b127a54a8831279700680ff6cac376a0b02a23b6c280917d819fd66004d6526",
+      "bytes": 25389
+    },
+    {
+      "path": "evidence/material_surfaces/kitchen/chef/surface_UpperArm.png",
+      "sha256": "66314da136f003a23546d2ed4e6c8dbf628127de718e9371aff5ce66fb92d8eb",
+      "bytes": 14709
+    },
+    {
+      "path": "evidence/material_surfaces/kitchen/farmer/surface_Body.png",
+      "sha256": "3f0a19cd5653e7285f7f34aece38e2a947dfb3223cc618225947d70284dfadbd",
+      "bytes": 267479
+    },
+    {
+      "path": "evidence/material_surfaces/kitchen/farmer/surface_Forearm.png",
+      "sha256": "c5619e5cbdff8bc4af35ff5522c2f5998a11aa0722ccbec63d5753a57bba2a00",
+      "bytes": 19016
+    },
+    {
+      "path": "evidence/material_surfaces/kitchen/farmer/surface_GarmentBody.png",
+      "sha256": "f6e763816c6d309f95ef1f2472f4f5093decf96f1f3a55988e43f0e2b46bf377",
+      "bytes": 118667
+    },
+    {
+      "path": "evidence/material_surfaces/kitchen/farmer/surface_GarmentTail.png",
+      "sha256": "374ba079eb090b608625549042b7c9661e8398bb3943d349c6651feeed577b9f",
+      "bytes": 76821
+    },
+    {
+      "path": "evidence/material_surfaces/kitchen/farmer/surface_Headwear.png",
+      "sha256": "927a10fca4218406b96aba1dec5eef3a1ba006439604fa3e6ac6812afe63b0b8",
+      "bytes": 44525
+    },
+    {
+      "path": "evidence/material_surfaces/kitchen/farmer/surface_SleeveLeft.png",
+      "sha256": "81ff2c43d9c11351c720f934e300315194fe15e74d57922e906d937c889958a1",
+      "bytes": 24239
+    },
+    {
+      "path": "evidence/material_surfaces/kitchen/farmer/surface_SleeveRight.png",
+      "sha256": "9fbaf7f4d478a6c21f2b0f3e68112b0ff8c76da59e962ff31d438b8fb570c545",
+      "bytes": 23576
+    },
+    {
+      "path": "evidence/material_surfaces/kitchen/farmer/surface_UpperArm.png",
+      "sha256": "66314da136f003a23546d2ed4e6c8dbf628127de718e9371aff5ce66fb92d8eb",
+      "bytes": 14709
+    },
+    {
+      "path": "evidence/material_surfaces/kitchen/surfaces_receipt.json",
+      "sha256": "cd81ecdec1770e8e36664c1ab4a5d51ba8f7e2f1ad755cb95e25914d13ff9587",
+      "bytes": 463
+    },
+    {
+      "path": "evidence/material_surfaces/performance/ballet/surface_Body.png",
+      "sha256": "b0babf09e1b3233a5b892e39b177b66763b543c95ac7b73bb6b7eb4eac13a90c",
+      "bytes": 434064
+    },
+    {
+      "path": "evidence/material_surfaces/performance/ballet/surface_Forearm.png",
+      "sha256": "c5619e5cbdff8bc4af35ff5522c2f5998a11aa0722ccbec63d5753a57bba2a00",
+      "bytes": 19016
+    },
+    {
+      "path": "evidence/material_surfaces/performance/ballet/surface_Headwear.png",
+      "sha256": "a4f54c85ff9cfebe430ef8e59724581070845ec10a0c81aa754f1c1dbb77d763",
+      "bytes": 54948
+    },
+    {
+      "path": "evidence/material_surfaces/performance/ballet/surface_UpperArm.png",
+      "sha256": "66314da136f003a23546d2ed4e6c8dbf628127de718e9371aff5ce66fb92d8eb",
+      "bytes": 14709
+    },
+    {
+      "path": "evidence/material_surfaces/performance/magician/surface_Body.png",
+      "sha256": "0c81465bbebe58a5d71d9c9741643f40585c67d1a138a19b7ecb95f461731756",
+      "bytes": 437744
+    },
+    {
+      "path": "evidence/material_surfaces/performance/magician/surface_Forearm.png",
+      "sha256": "c5619e5cbdff8bc4af35ff5522c2f5998a11aa0722ccbec63d5753a57bba2a00",
+      "bytes": 19016
+    },
+    {
+      "path": "evidence/material_surfaces/performance/magician/surface_Headwear.png",
+      "sha256": "49b44236946cfd40663b2dcffe4c18edcff3b8c67c63e6acae52d9d11b91e2e8",
+      "bytes": 63538
+    },
+    {
+      "path": "evidence/material_surfaces/performance/magician/surface_UpperArm.png",
+      "sha256": "66314da136f003a23546d2ed4e6c8dbf628127de718e9371aff5ce66fb92d8eb",
+      "bytes": 14709
+    },
+    {
+      "path": "evidence/material_surfaces/performance/original/surface_Body.png",
+      "sha256": "10d51a5c644f51470e93f092b9905b2cee5eb89ed5ba0abc8abf805f678c86c8",
+      "bytes": 435887
+    },
+    {
+      "path": "evidence/material_surfaces/performance/original/surface_Forearm.png",
+      "sha256": "c5619e5cbdff8bc4af35ff5522c2f5998a11aa0722ccbec63d5753a57bba2a00",
+      "bytes": 19016
+    },
+    {
+      "path": "evidence/material_surfaces/performance/original/surface_UpperArm.png",
+      "sha256": "9cbf19683bbdb271ea97d616b9f708b6101cab7a2e24a21e12482c3e70e7961c",
+      "bytes": 14786
+    },
+    {
+      "path": "evidence/material_surfaces/performance/surfaces_receipt.json",
+      "sha256": "9fdd089e3c6d419dcbe188d7a465fbb56c394b3b9ea306b1a5ead86183cd76c6",
+      "bytes": 499
+    },
+    {
+      "path": "evidence/material_surfaces/sport/boxer/surface_Body.png",
+      "sha256": "2c68ff36808ff237a538b8c73db47814f28514c135df4635afe76709d241f301",
+      "bytes": 401970
+    },
+    {
+      "path": "evidence/material_surfaces/sport/boxer/surface_Forearm.png",
+      "sha256": "c5619e5cbdff8bc4af35ff5522c2f5998a11aa0722ccbec63d5753a57bba2a00",
+      "bytes": 19016
+    },
+    {
+      "path": "evidence/material_surfaces/sport/boxer/surface_Headwear.png",
+      "sha256": "fdd1402c608011b5344b886a8e13b9ba183c1111949696d18251eb5c96558634",
+      "bytes": 27103
+    },
+    {
+      "path": "evidence/material_surfaces/sport/boxer/surface_UpperArm.png",
+      "sha256": "66314da136f003a23546d2ed4e6c8dbf628127de718e9371aff5ce66fb92d8eb",
+      "bytes": 14709
+    },
+    {
+      "path": "evidence/material_surfaces/sport/popstar/surface_Body.png",
+      "sha256": "463b0bee31aebf9decb81d3686b59494319b3f4316736c3c7497e92ef19ae426",
+      "bytes": 428214
+    },
+    {
+      "path": "evidence/material_surfaces/sport/popstar/surface_Forearm.png",
+      "sha256": "c5619e5cbdff8bc4af35ff5522c2f5998a11aa0722ccbec63d5753a57bba2a00",
+      "bytes": 19016
+    },
+    {
+      "path": "evidence/material_surfaces/sport/popstar/surface_Headwear.png",
+      "sha256": "c1dd97dc42c4740b8f41acd9b2a696fcd739a2d95797509ce5bfc2e9bb5ce81f",
+      "bytes": 12086
+    },
+    {
+      "path": "evidence/material_surfaces/sport/popstar/surface_UpperArm.png",
+      "sha256": "66314da136f003a23546d2ed4e6c8dbf628127de718e9371aff5ce66fb92d8eb",
+      "bytes": 14709
+    },
+    {
+      "path": "evidence/material_surfaces/sport/racer/surface_Body.png",
+      "sha256": "6682474ee1b6ecfc76473f676f0ead3407663e15039eeef9dfdc0710ef0a30a4",
+      "bytes": 409176
+    },
+    {
+      "path": "evidence/material_surfaces/sport/racer/surface_Forearm.png",
+      "sha256": "c5619e5cbdff8bc4af35ff5522c2f5998a11aa0722ccbec63d5753a57bba2a00",
+      "bytes": 19016
+    },
+    {
+      "path": "evidence/material_surfaces/sport/racer/surface_Headwear.png",
+      "sha256": "0971956604daa5831b71ba28dd100a022725882921244e570bcfa951ac0686f5",
+      "bytes": 60329
+    },
+    {
+      "path": "evidence/material_surfaces/sport/racer/surface_UpperArm.png",
+      "sha256": "66314da136f003a23546d2ed4e6c8dbf628127de718e9371aff5ce66fb92d8eb",
+      "bytes": 14709
+    },
+    {
+      "path": "evidence/material_surfaces/sport/surfaces_receipt.json",
+      "sha256": "08790625b89733fae2f600857e5c701e0f4df8271f7be187571b09909a797588",
+      "bytes": 494
+    },
+    {
+      "path": "evidence/native_archives.json",
+      "sha256": "7615cdbceb92488b123ceb3ebb140e89d9f6e292fb45ac8ffde22285844940b9",
+      "bytes": 1450
+    },
+    {
+      "path": "evidence/native_full.json",
+      "sha256": "d2cb8524376e1f553ffcc0ccf67e452de0a7c06c7b74b75a7d4fb99df870f8ea",
+      "bytes": 1049
+    },
+    {
+      "path": "evidence/probe_props_baseline_01.log",
+      "sha256": "c2b732eb8c197eb5004fec74f7df0fb71d031b4dff532a6de5e16c2564a3125c",
+      "bytes": 1228
+    },
+    {
+      "path": "evidence/probe_props_baseline_02.log",
+      "sha256": "c2b732eb8c197eb5004fec74f7df0fb71d031b4dff532a6de5e16c2564a3125c",
+      "bytes": 1228
+    },
+    {
+      "path": "evidence/probe_props_baseline_trials.json",
+      "sha256": "67adcec9d2d5e55a2a09c09d0dad4b19d320fb38a64e09c7523ffbeda7446b3f",
+      "bytes": 2591
+    },
+    {
+      "path": "evidence/project_ci.err",
+      "sha256": "6345d120096fd0dc5ca3f4b831c647f917749627e4368780af63448be0d602ca",
+      "bytes": 725
+    },
+    {
+      "path": "evidence/project_ci.log",
+      "sha256": "bd6b20e87735056f21ba89db68b26f6f4525e29c89e671db94a3401ccd9a3e2e",
+      "bytes": 1288802
+    },
+    {
+      "path": "evidence/project_ci_checkpoint.json",
+      "sha256": "89465b3b552a62237a21ae8319cf972d2b67227f962c6920c74f8db18a89a0bc",
+      "bytes": 452
+    },
+    {
+      "path": "evidence/project_ci_prefix.err",
+      "sha256": "7963e7b07720e03ccb62d1d33f1d6b65df887172058993c3e7ad220a3166c208",
+      "bytes": 1267
+    },
+    {
+      "path": "evidence/project_ci_prefix.log",
+      "sha256": "015a785a143e4cec0134701886aa230620a7657655378d9424d6fa3ae5c6303a",
+      "bytes": 106382
+    },
+    {
+      "path": "evidence/project_ci_prefix.sh.txt",
+      "sha256": "99d4ade661f5d5492e24e29bb4c8c3cd14c8e6771f465b30b2834d2e3540af7c",
+      "bytes": 15206
+    },
+    {
+      "path": "evidence/project_ci_prefix_receipt.json",
+      "sha256": "d505222308d5db43b92fb41f44784b7cdc8be7f32d56a84212d0c11fd71da06b",
+      "bytes": 549
+    },
+    {
+      "path": "evidence/project_ci_props_resume.err",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "evidence/project_ci_props_resume.log",
+      "sha256": "7834a690d98f61fec0e646014e2d0fc7e891b1c297813d647e2fe9ce59d0f696",
+      "bytes": 1282
+    },
+    {
+      "path": "evidence/project_ci_props_resume.sh.txt",
+      "sha256": "0955b7e6b51be5beb0380b33b0028f0ffd71c6d3472b85e38c5b813e9f47a8fa",
+      "bytes": 3661
+    },
+    {
+      "path": "evidence/project_ci_props_resume_receipt.json",
+      "sha256": "6bc9eaf0c3e13be7f99612f1503916b0837c82951057955c4f25fb39279f12bd",
+      "bytes": 742
+    },
+    {
+      "path": "evidence/project_ci_receipt.json",
+      "sha256": "10e63a3a02c3bcef9bf472fcce7065f670b72ccb35dba7c07b5c3037508cf440",
+      "bytes": 627
+    },
+    {
+      "path": "evidence/review_mapping.json",
+      "sha256": "91d386e92923946979145f937111617963fa690c6776356f330fba3f483e5ea4",
+      "bytes": 783
+    },
+    {
+      "path": "evidence/source_gates.json",
+      "sha256": "a34ab4246ccca66299acd24583c9a5e6a00371f3d1e55881b66ac3bd47ae5ab8",
+      "bytes": 212
+    },
+    {
+      "path": "evidence/swim_audit.json",
+      "sha256": "6fa6116381d131cda00d14aa02132389b1a470cd81c5779763a51549272c3d83",
+      "bytes": 646583
+    },
+    {
+      "path": "evidence/swim_audit_surface.json",
+      "sha256": "c0c0eabb72a357a34364f542a2b50f7121d4167ded8a9a2a663a962290632b26",
+      "bytes": 367911
+    },
+    {
+      "path": "job_card.json",
+      "sha256": "61b764f834a8220232a58e9c846c7c454fc979d9c0eba1495e4dfa1195cf2d87",
+      "bytes": 1510
+    },
+    {
+      "path": "masters/astronaut.aseprite",
+      "sha256": "1c006588369b0df2ed3a851eb35b73ce1389a9aa94094654e9fd3bb901893a13",
+      "bytes": 32761153
+    },
+    {
+      "path": "masters/ballet.aseprite",
+      "sha256": "ecd0b46224ab8517dfe614f858f0af5bf8a78ba9daccad910f23aaf8d758f376",
+      "bytes": 33355308
+    },
+    {
+      "path": "masters/boxer.aseprite",
+      "sha256": "7bb7ce1e75e1eb13c1b538d6f1a769c178073cf030d309af57e987d6b167c51a",
+      "bytes": 29444351
+    },
+    {
+      "path": "masters/candymaker.aseprite",
+      "sha256": "2d27dcb0c313c428dee8aea2b184fd056c3112cc227099006c7c57ce0778fe18",
+      "bytes": 32990289
+    },
+    {
+      "path": "masters/chef.aseprite",
+      "sha256": "d9e92b0ea3f8f3c90de51f2b8fad9a534891ef37a43f3aa5ebc395bb8594cb2a",
+      "bytes": 33423845
+    },
+    {
+      "path": "masters/detective.aseprite",
+      "sha256": "ab4a10b2c8d3b29dcb9a5d7014fb98ee078f694c86a924ebd97631d2361406c2",
+      "bytes": 33443198
+    },
+    {
+      "path": "masters/doctor.aseprite",
+      "sha256": "6e24d722425f56fefda951c2950ec091d83378f6169f3536e0a55ee78bca42d8",
+      "bytes": 31289645
+    },
+    {
+      "path": "masters/farmer.aseprite",
+      "sha256": "326e9edb3bafb091695be374699be2f98918fb069a877f419500d4dffc4d2d77",
+      "bytes": 34251076
+    },
+    {
+      "path": "masters/geologist.aseprite",
+      "sha256": "95acefd0d8d6ec759cec7d831d1917885c148d1f7abe26dffa40de44c7f94f7a",
+      "bytes": 32502935
+    },
+    {
+      "path": "masters/magician.aseprite",
+      "sha256": "4920138e9f2385eb0f17643d0b8ec9897dca26e214e10ad71d06a12d189b355f",
+      "bytes": 33382946
+    },
+    {
+      "path": "masters/nursery.aseprite",
+      "sha256": "6dbd04625c42e9c293bde22ea36f2500967aef46040a2827ed35a198b3d83fc8",
+      "bytes": 33331710
+    },
+    {
+      "path": "masters/original.aseprite",
+      "sha256": "843345443749288486fa38d2e04fbaf90c7453b410132e937b04143abc32e86c",
+      "bytes": 31839219
+    },
+    {
+      "path": "masters/painter.aseprite",
+      "sha256": "8337b6c268b3e92a9918ec0ca2cc8a781e47c5a88219d06da4694920297359c1",
+      "bytes": 33077057
+    },
+    {
+      "path": "masters/popstar.aseprite",
+      "sha256": "37f4e4a000b03376e36dc28d4025f6df68a9170af31e992b85e0b6e7339d2ac1",
+      "bytes": 31117246
+    },
+    {
+      "path": "masters/racer.aseprite",
+      "sha256": "5494c25bd366db4e82879ddbebd628ca5b39957bf121ddb0ec730e316817569e",
+      "bytes": 31047841
+    },
+    {
+      "path": "masters/teacher.aseprite",
+      "sha256": "ddc51a048aa6c21e47a83d4f0490bd73103595ea17f0ca693d728c008839bee8",
+      "bytes": 31210245
+    },
+    {
+      "path": "README.md",
+      "sha256": "115ececc7701b0d1b11f268f05f065d4927d2c484d905b2f836f9f9bfe9aaf12",
+      "bytes": 3803
+    },
+    {
+      "path": "references/laura_v2_profile.txt",
+      "sha256": "e310ccba4e6a342e8f23e611970b998dee2ba3ff21526e8bf54c16ef2082d342",
+      "bytes": 47057
+    },
+    {
+      "path": "references/task_start.json",
+      "sha256": "6ba3cb72e47cf3a390b90bccf131e7c1e0499e59d62183cacf4b599b70ab4bcd",
+      "bytes": 1820
+    },
+    {
+      "path": "review/all_16_overview.jpg",
+      "sha256": "92d88bc4c930e6bc5bc4d890a645e32403810041382c98d9a527261addab7fb2",
+      "bytes": 149018
+    },
+    {
+      "path": "review/all_16_swimming.mp4",
+      "sha256": "f263a4ba62bcb6b95dbbb746a533284e38c86448c70b1b13e8c431646645e632",
+      "bytes": 1336115
+    },
+    {
+      "path": "review/basic_swimming.mp4",
+      "sha256": "4a78d10d0f45298d68316a614689b9d79a7f4fada3bda85419c9aefbf824afd8",
+      "bytes": 595753
+    },
+    {
+      "path": "review/comparison_1.mp4",
+      "sha256": "0041cc7aff54bbcca96ad22aacfe818107e980551a12352d676a92fe896f5034",
+      "bytes": 938088
+    },
+    {
+      "path": "review/comparison_2.mp4",
+      "sha256": "09ddf8730a4179c5bd3a6edd3f2a669ed61ee8a005f4275df93d42d5fed4aac0",
+      "bytes": 1028636
+    },
+    {
+      "path": "review/comparison_3.mp4",
+      "sha256": "8a91f629f21128ddd382a5469d2e1c24c89c33ddad15fa1847f2bd4ea2a198df",
+      "bytes": 912396
+    },
+    {
+      "path": "review/comparison_4.mp4",
+      "sha256": "2a9da8f1f0c7b98a9c959db220cb5269cb3d79c28a3bde033b2dab0fffcea721",
+      "bytes": 981831
+    },
+    {
+      "path": "review/comparison_concat.txt",
+      "sha256": "8dcd1faf64d40da2c401335f0196c8e1fa390f962705c5e51241e772f893f2f5",
+      "bytes": 96
+    },
+    {
+      "path": "review/costume_comparison.mp4",
+      "sha256": "649035fb1d17ffb85eddf5b197acfb16f99ef51e7ebc63eeeda31741f90df589",
+      "bytes": 3858519
+    },
+    {
+      "path": "review/costumes_page_1.jpg",
+      "sha256": "2fd4782f9bcfd29c29b4086b2825641d07a50bbde57f2768aebe2db3b5851f16",
+      "bytes": 117244
+    },
+    {
+      "path": "review/costumes_page_2.jpg",
+      "sha256": "8c7442655b5e77db2b4509ed383e71464c199a047f9b0f51e7f27491e0a29e8f",
+      "bytes": 121193
+    },
+    {
+      "path": "review/costumes_page_3.jpg",
+      "sha256": "4fd16417d6fe141ee3c5acfdf967956ed96b6bb2144d9d569e2d3dafc3648bcc",
+      "bytes": 117414
+    },
+    {
+      "path": "review/costumes_page_4.jpg",
+      "sha256": "d91cdd06dd5abd0eda73baad58415866721b61c45cfbef45ac3991e9871c25b6",
+      "bytes": 118725
+    },
+    {
+      "path": "review/first_native_preview.jpg",
+      "sha256": "54e3163b3739a40d19a177e4aacc553823b47b35bcde2690342cb72f8f80a0d8",
+      "bytes": 90021
+    },
+    {
+      "path": "shared/capture.gd",
+      "sha256": "485bb8e2fe843b2dd225422698e4287e87d208116b6f98d250d48d311fe857c7",
+      "bytes": 5816
+    },
+    {
+      "path": "shared/capture_surfaces.gd",
+      "sha256": "8a01ddd531b0e9e38840948c31fe57fd80941b9a713d8c5995dcba147334c4ff",
+      "bytes": 2280
+    },
+    {
+      "path": "shared/swim_motion.gd",
+      "sha256": "76eafec028ed5c0107e6c711e365b968b1a3abdb170025b66ecca363be941c57",
+      "bytes": 2523
+    },
+    {
+      "path": "skin_binding_contract.json",
+      "sha256": "990651c86388e726062b9280cec6b70c5c743b7fe254f950f52955dffeb90812",
+      "bytes": 2078
+    },
+    {
+      "path": "SKIN_BINDING_WORKFLOW.md",
+      "sha256": "37ef439bace13597e15f2ebafa6b0a6f356f2ebab73064c89c362645279e7637",
+      "bytes": 9315
+    },
+    {
+      "path": "sources/care/capture.gd",
+      "sha256": "485bb8e2fe843b2dd225422698e4287e87d208116b6f98d250d48d311fe857c7",
+      "bytes": 5816
+    },
+    {
+      "path": "sources/care/capture_surfaces.gd",
+      "sha256": "8a01ddd531b0e9e38840948c31fe57fd80941b9a713d8c5995dcba147334c4ff",
+      "bytes": 2280
+    },
+    {
+      "path": "sources/care/costume.gdshader",
+      "sha256": "a3c053fd724a057594521bbec8205fb26aa08b50d122c7f33cf6065c59243d95",
+      "bytes": 968
+    },
+    {
+      "path": "sources/care/external/49c6f5e07dde/doctor_body.png",
+      "sha256": "bbc2dee7e253a8759e94343589f17834fbd874f64d7ec275e56be16052acc3b8",
+      "bytes": 89397
+    },
+    {
+      "path": "sources/care/external/49c6f5e07dde/doctor_head.png",
+      "sha256": "43e2a4079f614b6ff22d02ed4078bdc4d030f21992633e54a009530b29b1724c",
+      "bytes": 13326
+    },
+    {
+      "path": "sources/care/external/49c6f5e07dde/doctor_sleeve_left.png",
+      "sha256": "a3a0a56afdd508218f6f52ae067bc7e2256a9098d5086378a5b85e0b863b4f23",
+      "bytes": 80433
+    },
+    {
+      "path": "sources/care/external/49c6f5e07dde/doctor_sleeve_right.png",
+      "sha256": "bb29241bb8d3059aee624447cf237e81d864e4af6d4316868a2fbf21a3cd87ab",
+      "bytes": 80601
+    },
+    {
+      "path": "sources/care/external/49c6f5e07dde/doctor_tail.png",
+      "sha256": "9e64d5e56cf4a4b86e2e1d8df70d1e8d9adf5f75de8e37ba2cc56372ab6babdf",
+      "bytes": 130453
+    },
+    {
+      "path": "sources/care/external/49c6f5e07dde/empty.png",
+      "sha256": "265149d454822c2c808720c61f5a4317c0bfda56fc96598ea7b19b6ea52c5dd1",
+      "bytes": 4144
+    },
+    {
+      "path": "sources/care/external/49c6f5e07dde/teacher_body.png",
+      "sha256": "33ba36ae265923a47ad78c5bec007c28c06101a595c645fab43d6ffed7ed2eb2",
+      "bytes": 89922
+    },
+    {
+      "path": "sources/care/external/49c6f5e07dde/teacher_head.png",
+      "sha256": "561eef5c5563a8a69a52c980fa175d10d346f3e015e64fa375828e703164ec2f",
+      "bytes": 12518
+    },
+    {
+      "path": "sources/care/external/49c6f5e07dde/teacher_sleeve_left.png",
+      "sha256": "b329f1b0f0c5d13c6ce96cf6fd66328ee93efb99db7a179732c1159cb5ac848f",
+      "bytes": 79742
+    },
+    {
+      "path": "sources/care/external/49c6f5e07dde/teacher_sleeve_right.png",
+      "sha256": "7fdabf57de710f1c1a1e61fc125f238a6e4809ca48c48b286a9ec63179b82dd7",
+      "bytes": 79727
+    },
+    {
+      "path": "sources/care/external/49c6f5e07dde/teacher_tail.png",
+      "sha256": "9e64d5e56cf4a4b86e2e1d8df70d1e8d9adf5f75de8e37ba2cc56372ab6babdf",
+      "bytes": 130453
+    },
+    {
+      "path": "sources/care/external/f206592dffe8/anatomy.png",
+      "sha256": "0221409d2b41fa50324ef929f120d6fa31b54382ed7819ac3efe5fefdc47bc6b",
+      "bytes": 294078
+    },
+    {
+      "path": "sources/care/external/f206592dffe8/body.png",
+      "sha256": "dded9a4df58f32b5b75a63c6d7be88c98f5dba3c64d88dd55def6ad44a6e3eea",
+      "bytes": 472707
+    },
+    {
+      "path": "sources/care/external/f206592dffe8/eyes_closed.png",
+      "sha256": "f6c5abdf1d00ab49e6f889a47a03c1070c3b43f3e4f4016b00c18bd5881a909b",
+      "bytes": 32864
+    },
+    {
+      "path": "sources/care/external/f206592dffe8/eyes_half.png",
+      "sha256": "a28c55c2afc5e990d61e77ba283fac1e395515773b4dd48c8b3e811b0eb54739",
+      "bytes": 34125
+    },
+    {
+      "path": "sources/care/external/f206592dffe8/forearm.png",
+      "sha256": "565207ab35e95b50d1a2fd1fdca2cea637800030d11a377117604b94a560f00f",
+      "bytes": 28402
+    },
+    {
+      "path": "sources/care/external/f206592dffe8/frozen_inputs_v8.json",
+      "sha256": "46134c276b8f639fa69d23745628de734abc0234a96b737c0f38fca08a71b057",
+      "bytes": 4890
+    },
+    {
+      "path": "sources/care/external/f206592dffe8/magician_scalp.png",
+      "sha256": "d354f2853ef1fd88cd8fd2c38c564529878591ab50dab85da48e6b97115914c6",
+      "bytes": 501453
+    },
+    {
+      "path": "sources/care/external/f206592dffe8/neutral.png",
+      "sha256": "847e38e0ccbded2ce8ce59a212ed3cf6b9bb458c120f524f2baa8120facc27ae",
+      "bytes": 489794
+    },
+    {
+      "path": "sources/care/external/f206592dffe8/original_body.png",
+      "sha256": "17471c41c54b67a2a8da201e60c8fefa4f4e01f7b2d35a991a9aabd6c6fd460f",
+      "bytes": 72716
+    },
+    {
+      "path": "sources/care/external/f206592dffe8/original_tail.png",
+      "sha256": "13857dc9638f6ab86ae2ca29c145cfeb8b9646b34174b489514a1e711eaf81df",
+      "bytes": 128806
+    },
+    {
+      "path": "sources/care/external/f206592dffe8/ownership.png",
+      "sha256": "8c1674a81a141aca694f5d66bba2063443d2cb47851fee0d3e45de5b55ffdbd9",
+      "bytes": 13870
+    },
+    {
+      "path": "sources/care/external/f206592dffe8/rig.json",
+      "sha256": "2ed7abf3749aa7af07b3a170806645afb90705a661d4f47c853d1620a81a2d1e",
+      "bytes": 928469
+    },
+    {
+      "path": "sources/care/external/f206592dffe8/upper_arm.png",
+      "sha256": "ae92c6911651a39d47db27a0171b2c459d1af77444a467c74e005fc68e1bb181",
+      "bytes": 27975
+    },
+    {
+      "path": "sources/care/external/f206592dffe8/upper_clean.png",
+      "sha256": "40ba08f7ec416e559ce1eb388a92bd427b4f32c0b0df8622ceeb54203689459a",
+      "bytes": 27848
+    },
+    {
+      "path": "sources/care/garments.json",
+      "sha256": "142e0c9789f0c028139c6fc5336e37e01a472199cefd895e8fe8e2b26cebbed5",
+      "bytes": 894599
+    },
+    {
+      "path": "sources/care/project.godot",
+      "sha256": "1396c26fcbc2f7ed9fbfe4206e6fc8659935cda1b5540231de2d47f49d06bb2b",
+      "bytes": 291
+    },
+    {
+      "path": "sources/care/rig.json",
+      "sha256": "ca9059f0b92d202be1d224597340e7d2699ac0a941c8b02d9adacc6523250b2a",
+      "bytes": 928469
+    },
+    {
+      "path": "sources/care/study.gd",
+      "sha256": "ac64ab58bf1aa315daa56bf8e63a7cc89de4f4ec7d8dc9adc1ffd82baeea3073",
+      "bytes": 12403
+    },
+    {
+      "path": "sources/care/swim_motion.gd",
+      "sha256": "76eafec028ed5c0107e6c711e365b968b1a3abdb170025b66ecca363be941c57",
+      "bytes": 2523
+    },
+    {
+      "path": "sources/care/swim_source.gd",
+      "sha256": "ac64ab58bf1aa315daa56bf8e63a7cc89de4f4ec7d8dc9adc1ffd82baeea3073",
+      "bytes": 12403
+    },
+    {
+      "path": "sources/craft/arm_no_hand.gdshader",
+      "sha256": "c1f28466cde5651ac4de687dbdec4b3437cbe4a4df9d6b51c55439012731008c",
+      "bytes": 300
+    },
+    {
+      "path": "sources/craft/art/anatomy.png",
+      "sha256": "0221409d2b41fa50324ef929f120d6fa31b54382ed7819ac3efe5fefdc47bc6b",
+      "bytes": 294078
+    },
+    {
+      "path": "sources/craft/art/baby.png",
+      "sha256": "bcd4f1e12437dab7dbacadb54f0150c4b500d40e589574f03c394109f7780c3b",
+      "bytes": 80654
+    },
+    {
+      "path": "sources/craft/art/ballet_body.png",
+      "sha256": "6cfa95d6a28aa022976f1b3f85066ade7cf16e0e5f10bb579d7bdefb4e3d8c8d",
+      "bytes": 227436
+    },
+    {
+      "path": "sources/craft/art/ballet_composed.png",
+      "sha256": "2470535f6ce319c3decfd4be67083aea444bf9a8c436e5a13ad58ecc5161ff05",
+      "bytes": 461573
+    },
+    {
+      "path": "sources/craft/art/ballet_head.png",
+      "sha256": "1108a5d77b37b594a7665dbf2c2b85f9956db534f607bbf9980b9bdd775ac2fc",
+      "bytes": 58238
+    },
+    {
+      "path": "sources/craft/art/ballet_scalp.png",
+      "sha256": "d354f2853ef1fd88cd8fd2c38c564529878591ab50dab85da48e6b97115914c6",
+      "bytes": 501453
+    },
+    {
+      "path": "sources/craft/art/ballet_tail.png",
+      "sha256": "558b3597ff3a22c8b46c61f96aa62718cd328211275fefa4ec5c3493c3aed708",
+      "bytes": 229098
+    },
+    {
+      "path": "sources/craft/art/body.png",
+      "sha256": "dded9a4df58f32b5b75a63c6d7be88c98f5dba3c64d88dd55def6ad44a6e3eea",
+      "bytes": 472707
+    },
+    {
+      "path": "sources/craft/art/candy.png",
+      "sha256": "6265a6fa3bba2a55b29764dff19556dd11f631218b9081507575d46ef10cc60d",
+      "bytes": 71039
+    },
+    {
+      "path": "sources/craft/art/candy_pan.png",
+      "sha256": "3d67f08d00dc521c8c9ad3abe47d7bfdafc7c36f81c56386317887e299f21062",
+      "bytes": 79280
+    },
+    {
+      "path": "sources/craft/art/candymaker_action_Head.png",
+      "sha256": "c81b4baf66a70ae965164db6eb738da9fcaa16f2f1afb8a08f0243f14e645800",
+      "bytes": 169332
+    },
+    {
+      "path": "sources/craft/art/candymaker_action_LeftFore.png",
+      "sha256": "91943c5580f04f8a454a1f3cd5431fc1fcc693016eb5b502e49e3b6843725a80",
+      "bytes": 14178
+    },
+    {
+      "path": "sources/craft/art/candymaker_action_LeftHand.png",
+      "sha256": "b7aaaa9a5ae1502729be5b574716c6a0433e73ad8cbe2b3d26c3363a6d577f00",
+      "bytes": 13257
+    },
+    {
+      "path": "sources/craft/art/candymaker_action_LeftUpper.png",
+      "sha256": "ed2a1082edca976188e31af27d3a932b66fc01d5caf99f52189685a209a23e19",
+      "bytes": 15651
+    },
+    {
+      "path": "sources/craft/art/candymaker_action_RightFore.png",
+      "sha256": "07bdc1ae1b8d7e6e06a1c18fac32ba682fd4478332eb4785dd3982a3d142edfe",
+      "bytes": 14366
+    },
+    {
+      "path": "sources/craft/art/candymaker_action_RightHand.png",
+      "sha256": "c1233c2e25622aa73231f9ade8e9050d9051f6f4d9b2253ce1212650dd82a3f6",
+      "bytes": 13415
+    },
+    {
+      "path": "sources/craft/art/candymaker_action_RightUpper.png",
+      "sha256": "a6cbb743849d11c5869426aa8754d3013d11a967e4eba7b9677b8f9cd616d3ab",
+      "bytes": 12658
+    },
+    {
+      "path": "sources/craft/art/candymaker_action_Tail.png",
+      "sha256": "de0bfbfb0b34648d0773ba1299fb8b8412a75d0f3f2b980ae09140aeb2199b69",
+      "bytes": 229932
+    },
+    {
+      "path": "sources/craft/art/candymaker_action_Torso.png",
+      "sha256": "c32782f69aab79e6fc67f9daa32478fb84955af1c3ffbc31ac28ab2c58aaf680",
+      "bytes": 70383
+    },
+    {
+      "path": "sources/craft/art/candymaker_body.png",
+      "sha256": "f1004c4bca7d00ab87f0e380f23f6a771e9c5ac6f936df66552c53e6f5080dbc",
+      "bytes": 92318
+    },
+    {
+      "path": "sources/craft/art/candymaker_body_full.png",
+      "sha256": "bc03e59165a30b835468ae474980fbb83fb83aefecf051411892fbe5adf2867c",
+      "bytes": 103092
+    },
+    {
+      "path": "sources/craft/art/candymaker_composed.png",
+      "sha256": "da428182d06b3a09b84499291033ee41d96c6830b547c41650d97ebb370afc58",
+      "bytes": 474423
+    },
+    {
+      "path": "sources/craft/art/candymaker_full_garment.png",
+      "sha256": "0f0a23027a8b4ea2c6fc07188bddbc1ccff8c65600d153337b00fbb3e81148cc",
+      "bytes": 158444
+    },
+    {
+      "path": "sources/craft/art/candymaker_head.png",
+      "sha256": "5ce472f049a13072061574647dd90c9c7436b32092a59bc5b39c10cda2ac733e",
+      "bytes": 34385
+    },
+    {
+      "path": "sources/craft/art/candymaker_LeftFore.png",
+      "sha256": "91943c5580f04f8a454a1f3cd5431fc1fcc693016eb5b502e49e3b6843725a80",
+      "bytes": 14178
+    },
+    {
+      "path": "sources/craft/art/candymaker_LeftHand.png",
+      "sha256": "b7aaaa9a5ae1502729be5b574716c6a0433e73ad8cbe2b3d26c3363a6d577f00",
+      "bytes": 13257
+    },
+    {
+      "path": "sources/craft/art/candymaker_LeftUpper.png",
+      "sha256": "5327cbbc50fd5fb3c42a888c6828df5bf89bb99b0cb2c54122c3a1fd5252c9ac",
+      "bytes": 21013
+    },
+    {
+      "path": "sources/craft/art/candymaker_preview.png",
+      "sha256": "f26423b6712ead3095ec2cd874a5c8f216adecd79890ed9dd8ab43f4982efb92",
+      "bytes": 490118
+    },
+    {
+      "path": "sources/craft/art/candymaker_RightFore.png",
+      "sha256": "5656d46672d075ee810afdc9f16807ba9eeb69a306cbbf77d698740b45d482e0",
+      "bytes": 13773
+    },
+    {
+      "path": "sources/craft/art/candymaker_RightHand.png",
+      "sha256": "f0c7868c1fc1ca8540db080dad97c4b5bf8f38b68f9d76893dc904bfcad2dd23",
+      "bytes": 12340
+    },
+    {
+      "path": "sources/craft/art/candymaker_RightUpper.png",
+      "sha256": "7488320b16a2cdf270efc255ed70525f9e273fe45a70f2cae9df0ee1f27cc8ac",
+      "bytes": 20530
+    },
+    {
+      "path": "sources/craft/art/candymaker_scalp.png",
+      "sha256": "31aebcd95b87d2a06dfa348e239813f5b65460a3bfe7dc6255d6beff7ac9b3d1",
+      "bytes": 445699
+    },
+    {
+      "path": "sources/craft/art/candymaker_sleeve_left.png",
+      "sha256": "b2692e81b6d2e600dd5b801617ab7153bb78534d5fa29a6d66d3b02e13d215b5",
+      "bytes": 8579
+    },
+    {
+      "path": "sources/craft/art/candymaker_sleeve_right.png",
+      "sha256": "9b61db77a59b5bc1324cb7d39cbf88381fc485bc9785f59fb17915b135c3df7e",
+      "bytes": 9091
+    },
+    {
+      "path": "sources/craft/art/candymaker_tail.png",
+      "sha256": "66e9dd3b16bd9e26e41f9f52c1f953bbeac8be1049183ba78ab7e120d199ea04",
+      "bytes": 131241
+    },
+    {
+      "path": "sources/craft/art/candymaker_Torso.png",
+      "sha256": "b4b6b993ecaa761e8ac7c8a3c3219af4cd6f4e70dd74c4a172e1d09feb6043b4",
+      "bytes": 70768
+    },
+    {
+      "path": "sources/craft/art/cradle.png",
+      "sha256": "ffc0efb1f122a5c8b7113552da695a14927f465f8e319a91a32eb3bda82b127f",
+      "bytes": 248693
+    },
+    {
+      "path": "sources/craft/art/cup_left.png",
+      "sha256": "716c1bfd7d1459a3e85276bd9402100bd45cf2538a5eae5e1a84eb430e1da9b8",
+      "bytes": 260874
+    },
+    {
+      "path": "sources/craft/art/cup_right.png",
+      "sha256": "1fe888d5903c64153649a3ab715e2724b7dd647f87b0b94bbe3380a0ca64d448",
+      "bytes": 281489
+    },
+    {
+      "path": "sources/craft/art/eyes_closed.png",
+      "sha256": "f6c5abdf1d00ab49e6f889a47a03c1070c3b43f3e4f4016b00c18bd5881a909b",
+      "bytes": 32864
+    },
+    {
+      "path": "sources/craft/art/eyes_half.png",
+      "sha256": "a28c55c2afc5e990d61e77ba283fac1e395515773b4dd48c8b3e811b0eb54739",
+      "bytes": 34125
+    },
+    {
+      "path": "sources/craft/art/forearm.png",
+      "sha256": "565207ab35e95b50d1a2fd1fdca2cea637800030d11a377117604b94a560f00f",
+      "bytes": 28402
+    },
+    {
+      "path": "sources/craft/art/magician_body.png",
+      "sha256": "774e3cb5c763830c4f5bdf018d540b6e5de63ce38ae6ad74da54f8636962b877",
+      "bytes": 226012
+    },
+    {
+      "path": "sources/craft/art/magician_composed.png",
+      "sha256": "8f8a1f677f5fcaf97255b13898c2260c8d9e526c35515a9790771f24d12e4cd1",
+      "bytes": 464370
+    },
+    {
+      "path": "sources/craft/art/magician_head.png",
+      "sha256": "ad572b014036bae789a118b4e98a20ea2fbe865e800b0f49d738b5f468e32406",
+      "bytes": 66906
+    },
+    {
+      "path": "sources/craft/art/magician_scalp.png",
+      "sha256": "d354f2853ef1fd88cd8fd2c38c564529878591ab50dab85da48e6b97115914c6",
+      "bytes": 501453
+    },
+    {
+      "path": "sources/craft/art/magician_tail.png",
+      "sha256": "fd6b5cdb3b4247c360cb3d9db7f101982117f0711343c4bfdc7d770a281b023e",
+      "bytes": 227041
+    },
+    {
+      "path": "sources/craft/art/nursery_action_Head.png",
+      "sha256": "b9075d79d4d5446c99910bf85319973094b29fef6d2b53e19826103bdcbc9106",
+      "bytes": 169922
+    },
+    {
+      "path": "sources/craft/art/nursery_action_LeftFore.png",
+      "sha256": "91943c5580f04f8a454a1f3cd5431fc1fcc693016eb5b502e49e3b6843725a80",
+      "bytes": 14178
+    },
+    {
+      "path": "sources/craft/art/nursery_action_LeftHand.png",
+      "sha256": "b7aaaa9a5ae1502729be5b574716c6a0433e73ad8cbe2b3d26c3363a6d577f00",
+      "bytes": 13257
+    },
+    {
+      "path": "sources/craft/art/nursery_action_LeftUpper.png",
+      "sha256": "ed2a1082edca976188e31af27d3a932b66fc01d5caf99f52189685a209a23e19",
+      "bytes": 15651
+    },
+    {
+      "path": "sources/craft/art/nursery_action_RightFore.png",
+      "sha256": "07bdc1ae1b8d7e6e06a1c18fac32ba682fd4478332eb4785dd3982a3d142edfe",
+      "bytes": 14366
+    },
+    {
+      "path": "sources/craft/art/nursery_action_RightHand.png",
+      "sha256": "c1233c2e25622aa73231f9ade8e9050d9051f6f4d9b2253ce1212650dd82a3f6",
+      "bytes": 13415
+    },
+    {
+      "path": "sources/craft/art/nursery_action_RightUpper.png",
+      "sha256": "a6cbb743849d11c5869426aa8754d3013d11a967e4eba7b9677b8f9cd616d3ab",
+      "bytes": 12658
+    },
+    {
+      "path": "sources/craft/art/nursery_action_Tail.png",
+      "sha256": "11cddcdca19e26f02bf351b517b87dfe98d9feca9343f34d91310ffe0559b1ad",
+      "bytes": 233565
+    },
+    {
+      "path": "sources/craft/art/nursery_action_Torso.png",
+      "sha256": "023a77ae16546326c425745aede47c4e82819c0ea8baf9856bd6ba1494595513",
+      "bytes": 60753
+    },
+    {
+      "path": "sources/craft/art/nursery_body.png",
+      "sha256": "328567538ad3fb7d78b426ebffdb8093b4b99a5eacadd8bf127ca23bde8202a5",
+      "bytes": 110917
+    },
+    {
+      "path": "sources/craft/art/nursery_body_full.png",
+      "sha256": "951f7f4f281eaa68d026a61222a01f2bc35ad93d2523c63f3635654519a67901",
+      "bytes": 135724
+    },
+    {
+      "path": "sources/craft/art/nursery_composed.png",
+      "sha256": "57ce1c46e88fe865e76fb81cc8aa79be426aa51a905186ef18f80366599bf1de",
+      "bytes": 483514
+    },
+    {
+      "path": "sources/craft/art/nursery_full_garment.png",
+      "sha256": "2503c5d066f53c8d37b686144a1f8bb96f9574373df80317a0bd4ee9268c268a",
+      "bytes": 201199
+    },
+    {
+      "path": "sources/craft/art/nursery_head.png",
+      "sha256": "812683ba2546e995b128f4735915124db8db8a1083b6ec05ef8b68073bd309eb",
+      "bytes": 20099
+    },
+    {
+      "path": "sources/craft/art/nursery_LeftFore.png",
+      "sha256": "69fa43ae29f19665ea29d6033c4506f046ad677572682d1e1dbdef8ccd04c168",
+      "bytes": 19136
+    },
+    {
+      "path": "sources/craft/art/nursery_LeftHand.png",
+      "sha256": "b7aaaa9a5ae1502729be5b574716c6a0433e73ad8cbe2b3d26c3363a6d577f00",
+      "bytes": 13257
+    },
+    {
+      "path": "sources/craft/art/nursery_LeftUpper.png",
+      "sha256": "d5d3f2ddef79a747bcab7fd15da6be5b69a9948b0b7e9752090adf23e79a18d3",
+      "bytes": 27734
+    },
+    {
+      "path": "sources/craft/art/nursery_preview.png",
+      "sha256": "13d61e36e910042e0306f98d2889d081095454902f50b8cc1fad3e3037102a3d",
+      "bytes": 496137
+    },
+    {
+      "path": "sources/craft/art/nursery_RightFore.png",
+      "sha256": "7fd34a7e921178499a19c4917f3bf632b21ca5a5314c390df01505b8a3683797",
+      "bytes": 14148
+    },
+    {
+      "path": "sources/craft/art/nursery_RightHand.png",
+      "sha256": "f0c7868c1fc1ca8540db080dad97c4b5bf8f38b68f9d76893dc904bfcad2dd23",
+      "bytes": 12340
+    },
+    {
+      "path": "sources/craft/art/nursery_RightUpper.png",
+      "sha256": "d1e8c13cc433a7c44158450b135557827cee742598c47a5b3ebeede963a45284",
+      "bytes": 23234
+    },
+    {
+      "path": "sources/craft/art/nursery_scalp.png",
+      "sha256": "31aebcd95b87d2a06dfa348e239813f5b65460a3bfe7dc6255d6beff7ac9b3d1",
+      "bytes": 445699
+    },
+    {
+      "path": "sources/craft/art/nursery_sleeve_left.png",
+      "sha256": "1e43c50ceaa8c156b41928b5a6512b8b17567fb2a28a980c62f5cf62b81476a1",
+      "bytes": 18639
+    },
+    {
+      "path": "sources/craft/art/nursery_sleeve_right.png",
+      "sha256": "aa81dc49ea31048a455a4b2557ab5ce407ce4e50dd77b1d9b988912220ddc385",
+      "bytes": 14091
+    },
+    {
+      "path": "sources/craft/art/nursery_tail.png",
+      "sha256": "66e9dd3b16bd9e26e41f9f52c1f953bbeac8be1049183ba78ab7e120d199ea04",
+      "bytes": 131241
+    },
+    {
+      "path": "sources/craft/art/nursery_Torso.png",
+      "sha256": "59a2433cd8445e00a1c39aa16f85179539ee8c9aceb629260c694c6e46b0fe0d",
+      "bytes": 61006
+    },
+    {
+      "path": "sources/craft/art/original_body.png",
+      "sha256": "17471c41c54b67a2a8da201e60c8fefa4f4e01f7b2d35a991a9aabd6c6fd460f",
+      "bytes": 72716
+    },
+    {
+      "path": "sources/craft/art/original_tail.png",
+      "sha256": "13857dc9638f6ab86ae2ca29c145cfeb8b9646b34174b489514a1e711eaf81df",
+      "bytes": 128806
+    },
+    {
+      "path": "sources/craft/art/ownership.png",
+      "sha256": "8c1674a81a141aca694f5d66bba2063443d2cb47851fee0d3e45de5b55ffdbd9",
+      "bytes": 13870
+    },
+    {
+      "path": "sources/craft/art/ownership_head.png",
+      "sha256": "5822cbb319df5cb5a6b380398395fc4104912e8db004a30d801061bff09d3a65",
+      "bytes": 14148
+    },
+    {
+      "path": "sources/craft/art/ownership_jobs.png",
+      "sha256": "5e94285ecffe756a0c8f7f6c307460280d2570d18686f92df598dd8994182dd8",
+      "bytes": 13937
+    },
+    {
+      "path": "sources/craft/art/support_hand_source.png",
+      "sha256": "9fa5f612843a7b5335aa437d0e196fbfc3f3e4d610303919ebdf10ba706ddb83",
+      "bytes": 11481
+    },
+    {
+      "path": "sources/craft/art/tong_grip_source.png",
+      "sha256": "d9c3b21763f84087e8cccc91e7aed2df14cba22d6259604561d005aa27934f25",
+      "bytes": 27231
+    },
+    {
+      "path": "sources/craft/art/tong_hand.png",
+      "sha256": "c38ec36df27c41d80c95a14d6c44fe3f0d063c266eeed295ba15b0c58005574c",
+      "bytes": 14301
+    },
+    {
+      "path": "sources/craft/art/tong_tool.png",
+      "sha256": "be4ce70ac8ab1c442793f373ecac540514514b70672fcc70e99dbc3a75943f30",
+      "bytes": 19848
+    },
+    {
+      "path": "sources/craft/art/upper_arm.png",
+      "sha256": "ae92c6911651a39d47db27a0171b2c459d1af77444a467c74e005fc68e1bb181",
+      "bytes": 27975
+    },
+    {
+      "path": "sources/craft/art/upper_clean.png",
+      "sha256": "40ba08f7ec416e559ce1eb388a92bd427b4f32c0b0df8622ceeb54203689459a",
+      "bytes": 27848
+    },
+    {
+      "path": "sources/craft/capture.gd",
+      "sha256": "485bb8e2fe843b2dd225422698e4287e87d208116b6f98d250d48d311fe857c7",
+      "bytes": 5816
+    },
+    {
+      "path": "sources/craft/capture_surfaces.gd",
+      "sha256": "8a01ddd531b0e9e38840948c31fe57fd80941b9a713d8c5995dcba147334c4ff",
+      "bytes": 2280
+    },
+    {
+      "path": "sources/craft/contract.json",
+      "sha256": "b2a5dfe936d13ccdeb88e5c29ad268b19488de7cbe49d9b06abf84a94135fb5f",
+      "bytes": 11405
+    },
+    {
+      "path": "sources/craft/costume.gdshader",
+      "sha256": "a3c053fd724a057594521bbec8205fb26aa08b50d122c7f33cf6065c59243d95",
+      "bytes": 968
+    },
+    {
+      "path": "sources/craft/costume_jobs.gdshader",
+      "sha256": "031fa4e513a7f7c756de009a8fd47ccbc42fe501507e25ee1a64cb9c4c53e04d",
+      "bytes": 1441
+    },
+    {
+      "path": "sources/craft/costumes.json",
+      "sha256": "755fd112bacfd6dc21f33984e998c32fa653493332e7c3922b9befeaa56c74c7",
+      "bytes": 2335
+    },
+    {
+      "path": "sources/craft/original_rig.json",
+      "sha256": "63754b3cae1d329c7dd9f42b02199147595951679acbc930a3e9d467a930a9a2",
+      "bytes": 659128
+    },
+    {
+      "path": "sources/craft/project.godot",
+      "sha256": "1396c26fcbc2f7ed9fbfe4206e6fc8659935cda1b5540231de2d47f49d06bb2b",
+      "bytes": 291
+    },
+    {
+      "path": "sources/craft/rig.json",
+      "sha256": "500f496dcab974b83b1b1961a2de8331d250678247d98e97fd70092135770e20",
+      "bytes": 989724
+    },
+    {
+      "path": "sources/craft/rig_candymaker.json",
+      "sha256": "21cb3d86c650b22a8aff8e448718395d3c485df419da30eacf64c761e07c3778",
+      "bytes": 703374
+    },
+    {
+      "path": "sources/craft/rig_nursery.json",
+      "sha256": "22aa5abc3c5ac728417210e22c52aa991727d85442b531c7da5084f2de6e40c1",
+      "bytes": 703368
+    },
+    {
+      "path": "sources/craft/seed_study.gd",
+      "sha256": "4cc1b7ff93652ef2bb47d7a37d9377e247f666ad4665d419b87fdf7e7445898b",
+      "bytes": 13899
+    },
+    {
+      "path": "sources/craft/sleeves.json",
+      "sha256": "6687c0a271d7c9e3f04a94822859d827dac36503fc22f306248882e4dd811755",
+      "bytes": 470
+    },
+    {
+      "path": "sources/craft/swim_motion.gd",
+      "sha256": "76eafec028ed5c0107e6c711e365b968b1a3abdb170025b66ecca363be941c57",
+      "bytes": 2523
+    },
+    {
+      "path": "sources/craft/swim_source.gd",
+      "sha256": "4cc1b7ff93652ef2bb47d7a37d9377e247f666ad4665d419b87fdf7e7445898b",
+      "bytes": 13899
+    },
+    {
+      "path": "sources/creative/capture.gd",
+      "sha256": "485bb8e2fe843b2dd225422698e4287e87d208116b6f98d250d48d311fe857c7",
+      "bytes": 5816
+    },
+    {
+      "path": "sources/creative/capture_surfaces.gd",
+      "sha256": "8a01ddd531b0e9e38840948c31fe57fd80941b9a713d8c5995dcba147334c4ff",
+      "bytes": 2280
+    },
+    {
+      "path": "sources/creative/costume.gdshader",
+      "sha256": "6848d88c1f1fc68f6c06bbf32ba6612dbf8540e19fc80352008ee79d72645139",
+      "bytes": 1131
+    },
+    {
+      "path": "sources/creative/costumes.json",
+      "sha256": "eff39d3dd911a3ffc1d94ac150c3ad55160e5e12308eeca28de89bc9fa7a6a5e",
+      "bytes": 2236
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/anatomy.png",
+      "sha256": "0221409d2b41fa50324ef929f120d6fa31b54382ed7819ac3efe5fefdc47bc6b",
+      "bytes": 294078
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/astronaut_body.png",
+      "sha256": "2a4678a7a73a4df42537c451b37cd1cd4fb4a687b08eb7bb662a24365089bfbf",
+      "bytes": 94307
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/astronaut_head.png",
+      "sha256": "db001b52d3ad83c7e8cbf3b887c8c89e77adf6c1a86940f8ccf3e6eb280b259f",
+      "bytes": 99235
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/astronaut_scalp.png",
+      "sha256": "d354f2853ef1fd88cd8fd2c38c564529878591ab50dab85da48e6b97115914c6",
+      "bytes": 501453
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/astronaut_tail.png",
+      "sha256": "94a4b381c42cf7abe15a8709803cf9825bd0008f9fc8fa87ba4e4d0e63557cce",
+      "bytes": 151565
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/ballet_body.png",
+      "sha256": "6cfa95d6a28aa022976f1b3f85066ade7cf16e0e5f10bb579d7bdefb4e3d8c8d",
+      "bytes": 227436
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/ballet_composed.png",
+      "sha256": "2470535f6ce319c3decfd4be67083aea444bf9a8c436e5a13ad58ecc5161ff05",
+      "bytes": 461573
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/ballet_head.png",
+      "sha256": "1108a5d77b37b594a7665dbf2c2b85f9956db534f607bbf9980b9bdd775ac2fc",
+      "bytes": 58238
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/ballet_scalp.png",
+      "sha256": "d354f2853ef1fd88cd8fd2c38c564529878591ab50dab85da48e6b97115914c6",
+      "bytes": 501453
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/ballet_tail.png",
+      "sha256": "558b3597ff3a22c8b46c61f96aa62718cd328211275fefa4ec5c3493c3aed708",
+      "bytes": 229098
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/banner.png",
+      "sha256": "1cbf785bded294e8e4f5814f5b85fb2a455e07c4fe16f8826b00545d095a6731",
+      "bytes": 132543
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/blank.png",
+      "sha256": "4f8be0b10c1d0add0c81b6674a9edc3099b1f4791f81ab4e3fbaa06cf8143e70",
+      "bytes": 4157
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/brush.png",
+      "sha256": "f87fba9da12ee8344d327f1858435927f12c2fcd3893ee5ab4e415ff2e9a06e1",
+      "bytes": 30086
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/brush_grip.png",
+      "sha256": "cea8daa53e65ccd79fe2884b25144a9aa4fc93793530a19a6b8986dca544c11e",
+      "bytes": 30834
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/magician_body.png",
+      "sha256": "774e3cb5c763830c4f5bdf018d540b6e5de63ce38ae6ad74da54f8636962b877",
+      "bytes": 226012
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/magician_composed.png",
+      "sha256": "8f8a1f677f5fcaf97255b13898c2260c8d9e526c35515a9790771f24d12e4cd1",
+      "bytes": 464370
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/magician_head.png",
+      "sha256": "ad572b014036bae789a118b4e98a20ea2fbe865e800b0f49d738b5f468e32406",
+      "bytes": 66906
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/magician_scalp.png",
+      "sha256": "d354f2853ef1fd88cd8fd2c38c564529878591ab50dab85da48e6b97115914c6",
+      "bytes": 501453
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/magician_tail.png",
+      "sha256": "fd6b5cdb3b4247c360cb3d9db7f101982117f0711343c4bfdc7d770a281b023e",
+      "bytes": 227041
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/neck_patch.png",
+      "sha256": "b5cd654c10bcc33f857caed5742d4ddd56a38b9bf7d0a55d7bcffd6f03a438e2",
+      "bytes": 11381
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/original_body.png",
+      "sha256": "17471c41c54b67a2a8da201e60c8fefa4f4e01f7b2d35a991a9aabd6c6fd460f",
+      "bytes": 72716
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/original_tail.png",
+      "sha256": "13857dc9638f6ab86ae2ca29c145cfeb8b9646b34174b489514a1e711eaf81df",
+      "bytes": 128806
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/ownership.png",
+      "sha256": "8c1674a81a141aca694f5d66bba2063443d2cb47851fee0d3e45de5b55ffdbd9",
+      "bytes": 13870
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/painter_body.png",
+      "sha256": "d6932e50490259c62a5e7e44ef1d56f3c47b91ef9e1ce5d6ae584aee0deb9022",
+      "bytes": 99024
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/painter_head.png",
+      "sha256": "af2a7d1189ae4be8e433599c05fd5632c54dfe4b9390319c8f7569b0e4341ecb",
+      "bytes": 53227
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/painter_scalp.png",
+      "sha256": "d354f2853ef1fd88cd8fd2c38c564529878591ab50dab85da48e6b97115914c6",
+      "bytes": 501453
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/painter_tail.png",
+      "sha256": "2acfd2ffc86f2c749707053826e15d9a1d57a7bb101a0a1ac6d9ba8de19f0aa2",
+      "bytes": 129126
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/painting.png",
+      "sha256": "254183ce5471ac43439e88e2db44a103a74868136f05932bc9be9718df973318",
+      "bytes": 349801
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/upper_clean.png",
+      "sha256": "40ba08f7ec416e559ce1eb388a92bd427b4f32c0b0df8622ceeb54203689459a",
+      "bytes": 27848
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/valve.png",
+      "sha256": "317c5463708b797df38d8a56b32d5cf2d067c33607e02424ab6f759e681ba7b5",
+      "bytes": 101172
+    },
+    {
+      "path": "sources/creative/external/12c23827e71b/valve_support.png",
+      "sha256": "d87238e8012e2166c929ed81fad317fbbe14665d0ce6026e9e6781b064ba0b54",
+      "bytes": 294042
+    },
+    {
+      "path": "sources/creative/external/453ad5ec265c/arm.png",
+      "sha256": "887a6b77a278b1b861a4c38871a4f2ebdec017010213e240d8046f3000829d1f",
+      "bytes": 29068
+    },
+    {
+      "path": "sources/creative/external/453ad5ec265c/body.png",
+      "sha256": "dded9a4df58f32b5b75a63c6d7be88c98f5dba3c64d88dd55def6ad44a6e3eea",
+      "bytes": 472707
+    },
+    {
+      "path": "sources/creative/external/453ad5ec265c/eyes_closed.png",
+      "sha256": "f6c5abdf1d00ab49e6f889a47a03c1070c3b43f3e4f4016b00c18bd5881a909b",
+      "bytes": 32864
+    },
+    {
+      "path": "sources/creative/external/453ad5ec265c/eyes_half.png",
+      "sha256": "a28c55c2afc5e990d61e77ba283fac1e395515773b4dd48c8b3e811b0eb54739",
+      "bytes": 34125
+    },
+    {
+      "path": "sources/creative/external/453ad5ec265c/forearm.png",
+      "sha256": "565207ab35e95b50d1a2fd1fdca2cea637800030d11a377117604b94a560f00f",
+      "bytes": 28402
+    },
+    {
+      "path": "sources/creative/external/453ad5ec265c/neutral.png",
+      "sha256": "847e38e0ccbded2ce8ce59a212ed3cf6b9bb458c120f524f2baa8120facc27ae",
+      "bytes": 489794
+    },
+    {
+      "path": "sources/creative/external/453ad5ec265c/neutral_composite.png",
+      "sha256": "0b2a3d2268dff444d51f604a2c6e55d3d991e85982f80db237fb46a6e932b56e",
+      "bytes": 490061
+    },
+    {
+      "path": "sources/creative/external/453ad5ec265c/upper_arm.png",
+      "sha256": "ae92c6911651a39d47db27a0171b2c459d1af77444a467c74e005fc68e1bb181",
+      "bytes": 27975
+    },
+    {
+      "path": "sources/creative/project.godot",
+      "sha256": "1396c26fcbc2f7ed9fbfe4206e6fc8659935cda1b5540231de2d47f49d06bb2b",
+      "bytes": 291
+    },
+    {
+      "path": "sources/creative/rig.json",
+      "sha256": "4456efc00e1e1055e60e5ba512c2baf38285f4753d4a7483ec2e0135b4dfff19",
+      "bytes": 1769256
+    },
+    {
+      "path": "sources/creative/seed_rig.json",
+      "sha256": "f3d532cb867ee91b485e27111a10995298d896825d3a167fa26a053edb09073f",
+      "bytes": 928469
+    },
+    {
+      "path": "sources/creative/study.gd",
+      "sha256": "37fcdde598f21e165cb984902ed8cb6730e641cf0fd8c1ade01e122533a922f7",
+      "bytes": 19962
+    },
+    {
+      "path": "sources/creative/swim_motion.gd",
+      "sha256": "76eafec028ed5c0107e6c711e365b968b1a3abdb170025b66ecca363be941c57",
+      "bytes": 2523
+    },
+    {
+      "path": "sources/creative/swim_source.gd",
+      "sha256": "37fcdde598f21e165cb984902ed8cb6730e641cf0fd8c1ade01e122533a922f7",
+      "bytes": 19962
+    },
+    {
+      "path": "sources/investigation/art/anatomy.png",
+      "sha256": "0221409d2b41fa50324ef929f120d6fa31b54382ed7819ac3efe5fefdc47bc6b",
+      "bytes": 294078
+    },
+    {
+      "path": "sources/investigation/art/ballet_body.png",
+      "sha256": "6cfa95d6a28aa022976f1b3f85066ade7cf16e0e5f10bb579d7bdefb4e3d8c8d",
+      "bytes": 227436
+    },
+    {
+      "path": "sources/investigation/art/ballet_composed.png",
+      "sha256": "2470535f6ce319c3decfd4be67083aea444bf9a8c436e5a13ad58ecc5161ff05",
+      "bytes": 461573
+    },
+    {
+      "path": "sources/investigation/art/ballet_head.png",
+      "sha256": "1108a5d77b37b594a7665dbf2c2b85f9956db534f607bbf9980b9bdd775ac2fc",
+      "bytes": 58238
+    },
+    {
+      "path": "sources/investigation/art/ballet_scalp.png",
+      "sha256": "d354f2853ef1fd88cd8fd2c38c564529878591ab50dab85da48e6b97115914c6",
+      "bytes": 501453
+    },
+    {
+      "path": "sources/investigation/art/ballet_tail.png",
+      "sha256": "558b3597ff3a22c8b46c61f96aa62718cd328211275fefa4ec5c3493c3aed708",
+      "bytes": 229098
+    },
+    {
+      "path": "sources/investigation/art/body.png",
+      "sha256": "dded9a4df58f32b5b75a63c6d7be88c98f5dba3c64d88dd55def6ad44a6e3eea",
+      "bytes": 472707
+    },
+    {
+      "path": "sources/investigation/art/brush.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "bytes": 535795
+    },
+    {
+      "path": "sources/investigation/art/detective_body.png",
+      "sha256": "1201eaf99b358ec67c2fa8c8a37e247d4b541b20747599e3ca47fe38e67e33bc",
+      "bytes": 91968
+    },
+    {
+      "path": "sources/investigation/art/detective_head.png",
+      "sha256": "6ff5e7dd20611689e4628b18b9e376b8b038296198e8a038d4c47563dca87683",
+      "bytes": 41210
+    },
+    {
+      "path": "sources/investigation/art/detective_scalp.png",
+      "sha256": "d354f2853ef1fd88cd8fd2c38c564529878591ab50dab85da48e6b97115914c6",
+      "bytes": 501453
+    },
+    {
+      "path": "sources/investigation/art/detective_sleeve.png",
+      "sha256": "960f581d58731424b18e971f293f8534689c387d8fdf7f6669b0c69c5245a7e0",
+      "bytes": 15294
+    },
+    {
+      "path": "sources/investigation/art/detective_tail.png",
+      "sha256": "f978788a6733dbff08d5fa70390d5f8d905466f3fd8e788e528b9e5a60783cf6",
+      "bytes": 223643
+    },
+    {
+      "path": "sources/investigation/art/eyes_closed.png",
+      "sha256": "f6c5abdf1d00ab49e6f889a47a03c1070c3b43f3e4f4016b00c18bd5881a909b",
+      "bytes": 32864
+    },
+    {
+      "path": "sources/investigation/art/eyes_half.png",
+      "sha256": "a28c55c2afc5e990d61e77ba283fac1e395515773b4dd48c8b3e811b0eb54739",
+      "bytes": 34125
+    },
+    {
+      "path": "sources/investigation/art/fore_work.png",
+      "sha256": "8bc96e22891ff0c8af5cd042e7bb6b9771d930a128dd201046933b03c6e4766d",
+      "bytes": 21227
+    },
+    {
+      "path": "sources/investigation/art/forearm.png",
+      "sha256": "565207ab35e95b50d1a2fd1fdca2cea637800030d11a377117604b94a560f00f",
+      "bytes": 28402
+    },
+    {
+      "path": "sources/investigation/art/fossil.png",
+      "sha256": "f7b5272f5d73cbd3de012eeffb4603104cc3053a534022a0dafda9e331408acf",
+      "bytes": 451193
+    },
+    {
+      "path": "sources/investigation/art/geologist_body.png",
+      "sha256": "06202641b11c388b4961d66193981b08c01b8b116de8b19bcf58f2053f912483",
+      "bytes": 66001
+    },
+    {
+      "path": "sources/investigation/art/geologist_head.png",
+      "sha256": "7a31ff2d51f77482f294ef748dc8cfc9f15a484d50b8daf97ed7a8ed687ba8c2",
+      "bytes": 41082
+    },
+    {
+      "path": "sources/investigation/art/geologist_scalp.png",
+      "sha256": "d354f2853ef1fd88cd8fd2c38c564529878591ab50dab85da48e6b97115914c6",
+      "bytes": 501453
+    },
+    {
+      "path": "sources/investigation/art/geologist_sleeve.png",
+      "sha256": "cf93a72577fdc521765c0c12bc37ff3d34bd0a1ce470537e45c743791b207cb5",
+      "bytes": 5919
+    },
+    {
+      "path": "sources/investigation/art/geologist_tail.png",
+      "sha256": "cb6ee9688195034b8e09be9e4993699a53dcd34eea78ac1ff649040d2a5f8023",
+      "bytes": 211895
+    },
+    {
+      "path": "sources/investigation/art/grip_front.png",
+      "sha256": "479dde26e44ee3abe045d2efb74d71f7942fe394b6bb5aa05a4c574cae86cd10",
+      "bytes": 6006
+    },
+    {
+      "path": "sources/investigation/art/investigation_anatomy.png",
+      "sha256": "41d5a08b473aa34df86fb2aa0749d8ff2377e3f2c2ae24d9e933543317127313",
+      "bytes": 196586
+    },
+    {
+      "path": "sources/investigation/art/investigation_ownership.png",
+      "sha256": "14b69d35f4601d84dbcacc9bae1b601f782069c04b1d7f41532a49e7c3c51871",
+      "bytes": 10743
+    },
+    {
+      "path": "sources/investigation/art/magician_body.png",
+      "sha256": "774e3cb5c763830c4f5bdf018d540b6e5de63ce38ae6ad74da54f8636962b877",
+      "bytes": 226012
+    },
+    {
+      "path": "sources/investigation/art/magician_composed.png",
+      "sha256": "8f8a1f677f5fcaf97255b13898c2260c8d9e526c35515a9790771f24d12e4cd1",
+      "bytes": 464370
+    },
+    {
+      "path": "sources/investigation/art/magician_head.png",
+      "sha256": "ad572b014036bae789a118b4e98a20ea2fbe865e800b0f49d738b5f468e32406",
+      "bytes": 66906
+    },
+    {
+      "path": "sources/investigation/art/magician_scalp.png",
+      "sha256": "d354f2853ef1fd88cd8fd2c38c564529878591ab50dab85da48e6b97115914c6",
+      "bytes": 501453
+    },
+    {
+      "path": "sources/investigation/art/magician_tail.png",
+      "sha256": "fd6b5cdb3b4247c360cb3d9db7f101982117f0711343c4bfdc7d770a281b023e",
+      "bytes": 227041
+    },
+    {
+      "path": "sources/investigation/art/magnifier.png",
+      "sha256": "25dcb35f5b2a44281f798b67cb066720ac8a38e509f9b1398e77dbb170ac00bb",
+      "bytes": 177563
+    },
+    {
+      "path": "sources/investigation/art/magnifier_glass.png",
+      "sha256": "fef2bd0c3a7da6cd66b63f4563d43073e3b7f396d1bb078fe0a50b9a7a42b3b8",
+      "bytes": 170226
+    },
+    {
+      "path": "sources/investigation/art/new_anatomy_legacy_fin.png",
+      "sha256": "78ece398b18b6eb5f5c259158d204cebe567ac0d141c7192ff37c0f112d006a2",
+      "bytes": 282431
+    },
+    {
+      "path": "sources/investigation/art/original_body.png",
+      "sha256": "17471c41c54b67a2a8da201e60c8fefa4f4e01f7b2d35a991a9aabd6c6fd460f",
+      "bytes": 72716
+    },
+    {
+      "path": "sources/investigation/art/original_tail.png",
+      "sha256": "13857dc9638f6ab86ae2ca29c145cfeb8b9646b34174b489514a1e711eaf81df",
+      "bytes": 128806
+    },
+    {
+      "path": "sources/investigation/art/ownership.png",
+      "sha256": "8c1674a81a141aca694f5d66bba2063443d2cb47851fee0d3e45de5b55ffdbd9",
+      "bytes": 13870
+    },
+    {
+      "path": "sources/investigation/art/seed_anatomy_no_fin.png",
+      "sha256": "02aec41344c27dd45c6089788ad90f562a861df5cbd52bc7a454b38cc380f885",
+      "bytes": 196304
+    },
+    {
+      "path": "sources/investigation/art/slab.png",
+      "sha256": "ed8c46db142198807f16fd4762940cfc03466ff57f8cd6f862f52dc06343afb4",
+      "bytes": 786464
+    },
+    {
+      "path": "sources/investigation/art/soil.png",
+      "sha256": "e0f664a1685abe470333f624406340415208aa234db534b2e94ccfe575825058",
+      "bytes": 624167
+    },
+    {
+      "path": "sources/investigation/art/specimen.png",
+      "sha256": "44dc6cbe03143b0f89ec1bc57ce7e737a68752bd40ad8a37ebe471bf49d7b190",
+      "bytes": 217534
+    },
+    {
+      "path": "sources/investigation/art/upper_arm.png",
+      "sha256": "ae92c6911651a39d47db27a0171b2c459d1af77444a467c74e005fc68e1bb181",
+      "bytes": 27975
+    },
+    {
+      "path": "sources/investigation/art/upper_clean.png",
+      "sha256": "40ba08f7ec416e559ce1eb388a92bd427b4f32c0b0df8622ceeb54203689459a",
+      "bytes": 27848
+    },
+    {
+      "path": "sources/investigation/art/upper_work.png",
+      "sha256": "1fac329cdf3a465ddd45173d2a2e7148b71b0968e40a960d00f2a9cd9827aa8d",
+      "bytes": 21494
+    },
+    {
+      "path": "sources/investigation/audit_rig_detective.json",
+      "sha256": "81cda3b9d00d79c4a8861b93bfef0bdca31e9937d7849767629166cf474922d0",
+      "bytes": 1600240
+    },
+    {
+      "path": "sources/investigation/audit_rig_geologist.json",
+      "sha256": "ab58a32b7ab77fe23cd2c8a96fd2917026778bcb2beeb5d564f14257b16caad3",
+      "bytes": 1573313
+    },
+    {
+      "path": "sources/investigation/capture.gd",
+      "sha256": "485bb8e2fe843b2dd225422698e4287e87d208116b6f98d250d48d311fe857c7",
+      "bytes": 5816
+    },
+    {
+      "path": "sources/investigation/capture_surfaces.gd",
+      "sha256": "8a01ddd531b0e9e38840948c31fe57fd80941b9a713d8c5995dcba147334c4ff",
+      "bytes": 2280
+    },
+    {
+      "path": "sources/investigation/costume.gdshader",
+      "sha256": "3bd0f61bc31308aa6ba01811abeb238453351ac25b72be83949113e5ae300ad1",
+      "bytes": 1062
+    },
+    {
+      "path": "sources/investigation/costumes.json",
+      "sha256": "95be2aaa741a0029fa2597d5ffea8b4fffdbdea8ad48a6afcb9a11ca5d54c15c",
+      "bytes": 2213
+    },
+    {
+      "path": "sources/investigation/garment_meshes.json",
+      "sha256": "d4a755f22813ede2fa0bf665c15d7c5bfc94bbf3ec45fd73ef1f8d68374d3edd",
+      "bytes": 1433606
+    },
+    {
+      "path": "sources/investigation/project.godot",
+      "sha256": "1396c26fcbc2f7ed9fbfe4206e6fc8659935cda1b5540231de2d47f49d06bb2b",
+      "bytes": 291
+    },
+    {
+      "path": "sources/investigation/rig.json",
+      "sha256": "0631902c9c40777c8e9e207c52dc9adb04f5b98048fc42489e8c8efa705ebf4f",
+      "bytes": 928398
+    },
+    {
+      "path": "sources/investigation/study.gd",
+      "sha256": "b14ece58df4a44a9ee5016b0c53875ee368f77ba66a47ba12aa7a7d3e6f8a3a5",
+      "bytes": 12749
+    },
+    {
+      "path": "sources/investigation/swim_motion.gd",
+      "sha256": "76eafec028ed5c0107e6c711e365b968b1a3abdb170025b66ecca363be941c57",
+      "bytes": 2523
+    },
+    {
+      "path": "sources/investigation/swim_source.gd",
+      "sha256": "b14ece58df4a44a9ee5016b0c53875ee368f77ba66a47ba12aa7a7d3e6f8a3a5",
+      "bytes": 12749
+    },
+    {
+      "path": "sources/kitchen/art/anatomy.png",
+      "sha256": "0221409d2b41fa50324ef929f120d6fa31b54382ed7819ac3efe5fefdc47bc6b",
+      "bytes": 294078
+    },
+    {
+      "path": "sources/kitchen/art/anatomy_job.png",
+      "sha256": "840b5fc65719d8118eeb809a7519caf3dd758d3b959d0eaa83ee89f043f8535f",
+      "bytes": 274126
+    },
+    {
+      "path": "sources/kitchen/art/body.png",
+      "sha256": "dded9a4df58f32b5b75a63c6d7be88c98f5dba3c64d88dd55def6ad44a6e3eea",
+      "bytes": 472707
+    },
+    {
+      "path": "sources/kitchen/art/chef_body.png",
+      "sha256": "79acd3bb342c47eb287ff8599b756dfb60134415f0fd2c1eb863afd8eb3f1562",
+      "bytes": 145416
+    },
+    {
+      "path": "sources/kitchen/art/chef_head.png",
+      "sha256": "eb1b1bf9cdb89170eb6d09c5df3304dc85257735ce78cf3771d665a367658f25",
+      "bytes": 40884
+    },
+    {
+      "path": "sources/kitchen/art/chef_scalp.png",
+      "sha256": "d354f2853ef1fd88cd8fd2c38c564529878591ab50dab85da48e6b97115914c6",
+      "bytes": 501453
+    },
+    {
+      "path": "sources/kitchen/art/chef_sleeve_left.png",
+      "sha256": "710fcc9d7768496c389ad5b2b9a10e628f59ecf194874df93ee191dfd670dd6c",
+      "bytes": 43798
+    },
+    {
+      "path": "sources/kitchen/art/chef_sleeve_right.png",
+      "sha256": "8d15d0bf78c04afba7a4599d49649c76e45f112f0cb3baeaa72a2764d5f79c39",
+      "bytes": 43564
+    },
+    {
+      "path": "sources/kitchen/art/chef_tail.png",
+      "sha256": "888ba5035d8987d1a0057ca894dfcd58789905f7f5dbf601429bf7b9e4e63c46",
+      "bytes": 127260
+    },
+    {
+      "path": "sources/kitchen/art/elbow_overlap_cap.png",
+      "sha256": "af565cca883d3ab35d5e654d8e5dd5ccec335871fbed3ade573bfd3390fba1aa",
+      "bytes": 838
+    },
+    {
+      "path": "sources/kitchen/art/eyes_closed.png",
+      "sha256": "f6c5abdf1d00ab49e6f889a47a03c1070c3b43f3e4f4016b00c18bd5881a909b",
+      "bytes": 32864
+    },
+    {
+      "path": "sources/kitchen/art/eyes_half.png",
+      "sha256": "a28c55c2afc5e990d61e77ba283fac1e395515773b4dd48c8b3e811b0eb54739",
+      "bytes": 34125
+    },
+    {
+      "path": "sources/kitchen/art/farmer_body.png",
+      "sha256": "72e2096cb123a643d6c7df6b119c017b6349291189c1fa7493a8b3927a0843d6",
+      "bytes": 151931
+    },
+    {
+      "path": "sources/kitchen/art/farmer_head.png",
+      "sha256": "3785edde5713814df661274f2130fa6b8afef3c902b5a48c4819e3a86df1ac4b",
+      "bytes": 47496
+    },
+    {
+      "path": "sources/kitchen/art/farmer_scalp.png",
+      "sha256": "d354f2853ef1fd88cd8fd2c38c564529878591ab50dab85da48e6b97115914c6",
+      "bytes": 501453
+    },
+    {
+      "path": "sources/kitchen/art/farmer_sleeve_left.png",
+      "sha256": "1a45afa6ffd46186b17b37b36864018d03f1c90866fba914ac7ef2e4d2b29c9a",
+      "bytes": 43084
+    },
+    {
+      "path": "sources/kitchen/art/farmer_sleeve_right.png",
+      "sha256": "57142a4591b0801d3398c581cba8e479dac5dafccae2960109488c043fbdfdc8",
+      "bytes": 39264
+    },
+    {
+      "path": "sources/kitchen/art/farmer_tail.png",
+      "sha256": "f7f97987eef9ee522a4329395332e933e448f9bc7fde8f4cb350824c2e798f82",
+      "bytes": 113393
+    },
+    {
+      "path": "sources/kitchen/art/forearm.png",
+      "sha256": "565207ab35e95b50d1a2fd1fdca2cea637800030d11a377117604b94a560f00f",
+      "bytes": 28402
+    },
+    {
+      "path": "sources/kitchen/art/LeftForeAction.png",
+      "sha256": "59c3d27bd685e699553b5142dd62b028a05da0a05b0bd751d840beaafd519da9",
+      "bytes": 12723
+    },
+    {
+      "path": "sources/kitchen/art/LeftHandAction.png",
+      "sha256": "9ac59d197aeddc9bb2dd9f4cafbc6c601a8a5f84d4cc9d3ec85b04b9cdf278c9",
+      "bytes": 8712
+    },
+    {
+      "path": "sources/kitchen/art/LeftUpperAction.png",
+      "sha256": "cefe476bb0b797a64f1b36f68adc4ab0f61bfc01695b1e66673195fcd253b18f",
+      "bytes": 15726
+    },
+    {
+      "path": "sources/kitchen/art/original_body.png",
+      "sha256": "17471c41c54b67a2a8da201e60c8fefa4f4e01f7b2d35a991a9aabd6c6fd460f",
+      "bytes": 72716
+    },
+    {
+      "path": "sources/kitchen/art/original_tail.png",
+      "sha256": "13857dc9638f6ab86ae2ca29c145cfeb8b9646b34174b489514a1e711eaf81df",
+      "bytes": 128806
+    },
+    {
+      "path": "sources/kitchen/art/ownership.png",
+      "sha256": "8c1674a81a141aca694f5d66bba2063443d2cb47851fee0d3e45de5b55ffdbd9",
+      "bytes": 13870
+    },
+    {
+      "path": "sources/kitchen/art/RightForeAction.png",
+      "sha256": "5de189513563e3118e2eec4bace28142ca17ad82ce0cfcafa16475d96d6982b0",
+      "bytes": 13036
+    },
+    {
+      "path": "sources/kitchen/art/RightHandAction.png",
+      "sha256": "85507d512fc2cdbeeb0648d70159e721c8814aeabd9a327719123bef82c554df",
+      "bytes": 7750
+    },
+    {
+      "path": "sources/kitchen/art/RightUpperAction.png",
+      "sha256": "1752c703d30350bf51fccc4999f0866fe4c1c874a4a175d3d9023ef2995159bc",
+      "bytes": 12143
+    },
+    {
+      "path": "sources/kitchen/art/transparent.png",
+      "sha256": "265149d454822c2c808720c61f5a4317c0bfda56fc96598ea7b19b6ea52c5dd1",
+      "bytes": 4144
+    },
+    {
+      "path": "sources/kitchen/art/upper_arm.png",
+      "sha256": "ae92c6911651a39d47db27a0171b2c459d1af77444a467c74e005fc68e1bb181",
+      "bytes": 27975
+    },
+    {
+      "path": "sources/kitchen/art/upper_clean.png",
+      "sha256": "40ba08f7ec416e559ce1eb388a92bd427b4f32c0b0df8622ceeb54203689459a",
+      "bytes": 27848
+    },
+    {
+      "path": "sources/kitchen/capture.gd",
+      "sha256": "485bb8e2fe843b2dd225422698e4287e87d208116b6f98d250d48d311fe857c7",
+      "bytes": 5816
+    },
+    {
+      "path": "sources/kitchen/capture_surfaces.gd",
+      "sha256": "8a01ddd531b0e9e38840948c31fe57fd80941b9a713d8c5995dcba147334c4ff",
+      "bytes": 2280
+    },
+    {
+      "path": "sources/kitchen/costume.gdshader",
+      "sha256": "a3c053fd724a057594521bbec8205fb26aa08b50d122c7f33cf6065c59243d95",
+      "bytes": 968
+    },
+    {
+      "path": "sources/kitchen/costumes.json",
+      "sha256": "51b1573a695e74ee48e49a1a499e0304ad38c017e2180da0f86d5d65a557ff66",
+      "bytes": 238
+    },
+    {
+      "path": "sources/kitchen/garment.gdshader",
+      "sha256": "46217f08cbb37776de7faef239656ec34a81ed75c0714ce4a9865b221353da9d",
+      "bytes": 77
+    },
+    {
+      "path": "sources/kitchen/project.godot",
+      "sha256": "1396c26fcbc2f7ed9fbfe4206e6fc8659935cda1b5540231de2d47f49d06bb2b",
+      "bytes": 291
+    },
+    {
+      "path": "sources/kitchen/props/basket.png",
+      "sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910",
+      "bytes": 965816
+    },
+    {
+      "path": "sources/kitchen/props/basket_front.png",
+      "sha256": "a7a368652769483e14c54b3955d68ed325b26ce55bfa614baa111750d8675653",
+      "bytes": 438523
+    },
+    {
+      "path": "sources/kitchen/props/bowl.png",
+      "sha256": "064e696b789346670501afeb480a55171bb2510e6e58971f985b722e8c8078b7",
+      "bytes": 304989
+    },
+    {
+      "path": "sources/kitchen/props/bowl_front.png",
+      "sha256": "99461c9304a32fa49041183ae13355fab848276f789c8ede793d08ff38c9186f",
+      "bytes": 123148
+    },
+    {
+      "path": "sources/kitchen/props/bowl_only.png",
+      "sha256": "ebd1e88b97f412ee57f61146f3fce6b8393ba141ac319894b94b0f0d3eb0ce01",
+      "bytes": 293047
+    },
+    {
+      "path": "sources/kitchen/props/bowl_stirred.png",
+      "sha256": "a7e1020447c213295994ea091eb6f02884b9f8e789d0762a7ebfcba9067e4bab",
+      "bytes": 320039
+    },
+    {
+      "path": "sources/kitchen/props/carrot.png",
+      "sha256": "9ec02fdd3e0ea6888ab3e3dce7f3a6436b752974798fd46fddf545a70f3e93dd",
+      "bytes": 52582
+    },
+    {
+      "path": "sources/kitchen/props/seed.png",
+      "sha256": "75e04a8426144126d9245c88160aec75608890a04ebd149253534522c7bd2e6f",
+      "bytes": 19383
+    },
+    {
+      "path": "sources/kitchen/props/seed_bed.png",
+      "sha256": "bded62d528a69b197207173ef8da77ab101954be4f3659839c04bab3817f6a82",
+      "bytes": 463486
+    },
+    {
+      "path": "sources/kitchen/props/spoon.png",
+      "sha256": "12c39c1d8bb50e0f78f1b80353973d175dd139685258c2cb49b4ce81f067bee1",
+      "bytes": 25618
+    },
+    {
+      "path": "sources/kitchen/rig.json",
+      "sha256": "e4a77cf311854291b0a1e652d960e3c191e83fbf13be64618d7151433099bc43",
+      "bytes": 3169866
+    },
+    {
+      "path": "sources/kitchen/study.gd",
+      "sha256": "b79dc57d169d1a6ebba3bbef12c2c4e026f4f5ee36061c2ea7751ca6bb2a8afa",
+      "bytes": 14158
+    },
+    {
+      "path": "sources/kitchen/swim_motion.gd",
+      "sha256": "76eafec028ed5c0107e6c711e365b968b1a3abdb170025b66ecca363be941c57",
+      "bytes": 2523
+    },
+    {
+      "path": "sources/kitchen/swim_source.gd",
+      "sha256": "b79dc57d169d1a6ebba3bbef12c2c4e026f4f5ee36061c2ea7751ca6bb2a8afa",
+      "bytes": 14158
+    },
+    {
+      "path": "sources/performance/art/anatomy.png",
+      "sha256": "0221409d2b41fa50324ef929f120d6fa31b54382ed7819ac3efe5fefdc47bc6b",
+      "bytes": 294078
+    },
+    {
+      "path": "sources/performance/art/ballet_body.png",
+      "sha256": "6cfa95d6a28aa022976f1b3f85066ade7cf16e0e5f10bb579d7bdefb4e3d8c8d",
+      "bytes": 227436
+    },
+    {
+      "path": "sources/performance/art/ballet_composed.png",
+      "sha256": "2470535f6ce319c3decfd4be67083aea444bf9a8c436e5a13ad58ecc5161ff05",
+      "bytes": 461573
+    },
+    {
+      "path": "sources/performance/art/ballet_goal.png",
+      "sha256": "4891a0863557a0105912afe7497d2b0f976aadf32507ad1c079f03f3162c257e",
+      "bytes": 291121
+    },
+    {
+      "path": "sources/performance/art/ballet_head.png",
+      "sha256": "1108a5d77b37b594a7665dbf2c2b85f9956db534f607bbf9980b9bdd775ac2fc",
+      "bytes": 58238
+    },
+    {
+      "path": "sources/performance/art/ballet_scalp.png",
+      "sha256": "d354f2853ef1fd88cd8fd2c38c564529878591ab50dab85da48e6b97115914c6",
+      "bytes": 501453
+    },
+    {
+      "path": "sources/performance/art/ballet_tail.png",
+      "sha256": "558b3597ff3a22c8b46c61f96aa62718cd328211275fefa4ec5c3493c3aed708",
+      "bytes": 229098
+    },
+    {
+      "path": "sources/performance/art/closed_grip.png",
+      "sha256": "ee6e836d858ee49402d2c5a174d8d76f2d7eae752ebf744a79d282052d75d420",
+      "bytes": 26999
+    },
+    {
+      "path": "sources/performance/art/hat.png",
+      "sha256": "1f9691eb584bcb203aa7b34739b8dcffa5656805247e86d70d0d329d46ddd9a9",
+      "bytes": 185072
+    },
+    {
+      "path": "sources/performance/art/lamb.png",
+      "sha256": "937d22677f461f025d27d674dbf45751b2eb5f66a862d0b61e0e643c547f1831",
+      "bytes": 257761
+    },
+    {
+      "path": "sources/performance/art/magician_body.png",
+      "sha256": "774e3cb5c763830c4f5bdf018d540b6e5de63ce38ae6ad74da54f8636962b877",
+      "bytes": 226012
+    },
+    {
+      "path": "sources/performance/art/magician_composed.png",
+      "sha256": "8f8a1f677f5fcaf97255b13898c2260c8d9e526c35515a9790771f24d12e4cd1",
+      "bytes": 464370
+    },
+    {
+      "path": "sources/performance/art/magician_head.png",
+      "sha256": "ad572b014036bae789a118b4e98a20ea2fbe865e800b0f49d738b5f468e32406",
+      "bytes": 66906
+    },
+    {
+      "path": "sources/performance/art/magician_scalp.png",
+      "sha256": "d354f2853ef1fd88cd8fd2c38c564529878591ab50dab85da48e6b97115914c6",
+      "bytes": 501453
+    },
+    {
+      "path": "sources/performance/art/magician_tail.png",
+      "sha256": "fd6b5cdb3b4247c360cb3d9db7f101982117f0711343c4bfdc7d770a281b023e",
+      "bytes": 227041
+    },
+    {
+      "path": "sources/performance/art/original_body.png",
+      "sha256": "17471c41c54b67a2a8da201e60c8fefa4f4e01f7b2d35a991a9aabd6c6fd460f",
+      "bytes": 72716
+    },
+    {
+      "path": "sources/performance/art/original_tail.png",
+      "sha256": "13857dc9638f6ab86ae2ca29c145cfeb8b9646b34174b489514a1e711eaf81df",
+      "bytes": 128806
+    },
+    {
+      "path": "sources/performance/art/ownership.png",
+      "sha256": "8c1674a81a141aca694f5d66bba2063443d2cb47851fee0d3e45de5b55ffdbd9",
+      "bytes": 13870
+    },
+    {
+      "path": "sources/performance/art/rope0.png",
+      "sha256": "b52a6f5ecaf01745005a470718e61c5a2db195e5a66d5e2dce40f01c0d23236a",
+      "bytes": 56956
+    },
+    {
+      "path": "sources/performance/art/rope1.png",
+      "sha256": "590e8b42fc043bb8e070b465e70cbf46d3985d0a00b71485150e07fe49c9c3a9",
+      "bytes": 58367
+    },
+    {
+      "path": "sources/performance/art/rope2.png",
+      "sha256": "b2a3a1a223fcf051b04e4e7561320181071537db0b53ac6b7b6a8caad3c525b7",
+      "bytes": 60553
+    },
+    {
+      "path": "sources/performance/art/seed_body.png",
+      "sha256": "dded9a4df58f32b5b75a63c6d7be88c98f5dba3c64d88dd55def6ad44a6e3eea",
+      "bytes": 472707
+    },
+    {
+      "path": "sources/performance/art/seed_eyes_closed.png",
+      "sha256": "f6c5abdf1d00ab49e6f889a47a03c1070c3b43f3e4f4016b00c18bd5881a909b",
+      "bytes": 32864
+    },
+    {
+      "path": "sources/performance/art/seed_eyes_half.png",
+      "sha256": "a28c55c2afc5e990d61e77ba283fac1e395515773b4dd48c8b3e811b0eb54739",
+      "bytes": 34125
+    },
+    {
+      "path": "sources/performance/art/seed_forearm.png",
+      "sha256": "565207ab35e95b50d1a2fd1fdca2cea637800030d11a377117604b94a560f00f",
+      "bytes": 28402
+    },
+    {
+      "path": "sources/performance/art/seed_upper_arm.png",
+      "sha256": "ae92c6911651a39d47db27a0171b2c459d1af77444a467c74e005fc68e1bb181",
+      "bytes": 27975
+    },
+    {
+      "path": "sources/performance/art/upper_clean.png",
+      "sha256": "40ba08f7ec416e559ce1eb388a92bd427b4f32c0b0df8622ceeb54203689459a",
+      "bytes": 27848
+    },
+    {
+      "path": "sources/performance/art/wand.png",
+      "sha256": "6d5dc285df51e32c937034d0afa4c8d9f6e070fbe1e8d293ec869b2e7906318c",
+      "bytes": 67480
+    },
+    {
+      "path": "sources/performance/capture.gd",
+      "sha256": "485bb8e2fe843b2dd225422698e4287e87d208116b6f98d250d48d311fe857c7",
+      "bytes": 5816
+    },
+    {
+      "path": "sources/performance/capture_surfaces.gd",
+      "sha256": "8a01ddd531b0e9e38840948c31fe57fd80941b9a713d8c5995dcba147334c4ff",
+      "bytes": 2280
+    },
+    {
+      "path": "sources/performance/costume.gdshader",
+      "sha256": "a3c053fd724a057594521bbec8205fb26aa08b50d122c7f33cf6065c59243d95",
+      "bytes": 968
+    },
+    {
+      "path": "sources/performance/costumes.json",
+      "sha256": "7ecb0724178d19289ef151bb75fe51065557f2efb3f534838415d238fe737df3",
+      "bytes": 1974
+    },
+    {
+      "path": "sources/performance/project.godot",
+      "sha256": "1396c26fcbc2f7ed9fbfe4206e6fc8659935cda1b5540231de2d47f49d06bb2b",
+      "bytes": 291
+    },
+    {
+      "path": "sources/performance/rig.json",
+      "sha256": "1e597ca6fdcd435aeea61ae7dc8e08514a0da1bb349d93af396b1adb225fb961",
+      "bytes": 928413
+    },
+    {
+      "path": "sources/performance/seed.gd",
+      "sha256": "f0fb4deeff57e42f9a143c57331fe5c7f608a44ac63771f915e4af7fc5a198ba",
+      "bytes": 12639
+    },
+    {
+      "path": "sources/performance/swim_motion.gd",
+      "sha256": "76eafec028ed5c0107e6c711e365b968b1a3abdb170025b66ecca363be941c57",
+      "bytes": 2523
+    },
+    {
+      "path": "sources/performance/swim_source.gd",
+      "sha256": "f0fb4deeff57e42f9a143c57331fe5c7f608a44ac63771f915e4af7fc5a198ba",
+      "bytes": 12639
+    },
+    {
+      "path": "sources/sport/art/action_mask.png",
+      "sha256": "3edff5d9d63ad48eb03fd746165b8daa8633a476f7967d62b44cebad4320c78e",
+      "bytes": 5367
+    },
+    {
+      "path": "sources/sport/art/anatomy.png",
+      "sha256": "0221409d2b41fa50324ef929f120d6fa31b54382ed7819ac3efe5fefdc47bc6b",
+      "bytes": 294078
+    },
+    {
+      "path": "sources/sport/art/ballet_action_mask.png",
+      "sha256": "968a44433568b93dc319a10c170752098edc616080a74e2c21ab3aa1e09e20aa",
+      "bytes": 5388
+    },
+    {
+      "path": "sources/sport/art/ballet_ActionBody.png",
+      "sha256": "0c8ef0a70025e01be2ac87264fb525ae7a35f81684113dde4e61824dfe865ac3",
+      "bytes": 414708
+    },
+    {
+      "path": "sources/sport/art/ballet_body.png",
+      "sha256": "6cfa95d6a28aa022976f1b3f85066ade7cf16e0e5f10bb579d7bdefb4e3d8c8d",
+      "bytes": 227436
+    },
+    {
+      "path": "sources/sport/art/ballet_composed.png",
+      "sha256": "0803e019b94c0078c5f22d1789ac814d75776657675d5636ee85488b2f376de5",
+      "bytes": 483234
+    },
+    {
+      "path": "sources/sport/art/ballet_head.png",
+      "sha256": "1108a5d77b37b594a7665dbf2c2b85f9956db534f607bbf9980b9bdd775ac2fc",
+      "bytes": 58238
+    },
+    {
+      "path": "sources/sport/art/ballet_LeftFore.png",
+      "sha256": "ac2af33bdb255aa7a5967487c0703e865b66ad668197524b3900cd800b0c5dc7",
+      "bytes": 12644
+    },
+    {
+      "path": "sources/sport/art/ballet_LeftHand.png",
+      "sha256": "f6879741ed0508a49ac2ecd4fc409cda992f86dcb11362b6d1ae64a713b9568e",
+      "bytes": 13171
+    },
+    {
+      "path": "sources/sport/art/ballet_LeftUpper.png",
+      "sha256": "bad27030cae5f850a28346cb68fce1581574a657f60f9aa6722c83ff2366e3e1",
+      "bytes": 21388
+    },
+    {
+      "path": "sources/sport/art/ballet_RightFore.png",
+      "sha256": "3fececc2732645c3e0d65357ad7d27ddda133160db59e3b8695db0422ce35ac0",
+      "bytes": 12100
+    },
+    {
+      "path": "sources/sport/art/ballet_RightHand.png",
+      "sha256": "eeb9cdecf480a3e571dbe4daafc62d504fae7d377901e89062f1c49dfb231000",
+      "bytes": 12372
+    },
+    {
+      "path": "sources/sport/art/ballet_RightUpper.png",
+      "sha256": "77391471570a1ee6b1b2b48a46d2827f5f03bd60235be1f33c2da8f79c575a44",
+      "bytes": 18842
+    },
+    {
+      "path": "sources/sport/art/ballet_scalp.png",
+      "sha256": "d354f2853ef1fd88cd8fd2c38c564529878591ab50dab85da48e6b97115914c6",
+      "bytes": 501453
+    },
+    {
+      "path": "sources/sport/art/ballet_tail.png",
+      "sha256": "558b3597ff3a22c8b46c61f96aa62718cd328211275fefa4ec5c3493c3aed708",
+      "bytes": 229098
+    },
+    {
+      "path": "sources/sport/art/body.png",
+      "sha256": "dded9a4df58f32b5b75a63c6d7be88c98f5dba3c64d88dd55def6ad44a6e3eea",
+      "bytes": 472707
+    },
+    {
+      "path": "sources/sport/art/boxer_action_mask.png",
+      "sha256": "f5668fe0b3a8082eaa3ddb2f016b53078c6cafbf92afb82e8a010f156747c0d9",
+      "bytes": 5392
+    },
+    {
+      "path": "sources/sport/art/boxer_ActionBody.png",
+      "sha256": "bf2ccbae38b6bb512050a2b9097c3ae3648a996969f63fb1d6884bde0d4522b7",
+      "bytes": 398207
+    },
+    {
+      "path": "sources/sport/art/boxer_body.png",
+      "sha256": "e2877691e530e625233c3373c8bd2198373e6e1fcad0677553c754d85f52dbd7",
+      "bytes": 59341
+    },
+    {
+      "path": "sources/sport/art/boxer_composed.png",
+      "sha256": "89ab3cd10770958b6189770ae97e1f3791b1692635a0c3e27878845daf4de958",
+      "bytes": 415603
+    },
+    {
+      "path": "sources/sport/art/boxer_head.png",
+      "sha256": "47dcbe0cceefd6710f97bee1d3e877c1fbed02e6f817ded1b1bb483624e2b680",
+      "bytes": 32029
+    },
+    {
+      "path": "sources/sport/art/boxer_LeftFore.png",
+      "sha256": "ac2af33bdb255aa7a5967487c0703e865b66ad668197524b3900cd800b0c5dc7",
+      "bytes": 12644
+    },
+    {
+      "path": "sources/sport/art/boxer_LeftHand.png",
+      "sha256": "f6879741ed0508a49ac2ecd4fc409cda992f86dcb11362b6d1ae64a713b9568e",
+      "bytes": 13171
+    },
+    {
+      "path": "sources/sport/art/boxer_LeftUpper.png",
+      "sha256": "dc167800f0603dfe12d8176233558ddf1cd4506fd391b74b0bc1b542b7ea3a74",
+      "bytes": 15033
+    },
+    {
+      "path": "sources/sport/art/boxer_RightFore.png",
+      "sha256": "3fececc2732645c3e0d65357ad7d27ddda133160db59e3b8695db0422ce35ac0",
+      "bytes": 12100
+    },
+    {
+      "path": "sources/sport/art/boxer_RightHand.png",
+      "sha256": "eeb9cdecf480a3e571dbe4daafc62d504fae7d377901e89062f1c49dfb231000",
+      "bytes": 12372
+    },
+    {
+      "path": "sources/sport/art/boxer_RightUpper.png",
+      "sha256": "76bb283dd81a5799056916acf2900f176865694008dd783c3a9f93f5cf491a50",
+      "bytes": 12400
+    },
+    {
+      "path": "sources/sport/art/boxer_scalp.png",
+      "sha256": "83b853af249b583b2055b69502d6f14ade8b30a916754ceb6cc22e5d77edcb67",
+      "bytes": 478970
+    },
+    {
+      "path": "sources/sport/art/boxer_tail.png",
+      "sha256": "903658efaa4c6a5a92fcb2af49ccdf998a3a8a793c1009c23e041945e490213a",
+      "bytes": 108435
+    },
+    {
+      "path": "sources/sport/art/eyes_closed.png",
+      "sha256": "f6c5abdf1d00ab49e6f889a47a03c1070c3b43f3e4f4016b00c18bd5881a909b",
+      "bytes": 32864
+    },
+    {
+      "path": "sources/sport/art/eyes_half.png",
+      "sha256": "a28c55c2afc5e990d61e77ba283fac1e395515773b4dd48c8b3e811b0eb54739",
+      "bytes": 34125
+    },
+    {
+      "path": "sources/sport/art/focus_mitt.png",
+      "sha256": "7e992937b342b9c30d064e4e7b4d33bc6ed19c0df31b08e8a59603fd570b32d2",
+      "bytes": 234344
+    },
+    {
+      "path": "sources/sport/art/forearm.png",
+      "sha256": "565207ab35e95b50d1a2fd1fdca2cea637800030d11a377117604b94a560f00f",
+      "bytes": 28402
+    },
+    {
+      "path": "sources/sport/art/glove_guard.png",
+      "sha256": "8f11247c93e8bd0e01d6615734266457988a2927098ee3c9734ad5a02dd41f68",
+      "bytes": 267776
+    },
+    {
+      "path": "sources/sport/art/glove_jab.png",
+      "sha256": "7c4fc98a18077508c9ae2d60d38e9d687c3543e97bb2b874aa512c63df888d27",
+      "bytes": 259600
+    },
+    {
+      "path": "sources/sport/art/glove_palm.png",
+      "sha256": "0274d787078789eaf8a0e068169f06e1233d101287ae26b7beadb321cf3b9d27",
+      "bytes": 264456
+    },
+    {
+      "path": "sources/sport/art/LeftElbowCap.png",
+      "sha256": "eedecd456eae88b63c295f258f06812c01004c7b84a4979e47778f774b6b62d0",
+      "bytes": 5404
+    },
+    {
+      "path": "sources/sport/art/magician_action_mask.png",
+      "sha256": "968a44433568b93dc319a10c170752098edc616080a74e2c21ab3aa1e09e20aa",
+      "bytes": 5388
+    },
+    {
+      "path": "sources/sport/art/magician_ActionBody.png",
+      "sha256": "a82551f0954446a8fe1e79693aa33d09506de6b33eba4b056f92ab6ba5c6e60d",
+      "bytes": 419325
+    },
+    {
+      "path": "sources/sport/art/magician_body.png",
+      "sha256": "774e3cb5c763830c4f5bdf018d540b6e5de63ce38ae6ad74da54f8636962b877",
+      "bytes": 226012
+    },
+    {
+      "path": "sources/sport/art/magician_composed.png",
+      "sha256": "8d78c47452c8a631d5a98130d597fc513e55ff19a4f4dd902383ba09da341a81",
+      "bytes": 488543
+    },
+    {
+      "path": "sources/sport/art/magician_head.png",
+      "sha256": "ad572b014036bae789a118b4e98a20ea2fbe865e800b0f49d738b5f468e32406",
+      "bytes": 66906
+    },
+    {
+      "path": "sources/sport/art/magician_LeftFore.png",
+      "sha256": "ac2af33bdb255aa7a5967487c0703e865b66ad668197524b3900cd800b0c5dc7",
+      "bytes": 12644
+    },
+    {
+      "path": "sources/sport/art/magician_LeftHand.png",
+      "sha256": "f6879741ed0508a49ac2ecd4fc409cda992f86dcb11362b6d1ae64a713b9568e",
+      "bytes": 13171
+    },
+    {
+      "path": "sources/sport/art/magician_LeftUpper.png",
+      "sha256": "b0dd2b4201f3b174cf2575d5c0742a881d0bb641c851c242133dae122a43a891",
+      "bytes": 19597
+    },
+    {
+      "path": "sources/sport/art/magician_RightFore.png",
+      "sha256": "3fececc2732645c3e0d65357ad7d27ddda133160db59e3b8695db0422ce35ac0",
+      "bytes": 12100
+    },
+    {
+      "path": "sources/sport/art/magician_RightHand.png",
+      "sha256": "eeb9cdecf480a3e571dbe4daafc62d504fae7d377901e89062f1c49dfb231000",
+      "bytes": 12372
+    },
+    {
+      "path": "sources/sport/art/magician_RightUpper.png",
+      "sha256": "cffc84349cd7ba395c6d558efd12d88dc7c44b64164800dbb8f2fb4e0b1e9f83",
+      "bytes": 18122
+    },
+    {
+      "path": "sources/sport/art/magician_scalp.png",
+      "sha256": "d354f2853ef1fd88cd8fd2c38c564529878591ab50dab85da48e6b97115914c6",
+      "bytes": 501453
+    },
+    {
+      "path": "sources/sport/art/magician_tail.png",
+      "sha256": "fd6b5cdb3b4247c360cb3d9db7f101982117f0711343c4bfdc7d770a281b023e",
+      "bytes": 227041
+    },
+    {
+      "path": "sources/sport/art/mic_lower.png",
+      "sha256": "bae28ed4483652e006716671c228e79bfdedc0689b4a39e1cfb20789b5c6c164",
+      "bytes": 50465
+    },
+    {
+      "path": "sources/sport/art/mic_upper.png",
+      "sha256": "a7176ba2023a70e01fb49792177788ae0f472c256e41bc24732f27faf726144e",
+      "bytes": 70426
+    },
+    {
+      "path": "sources/sport/art/microphone.png",
+      "sha256": "0a81e7c108234c4770730761704dcf16ca9b5c1d97b3ffee0c306c1c85e8c95a",
+      "bytes": 119818
+    },
+    {
+      "path": "sources/sport/art/original_action_mask.png",
+      "sha256": "968a44433568b93dc319a10c170752098edc616080a74e2c21ab3aa1e09e20aa",
+      "bytes": 5388
+    },
+    {
+      "path": "sources/sport/art/original_ActionBody.png",
+      "sha256": "6cf2d38a67e8f70cb705e550994e3390986d4687868834653bedf0f939602ee9",
+      "bytes": 420715
+    },
+    {
+      "path": "sources/sport/art/original_body.png",
+      "sha256": "17471c41c54b67a2a8da201e60c8fefa4f4e01f7b2d35a991a9aabd6c6fd460f",
+      "bytes": 72716
+    },
+    {
+      "path": "sources/sport/art/original_LeftFore.png",
+      "sha256": "ac2af33bdb255aa7a5967487c0703e865b66ad668197524b3900cd800b0c5dc7",
+      "bytes": 12644
+    },
+    {
+      "path": "sources/sport/art/original_LeftHand.png",
+      "sha256": "f6879741ed0508a49ac2ecd4fc409cda992f86dcb11362b6d1ae64a713b9568e",
+      "bytes": 13171
+    },
+    {
+      "path": "sources/sport/art/original_LeftUpper.png",
+      "sha256": "397d491a49ae80c3e4310374594ebc28b17d34542ba2acfcb4f5804a6b38bc21",
+      "bytes": 21446
+    },
+    {
+      "path": "sources/sport/art/original_RightFore.png",
+      "sha256": "1d3822aef0c350e788f1a1dfa847597eeba73bfbf4bf883c8c6f38bc6447127a",
+      "bytes": 12254
+    },
+    {
+      "path": "sources/sport/art/original_RightHand.png",
+      "sha256": "eeb9cdecf480a3e571dbe4daafc62d504fae7d377901e89062f1c49dfb231000",
+      "bytes": 12372
+    },
+    {
+      "path": "sources/sport/art/original_RightUpper.png",
+      "sha256": "8045ed87b12c8422be5accd83655f1e68c1cd2f32c529b1e825cd2d0c510fc1a",
+      "bytes": 18964
+    },
+    {
+      "path": "sources/sport/art/original_tail.png",
+      "sha256": "13857dc9638f6ab86ae2ca29c145cfeb8b9646b34174b489514a1e711eaf81df",
+      "bytes": 128806
+    },
+    {
+      "path": "sources/sport/art/ownership.png",
+      "sha256": "8c1674a81a141aca694f5d66bba2063443d2cb47851fee0d3e45de5b55ffdbd9",
+      "bytes": 13870
+    },
+    {
+      "path": "sources/sport/art/popstar_action_mask.png",
+      "sha256": "968a44433568b93dc319a10c170752098edc616080a74e2c21ab3aa1e09e20aa",
+      "bytes": 5388
+    },
+    {
+      "path": "sources/sport/art/popstar_ActionBody.png",
+      "sha256": "660161c78fc2131c16d35fa5e2a3e158c41ef0d4f15793af61bb7d9189ee384f",
+      "bytes": 413689
+    },
+    {
+      "path": "sources/sport/art/popstar_body.png",
+      "sha256": "77faf44a559323ee0b0099f90d8f5da77864cba6aaaa6f151582060e72cfae9c",
+      "bytes": 91463
+    },
+    {
+      "path": "sources/sport/art/popstar_composed.png",
+      "sha256": "ea28e9c7c5f1c4d4889a6ef14d1e9b4d0241c37740e4310856262c793bd35e23",
+      "bytes": 443122
+    },
+    {
+      "path": "sources/sport/art/popstar_grip.png",
+      "sha256": "cc07b50e74f30fb94da1bbe285222203a647c4001b86fc6dcf489d33262c87e1",
+      "bytes": 4766
+    },
+    {
+      "path": "sources/sport/art/popstar_head.png",
+      "sha256": "2fad86b56193b0b86e424c5181e163df867b07b897f20344eef3cc6212df8944",
+      "bytes": 12668
+    },
+    {
+      "path": "sources/sport/art/popstar_LeftFore.png",
+      "sha256": "ac2af33bdb255aa7a5967487c0703e865b66ad668197524b3900cd800b0c5dc7",
+      "bytes": 12644
+    },
+    {
+      "path": "sources/sport/art/popstar_LeftHand.png",
+      "sha256": "f6879741ed0508a49ac2ecd4fc409cda992f86dcb11362b6d1ae64a713b9568e",
+      "bytes": 13171
+    },
+    {
+      "path": "sources/sport/art/popstar_LeftUpper.png",
+      "sha256": "3f71b91436a44b04499c699bc9d4d394227df67fc6a76d76ae539b2a00a03e4e",
+      "bytes": 20651
+    },
+    {
+      "path": "sources/sport/art/popstar_RightFore.png",
+      "sha256": "a9544da89f1033f38a3f21b9f97c522bbc2b12b68baf051e534e42b0cb099e75",
+      "bytes": 12123
+    },
+    {
+      "path": "sources/sport/art/popstar_RightHand.png",
+      "sha256": "eeb9cdecf480a3e571dbe4daafc62d504fae7d377901e89062f1c49dfb231000",
+      "bytes": 12372
+    },
+    {
+      "path": "sources/sport/art/popstar_RightUpper.png",
+      "sha256": "ee3cf0124d35eb0ae759e09dd51c3ad2b813a75bbc4cb5b101d171c7b70a3d72",
+      "bytes": 19004
+    },
+    {
+      "path": "sources/sport/art/popstar_scalp.png",
+      "sha256": "83b853af249b583b2055b69502d6f14ade8b30a916754ceb6cc22e5d77edcb67",
+      "bytes": 478970
+    },
+    {
+      "path": "sources/sport/art/popstar_sleeve_backing.png",
+      "sha256": "7c49cdb5f8d87fc9bac25e56d01d7ed19d1e5ae87cbbc12464d930eba1c17093",
+      "bytes": 7160
+    },
+    {
+      "path": "sources/sport/art/popstar_tail.png",
+      "sha256": "e30097802f626a912136ff937755f88655751f470f6f409735d733de0b1bc41a",
+      "bytes": 121628
+    },
+    {
+      "path": "sources/sport/art/racer_action_mask.png",
+      "sha256": "968a44433568b93dc319a10c170752098edc616080a74e2c21ab3aa1e09e20aa",
+      "bytes": 5388
+    },
+    {
+      "path": "sources/sport/art/racer_ActionBody.png",
+      "sha256": "979dac5bd6889f0cc543730122ada5bf88cfbf56d1e513ccee6f29f5eb841326",
+      "bytes": 402472
+    },
+    {
+      "path": "sources/sport/art/racer_body.png",
+      "sha256": "ea829654a1d16c8bfb3a1b17b42797c1f3b52903c8b8c6881237ee551ab6c41c",
+      "bytes": 71836
+    },
+    {
+      "path": "sources/sport/art/racer_composed.png",
+      "sha256": "9957a0fe0c03a77544e91e1424589ac846467c0cb5684cfa91642b64e0b4ed6c",
+      "bytes": 424302
+    },
+    {
+      "path": "sources/sport/art/racer_grip_left.png",
+      "sha256": "6d20310c3c70ea691940bc8fdce98419bc7cb7597db60866cfb53315a86f4bf5",
+      "bytes": 5783
+    },
+    {
+      "path": "sources/sport/art/racer_grip_right.png",
+      "sha256": "9747616580e8e8ce9dc36e92d82791832e909e7cfced50378193370702ea38fc",
+      "bytes": 3945
+    },
+    {
+      "path": "sources/sport/art/racer_head.png",
+      "sha256": "7bcefaa7650b17e98d60e026f4995b201e52189625d7b6535698e82c34e7fe31",
+      "bytes": 79332
+    },
+    {
+      "path": "sources/sport/art/racer_hip_panel.png",
+      "sha256": "2bc28f5113b9e82e81f954b6780e86b502111049bb4892c8eb65b2f112d75cce",
+      "bytes": 8446
+    },
+    {
+      "path": "sources/sport/art/racer_LeftFore.png",
+      "sha256": "ac2af33bdb255aa7a5967487c0703e865b66ad668197524b3900cd800b0c5dc7",
+      "bytes": 12644
+    },
+    {
+      "path": "sources/sport/art/racer_LeftHand.png",
+      "sha256": "f6879741ed0508a49ac2ecd4fc409cda992f86dcb11362b6d1ae64a713b9568e",
+      "bytes": 13171
+    },
+    {
+      "path": "sources/sport/art/racer_LeftUpper.png",
+      "sha256": "757946b536bfe9ade6c041063625c65108e6ed49142349a8c653bba3544d057b",
+      "bytes": 18970
+    },
+    {
+      "path": "sources/sport/art/racer_RightFore.png",
+      "sha256": "3fececc2732645c3e0d65357ad7d27ddda133160db59e3b8695db0422ce35ac0",
+      "bytes": 12100
+    },
+    {
+      "path": "sources/sport/art/racer_RightHand.png",
+      "sha256": "eeb9cdecf480a3e571dbe4daafc62d504fae7d377901e89062f1c49dfb231000",
+      "bytes": 12372
+    },
+    {
+      "path": "sources/sport/art/racer_RightUpper.png",
+      "sha256": "aaaaecebcf0ba6facb68a2cc383107dff5de0d6adf3518eae513d2a6105a69a6",
+      "bytes": 17515
+    },
+    {
+      "path": "sources/sport/art/racer_scalp.png",
+      "sha256": "83b853af249b583b2055b69502d6f14ade8b30a916754ceb6cc22e5d77edcb67",
+      "bytes": 478970
+    },
+    {
+      "path": "sources/sport/art/racer_tail.png",
+      "sha256": "9aeda92f20e75ed7779eaa07bc2fe15376613cee35acbae8183ece884c1ef76f",
+      "bytes": 107904
+    },
+    {
+      "path": "sources/sport/art/RightElbowCap.png",
+      "sha256": "790663a0214ca34fdda6e2f96fb735fb9ab4618934253ca7ec7fa471b30c6ac0",
+      "bytes": 5503
+    },
+    {
+      "path": "sources/sport/art/upper_arm.png",
+      "sha256": "ae92c6911651a39d47db27a0171b2c459d1af77444a467c74e005fc68e1bb181",
+      "bytes": 27975
+    },
+    {
+      "path": "sources/sport/art/upper_clean.png",
+      "sha256": "40ba08f7ec416e559ce1eb388a92bd427b4f32c0b0df8622ceeb54203689459a",
+      "bytes": 27848
+    },
+    {
+      "path": "sources/sport/art/wheel.png",
+      "sha256": "c79553eab69670337d52dce05d9aa24d4b4d622336b48685bfcc455b15948f4c",
+      "bytes": 307871
+    },
+    {
+      "path": "sources/sport/base.gd",
+      "sha256": "5eceb5358128f985a329b8196079d5c65113f884716abe2400bc347f3e2787db",
+      "bytes": 13017
+    },
+    {
+      "path": "sources/sport/capture.gd",
+      "sha256": "485bb8e2fe843b2dd225422698e4287e87d208116b6f98d250d48d311fe857c7",
+      "bytes": 5816
+    },
+    {
+      "path": "sources/sport/capture_surfaces.gd",
+      "sha256": "8a01ddd531b0e9e38840948c31fe57fd80941b9a713d8c5995dcba147334c4ff",
+      "bytes": 2280
+    },
+    {
+      "path": "sources/sport/contract.json",
+      "sha256": "b2a5dfe936d13ccdeb88e5c29ad268b19488de7cbe49d9b06abf84a94135fb5f",
+      "bytes": 11405
+    },
+    {
+      "path": "sources/sport/costume.gdshader",
+      "sha256": "df8a789f0122cb95513e95e2dda1052165f1a6686e446dd5e5fd1843f7a8afcc",
+      "bytes": 1186
+    },
+    {
+      "path": "sources/sport/costumes.json",
+      "sha256": "7ecb0724178d19289ef151bb75fe51065557f2efb3f534838415d238fe737df3",
+      "bytes": 1974
+    },
+    {
+      "path": "sources/sport/project.godot",
+      "sha256": "1396c26fcbc2f7ed9fbfe4206e6fc8659935cda1b5540231de2d47f49d06bb2b",
+      "bytes": 291
+    },
+    {
+      "path": "sources/sport/rig.json",
+      "sha256": "3ff3e284ddf14597e106a6f982c76d2d140658ce3ed4cb8dfd0d4c0e67c27e5b",
+      "bytes": 901983
+    },
+    {
+      "path": "sources/sport/seed_rig_relocated.json",
+      "sha256": "0631902c9c40777c8e9e207c52dc9adb04f5b98048fc42489e8c8efa705ebf4f",
+      "bytes": 928398
+    },
+    {
+      "path": "sources/sport/swim_motion.gd",
+      "sha256": "76eafec028ed5c0107e6c711e365b968b1a3abdb170025b66ecca363be941c57",
+      "bytes": 2523
+    },
+    {
+      "path": "sources/sport/swim_source.gd",
+      "sha256": "5eceb5358128f985a329b8196079d5c65113f884716abe2400bc347f3e2787db",
+      "bytes": 13017
+    },
+    {
+      "path": "sources.json",
+      "sha256": "7b4b92f3d6692198244a917feb3fa5b5e7a870d39d58a1f9343d9ffbf2f8a7fe",
+      "bytes": 264891
+    },
+    {
+      "path": "tools/archive_native.py",
+      "sha256": "84e6d95780a2bb2e105f2e20dc84b094ce0971899d4a927ccfa8c9aa2f925c09",
+      "bytes": 3667
+    },
+    {
+      "path": "tools/audit_swim.py",
+      "sha256": "ae4577ed7016d8d96012e2ad1e338f98d4823132b58fab6299e9304a103c6c58",
+      "bytes": 10024
+    },
+    {
+      "path": "tools/audit_swim_initial.py.txt",
+      "sha256": "ae4577ed7016d8d96012e2ad1e338f98d4823132b58fab6299e9304a103c6c58",
+      "bytes": 10024
+    },
+    {
+      "path": "tools/audit_swim_surfaces.py",
+      "sha256": "990c95d075a8bd7db61ed71fa067a05c1c378b06b703fba1f68a770ea75fabd7",
+      "bytes": 10364
+    },
+    {
+      "path": "tools/capture_surfaces.py",
+      "sha256": "e408087939a50e46ae81ca5857f6dcad929ceb36d8629fed81843621219b6490",
+      "bytes": 2039
+    },
+    {
+      "path": "tools/finalize_records.py",
+      "sha256": "6abfc7c4968ac2a70d32a9bb42c8451534c459c6f2206fbdbcbd8a567c5e0944",
+      "bytes": 5951
+    },
+    {
+      "path": "tools/make_masters.py",
+      "sha256": "f90efbc7689a6a40a6ce645ddfe9a28757b2ce79243fd78cc7d76e001cee052d",
+      "bytes": 2074
+    },
+    {
+      "path": "tools/make_review.py",
+      "sha256": "cdd021d91c74d2413a843c8766c9d5a9bd4f6f37dd0f4171cbc3aa3385b8e017",
+      "bytes": 5104
+    },
+    {
+      "path": "tools/masters.lua",
+      "sha256": "e6bd7ef0958665b6eb86bf608e1456b188f0a214ee600f1fdc180ec244866a8c",
+      "bytes": 1150
+    },
+    {
+      "path": "tools/package_sources.py",
+      "sha256": "5b08784b7dfcfec0c5e1f38dda0c80c0c9945ca2e66b7609037e374ee14bae8f",
+      "bytes": 7391
+    },
+    {
+      "path": "tools/reference_audit_motion.py",
+      "sha256": "9d1245416eee6eef61015a151d85e013eb5b45d52d17e0e7a920672d17433908",
+      "bytes": 3368
+    },
+    {
+      "path": "tools/reference_audit_study.py",
+      "sha256": "eef44a94b735a0dcac30addc8ed009204a1a11e33147d46522c0901915fedd74",
+      "bytes": 11204
+    },
+    {
+      "path": "tools/render_all.py",
+      "sha256": "20c6349a12c0a47d55603d20204047cc43d627ee085246504ee07bf7bb12b9e8",
+      "bytes": 2970
+    },
+    {
+      "path": "tools/run_project_gates.py",
+      "sha256": "95a083e4145b448233298306d21e419f9dfaa0e709f92e62d617b25289e9ec51",
+      "bytes": 2493
+    }
+  ],
+  "repository_support_files": [
+    {
+      "path": "ASSET_LICENSES.md",
+      "sha256": "830283eca76ed8c8e0b5e6429043afbf550b73f642606f0f4d2d74b8d3e9ab3c",
+      "bytes": 6371583
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "sha256": "e1e12adf7468f669efb68e17da643e5bcd7a8b61fbaa36ae1c1887f645fcf675",
+      "bytes": 343153
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "sha256": "78d2db4217f27fca0676e7d2940ca7c237c5fa5565c0748955e52ffb02d0a3ab",
+      "bytes": 243011
+    },
+    {
+      "path": "design/animation/COSTUME_SKIN_CONVERSION_GUIDE.md",
+      "sha256": "fd96393e20f99ca12b216a9b420dd7399e5fdc562f0c36618225f5494cd4da1b",
+      "bytes": 18241
+    },
+    {
+      "path": "design/animation/skin_binding/attachment_mesh.schema.json",
+      "sha256": "0b0e327afda0803a84ac11142d6937309e06a5df5ffd0452c2f8875c886c6558",
+      "bytes": 1768
+    },
+    {
+      "path": "design/animation/skin_binding/rig_binding.schema.json",
+      "sha256": "c747226d9d380f138589a8158f4a19a5a2edaaa9219adc72b886fb543323675e",
+      "bytes": 4312
+    },
+    {
+      "path": "design/animation/skin_binding/skin.recipe.template.json",
+      "sha256": "49044647f0558285abf7ffc01eda31d238325dd63df99731f20db5b584abc832",
+      "bytes": 908
+    },
+    {
+      "path": "design/animation/skin_binding/skin_package.schema.json",
+      "sha256": "9712a72883aaeea099f5affd1bd4b10dcb7ad1f1408bda0c7c9f4ed06d5dab0a",
+      "bytes": 6991
+    },
+    {
+      "path": "design/audit_impacts/laura-swim-test-20261101.json",
+      "sha256": "a59f5c49091ca711927132e8fc8d1d8e43031ef9426b7b9fd7746cdf06be9d5b",
+      "bytes": 81069
+    },
+    {
+      "path": "design/reference/OWNER_DECISIONS.md",
+      "sha256": "a9568d1dbc533b44d9cd496528fa169c553e81fa5c0d94297d4e9e87204813b8",
+      "bytes": 38855
+    },
+    {
+      "path": "design/reference/owner_decisions.json",
+      "sha256": "57b62f240671bd52c0361348efd6981d8a012ce19abd9de97a1627600a318a67",
+      "bytes": 53215
+    },
+    {
+      "path": "tools/prepare_costume_skin.py",
+      "sha256": "2de2488f3b3c3fe7588717069463ac728cbdcbb86c6352f6bf0443bc4cc46dff",
+      "bytes": 4463
+    },
+    {
+      "path": "tools/tests/test_costume_skin_binding.py",
+      "sha256": "143aa62cdc6a50d7667a53818b9fb226069e9ac0ba546d42db84704067bb726f",
+      "bytes": 10493
+    },
+    {
+      "path": "tools/validate_costume_skin.py",
+      "sha256": "8059ca17359d78233d3f83b977328e8523efa4fbcbce6e9005d278f62677ecc1",
+      "bytes": 12923
+    }
+  ],
+  "payload_sorted_sha256": "6723068313e0db3084ead05c5259b41344019efd8296f4d4f157257629218fda",
+  "support_sorted_sha256": "296656b3aef5098e50b877eb8ed14f28c2d4e4898048df5f7364f24f7f92a7b9",
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "ARCHIVE_COMPLETE": "PENDING_PUBLICATION_AND_REMOTE_VERIFICATION",
+  "production_integration": false
+}

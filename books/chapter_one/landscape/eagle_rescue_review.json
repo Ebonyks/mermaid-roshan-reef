@@ -1,0 +1,67 @@
+{
+  "status": "VISIBLE_CUE_REVIEW_COMPLETE; EXACT_FIDELITY_AND_OWNER_ACCEPTANCE_OPEN",
+  "scope": "Existing original source frames only, no raster edits or new character depiction. Full native frames inspected at 1280x720; source enlargement adds no information.",
+  "original": {
+    "path": "assets/book/baby_eagle.png",
+    "sha256": "da8ead4677192ef404ed7b252fdb281cfb0234beb8064cfe7abdac2f8aade19b"
+  },
+  "frames": [
+    {
+      "page": 17,
+      "source": "books\\chapter_one\\landscape\\..\\archive\\rough_v5\\art\\pinned.png",
+      "sha256": "417e3a44f098f49ca7ca94786b4d1f243ef0147f94df56712f8f312f94c2772a",
+      "size": [
+        1280,
+        720
+      ],
+      "eagle_detail_box": [
+        645,
+        440,
+        820,
+        625
+      ]
+    },
+    {
+      "page": 18,
+      "source": "books\\chapter_one\\landscape\\..\\archive\\rough_v5\\art\\loose.png",
+      "sha256": "8aa92304a86d8b5795058e29349c91fc4b7e919c72cab691341dfed2b8e96aa3",
+      "size": [
+        1280,
+        720
+      ],
+      "eagle_detail_box": [
+        645,
+        440,
+        820,
+        625
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "feature": "Pink crest",
+      "finding": "Visible in both; broadly lobed pink crest retained."
+    },
+    {
+      "feature": "Beak",
+      "finding": "Pale grey/lavender base and dark tip retained; pose changes projection."
+    },
+    {
+      "feature": "Face and plumage",
+      "finding": "Yellow cheek area, blue/mint head and body, pink chest/wing accents retained. Feather-by-feather geometry cannot be established."
+    },
+    {
+      "feature": "Wing tips",
+      "finding": "Dark tips adjacent to pink wing areas retained; portions hidden by bunnies."
+    },
+    {
+      "feature": "Legs and feet",
+      "finding": "Visible feet grey in both, rather than the black talons rejected on the former solo page. Reclined/partly hidden legs cannot be judged against standing-leg proportions."
+    },
+    {
+      "feature": "Story action",
+      "finding": "Two solid dust bunnies hold Eagle on page 17; two fading dust bunnies and cleaning sparkles on page 18. No blanket."
+    }
+  ],
+  "decision": "Retain existing source frames. Do not generate a repair without a demonstrated visible defect. This review narrows uncertainty; it does not grant exact identity or owner acceptance."
+}

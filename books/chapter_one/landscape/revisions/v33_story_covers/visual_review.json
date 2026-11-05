@@ -1,0 +1,103 @@
+{
+  "revision": "V33",
+  "revision_verdict": "REQUESTED_COVER_CORRECTIONS_REVIEWED; OTHER_EDITORIAL_ACCEPTANCE_OPEN",
+  "reviewer": "Root direct native review; no additional agent review commissioned",
+  "reviewed_at_utc": "2026-10-18T02:08:18.539616+00:00",
+  "book": {
+    "path": "books/chapter_one/landscape/book.json",
+    "sha256": "7611f1338d90ff8f59a595cb7dc0bd5414325254b3531f876426f2a1673c8b76"
+  },
+  "pdf": {
+    "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/Mermaid_Roshan_LANDSCAPE_ROUGH.pdf",
+    "sha256": "61287c507bb1a7cb131a96d26950b228094efb5b9ddf7b283e4cb76126640bd5"
+  },
+  "page_provenance": {
+    "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_provenance.json",
+    "sha256": "471a1490c75444b670473194f1c228d8b49c1c2432a84e84c856f4f97985450a"
+  },
+  "changed_pages": [
+    {
+      "page": 0,
+      "proof": {
+        "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_00.png",
+        "sha256": "6c188c9813f2313197c00e1a1a50813536970d970edf7c9ee4ab33f4aaea601a"
+      },
+      "findings_closed": [
+        "Removed front tipped pink paint pot, spilled paint/drops and illustrated craft paper.",
+        "Puff now has worried brows/eyes and a downturned unwell mouth, matching his care story."
+      ],
+      "observed": "All four main characters, original costumes, anatomy, welcoming pose, cleaning bucket/brush/sponge, rainbow waterfall and title remain intact. Marble material joins have no observed cut seam or rectangular repair patch. Exact outside-polygon preservation is separately proved.",
+      "internal_verdict": "PASS_ROOT_NATIVE_COVER_REVIEW"
+    },
+    {
+      "page": 33,
+      "proof": {
+        "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/page_33.png",
+        "sha256": "bc5b63a53c9bedc3e40c92609429cd6a469b68faa6423fe62319f48e71758605"
+      },
+      "findings_closed": [
+        "Retired the obsolete ensemble craft-table/drawing scene.",
+        "Rear now depicts the actual page26 cooperative washing event, using its exact authored scene layers."
+      ],
+      "observed": "Daddy and Eagle brush Puff; Roshan and Rumi use the existing yellow and pink sponges. Support/contact, faces/tails and original soap/bubble contours remain identical to26 outside its removed caption and tiny shelf cameo. Canonical white Lamma head peeks discreetly behind a shelf teapot; no lettering or extra activity.",
+      "internal_verdict": "PASS_ROOT_NATIVE_COVER_REVIEW"
+    }
+  ],
+  "retained_interior_evidence": {
+    "prior_review": {
+      "path": "books/chapter_one/landscape/revisions/v32_rainbow_story/visual_review.json",
+      "sha256": "396a972a8668135cca4da5625ae8d38d842bebd4c01a4cc5843b02fdb1965840"
+    },
+    "retained_only_on_exact_png_identity": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ],
+    "no_new_pedagogical_or_art_approval_claim": true
+  },
+  "open_findings": [
+    {
+      "id": "OWNER_PAGE04_REPLACEMENT",
+      "pages": [
+        4
+      ],
+      "issue": "Owner rejected the V32 dusty-object insert. A quiet help-request page before the Puff reveal was recommended on2026-10-02 but has not been commissioned for implementation. This cover-only revision deliberately preserves all32 current interiors; that editorial item remains open."
+    }
+  ],
+  "external_acceptance_open": [
+    "Owner cover approval",
+    "Roshan shared-reading response",
+    "Physical print/color/native-density proof",
+    "Qualified SLP review remains unperformed; text is unchanged"
+  ],
+  "scope": "Static covers only. No game/runtime, protected-original, clinical or master-audit closure. Prior numeric4.9 judgments do not override owner rejection of page4."
+}

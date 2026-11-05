@@ -1,0 +1,1042 @@
+{
+  "utc": "2026-11-01T11:55:31.540369+00:00",
+  "baseline": "f59a1d1d5bdd58604f4706d16fb4e76d8f7db8b9",
+  "scope": "Complete existing baseline gate coverage using latest actual results on unchanged production code/data. Initial full runtime run79/82; failed3focused retries pass. Static56initially54pass/2local time limits; complete audio passes1190.43s, visual61successful prefix plus34unchanged resumed cases totals95/95. No single uninterrupted all-green full invocation is claimed; all earlier failures/time limits remain. No assertion, floor or production file changed.",
+  "runtime_rows": [
+    {
+      "name": "import",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/import.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_reef_districts",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_reef_districts.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_ocean_kingdoms",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_ocean_kingdoms.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_passive",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_passive.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_living_world",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_living_world.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_load",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_load.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_rank",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_rank.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_save_recovery",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_save_recovery.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_galaxy_state",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_galaxy_state.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_collection",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_collection.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_mg2d",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_mg2d.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_fetch",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_fetch.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_melody",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_melody.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_dolls",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_dolls.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_seek",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_seek.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_audio",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_audio.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_dance",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_dance.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_l2",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_l2.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_l2_living_cards",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_l2_living_cards.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_sky_lagoon_animals",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_sky_lagoon_animals.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_l2_reenter",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_l2_reenter.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_crown",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_crown.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_throne",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_throne.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_northern",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_northern.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_human_art_audit",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_human_art_audit.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_train",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_train.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_verbs",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_verbs.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_skins",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_skins.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_touch_router",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_touch_router.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_touch_stress",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_touch_stress.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_interaction",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_interaction.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_touch_adversary",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_touch_adversary.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_touch_look",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_touch_look.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_ui_system",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_ui_system.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_voice",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_voice.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_day_one_voice",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_day_one_voice.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_day_one_d8_revisits",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_day_one_d8_revisits.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_day_one_handoffs",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_day_one_handoffs.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_kart_feel",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_kart_feel.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_combat",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_combat.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_dust_bunny",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_dust_bunny.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_dust_bunny_boss",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_dust_bunny_boss.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_dust_boss",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_dust_boss.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_hit",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_hit.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_partner",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_partner.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_combat_tutorial",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_combat_tutorial.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_imp_ai",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_imp_ai.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_mic",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_mic.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_stuffie",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_stuffie.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_dungeon",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_dungeon.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_ember",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_ember.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_opera",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_opera.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_opera_2d",
+      "pass": true,
+      "original_pass": false,
+      "original_log": "evidence/runtime_final/probe_opera_2d.log",
+      "retry_log": "evidence/baseline_retry_after_native/probe_opera_2d.log"
+    },
+    {
+      "name": "probe_opera_diegetic_paths",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_opera_diegetic_paths.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_opera_detective",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_opera_detective.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_opera_pipe",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_opera_pipe.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_opera_nursery",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_opera_nursery.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_opera_gesture_quality",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_opera_gesture_quality.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_kitchen_props",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_kitchen_props.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_bathroom_props",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_bathroom_props.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_castle_door_language",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_castle_door_language.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_bathroom_integration",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_bathroom_integration.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_day_one_bathroom_bunny",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_day_one_bathroom_bunny.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_day_one_bathroom_cleanup",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_day_one_bathroom_cleanup.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_day_one_bathroom_movie_handoff",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_day_one_bathroom_movie_handoff.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_day_one_director",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_day_one_director.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_day_one_integration",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_day_one_integration.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_day_one_pool_cleanup",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_day_one_pool_cleanup.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_day_one_art_attack_state",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_day_one_art_attack_state.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_day_one_castle_dressing",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_day_one_castle_dressing.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_day_one_story_clips",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_day_one_story_clips.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_chapter2",
+      "pass": true,
+      "original_pass": false,
+      "original_log": "evidence/runtime_final/probe_chapter2.log",
+      "retry_log": "evidence/baseline_retry_after_native/probe_chapter2.log"
+    },
+    {
+      "name": "probe_chapter2_farmer_resume",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_chapter2_farmer_resume.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_chapter2_lawn",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_chapter2_lawn.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_alpha_milestone_save",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_alpha_milestone_save.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_dust_boss_balance",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_dust_boss_balance.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_start_menu_routing",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_start_menu_routing.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_start_menu_new_game",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_start_menu_new_game.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_castle_pool_life_2d",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_castle_pool_life_2d.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_castle_pearl_art",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_castle_pearl_art.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_fairy_art",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_fairy_art.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_props",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/runtime_final/probe_props.log",
+      "retry_log": null
+    },
+    {
+      "name": "probe_audit",
+      "pass": true,
+      "original_pass": false,
+      "original_log": "evidence/runtime_final/probe_audit.log",
+      "retry_log": "evidence/baseline_retry_after_native/probe_audit.log"
+    }
+  ],
+  "static_rows": [
+    {
+      "name": "01_-m",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/01_-m.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "02_audit_godot_baseline",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/02_audit_godot_baseline.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "03_-B",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/03_-B.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "04_-B",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/04_-B.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "05_-m",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/05_-m.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "06_lint_inference",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/06_lint_inference.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "07_-m",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/07_-m.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "08_audit_typography",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/08_audit_typography.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "09_-m",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/09_-m.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "10_audit_roshan_2d",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/10_audit_roshan_2d.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "11_audit_roshan_2d",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/11_audit_roshan_2d.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "12_-m",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/12_-m.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "13_audit_game_2d",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/13_audit_game_2d.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "14_-m",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/14_-m.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "15_audit_roshan_sprite_clipping",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/15_audit_roshan_sprite_clipping.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "16_audit_probe_parity",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/16_audit_probe_parity.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "17_audit_probe_parity",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/17_audit_probe_parity.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "18_-m",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/18_-m.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "19_audit_document_authority",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/19_audit_document_authority.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "20_-m",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/20_-m.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "21_-m",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/21_-m.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "22_gold_star",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/22_gold_star.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "23_-m",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/23_-m.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "24_audit_imagine_handoff",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/24_audit_imagine_handoff.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "25_audit_fairy_art_v2",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/25_audit_fairy_art_v2.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "26_audit_fairy_conservatory_handoff",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/26_audit_fairy_conservatory_handoff.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "27_prepare_opera_nursery_art",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/27_prepare_opera_nursery_art.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "28_prepare_opera_minigame_art",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/28_prepare_opera_minigame_art.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "29_audit_opera_diegetic_hotspot_art",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/29_audit_opera_diegetic_hotspot_art.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "30_audit_opera_borderless_minigame_art",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/30_audit_opera_borderless_minigame_art.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "31_audit_opera_roshan_animation",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/31_audit_opera_roshan_animation.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "32_build_day_one_story_clips",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/32_build_day_one_story_clips.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "33_build_area_music",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/33_build_area_music.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "34_-m",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/34_-m.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "35_build_audio_quality_replacements",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/35_build_audio_quality_replacements.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "36_audit_audio_quality",
+      "pass": true,
+      "original_pass": false,
+      "original_log": "evidence/static_gates/36_audit_audio_quality.log",
+      "resolution": "evidence/audio_gate_extended/receipt.json",
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "37_-m",
+      "pass": true,
+      "original_pass": false,
+      "original_log": "evidence/static_gates/37_-m.log",
+      "resolution": "evidence/visual_contract_resume/receipt.json",
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "38_audit_visual_design",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/38_audit_visual_design.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "39_audit_visual_design",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/39_audit_visual_design.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": true
+    },
+    {
+      "name": "40_audit_scene_congruency",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/40_audit_scene_congruency.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "41_audit_sky_lagoon_layout",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/41_audit_sky_lagoon_layout.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "42_audit_castle_card_alpha",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/42_audit_castle_card_alpha.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "43_-m",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/43_-m.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "44_check_grade_headroom",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/44_check_grade_headroom.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "45_audit_castle_interactions",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/45_audit_castle_interactions.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "46_normalize_castle_interaction_v2_sheets",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/46_normalize_castle_interaction_v2_sheets.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "47_audit_castle_interactions_v2",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/47_audit_castle_interactions_v2.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "48_build_castle_interaction_v4_delivery",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/48_build_castle_interaction_v4_delivery.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "49_audit_castle_native_interactions",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/49_audit_castle_native_interactions.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "50_repair_castle_room_native_backgrounds",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/50_repair_castle_room_native_backgrounds.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "51_build_interactive_background_ownership",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/51_build_interactive_background_ownership.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "52_refine_castle_depth_cards",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/52_refine_castle_depth_cards.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "53_audit_castle_static_depth_cards",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/53_audit_castle_static_depth_cards.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "54_-m",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/54_-m.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "55_review_castle_interaction_frames_v4",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/55_review_castle_interaction_frames_v4.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    },
+    {
+      "name": "56_audit_game_2d",
+      "pass": true,
+      "original_pass": true,
+      "original_log": "evidence/static_gates/56_audit_game_2d.log",
+      "resolution": null,
+      "advisory_in_unmodified_ci": false
+    }
+  ],
+  "all_latest_runtime_pass": true,
+  "all_latest_static_pass": true,
+  "source_native_acceptance": "Independent attachment/mixed-fit/restoration/visual FAIL results remain blocking compatibility, not waived by baseline passes.",
+  "pass": true
+}

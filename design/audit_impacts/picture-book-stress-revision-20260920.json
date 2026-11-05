@@ -1,0 +1,76 @@
+{
+  "id": "picture-book-stress-revision-20260920",
+  "scope": "Comprehensive page-by-page stress review and correction of dirty-castle setup, identity drift, page-specific background ownership and text placement. 32 story pages; original source art remains unchanged.",
+  "baseline": "bca65e2513531b444687556dd9bd787d31ccd351",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Owner-rejected static book rough. Book-specific findings are recorded separately; no game audit findings closed.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "books/chapter_one/README.md",
+    "books/chapter_one/landscape/PAGE_PLAN.md",
+    "books/chapter_one/landscape/REVIEW.md",
+    "books/chapter_one/landscape/STRESS_TEST.md",
+    "books/chapter_one/landscape/art/stress_revision/bath_badge.png",
+    "books/chapter_one/landscape/art/stress_revision/blue_bottle.png",
+    "books/chapter_one/landscape/art/stress_revision/cleanup_basket.png",
+    "books/chapter_one/landscape/art/stress_revision/dirty_hall_entry.png",
+    "books/chapter_one/landscape/art/stress_revision/eagle_original_isolated.png",
+    "books/chapter_one/landscape/art/stress_revision/mound_grime_left.png",
+    "books/chapter_one/landscape/art/stress_revision/mound_grime_right.png",
+    "books/chapter_one/landscape/art/stress_revision/pool_float.png",
+    "books/chapter_one/landscape/art/stress_revision/sleepy_bunny.png",
+    "books/chapter_one/landscape/audit_book.py",
+    "books/chapter_one/landscape/book.json",
+    "books/chapter_one/landscape/delivery_verification.json",
+    "books/chapter_one/landscape/eagle_isolation_provenance.json",
+    "books/chapter_one/landscape/layout_evidence.json",
+    "books/chapter_one/landscape/package_book.py",
+    "books/chapter_one/landscape/render_book.py",
+    "books/chapter_one/landscape/stress_results.json",
+    "books/chapter_one/landscape/stress_review.json",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "Visual stress review: all 32 pages, covers and enlarged critical pages",
+      "result": "PASS",
+      "evidence": "Review completed; baseline FAIL documented and revision remains unaccepted with explicit open findings. See books/chapter_one/landscape/STRESS_TEST.md and stress_review.json."
+    },
+    {
+      "command": "python books/chapter_one/landscape/audit_book.py --proof v8 --baseline v7",
+      "result": "PASS",
+      "evidence": "34 PDF pages, 84 caption lines, 111 image operations; 13 cutout pages with 9 contextual border assignments. Geometry/source checks pass; five visual/source findings remain open."
+    },
+    {
+      "command": "Portable source rebuild and latest-archive verification",
+      "result": "PASS",
+      "evidence": "34 page renders byte-identical. 63 archive payload hashes checked; all runtime inputs match independently rebuilt source. Latest ZIP SHA256 4c11a2a06bac2efe01e4d2b573d965eb3bb5fc6f962609e1be9a6f07c11e2c66."
+    },
+    {
+      "command": "Headless Edge stress-report inspection",
+      "result": "PASS",
+      "evidence": "1400px and 760px: 32 review articles, 67 images, no broken images or horizontal overflow."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "577 inventory / 577 ledger; ALL OK."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "ALL OK against 5920c673305989ee29d91876480ff445dba9fc8b."
+    }
+  ],
+  "acceptance_gaps": "Final visual/owner acceptance, low-resolution original art, waterfall clearing action art, and reviewed Resolve refinement remain open."
+}

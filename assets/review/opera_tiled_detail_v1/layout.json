@@ -1,0 +1,2289 @@
+{
+  "version": 2,
+  "native_size": [
+    7360,
+    4140
+  ],
+  "native_2k_per_screen": true,
+  "per_screen_native_background": [
+    3680.0,
+    2070.0
+  ],
+  "method": "24 native generated detail tiles, overlap merge, source low-frequency lock; six source-locked fixture detail groups; one owner per fitting",
+  "source_object_native_size": [
+    1672,
+    941
+  ],
+  "source_object_resolution_note": "Original source geometry/palette is retained as the low-frequency reference. Six regional native generations add registered surface detail; unsupported cross-group fixtures reuse their original source pixels, with their original resolution declared.",
+  "cards": [
+    {
+      "path": "background_0_0.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "ced858a9645534dc8e11b7bc6de6b837e6e1a36d783481a90f3b977750bc08d2",
+      "id": "DetailBackground_0_0",
+      "source_rect": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_0_1.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "395fb99cc1418a7aadfcc9ca29d44b0cd42b72d2813a8c87236e133f46781808",
+      "id": "DetailBackground_0_1",
+      "source_rect": [
+        1024,
+        0,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_0_2.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "60949c5f2cb11cd5e58f4e02ff2d788718b17b88efbd4a9763a00209433e05ee",
+      "id": "DetailBackground_0_2",
+      "source_rect": [
+        2048,
+        0,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_0_3.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "2dd705781fe80634f49667750fa5be2ce2093d00d8fa2d1244823fcb7440fd85",
+      "id": "DetailBackground_0_3",
+      "source_rect": [
+        3072,
+        0,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_0_4.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "7960f79d0016e42e3a9e17ba26878968d2d713557f29c3ccaed9be64700a682e",
+      "id": "DetailBackground_0_4",
+      "source_rect": [
+        4096,
+        0,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_0_5.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "835643c58a2ecf43bf3cbe4fd0b8edd93a37cc8d3fa94b2d3b2509a02d8d8932",
+      "id": "DetailBackground_0_5",
+      "source_rect": [
+        5120,
+        0,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_0_6.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "aaa8996ebf196dc43bf75e966cd361b6f7f1aefa2f3422ed2226917379e2bc33",
+      "id": "DetailBackground_0_6",
+      "source_rect": [
+        6144,
+        0,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_0_7.png",
+      "texture_size": [
+        256,
+        1024
+      ],
+      "sha256": "57b3fb2e621d17d306a3df00a1036c546e9e8fbb27c610d5c51352c9c0e30c0d",
+      "id": "DetailBackground_0_7",
+      "source_rect": [
+        7168,
+        0,
+        192,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_1_0.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "e040008f5537a307be74f38ab903bf8053030ea665fdb2303fbf7e72d2ee40af",
+      "id": "DetailBackground_1_0",
+      "source_rect": [
+        0,
+        1024,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_1_1.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "5c82f6cfb91fb38cb9c65ec070d22cb2475d997b700d28cc9e79411a7615c910",
+      "id": "DetailBackground_1_1",
+      "source_rect": [
+        1024,
+        1024,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_1_2.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "e9d84d4f6d5282e1fa269df8c8cda294845a0104677b88bf75f865de627fa35d",
+      "id": "DetailBackground_1_2",
+      "source_rect": [
+        2048,
+        1024,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_1_3.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "609d60c1d0e35c5a022fd0c0eba1cfb73d866ef6b905db4d397a523efd670d1f",
+      "id": "DetailBackground_1_3",
+      "source_rect": [
+        3072,
+        1024,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_1_4.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "6d95f6c5222b4b4a40edb8cfbb8735e1cf0022a10c868bf0c2eef40a3ba8b77d",
+      "id": "DetailBackground_1_4",
+      "source_rect": [
+        4096,
+        1024,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_1_5.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "40963f65238f0ea064ad1061562bc456c849bf5d535de68da2f464e16bed0d38",
+      "id": "DetailBackground_1_5",
+      "source_rect": [
+        5120,
+        1024,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_1_6.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "acba20b26992c4674583cb9786cd2417e3765fec95d273c188f638ad4921aa96",
+      "id": "DetailBackground_1_6",
+      "source_rect": [
+        6144,
+        1024,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_1_7.png",
+      "texture_size": [
+        256,
+        1024
+      ],
+      "sha256": "9bb884259f9ea496aa828454da166b33566c4217432a384b909abcad7aef35e0",
+      "id": "DetailBackground_1_7",
+      "source_rect": [
+        7168,
+        1024,
+        192,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_2_0.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "5621e343d5f90c07a65234b30f9a0666d1818c328da3e1a5f9b13598eaeb72e0",
+      "id": "DetailBackground_2_0",
+      "source_rect": [
+        0,
+        2048,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_2_1.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "36175c7cd564aa686cc57ecb9302d68a0dcb7f5a8228077215522e9dde1b43f0",
+      "id": "DetailBackground_2_1",
+      "source_rect": [
+        1024,
+        2048,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_2_2.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "5e5124f4a2c11dfd223f9df46017c52f81c559c96a0a4c8bb5a463825159a170",
+      "id": "DetailBackground_2_2",
+      "source_rect": [
+        2048,
+        2048,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_2_3.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "dfc892a04f8096dd70801af20eb62d134d746fa95c71d87d6927c78328fa0e39",
+      "id": "DetailBackground_2_3",
+      "source_rect": [
+        3072,
+        2048,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_2_4.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "606e27134e113dc0af1bd305f7a7c9943fb2809f267ede046ae7a4f533f8bfe4",
+      "id": "DetailBackground_2_4",
+      "source_rect": [
+        4096,
+        2048,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_2_5.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "2010b2cdb9db8f1786a7507dbf114811c2ba86d8520ca9f9e4756512ce9b21e9",
+      "id": "DetailBackground_2_5",
+      "source_rect": [
+        5120,
+        2048,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_2_6.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "f454c09196d3d1341653792bc9649c97e07cb996d64ba8de9ed690e3df763aed",
+      "id": "DetailBackground_2_6",
+      "source_rect": [
+        6144,
+        2048,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_2_7.png",
+      "texture_size": [
+        256,
+        1024
+      ],
+      "sha256": "cd89f3cf19d5b24c9f0c790cfbe7da80d1327287e9965f8ea53a8fb4cacccbb5",
+      "id": "DetailBackground_2_7",
+      "source_rect": [
+        7168,
+        2048,
+        192,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_3_0.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "5bb67e493b021c0f3a2d3c031067211e719f3ad2c77fa773351e6e4d5fb95f8b",
+      "id": "DetailBackground_3_0",
+      "source_rect": [
+        0,
+        3072,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_3_1.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "18e020083a7751df16f01abffe19a09cb687b5ea16b61dfb93659c248c5202a8",
+      "id": "DetailBackground_3_1",
+      "source_rect": [
+        1024,
+        3072,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_3_2.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "56086974c3cd508bff8c37a1975dd3de45646ec4be293b7d263ac89c6c99aabb",
+      "id": "DetailBackground_3_2",
+      "source_rect": [
+        2048,
+        3072,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_3_3.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "1f4d5a8af79dc871e30bc95c272d2ced5c4da29a96f22d6d0d00b033e026bf8a",
+      "id": "DetailBackground_3_3",
+      "source_rect": [
+        3072,
+        3072,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_3_4.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "094955542d579ecc4c9dbab4f66bc41375e0606b17453f297ff1c6d86c3775e2",
+      "id": "DetailBackground_3_4",
+      "source_rect": [
+        4096,
+        3072,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_3_5.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "aa16d85424b5fe6bb31942f23b2cb223e03f3660faaf4656c3fa2d60d9f3ca98",
+      "id": "DetailBackground_3_5",
+      "source_rect": [
+        5120,
+        3072,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_3_6.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "52cf55d54f062711ca790b89122ed6d2b070fcbe9ee363c6a3730f455ef79648",
+      "id": "DetailBackground_3_6",
+      "source_rect": [
+        6144,
+        3072,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_3_7.png",
+      "texture_size": [
+        256,
+        1024
+      ],
+      "sha256": "6b83af27ac23ea263259314dfd92f05862d2f7e807a861ff2f371992993681c0",
+      "id": "DetailBackground_3_7",
+      "source_rect": [
+        7168,
+        3072,
+        192,
+        1024
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_4_0.png",
+      "texture_size": [
+        1024,
+        64
+      ],
+      "sha256": "381d91fcd692e9506eb4ecb14965808043b6107cad143cf732ea10eec76cc80d",
+      "id": "DetailBackground_4_0",
+      "source_rect": [
+        0,
+        4096,
+        1024,
+        44
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_4_1.png",
+      "texture_size": [
+        1024,
+        64
+      ],
+      "sha256": "9ae3a349ff1f81a17db698b50da73dac210d8b968812b927ee7d6366201bf347",
+      "id": "DetailBackground_4_1",
+      "source_rect": [
+        1024,
+        4096,
+        1024,
+        44
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_4_2.png",
+      "texture_size": [
+        1024,
+        64
+      ],
+      "sha256": "fd3ea44ab464370f9f6772b3341bc88ec2474409fb4f5848daa0d9c8a39c6879",
+      "id": "DetailBackground_4_2",
+      "source_rect": [
+        2048,
+        4096,
+        1024,
+        44
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_4_3.png",
+      "texture_size": [
+        1024,
+        64
+      ],
+      "sha256": "0fd2498f3910c80e77307a88bc9b23f9ea704cb5e83822dd86d5080c2b45198b",
+      "id": "DetailBackground_4_3",
+      "source_rect": [
+        3072,
+        4096,
+        1024,
+        44
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_4_4.png",
+      "texture_size": [
+        1024,
+        64
+      ],
+      "sha256": "89e1ea6a79fd286778ca5266b2a33c7256c77bbda43ecb286dc5ae16da494149",
+      "id": "DetailBackground_4_4",
+      "source_rect": [
+        4096,
+        4096,
+        1024,
+        44
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_4_5.png",
+      "texture_size": [
+        1024,
+        64
+      ],
+      "sha256": "04f35f616e26b5bced554d43b2170b983029b9c71298af1cc8aedd594d987b38",
+      "id": "DetailBackground_4_5",
+      "source_rect": [
+        5120,
+        4096,
+        1024,
+        44
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_4_6.png",
+      "texture_size": [
+        1024,
+        64
+      ],
+      "sha256": "7e71a33edf2a3859769defd6226cf92bce4800b3eaa3e67b3e2798aa5a8b032e",
+      "id": "DetailBackground_4_6",
+      "source_rect": [
+        6144,
+        4096,
+        1024,
+        44
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    },
+    {
+      "path": "background_4_7.png",
+      "texture_size": [
+        256,
+        64
+      ],
+      "sha256": "5e706d11770115a0ec106e4c898a13308d8270cc8c546ad3ba8f3f67c28678ed",
+      "id": "DetailBackground_4_7",
+      "source_rect": [
+        7168,
+        4096,
+        192,
+        44
+      ],
+      "reference_size": [
+        7360,
+        4140
+      ],
+      "z_index": -30,
+      "role": "native_generated_detail_background"
+    }
+  ],
+  "objects": [
+    {
+      "path": "source_ceiling_moulding_0_0.png",
+      "texture_size": [
+        1024,
+        128
+      ],
+      "sha256": "201c3e40ff589d1f7890582114ab7c8366badd38b6589891441cc776c753c9cf",
+      "id": "OriginalFixture_ceiling_moulding_0_0",
+      "source_rect": [
+        0.0,
+        0.0,
+        1024,
+        95
+      ],
+      "reference_size": [
+        1672.0,
+        941.0
+      ],
+      "z_index": -29,
+      "role": "preserved_original_fixture",
+      "owner": "ceiling_moulding",
+      "detail_parent": null
+    },
+    {
+      "path": "source_ceiling_moulding_0_1.png",
+      "texture_size": [
+        1024,
+        128
+      ],
+      "sha256": "c96167e764d161b484cf005ec0a3342c2637395b3eaa129c73b3a7a163cf80f9",
+      "id": "OriginalFixture_ceiling_moulding_0_1",
+      "source_rect": [
+        1024.0,
+        0.0,
+        648,
+        95
+      ],
+      "reference_size": [
+        1672.0,
+        941.0
+      ],
+      "z_index": -29,
+      "role": "preserved_original_fixture",
+      "owner": "ceiling_moulding",
+      "detail_parent": null
+    },
+    {
+      "path": "source_left_dressing_0_0.png",
+      "texture_size": [
+        512,
+        1024
+      ],
+      "sha256": "68ab2f80fb0f3f2568e62fcfcecd5213c4aeab4172a59a7417fbc1cd98be8cce",
+      "id": "OriginalFixture_left_dressing_0_0",
+      "source_rect": [
+        0.0,
+        154.11214953271028,
+        393,
+        1024
+      ],
+      "reference_size": [
+        3028.0921658986176,
+        1706.1121495327102
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "left_dressing",
+      "detail_parent": "object_detail_left_wing_raw.png"
+    },
+    {
+      "path": "source_left_dressing_1_0.png",
+      "texture_size": [
+        512,
+        1024
+      ],
+      "sha256": "68a0da69d16389debd5c561f9ff5c561df4fd1c2199122d2fc534d7b3a638d41",
+      "id": "OriginalFixture_left_dressing_1_0",
+      "source_rect": [
+        0.0,
+        1178.1121495327102,
+        393,
+        528
+      ],
+      "reference_size": [
+        3028.0921658986176,
+        1706.1121495327102
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "left_dressing",
+      "detail_parent": "object_detail_left_wing_raw.png"
+    },
+    {
+      "path": "source_right_dressing_0_0.png",
+      "texture_size": [
+        512,
+        1024
+      ],
+      "sha256": "bb2d673ea419c9d593d4baf01c426c58a539f47d3a6bbab3c1eb8420d4f6d68c",
+      "id": "OriginalFixture_right_dressing_0_0",
+      "source_rect": [
+        2635.0921658986176,
+        154.11214953271028,
+        393,
+        1024
+      ],
+      "reference_size": [
+        3028.0921658986176,
+        1706.1121495327102
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "right_dressing",
+      "detail_parent": "object_detail_right_wing_raw.png"
+    },
+    {
+      "path": "source_right_dressing_1_0.png",
+      "texture_size": [
+        512,
+        1024
+      ],
+      "sha256": "b3b5499f2691e4b4368f325ef8ecf742e906eda1c9fd30c5abffe923e4036d5d",
+      "id": "OriginalFixture_right_dressing_1_0",
+      "source_rect": [
+        2635.0921658986176,
+        1178.1121495327102,
+        393,
+        528
+      ],
+      "reference_size": [
+        3028.0921658986176,
+        1706.1121495327102
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "right_dressing",
+      "detail_parent": "object_detail_right_wing_raw.png"
+    },
+    {
+      "path": "source_left_lift_0_0.png",
+      "texture_size": [
+        512,
+        1024
+      ],
+      "sha256": "da79c21cee17d58c07cc768f107e2d1ba4bdb94ba868dba79ea8c336a232d465",
+      "id": "OriginalFixture_left_lift_0_0",
+      "source_rect": [
+        364.3859649122807,
+        141.4597156398104,
+        310,
+        1024
+      ],
+      "reference_size": [
+        3031.1111111111113,
+        1706.5845181674565
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "left_lift",
+      "detail_parent": "object_detail_left_wing_raw.png"
+    },
+    {
+      "path": "source_left_lift_1_0.png",
+      "texture_size": [
+        512,
+        128
+      ],
+      "sha256": "cd66d63eb78dd5bd16fa317ae3af9724a192809cd21cf275b4a6fc75bd36ec5a",
+      "id": "OriginalFixture_left_lift_1_0",
+      "source_rect": [
+        364.3859649122807,
+        1165.4597156398104,
+        310,
+        124
+      ],
+      "reference_size": [
+        3031.1111111111113,
+        1706.5845181674565
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "left_lift",
+      "detail_parent": "object_detail_left_wing_raw.png"
+    },
+    {
+      "path": "source_right_lift_0_0.png",
+      "texture_size": [
+        512,
+        1024
+      ],
+      "sha256": "2442f5befa18b176025db9567c3d4cd98dfbab7414f127f3d337199b097f9bfb",
+      "id": "OriginalFixture_right_lift_0_0",
+      "source_rect": [
+        2350.822222222222,
+        141.4597156398104,
+        326,
+        1024
+      ],
+      "reference_size": [
+        3028.177777777778,
+        1706.5845181674565
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "right_lift",
+      "detail_parent": "object_detail_right_wing_raw.png"
+    },
+    {
+      "path": "source_right_lift_1_0.png",
+      "texture_size": [
+        512,
+        128
+      ],
+      "sha256": "3ad74006c29522bcd2d192572eb85354f76ff2e778c7dc22ed2991059c046f6f",
+      "id": "OriginalFixture_right_lift_1_0",
+      "source_rect": [
+        2350.822222222222,
+        1165.4597156398104,
+        326,
+        124
+      ],
+      "reference_size": [
+        3028.177777777778,
+        1706.5845181674565
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "right_lift",
+      "detail_parent": "object_detail_right_wing_raw.png"
+    },
+    {
+      "path": "source_left_chandelier_0_0.png",
+      "texture_size": [
+        256,
+        512
+      ],
+      "sha256": "2c26bebbdb9f0c52fde028319a01c5c185d49d25c71b91e1c0760e1797e132e0",
+      "id": "OriginalFixture_left_chandelier_0_0",
+      "source_rect": [
+        655.3448275862069,
+        59.78823529411765,
+        210,
+        308
+      ],
+      "reference_size": [
+        3026.8965517241377,
+        1704.870588235294
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "left_chandelier",
+      "detail_parent": "object_detail_left_wing_raw.png"
+    },
+    {
+      "path": "source_right_chandelier_0_0.png",
+      "texture_size": [
+        256,
+        512
+      ],
+      "sha256": "0e56d502eab25afe3dff2343f1c9504fa67927e133545cbb20f71a01932bf0d5",
+      "id": "OriginalFixture_right_chandelier_0_0",
+      "source_rect": [
+        2157.9310344827586,
+        59.78823529411765,
+        210,
+        308
+      ],
+      "reference_size": [
+        3026.8965517241377,
+        1704.870588235294
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "right_chandelier",
+      "detail_parent": "object_detail_right_wing_raw.png"
+    },
+    {
+      "path": "source_upper_balcony_0_0.png",
+      "texture_size": [
+        1024,
+        128
+      ],
+      "sha256": "433d0d3537bb3fd2d3128873c1089b294370875cdf679792e0f08894dde998e5",
+      "id": "OriginalFixture_upper_balcony_0_0",
+      "source_rect": [
+        346.0,
+        199.0,
+        977,
+        92
+      ],
+      "reference_size": [
+        1672.0,
+        941.0
+      ],
+      "z_index": -29,
+      "role": "preserved_original_fixture",
+      "owner": "upper_balcony",
+      "detail_parent": null
+    },
+    {
+      "path": "source_middle_balcony_0_0.png",
+      "texture_size": [
+        1024,
+        128
+      ],
+      "sha256": "c3a821054684bd63447aefa012bc9310c3eff3bc227dc65bf98f075686f4b227",
+      "id": "OriginalFixture_middle_balcony_0_0",
+      "source_rect": [
+        346.0,
+        415.0,
+        977,
+        85
+      ],
+      "reference_size": [
+        1672.0,
+        941.0
+      ],
+      "z_index": -29,
+      "role": "preserved_original_fixture",
+      "owner": "middle_balcony",
+      "detail_parent": null
+    },
+    {
+      "path": "source_left_stairs_counter_0_0.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "b2b79942ae03cf8a31a5812ef8b0ddb9fe936e826509c378c9f346ae4bc4e8f8",
+      "id": "OriginalFixture_left_stairs_counter_0_0",
+      "source_rect": [
+        364.47999999999996,
+        769.9486301369864,
+        544,
+        529
+      ],
+      "reference_size": [
+        3031.893333333333,
+        1704.7568493150686
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "left_stairs_counter",
+      "detail_parent": "object_detail_left_wing_raw.png"
+    },
+    {
+      "path": "source_right_stairs_rack_0_0.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "e96873f3a9884bee5917462d9931b5095cd68c6ab5d5e81b3a00dfb30c9bb55d",
+      "id": "OriginalFixture_right_stairs_rack_0_0",
+      "source_rect": [
+        2116.3601286173634,
+        769.9486301369864,
+        564,
+        529
+      ],
+      "reference_size": [
+        3032.1800643086817,
+        1704.7568493150686
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "right_stairs_rack",
+      "detail_parent": "object_detail_right_wing_raw.png"
+    },
+    {
+      "path": "source_left_lounge_0_0.png",
+      "texture_size": [
+        1024,
+        512
+      ],
+      "sha256": "b2a9cd2ca14764886309d13774e947d793db53a21d63d3d3498bd2e84d049bf7",
+      "id": "OriginalFixture_left_lounge_0_0",
+      "source_rect": [
+        375.2307692307692,
+        1225.4429223744294,
+        542,
+        397
+      ],
+      "reference_size": [
+        3030.849498327759,
+        1705.8310502283105
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "left_lounge",
+      "detail_parent": "object_detail_left_wing_raw.png"
+    },
+    {
+      "path": "source_right_lounge_0_0.png",
+      "texture_size": [
+        1024,
+        512
+      ],
+      "sha256": "d6269087afa9580c6394accf551f8db6541c19f0822085c271ed83b80baa5fa4",
+      "id": "OriginalFixture_right_lounge_0_0",
+      "source_rect": [
+        2143.240677966102,
+        1225.4429223744294,
+        534,
+        397
+      ],
+      "reference_size": [
+        3026.6033898305086,
+        1705.8310502283105
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "right_lounge",
+      "detail_parent": "object_detail_right_wing_raw.png"
+    },
+    {
+      "path": "source_left_service_edge_0_0.png",
+      "texture_size": [
+        512,
+        1024
+      ],
+      "sha256": "37035fd52aae67ce3e8710cb4d9257d3497e8d496caec38736f43a547011c1b6",
+      "id": "OriginalFixture_left_service_edge_0_0",
+      "source_rect": [
+        0.0,
+        1107.2060606060606,
+        422,
+        598
+      ],
+      "reference_size": [
+        3028.257510729614,
+        1705.2060606060604
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "left_service_edge",
+      "detail_parent": "object_detail_left_wing_raw.png"
+    },
+    {
+      "path": "source_right_service_edge_0_0.png",
+      "texture_size": [
+        512,
+        1024
+      ],
+      "sha256": "256eb8f8bf43d58753063db6a9be2838dc15041099132b2d0185fae35a6ba425",
+      "id": "OriginalFixture_right_service_edge_0_0",
+      "source_rect": [
+        2606.257510729614,
+        949.9856115107914,
+        422,
+        756
+      ],
+      "reference_size": [
+        3028.257510729614,
+        1705.9856115107914
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "right_service_edge",
+      "detail_parent": "object_detail_right_wing_raw.png"
+    },
+    {
+      "path": "source_central_island_0_0.png",
+      "texture_size": [
+        1024,
+        1024
+      ],
+      "sha256": "7ad59f7b7ceaab5f44e2b05832c250959a28ec9f4b7c6700bba6891f9ba90299",
+      "id": "OriginalFixture_central_island_0_0",
+      "source_rect": [
+        3437.88188976378,
+        3326.8054298642533,
+        1024,
+        1024
+      ],
+      "reference_size": [
+        8050.614173228347,
+        4530.425339366516
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "central_island",
+      "detail_parent": "object_detail_island_raw.png"
+    },
+    {
+      "path": "source_central_island_0_1.png",
+      "texture_size": [
+        256,
+        1024
+      ],
+      "sha256": "7269bb36f679519c3f474830870f563961ee38a9ea362a0ef982a3092283f1dc",
+      "id": "OriginalFixture_central_island_0_1",
+      "source_rect": [
+        4461.881889763779,
+        3326.8054298642533,
+        199,
+        1024
+      ],
+      "reference_size": [
+        8050.614173228347,
+        4530.425339366516
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "central_island",
+      "detail_parent": "object_detail_island_raw.png"
+    },
+    {
+      "path": "source_central_island_1_0.png",
+      "texture_size": [
+        1024,
+        64
+      ],
+      "sha256": "3e2c80754399a6550d80e71d90a81e5429e4c2c5882872e322018ed98a729745",
+      "id": "OriginalFixture_central_island_1_0",
+      "source_rect": [
+        3437.88188976378,
+        4350.805429864253,
+        1024,
+        40
+      ],
+      "reference_size": [
+        8050.614173228347,
+        4530.425339366516
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "central_island",
+      "detail_parent": "object_detail_island_raw.png"
+    },
+    {
+      "path": "source_central_island_1_1.png",
+      "texture_size": [
+        256,
+        64
+      ],
+      "sha256": "268ca126a92de9b5727197b83e30af099a16f7092e5a777bc5ac4bd01c9731b0",
+      "id": "OriginalFixture_central_island_1_1",
+      "source_rect": [
+        4461.881889763779,
+        4350.805429864253,
+        199,
+        40
+      ],
+      "reference_size": [
+        8050.614173228347,
+        4530.425339366516
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "central_island",
+      "detail_parent": "object_detail_island_raw.png"
+    },
+    {
+      "path": "source_door_0_0_0_0.png",
+      "texture_size": [
+        512,
+        512
+      ],
+      "sha256": "0fd9aaf8c963d766e8f3434b9d509fe16efd1ba4613ef64108cbda1615dae1d0",
+      "id": "OriginalFixture_door_0_0_0_0",
+      "source_rect": [
+        1467.6352941176472,
+        203.41040462427748,
+        501,
+        510
+      ],
+      "reference_size": [
+        4927.482352941177,
+        2774.0462427745665
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "door_0_0",
+      "detail_parent": "object_detail_upper_doors_raw.png"
+    },
+    {
+      "path": "source_door_0_1_0_0.png",
+      "texture_size": [
+        512,
+        512
+      ],
+      "sha256": "20a525de56bec2dd780e7bdc3c6ac0afab35989141d40b4f7178e00bc2a98403",
+      "id": "OriginalFixture_door_0_1_0_0",
+      "source_rect": [
+        1963.5207100591717,
+        203.41040462427748,
+        499,
+        510
+      ],
+      "reference_size": [
+        4936.852071005917,
+        2774.0462427745665
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "door_0_1",
+      "detail_parent": "object_detail_upper_doors_raw.png"
+    },
+    {
+      "path": "source_door_0_2_0_0.png",
+      "texture_size": [
+        512,
+        512
+      ],
+      "sha256": "fbfd1457c464eb0f3747011271208d859139e5f935dedd280a5584a9fcbf5633",
+      "id": "OriginalFixture_door_0_2_0_0",
+      "source_rect": [
+        2474.331360946746,
+        203.41040462427748,
+        499,
+        510
+      ],
+      "reference_size": [
+        4936.852071005917,
+        2774.0462427745665
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "door_0_2",
+      "detail_parent": "object_detail_upper_doors_raw.png"
+    },
+    {
+      "path": "source_door_0_3_0_0.png",
+      "texture_size": [
+        512,
+        512
+      ],
+      "sha256": "b0f8671cc438648cf4eb0e19cb6afbb2c87ccd2d7b30502ed0b1f70d4e87d881",
+      "id": "OriginalFixture_door_0_3_0_0",
+      "source_rect": [
+        2958.8470588235296,
+        203.41040462427748,
+        501,
+        510
+      ],
+      "reference_size": [
+        4927.482352941177,
+        2774.0462427745665
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "door_0_3",
+      "detail_parent": "object_detail_upper_doors_raw.png"
+    },
+    {
+      "path": "source_door_1_0_0_0.png",
+      "texture_size": [
+        512,
+        512
+      ],
+      "sha256": "58ec751d6f81c05689b8979cfbf43abff3e2b9a3eb0a5c929a746cc42353c474",
+      "id": "OriginalFixture_door_1_0_0_0",
+      "source_rect": [
+        1470.564705882353,
+        822.1420118343195,
+        502,
+        498
+      ],
+      "reference_size": [
+        4937.317647058824,
+        2772.887573964497
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "door_1_0",
+      "detail_parent": "object_detail_middle_doors_raw.png"
+    },
+    {
+      "path": "source_door_1_1_0_0.png",
+      "texture_size": [
+        512,
+        512
+      ],
+      "sha256": "932229c49edf32f5dcf3cec3a918e515cd529320d164eb3c2dcace4e763c6800",
+      "id": "OriginalFixture_door_1_1_0_0",
+      "source_rect": [
+        1963.5207100591717,
+        822.1420118343195,
+        499,
+        498
+      ],
+      "reference_size": [
+        4936.852071005917,
+        2772.887573964497
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "door_1_1",
+      "detail_parent": "object_detail_middle_doors_raw.png"
+    },
+    {
+      "path": "source_door_1_2_0_0.png",
+      "texture_size": [
+        512,
+        512
+      ],
+      "sha256": "ec566f604d3fd992be4ade8bdd508bdc5f9950a78f729ab078dfebcd0559490d",
+      "id": "OriginalFixture_door_1_2_0_0",
+      "source_rect": [
+        2474.331360946746,
+        822.1420118343195,
+        499,
+        498
+      ],
+      "reference_size": [
+        4936.852071005917,
+        2772.887573964497
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "door_1_2",
+      "detail_parent": "object_detail_middle_doors_raw.png"
+    },
+    {
+      "path": "source_door_1_3_0_0.png",
+      "texture_size": [
+        512,
+        512
+      ],
+      "sha256": "b4fd5065c4cf110b256ffd0ce5af7805c7355ad2f649ac36022fa8d236e26779",
+      "id": "OriginalFixture_door_1_3_0_0",
+      "source_rect": [
+        2964.752941176471,
+        822.1420118343195,
+        502,
+        498
+      ],
+      "reference_size": [
+        4937.317647058824,
+        2772.887573964497
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "door_1_3",
+      "detail_parent": "object_detail_middle_doors_raw.png"
+    },
+    {
+      "path": "source_door_2_0_0_0.png",
+      "texture_size": [
+        512,
+        1024
+      ],
+      "sha256": "38e9bcc94cb5bc347c3240f4d6f30aea7c70b4b997190d66b19ce83e7db1308b",
+      "id": "OriginalFixture_door_2_0_0_0",
+      "source_rect": [
+        1467.6352941176472,
+        1407.0301507537688,
+        501,
+        587
+      ],
+      "reference_size": [
+        4927.482352941177,
+        2775.713567839196
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "door_2_0",
+      "detail_parent": "object_detail_lower_doors_raw.png"
+    },
+    {
+      "path": "source_door_2_1_0_0.png",
+      "texture_size": [
+        512,
+        1024
+      ],
+      "sha256": "24bb219f5a0d6a2bc767220aceb09c57aa11d0efc2108c62124dc87da2e378fa",
+      "id": "OriginalFixture_door_2_1_0_0",
+      "source_rect": [
+        1963.5207100591717,
+        1407.0301507537688,
+        499,
+        587
+      ],
+      "reference_size": [
+        4936.852071005917,
+        2775.713567839196
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "door_2_1",
+      "detail_parent": "object_detail_lower_doors_raw.png"
+    },
+    {
+      "path": "source_door_2_2_0_0.png",
+      "texture_size": [
+        512,
+        1024
+      ],
+      "sha256": "4f73527f6ab808d75de9a5af1e0516e90d64110db0b6e334ec57502c4f40490c",
+      "id": "OriginalFixture_door_2_2_0_0",
+      "source_rect": [
+        2474.331360946746,
+        1407.0301507537688,
+        499,
+        587
+      ],
+      "reference_size": [
+        4936.852071005917,
+        2775.713567839196
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "door_2_2",
+      "detail_parent": "object_detail_lower_doors_raw.png"
+    },
+    {
+      "path": "source_door_2_3_0_0.png",
+      "texture_size": [
+        512,
+        1024
+      ],
+      "sha256": "20d4164e8dd89495550ab50c9091d7fa4c2933b9260db417206e555619161a46",
+      "id": "OriginalFixture_door_2_3_0_0",
+      "source_rect": [
+        2958.8470588235296,
+        1407.0301507537688,
+        501,
+        587
+      ],
+      "reference_size": [
+        4927.482352941177,
+        2775.713567839196
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "door_2_3",
+      "detail_parent": "object_detail_lower_doors_raw.png"
+    },
+    {
+      "path": "source_sconce_0_0_0_0.png",
+      "texture_size": [
+        64,
+        64
+      ],
+      "sha256": "9f4f1795a455f7b13a319b297d45ffa7d60c5efb326c73652289eeba7920c016",
+      "id": "OriginalFixture_sconce_0_0_0_0",
+      "source_rect": [
+        477.0,
+        144.0,
+        36,
+        54
+      ],
+      "reference_size": [
+        1672.0,
+        941.0
+      ],
+      "z_index": -29,
+      "role": "preserved_original_fixture",
+      "owner": "sconce_0_0",
+      "detail_parent": null
+    },
+    {
+      "path": "source_sconce_0_1_0_0.png",
+      "texture_size": [
+        128,
+        256
+      ],
+      "sha256": "9e6f8b2d0385e3fe78c8cee3933024aabda1f0d2977bb2b570d0d9325f2e6f1b",
+      "id": "OriginalFixture_sconce_0_1_0_0",
+      "source_rect": [
+        1923.0277777777778,
+        424.0,
+        107,
+        159
+      ],
+      "reference_size": [
+        4969.555555555556,
+        2770.7222222222226
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "sconce_0_1",
+      "detail_parent": "object_detail_upper_doors_raw.png"
+    },
+    {
+      "path": "source_sconce_0_2_0_0.png",
+      "texture_size": [
+        128,
+        256
+      ],
+      "sha256": "f6e506e11b3c2bf5de39aca4d670fb5ea31a5a4c4af604a65123658129e4f769",
+      "id": "OriginalFixture_sconce_0_2_0_0",
+      "source_rect": [
+        2402.666666666667,
+        424.0,
+        106,
+        159
+      ],
+      "reference_size": [
+        4923.111111111111,
+        2770.7222222222226
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "sconce_0_2",
+      "detail_parent": "object_detail_upper_doors_raw.png"
+    },
+    {
+      "path": "source_sconce_0_3_0_0.png",
+      "texture_size": [
+        128,
+        256
+      ],
+      "sha256": "8c70abaac4402c5dcfb6062461027956305aada2e24a234919ccdc58df9859d5",
+      "id": "OriginalFixture_sconce_0_3_0_0",
+      "source_rect": [
+        2903.2222222222226,
+        424.0,
+        106,
+        159
+      ],
+      "reference_size": [
+        4923.111111111111,
+        2770.7222222222226
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "sconce_0_3",
+      "detail_parent": "object_detail_upper_doors_raw.png"
+    },
+    {
+      "path": "source_sconce_0_4_0_0.png",
+      "texture_size": [
+        64,
+        64
+      ],
+      "sha256": "dfe7a57c158413fd1aa9539df1bfa43ff514eab94f7d2eda8a9fc887cf945ebd",
+      "id": "OriginalFixture_sconce_0_4_0_0",
+      "source_rect": [
+        1156.0,
+        144.0,
+        36,
+        54
+      ],
+      "reference_size": [
+        1672.0,
+        941.0
+      ],
+      "z_index": -29,
+      "role": "preserved_original_fixture",
+      "owner": "sconce_0_4",
+      "detail_parent": null
+    },
+    {
+      "path": "source_sconce_1_0_0_0.png",
+      "texture_size": [
+        64,
+        64
+      ],
+      "sha256": "a90e1d888b702331f6723799e7dccda20b9482b2027da5747d1e8d3c81882ae6",
+      "id": "OriginalFixture_sconce_1_0_0_0",
+      "source_rect": [
+        477.0,
+        355.0,
+        36,
+        53
+      ],
+      "reference_size": [
+        1672.0,
+        941.0
+      ],
+      "z_index": -29,
+      "role": "preserved_original_fixture",
+      "owner": "sconce_1_0",
+      "detail_parent": null
+    },
+    {
+      "path": "source_sconce_1_1_0_0.png",
+      "texture_size": [
+        128,
+        256
+      ],
+      "sha256": "f92ecf5e2bbdf34d61c68c585cb960ec8d0790f0330ebbd2003814a4a316a664",
+      "id": "OriginalFixture_sconce_1_1_0_0",
+      "source_rect": [
+        1905.0555555555557,
+        1044.9056603773583,
+        106,
+        156
+      ],
+      "reference_size": [
+        4923.111111111111,
+        2769.7358490566035
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "sconce_1_1",
+      "detail_parent": "object_detail_middle_doors_raw.png"
+    },
+    {
+      "path": "source_sconce_1_2_0_0.png",
+      "texture_size": [
+        128,
+        256
+      ],
+      "sha256": "2300cd02eb34f7abdf2b3b253df68ab97fd8dd72ad03425e8cb89c4e81c8f8b5",
+      "id": "OriginalFixture_sconce_1_2_0_0",
+      "source_rect": [
+        2425.3333333333335,
+        1044.9056603773583,
+        107,
+        156
+      ],
+      "reference_size": [
+        4969.555555555556,
+        2769.7358490566035
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "sconce_1_2",
+      "detail_parent": "object_detail_middle_doors_raw.png"
+    },
+    {
+      "path": "source_sconce_1_3_0_0.png",
+      "texture_size": [
+        128,
+        256
+      ],
+      "sha256": "e73a69c134da656c7d73ba61c20b17f64f8c3a47bf78391a68015b6026210167",
+      "id": "OriginalFixture_sconce_1_3_0_0",
+      "source_rect": [
+        2930.6111111111113,
+        1044.9056603773583,
+        107,
+        156
+      ],
+      "reference_size": [
+        4969.555555555556,
+        2769.7358490566035
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "sconce_1_3",
+      "detail_parent": "object_detail_middle_doors_raw.png"
+    },
+    {
+      "path": "source_sconce_1_4_0_0.png",
+      "texture_size": [
+        64,
+        64
+      ],
+      "sha256": "233635f7e7e3a1fb59b201c25962358ce14644ad321e76ec382ba43d553e7817",
+      "id": "OriginalFixture_sconce_1_4_0_0",
+      "source_rect": [
+        1156.0,
+        355.0,
+        36,
+        53
+      ],
+      "reference_size": [
+        1672.0,
+        941.0
+      ],
+      "z_index": -29,
+      "role": "preserved_original_fixture",
+      "owner": "sconce_1_4",
+      "detail_parent": null
+    },
+    {
+      "path": "source_sconce_2_0_0_0.png",
+      "texture_size": [
+        64,
+        64
+      ],
+      "sha256": "45f086d1cbcce2647183e884161118b3ce61feaa0a6746c99c080765c35a1450",
+      "id": "OriginalFixture_sconce_2_0_0_0",
+      "source_rect": [
+        477.0,
+        565.0,
+        36,
+        57
+      ],
+      "reference_size": [
+        1672.0,
+        941.0
+      ],
+      "z_index": -29,
+      "role": "preserved_original_fixture",
+      "owner": "sconce_2_0",
+      "detail_parent": null
+    },
+    {
+      "path": "source_sconce_2_1_0_0.png",
+      "texture_size": [
+        128,
+        256
+      ],
+      "sha256": "c771d922268ebb9fcb0d19bcb174f73a15527a36a6bb20a8da8542f2d8b1bb65",
+      "id": "OriginalFixture_sconce_2_1_0_0",
+      "source_rect": [
+        1923.0277777777778,
+        1675.1754385964912,
+        107,
+        169
+      ],
+      "reference_size": [
+        4969.555555555556,
+        2789.9824561403507
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "sconce_2_1",
+      "detail_parent": "object_detail_lower_doors_raw.png"
+    },
+    {
+      "path": "source_sconce_2_2_0_0.png",
+      "texture_size": [
+        128,
+        256
+      ],
+      "sha256": "7f99820d547521dcea439a8dc567b5bb0527985ac9639d8b120aaab126d77eff",
+      "id": "OriginalFixture_sconce_2_2_0_0",
+      "source_rect": [
+        2402.666666666667,
+        1675.1754385964912,
+        106,
+        169
+      ],
+      "reference_size": [
+        4923.111111111111,
+        2789.9824561403507
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "sconce_2_2",
+      "detail_parent": "object_detail_lower_doors_raw.png"
+    },
+    {
+      "path": "source_sconce_2_3_0_0.png",
+      "texture_size": [
+        128,
+        256
+      ],
+      "sha256": "5035ad435cad13fcb798a66d986c38f1b94c499afe16b648a00dc859e2accba5",
+      "id": "OriginalFixture_sconce_2_3_0_0",
+      "source_rect": [
+        2903.2222222222226,
+        1675.1754385964912,
+        106,
+        169
+      ],
+      "reference_size": [
+        4923.111111111111,
+        2789.9824561403507
+      ],
+      "z_index": -29,
+      "role": "source_locked_fixture_detail",
+      "owner": "sconce_2_3",
+      "detail_parent": "object_detail_lower_doors_raw.png"
+    },
+    {
+      "path": "source_sconce_2_4_0_0.png",
+      "texture_size": [
+        64,
+        64
+      ],
+      "sha256": "e140a625d2e5478339053a33e6ff5802ae77480e6388d18222c8eee134e5ff2b",
+      "id": "OriginalFixture_sconce_2_4_0_0",
+      "source_rect": [
+        1156.0,
+        565.0,
+        36,
+        57
+      ],
+      "reference_size": [
+        1672.0,
+        941.0
+      ],
+      "z_index": -29,
+      "role": "preserved_original_fixture",
+      "owner": "sconce_2_4",
+      "detail_parent": null
+    }
+  ],
+  "curtains": [
+    {
+      "path": "curtain_0_0.png",
+      "texture_size": [
+        256,
+        256
+      ],
+      "sha256": "8975ebbd77b06b5e632aaf11967753aa0980539a0b77a106a1012ecae59373b4",
+      "original_bounds": [
+        337,
+        81,
+        40,
+        49
+      ],
+      "native_rect": [
+        0,
+        0,
+        192,
+        236
+      ],
+      "detail_parent": "object_detail_upper_doors_raw.png"
+    },
+    {
+      "path": "curtain_0_1.png",
+      "texture_size": [
+        256,
+        256
+      ],
+      "sha256": "7d13ab56edc9add2017c4929d9b139f2b1659d886521747637531f6194911fce",
+      "original_bounds": [
+        439,
+        81,
+        40,
+        49
+      ],
+      "native_rect": [
+        0,
+        0,
+        195,
+        236
+      ],
+      "detail_parent": "object_detail_upper_doors_raw.png"
+    },
+    {
+      "path": "curtain_0_2.png",
+      "texture_size": [
+        256,
+        256
+      ],
+      "sha256": "e986643d0ccd73e673449797395e1e0721ac526c46ae17dede7aeb8371bba5b5",
+      "original_bounds": [
+        545,
+        81,
+        40,
+        49
+      ],
+      "native_rect": [
+        0,
+        0,
+        195,
+        236
+      ],
+      "detail_parent": "object_detail_upper_doors_raw.png"
+    },
+    {
+      "path": "curtain_0_3.png",
+      "texture_size": [
+        256,
+        256
+      ],
+      "sha256": "f29fe0fa089c1a599f06f10ff4862a32b67ce9010ded53b1ab580981846bd3a9",
+      "original_bounds": [
+        647,
+        81,
+        40,
+        49
+      ],
+      "native_rect": [
+        0,
+        0,
+        192,
+        236
+      ],
+      "detail_parent": "object_detail_upper_doors_raw.png"
+    },
+    {
+      "path": "curtain_1_0.png",
+      "texture_size": [
+        256,
+        256
+      ],
+      "sha256": "4858642363106367ff3a7cfaf16d88de89c612d1e691b91dd0fea5e29f3b7e45",
+      "original_bounds": [
+        337,
+        205,
+        40,
+        47
+      ],
+      "native_rect": [
+        0,
+        0,
+        192,
+        227
+      ],
+      "detail_parent": "object_detail_middle_doors_raw.png"
+    },
+    {
+      "path": "curtain_1_1.png",
+      "texture_size": [
+        256,
+        256
+      ],
+      "sha256": "af3d4366ed4ba1afc9443f845a544a4659b8c7720325c9a38a8af3e5199a0516",
+      "original_bounds": [
+        439,
+        205,
+        40,
+        47
+      ],
+      "native_rect": [
+        0,
+        0,
+        195,
+        227
+      ],
+      "detail_parent": "object_detail_middle_doors_raw.png"
+    },
+    {
+      "path": "curtain_1_2.png",
+      "texture_size": [
+        256,
+        256
+      ],
+      "sha256": "cec7f99326cc6f41a750f4e4bb06521ae276ca5811e131226eccd4d6f8656aab",
+      "original_bounds": [
+        545,
+        205,
+        40,
+        47
+      ],
+      "native_rect": [
+        0,
+        0,
+        195,
+        227
+      ],
+      "detail_parent": "object_detail_middle_doors_raw.png"
+    },
+    {
+      "path": "curtain_1_3.png",
+      "texture_size": [
+        256,
+        256
+      ],
+      "sha256": "45f7b4991bd65241b6508be92ecdb3a42a1c06bfb731855c1592d9f02905075c",
+      "original_bounds": [
+        647,
+        205,
+        40,
+        47
+      ],
+      "native_rect": [
+        0,
+        0,
+        192,
+        227
+      ],
+      "detail_parent": "object_detail_middle_doors_raw.png"
+    },
+    {
+      "path": "curtain_2_0.png",
+      "texture_size": [
+        256,
+        512
+      ],
+      "sha256": "2c96a93039e5058cae5a53c7b2d5e916a5cadf4c887a2e7f1319bf864838856c",
+      "original_bounds": [
+        337,
+        341,
+        40,
+        56
+      ],
+      "native_rect": [
+        0,
+        0,
+        192,
+        268
+      ],
+      "detail_parent": "object_detail_lower_doors_raw.png"
+    },
+    {
+      "path": "curtain_2_1.png",
+      "texture_size": [
+        256,
+        512
+      ],
+      "sha256": "fd87d505f19223fc31ecaf50f43ffdeb592c8fb825f2f5ebf35871671db05740",
+      "original_bounds": [
+        439,
+        341,
+        40,
+        56
+      ],
+      "native_rect": [
+        0,
+        0,
+        195,
+        268
+      ],
+      "detail_parent": "object_detail_lower_doors_raw.png"
+    },
+    {
+      "path": "curtain_2_2.png",
+      "texture_size": [
+        256,
+        512
+      ],
+      "sha256": "27db1028b024f8532eccc55909431afc69af53bf4cf2f019749d03fc4034d70e",
+      "original_bounds": [
+        545,
+        341,
+        40,
+        56
+      ],
+      "native_rect": [
+        0,
+        0,
+        195,
+        268
+      ],
+      "detail_parent": "object_detail_lower_doors_raw.png"
+    },
+    {
+      "path": "curtain_2_3.png",
+      "texture_size": [
+        256,
+        512
+      ],
+      "sha256": "b4ed8a522ad777130a0cf30904f90468966d81f3939fe17f7aaf46f4426ec9c9",
+      "original_bounds": [
+        647,
+        341,
+        40,
+        56
+      ],
+      "native_rect": [
+        0,
+        0,
+        192,
+        268
+      ],
+      "detail_parent": "object_detail_lower_doors_raw.png"
+    }
+  ]
+}

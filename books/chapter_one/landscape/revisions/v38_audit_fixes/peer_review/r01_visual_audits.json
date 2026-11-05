@@ -1,0 +1,102 @@
+{
+  "reviewer": "One Codex AI reviewer; five focused passes, not independent human reviewers",
+  "date": "2026-10-25",
+  "pdf_sha256": "d8125dde586bcfb2fd775cd6c034f4b27a73428b760663d30d9d684eae64c037",
+  "email_sha256": "e5a77a154feaa30f5c9cc443602c968b034cbab7549e4dca91decc3113158d61",
+  "passes": [
+    {
+      "pass_id": 1,
+      "focus": "Named page controls and manuscript",
+      "inspected": [
+        "complete/page_00.png",
+        "complete/page_05.png",
+        "complete/page_09.png",
+        "complete/page_16.png",
+        "complete/page_18.png",
+        "complete/page_22.png",
+        "complete/page_33.png"
+      ],
+      "observations": "A1/A3 three deliberate lines, identical words. A2 unified navy; A4 aligned subtitle. One foreground plug, pail in bank. Rear additions subordinate. No scene/pose replacement.",
+      "result": "PASS_WITH_DECLARED_A9_HOLD",
+      "remaining_in_scope_defects": [],
+      "held": [
+        "A9native resolution; exact V37 retained"
+      ]
+    },
+    {
+      "pass_id": 2,
+      "focus": "Character identity, acting and context",
+      "inspected": [
+        "complete/contact_1.jpg",
+        "complete/contact_2.jpg",
+        "complete/contact_3.jpg",
+        "complete/contact_4.jpg",
+        "complete/contact_5.jpg",
+        "generation_evidence.json"
+      ],
+      "observations": "Existing eyes/hair/tiara/ear/limbs and action contact stay V37. Tiny Lamma matches plush pale face/lashes/cheeks; sightings10/rear. Both undersized bath trials rejected; original brush/chain acting retained.",
+      "result": "PASS_WITH_DECLARED_A9_HOLD",
+      "remaining_in_scope_defects": [],
+      "held": [
+        "A9native resolution; exact V37 retained"
+      ]
+    },
+    {
+      "pass_id": 3,
+      "focus": "Alpha, joins and contact",
+      "inspected": [
+        "details/door_dust.png",
+        "details/pail_join.png",
+        "details/lamma.png",
+        "details/cobweb.png",
+        "details/carpet.png"
+      ],
+      "observations": "No visible rectangle, cutout halo, floating pail, chain remnant or clipped dust identified. Original shells/tufts remain. Four new carpet drifts on bare red. Door wisps have no curls, face or Puff reveal.",
+      "result": "PASS_WITH_DECLARED_A9_HOLD",
+      "remaining_in_scope_defects": [],
+      "held": [
+        "A9native resolution; exact V37 retained"
+      ]
+    },
+    {
+      "pass_id": 4,
+      "focus": "Typography, contrast and small details",
+      "inspected": [
+        "details/caption_splash_clearance.png",
+        "complete/page_00.png",
+        "complete/page_05.png",
+        "complete/page_16.png",
+        "complete/page_18.png",
+        "complete/page_22.png",
+        "composed_caption_contrast.json"
+      ],
+      "observations": "Subtitle clears characters by over10pt. Actual page16glyph+stroke clears focal box by2.12pt; no splash/fin coverage. Four door wisps remain a quiet clue at reduced size. 79PASS/7OUTLINE_REQUIRED/0FAIL, all supports present.",
+      "result": "PASS_WITH_DECLARED_A9_HOLD",
+      "remaining_in_scope_defects": [],
+      "held": [
+        "A9native resolution; exact V37 retained"
+      ]
+    },
+    {
+      "pass_id": 5,
+      "focus": "Whole-book sequence, reveals and email",
+      "inspected": [
+        "complete/contact_1.jpg",
+        "complete/contact_2.jpg",
+        "complete/contact_3.jpg",
+        "complete/contact_4.jpg",
+        "complete/contact_5.jpg",
+        "details/email_export_review.png",
+        "complete/print_pagination.json",
+        "complete/email_verification.json"
+      ],
+      "observations": "32interiors+cover pair, story1right and13→14/23→24/27→28reveals. Sink/bath poses distinct. Rear promises beginning. Page25cloth/sofa, Whoosh14/15 and captions3/23 stay. No new email artifact identified; native/vector/alpha evidence passes.",
+      "result": "PASS_WITH_DECLARED_A9_HOLD",
+      "remaining_in_scope_defects": [],
+      "held": [
+        "A9native resolution; exact V37 retained"
+      ]
+    }
+  ],
+  "acceptance": "No remaining identified defect in implemented A1-A8/A10. A9held. Owner/child/SLP/trim/physical print remain open. Prior20run V37 review is historical, not counted as new V38 runs."
+}

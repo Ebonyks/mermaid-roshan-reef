@@ -1,0 +1,25 @@
+{
+  "repairs": [
+    {
+      "failure": "cap right brim clipped at y204 by inherited Headwear mesh",
+      "repair": "Complete garment Sprite2D on the same Head rest/socket; inherited mesh unchanged for old skins."
+    },
+    {
+      "failure": "old open fingers still present because their source is Forearm, not UpperArm",
+      "repair": "Preserve original forearm below elbow through y517; remove original distal fingers only during tool action; new hand grip follows existing LeftHand rest."
+    },
+    {
+      "failure": "fixed sleeve fragment as arm reaches",
+      "repair": "Derive sleeve alpha region into its own same-skeleton attachment on LeftUpper with cape overlap."
+    },
+    {
+      "failure": "transparent V neckline below seed neck",
+      "repair": "Bounded Aseprite reuse/extension of original neck pixels only x516..570,y346..372; no face generation."
+    }
+  ],
+  "failed_frames": [
+    "rejected_v1/detective_0069.png",
+    "rejected_v1/geologist_0069.png"
+  ],
+  "review": "Repair needs rerender and complete transition/outline/contact checks; no naturalness claim."
+}

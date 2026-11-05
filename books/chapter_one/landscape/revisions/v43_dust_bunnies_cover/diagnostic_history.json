@@ -1,0 +1,22 @@
+{
+  "final_art_unchanged_after_five_passes": true,
+  "diagnosis": [
+    {
+      "stage": "Earlier title edit window guard",
+      "finding": "14 old subtitle pixels extended2rows beyond initial edit-window mask; expanded window from350to355 after actual diff inspection."
+    },
+    {
+      "stage": "Two-line title window",
+      "finding": "26 new title pixels reached1312px; declared title edit window extended to1340px after inspection."
+    },
+    {
+      "stage": "Broad Eagle rectangle",
+      "finding": "Included repaired floor to right of feet; semantic body/feet rectangles preserve actual figure and exclude named floor repair."
+    },
+    {
+      "stage": "Five-pass hash guard",
+      "finding": "Rejected stale title_geometry JSON hash after metadata-only cover/control hash fields were added; rechecked exact geometry/art and updated that binding."
+    }
+  ],
+  "final_evidence": "complete/verification.json"
+}

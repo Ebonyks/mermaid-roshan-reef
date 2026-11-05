@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "maximizer_bypass_verified": true,
+  "probes": [
+    {
+      "instrument": "steel_pan_main",
+      "measurement": "Identical MIDI at identical track attenuation; source preset edits only. High-mid/body ratio is an objective tonal proxy, not human acceptance.",
+      "before": {
+        "high_mid_to_body_db": 0.704,
+        "crest_db": 19.616,
+        "sample_peak_dbfs": -22.544
+      },
+      "after": {
+        "high_mid_to_body_db": -0.408,
+        "crest_db": 18.952,
+        "sample_peak_dbfs": -41.997
+      }
+    },
+    {
+      "instrument": "tchad_nylon_guitar",
+      "measurement": "Identical MIDI at identical track attenuation; source preset edits only. High-mid/body ratio is an objective tonal proxy, not human acceptance.",
+      "before": {
+        "high_mid_to_body_db": -36.49,
+        "crest_db": 19.021,
+        "sample_peak_dbfs": -13.326
+      },
+      "after": {
+        "high_mid_to_body_db": -39.622,
+        "crest_db": 18.923,
+        "sample_peak_dbfs": -14.702
+      }
+    }
+  ]
+}

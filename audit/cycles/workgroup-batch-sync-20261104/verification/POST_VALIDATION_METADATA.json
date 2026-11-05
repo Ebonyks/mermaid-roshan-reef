@@ -1,0 +1,15 @@
+{
+  "result": "FAIL",
+  "incoming_dev": "96e8d3a20a64772ec712ee6b0bea3fb22e36a793",
+  "validated_checkpoint": "267855851c15a60f91d4c6147d57fa681b29dc9c",
+  "changed_since_checkpoint": [
+    "design/audit_impacts/godot-mcp-editor-bridge-20261105.json"
+  ],
+  "unchanged_runtime_and_validator_git_objects": true,
+  "new_metadata_file_sha256": "99d426a05283dc158559c1d04ccab25c090887584346b6a5285334295997fc97",
+  "model_signature_coverage_archive_inspection": "PASS under unchanged production helpers",
+  "scope": "A single current-dev audit-impact JSON is added after full validation. All runtime/art/addon/native-validator inputs and the complete tested static-tools tree remain exact.",
+  "original_result": "PASS",
+  "verification_limit": "The original selected Git-object and binary/archive checks were partial. CI caught the omitted runtime API classification of audit prose. Corrected role and controls are documented in POST_CI_METADATA_ROLE.json.",
+  "recovery_evidence": "POST_CI_METADATA_ROLE.json"
+}

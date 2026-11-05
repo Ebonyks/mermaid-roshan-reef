@@ -1,0 +1,96 @@
+{
+  "state": "LOCAL_PROVISIONAL_SAME_SCENE_CANDIDATE_REVIEW_PASS",
+  "stable_id": "FV-0091F4E1BC9C",
+  "reviewer": "Codex local visual inspection; no owner/child/formalQA11 claim",
+  "at_utc": "2026-11-03T03:03:15.811702+00:00",
+  "all33_candidate_frames_inspected": true,
+  "all15_current_source_frames_inspected": true,
+  "historical21_original_source_frames_reused": true,
+  "historical_source_revision": "7f21934d20f9d1abdb78b8c1b5869586efd0cd79",
+  "all48_whole_HUD_phone_views_inspected": true,
+  "aspects": [
+    "1280x720",
+    "1600x720",
+    "1280x800"
+  ],
+  "candidate_frame_index_sha256": "cd1a3f1a4f1148505d784110225cff1c2bbd72bee9a8318209a35a89c561d177",
+  "phone_plan_sha256": "be6e11753dae8bf72da0a7679e4dd9f847739620aed7f10c69ad011eb1f31d47",
+  "ten_axes": [
+    {
+      "axis": "contour",
+      "source": 2.0,
+      "candidate": 4.6,
+      "reason": "Soft authored gold/cream edges replace the segmented ring and plain connector; same source note and other stage roles remain explicit debt."
+    },
+    {
+      "axis": "palette",
+      "source": 4.7,
+      "candidate": 4.7,
+      "reason": "Warm cream/honey-gold cue remains distinct against the cool blue-green meadow and every note hue."
+    },
+    {
+      "axis": "light",
+      "source": 1.5,
+      "candidate": 4.5,
+      "reason": "Broad restrained gouache values replace unshaded fill. No engine relighting or glossy material."
+    },
+    {
+      "axis": "perspective",
+      "source": 5.0,
+      "candidate": 4.8,
+      "reason": "Front-facing near-circular ring and screen-plane arrow/shaft follow the same scene path."
+    },
+    {
+      "axis": "scale",
+      "source": 5.0,
+      "candidate": 4.6,
+      "reason": "Original46x34head envelope,9pxbeam and79..99outer ring envelope retained; staticUIhead aspect mapping and whole-ring band-thickness scaling are declared."
+    },
+    {
+      "axis": "contact",
+      "source": 5.0,
+      "candidate": 4.9,
+      "reason": "Connector endpoints remain attached to original zone+82/note-38 positions; its note-side seam stays behind the higher note."
+    },
+    {
+      "axis": "occlusion",
+      "source": 4.8,
+      "candidate": 4.8,
+      "reason": "Original z32guidance behind z35note retained. Small ring disappears under the opaque note at original pulse minimum; not a missing-art fallback. Old diamond was fully occluded and nonfunctional."
+    },
+    {
+      "axis": "readability",
+      "source": 4.7,
+      "candidate": 4.7,
+      "reason": "Whole-HUD0.3phone views retain a continuous visible gold connector at long travel and clear target/note shapes; no new text or inputs. Physical-device/child review remains open."
+    },
+    {
+      "axis": "identity_topology",
+      "source": 4.8,
+      "candidate": 4.7,
+      "reason": "Same right/left target semantics and paired cream/gold circular cue, no new symbol or actor identity. Complete painted arrow source remains preserved; exact component crops declared."
+    },
+    {
+      "axis": "painted_material_coherence",
+      "source": 1.5,
+      "candidate": 4.5,
+      "reason": "Actual authored brush-value bands, warm ochre/plum edges and calm paint replace primitive fills. At9pxwidth the broad values remain quiet; unrelated flat stage art remains open."
+    }
+  ],
+  "minimum_local_candidate_score": 4.5,
+  "score_is_creative_acceptance": false,
+  "limitations": [
+    "Work-branch candidate only; other pending Melody candidates are not silently combined.",
+    "Head source aspect rectification and complete-ring band-thickness scaling declared; unchanged guidance pulse/short-distance suppression/occlusion reviewed.",
+    "FormalQA11 strict protocol, target-device performance, child/owner acceptance, route/state completeness and mission-wide inventory remain open."
+  ],
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "Dev_integrated": false,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "candidate_status": "SOURCE_CANDIDATE_LOCAL_MACHINE_VERIFIED_FORMAL_OPEN",
+  "complete_machine_validation": "docs/handoffs/codex_flat_vector_art_2026-10-07/r129_melody_guide_runtime/LOCAL_82_RESULT.json"
+}

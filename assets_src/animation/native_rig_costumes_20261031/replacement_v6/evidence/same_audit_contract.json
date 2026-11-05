@@ -1,0 +1,43 @@
+{
+  "date_utc": "2026-11-01T03:57:24.211798+00:00",
+  "auditors": {
+    "audit_study.py": {
+      "byte_identical": true,
+      "sha256": "eef44a94b735a0dcac30addc8ed009204a1a11e33147d46522c0901915fedd74"
+    },
+    "audit_motion.py": {
+      "byte_identical": true,
+      "sha256": "9d1245416eee6eef61015a151d85e013eb5b45d52d17e0e7a920672d17433908"
+    }
+  },
+  "bones_identical": true,
+  "meshes": {
+    "Body": {
+      "vertices": true,
+      "triangles": true,
+      "weights": true
+    },
+    "UpperArm": {
+      "vertices": true,
+      "triangles": true,
+      "weights": true
+    },
+    "Forearm": {
+      "vertices": true,
+      "triangles": true,
+      "weights": true
+    }
+  },
+  "authored_methods": {
+    "ease5": true,
+    "pulse": true,
+    "authored_pose": true,
+    "clip_length": true,
+    "build_animation": true,
+    "set_pose": true,
+    "state_record": true
+  },
+  "new_method": "Exclusive full RGBA clothing domains and selected upper-arm clean plate; no old undergarment layering. Smooth source registration changes cloth texture only.",
+  "limits": "Unchanged numerical floors prove the same geometry/motion contract, not complete naturalness, original clothing replacement by themselves, or device/human/owner acceptance.",
+  "pass": true
+}
