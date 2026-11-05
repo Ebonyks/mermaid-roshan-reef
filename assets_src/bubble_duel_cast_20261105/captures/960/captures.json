@@ -1,0 +1,79 @@
+{
+  "acceptance": "Diagnostic appearance only; not formal QA11, device, child or owner acceptance.",
+  "captures": [
+    {
+      "file": "01-jobs.png",
+      "h": 720,
+      "role": "Actual Jobs entry",
+      "sha256": "ba641bc58ac6ce00b56f10fbe39d4317763b71a798def99b08807e02a5cb5d6f",
+      "w": 960
+    },
+    {
+      "file": "02-hub.png",
+      "h": 720,
+      "role": "Solo and two-friend entry",
+      "sha256": "ef42e53320b910aa01718f1b1948957726cd017342df0d6b27b9be84b17d4c86",
+      "w": 960
+    },
+    {
+      "file": "03-solo-setup.png",
+      "h": 720,
+      "role": "Selected playable friend and computer friend",
+      "sha256": "3cd7ddd6bf2f0d3e58c185f12a3db25f8ab2b6d18be50b09b7732e6850529259",
+      "w": 960
+    },
+    {
+      "file": "04-six-friends.png",
+      "h": 720,
+      "role": "The six existing playable characters",
+      "sha256": "84e5c0ac2b6fab72ffb6557cc15946d4b0fc30ac56c2d0aa79f77670d117fbe3",
+      "w": 960
+    },
+    {
+      "file": "05-two-player-setup.png",
+      "h": 720,
+      "role": "Independent character and loadout selection",
+      "sha256": "1a82db0524839ffc3c8c6851ec2a60be1da1af5cde0252e91f00b5158bd9a89f",
+      "w": 960
+    },
+    {
+      "file": "06-local-game.png",
+      "h": 720,
+      "role": "Both actors and controls at supported viewport",
+      "sha256": "f4cddbaf510a17ec9eacca0e89b4d8683fc9a74045e2c1329e4d20eea77abfca",
+      "w": 960
+    },
+    {
+      "file": "06-shared-ownership.png",
+      "h": 720,
+      "role": "Both identical same-facing/same-colour players reach the same wall/ceiling via actual simultaneous touch; opposite-side one/two-dot markers remain visible",
+      "sha256": "629ac55d5f86ee063d3db427f7282f641d24443b4aec16a1cdfaee11757ea5c9",
+      "w": 960
+    },
+    {
+      "file": "shop-player-1.png",
+      "h": 720,
+      "role": "Player-specific real shop and worn-equipment previews",
+      "sha256": "fa24c34557b4be8306a1ec2ce9f35e718ef8d51f9c7732467a6b0ec651e7450b",
+      "w": 960
+    },
+    {
+      "file": "shop-player-2.png",
+      "h": 720,
+      "role": "Player-specific real shop and worn-equipment previews",
+      "sha256": "d2c60d9733aa80187aa11f6716fedf74698c63c3e643cfce3c0e0c571901dda7",
+      "w": 960
+    },
+    {
+      "file": "unlocked-clothes.png",
+      "h": 720,
+      "role": "Existing unlocked shared wardrobe and purchased sets",
+      "sha256": "ac799f815e6b90b3adb89cf90cec4c6f153e258176a693912d4f67c54b0fdab7",
+      "w": 960
+    }
+  ],
+  "engine": "4.7.2-stable (official)",
+  "fixture": "20000 isolated review pearls through Shop.reward; real closed purchase/selection methods and real viewport pad input. No production save used.",
+  "quality": "speedy",
+  "renderer": "mobile"
+}

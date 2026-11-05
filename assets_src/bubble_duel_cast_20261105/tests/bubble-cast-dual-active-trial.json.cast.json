@@ -1,0 +1,153 @@
+{
+  "cases": [
+    {
+      "completed": false,
+      "dual_active": {
+        "classification": "Incomplete policy trial; no pass credit. Inspect trajectories before attributing a game defect.",
+        "frames": 4800,
+        "owned_control_frames": [
+          1975,
+          1398
+        ],
+        "presses": [
+          46,
+          36
+        ],
+        "seconds": 80.0,
+        "travel_pixels": [
+          18625.8096604347,
+          17448.2573356628
+        ],
+        "winner": -2
+      },
+      "p1": {
+        "character": "roshan",
+        "color": 0,
+        "gear": "classic",
+        "look": "set:classic"
+      },
+      "p2": {
+        "character": "roshan",
+        "color": 2,
+        "gear": "swiftconch",
+        "look": "set:swiftconch"
+      },
+      "run": 0,
+      "winner": -2
+    },
+    {
+      "completed": true,
+      "dual_active": {
+        "dt": 0.0333333333333333,
+        "frames": 110,
+        "owned_control_frames": [
+          39,
+          49
+        ],
+        "presses": [
+          3,
+          2
+        ],
+        "seconds": 3.66666666666667,
+        "travel_pixels": [
+          1055.23024177551,
+          1176.90604925156
+        ],
+        "winner": 1
+      },
+      "p1": {
+        "character": "rumi",
+        "color": 1,
+        "gear": "tidewing",
+        "look": "set:tidewing"
+      },
+      "p2": {
+        "character": "roshan",
+        "color": 3,
+        "gear": "swiftconch",
+        "look": "set:swiftconch"
+      },
+      "run": 1,
+      "winner": 1
+    },
+    {
+      "completed": true,
+      "dual_active": {
+        "dt": 0.0166666666666667,
+        "frames": 267,
+        "owned_control_frames": [
+          83,
+          109
+        ],
+        "presses": [
+          4,
+          3
+        ],
+        "seconds": 4.45,
+        "travel_pixels": [
+          959.6111369133,
+          1341.64688920975
+        ],
+        "winner": 0
+      },
+      "p1": {
+        "character": "daddy_mermaid",
+        "color": 2,
+        "gear": "moonpearl",
+        "look": "set:moonpearl"
+      },
+      "p2": {
+        "character": "roshan",
+        "color": 4,
+        "gear": "swiftconch",
+        "look": "set:swiftconch"
+      },
+      "run": 2,
+      "winner": 0
+    },
+    {
+      "completed": true,
+      "dual_active": {
+        "dt": 0.0333333333333333,
+        "frames": 204,
+        "owned_control_frames": [
+          97,
+          74
+        ],
+        "presses": [
+          4,
+          4
+        ],
+        "seconds": 6.8,
+        "travel_pixels": [
+          2004.52583599091,
+          1865.57721710205
+        ],
+        "winner": 0
+      },
+      "p1": {
+        "character": "baby_eagle",
+        "color": 3,
+        "gear": "swiftconch",
+        "look": "set:swiftconch"
+      },
+      "p2": {
+        "character": "roshan",
+        "color": 0,
+        "gear": "swiftconch",
+        "look": "set:swiftconch"
+      },
+      "run": 3,
+      "winner": 0
+    }
+  ],
+  "checks": 1537,
+  "failures": 4,
+  "fixture": "Two independent asymmetric touch pulse/chase policies; actual pad input only. Initial purchased powers through real buttons. No position/velocity/bubble fixtures inside any full bout. Not human preference or child acceptance.",
+  "pairs": [
+    "roshan/roshan",
+    "rumi/roshan",
+    "daddy_mermaid/roshan",
+    "baby_eagle/roshan"
+  ]
+}

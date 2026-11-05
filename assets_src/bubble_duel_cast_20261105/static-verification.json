@@ -1,0 +1,97 @@
+{
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/bubble_duel_cast.gd",
+        "scripts/bubble_duel_inventory.gd",
+        "scripts/bubble_duel_preview.gd",
+        "scripts/bubble_duel_two_player.gd",
+        "scripts/opera_bubble_duel.gd",
+        "scripts/probe_bubble_duel_capture.gd",
+        "scripts/probe_bubble_duel_cast.gd",
+        "scripts/probe_bubble_duel_cast_capture.gd",
+        "scripts/probe_bubble_duel_stress.gd",
+        "scripts/probe_opera.gd"
+      ],
+      "exit": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "python",
+        "tools/lint_inference.py",
+        "scripts/bubble_duel_cast.gd",
+        "scripts/bubble_duel_inventory.gd",
+        "scripts/bubble_duel_preview.gd",
+        "scripts/bubble_duel_two_player.gd",
+        "scripts/opera_bubble_duel.gd",
+        "scripts/probe_bubble_duel_capture.gd",
+        "scripts/probe_bubble_duel_cast.gd",
+        "scripts/probe_bubble_duel_cast_capture.gd",
+        "scripts/probe_bubble_duel_stress.gd",
+        "scripts/probe_opera.gd"
+      ],
+      "exit": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/bubble_duel_cast.gd",
+        "scripts/bubble_duel_inventory.gd",
+        "scripts/bubble_duel_preview.gd",
+        "scripts/bubble_duel_two_player.gd",
+        "scripts/opera_bubble_duel.gd",
+        "scripts/probe_bubble_duel_capture.gd",
+        "scripts/probe_bubble_duel_cast.gd",
+        "scripts/probe_bubble_duel_cast_capture.gd",
+        "scripts/probe_bubble_duel_stress.gd",
+        "scripts/probe_opera.gd"
+      ],
+      "exit": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "python",
+        "tools/lint_inference.py",
+        "scripts/bubble_duel_cast.gd",
+        "scripts/bubble_duel_inventory.gd",
+        "scripts/bubble_duel_preview.gd",
+        "scripts/bubble_duel_two_player.gd",
+        "scripts/opera_bubble_duel.gd",
+        "scripts/probe_bubble_duel_capture.gd",
+        "scripts/probe_bubble_duel_cast.gd",
+        "scripts/probe_bubble_duel_cast_capture.gd",
+        "scripts/probe_bubble_duel_stress.gd",
+        "scripts/probe_opera.gd"
+      ],
+      "exit": 0,
+      "output": ""
+    }
+  ],
+  "feature_hashes": {
+    "scripts/opera_bubble_duel.gd": "9983f63bc0786de188017b15f2e7401b678b859c254ed6533383929fd719928f",
+    "scripts/bubble_duel_inventory.gd": "9c6ba0f80cde98dc53c602ddadde3766b79ca648f780456733bf1e487e80f50b",
+    "scripts/bubble_duel_cast.gd": "5c305774c188f37e6e39daf87fd746344f620c10122c2efa6ff4707342ad4229",
+    "scripts/bubble_duel_two_player.gd": "68b20d9bf7e0a3726eed84753bf5bb23c3dfcc99b558f49184b390c3343a90a5",
+    "scripts/bubble_duel_preview.gd": "fec6a582523adf484ece840dc16c5e307bde8b65e326db6f0794f49e867d8ad4",
+    "scripts/probe_bubble_duel_capture.gd": "3b524c63bfcd550e1a0c8d6a5bb4c3934ea1c7176569596f08cc25e94bcd0ccf",
+    "scripts/probe_bubble_duel_cast_capture.gd": "df09c06598ac5a8fe648fa774eab069211d32aa5c959e4ffce92099dffafde86"
+  },
+  "source_binding_verification": "Final125 native captures verify all own-source hashes before/after, matching this completed HUD renderer. Physics/input/inventory/cast source for3183/100,3283/100 and1737/original100 stays unchanged; renderer-only-delta and hud-only-delta reconstruct the only later UI changes byte-for-byte. Published-head CI verifies final whole-project source; formal QA11 dependency closure remains open.",
+  "protected_source_diff": "Only runtime scripts, probes, tools and nonruntime evidence/authority records changed. No source image/audio pixels changed.",
+  "probe_hashes": {
+    "scripts/probe_bubble_duel_cast.gd": "636d0e7d9e8a8fbc6beb09c2bd6f9e483b43c018cb939f297c6c30fe65da5af4",
+    "scripts/probe_opera.gd": "62093e93c2067b4044d0e30120dcd1e1f0035862db3124553a5f841551060a62",
+    "scripts/probe_bubble_duel_stress.gd": "e0c693236ca066449353ab30617c7b7048818741c4a8a5e6cb49fa5a0a5b172f",
+    "tools/run_bubble_duel_stress.py": "8fee089b81bdc8fe2e09c7d0cbc9305b0f98ac3684b3cd200762d23b88f9a8c4",
+    "tools/run_bubble_duel_capture.py": "a8217d90a885c6f51ef7ace1da431c36410ad5c3cd45cd80187b92f0ff4bd013",
+    "scripts/probe_bubble_duel_dual_active.gd": "9a7bb1ce0a075f6e3f730b96e8aa0438136841036ecba05d78104e268ede771f"
+  }
+}

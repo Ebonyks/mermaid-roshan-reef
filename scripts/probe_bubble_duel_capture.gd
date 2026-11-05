@@ -18,7 +18,7 @@ func _initialize() -> void:
 	call_deferred("_run")
 
 
-func _run() -> void:
+func _setup_scene() -> bool:
 	main = (load("res://scenes/main.tscn") as PackedScene).instantiate() as ReefMain
 	root.add_child(main)
 	Engine.time_scale = 8.0
@@ -40,13 +40,20 @@ func _run() -> void:
 	var routes := main._castle_career_routes_ref()
 	if not routes.open_opera_venue():
 		quit(2)
-		return
+		return false
 	venue = routes.opera_venue
 	root.mode = Window.MODE_WINDOWED
 	var width := int(OS.get_environment("DUEL_CAPTURE_WIDTH"))
 	root.size = Vector2i(width if width > 0 else 1280, 720)
 	for i: int in range(8):
 		await process_frame
+	return true
+
+
+func _run() -> void:
+	if not await _setup_scene():
+		return
+	var width := int(OS.get_environment("DUEL_CAPTURE_WIDTH"))
 	await _capture("01-jobs", "Illustrated shop launcher in Jobs")
 	# An explicit review fixture supplies pearls. Every acquisition below still
 	# calls the actual purchase button and the shared save transaction.
@@ -156,6 +163,11 @@ func _tap(control: Control, at: Vector2 = Vector2(-1, -1)) -> void:
 
 func _card(index: int) -> void:
 	_tap(game.menu.get_child(index) as Control)
+	if index == 0 and game.mode == Duel.Mode.SETUP:
+		for child: Node in game.menu.get_children():
+			if child is Button and child.tooltip_text == "Play":
+				_tap(child as Control)
+				break
 
 
 func _back() -> void:

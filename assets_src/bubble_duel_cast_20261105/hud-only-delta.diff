@@ -1,0 +1,24 @@
+--- before-hud-cleanup.gd
++++ after-hud-cleanup.gd
+@@ -793,9 +793,12 @@
+ func _update_wallet() -> void:
+ 	if wallet != null:
+ 		wallet.text = str(Shop.state(main)["pearls"]) + " pearls"
++		wallet.visible = mode in [Mode.HUB, Mode.SHOP, Mode.SETUP, Mode.PICKER]
+ 
+ 
+ func _refresh_power() -> void:
++	if wallet != null:
++		wallet.visible = mode in [Mode.HUB, Mode.SHOP, Mode.SETUP, Mode.PICKER]
+ 	if local_two_player and fighters.size() == 2:
+ 		for player: int in range(2):
+ 			var button: Button = power_button if player == 0 else second_power_button
+@@ -1033,7 +1036,7 @@
+ 		pad.size = Duo.PADS[player].size
+ 		pad.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ 		StorybookUI.style_picture_button(pad)
+-		pad.text = "●  %d" % (player + 1)
++		pad.text = "●  1" if player == 0 else "● ●  2"
+ 		pad.add_theme_font_size_override("font_size", 34)
+ 		var panel := pad.get_theme_stylebox("normal").duplicate() as StyleBoxFlat
+ 		panel.border_color = Color(0.25, 0.76, 0.91) if player == 0 else Color(0.96, 0.48, 0.68)

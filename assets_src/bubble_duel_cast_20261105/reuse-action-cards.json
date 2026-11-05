@@ -1,0 +1,444 @@
+{
+  "template": "design/templates/ANIMATION_JOB_CARD_V1.md",
+  "actions": [
+    {
+      "id": "bubble-supported-travel-roshan",
+      "revision": 1,
+      "author_date": "Codex,2026-11-05",
+      "record_scope": "Existing-art reuse/integration review card following ANIMATION_JOB_CARD_V1. Not a generated take or accepted new performance; prior machine results remain historical evidence, not a claim this card predated them. The explicit review criteria apply to subsequent full-speed/frame-step acceptance.",
+      "source_commit": "6892c5753c75161986b4463c186f8711a0c12870",
+      "integration_baseline": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "local_workflow_sha256": "5c305774c188f37e6e39daf87fd746344f620c10122c2efa6ff4707342ad4229",
+      "lane": "Gameplay sprite on true2D Canvas",
+      "intention": "Player steers a bubble-supported friend, releases to descend onto another bubble and returns safely instead of losing progress.",
+      "action": "Analytic x/y travel and source-body fin/foot contact; existing authored pose keys when available. No new changing-view acting is claimed.",
+      "fixed": "Original identity, anatomy, contour, painted light, source atlas pixels, pool/camera and wardrobe originals remain fixed.",
+      "entry": "Clock0,source rest key0,350/930x at480y,left+/right- facing; character and gear come from separate saved profiles.",
+      "exit": "Release selects existing rest/idle source at current phase. Focus/Back/close clears both players' held input, velocity, owned powers and shots. No newly authored transition/settle is claimed.",
+      "reuse_gap": "Reuses existing character source and registered wardrobe; new native acting/transition/loop review remains a gap, especially static floating portraits.",
+      "method": "Existing RGBA/atlas states; declared whole-actor Canvas translation and mirror; body and gear share one transform. No deformation, retiming, interpolation, source cleanup or generated pixels.",
+      "timing": {
+        "rest_keys": 1,
+        "moving_keys": 16,
+        "moving_key_rate_fps": 15,
+        "phase": "Active game clock. Rumi has4idle plus4swim cells; Marlo uses stable rest0 plus4paddle keys. Single-key portraits are static floats, not authored swimming."
+      },
+      "size": "154logical longest side at1280x720 base; original source aspect retained. See input dimensions and per-frame bounds.",
+      "criteria": {
+        "source_pixel_change": 0,
+        "body_contact": "Original painted lowest fin/foot, mirrored with actor; machine source-alpha checks do not replace human contact review.",
+        "prop_root": "Original-alpha socket within bounded14logicalpx search; actual opaque gear must overlap body, behind gear must remain visible.",
+        "loop_exit": "Review all source loop seams and abrupt idle/moving swaps at full speed and frame-step before performance acceptance."
+      },
+      "limits": {
+        "new_generation_takes_cap": 0,
+        "calls_used": 0,
+        "new_animation_source_authoring_minutes_cap": 0,
+        "source_pixel_cleanup_minutes_cap": 0,
+        "source_pixel_cleanup_minutes_used": 0,
+        "monetary_cap": 0,
+        "observed_spend": 0,
+        "funded_generation_authority": "None used or supplied; no animation generation trial launched. Engine integration time is not a generated-take/artist-cleanup clock."
+      },
+      "stop": "Missing/failed acting or contact stays unaccepted. No automatic generation, deformation or per-frame ImageGen campaign; a new authoring brief/budget would be needed.",
+      "inputs": [
+        {
+          "path": "assets/characters/roshan_25d/roshan_base.png",
+          "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+          "dimensions": [
+            256,
+            256
+          ],
+          "operation": "Direct non-destructive reuse on true Canvas; runtime crop/mirror/registered per-frame socket, wardrobe composition and scaling only. Original file unchanged.",
+          "license": "Existing ASSET_LICENSES.md source entry; reuse does not extend its acceptance scope.",
+          "role": "Existing source identity/pose pixels",
+          "acceptance_scope": "Existing current project source and licensing authority only; reuse does not accept this new performance."
+        },
+        {
+          "path": "assets/characters/roshan_25d/roshan_swim_front.png",
+          "sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "operation": "Direct non-destructive reuse on true Canvas; runtime crop/mirror/registered per-frame socket, wardrobe composition and scaling only. Original file unchanged.",
+          "license": "Existing ASSET_LICENSES.md source entry; reuse does not extend its acceptance scope.",
+          "role": "Existing source identity/pose pixels",
+          "acceptance_scope": "Existing current project source and licensing authority only; reuse does not accept this new performance."
+        }
+      ],
+      "aseprite": "NOT_APPLICABLE: no new bitmap/atlas authoring or cleanup, originals reused byte-for-byte.",
+      "guides": "None; no position-guide delivery pixels.",
+      "reviews": {
+        "machine": "tests/bubble-cast-touch-final-100.json; tests/bubble-cast-original-final-100.json; source-bindings.json; static-verification.json; full gates separately recorded.",
+        "still_appearance": "appearance-review.json (Codex scoped judgement only)",
+        "human_full_speed_frame_step": "PENDING",
+        "device": "PENDING; no adb device connected during this task",
+        "child": "PENDING",
+        "owner": "PENDING",
+        "cinematic_machine": "NOT_APPLICABLE: gameplay sprites, no footage",
+        "archive": "Source provenance recorded locally; publication separately verified",
+        "generation_ready": "NOT_APPLICABLE",
+        "delivery_accepted": false,
+        "runtime": "CANDIDATE",
+        "release": "NOT_PROMOTED"
+      }
+    },
+    {
+      "id": "bubble-supported-travel-rumi",
+      "revision": 1,
+      "author_date": "Codex,2026-11-05",
+      "record_scope": "Existing-art reuse/integration review card following ANIMATION_JOB_CARD_V1. Not a generated take or accepted new performance; prior machine results remain historical evidence, not a claim this card predated them. The explicit review criteria apply to subsequent full-speed/frame-step acceptance.",
+      "source_commit": "6892c5753c75161986b4463c186f8711a0c12870",
+      "integration_baseline": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "local_workflow_sha256": "5c305774c188f37e6e39daf87fd746344f620c10122c2efa6ff4707342ad4229",
+      "lane": "Gameplay sprite on true2D Canvas",
+      "intention": "Player steers a bubble-supported friend, releases to descend onto another bubble and returns safely instead of losing progress.",
+      "action": "Analytic x/y travel and source-body fin/foot contact; existing authored pose keys when available. No new changing-view acting is claimed.",
+      "fixed": "Original identity, anatomy, contour, painted light, source atlas pixels, pool/camera and wardrobe originals remain fixed.",
+      "entry": "Clock0,source rest key0,350/930x at480y,left+/right- facing; character and gear come from separate saved profiles.",
+      "exit": "Release selects existing rest/idle source at current phase. Focus/Back/close clears both players' held input, velocity, owned powers and shots. No newly authored transition/settle is claimed.",
+      "reuse_gap": "Reuses existing character source and registered wardrobe; new native acting/transition/loop review remains a gap, especially static floating portraits.",
+      "method": "Existing RGBA/atlas states; declared whole-actor Canvas translation and mirror; body and gear share one transform. No deformation, retiming, interpolation, source cleanup or generated pixels.",
+      "timing": {
+        "rest_keys": 4,
+        "moving_keys": 4,
+        "moving_key_rate_fps": 6,
+        "phase": "Active game clock. Rumi has4idle plus4swim cells; Marlo uses stable rest0 plus4paddle keys. Single-key portraits are static floats, not authored swimming."
+      },
+      "size": "154logical longest side at1280x720 base; original source aspect retained. See input dimensions and per-frame bounds.",
+      "criteria": {
+        "source_pixel_change": 0,
+        "body_contact": "Original painted lowest fin/foot, mirrored with actor; machine source-alpha checks do not replace human contact review.",
+        "prop_root": "Original-alpha socket within bounded14logicalpx search; actual opaque gear must overlap body, behind gear must remain visible.",
+        "loop_exit": "Review all source loop seams and abrupt idle/moving swaps at full speed and frame-step before performance acceptance."
+      },
+      "limits": {
+        "new_generation_takes_cap": 0,
+        "calls_used": 0,
+        "new_animation_source_authoring_minutes_cap": 0,
+        "source_pixel_cleanup_minutes_cap": 0,
+        "source_pixel_cleanup_minutes_used": 0,
+        "monetary_cap": 0,
+        "observed_spend": 0,
+        "funded_generation_authority": "None used or supplied; no animation generation trial launched. Engine integration time is not a generated-take/artist-cleanup clock."
+      },
+      "stop": "Missing/failed acting or contact stays unaccepted. No automatic generation, deformation or per-frame ImageGen campaign; a new authoring brief/budget would be needed.",
+      "inputs": [
+        {
+          "path": "assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
+          "sha256": "9068a5f6c56e90d57ae9c3219096d6f12bba97a2f6c6ed09175c1bc63f59cb41",
+          "dimensions": [
+            1024,
+            512
+          ],
+          "operation": "Direct non-destructive reuse on true Canvas; runtime crop/mirror/registered per-frame socket, wardrobe composition and scaling only. Original file unchanged.",
+          "license": "Existing ASSET_LICENSES.md source entry; reuse does not extend its acceptance scope.",
+          "role": "Existing source identity/pose pixels",
+          "acceptance_scope": "Existing current project source and licensing authority only; reuse does not accept this new performance."
+        }
+      ],
+      "aseprite": "NOT_APPLICABLE: no new bitmap/atlas authoring or cleanup, originals reused byte-for-byte.",
+      "guides": "None; no position-guide delivery pixels.",
+      "reviews": {
+        "machine": "tests/bubble-cast-touch-final-100.json; tests/bubble-cast-original-final-100.json; source-bindings.json; static-verification.json; full gates separately recorded.",
+        "still_appearance": "appearance-review.json (Codex scoped judgement only)",
+        "human_full_speed_frame_step": "PENDING",
+        "device": "PENDING; no adb device connected during this task",
+        "child": "PENDING",
+        "owner": "PENDING",
+        "cinematic_machine": "NOT_APPLICABLE: gameplay sprites, no footage",
+        "archive": "Source provenance recorded locally; publication separately verified",
+        "generation_ready": "NOT_APPLICABLE",
+        "delivery_accepted": false,
+        "runtime": "CANDIDATE",
+        "release": "NOT_PROMOTED"
+      }
+    },
+    {
+      "id": "bubble-supported-travel-daddy_mermaid",
+      "revision": 1,
+      "author_date": "Codex,2026-11-05",
+      "record_scope": "Existing-art reuse/integration review card following ANIMATION_JOB_CARD_V1. Not a generated take or accepted new performance; prior machine results remain historical evidence, not a claim this card predated them. The explicit review criteria apply to subsequent full-speed/frame-step acceptance.",
+      "source_commit": "6892c5753c75161986b4463c186f8711a0c12870",
+      "integration_baseline": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "local_workflow_sha256": "5c305774c188f37e6e39daf87fd746344f620c10122c2efa6ff4707342ad4229",
+      "lane": "Gameplay sprite on true2D Canvas",
+      "intention": "Player steers a bubble-supported friend, releases to descend onto another bubble and returns safely instead of losing progress.",
+      "action": "Analytic x/y travel and source-body fin/foot contact; existing authored pose keys when available. No new changing-view acting is claimed.",
+      "fixed": "Original identity, anatomy, contour, painted light, source atlas pixels, pool/camera and wardrobe originals remain fixed.",
+      "entry": "Clock0,source rest key0,350/930x at480y,left+/right- facing; character and gear come from separate saved profiles.",
+      "exit": "Release selects existing rest/idle source at current phase. Focus/Back/close clears both players' held input, velocity, owned powers and shots. No newly authored transition/settle is claimed.",
+      "reuse_gap": "Reuses existing character source and registered wardrobe; new native acting/transition/loop review remains a gap, especially static floating portraits.",
+      "method": "Existing RGBA/atlas states; declared whole-actor Canvas translation and mirror; body and gear share one transform. No deformation, retiming, interpolation, source cleanup or generated pixels.",
+      "timing": {
+        "rest_keys": 1,
+        "moving_keys": 1,
+        "moving_key_rate_fps": 0,
+        "phase": "Active game clock. Rumi has4idle plus4swim cells; Marlo uses stable rest0 plus4paddle keys. Single-key portraits are static floats, not authored swimming."
+      },
+      "size": "154logical longest side at1280x720 base; original source aspect retained. See input dimensions and per-frame bounds.",
+      "criteria": {
+        "source_pixel_change": 0,
+        "body_contact": "Original painted lowest fin/foot, mirrored with actor; machine source-alpha checks do not replace human contact review.",
+        "prop_root": "Original-alpha socket within bounded14logicalpx search; actual opaque gear must overlap body, behind gear must remain visible.",
+        "loop_exit": "Review all source loop seams and abrupt idle/moving swaps at full speed and frame-step before performance acceptance."
+      },
+      "limits": {
+        "new_generation_takes_cap": 0,
+        "calls_used": 0,
+        "new_animation_source_authoring_minutes_cap": 0,
+        "source_pixel_cleanup_minutes_cap": 0,
+        "source_pixel_cleanup_minutes_used": 0,
+        "monetary_cap": 0,
+        "observed_spend": 0,
+        "funded_generation_authority": "None used or supplied; no animation generation trial launched. Engine integration time is not a generated-take/artist-cleanup clock."
+      },
+      "stop": "Missing/failed acting or contact stays unaccepted. No automatic generation, deformation or per-frame ImageGen campaign; a new authoring brief/budget would be needed.",
+      "inputs": [
+        {
+          "path": "assets/fashion/skin_engine_v2/atlases/daddy_original.png",
+          "sha256": "cdd19e21805e312f1ebefc6a4ece9f19f92e5bdcf49f1e771298e7985ac1fd4b",
+          "dimensions": [
+            727,
+            1024
+          ],
+          "operation": "Direct non-destructive reuse on true Canvas; runtime crop/mirror/registered per-frame socket, wardrobe composition and scaling only. Original file unchanged.",
+          "license": "Existing ASSET_LICENSES.md source entry; reuse does not extend its acceptance scope.",
+          "role": "Existing source identity/pose pixels",
+          "acceptance_scope": "Existing current project source and licensing authority only; reuse does not accept this new performance."
+        }
+      ],
+      "aseprite": "NOT_APPLICABLE: no new bitmap/atlas authoring or cleanup, originals reused byte-for-byte.",
+      "guides": "None; no position-guide delivery pixels.",
+      "reviews": {
+        "machine": "tests/bubble-cast-touch-final-100.json; tests/bubble-cast-original-final-100.json; source-bindings.json; static-verification.json; full gates separately recorded.",
+        "still_appearance": "appearance-review.json (Codex scoped judgement only)",
+        "human_full_speed_frame_step": "PENDING",
+        "device": "PENDING; no adb device connected during this task",
+        "child": "PENDING",
+        "owner": "PENDING",
+        "cinematic_machine": "NOT_APPLICABLE: gameplay sprites, no footage",
+        "archive": "Source provenance recorded locally; publication separately verified",
+        "generation_ready": "NOT_APPLICABLE",
+        "delivery_accepted": false,
+        "runtime": "CANDIDATE",
+        "release": "NOT_PROMOTED"
+      }
+    },
+    {
+      "id": "bubble-supported-travel-baby_eagle",
+      "revision": 1,
+      "author_date": "Codex,2026-11-05",
+      "record_scope": "Existing-art reuse/integration review card following ANIMATION_JOB_CARD_V1. Not a generated take or accepted new performance; prior machine results remain historical evidence, not a claim this card predated them. The explicit review criteria apply to subsequent full-speed/frame-step acceptance.",
+      "source_commit": "6892c5753c75161986b4463c186f8711a0c12870",
+      "integration_baseline": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "local_workflow_sha256": "5c305774c188f37e6e39daf87fd746344f620c10122c2efa6ff4707342ad4229",
+      "lane": "Gameplay sprite on true2D Canvas",
+      "intention": "Player steers a bubble-supported friend, releases to descend onto another bubble and returns safely instead of losing progress.",
+      "action": "Analytic x/y travel and source-body fin/foot contact; existing authored pose keys when available. No new changing-view acting is claimed.",
+      "fixed": "Original identity, anatomy, contour, painted light, source atlas pixels, pool/camera and wardrobe originals remain fixed.",
+      "entry": "Clock0,source rest key0,350/930x at480y,left+/right- facing; character and gear come from separate saved profiles.",
+      "exit": "Release selects existing rest/idle source at current phase. Focus/Back/close clears both players' held input, velocity, owned powers and shots. No newly authored transition/settle is claimed.",
+      "reuse_gap": "Reuses existing character source and registered wardrobe; new native acting/transition/loop review remains a gap, especially static floating portraits.",
+      "method": "Existing RGBA/atlas states; declared whole-actor Canvas translation and mirror; body and gear share one transform. No deformation, retiming, interpolation, source cleanup or generated pixels.",
+      "timing": {
+        "rest_keys": 1,
+        "moving_keys": 1,
+        "moving_key_rate_fps": 0,
+        "phase": "Active game clock. Rumi has4idle plus4swim cells; Marlo uses stable rest0 plus4paddle keys. Single-key portraits are static floats, not authored swimming."
+      },
+      "size": "154logical longest side at1280x720 base; original source aspect retained. See input dimensions and per-frame bounds.",
+      "criteria": {
+        "source_pixel_change": 0,
+        "body_contact": "Original painted lowest fin/foot, mirrored with actor; machine source-alpha checks do not replace human contact review.",
+        "prop_root": "Original-alpha socket within bounded14logicalpx search; actual opaque gear must overlap body, behind gear must remain visible.",
+        "loop_exit": "Review all source loop seams and abrupt idle/moving swaps at full speed and frame-step before performance acceptance."
+      },
+      "limits": {
+        "new_generation_takes_cap": 0,
+        "calls_used": 0,
+        "new_animation_source_authoring_minutes_cap": 0,
+        "source_pixel_cleanup_minutes_cap": 0,
+        "source_pixel_cleanup_minutes_used": 0,
+        "monetary_cap": 0,
+        "observed_spend": 0,
+        "funded_generation_authority": "None used or supplied; no animation generation trial launched. Engine integration time is not a generated-take/artist-cleanup clock."
+      },
+      "stop": "Missing/failed acting or contact stays unaccepted. No automatic generation, deformation or per-frame ImageGen campaign; a new authoring brief/budget would be needed.",
+      "inputs": [
+        {
+          "path": "assets/characters/companions/baby_eagle.png",
+          "sha256": "7d6f10afbd8cd157436a05eaadab7eb4cc07c3a3d242ad2291111fc6b4f3ed2f",
+          "dimensions": [
+            290,
+            512
+          ],
+          "operation": "Direct non-destructive reuse on true Canvas; runtime crop/mirror/registered per-frame socket, wardrobe composition and scaling only. Original file unchanged.",
+          "license": "Existing ASSET_LICENSES.md source entry; reuse does not extend its acceptance scope.",
+          "role": "Existing source identity/pose pixels",
+          "acceptance_scope": "Existing current project source and licensing authority only; reuse does not accept this new performance."
+        }
+      ],
+      "aseprite": "NOT_APPLICABLE: no new bitmap/atlas authoring or cleanup, originals reused byte-for-byte.",
+      "guides": "None; no position-guide delivery pixels.",
+      "reviews": {
+        "machine": "tests/bubble-cast-touch-final-100.json; tests/bubble-cast-original-final-100.json; source-bindings.json; static-verification.json; full gates separately recorded.",
+        "still_appearance": "appearance-review.json (Codex scoped judgement only)",
+        "human_full_speed_frame_step": "PENDING",
+        "device": "PENDING; no adb device connected during this task",
+        "child": "PENDING",
+        "owner": "PENDING",
+        "cinematic_machine": "NOT_APPLICABLE: gameplay sprites, no footage",
+        "archive": "Source provenance recorded locally; publication separately verified",
+        "generation_ready": "NOT_APPLICABLE",
+        "delivery_accepted": false,
+        "runtime": "CANDIDATE",
+        "release": "NOT_PROMOTED"
+      }
+    },
+    {
+      "id": "bubble-supported-travel-rainbow_dust_bunny",
+      "revision": 1,
+      "author_date": "Codex,2026-11-05",
+      "record_scope": "Existing-art reuse/integration review card following ANIMATION_JOB_CARD_V1. Not a generated take or accepted new performance; prior machine results remain historical evidence, not a claim this card predated them. The explicit review criteria apply to subsequent full-speed/frame-step acceptance.",
+      "source_commit": "6892c5753c75161986b4463c186f8711a0c12870",
+      "integration_baseline": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "local_workflow_sha256": "5c305774c188f37e6e39daf87fd746344f620c10122c2efa6ff4707342ad4229",
+      "lane": "Gameplay sprite on true2D Canvas",
+      "intention": "Player steers a bubble-supported friend, releases to descend onto another bubble and returns safely instead of losing progress.",
+      "action": "Analytic x/y travel and source-body fin/foot contact; existing authored pose keys when available. No new changing-view acting is claimed.",
+      "fixed": "Original identity, anatomy, contour, painted light, source atlas pixels, pool/camera and wardrobe originals remain fixed.",
+      "entry": "Clock0,source rest key0,350/930x at480y,left+/right- facing; character and gear come from separate saved profiles.",
+      "exit": "Release selects existing rest/idle source at current phase. Focus/Back/close clears both players' held input, velocity, owned powers and shots. No newly authored transition/settle is claimed.",
+      "reuse_gap": "Reuses existing character source and registered wardrobe; new native acting/transition/loop review remains a gap, especially static floating portraits.",
+      "method": "Existing RGBA/atlas states; declared whole-actor Canvas translation and mirror; body and gear share one transform. No deformation, retiming, interpolation, source cleanup or generated pixels.",
+      "timing": {
+        "rest_keys": 1,
+        "moving_keys": 1,
+        "moving_key_rate_fps": 0,
+        "phase": "Active game clock. Rumi has4idle plus4swim cells; Marlo uses stable rest0 plus4paddle keys. Single-key portraits are static floats, not authored swimming."
+      },
+      "size": "154logical longest side at1280x720 base; original source aspect retained. See input dimensions and per-frame bounds.",
+      "criteria": {
+        "source_pixel_change": 0,
+        "body_contact": "Original painted lowest fin/foot, mirrored with actor; machine source-alpha checks do not replace human contact review.",
+        "prop_root": "Original-alpha socket within bounded14logicalpx search; actual opaque gear must overlap body, behind gear must remain visible.",
+        "loop_exit": "Review all source loop seams and abrupt idle/moving swaps at full speed and frame-step before performance acceptance."
+      },
+      "limits": {
+        "new_generation_takes_cap": 0,
+        "calls_used": 0,
+        "new_animation_source_authoring_minutes_cap": 0,
+        "source_pixel_cleanup_minutes_cap": 0,
+        "source_pixel_cleanup_minutes_used": 0,
+        "monetary_cap": 0,
+        "observed_spend": 0,
+        "funded_generation_authority": "None used or supplied; no animation generation trial launched. Engine integration time is not a generated-take/artist-cleanup clock."
+      },
+      "stop": "Missing/failed acting or contact stays unaccepted. No automatic generation, deformation or per-frame ImageGen campaign; a new authoring brief/budget would be needed.",
+      "inputs": [
+        {
+          "path": "assets/sprites/dust_bunnies/rainbow_friend.png",
+          "sha256": "1cff185278d662b2fc049ffd1460848ca76aa7a57933dbc06279ae0a07747580",
+          "dimensions": [
+            512,
+            512
+          ],
+          "operation": "Direct non-destructive reuse on true Canvas; runtime crop/mirror/registered per-frame socket, wardrobe composition and scaling only. Original file unchanged.",
+          "license": "Existing ASSET_LICENSES.md source entry; reuse does not extend its acceptance scope.",
+          "role": "Existing source identity/pose pixels",
+          "acceptance_scope": "Existing current project source and licensing authority only; reuse does not accept this new performance."
+        }
+      ],
+      "aseprite": "NOT_APPLICABLE: no new bitmap/atlas authoring or cleanup, originals reused byte-for-byte.",
+      "guides": "None; no position-guide delivery pixels.",
+      "reviews": {
+        "machine": "tests/bubble-cast-touch-final-100.json; tests/bubble-cast-original-final-100.json; source-bindings.json; static-verification.json; full gates separately recorded.",
+        "still_appearance": "appearance-review.json (Codex scoped judgement only)",
+        "human_full_speed_frame_step": "PENDING",
+        "device": "PENDING; no adb device connected during this task",
+        "child": "PENDING",
+        "owner": "PENDING",
+        "cinematic_machine": "NOT_APPLICABLE: gameplay sprites, no footage",
+        "archive": "Source provenance recorded locally; publication separately verified",
+        "generation_ready": "NOT_APPLICABLE",
+        "delivery_accepted": false,
+        "runtime": "CANDIDATE",
+        "release": "NOT_PROMOTED"
+      }
+    },
+    {
+      "id": "bubble-supported-travel-marlo",
+      "revision": 1,
+      "author_date": "Codex,2026-11-05",
+      "record_scope": "Existing-art reuse/integration review card following ANIMATION_JOB_CARD_V1. Not a generated take or accepted new performance; prior machine results remain historical evidence, not a claim this card predated them. The explicit review criteria apply to subsequent full-speed/frame-step acceptance.",
+      "source_commit": "6892c5753c75161986b4463c186f8711a0c12870",
+      "integration_baseline": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "local_workflow_sha256": "5c305774c188f37e6e39daf87fd746344f620c10122c2efa6ff4707342ad4229",
+      "lane": "Gameplay sprite on true2D Canvas",
+      "intention": "Player steers a bubble-supported friend, releases to descend onto another bubble and returns safely instead of losing progress.",
+      "action": "Analytic x/y travel and source-body fin/foot contact; existing authored pose keys when available. No new changing-view acting is claimed.",
+      "fixed": "Original identity, anatomy, contour, painted light, source atlas pixels, pool/camera and wardrobe originals remain fixed.",
+      "entry": "Clock0,source rest key0,350/930x at480y,left+/right- facing; character and gear come from separate saved profiles.",
+      "exit": "Release selects existing rest/idle source at current phase. Focus/Back/close clears both players' held input, velocity, owned powers and shots. No newly authored transition/settle is claimed.",
+      "reuse_gap": "Reuses existing character source and registered wardrobe; new native acting/transition/loop review remains a gap, especially static floating portraits.",
+      "method": "Existing RGBA/atlas states; declared whole-actor Canvas translation and mirror; body and gear share one transform. No deformation, retiming, interpolation, source cleanup or generated pixels.",
+      "timing": {
+        "rest_keys": 1,
+        "moving_keys": 4,
+        "moving_key_rate_fps": 5,
+        "phase": "Active game clock. Rumi has4idle plus4swim cells; Marlo uses stable rest0 plus4paddle keys. Single-key portraits are static floats, not authored swimming."
+      },
+      "size": "154logical longest side at1280x720 base; original source aspect retained. See input dimensions and per-frame bounds.",
+      "criteria": {
+        "source_pixel_change": 0,
+        "body_contact": "Original painted lowest fin/foot, mirrored with actor; machine source-alpha checks do not replace human contact review.",
+        "prop_root": "Original-alpha socket within bounded14logicalpx search; actual opaque gear must overlap body, behind gear must remain visible.",
+        "loop_exit": "Review all source loop seams and abrupt idle/moving swaps at full speed and frame-step before performance acceptance."
+      },
+      "limits": {
+        "new_generation_takes_cap": 0,
+        "calls_used": 0,
+        "new_animation_source_authoring_minutes_cap": 0,
+        "source_pixel_cleanup_minutes_cap": 0,
+        "source_pixel_cleanup_minutes_used": 0,
+        "monetary_cap": 0,
+        "observed_spend": 0,
+        "funded_generation_authority": "None used or supplied; no animation generation trial launched. Engine integration time is not a generated-take/artist-cleanup clock."
+      },
+      "stop": "Missing/failed acting or contact stays unaccepted. No automatic generation, deformation or per-frame ImageGen campaign; a new authoring brief/budget would be needed.",
+      "inputs": [
+        {
+          "path": "assets/opera/bubble_duel_v2/marlo_swim.png",
+          "sha256": "33cf0fc3f01754f65cd03e49c44341db46c174f3e8dfa89047d9651d46fd50dc",
+          "dimensions": [
+            512,
+            512
+          ],
+          "operation": "Direct non-destructive reuse on true Canvas; runtime crop/mirror/registered per-frame socket, wardrobe composition and scaling only. Original file unchanged.",
+          "license": "Existing ASSET_LICENSES.md source entry; reuse does not extend its acceptance scope.",
+          "role": "Existing source identity/pose pixels",
+          "acceptance_scope": "Existing current project source and licensing authority only; reuse does not accept this new performance."
+        }
+      ],
+      "aseprite": "NOT_APPLICABLE: no new bitmap/atlas authoring or cleanup, originals reused byte-for-byte.",
+      "guides": "None; no position-guide delivery pixels.",
+      "reviews": {
+        "machine": "tests/bubble-cast-touch-final-100.json; tests/bubble-cast-original-final-100.json; source-bindings.json; static-verification.json; full gates separately recorded.",
+        "still_appearance": "appearance-review.json (Codex scoped judgement only)",
+        "human_full_speed_frame_step": "PENDING",
+        "device": "PENDING; no adb device connected during this task",
+        "child": "PENDING",
+        "owner": "PENDING",
+        "cinematic_machine": "NOT_APPLICABLE: gameplay sprites, no footage",
+        "archive": "Source provenance recorded locally; publication separately verified",
+        "generation_ready": "NOT_APPLICABLE",
+        "delivery_accepted": false,
+        "runtime": "CANDIDATE",
+        "release": "NOT_PROMOTED"
+      }
+    }
+  ],
+  "shared_item_method": "The same immutable7-item icon atlas follows registered source-pose sockets on all6 actors. Bow/brooch/pack/holster/harness/belt/charm are rigid attachments, not fake hands. The wand emits an existing pearl sprite; existing pop keys are reused. No new object animation artwork, editing, generated takes or cinematic footage."
+}

@@ -47,7 +47,9 @@ func _run() -> void:
 		return
 	var old_story := _story()
 	var powers_seen: Dictionary = {}
-	for run: int in range(100):
+	var requested := OS.get_environment("BUBBLE_DUEL_CYCLES")
+	var iteration_count := 100 if requested.is_empty() else clampi(int(requested), 1, 100)
+	for run: int in range(iteration_count):
 		var before := bad
 		var result := _tour(run, powers_seen)
 		_check("tour %d returns to Jobs" % run, result)
@@ -74,7 +76,7 @@ func _run() -> void:
 	venue.close()
 	main.queue_free()
 	await process_frame
-	print("BUBBLESTRESS|100 tours|", checked, " checks|", bad, " failures")
+	print("BUBBLESTRESS|", rows.size(), " tours|", checked, " checks|", bad, " failures")
 	quit(0 if bad == 0 else 1)
 
 
@@ -208,11 +210,17 @@ func _tour(index: int, seen: Dictionary) -> bool:
 		return false
 	_back()
 	_card(d, 0)
+	_check("Duel presents character and equipment setup", d.mode == Duel.Mode.SETUP)
+	for child: Node in d.menu.get_children():
+		if child is Button and child.tooltip_text == "Play":
+			_tap(child as Control)
+			break
+	_check("setup Play starts actual Duel", d.mode == Duel.Mode.DUEL)
 	var gear: String = d.gear
 	var starting_rival: Vector2 = d.rival
 	_tap(d, d._target(0))
 	d._process(dt)
-	_check("Marlo starts moving without a position jump", d.rival.distance_to(starting_rival) <= 5.0)
+	_check("Computer friend starts moving without a position jump", d.rival.distance_to(starting_rival) <= 5.0)
 	d._begin(Duel.Mode.DUEL)
 	var initial_glow: float = d.glow
 	if gear != "classic":
@@ -243,9 +251,9 @@ func _tour(index: int, seen: Dictionary) -> bool:
 			elif gear == "moonpearl":
 				_check("moonpearl holds Roshan at her height", absf(d.swimmer.y - d.START.y) < 1.0)
 			elif gear == "squid":
-				_check("ink holds Marlo", d.rival == rival_before)
+				_check("ink holds computer friend", d.rival == rival_before)
 			elif gear == "kelp":
-				_check("kelp pulls Marlo smoothly", d.rival_offset.length() > 0.0)
+				_check("kelp pulls computer friend smoothly", d.rival_offset.length() > 0.0)
 			elif gear == "lullaby":
 				_check("lullaby drains rival glow", d.rival_glow < 50.0)
 			elif gear == "swiftconch":

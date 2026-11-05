@@ -1,0 +1,2822 @@
+{
+  "baseline": "6892c5753c75161986b4463c186f8711a0c12870",
+  "integration_baseline": "169f6e90faff072affb40874f49566a97c2814ef",
+  "sources": [
+    {
+      "path": "assets/castle/training/ghost_hand.png",
+      "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+      "dimensions": [
+        512,
+        512
+      ],
+      "operation": "Direct non-destructive reuse on true Canvas; runtime crop/mirror/registered per-frame socket, wardrobe composition and scaling only. Original file unchanged.",
+      "license": "Existing ASSET_LICENSES.md source entry; reuse does not extend its acceptance scope."
+    },
+    {
+      "path": "assets/characters/companions/baby_eagle.png",
+      "sha256": "7d6f10afbd8cd157436a05eaadab7eb4cc07c3a3d242ad2291111fc6b4f3ed2f",
+      "dimensions": [
+        290,
+        512
+      ],
+      "operation": "Direct non-destructive reuse on true Canvas; runtime crop/mirror/registered per-frame socket, wardrobe composition and scaling only. Original file unchanged.",
+      "license": "Existing ASSET_LICENSES.md source entry; reuse does not extend its acceptance scope."
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "dimensions": [
+        256,
+        256
+      ],
+      "operation": "Direct non-destructive reuse on true Canvas; runtime crop/mirror/registered per-frame socket, wardrobe composition and scaling only. Original file unchanged.",
+      "license": "Existing ASSET_LICENSES.md source entry; reuse does not extend its acceptance scope."
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_swim_front.png",
+      "sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "operation": "Direct non-destructive reuse on true Canvas; runtime crop/mirror/registered per-frame socket, wardrobe composition and scaling only. Original file unchanged.",
+      "license": "Existing ASSET_LICENSES.md source entry; reuse does not extend its acceptance scope."
+    },
+    {
+      "path": "assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
+      "sha256": "9068a5f6c56e90d57ae9c3219096d6f12bba97a2f6c6ed09175c1bc63f59cb41",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "operation": "Direct non-destructive reuse on true Canvas; runtime crop/mirror/registered per-frame socket, wardrobe composition and scaling only. Original file unchanged.",
+      "license": "Existing ASSET_LICENSES.md source entry; reuse does not extend its acceptance scope."
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/daddy_original.png",
+      "sha256": "cdd19e21805e312f1ebefc6a4ece9f19f92e5bdcf49f1e771298e7985ac1fd4b",
+      "dimensions": [
+        727,
+        1024
+      ],
+      "operation": "Direct non-destructive reuse on true Canvas; runtime crop/mirror/registered per-frame socket, wardrobe composition and scaling only. Original file unchanged.",
+      "license": "Existing ASSET_LICENSES.md source entry; reuse does not extend its acceptance scope."
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/garments/party.png",
+      "sha256": "064bc733d96309a9e08469bd2fb684f72a2329d13246a94cd36e040ffc1038e3",
+      "dimensions": [
+        512,
+        512
+      ],
+      "operation": "Direct non-destructive reuse on true Canvas; runtime crop/mirror/registered per-frame socket, wardrobe composition and scaling only. Original file unchanged.",
+      "license": "Existing ASSET_LICENSES.md source entry; reuse does not extend its acceptance scope."
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/backgrounds/room_mermaid_pool_background.png",
+      "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+      "dimensions": [
+        1024,
+        576
+      ],
+      "operation": "Direct non-destructive reuse on true Canvas; runtime crop/mirror/registered per-frame socket, wardrobe composition and scaling only. Original file unchanged.",
+      "license": "Existing ASSET_LICENSES.md source entry; reuse does not extend its acceptance scope."
+    },
+    {
+      "path": "assets/opera/bubble_duel_v2/bubble.png",
+      "sha256": "eca98a5ca895774d10649bc05c438dfb8be22b8f5a1527a64750b2c516161127",
+      "dimensions": [
+        256,
+        256
+      ],
+      "operation": "Direct non-destructive reuse on true Canvas; runtime crop/mirror/registered per-frame socket, wardrobe composition and scaling only. Original file unchanged.",
+      "license": "Existing ASSET_LICENSES.md source entry; reuse does not extend its acceptance scope."
+    },
+    {
+      "path": "assets/opera/bubble_duel_v2/items.png",
+      "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "operation": "Direct non-destructive reuse on true Canvas; runtime crop/mirror/registered per-frame socket, wardrobe composition and scaling only. Original file unchanged.",
+      "license": "Existing ASSET_LICENSES.md source entry; reuse does not extend its acceptance scope."
+    },
+    {
+      "path": "assets/opera/bubble_duel_v2/marlo_swim.png",
+      "sha256": "33cf0fc3f01754f65cd03e49c44341db46c174f3e8dfa89047d9651d46fd50dc",
+      "dimensions": [
+        512,
+        512
+      ],
+      "operation": "Direct non-destructive reuse on true Canvas; runtime crop/mirror/registered per-frame socket, wardrobe composition and scaling only. Original file unchanged.",
+      "license": "Existing ASSET_LICENSES.md source entry; reuse does not extend its acceptance scope."
+    },
+    {
+      "path": "assets/opera/worlds/teacher/pearl_uncounted.png",
+      "sha256": "4f71a7beff48024df5eb89a5cbd760148576ada6bf05fe784bd8d2828dba4037",
+      "dimensions": [
+        128,
+        128
+      ],
+      "operation": "Direct non-destructive reuse on true Canvas; runtime crop/mirror/registered per-frame socket, wardrobe composition and scaling only. Original file unchanged.",
+      "license": "Existing ASSET_LICENSES.md source entry; reuse does not extend its acceptance scope."
+    },
+    {
+      "path": "assets/sprites/dust_bunnies/rainbow_friend.png",
+      "sha256": "1cff185278d662b2fc049ffd1460848ca76aa7a57933dbc06279ae0a07747580",
+      "dimensions": [
+        512,
+        512
+      ],
+      "operation": "Direct non-destructive reuse on true Canvas; runtime crop/mirror/registered per-frame socket, wardrobe composition and scaling only. Original file unchanged.",
+      "license": "Existing ASSET_LICENSES.md source entry; reuse does not extend its acceptance scope."
+    },
+    {
+      "path": "assets/sprites/fx_water/fx_water_bubble_burst_atlas.png",
+      "sha256": "4c98dd531d6869a2137d210c161efab86dff03c08ce2378e855d1d46c9c2896c",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "operation": "Direct non-destructive reuse on true Canvas; runtime crop/mirror/registered per-frame socket, wardrobe composition and scaling only. Original file unchanged.",
+      "license": "Existing ASSET_LICENSES.md source entry; reuse does not extend its acceptance scope."
+    }
+  ],
+  "generation_calls": 0,
+  "protected_originals_changed": false,
+  "medium": "Canvas/Control/TextureRect only; zero added 3D resources",
+  "wardrobe": "Shared earned body outfits and purchased sets. Existing catalogue geometry; separate local profiles, no global wardrobe mutation. Marlo retains his authored fur; all powers are attached accessories. Bird/cloud use authored limited wardrobe variants plus all seven accessories.",
+  "motion": "Roshan 16 swimming keys, Rumi four idle/four swim keys, Marlo four paddle keys with a stable rest key. Daddy, Baby Eagle and Rainbow Friend use existing static floating portraits. Translation is not claimed as newly authored character acting. Full motion/identity/contact/phone review remains open.",
+  "attachment": "One actor transform owns body/prop mirror. Roots register to current source pose and nearest painted body within bounded 14 logical pixels. Actual icon opaque pins; back/side conch pack, clipped bow, brooch, holstered wand, kelp harness, belt shell and clipped squid charm. Wand emits a pearl from its worn tip.",
+  "physics": {
+    "gravity": 560,
+    "horizontal_speed": 550,
+    "rise_speed": 330,
+    "fall_cap": 365,
+    "pop_bounce": 150,
+    "ceiling_y": 270,
+    "initial_y": 480,
+    "contact_radius": 33,
+    "recovery_seconds": 0.6,
+    "note": "Uses the prior calibrated analytic feel, with measured per-cast painted contacts and sufficient Daddy headroom. No claim of child-preferred weights from scripted runs."
+  },
+  "iterations": [
+    {
+      "result": "FAIL",
+      "scope": "Early headroom smoke",
+      "correction": "Raised useful altitude range and fitted full actor/prop bounds so Daddy can descend onto both bubbles."
+    },
+    {
+      "result": "FAIL",
+      "scope": "First 100: six Marlo P2 attacker bouts",
+      "correction": "Use stable authored resting key when drifting; all four paddling keys remain during thrust."
+    },
+    {
+      "result": "FAIL",
+      "scope": "Visual conch/bow occlusion and pin isolation",
+      "correction": "Expose conch at side/back; opaque attachment pin; cloud bow moved to side."
+    },
+    {
+      "result": "FAIL",
+      "scope": "One Rumi squid charm pose had no source-alpha intersection",
+      "correction": "Expand bounded nearest-painted root registration to 14 logical pixels; all authored-key overlap assertions now pass."
+    },
+    {
+      "result": "FAIL",
+      "scope": "Full local prefix typography: new diagonal-arrow glyph unclassified",
+      "correction": "Removed the optional decorative glyph; retained existing dot badge, live hand guide and player colours. No audit allowlist changed."
+    },
+    {
+      "result": "FAIL",
+      "scope": "One final100 process stopped at startup with no result or script error",
+      "correction": "Retain short transcript as incomplete, no pass credit. A new separate process completed all 100 with 3149 checks and durable reload."
+    },
+    {
+      "result": "FAIL",
+      "scope": "Final touch-size review of this unpublished candidate",
+      "correction": "254x104 swim rectangles enlarged to254x110. Clothes-page controls replaced with shared112x112 painted-arrow buttons. Ready moved from610 to604 so its full112px target fits720px canvas. Final1003183 and9reload plus122fresh native frames pass afterward. Sprite/gear/contact transforms and physics constants unchanged."
+    },
+    {
+      "result": "FAIL",
+      "scope": "First4-bout two-active test policy",
+      "correction": "One policy pair kept facing into the wall after1bubble each; corrected bot steering with real turn gestures, without changing gameplay or completion requirements. Second4 and final100 pass; failed trial retained."
+    },
+    {
+      "result": "FAIL",
+      "scope": "New native overlap capture helper compilation",
+      "correction": "Declared dynamic-Control overlap_ready as explicitbool under Godot analyzer; no production change. Failure log retained, fixed check-only and full native125 pass."
+    },
+    {
+      "result": "FAIL",
+      "scope": "Same-facing identical-character native overlap/HUD inspection",
+      "correction": "Opposite-side ownership markers remain visible. Rejected wallet-overlap frame retained; balance stays in menus/shop and pad dot counts match. Only recorded GUI display lines change, not gameplay. Final125 native frames include actual two-finger ceiling/wall cases at each viewport."
+    }
+  ],
+  "acceptance": {
+    "implementation": "CANDIDATE",
+    "machine": "Physics/input:100 per-slot completion bouts/3183 checks,100 both-active bouts/3283 checks,100 original-mode tours/1737 checks; zero final failures,9/9 reload per pass. Both-active pass covers36 ordered pairs,62/38 actual wins. Only documented marker/HUD display changed after those executions: exact renderer-only/hud-only byte-delta proofs preserve all gameplay logic. Final125-frame native capture binds the current renderer and verifies two simultaneous controls at all3 sizes. Full local/remote gating is recorded separately. local-regression.json records full static/import and aggregate82/82 required script coverage, with the initial partial127 and serial340-check success retained. Current final-source documentation/parser/analyzers and exact published-head checks are separate. Final current-source parser/inference/owner-register,11 direct approved-Godot analyzers,document919/919 and actual change-coverage gates PASS; gate-results.json records commands and output.",
+    "appearance": "Separate inspectable desktop judgement; no master closure.",
+    "formal_QA11": "COVERAGE_GAP",
+    "device": "PENDING two-person simultaneous touch, 30fps/thermal/overdraw on reference mobile",
+    "child": "PENDING",
+    "owner": "PENDING",
+    "game_wide_master": "UNSATISFIED",
+    "known_inherited_limits": [
+      "Pool background native1024x576 lacks required background coverage",
+      "Typography font authority/device evidence unresolved",
+      "Exact objective voice recording and full native motion/acting acceptance remain open"
+    ]
+  },
+  "wardrobe_source_inventory": [
+    {
+      "path": "assets/fashion/beta_20261025/catalog.tres",
+      "sha256": "1a86e5c3066f173023d32534fef75207652ade3efea450a1343816402c650f7c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/astronaut_body.png",
+      "sha256": "0a5143eb9c25d1f2e93c6efb384a4b4cef7998996dfb5b592fb07f3895a0c496",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/astronaut_head.png",
+      "sha256": "373bb950af6fc3c660cb0b4db7f9d338ef1fbb6d9c352b61841378a4d4fdd3d4",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/astronaut_tail.png",
+      "sha256": "f702466a6a06163858f74c9d676d857d82bd812bdb05405a9ed1ec467058ab31",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/ballet_body.png",
+      "sha256": "d6e4babe63614eaccbb5e49344f57f636b93e2448cb807aab2347ed95f314f8e",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/ballet_head.png",
+      "sha256": "4516a2631d47c928a20cbefc2059922471cf59958450716cf3ca023186395f4b",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/ballet_tail.png",
+      "sha256": "485bbf4b526e1ad47c50abeb70e3cb3e57b2139f47cc9e751e2e4a3d914d3a5f",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/candy_body.png",
+      "sha256": "acb6b4154481f0fbb7302571c264f6959446cffcd1721e4d47a17f5e9c3408ed",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/candy_head.png",
+      "sha256": "e81b4c5af7a5339e5661baffae4ea363ace5e5676d031cbd9fdc088989a8021e",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/candy_tail.png",
+      "sha256": "fcae311dd2c86e9ec5cc048b70179db2ada7f9e8941a4b420c9c527879275918",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/magician_body.png",
+      "sha256": "deb7caf0b35579021e9469696bd056132e63682d06b902905ed0c8d0d43343b1",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/magician_head.png",
+      "sha256": "161f7c9177d5a145091b3da42786a29982662bb472322e9eaced09d9b23d9ea7",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/magician_tail.png",
+      "sha256": "fde532c6d5411fe382eb0121afc892585629ab500e130ac70e3fdbe4028dfaf4",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_body_astronaut_v1.png",
+      "sha256": "7d2ce9d51511af01ae87cab6e05a2dc2255b4fe4840ad8364d33cbbcc4b84ddc",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_body_ballet_v1.png",
+      "sha256": "3a376b0058be6c6d710350bf1ba32c43b7d50bc26a2532adde072a62aad33284",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_body_candy_v1.png",
+      "sha256": "2873595c9cd0b90bafe3e706f9724cca624b1979e7d02fb7599eafbb1f2ca32b",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_body_magician_v1.png",
+      "sha256": "4d53a0bddffa4a47589df8fac75c9b72d9e272dbd2af6da85f04191b6802a058",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_head_astronaut_v1.png",
+      "sha256": "236716a59ccdb7d23128571251a8af13216d0bc71b30affe526fd0bd4b468a6a",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_head_ballet_v1.png",
+      "sha256": "bbcf85f66ca7b49ba1c7c9f4150f82e20d2a008258d8f7fda9af45925a2ae9a2",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_head_candy_v1.png",
+      "sha256": "7bd8334a3d17830b8cd56fc7f156ae5e4d9dbe9528ebf50fa343845f3face2c1",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_head_magician_v1.png",
+      "sha256": "b7b90eed7cca82fc3ef1c1c700b048a3e6ce583c6f001f99464a60c8cd8d63da",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_tail_astronaut_v1.png",
+      "sha256": "a5f62cba09262250905cf701b12e03848f95f439dc0b591e6a0484fcad32db16",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_tail_ballet_v1.png",
+      "sha256": "8faffaa1a2d31959f148a70d0782b5364f6260d0cd525a772bccb5821c9f8999",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_tail_candy_v1.png",
+      "sha256": "101ddc0b59c9bf98accef93b2329bfa8774d9087978b3ccb94a04fc242256093",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_tail_magician_v1.png",
+      "sha256": "845eb98ffa266afb612dfaf5d85497000bcd12c6883317bf45ebf815ede9bda0",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_body_astronaut_v1.png",
+      "sha256": "27944703de987521c5e3dfae04e14010ceb119e24fc9581d60dd50ceb8c9bc72",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_body_ballet_v1.png",
+      "sha256": "428a2696f4c0e1b50c40a7191400e8aee62122f31c471f80c5d1f013c1983cdb",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_body_candy_v1.png",
+      "sha256": "4c341bf1eb27e8c8b2bf58857a83f4ca4733e1183c8343ba913874899fd63f31",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_body_magician_v1.png",
+      "sha256": "79c35c20febab6467d137f9fed01ce88ea04a31ffdd818d5e394b096e6b5b6cb",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_head_astronaut_v1.png",
+      "sha256": "06cf65c3406d5ad7324794c5e6b698ddebb76e1461987aa25b8150b63e3fad55",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_head_ballet_v1.png",
+      "sha256": "211fdc2b5d03728c76a5aca46ef68f50bd82f83e5689fd507b7fdff6c2a04056",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_head_candy_v1.png",
+      "sha256": "76ae8e5ed8f114e2b25372b629182e80f919fc3c30f1d6dd6b56c0e6a06caf48",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_head_magician_v1.png",
+      "sha256": "702ad933d9d49d6f04a3ac69af810a6e6484f5c69c4ffca2aed30be3148c5ead",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_tail_astronaut_v1.png",
+      "sha256": "bf521dd6aa3166c56e36d56b3ccdb2f843799a9aa5108e02c7b2a266c7ae9030",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_tail_ballet_v1.png",
+      "sha256": "bece38f882625f34f167f6aee024ce94790648e905710e4421bbd5998731e961",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_tail_candy_v1.png",
+      "sha256": "2760226659705494a2525e7714ee5ec6ef23f358dd0680d28339214dda5b5223",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_tail_magician_v1.png",
+      "sha256": "027601c9d9f1e3eefc8176e8e17fc7a55ce9fe0bcc9c2a43838bfea277990c0f",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_body_astronaut_v1.png",
+      "sha256": "8e96587a87c3cc14bcfa7814a63330012d6067c6dbefc9aa6d51ac5da2ba0eb1",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_body_ballet_v1.png",
+      "sha256": "3215abf70edfeddc394041a4d5b17b12d835ba4b434feb4b68235d9116387ac7",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_body_candy_v1.png",
+      "sha256": "b45e56071d65e9160f38722891fb077ad3fda592dca7a42b2cf5ba9ccfa04035",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_body_magician_v1.png",
+      "sha256": "42503e1563c3a3a5e6fcf487b5524387f0537e1a1c825f170efb4fd27bf0cd8f",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_head_astronaut_v1.png",
+      "sha256": "35d85be27d56b8b937e375d5e80b009c73e962e4342b5159dd71e5382bfd05ae",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_head_ballet_v1.png",
+      "sha256": "47bd11ad704a3f2c11299be3f0a9df4b27a80204ef30331b335be8d461568957",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_head_candy_v1.png",
+      "sha256": "f0bd09b197ce4187d5cd1d243c7d7585b77a5a07078ede4c8a976d1b04a6a520",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_head_magician_v1.png",
+      "sha256": "64ede7a05e4eb670bf445d9ad80ed1da32c99006b56b6b3af015bed755a545d1",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_tail_astronaut_v1.png",
+      "sha256": "74e09c09a3c77fe17a268ebf9ba1b33f25ca978af9bc8a7fd990fa8c60f5637e",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_tail_ballet_v1.png",
+      "sha256": "423daec1020e3e69742a9d7ca537cefe9dc5684bfae082ab3f405c212453fb9b",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_tail_candy_v1.png",
+      "sha256": "b6a65da7a64aa16727267f2adaa64e7769e0ef2f9664b1c72c33ab58f90e1920",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_tail_magician_v1.png",
+      "sha256": "77f23e74c9298db98b5e5896eada18ac264e93a65386bbb12b390aec3b1637b3",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_body_astronaut_v1.png",
+      "sha256": "078ec94ce5ff90e6761baf77e244c193ec908465efda5c80116512fd11811057",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_body_ballet_v1.png",
+      "sha256": "ce3a1f8480f97a1b75512911134f9764ca0b40453c4cb1e6dd7cd24b8e4cef38",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_body_candy_v1.png",
+      "sha256": "f7a213bd2763dbd7ddf223867fa83156c1aab3f6e7761c7ed97ef9ee51146573",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_body_magician_v1.png",
+      "sha256": "d6497cd50e48e02e2c16146822c2fba47938f26978e7f03b13609c06e233f564",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_head_astronaut_v1.png",
+      "sha256": "4cce33cbd9e749c0b43eb86197d1293d22acfe02221944a46a57ca787622e6d9",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_head_ballet_v1.png",
+      "sha256": "fe59a3dd711bcad35734ac0e8e41a2d93f58c76721869f17fac17eadafa95047",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_head_candy_v1.png",
+      "sha256": "72ffc210a64b9213c5d76dd9c7887ef833b9d453917dfc427561b207b60650ff",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_head_magician_v1.png",
+      "sha256": "aa8bc96309c795fd672369bee9d34a9bf8e43c61ade28aa6611b597692e3929f",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_tail_astronaut_v1.png",
+      "sha256": "5eb63a78d1c613013f76da66e00d45171f274885cf0ba897377e291399aea08d",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_tail_ballet_v1.png",
+      "sha256": "219f6d5fdd183ae5b6907079ed9f08554576580591a87592985f7a1b55ac66be",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_tail_candy_v1.png",
+      "sha256": "b93c8647c62588e76c0359fdb2bc9ba8571f015155f2025c94a37dbe3baf83b1",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_tail_magician_v1.png",
+      "sha256": "26f05f301a92d0e79b1b06720a56f26dd9b027c3de43a215b79b750b7bf89ebb",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_body_astronaut_v1.png",
+      "sha256": "9938972ae30667f4520cf7515d0057dba3534ca640c229819ecb6110b69e63e4",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_body_ballet_v1.png",
+      "sha256": "ab62613e84ddb3eca64193607617b1d5b1cbe7b323f010c81ddf7fb5692a4988",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_body_candy_v1.png",
+      "sha256": "ec89f34e391cbb7efba61c0add54edbf6bf6fabbac7f751eef20d4ff6a73075f",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_body_magician_v1.png",
+      "sha256": "dca61d63bfd4aadef2f818a152ac095cb3ddabbd752c2587662a128df2139076",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_head_astronaut_v1.png",
+      "sha256": "b06811f5123d68686206b281aefd9bb9bb1ee42c664a490ec57c5c1a8dab48ee",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_head_ballet_v1.png",
+      "sha256": "2632a2ca92ad165b1933f7ecbe45de244852cdfffc5cb16669d8bdea5fae2341",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_head_candy_v1.png",
+      "sha256": "26f3be50036b42b3589b0e1e6fa6179ef194bafc423544b9355904d4e55f5287",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_head_magician_v1.png",
+      "sha256": "8e7b1509a56a258c6d2578261956633c55eaa1990231d4c3dc81a6ae9a6b1732",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_tail_astronaut_v1.png",
+      "sha256": "284a83c9881d9b28b8b6b0cf20114164823f7be6721ed535deb82012e0068e88",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_tail_ballet_v1.png",
+      "sha256": "0a53f3d062c5c1ce895d9cd17966221d015fb99b9fdb8bab863f25a64f4bc67a",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_tail_candy_v1.png",
+      "sha256": "f4886cb5d5fe818a43420ede4e58b4d07b9a276570bc0bd63c6efe402029b420",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_tail_magician_v1.png",
+      "sha256": "6ce35a9a293a719afd7e8e73f5b9f805128cbd3b7605664cb2bb88ba48028e08",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_body_astronaut_v1.png",
+      "sha256": "53b3a347d2d71facc4ec9d08f737f6a4e6fcdfb86ea97a492b9b8fa27126493a",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_body_ballet_v1.png",
+      "sha256": "edda8ec9219b2b102ee9130d3327650649ed2b2257198aeb023a8edd16c394f4",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_body_candy_v1.png",
+      "sha256": "316a3e7ea27ddc447da4d564ac9f67ddacb24ba42cc2af84185bc3ed88c8b4e4",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_body_magician_v1.png",
+      "sha256": "921e50af59c30c3eb6c98a438ddb898bc8c5c5b7633f687f2a70f07d8ca6ea14",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_head_astronaut_v1.png",
+      "sha256": "c2277647ddd17402bfd32b95b5cd417836c813eee17e7a1b436d82bcab98fe83",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_head_ballet_v1.png",
+      "sha256": "ea33b4c0873f940e833468bf5d0b66d43232572d6ff33e941a26a36771e02337",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_head_candy_v1.png",
+      "sha256": "598f2462408047cc3008214d9bff635520e8913faca903cad233c640c87a6294",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_head_magician_v1.png",
+      "sha256": "eb6ce09bda7ffa43ade409b73fe0cc2b2d3dcbe2bc82993f2ebf977bfc6b3eda",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_tail_astronaut_v1.png",
+      "sha256": "212899ccbc211030ea0180c8e073a93398cba785840fffe0fe3ed047ef6af7f4",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_tail_ballet_v1.png",
+      "sha256": "81f3dd6b8f7bf3e468bf0b18a8079ff3c37489874fbd507894577690d63ced51",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_tail_candy_v1.png",
+      "sha256": "d5322e9288c3f895ad8492a8415d7b27abeef9154db7092ab6bfab78af5199d3",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_tail_magician_v1.png",
+      "sha256": "cf615861305dd750580819732ef029727a53be7331b0a99246eaa9f6ef40ea2f",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_body_astronaut_v1.png",
+      "sha256": "fe0eda7791c9ff20df314d6e87682b285bf70aada91b19383ee3e1a459b8ecd8",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_body_ballet_v1.png",
+      "sha256": "56eb86f96a534d8f02e70207c0bc400eb7834447bb3d4d6834ba259a0151938d",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_body_candy_v1.png",
+      "sha256": "a02bfcd97dfd69bf64203c7ec5c1ef80c5a35e34b1d114016b45ad0170488a05",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_body_magician_v1.png",
+      "sha256": "4f0c0609b0c7698c813c2e5082209f2edea03549401d7dd90d1db8eaf34ad7fc",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_head_astronaut_v1.png",
+      "sha256": "caae91b0b3ede57007b4996f7603c64dab5f7dd2ae6efdf95bfdeb4924d485fa",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_head_ballet_v1.png",
+      "sha256": "d20ab91bb21c31ba39ed8fc34fa36418dda65bd62a41cb7d3957a8442d0a561e",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_head_candy_v1.png",
+      "sha256": "053e784ad4d1ec2e07d1994e3890c1f32dd9e292f4dd3b597878ca8986c628f5",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_head_magician_v1.png",
+      "sha256": "f7f37280b7e4956d946eb9b13a89a9e8e01895e1d0cbada2adb0943174cbff19",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_tail_astronaut_v1.png",
+      "sha256": "4d3e6f19a2be3955ab944f47c2337a91eb15d304b022f2690480b46840d4e4c1",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_tail_ballet_v1.png",
+      "sha256": "35a307668b79cbf1c6936203d25cfc81e24421170e419c8dde105972c78df1c2",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_tail_candy_v1.png",
+      "sha256": "89d5d56411ef09fa31c1c1d9575139e3a58b945878d767dc4533b6e83dd85885",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_tail_magician_v1.png",
+      "sha256": "bb8abc3add2f6fd5d8809f6212c2d64e0d2ccde74ae006f3f6946e6acc2f54d7",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_body_astronaut_v1.png",
+      "sha256": "fdad01205b37870516ead9ca10d7c90986220d4e70180528e416c1920f983cd7",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_body_ballet_v1.png",
+      "sha256": "6ba375889c44f03537bb60b306ec071461eaf87f81a626078f73265561e34bed",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_body_candy_v1.png",
+      "sha256": "1c5288be487f8a0c379442310d298b5157ff620b2e14eda6932e2dc57cfefc3d",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_body_magician_v1.png",
+      "sha256": "c87efb0aaa766a479884cd6b96d604b5ce31547de2d17490bc08dada11077771",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_head_astronaut_v1.png",
+      "sha256": "5d7b75777fbb3856f42a5b1f120f655f579785430456bfeaf92efce5390a3f9f",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_head_ballet_v1.png",
+      "sha256": "5e322e621df34cd1b8be5eb01f34d401e57229de533654f2cef1de00e6d03b57",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_head_candy_v1.png",
+      "sha256": "a3de948423cbad8fd7d3c8fabd9cc12296aafd04a54601625385a463aa3e3cc9",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_head_magician_v1.png",
+      "sha256": "f3ef73fec6c75248d25cfecd67f5f512b8b0625279d8eff3289363be0f48089e",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_tail_astronaut_v1.png",
+      "sha256": "0d64af3fe4111aa316cb47fe42b6f71e92ef1d3cc3668a8330b68a2d22515819",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_tail_ballet_v1.png",
+      "sha256": "c786c1eec580b4bb363f25fdd137e15e67a867bf8c5b96da27a1a29ebea62d5a",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_tail_candy_v1.png",
+      "sha256": "9b34cf3540b8089b57b58d7216d7eb6fe8b5e1988b5eb1a990ad6364e1149a4e",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_tail_magician_v1.png",
+      "sha256": "05917e8226e43a29e8493df37dc23bd5130cd4c98117e5376b45ed12f8994654",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_body_astronaut_v1.png",
+      "sha256": "38ce86f077bfcc02326ed3f0fe83ef5ce3d5c5df9158520baf1c0773a2cbb8fc",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_body_ballet_v1.png",
+      "sha256": "d3c50f7b29ebd55e7acfabc8ddbc9a785d0ae02e884e9c50ab5967481c3923c0",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_body_candy_v1.png",
+      "sha256": "433ec645b68d22289a7f4ebbbc57cb0d7e54757fa75d48085ace8e7758989fff",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_body_magician_v1.png",
+      "sha256": "f5378718a857eec11985b31fdd79a1ea77e91eec028046c705f26a37afcbf957",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_head_astronaut_v1.png",
+      "sha256": "7021f4bedf3999f92cab30c722d11871bfcf65f2420f17974f9e3439fb0d5a1b",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_head_ballet_v1.png",
+      "sha256": "89948135b49d19071668815f41bf2eeecb2291732960fec655765dd571bb83e6",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_head_candy_v1.png",
+      "sha256": "0d4128aeaac61ce4196d0045afd952181873031c2cadade7787eb9f9b4abf078",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_head_magician_v1.png",
+      "sha256": "234ef187a277210d95ef3727728cb82d426e777e53d08b1456afdbac982888b7",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_tail_astronaut_v1.png",
+      "sha256": "8d337eaf3b43bbbd79b81dbc4fde776dff9a9d7e25521e6e6860608914f86300",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_tail_ballet_v1.png",
+      "sha256": "87e8b71ff2163043ec56846a00fbf971a98004b758247ce0ed10dfe096655a1d",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_tail_candy_v1.png",
+      "sha256": "6b2dbaf847b8cc1ef891ea08544bb04ad67e381c130bcf27640d9589e4ed4ca2",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_tail_magician_v1.png",
+      "sha256": "9edbfa51a17c4f89a2d5d21d5c1f83df8f1c10332526165d6af3d5250ca6f302",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_body_astronaut_v1.png",
+      "sha256": "32b994eee6a3bc2cb7e1feda7a4d14ed24bf5cdd512b75890fef8d4d1515eca7",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_body_ballet_v1.png",
+      "sha256": "f7db586635e7d63787d8ff3ba8fe399313d7fcda585737a24e230adf119c306d",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_body_candy_v1.png",
+      "sha256": "7f5e21d424f35983b047e81c618f2af1b1844ba6b76d61d587db2069927ec1e4",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_body_magician_v1.png",
+      "sha256": "3b3e1ce7c34624549eba994244449d6b0baec4647abac8e095d1860653f70646",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_head_astronaut_v1.png",
+      "sha256": "b1ce87ef35eda4611cec4832bad77514f4efbdb4855478d14f46ec8c2d3e802d",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_head_ballet_v1.png",
+      "sha256": "0422d76bf3a2dd53134baef3b9665da5837cfe640788747be735851fdbb39ef0",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_head_candy_v1.png",
+      "sha256": "4e8c468ea9f1ff118ee13330edb63175786b9f02aa1d447dfc0ce34c6d8b538b",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_head_magician_v1.png",
+      "sha256": "4fde139aa550d4c08e469a62cb8af330ea7861394abb95f8229620bac8a09eea",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_tail_astronaut_v1.png",
+      "sha256": "fd94105b67b67379eeb141f7bfcb45b5ce34d131c63d8ea81c140b90b29bf7e1",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_tail_ballet_v1.png",
+      "sha256": "cf70b60ca1cc4f2ea322eef08aaa4a6b702da405dfe3e1b63ff8a731b34b0e3f",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_tail_candy_v1.png",
+      "sha256": "56c5a2e856f332b86690e2d1423958fe6f361d4d0c5253fad74065fa46aa8faf",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_tail_magician_v1.png",
+      "sha256": "11e87c281d9e99174873ab233ec96ecca59cdb3f475c545957bbb89b8fdc26eb",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_body_astronaut_v1.png",
+      "sha256": "d7850b351b9aae9094b34cd3e4a6af6c62705706287cbdf24a92faef9e81c485",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_body_ballet_v1.png",
+      "sha256": "ab7cb897683ca48315fe2944b91bb73a9cca09398d8fe75faed2074cff758c8a",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_body_candy_v1.png",
+      "sha256": "63d8c28c3682b8a8c882380fd40fa1776cb9b87ccc80559a3dcb5ba575560c72",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_body_magician_v1.png",
+      "sha256": "ad1e89aaee7dba13941783c1aa02f4e15763abaa22fe15ab9317cc52ba8f112c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_head_astronaut_v1.png",
+      "sha256": "8b405bc386ade539461d770560aa83c80afaa5c145c2bc34067aa88ba9a40203",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_head_ballet_v1.png",
+      "sha256": "a5f3d480393666d3d18088173468c5712797b721ce3ff79cab69d3b0974a5448",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_head_candy_v1.png",
+      "sha256": "ab3b0ce239d9279cd5339d855f0fc86788859fbea60683cdfd2c534ef4001ba1",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_head_magician_v1.png",
+      "sha256": "2c280a1dc4cb5ea481ed0aa2711129736de610a57e2be1f3e08f2741aa657032",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_tail_astronaut_v1.png",
+      "sha256": "0a4842b340522e891c9e9657c20181be9331a03555f918fd0b7522e5cf93db30",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_tail_ballet_v1.png",
+      "sha256": "4a3d58991a7dad51e16e856b223cf39f5fe554d969faee41c4d8235ae1f8a3ec",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_tail_candy_v1.png",
+      "sha256": "bff8e45c57fa0b5aff156cd276caaab55d018a7f469df31f0ef1f7891997c884",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_tail_magician_v1.png",
+      "sha256": "15945a6d65ef0eb1c5a2ed15a0f6a6c3edabaa01a38933267aa9c6ece7184684",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_body_astronaut_v1.png",
+      "sha256": "82ddd94bb5fc6d58d597d18fb9888ea5e0ffed6a20f99ffba32a1ed1b06ed613",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_body_ballet_v1.png",
+      "sha256": "1cfbe3f712e89b93ed18b2351bd7ebbfcb99c1a6c01dbbbe96aa759b2b21949e",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_body_candy_v1.png",
+      "sha256": "a87430a2b0c307763833a18aab3082f50fe840d71885e87ddbb61fccf82f2bee",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_body_magician_v1.png",
+      "sha256": "a943586df89a3b5bc628737327fd5ee5fcad07254d996f1aee2045a30954622f",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_head_astronaut_v1.png",
+      "sha256": "a7fc40fcbbb94c856673067def6f74158ca02c4a60ed48ea723d3bd5d4059ce8",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_head_ballet_v1.png",
+      "sha256": "1a171b5bece79bcb0bd5d3a48825e529819ae68c4bf02889c5c89524d1cec6b7",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_head_candy_v1.png",
+      "sha256": "8ba5f9d0d2b9886cca225dc5a68ee48e629bfc98531ab9dc3f8579cd0fbaa7b9",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_head_magician_v1.png",
+      "sha256": "d72e8d40403c61806446385be483509ff10a0a562ce17bda299d4ff85de9d37a",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_tail_astronaut_v1.png",
+      "sha256": "4174f5616cf3617b26ec919bafef049e0496ea2b006321357979f6c1805dbff1",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_tail_ballet_v1.png",
+      "sha256": "90583cd0a7f60e2dd597f84450b343315b4a0471ba69882558835b1d55a50ce5",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_tail_candy_v1.png",
+      "sha256": "bf37c8fc05ed88e2afb34d98c488147854fd10466ea4f305224b8f2d8002ef29",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_tail_magician_v1.png",
+      "sha256": "71754184eba9be749f024ea8013c87f194e29a17d5f800527704d8f1e01a760c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_body_astronaut_v1.png",
+      "sha256": "9ddd4fa4017ba9c07e6ff4116cfc888cc2ea3585096f8c454c464770984044ff",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_body_ballet_v1.png",
+      "sha256": "516f6daf127cb5c65fadfc431271e50aed8897ef1c6e8f2cf41e82a976dd50c0",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_body_candy_v1.png",
+      "sha256": "db94af18df91e000c44b09cdea30595b4c542980e32a879f753f1e4089c76efb",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_body_magician_v1.png",
+      "sha256": "06a84c23c6e144ac2a8e709dc5f86e8535320650432b07de8e12e89455ec96fa",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_head_astronaut_v1.png",
+      "sha256": "da434caeac3ef61d1d1ce667a00f729019e014fb556e05b1e7edb2b18cf90697",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_head_ballet_v1.png",
+      "sha256": "aa2ec7c5600c5b7d6b5762d22595d1a7af8db4d30f2d30c476d7c81ea09eb4fa",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_head_candy_v1.png",
+      "sha256": "b90e832b81e21da45d8115b67bbebe7ff2b6e981d01a5ceaa111db4775bc180b",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_head_magician_v1.png",
+      "sha256": "c96d97f4a49b45bb11aee2985614719b22ffb42f3f3c30eb1aadf13c611978b9",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_tail_astronaut_v1.png",
+      "sha256": "0914315fa4164e6828a48fb35b6805138bd8a2c5f1311da2e18800818cd5ccfc",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_tail_ballet_v1.png",
+      "sha256": "99f930e14547fb47b839ed24de58fef7933119577a4407064748ee18e4ed9e27",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_tail_candy_v1.png",
+      "sha256": "e196c45a79e3102f6f92388c19fc77c9a994335f20bbef1a51de6b2a9242c438",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_tail_magician_v1.png",
+      "sha256": "6d33865c1479b013821879dc829096cddeee5bc2131281a3b780737739febe98",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/baby_eagle_garden.png",
+      "sha256": "9fb720dbee8f4a279b81b5b011ee9ea493c82210f893b94c7d717e126a52da49",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/baby_eagle_party.png",
+      "sha256": "a06e26817bd97242f00295ade379f64e0962b363cc115836ffe15f3d8741bbbd",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/baby_eagle_ribbon.png",
+      "sha256": "5238c3a505f03f83d98416d9d45b1914e726b7b8aa07016992048ddcc68d669e",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/daddy_garden.png",
+      "sha256": "ba64b768aa621db3ee147fec333914efd32166016b5cbcb7c6daa06bfe23ac99",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/daddy_original.png",
+      "sha256": "cdd19e21805e312f1ebefc6a4ece9f19f92e5bdcf49f1e771298e7985ac1fd4b",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/daddy_party.png",
+      "sha256": "655bb2f75cdc43916c61faf25afc8b06d1f29f5c160cd7b22de7c0a9c0e77426",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/daddy_ribbon.png",
+      "sha256": "1382c75fed72cf3a1d6070730c1ce666785ef7cf78524fdaed7b791d36db427f",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/rainbow_friend_garden.png",
+      "sha256": "3086a666a73405f7fcc567f5e34a1df93003d89abb9a4ce5108ce189a37309ce",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/rainbow_friend_party.png",
+      "sha256": "56f647f938efb7fde5116a33edbc893796409f17a5ca66327ae88eb3ca05cf2d",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/rainbow_friend_ribbon.png",
+      "sha256": "96c41e90d341c244a2ff9bbe4a756c203531ccd4d9aedb9c7b6080d1dfb6fa4d",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_base_disguise.png",
+      "sha256": "91cd7a6c321425c7d0917ec7ef8cd32af00449e5f206ef1b1403cb28f0cbfe9f",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_base_garden.png",
+      "sha256": "bb7d3a2901e49338a551e834c9d397abeb0004d856cd143cce8e554190165f27",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_base_party.png",
+      "sha256": "fe113e84b14c4784c2bb86860afa6e7e4d21cd38d2fa7268ee3978146aea421b",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_base_ribbon.png",
+      "sha256": "1a0a5ba7a6c7cde7da58d993721e2cf4a35fd301a870465065614684931678a4",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_directional_disguise.png",
+      "sha256": "653684591263e62e57aa724867a959ff7797658438793a4869dbdf068c4740b4",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_directional_garden.png",
+      "sha256": "54ef6b18c2a57c6b2d03cf79f3cd3e7817f2400bdf31e69fad2f863affdec3a7",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_directional_party.png",
+      "sha256": "3d4c0572ce2796c92ccd513958d6e7048e8a21aaee947ba74912ed8eba6bc78d",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_directional_ribbon.png",
+      "sha256": "95abfedeab2738c1f1e5805eb745223e149f5cbffc7fb9541c485c3411407e24",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_a_disguise.png",
+      "sha256": "f1776174cd1a67358bb8393f534c037172dda1e38e8c46043337edf1bdb0228c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_a_garden.png",
+      "sha256": "8ff584b68e9b46af47028f5c35bba5a72ca8b04ea695c7d1a7bde550517bbb0a",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_a_party.png",
+      "sha256": "650473adb5733ceb0487b4d1ce1706832a3b252910545ea02f4933868a0e4f17",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_a_ribbon.png",
+      "sha256": "67e983ad669ee8b24b1f09723dd7389f70453575160ece2bef8478fb46c40858",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_b_disguise.png",
+      "sha256": "2c6a0dba7f82cc20a7fd2c42f5664db4590e76104906f1ed49ec28e888a3d391",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_b_garden.png",
+      "sha256": "1cfdd1c8aa1901fd4f0537d90d35cefab27ea6c3e984d930a0f5b943ea36141b",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_b_party.png",
+      "sha256": "8305f4db011b840133a98649fc466cdad91713380d27a543e82c6a20da438945",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_b_ribbon.png",
+      "sha256": "1320fdd628f6ed7618b5870695b4812efcfd9d412ca5af2ad39f887efdd1e3c7",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_c_disguise.png",
+      "sha256": "457f8a416a1cd19e0c1170824c283dd94d002461f0c6e5c6f3d389422788406d",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_c_garden.png",
+      "sha256": "9c4be40be8f46153f81054a088a31f48ba7c83848b8912e3f55ee696bcc5361b",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_c_party.png",
+      "sha256": "d469b56f26dcb803be59cc92e8146f1ca211b2ddfe868277220af5ee51de2461",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_c_ribbon.png",
+      "sha256": "13023617d7ed54f36f9602114b80b671d26b9763d3fd4c046e9cfe7812310bdb",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_d_disguise.png",
+      "sha256": "ad620c6a286337b3a6de5e68cb181d1251bbb0275cb94cca699602926ae6af88",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_d_garden.png",
+      "sha256": "b2db3660e0f4e74542476e860a0eef2b27efd99f5c864c5eeb3d7859cb65dbc5",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_d_party.png",
+      "sha256": "57dd695ae1cf1cae666e21021c94e98d47793a7646a0904df866da82f8520437",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_d_ribbon.png",
+      "sha256": "79ee52961c918dd83a1e7b2c0feb425631ad89df7b57f9fcbaf0e823d29342db",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_play_a_disguise.png",
+      "sha256": "ec0a9cb0413408cac042b8412fec1bb5629a71103d6f60df540d9ca00c7ef477",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_play_a_garden.png",
+      "sha256": "2af2d8ff12a509bb0fe52310239b29cd06b41d5169300a9a47d745736427f7a8",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_play_a_party.png",
+      "sha256": "75414e2024f2011f53c1597318322815bde26e7e37f0ee046694ec8c2f803160",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_play_a_ribbon.png",
+      "sha256": "d371ce51bf986fb35bf5a793aad33ed27f5cab83e1828f5c72be4ff351f36693",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_play_b_disguise.png",
+      "sha256": "0a01eedc2adffd12e84b86b6a3dbfc3929c619d60474fc335831c6262e059700",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_play_b_garden.png",
+      "sha256": "d5f838d8ef3f234be461e308e2e8179983235255b93ac0432e60011d335ce308",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_play_b_party.png",
+      "sha256": "6a4c4ae7effb42338778d5ab5df8221166238bda74939bfe2e10a1601206e61b",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_play_b_ribbon.png",
+      "sha256": "19669801f4994a6c2a6ac480ae1d7841ace3c790881068c61033b8a272037e3c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_swim_back_disguise.png",
+      "sha256": "5e763600a4c431ff1b68a54808bb299ec4ae77ec8ec048b1e16c21c728e65a84",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_swim_back_garden.png",
+      "sha256": "15153593f7abcaadbeff952d6a100b4f5e9707f7068c7369723a3e7395f92267",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_swim_back_party.png",
+      "sha256": "7d2930efff1da2274871f24635e90dfee98ea00a4da205b78f36cd0fb215f277",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_swim_back_ribbon.png",
+      "sha256": "620117bc0bd1f919761b97d1900678e36b0db0926ba6d34041f2792b8fef8a86",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_swim_front_disguise.png",
+      "sha256": "b707110f714826f7e9eeb34ef79d8bc1658001bdc792107ca805f1b949f71df0",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_swim_front_garden.png",
+      "sha256": "41f9696d391cd5223454b104fc8e3e9b17457ec95142e024764902199851f9e3",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_swim_front_party.png",
+      "sha256": "199a4e47e8dfb8f003a3371741325d99e7886caee584ac144ae6e27739ed49dc",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_swim_front_ribbon.png",
+      "sha256": "3838b5340e1285028d2fb10ae2207068d6070e9195784af8e12776a8db780085",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/rumi_eight_pose_runtime_garden.png",
+      "sha256": "4b4cd3e82f017898cee14bf2f79ac076c1b17d7db185750db2f690af0f20059a",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/rumi_eight_pose_runtime_party.png",
+      "sha256": "af82f6a15ae52806c67086aa027ae8791273ba3001dae44528a2582c6ed6148a",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/rumi_eight_pose_runtime_ribbon.png",
+      "sha256": "34d0867ab298ee15638b4f5b343bd92585890a04d12dc6c89f0e0351a0f52332",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/rumi_pool_idle_swim_atlas_garden.png",
+      "sha256": "bd8d089f0cab67dc3de615725dc322641e724f97d95051c3c85aad8e231e93bf",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/rumi_pool_idle_swim_atlas_party.png",
+      "sha256": "1c748e00435156f47df6830f0befdcb714aa690293e73c8186ffc38ed20b4072",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/rumi_pool_idle_swim_atlas_ribbon.png",
+      "sha256": "cae24f908504ad96f2480c8a0f0554b7278473d4b9f2427c60d7133e758ad41b",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/catalog.tres",
+      "sha256": "58c3a41d61bc5a01bc3f43f632462681ad9c9fc1b132db3767398a2ebcd02756",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/garments/daddy_garden.png",
+      "sha256": "f53d6e487fefd683455a44b9332f62f20a8738dcfb18d97cc1975d0e82fc7c43",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/garments/daddy_party.png",
+      "sha256": "6428c0606f1fd7f03e3d76e809732a3fa5df00fb5ddb744d49046e5793b913b8",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/garments/garden.png",
+      "sha256": "ff1669df8a01f570ba81a3dfc768109cd480c55245a5025dabe5d0d449ed1952",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/garments/party.png",
+      "sha256": "064bc733d96309a9e08469bd2fb684f72a2329d13246a94cd36e040ffc1038e3",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/garments/ribbon.png",
+      "sha256": "8db1ec00bdcd4efa18ec270631e15da7f2c8c1b237a0bbcdcc3cc419c49f2ab0",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/garments/rumi_party.png",
+      "sha256": "126778bb5130de01cc9afd5b0368853d65f8f48ef5699181a2462ef8963c9606",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/blossom_body.png",
+      "sha256": "176e76a36836f95324958769a9e137595fee13600a90dd64363520bbcd04397b",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/blossom_head.png",
+      "sha256": "6e872b442ad694b87b3f063b64667357f5aa4591f027676a38f8daf1677c971e",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/blossom_tail.png",
+      "sha256": "89ec399b06e61c0dc2aba5b69e0cb13fff68e5f242ab1715fcb3893b519387b4",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/chef_body.png",
+      "sha256": "71bd0e45fc242d4df60a1a529ab5c319168f95aff0e4a33309e8bae26d14dfbd",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/chef_head.png",
+      "sha256": "46f4a10b9387946c875597eead161542dfcbb0f4e3f50a51f8007c572522dc3c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/chef_tail.png",
+      "sha256": "be8a9a49dd78e8a7626c35e412b340026279e638d62bc4478a9d4b5f55164e3f",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/painter_body.png",
+      "sha256": "ea13ddb9ec11d091a7f94c4433033f1553c455412fdfe63166a31eb2bd370340",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/painter_head.png",
+      "sha256": "bce4f28d17cd605ecbdc54da6ced44ce53f491768f4075518e8fa105339ed8cd",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/painter_tail.png",
+      "sha256": "69aa47579dcf0957ae833150d3080fce5cd11bf99c4f5beb445e3eed00aba668",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/pearl_head.png",
+      "sha256": "e3682c543252494dd735ac8f80d15e39a4a3f16b0c1cf0c2973ba71918b5d902",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/royal_head.png",
+      "sha256": "59bc4e2ca35f03383181f702cb7336441c75e1020abff0401dbb6fa3f43429a2",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/star_body.png",
+      "sha256": "920e5b0d47608f0d3dbf300a4d10dd1bb11a368b6996ab2741336c037c7b76e5",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/star_head.png",
+      "sha256": "572ca0102e9877f0d1683a301e3b828e72f363543c910a99bb7ab1ee7b69613c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/star_tail.png",
+      "sha256": "9d59c6acd2f985d15cd7dbef3faaf9dec88c0d6a0456a3ca68c4b8c024813d21",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/strawberry_body.png",
+      "sha256": "15a9bbc50dc754053d4a5c6f2371295068bab32ade1afcd95c0104fd0a66328f",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/strawberry_head.png",
+      "sha256": "2999db2d4135022d23b05a1820156508e2c94ed6919e67068c95c746619cb414",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/strawberry_tail.png",
+      "sha256": "35b509ec1a90f0b2eb0560f4e86db0e4e5e43ece6b535f7ca04586d4ce511442",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/winter_body.png",
+      "sha256": "f6bcc42f1df6f3e37b9cc85f2ec2a67df9ae9b68d4be0a3838fe2ed9c3c35542",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/winter_head.png",
+      "sha256": "73be165fde54f690237596daca72456b9b66e19fd31518619a6183b411c31897",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/winter_tail.png",
+      "sha256": "5b1ec719745f99b541f7c7393d6962d14cd8c22188a57df6107c2576437cec28",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_body_blossom_v1.png",
+      "sha256": "ecd6430a6aee86b95961ed569c2935d757818bb5135a70467b7d820b919de3a4",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_body_chef_v1.png",
+      "sha256": "8c69179757a0bfb80c13e844697c6059341e5aad7c6b7e2e618edaf1dd64b59c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_body_painter_v1.png",
+      "sha256": "dffd476d0c8e8e56a56ef8e795b66b123d5943ccfd15642799add2f8c2621289",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_body_star_v1.png",
+      "sha256": "227efecc136638a86a6631ab3b053247fa9bfe0e1cc56eb57cde026d1691c2c1",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_body_strawberry_v1.png",
+      "sha256": "e1f3842a982e63986e3d2b20902c2e71cea4f0b1d9b840d0d27a704e9cddc4f0",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_body_winter_v1.png",
+      "sha256": "0b780badc1b21f16af80e08a5f042654f46d6c4489100627ee0015403dac5383",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_head_blossom_v1.png",
+      "sha256": "a2ee1ebd331c09ab26315a80d35039444ece5493a69ba1b3478adc66f3cbbcbf",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_head_chef_v1.png",
+      "sha256": "3eb4276b469b5100554d84aebdaacd3bfedb50ddc65ff5e15c2a53b3581c4033",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_head_painter_v1.png",
+      "sha256": "e3d7090639f6e8cbb780c9cfee87adda8616c4c2ed92263ee69acd036f309daa",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_head_pearl_v1.png",
+      "sha256": "e648b0116dc39b5b1bf04d7d5705259e54c2839a2888319eb12e14425878f3ea",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_head_royal_v1.png",
+      "sha256": "91220f5f1638ff1d69909b01f7301295028e1ce99dd3fb1395fd08c46d98a425",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_head_star_v1.png",
+      "sha256": "0af6f11c03c42c9c2f1d264d2e7366c13c7685d208312f33651d94483bec4853",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_head_strawberry_v1.png",
+      "sha256": "f048e6a52522d9b17cffefe122ba3f745bd49df3f32006f3ca08c1b9d8814670",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_head_winter_v1.png",
+      "sha256": "183b7a8304237fa65871e26e5b7d80157e82c0cf3751398f8762195e55fa2369",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_tail_blossom_v1.png",
+      "sha256": "1a4bcbecc9ddd5d14b365b6ca0650af38820210486c822213cd31651123f0c4c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_tail_chef_v1.png",
+      "sha256": "33b0f602f8ec9ed15816fb8d76621f02a1982a944d0f0510dd902c46d9f3f257",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_tail_painter_v1.png",
+      "sha256": "117cbdec46912b6dbfa1814028e75a83bac3eb8d6cbec4e42c64530816e57a3b",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_tail_star_v1.png",
+      "sha256": "983b167a97171d3f24e6d853d55774e4431de759e06e93f6e28a450bef77f301",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_tail_strawberry_v1.png",
+      "sha256": "0fef7819691693efeef6bde4aac18308877b938493480256b96bd0e749a1a90b",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_tail_winter_v1.png",
+      "sha256": "d1186129ed11801cc68aaf7c416cf9a440aea837db90b5aad7c9b2b6a3a6bfcf",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_body_blossom_v1.png",
+      "sha256": "b78ca153b901915cde7fd6e8a3b608d921986fec53a9e5b8f84b455d1018f1ea",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_body_chef_v1.png",
+      "sha256": "3f80e0cfc6db12bd130146de09f7677262354aba4529238b81745c0ad317eee3",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_body_painter_v1.png",
+      "sha256": "2fb49296631527d4c8076b596d346293135b4cb35b60dbf104e0830b3825376d",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_body_star_v1.png",
+      "sha256": "ecbec164733fdc2810186d856c8cc6323d064950520b9e33f76fd0309776153c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_body_strawberry_v1.png",
+      "sha256": "27b131fda03758672aa4cddfff7bd48afd983221bb8cc52ae8b8d2c139d38195",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_body_winter_v1.png",
+      "sha256": "58ec53a0c0451899c60b14ec29125aa5754550f1d0961d4df63685f035cb5861",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_head_blossom_v1.png",
+      "sha256": "d09612cc82e5458456f75dac6953469e75e729a28abbc0d57be7191a3ecf0eec",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_head_chef_v1.png",
+      "sha256": "04609374a9b6c82b8be09065f8cfe49d9ce3547413571179ffafb9eb8f5aeaa9",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_head_painter_v1.png",
+      "sha256": "9aa6a8390f9381be1766b509e5295a29d1d5f59a8a2bfc0cc43c1ba565240f7c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_head_pearl_v1.png",
+      "sha256": "c59f02c0f9b8cda6410e2f4214b74b8218d00ab031de531b0ead5ce48dbec6e3",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_head_royal_v1.png",
+      "sha256": "e2595c2dfe1d8f07da6104646e9edb1e595dfdab91217d9a99b0f8aeb2cd6853",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_head_star_v1.png",
+      "sha256": "08fdc28029546376431b6b97d59ebd1038293d7022492ad520f88003b33fdddc",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_head_strawberry_v1.png",
+      "sha256": "4e86706245fe2fa97fa40f883a38152340bfba6b5ea2c5fa9e8f580852c61bc0",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_head_winter_v1.png",
+      "sha256": "ec959860419185bc0cdf22435100c975b2daf74491df8a4e792e1b0577d7d3f4",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_tail_blossom_v1.png",
+      "sha256": "4360721622028081a3e8dc92f73796c18ba1f1bb212334aac0bd45695746e605",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_tail_chef_v1.png",
+      "sha256": "65f10420baa80ca400c02a877c8c1d9185677d238da4d2ba71bc5f25d8bda526",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_tail_painter_v1.png",
+      "sha256": "6aa367d00c04632c354613b5c443ead858879f960842021b6c30db1af51ef8cd",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_tail_star_v1.png",
+      "sha256": "f5478fc397683bee40d3c8710d7eae7e02cd7243464ec34ee1c9103385e50f20",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_tail_strawberry_v1.png",
+      "sha256": "0c98830a159a25e868c89d5eb55444a69426092ca2c84faaf2b1ba2c0344f08f",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_tail_winter_v1.png",
+      "sha256": "4464cb16d798c387d5b48a60a4f99d2cc381a213e3d8bc5900685209eb4a965e",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_body_blossom_v1.png",
+      "sha256": "566c0c9e21cfe7a1822b1352d356598e8f44d53782b36c843c6f751f8fba629b",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_body_chef_v1.png",
+      "sha256": "42059af95441e3a83d34d759bee34b0ba3d9d6716616a8b941c99e454c33f5a5",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_body_painter_v1.png",
+      "sha256": "879f374cc5cc26cc3fe8e006542aa8baed97f25f4c06d8466bf47a7b95b266d7",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_body_star_v1.png",
+      "sha256": "066e4f40c2d34555a025b5541e9ee7adf442e58d94c75b9a13b600ccfb14ce7e",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_body_strawberry_v1.png",
+      "sha256": "61e97bf2bbcc0bca02c3692f4b26654eebc41313f1806911e39b093d62242ed0",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_body_winter_v1.png",
+      "sha256": "3d44a1d066cdffd793259186dfb5f75a45a4221f336d59725bf2ca1bc9d5627c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_head_blossom_v1.png",
+      "sha256": "c2416b4f05d9457bd020f74ee76856432ff3018b47cdff7baec325f24f8e8288",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_head_chef_v1.png",
+      "sha256": "89e300df8869fd6037a924bd65c0c8c88acb3f9ffb672e810f677a4f65015192",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_head_painter_v1.png",
+      "sha256": "e08b312146194ba72d121e0ceb6a59056a15dd588f7fd119afc2a6b0cd2eaeee",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_head_pearl_v1.png",
+      "sha256": "6ffb6478ba799c3998da725870b45e3920d8554612c8d4cadb359b85d457e037",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_head_royal_v1.png",
+      "sha256": "8c5aea1634d1233c03f362b3768708212eb91607666ded99fdef1b1c9e1a6108",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_head_star_v1.png",
+      "sha256": "e86b72e8cfbcd3aea8cf43ebf38941fb21c2ea9f096da87ae4e5432695d07c94",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_head_strawberry_v1.png",
+      "sha256": "fe3984f437200957964c6154bdd1e67cd3432b8363aa607ace94074923da4dca",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_head_winter_v1.png",
+      "sha256": "8083a579253f8518c16bd03aac6aff150e1f54e5474d19f30f782784dea70cd7",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_tail_blossom_v1.png",
+      "sha256": "6a3f77058c001131755eee7217af1954b13726eeda8e40f4143058624b25c365",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_tail_chef_v1.png",
+      "sha256": "1e2a86c1154fc79cdf678825ed0f2ecd9a1db8812cf9ed4f55a2541de8303fd8",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_tail_painter_v1.png",
+      "sha256": "33f0a4eadf9d815ce6effe14486ae1cfb391e5c9929bfb6c372d72d4ce6fd4c7",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_tail_star_v1.png",
+      "sha256": "c695fbe0b42b4e8a410f70e3c7d5e85dfd158b3ab4a5f54b04bd6c6f9850a36a",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_tail_strawberry_v1.png",
+      "sha256": "2b5b07d0f7033ed08c2947d876d6eb2581ecad87114a5b7608b01d8077531daf",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_tail_winter_v1.png",
+      "sha256": "67f08a98691e35cfba1772571177a2fd324cd97121f5192939b1cecfa97db8ff",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_body_blossom_v1.png",
+      "sha256": "496ccabbb9781587d5c05a535111cbc42d6d99ae04352ea01e41ff157b154474",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_body_chef_v1.png",
+      "sha256": "0b1e687687c4cbd0a8429ffd4b5c59912c514008d3da7c85ac5f86b2107986a9",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_body_painter_v1.png",
+      "sha256": "7f022fae6ada13eaaeb5419e303b6dde2da2944513b8205aa89df6ba22b76ece",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_body_star_v1.png",
+      "sha256": "c80bed2a84cc18891a74207e0becc518e4614a6a15d7198091028c48207e1ae8",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_body_strawberry_v1.png",
+      "sha256": "821e54bb21092b4435915be80fb1b4d3d90d511043df1542825b5e87f139f143",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_body_winter_v1.png",
+      "sha256": "574af3b5390d55cb08c2ccbdabd49d6392c0de684dc0ddc97790d48531e15a35",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_head_blossom_v1.png",
+      "sha256": "ea9b321d215de3ef3fd1ce4895cca8eac2841d0084d6efbffcfe994d1bd8d71a",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_head_chef_v1.png",
+      "sha256": "d00d8d1df3fe6b6c0151c2fc1349beeb909c2fff74dd4f0528bf2263728cb7a2",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_head_painter_v1.png",
+      "sha256": "aad1a9d697cdb16639f69dda61fd2bf64cd127fea567c7c5cd78953dc902fa27",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_head_pearl_v1.png",
+      "sha256": "29e7d4de02a10f393a847652d5c5f7450054d7bfb12f6a833ca40036e17a1c07",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_head_royal_v1.png",
+      "sha256": "56e91ba3e80dba472ef34f81cb6f08e62f3250badd54a07dc3fee3fab47213a3",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_head_star_v1.png",
+      "sha256": "25ae7a86d05ed8caf31999c6414f3a2c0cf2143641cd00cb31fc9c66112b50d7",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_head_strawberry_v1.png",
+      "sha256": "22eec70252bfb7b083cb13e9796aa7241002a2e7e6b71c3f4e74a6df5e14e3f4",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_head_winter_v1.png",
+      "sha256": "ddac7865724ef147389a70e9889e179b3e1656f55e36f113038ff62474f6980c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_tail_blossom_v1.png",
+      "sha256": "4a4855ac27810082a6acc844edcf22566293423292a33ff92f13a3cb0b768979",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_tail_chef_v1.png",
+      "sha256": "871ae0d4e4abdaea7455200c809e9a35d59cb29d59404af469d4f9f782ef8618",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_tail_painter_v1.png",
+      "sha256": "32bc96d928eca1017ac2a5974f1f764cbd11b0b80d2d33048501512802282c3c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_tail_star_v1.png",
+      "sha256": "564f2fcf77b55b88d099107a1fcb358d1dcd154debf20589b2f422bd2b37ebf6",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_tail_strawberry_v1.png",
+      "sha256": "03f0d37b17c0d55c5b85200d31157705c92d256f5533fbebec1e51d24f900281",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_tail_winter_v1.png",
+      "sha256": "0a19de4eafda28d58eb2c126257582fadaae090f1855d6c81f101747eeac14ca",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_body_blossom_v1.png",
+      "sha256": "fbf3e6dc852e1aafe9ddf58c40df4ea9b868ce479a2f054ad7991742f80c1fdf",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_body_chef_v1.png",
+      "sha256": "508d8cdb980e7bf3a609e6f58617f3cbf9264d22b29b904ad9687802e29713db",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_body_painter_v1.png",
+      "sha256": "2c9e20e3c7774196234471739e37b64edf3ab985231ccefb3c2e9fe3f31ad80c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_body_star_v1.png",
+      "sha256": "6213243f78778109d584edc8371bb5dd25c513df7772fbeeb24c3d1af28b9b03",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_body_strawberry_v1.png",
+      "sha256": "a45196a97c7a3592ba701bab8ed1c371d425787e8abc54a0946e69076a3c8192",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_body_winter_v1.png",
+      "sha256": "6e510defcba698ce7ea6a51d7694971eabc66c1000a8ce4b74b230eadd4bfda0",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_head_blossom_v1.png",
+      "sha256": "a306db1f4484a67b5fa2ecac081ac8f98b31262b6e76adb1db99574549a90ce5",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_head_chef_v1.png",
+      "sha256": "44e84734ceb2c8e1cf34d89e89a1f93de9b0429d0b721c3717c50b6e06cb342e",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_head_painter_v1.png",
+      "sha256": "2239d438d25a6174cfc95d1eec9968ea71b76d4c1b5cc73762116acd28ef7843",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_head_pearl_v1.png",
+      "sha256": "d8dbb0c7b7dbcfabb29effa9cab247607df14d855889c5c11e0fb21028e8abed",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_head_royal_v1.png",
+      "sha256": "224ea7dd61427a8c503389851659cbf8263cea966fa49187c1253e2f7a32187d",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_head_star_v1.png",
+      "sha256": "ae56061ea9f974e5d0afe663e372f5739ecddf345d8dc653e9a5ab3486ba5601",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_head_strawberry_v1.png",
+      "sha256": "14a89e1efb0aeb29a870eb964f29def7ca30eee34c2931deadc93d03a28890fd",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_head_winter_v1.png",
+      "sha256": "5df785fd5e20ef6b763f3d65795f6deea1b4dd563505f805c07541db6d14842e",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_tail_blossom_v1.png",
+      "sha256": "8c4791108294e2ef9d175e4500552870930cf5f719005077be2ba6ac1f36eacb",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_tail_chef_v1.png",
+      "sha256": "3b7d64603a6e2ebcaa4d415e9b8739c278aa500aa05a42ee8b322019d7cc97b4",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_tail_painter_v1.png",
+      "sha256": "beb912a880960efd277530b691c3cdefe08dc3311ab62dbadb906ea11c09db8e",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_tail_star_v1.png",
+      "sha256": "a1c3d874a35a0982b877ab8bbbc42d07e5e646c58c7258223b13cb66a4926b78",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_tail_strawberry_v1.png",
+      "sha256": "81972bc8d75550597cc087c0012c12d13d601a0cfc34338215a8accbbdef56c4",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_tail_winter_v1.png",
+      "sha256": "115596368f2108e5bd3cdc0218b7109c9a2369da8f1f492f2c9c1048b0ab64c3",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_body_blossom_v1.png",
+      "sha256": "006f2dbfe70b034b82245e38ee3e1cbda7d9e0a074808e70e151744f770c15a0",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_body_chef_v1.png",
+      "sha256": "a8d477245491f15e2b3d3165bf4ebcaef97f292af266c5bfcf6a86814a808bea",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_body_painter_v1.png",
+      "sha256": "90e9a8819a9dafd8580feae56a379fb477912dbc764be95c228487449a8ba7b4",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_body_star_v1.png",
+      "sha256": "4ddc6ba60f62d7294fa495a804cbae98d8642196a815af4cefb1c9c3e2c2310d",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_body_strawberry_v1.png",
+      "sha256": "4c46f1582d004e856f855623137eb3e4fabd1a32c09f7e2e561221fe36203706",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_body_winter_v1.png",
+      "sha256": "ec8ad5ad3ec68ff471aa9f711caaa083c6383657d9baefde9a8512f403dc081c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_head_blossom_v1.png",
+      "sha256": "5a4ca43e3619945eded8e2d4e5ca1e4e15bec2b8740197833a99129191703abe",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_head_chef_v1.png",
+      "sha256": "be06b011658499b6af73b84faf99bd32478584922b61ee6c4b1db4586facd91a",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_head_painter_v1.png",
+      "sha256": "aaa14f52603778251dff47d8eee28af43046b84fa086f31bb7d526f9be827f1b",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_head_pearl_v1.png",
+      "sha256": "05bbb8d11fa7691ab09f562b7b21fd0012e2a937690010f79249b15d0697be31",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_head_royal_v1.png",
+      "sha256": "39a268b41e13d48ef855f2a00153491b8a353ee69634030c40fb2f552beafe38",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_head_star_v1.png",
+      "sha256": "f622830fcd4448eeee676d5372daecff25e5c7b49d15c62e0aba1028c656f48c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_head_strawberry_v1.png",
+      "sha256": "804ec542140c40d05b619956006bb080c269d4e200c2ccbc944105bb169d9667",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_head_winter_v1.png",
+      "sha256": "c8c7ba53abe4c2fde8e89a0f5ad174f0121ac70ca518b462a161bab2b05a04a1",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_tail_blossom_v1.png",
+      "sha256": "59d68d05b1084cc534b6357e6e3c259e67fbf52699e2a24a610a0bc967aa4868",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_tail_chef_v1.png",
+      "sha256": "63b223d918ae427bb1a181f46934d55a9771de79f17c8539ab0344b3eefe0376",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_tail_painter_v1.png",
+      "sha256": "e5953bfff600579438192770f899a4ef5d455aefb880ca08c4169671ddcb4467",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_tail_star_v1.png",
+      "sha256": "da1842a6accabfdbbc802d25d1969e656843400fb6aeba664c097226f53bebdf",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_tail_strawberry_v1.png",
+      "sha256": "5e563f0daf3d0092961d63dec074776fc73d5354a8d9a4d50b5cccf7fc58858f",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_tail_winter_v1.png",
+      "sha256": "da3308ba55908f28ffe8894c9c150f681ef1c68df4256608069560b3d33238f0",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_body_blossom_v1.png",
+      "sha256": "d93926080695ccaff93abc5f8185d693e82e99c0709df65dd8b319cf8b81266d",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_body_chef_v1.png",
+      "sha256": "8fc6c15acd1f4725c658cadbe540ac0cc7e49c49460e42b57f0ebf7d53642f92",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_body_painter_v1.png",
+      "sha256": "83e29cebbb9a05165245ab4c2f305eb5cd0f574b2eaabb8361e251ec04fd4120",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_body_star_v1.png",
+      "sha256": "f48d3b147a7febffc938978a8442d7d8311911d46e62c7e7ba4466723d591b75",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_body_strawberry_v1.png",
+      "sha256": "ffc8cdb1b3d753850b1e8b23c9030f7f9ee2bf8c2e21adfbc48a30c20b7054d4",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_body_winter_v1.png",
+      "sha256": "73f03c261791663e86dba982d7ca4dc79feb597de0a1cd805a817b802424b2c3",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_head_blossom_v1.png",
+      "sha256": "bf0d6d313a9d0af9154f052baa06d6d376961060844e82559a2fc7d189f08f73",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_head_chef_v1.png",
+      "sha256": "0788abc1b94911f3be8c7fd18b0194bdac9304b493ae2ee15c1cd548587111af",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_head_painter_v1.png",
+      "sha256": "3139722bb9b4fff5bcc7e27a5f0251aed49c29dce108e0f7e32b366d66448716",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_head_pearl_v1.png",
+      "sha256": "a5368e38da5b981eb625736218ea5a3acd0669192af9d169f7211e180a453af5",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_head_royal_v1.png",
+      "sha256": "66414beef580c0e3548217d20497d97a415e0d37fac16cd9fa698ddd61cc7ae7",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_head_star_v1.png",
+      "sha256": "7f1c0323afb908c3a31f829e353522ab3d8aabc51c15c338da128ebbd98a5c4a",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_head_strawberry_v1.png",
+      "sha256": "47a76c3f9e95d518975534857dc603ca1506d34e6daff4d116b09bd6ec58d494",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_head_winter_v1.png",
+      "sha256": "cd7661fbfab726f73e5588f4556347bf63903b83c50c6eec915b5a896c723b1c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_tail_blossom_v1.png",
+      "sha256": "f21e5d67c8f02440de50397e274ecbdcb5a8500b22b6f141f4e149ad8343490e",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_tail_chef_v1.png",
+      "sha256": "853d7db39f86381b04f3cb70ce499a725487ce541293a07cd1cd4b8dbeeb6223",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_tail_painter_v1.png",
+      "sha256": "3ccd8a98e2a911d16b8f88a33d579b544d8462760dc13b2a7e1219a61628d5ee",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_tail_star_v1.png",
+      "sha256": "ddf5df310b8c3fd463eb2865ef68a8eac860a6e19f6f337720d0fb433b7be4af",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_tail_strawberry_v1.png",
+      "sha256": "bd95e7017af90bda9d82b696a3b9e4192af2521559e60fa9e8c834f62eafe2a9",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_tail_winter_v1.png",
+      "sha256": "73d8cc7e8faa474becc5565019f739b3a1f4761ee9cd5048b421f3926d7c5c85",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_body_blossom_v1.png",
+      "sha256": "e9fb878d1120c9cb2e26aee91414e26584529acb7818df8383e43d4ef85f265c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_body_chef_v1.png",
+      "sha256": "7cea8d3ad01f72cf45bd7dadc66b02d683dd8349a2463bbc69ef3b22842f8710",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_body_painter_v1.png",
+      "sha256": "84c56f1bfa967610bb2637a7a5cd8f3673e30c33fbf0c81a9041e4ef2c119653",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_body_star_v1.png",
+      "sha256": "893594ac2abad8a492864a46d77f1f2c4cdc5c31aa21c311e8c2127f3b50b0ed",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_body_strawberry_v1.png",
+      "sha256": "98daa23bada62ae41febd06e70b15cd934c66d756cdfbeead62f91f2e5b0b34e",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_body_winter_v1.png",
+      "sha256": "4ee014e0baab6ada24825075b08b0ffccca7f8623320ad1b5acfbbbc8ead2956",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_head_blossom_v1.png",
+      "sha256": "ad97966f0435e0a8ef5f98b5fdd695292d96b48888954168deb2dbf916a4b544",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_head_chef_v1.png",
+      "sha256": "68899e7751e8650ec7a76fbc79a61b081f0e6bd8ea835fe7a84c42e14d6f473c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_head_painter_v1.png",
+      "sha256": "8038cbb34d5c6e82a5753d1d66f6a6e6e08a1d628ef4be7ccd8b9f74c62384b3",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_head_pearl_v1.png",
+      "sha256": "b1489ee27ca9c15029ae818eaf67a0324252d10bc3a9e55e2e5876c2f48d9f4e",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_head_royal_v1.png",
+      "sha256": "7b0768651b05edc653c6619484a7a31d454c392f02a6100a7c5ab8265f21cc74",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_head_star_v1.png",
+      "sha256": "8b5e2d7bc9a5ee6ecdccd0f5052920731da464cc181b4cf498b8b44f0abedf5e",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_head_strawberry_v1.png",
+      "sha256": "6e9983cbe1dc4fb2aef419b0434ce0ac123ea8a7092e467978270f380ab930b2",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_head_winter_v1.png",
+      "sha256": "5c3a913cb5ab95c9eb878d0c9443e947e78cf9b5bee30ac1ac00555a04ce06cc",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_tail_blossom_v1.png",
+      "sha256": "c32b25c1460bfa1664e06cdad32e1423e242280e054321a2014b77fe331c96de",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_tail_chef_v1.png",
+      "sha256": "bbeb5b9d6b2d34aa77e46d902ca62328a761249515d9fc8831451deca12247f8",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_tail_painter_v1.png",
+      "sha256": "d38f902ae6eb1ee58672a9240bcf9b89568b9b2ee6b8524ceced85cb591e8431",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_tail_star_v1.png",
+      "sha256": "31561ba8dda438f12688666d8abd64102c66d11204aed33cdb31239328583f9c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_tail_strawberry_v1.png",
+      "sha256": "64333c60339f9797852df50bd6550c568b1feafaf8ebfc5b361d0efabef02324",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_tail_winter_v1.png",
+      "sha256": "e76442724fe15c520cb0c05cfe22dda77c47ab2ae3bcd7d59218d898bdfbee50",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_body_blossom_v1.png",
+      "sha256": "7fc0d7afc3c94f7678ac9d8924aab5116a987c50a5753d541ecf759a380b01a0",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_body_chef_v1.png",
+      "sha256": "56f6270ffe531415517d64e6ee172b6634a4fe35be8a013dff7a4f90a74fddca",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_body_painter_v1.png",
+      "sha256": "c0271ceaf82884223072820cca08d89625cb5f40e49681e1761b69c2cf728a1d",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_body_star_v1.png",
+      "sha256": "9544d5407df18e5a098573ba3fd105ee007ea6d9bf5bd3e56f74e098f2bb7748",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_body_strawberry_v1.png",
+      "sha256": "f8c814b0a3232bc018b2ff5cf0087215ec591ca79540a8a458bce05e9f7b5d10",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_body_winter_v1.png",
+      "sha256": "189c04968f39c738983f1f2b30daceec4acb38b8a7b348149f579b29e669442c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_head_blossom_v1.png",
+      "sha256": "1c4185c9caca2d64c85de2d33275c244d8ca9e5cb83b2ac1ad0605e081f6dcfd",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_head_chef_v1.png",
+      "sha256": "da6c3e00392231122fe24e6003e5514939ef4e9fc717add843bf7b7e58dddf77",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_head_painter_v1.png",
+      "sha256": "48c4990940de3a959bc887c3db66c6e38b44d32bf495682b164d18fc7c22f93b",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_head_pearl_v1.png",
+      "sha256": "803169cf977dcd13b864393b7704fbe117f9b4b3398ad616569f6df67b3a2cd0",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_head_royal_v1.png",
+      "sha256": "7e0e3f62f68211c0ac3743b2f01cfba0970ab7e69e63384e1272589db0ec8d3a",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_head_star_v1.png",
+      "sha256": "6da7d959232989494053651956c60b3e023e0731ee632f64ce3fbbee63e2e3da",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_head_strawberry_v1.png",
+      "sha256": "3b3bcc86fe6cf3a080fa7c92c089163ecc543a0a8650e270288befc48e93cbc1",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_head_winter_v1.png",
+      "sha256": "d5a0faad96c3661e90e1ba21b622b52797cd47c58835e5f4ac0e3a1f513401c0",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_tail_blossom_v1.png",
+      "sha256": "7f70082bb59f67fc526a73631b05d1c75537bceae26fbcd4a9b12b631841c431",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_tail_chef_v1.png",
+      "sha256": "cd89ace4c0f099eb1b5a66249ccc738877489a67bb3d2e8e61401c6913885b09",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_tail_painter_v1.png",
+      "sha256": "b7581b46c17f6761fb87c8e53b3617b92aaa9b4e29f7979928a4a2a0c7aacac6",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_tail_star_v1.png",
+      "sha256": "8818fe752fc9e4b542672d56c34958962156f1db0c8f64eb1ebeffe293c7f056",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_tail_strawberry_v1.png",
+      "sha256": "7238b64591aa9ab04d88b45164fd89bc55582a526e2511d74ddd484cf7816acb",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_tail_winter_v1.png",
+      "sha256": "3c7f42bdebf499b4d75e8c024204e0a17eb2d8e104f96b11da9fe4f69e7b7d14",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_body_blossom_v1.png",
+      "sha256": "8bc68a0adce10f8e44fa3ff09d60f3630b0c57ba4b14bbf6fcd4c9257cafc239",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_body_chef_v1.png",
+      "sha256": "d0a458cf873fb432248839fb30e82e1655a6fd7909eae95c4b6eef72fe0d4969",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_body_painter_v1.png",
+      "sha256": "f3849c15ff2ff7978cd2e6112ea82ad83037d344be6d9d1c36f513ce3b07b0da",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_body_star_v1.png",
+      "sha256": "fc5856af535f746bd27eee9e562374f6eabd3090bf2ac3c6ebe3d6cde74ca84d",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_body_strawberry_v1.png",
+      "sha256": "1f16c2829698e94ecf238dda1094e6c8434b5c40a6733230adc7ca2991a3f3e7",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_body_winter_v1.png",
+      "sha256": "d58d8a7e4900ea31905f1714522627a01eccd501bc29589d8895a79a5e472183",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_head_blossom_v1.png",
+      "sha256": "3aa956ac96580d1dab73cb60fdbf99103fd33083cda57792a116a8035ee923fc",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_head_chef_v1.png",
+      "sha256": "5808d48fb8056d244cde219076f91482527f0663125bb461cbc0c546be188ec6",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_head_painter_v1.png",
+      "sha256": "ebe9295cf652638c5c44fa5d6d7563101f382d38b444bd3b08e14434bbc34c2d",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_head_pearl_v1.png",
+      "sha256": "385e456218f195dd15e8138ea0240c0b5c4e0bb8584ee65ed8245a1719611b81",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_head_royal_v1.png",
+      "sha256": "0ef535001781b649aa9d4d1848277c7ca4aaa0cd4c021287aede88fb44802e37",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_head_star_v1.png",
+      "sha256": "861e05c021a1bed414a7c058fe85aca48d01594f989eda37eb313ce8006e6700",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_head_strawberry_v1.png",
+      "sha256": "0f45d735bb042ff953e9fbc30d0e496d5c695fa0eb1bb6cbb031ad11a36b5d69",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_head_winter_v1.png",
+      "sha256": "30f262d265060abb960a76a5a6f58c8de0ccfbbf2ee9f231046a01ed59a32ffd",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_tail_blossom_v1.png",
+      "sha256": "063c44f0a9f67ef4fd9306f8daf8490ab4bed2f009882cb5d3f70fbaa962bc37",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_tail_chef_v1.png",
+      "sha256": "a9b6cd01e4622211f831f8e3bfe3ce72b15bc51958c04570070df8279f8bf044",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_tail_painter_v1.png",
+      "sha256": "e152674209dcaf939f73f35baacef70d8d9b247f92c94a94d420a2792ff29320",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_tail_star_v1.png",
+      "sha256": "0f0c9d259e7f96e23668dcb28653e6c7e3a27c9b9a6cd8d7a6bf2151740c2fa8",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_tail_strawberry_v1.png",
+      "sha256": "a2223a5d73a3bfc2e66a879f37d121feb0c2d297043c56bada7cdc6b639f5081",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_tail_winter_v1.png",
+      "sha256": "30f23794d9238602a083052d6a7a42f2171f6bc0fe5bfc9fcb8c9d3b4f05adc0",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_body_blossom_v1.png",
+      "sha256": "7e5edad903b6ec9cc7542d412b83c0eb3c2e9afecf89f3d974b80e2383bdc3f4",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_body_chef_v1.png",
+      "sha256": "cbf1b496d395635eac24931841e2fde67d5dfd72845b53a3a3a3c3380876902e",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_body_painter_v1.png",
+      "sha256": "3a23bef1bcf38b1953d29ffdd287b6a2a698184faeee6d2a12f2d527eb6da365",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_body_star_v1.png",
+      "sha256": "00bc7925ac7a964ef91682db7626e067ad76f4f3a705979bd367a71aeb67e15e",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_body_strawberry_v1.png",
+      "sha256": "596bce4dcc8bd9e9ed135ee317430b1b65d4a42bc5c8c03825a772d1309ec29b",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_body_winter_v1.png",
+      "sha256": "ca8008f61a959d35845008dfa72348dc852042fadaa82e6cb13da50bb5353fbc",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_head_blossom_v1.png",
+      "sha256": "bcfff219db2bc3107ebabf0d4f6bf5450454a13287c6ee5432d0430b09510016",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_head_chef_v1.png",
+      "sha256": "b5f7c389a17321826eb4f568e76a7bc8840d255c2969efd82c94d995ce2ffd14",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_head_painter_v1.png",
+      "sha256": "11ddd1d04389aaece79309e7b93493f36227d23f5e1d5cd3f1d8d9a3f381b78a",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_head_pearl_v1.png",
+      "sha256": "e5822289d8192632d5f33b6fb7fc24d553a29338d679c13842c8790cea035264",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_head_royal_v1.png",
+      "sha256": "2b641fb05578f4ba94dac5adb9e35fdc8a39b927571942adeec1f079dfcc03ce",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_head_star_v1.png",
+      "sha256": "7cbadaf6539dfbd701e004fb9fe93590d4176295fed0c0ef705e50325a3b0945",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_head_strawberry_v1.png",
+      "sha256": "b31ade87b0b84522881edcaf12ed55f37f64bcbaec37f4bbf8804c9a20e9738d",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_head_winter_v1.png",
+      "sha256": "969059cab827c574ac9295e179a754b08a0e75fe4695dc963141d012a00466b9",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_tail_blossom_v1.png",
+      "sha256": "f5b59effd10ed358092320c28f291d9b170102c7d9e9d26a75822c9544f32420",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_tail_chef_v1.png",
+      "sha256": "ad34087d55da8495f047a628afd914ffe979d9041899653cf3086d6896e97494",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_tail_painter_v1.png",
+      "sha256": "860ab083926f45966a08a0641dfadcbbeb4fdf085c5084420b04b86ce7d86558",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_tail_star_v1.png",
+      "sha256": "e4435d04cca18357fdcc93ad0222f8d173d0772f0b66724316707133a184d8eb",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_tail_strawberry_v1.png",
+      "sha256": "1767990c3722153b00b8fceee1dbb2455642b9ba33eeaacea3d262db31b2b3ad",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_tail_winter_v1.png",
+      "sha256": "f4d73895239c96fedfc1a2197c359551faee33f32c7b81e2232e227e1bcb73bd",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_body_blossom_v1.png",
+      "sha256": "d989ef6467ea843cc14c6d54e4d57ce39abbe7c1a45c112c917332ba0f751d4d",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_body_chef_v1.png",
+      "sha256": "d681429e487b38f2b54d67ffb781afbacb4e319976df9d434de94cf2df9781c8",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_body_painter_v1.png",
+      "sha256": "9e5419391d72a332cbe54b2592c97a07dd0a66daa545986ecab3213529e8157c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_body_star_v1.png",
+      "sha256": "261f8b0ff1de2662d90c15f8c5641249abe4dec2403ccf0a68b2551e1249ce41",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_body_strawberry_v1.png",
+      "sha256": "999d2f43d7250c58a47cd64dc3b6b7f84e3aa52ed0237625f655b7057dab2904",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_body_winter_v1.png",
+      "sha256": "18a69eca5d384d0bf5f95d3067a46b073b03b37ff06c27b9af72f17a4067bb9a",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_head_blossom_v1.png",
+      "sha256": "d3b380fe4f0c13b847d7f25a915c5339b251d57b693f43e1f11e476b1720ad93",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_head_chef_v1.png",
+      "sha256": "0570212f49a6d3d7e54e9aaee12e76fedfbcdbc4c54d71185ab1feaf5fa290bc",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_head_painter_v1.png",
+      "sha256": "d575ecbdb4031d40cebdcd89d12269df4d0b1fdee206471d08b2592304168eb4",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_head_pearl_v1.png",
+      "sha256": "f8c0b9ff0b5a96022844b7d7365d50ba3fba70df9068af6b02892d153fbb5847",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_head_royal_v1.png",
+      "sha256": "19d2be34089472d7bc6591cbfeed2c495fb6d22c5e78de16f867f32659ba8e24",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_head_star_v1.png",
+      "sha256": "d0baa344c94be585c8c7c856f937fc272cb8f26924612af57dc176cb5a416d37",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_head_strawberry_v1.png",
+      "sha256": "e18c00a3a05b42e89b4b836ad17dda1191cca3d2939913a97030c3a04d262b9c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_head_winter_v1.png",
+      "sha256": "cd9f754650beb8569e05e941bc1f553d7f7fa6a9ca23a5ea1bf7fd28d3677694",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_tail_blossom_v1.png",
+      "sha256": "97c4975d531611b76de2bc5d04c687c2f58baf88625988529383c69b72b4afdd",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_tail_chef_v1.png",
+      "sha256": "ff7734793a2df0c6f96f20e20c51815f1ae742448a463141021c24af8a5d74e9",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_tail_painter_v1.png",
+      "sha256": "ed24930feac0f1f56c074fdf3e5e0c1e8df5a436d79cd7786cd13a341ff13da6",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_tail_star_v1.png",
+      "sha256": "4ea4df11a45ec59c1c0b38fe14c46802129f902638d168f7ae4f76bb05748392",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_tail_strawberry_v1.png",
+      "sha256": "a8bce0dae5e35a3aabd676c86424e67b9b2a16b7c156a4354752dce51cd9b758",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_tail_winter_v1.png",
+      "sha256": "ad9440a1f4888224c94f78ca0e9eb5810e12a07d76d955fb559da88d328e8e08",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_body_blossom_v1.png",
+      "sha256": "d184b697e2162c09e4ed00ee5e0975c6dcec346066689bd1636c82e5edf0604d",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_body_chef_v1.png",
+      "sha256": "bd6e35d0777fbd05d362796b14e2d8b3bca10728d03559e754d05ca194a07358",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_body_painter_v1.png",
+      "sha256": "a349969822409ef51a78f7c183514d326bfe5416dbd051b72693ffcbc4ea5325",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_body_star_v1.png",
+      "sha256": "f7b65826b44186becff4a3b46fe2505cba140887949acf464e906de3c5eb2073",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_body_strawberry_v1.png",
+      "sha256": "8218293877f1b7e413ad8ff67d6c3d7b82df3664d95b400a75fd64591acde3a9",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_body_winter_v1.png",
+      "sha256": "8245d496cb98c36fb01bc14b73b85b2390a22861260cf5d329013c4f40ae186e",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_head_blossom_v1.png",
+      "sha256": "b1d0edd105ae8e031bc5f94bd7b41cb8530aa4e588f98f800d32bc410337cb2b",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_head_chef_v1.png",
+      "sha256": "1a41004c497a9a2eb371c06ef848831ab3a1bc14df8a18007ab6a2dc1bc5cf7d",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_head_painter_v1.png",
+      "sha256": "22534d51fb69bcab4ed7c10fe071a62ae0a591e66fea98fcbbd9816cc7211773",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_head_pearl_v1.png",
+      "sha256": "e1cbfa9d7e5ca7d869bc4259df599e82887eb4683be826beabdcc59b30be9d13",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_head_royal_v1.png",
+      "sha256": "266754dcdd19d6c4b84a79d43a60219f0a3c920087fc277469b5daea1140ed4c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_head_star_v1.png",
+      "sha256": "e09c9d7df9440fb669e585ca1db9d0adad61b639b3c85d1adb246afea29dea80",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_head_strawberry_v1.png",
+      "sha256": "d5f6553a467f3f53985b3606f5331affbba2271df557f5932cd8cbc9325cdfd9",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_head_winter_v1.png",
+      "sha256": "1b4bf7801044852f2658e14e3885f18641798e5f2116c5ed34f72ea762c7c9c5",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_tail_blossom_v1.png",
+      "sha256": "c32280d3ccad2f6a518f67e522968dc9cb13acf759d66be2165a58f96721fb9b",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_tail_chef_v1.png",
+      "sha256": "49b142937979cae8dae7fd71bc2158ca425a9bfe1a9e96c98a63fe1d38cea87c",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_tail_painter_v1.png",
+      "sha256": "bccb171b82a5216438d9a8cdac46cd2957fba3f4bbc301b10bd586255e0d1879",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_tail_star_v1.png",
+      "sha256": "0a005d4ae44d008431bc10c7ff7965a201a06334b41413628879115c42e067ee",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_tail_strawberry_v1.png",
+      "sha256": "ac7483ed97fa4c79d596658cabc6870b9959c8f6581851e33c899c01b7dfa45b",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_tail_winter_v1.png",
+      "sha256": "5b0217f685f6578d47dddef51de4029d26ee40075fb80154c6efc5036fe9021d",
+      "operation": "Existing catalogue/source dependency reused without file changes"
+    }
+  ],
+  "verification_inputs": {
+    "feature_capture_bindings": "source-bindings.json",
+    "frozen_stress": "tests/bubble-cast-frozen-100.json",
+    "frozen_profiles": "tests/bubble-cast-frozen-100.json.cast.json",
+    "frozen_reload": "tests/bubble-cast-frozen-100-reload.json",
+    "original_modes": "tests/bubble-cast-original-final-100.json",
+    "original_reload": "tests/bubble-cast-original-final-100-reload.json",
+    "failed_first100": "tests/bubble-cast-100-first.json",
+    "failed_visibility": "tests/bubble-cast-final-smoke.json",
+    "retained_failure_logs": "tests/*.log.gz",
+    "note": "Earlier failure and startup-incomplete transcripts receive no pass credit. Final touch-corrected100/3183 plus original100/1737 both run the same current runtime source after every visual/contact/layout correction.",
+    "final_stress": "tests/bubble-cast-touch-final-100.json",
+    "final_profiles": "tests/bubble-cast-touch-final-100.json.cast.json",
+    "final_reload": "tests/bubble-cast-touch-final-100-reload.json",
+    "dual_active": "tests/bubble-cast-dual-active-100.json",
+    "dual_active_profiles": "tests/bubble-cast-dual-active-100.json.cast.json",
+    "dual_active_reload": "tests/bubble-cast-dual-active-100-reload.json",
+    "dual_active_summary": "tests/dual-active-summary.json",
+    "renderer_delta_chain": [
+      "renderer-only-delta.json",
+      "hud-only-delta.json"
+    ],
+    "local_regression": "local-regression.json"
+  },
+  "starter_cast_policy": "Current FashionDesigner exposes the five recurring characters without a separate character grind; the existing Marlo joins them as an optional Bubble Duel starter. Both human slots respect shared cast_unlocked, owned power items, owned colours and globally earned wardrobe lists. Unknown future IDs/fields are retained.",
+  "local_ci_source_scope": "Canonical local scripts/ci.sh began before the final touch-only correction, which landed during its static lane before import and gameplay probes. Changed GDScript parse/inference and typography gates were repeated afterward; the final100 and native captures bind the corrected source. Record the full local result with this scope, not as an uninterrupted immutable-source run. Exact published-head CI remains mandatory before integration. Late marker/HUD-only changes have exact byte-delta proofs. Their final native renderer capture and direct script checks are current; no immutable-uninterrupted-source claim. A full published-head CI remains required before integration.",
+  "reconciliation": "reconciliation.json: non-runtime only; production input hashes unchanged during local gameplay lane.",
+  "publication_snapshot": "At this source-record snapshot, work-branch CI/dev integration/APK are not yet performed. Their exact commit-attached GitHub results are verified externally before integration; pending here is historical, not a waiver.",
+  "source_text_hash_scope": "Character/prop pixels use byte hashes. Native source-bindings record local working-file bytes; Git text filters normalize CRLF to LF. See git-normalization.json for local and staged Git hashes; no sprite/image pixels change."
+}
