@@ -1,8 +1,8 @@
 {
-  "revision": "6f7bf08cf8095d761c239c8aeae962b76b6066b3",
+  "revision": "96511087fcdbc572b090028db201a3f422d652fa",
   "ref": "refs/heads/codex/reef-kart-art-20261104",
   "access": "anonymous public GitHub raw download",
-  "checked_at": "2026-11-05T02:15:52-08:00",
+  "checked_at": "2026-11-05T03:26:02-08:00",
   "files": [
     {
       "path": "ASSET_LICENSES.md",
@@ -590,6 +590,11 @@
       "sha256": "aa290fa408eee3592155e4d15d9a6315b8ef127b80949a3ba004bf7af070f161"
     },
     {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/evidence/github-probes-b2bd2942.log",
+      "bytes": 2672040,
+      "sha256": "f47403f62e992e8b9da4632b84cd6e788bc9ca65d97abf785cc10d765476f8df"
+    },
+    {
       "path": "assets_src/imagegen/reef_kart_context_20261105/evidence/import-mips.log",
       "bytes": 3929,
       "sha256": "4f7d5d0c48ef0e8aef35d7b62e1bb772955f446d791c2db4e5f9150ce941f199"
@@ -683,6 +688,16 @@
       "path": "assets_src/imagegen/reef_kart_context_20261105/project_asset_inventory.json",
       "bytes": 803555,
       "sha256": "79eb3bac1b62fc4276f4f69a9d6ed810dd0530b49dfd3ea4eb47c049afd23d41"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/remote-verification.json",
+      "bytes": 46695,
+      "sha256": "05196cd260c5a5a0b3b3aa8c4e4f3beb1e264a663f34ecfd5f8192f4b994d323"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/remote_ci_summary.json",
+      "bytes": 4770,
+      "sha256": "89b5c17fbd5ba77ed8cd44a150bfdfa3a8f4cdbb18bf2f48c2ef1287bd7bbf74"
     },
     {
       "path": "assets_src/imagegen/reef_kart_context_20261105/review/baseline/course-picker.png",
@@ -1101,13 +1116,13 @@
     },
     {
       "path": "audit/MASTER_AUDIT_2026-08-09.md",
-      "bytes": 340513,
-      "sha256": "45cac93408923ea88705d02982bc4886713cb7d8af294d5bf9041566a5179f4d"
+      "bytes": 340559,
+      "sha256": "fecdaabbcdf330487706e2cc9ac3186085336e81fb6da6ec9898429155cdbbb6"
     },
     {
       "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
-      "bytes": 321413,
-      "sha256": "b7eb017717b911ad365f9e6e7dc7715216955ba09291956169e6567df9e52a8a"
+      "bytes": 321839,
+      "sha256": "5ab6c13229d14105d91a4ba647056727e77831001e6b4c5a7776e0cc476be023"
     },
     {
       "path": "design/05_DOC_LEDGER.md",
@@ -1116,8 +1131,8 @@
     },
     {
       "path": "design/audit_impacts/reef-kart-visual-context-20261105.json",
-      "bytes": 17034,
-      "sha256": "ca677165ee399c2b53349e06043700f978c6493e2a04c08b748035ef415f8504"
+      "bytes": 18945,
+      "sha256": "d82b3ad0c4cadc24325b812533d9b2585a83b03c76cfe8e9e4b9e7d3df5eb9f2"
     },
     {
       "path": "design/reference/OWNER_DECISIONS.md",
@@ -1136,8 +1151,8 @@
     },
     {
       "path": "docs/handoffs/codex_reef_kart_art_2026-11-03/VISUAL_REVIEW.md",
-      "bytes": 8350,
-      "sha256": "ba55456b520561d0cee4e4943193327985ba85dc37f55d500614826d042ad494"
+      "bytes": 8769,
+      "sha256": "2aeb5020abd2b0347e38f9de4d216eb18ff1d41d8987469d9b41886ee47bd1bb"
     },
     {
       "path": "scripts/probe_reef_kart_pc.gd",
@@ -1170,7 +1185,7 @@
       "sha256": "aa7e8e8714a64f194041e510d8dbdf237cd731b10d404ff862d4007350d523bf"
     }
   ],
-  "payload_sha256": "13d5a1d089fed97a51e7745dd26687acbbf27b6e7dc35cef4fcca6e5f33cd77c",
-  "impact_sha256": "ca677165ee399c2b53349e06043700f978c6493e2a04c08b748035ef415f8504",
+  "payload_sha256": "4534c47868016e86ade1da74bf6dbfe66a08d393885a0b46a3059fe8b1d250ef",
+  "impact_sha256": "d82b3ad0c4cadc24325b812533d9b2585a83b03c76cfe8e9e4b9e7d3df5eb9f2",
   "generation_manifest_sha256": "3422a3569005d3282e6c555914a3be32839f3014f6c0025ba8d4ad6c1f592a5e"
 }
