@@ -495,8 +495,17 @@ Verified by reading `promote.yml`:
   `android.yml` cancels an in-progress build when `dev` moves
   (`android.yml:15-17`), so a push during promotion can leave `master` moved
   with the stable APK not updated.
-- **Rule:** freeze `dev`, wait until the RC's Probe Suite is green and the
-  `android-dev` release names the RC SHA, then dispatch promotion.
+- **Owner correction 2026-11-03 (`ODR-DEV-OPEN-INTEGRATION-20261103`):** keep
+  normal green integration open on `dev`. Wait for the selected current
+  candidate's green probes and matching dev APK before dispatch. The workflow
+  follows changed heads during the probe wait and refuses a head that changes
+  before the fast-forward. A newer SHA needs its own applicable candidate
+  evidence. Monitor the selected SHA and cancel promotion before release if a
+  newer candidate lacks required evidence; recheck before redispatching. A race
+  or timeout does not establish a standing branch freeze. This is an operator
+  procedure, not a new workflow guarantee or acceptance of an unreviewed SHA.
+  The October 31 recommendation to freeze `dev` is superseded; its timing
+  observations remain historical evidence, not a new branch policy.
 - `MA-CI-006` still applies: any successful run for the SHA is accepted.
 
 ### E6. Backups
