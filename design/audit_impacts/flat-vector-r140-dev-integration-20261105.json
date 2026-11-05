@@ -1,0 +1,55 @@
+{
+  "id": "flat-vector-r140-dev-integration-20261105",
+  "baseline": "2bcabe1003ab1b9643cca1c81ddd40039444b4a1",
+  "scope": "Record the exact green Dolls source commit now on Dev. Update only canonical evidence, its current pointer, and one bounded Dev artifact count.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-03",
+    "DL-VIS-06",
+    "DL-MED-05",
+    "DL-ASSET-06",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010"
+  ],
+  "files": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_integration/DEV_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_integration/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_integration/MERGED_SOURCE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_integration/ORIGINAL_SOURCE_CI.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_integration/PRIOR_CANONICAL_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_integration/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Verify exact GitHub source CI success and remote Dev fast-forward",
+      "result": "PASS",
+      "evidence": "r140_dolls_progress_dev_integration/DEV_VERIFICATION.json at 8d16b9a5c8d3ada2c15b037c6701b396f33dd50d"
+    },
+    {
+      "command": "Canonical document authority and AUTO/HEAD audit coverage",
+      "result": "PASS",
+      "evidence": "Authority, AUTO and HEAD passed on the staged canonical files. Final metadata and coverage gates apply to the completed manifest."
+    }
+  ],
+  "acceptance_gaps": "The painted Dolls progress hearts cue is on Dev. Dev CI and its matching APK are pending. Formal QA11, device, child, and owner review remain open. Zero accepted artwork removals."
+}

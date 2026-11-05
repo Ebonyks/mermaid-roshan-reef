@@ -14,20 +14,20 @@
   "retained_excluded": 4340,
   "retained_native_events": 12163,
   "existing_sample_work_branch_implemented": 42,
-  "known_implementation_count_scope": "42 published bounded source artifacts, 25 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown.",
+  "known_implementation_count_scope": "42 published bounded source artifacts, 26 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown.",
   "samples_awaiting_review_global": null,
   "approved": 0,
-  "dev_integrated": 25,
+  "dev_integrated": 26,
   "runtime_verified_replacements_formal": 0,
   "accepted_removed": 0,
-  "revision": "FV-AUDIT-20261105-R140-DOLLS-PROGRESS-SOURCE",
+  "revision": "FV-AUDIT-20261105-R140-DOLLS-PROGRESS-DEV",
   "inherited_summary": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/898ab3421a20e4ec876e5eb3a5a6a3ba3b706cda/docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/SUMMARY.json",
   "new_roles": 0,
   "new_families": 0,
   "new_alias_credits": 0,
   "new_partial_role_credit": 0,
-  "new_native_frames": 40,
-  "new_bounded_contexts": 40,
+  "new_native_frames": 0,
+  "new_bounded_contexts": 0,
   "new_excluded_diagnostics": 0,
   "source_views_here": 2,
   "existing_context_frames_reinspected_here": 54,
@@ -36,7 +36,7 @@
   "new_generation_calls": 0,
   "reuse_ready_whole_role": false,
   "drawing_required_global": null,
-  "chosen_next_consumer": "Follow exact source CI 41989666565, then green Dev integration.",
+  "chosen_next_consumer": "Follow exact Dev CI 42004736675 and the matching APK. Continue selected painted replacements when production is idle.",
   "mission_complete": false,
   "dev_integrated_unit": "Partial bounded implementation artifacts, not complete artwork-role replacements or accepted removals.",
   "dev_integrated_complete_named_roles": 0,
@@ -65,7 +65,8 @@
     "r136_geologist_riverbed_runtime",
     "r137_geologist_cave_runtime",
     "r138_dolls_safe_landing_runtime",
-    "r139_dolls_cradle_focus_runtime"
+    "r139_dolls_cradle_focus_runtime",
+    "r140_dolls_progress_runtime"
   ],
   "r92_dev_ci_timeout": {
     "state": "DEV_ATTEMPT1_CANCELLED_CONFIRMED_55MIN_LIMIT_RETRY_PENDING",
@@ -2516,7 +2517,7 @@
     },
     "remaining": "Entire campaign parked afterR118 until owner resumes afterdemo. Future sourceCI/currentDev reconciliation/integration, naturalroutes/formalQA11/device/child/owner/global denominators remainOPEN. No new art or engine suite for preservation bookkeeping."
   },
-  "new_partial_Dev_artifacts": 0,
+  "new_partial_Dev_artifacts": 1,
   "production_hold": "Latest owner authorizes recent completed green updates to Dev and continuing art; prior Devfreeze is historical. No image/QA/device/child/owner acceptance inferred.",
   "r120_parent_receipt_revision": "3c3b39838b2ceacb13281a83957442662ca2f5b9",
   "r120_melody_curtains_runtime": {
@@ -6223,7 +6224,7 @@
     "known_implementation_count_scope": "42 published bounded source artifacts, 24 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown."
   },
   "r140_dolls_progress_runtime": {
-    "state": "PUBLISHED_REVALIDATED_R119_DOLLS_PROGRESS_CANDIDATE_LOCAL_RUNTIME_PASS",
+    "state": "R140_REVALIDATED_R119_PAINTED_DOLLS_PROGRESS_DEV_PARTIAL_CANDIDATE",
     "stable_ids": [
       "FV-12A0922A07E6"
     ],
@@ -6281,8 +6282,9 @@
     },
     "integration": {
       "source_work_branch": true,
-      "Dev": false,
-      "procedural_progress_dots_replaced": true
+      "Dev": true,
+      "procedural_progress_dots_replaced": true,
+      "Dev_revision": "8d16b9a5c8d3ada2c15b037c6701b396f33dd50d"
     },
     "runtime_evidence": {
       "engine": "4.7.2.stable.official.ed1daf0bf Mobile/Speedy",
@@ -6299,7 +6301,15 @@
       "analyzers": 4,
       "normal_save_hashes_unchanged": 11,
       "CI_run": 41989666565,
-      "CI_status_at_snapshot": "in_progress"
+      "CI_status_at_snapshot": "completed_success",
+      "original_art_source_CI_result": "success",
+      "exact_source_CI_result": "success",
+      "exact_source_CI_revision": "8d16b9a5c8d3ada2c15b037c6701b396f33dd50d",
+      "original_art_source_CI_revision": "70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43",
+      "original_art_source_CI_run": 41989666565,
+      "exact_source_CI_run": 41997522737,
+      "Dev_CI_run": 42004736675,
+      "Dev_CI_status_at_snapshot": "queued"
     },
     "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/CANDIDATE_FOCUSED_RESULT.json",
     "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/VISUAL_REVIEW.json",
@@ -6351,5 +6361,89 @@
       }
     },
     "receipt": "r140_dolls_progress_source/R139_DEV_APK_VERIFICATION.json"
+  },
+  "r140_dolls_progress_dev_integration": {
+    "state": "DOLLS_PROGRESS_FAST_FORWARDED_TO_DEV",
+    "verified_at": "2026-11-05T09:43:42.607907+00:00",
+    "revision": "8d16b9a5c8d3ada2c15b037c6701b396f33dd50d",
+    "art_source_revision": "70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43",
+    "previous_Dev_head": "65c63ae849b091e3fb91cdbeaf1e2837e10778fe",
+    "remote_ref": "refs/heads/dev",
+    "exact_source_CI": {
+      "id": 41997522737,
+      "head_sha": "8d16b9a5c8d3ada2c15b037c6701b396f33dd50d",
+      "head_branch": "codex/flat-vector-dolls-progress-integration-20261105",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41997522737",
+      "run_attempt": 1,
+      "created_at": "2026-11-05T08:50:04Z",
+      "updated_at": "2026-11-05T09:42:44Z"
+    },
+    "exact_Dev_CI_at_snapshot": {
+      "id": 42004736675,
+      "head_sha": "8d16b9a5c8d3ada2c15b037c6701b396f33dd50d",
+      "head_branch": "dev",
+      "status": "queued",
+      "conclusion": null,
+      "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42004736675",
+      "run_attempt": 1,
+      "created_at": "2026-11-05T09:43:34Z",
+      "updated_at": "2026-11-05T09:43:34Z"
+    },
+    "exact_source_CI_jobs": [
+      {
+        "id": 127144250202,
+        "name": "probes",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41997522737/job/127144250202",
+        "completed_at": "2026-11-05T09:42:43Z"
+      },
+      {
+        "id": 127144250748,
+        "name": "area-music-provenance",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41997522737/job/127144250748",
+        "completed_at": "2026-11-05T08:57:41Z"
+      }
+    ],
+    "original_art_source_CI": {
+      "id": 41989666565,
+      "head_sha": "70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43",
+      "head_branch": "codex/flat-vector-dolls-progress-integration-20261105",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41989666565",
+      "created_at": "2026-11-05T07:47:08Z",
+      "updated_at": "2026-11-05T08:47:12Z"
+    },
+    "source_manifest": {
+      "revision": "8d16b9a5c8d3ada2c15b037c6701b396f33dd50d",
+      "manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_reconcile/MANIFEST.json",
+      "manifest_sha256": "80732b809b6cb2e37aeb9b01ef83f164f015093831474f354b6ad224208b59f5",
+      "required_files_including_manifest": 42
+    },
+    "apk_verified": false,
+    "stable_id": "FV-12A0922A07E6",
+    "variant": "Main/Faron Dolls caught-baby progress hearts",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
+  },
+  "r140_prior_integration_local_fields": {
+    "revision": "FV-AUDIT-20261105-R140-DOLLS-PROGRESS-SOURCE",
+    "new_native_frames": 40,
+    "new_bounded_contexts": 40,
+    "new_excluded_diagnostics": 0,
+    "new_samples": 0,
+    "new_runtime_implementations": 0,
+    "new_generation_calls": 0,
+    "chosen_next_consumer": "Follow exact source CI 41989666565, then green Dev integration.",
+    "known_implementation_count_scope": "42 published bounded source artifacts, 25 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown."
   }
 }
