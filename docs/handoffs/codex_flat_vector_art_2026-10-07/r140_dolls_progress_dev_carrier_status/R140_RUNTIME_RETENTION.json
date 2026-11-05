@@ -1,0 +1,43 @@
+{
+  "state": "NEWER_DEV_CARRIER_RETAINS_EXACT_R140_RUNTIME",
+  "initial_R140_Dev_revision": "8d16b9a5c8d3ada2c15b037c6701b396f33dd50d",
+  "carrier_Dev_revision": "208a12cf4ba79fea7ddbf317bb6c686180b652fb",
+  "carrier_Dev_CI": 42007402685,
+  "superseded_Dev_CI": 42004736675,
+  "superseded_conclusion": "cancelled",
+  "ancestry_verified": true,
+  "R140_runtime_blob_identity": [
+    {
+      "path": "scripts/games/dolls.gd",
+      "R140_blob": "c47dccb447e527b2307db0dd313dfc40c27059c5",
+      "carrier_blob": "c47dccb447e527b2307db0dd313dfc40c27059c5"
+    },
+    {
+      "path": "assets/dolls/progress_empty_painted.png",
+      "R140_blob": "a41e5839338bcc0daa9c73ce23ed9593144d678e",
+      "carrier_blob": "a41e5839338bcc0daa9c73ce23ed9593144d678e"
+    },
+    {
+      "path": "assets/dolls/progress_empty_painted.png.import",
+      "R140_blob": "3f6b2723cb6f799d732f2d6a2097dcfde6dbf3c3",
+      "carrier_blob": "3f6b2723cb6f799d732f2d6a2097dcfde6dbf3c3"
+    },
+    {
+      "path": "assets/dolls/progress_filled_painted.png",
+      "R140_blob": "77aa88c95671d5fd1a1ed1011768226a653ebd22",
+      "carrier_blob": "77aa88c95671d5fd1a1ed1011768226a653ebd22"
+    },
+    {
+      "path": "assets/dolls/progress_filled_painted.png.import",
+      "R140_blob": "b91d6cb5b100fadd5dd4ef9d6ebfb2962249e013",
+      "carrier_blob": "b91d6cb5b100fadd5dd4ef9d6ebfb2962249e013"
+    }
+  ],
+  "changed_gameplay_art_paths": [],
+  "project_change": "diff --git a/project.godot b/project.godot\nindex 2351cb32..84da90ba 100644\n--- a/project.godot\n+++ b/project.godot\n@@ -35,6 +35,10 @@ config/features=PackedStringArray(\"4.7\", \"Mobile\")\n ; Nothing is captured at boot.\n driver/enable_input=true\n \n+[autoload]\n+\n+MCPGameBridge=\"res://addons/godot_mcp/game_bridge/mcp_game_bridge.gd\"\n+\n [display]\n \n window/size/viewport_width=1280\n@@ -46,11 +50,22 @@ window/stretch/mode=\"canvas_items\"\n window/stretch/aspect=\"expand\"\n window/handheld/orientation=4\n \n+[editor_plugins]\n+\n+enabled=PackedStringArray(\"res://addons/godot_mcp/plugin.cfg\")\n+\n [filesystem]\n \n import/blender/enabled=false\n import/fbx/importer=0\n \n+[godot_mcp]\n+\n+bind_mode=0\n+custom_bind_ip=\"\"\n+port_override_enabled=false\n+port_override=6550\n+\n [physics]\n \n 3d/physics_engine=\"Jolt Physics\"",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0
+}

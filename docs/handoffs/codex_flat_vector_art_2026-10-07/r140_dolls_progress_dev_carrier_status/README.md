@@ -1,0 +1,9 @@
+# Painted Dolls hearts retained in newer Dev
+
+The exact two cloth-heart images, imports and Dolls script are retained in Dev 208a12cf4ba79fea7ddbf317bb6c686180b652fb. The initial R140 integration is 8d16b9a5c8d3ada2c15b037c6701b396f33dd50d. Its original art-source and merged-source workflows both passed. [Runtime retention](R140_RUNTIME_RETENTION.json) / [Original delivery](https://github.com/Ebonyks/mermaid-roshan-reef/blob/d2c3fdc4165d7205198c013ad1abda4179545093/docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_integration/README.md).
+
+The initial Dev workflow was cancelled after another editor advanced Dev. On the newer revision, job 127178005942 failed the pre-import Opera manifest check: OperaHouse was unresolved in scripts/probe_art_manifest.gd:118. No matching new APK is verified. [Exact failure and snapshot](DEV_CI_REGRESSION.json) / [GitHub job](https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42007402685/job/127178005942). The other job's state remains in the exact recorded run snapshot. No causal claim beyond this observed failure is made.
+
+Counts remain 42 bounded source artifacts, 26 partial Dev artifacts and zero accepted removals. Native event totals remain 7823 bounded plus 4340 excluded, 12163 retained; global denominators remain unknown. The piece registry, coverage and tally retain their unchanged immutable [canonical summary](https://github.com/Ebonyks/mermaid-roshan-reef/blob/d2c3fdc4165d7205198c013ad1abda4179545093/docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json). No new artwork, frame or acceptance credit is added.
+
+Formal QA11, physical device, child and owner review remain open. Active integration work remains with its current editors. No workflow was restarted, cancelled or changed here. [Prior canonical verification](PRIOR_CANONICAL_VERIFICATION.json).

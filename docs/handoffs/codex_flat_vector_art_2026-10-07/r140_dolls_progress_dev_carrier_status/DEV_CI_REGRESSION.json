@@ -1,0 +1,58 @@
+{
+  "state": "R140_RETAINED_ON_DEV_WITH_NEWER_CARRIER_CI_REGRESSION",
+  "snapshot_at_utc": "2026-11-05T10:22:36.455614+00:00",
+  "stable_id": "FV-12A0922A07E6",
+  "carrier_Dev_revision": "208a12cf4ba79fea7ddbf317bb6c686180b652fb",
+  "initial_R140_Dev_revision": "8d16b9a5c8d3ada2c15b037c6701b396f33dd50d",
+  "Dev_CI": {
+    "id": 42007402685,
+    "head_sha": "208a12cf4ba79fea7ddbf317bb6c686180b652fb",
+    "head_branch": "dev",
+    "status": "completed",
+    "conclusion": "failure",
+    "updated_at": "2026-11-05T10:18:59Z",
+    "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42007402685",
+    "created_at": "2026-11-05T10:02:48Z"
+  },
+  "failed_job": {
+    "id": 127178005942,
+    "name": "probes",
+    "status": "completed",
+    "conclusion": "failure",
+    "completed_at": "2026-11-05T10:14:10Z",
+    "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42007402685/job/127178005942"
+  },
+  "failed_steps": [
+    {
+      "name": "Static gates (parse + Variant-inference lint)",
+      "number": 4,
+      "started_at": "2026-11-05T10:13:19Z",
+      "completed_at": "2026-11-05T10:14:05Z",
+      "conclusion": "failure"
+    }
+  ],
+  "superseded_initial_Dev_CI": {
+    "id": 42004736675,
+    "head_sha": "8d16b9a5c8d3ada2c15b037c6701b396f33dd50d",
+    "head_branch": "dev",
+    "status": "completed",
+    "conclusion": "cancelled",
+    "updated_at": "2026-11-05T10:03:50Z",
+    "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42004736675",
+    "created_at": "2026-11-05T09:43:34Z"
+  },
+  "exact_error": "Identifier OperaHouse not declared in the current scope. res://scripts/probe_art_manifest.gd:118; opera-art-manifest FAILED; process exit1.",
+  "original_source_and_merged_source_CI": "Both exact source workflows passed. Their original 82-probe and paired capture evidence retains its exact source revision.",
+  "failed_job_raw_log_sha256": "064d448ef0ce0ea6b5960c569f5fadcee9966417dbf64cc99ec800c9b0aef59b",
+  "raw_log_source": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42007402685/job/127178005942",
+  "new_source_artifacts": 0,
+  "new_partial_Dev_artifacts": 0,
+  "new_native_frame_events": 0,
+  "accepted_removed": 0,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "matching_APK_verified": false,
+  "causation_limit": "Five R140 runtime blobs are unchanged. No cause beyond the observed failed Opera manifest gate is inferred."
+}
