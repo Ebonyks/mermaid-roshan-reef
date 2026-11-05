@@ -1,0 +1,155 @@
+{
+  "identity": {
+    "id": "sky-lagoon-fir_crown-20261104",
+    "revision": 2,
+    "author": "Codex",
+    "date": "2026-11-04",
+    "baseline": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+    "profile": "Background item; character profile not applicable"
+  },
+  "output_lane": "Reference study and standalone Canvas demo; no production-game integration",
+  "intention": "The existing fir crown moves gently in a breeze while its lower support and surrounding scene stay fixed.",
+  "required_action": {
+    "axis": "Horizontal source-pixel displacement; no vertical displacement",
+    "support": "Original painted support retained",
+    "contact": "No source displacement in the lower support band or stationary border",
+    "view_changes": "None; the painting camera may pan independently"
+  },
+  "fixed_elements": {
+    "source_origin": [
+      0,
+      0
+    ],
+    "crop_border_pixels": 16,
+    "lower_fixed_band_y": 389.12,
+    "rooms_landmarks": "Every source pixel outside the reviewed weight region is fixed; no new camera or landmark warp"
+  },
+  "entry_exit": {
+    "timeline": "32 frames at 125ms in Godot/Aseprite, four-second continuous periodic motion",
+    "frame_mapping": "PNG 00..31 to Aseprite 1..32; GIF centisecond durations alternate 120 and 130ms",
+    "entry": "Any phase in continuous ambient playback; no still/animated appearance switch",
+    "reference_rest": "RGB source crop at indices 0 and 16",
+    "exit": "Periodic continuation; source deformation at t=4 equals t=0",
+    "origin": "Top-left of the recorded master-space rectangle; no trim or pivot drift"
+  },
+  "reuse_gap": {
+    "appearance": "Approved v5 master and exact crop; full source SHA and crop SHA are bound in the manifest",
+    "gap": "No accepted object-loop frames for this crop. Earlier rejected object studies are excluded. This is a fresh ambient deformation trial, not an authored acting replacement."
+  },
+  "method": {
+    "type": "Deterministic local horizontal raster resampling of the whole patch, followed by a stationary transparent guard",
+    "interpolation": "Linear horizontal colour sampling. No generated in-betweens, crossfade or retiming of an existing performance.",
+    "aseprite": "Four one-layer editable RGBA masters; exact reopened cel/PNG comparisons in evidence/aseprite.log",
+    "routing_exception": "None; local object workflow with no API or paid backend"
+  },
+  "runtime_size": {
+    "native_frame": [
+      384,
+      512
+    ],
+    "texture_policy": "All cells <=1024; lossless import; original twelve 1024 background cards",
+    "viewport": "1280x720 canvas_items/expand, uniform fitting camera, desktop 16:9 and 16:10 tested"
+  },
+  "motion_tolerances": {
+    "maximum_driver_displacement_native_px": 8,
+    "actual_displacement": "Driver multiplied by the source-space weight, so it reaches zero in the stationary regions",
+    "fixed_rgb_error": 0,
+    "rest_source_rgb_error": 0,
+    "rendered_rest_channel_error_limit": 1,
+    "rendered_rest_limit_reason": "Measured 8-bit linear texture sampling; original 16-step crop-edge failure retained and corrected by the transparent guard",
+    "loop": "Periodic mathematical field; same source at t=0 and t=4; normal adjacent sampling across the seam"
+  },
+  "limits": {
+    "generated_takes_cap": 2,
+    "generated_takes_used": 0,
+    "local_wall_cap_minutes": 40,
+    "cleanup_cap_minutes": 15,
+    "monetary_cap": 0,
+    "paid_usage": 0,
+    "cleanup_minutes": null,
+    "clock_limit": "A separate active-authoring/cleanup stopwatch was not retained. Machine run outputs and filesystem times do not establish that number; no invented time or cost is supplied."
+  },
+  "attempts": [
+    {
+      "id": "local-unfeathered",
+      "disposition": "Crop-edge diagnostic failed at 1280x720; evidence/crop_edge_diagnostic.json retains the result",
+      "calls": 0
+    },
+    {
+      "id": "local-guarded",
+      "disposition": "Guarded current candidate passes source/master and desktop pixel checks; human motion review remains pending",
+      "calls": 0
+    }
+  ],
+  "stop_fallback": "If the local deformation stretches contours, looks stiff or misstates contact, reject this candidate and retain the approved still painting until a new bounded source-based method is agreed. Do not regenerate a new item or run a per-frame generation campaign.",
+  "provenance": {
+    "source_master": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+    "source_sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+    "source_dimensions": [
+      6144,
+      2048
+    ],
+    "crop": [
+      0,
+      0,
+      384,
+      512
+    ],
+    "source_crop_sha256": "40422a331373e76b4fe9acee78e2fb76181970b35d975085878d631b6afe98b7",
+    "master": "fir_crown.aseprite",
+    "master_sha256": "67b804ffcb1979f58b7301c925cfd6061b7b66d68af77b787c412ae1aa09e30f",
+    "export_frame_sha256": [
+      "77b369d072a00b8258070cb2e28e5958bb3c2dae710945d429e15c6322914caf",
+      "7c4ba4168913513da0388bc520fc6c979f7443dd6421a77c518a750e19ea1e1d",
+      "0463cc87ca61c4301d0e90f1be56e3d8b46ad4aa53d1dcc62c6907b5d01f5fe3",
+      "cf6607945ee4602fde3bb590ee861e6896a91a5085809220b385e5ad29786619",
+      "f82a579d66494a2cf9680b8c735bb5b75215cb057fea598361dc82e0e7d53371",
+      "6f3568dddd9df87ebe14281c5865aadccc7314e2d309880110e7d6298b55f13d",
+      "b4c0ee094482611209e65dfc1576d5d4b3a848587b4b863ad4dcf4c022d5ffd9",
+      "37888a66c909787f8bb4aa9cb981fc846c86c53bd23cabb96bb7b7ac208355c7",
+      "6046aa3d6dad4308d640395438e14d9bdb619c602e9350a5332c61025a9bb845",
+      "37888a66c909787f8bb4aa9cb981fc846c86c53bd23cabb96bb7b7ac208355c7",
+      "b4c0ee094482611209e65dfc1576d5d4b3a848587b4b863ad4dcf4c022d5ffd9",
+      "6f3568dddd9df87ebe14281c5865aadccc7314e2d309880110e7d6298b55f13d",
+      "f82a579d66494a2cf9680b8c735bb5b75215cb057fea598361dc82e0e7d53371",
+      "cf6607945ee4602fde3bb590ee861e6896a91a5085809220b385e5ad29786619",
+      "0463cc87ca61c4301d0e90f1be56e3d8b46ad4aa53d1dcc62c6907b5d01f5fe3",
+      "7c4ba4168913513da0388bc520fc6c979f7443dd6421a77c518a750e19ea1e1d",
+      "77b369d072a00b8258070cb2e28e5958bb3c2dae710945d429e15c6322914caf",
+      "5cff12841f2b0ef89a308fa7ebc06b2f231b478e4eb6c2eccc7b19f704d0343d",
+      "f88af703d4713f076be53aa07940f789e5c1d45b368380f515b3fc17ae46da2f",
+      "6e4872f2a90e2404fb633284a980ca065294a0d18eb4f9219a6126242f484324",
+      "9ee35f63de8fd96688440b763c1f3f4c175f528115cb77b937912514be9972e9",
+      "fde8c89815716882585e1f8195d112e611f51040b87b4eb06cb6482ad6259d98",
+      "47c9cbc88e7f0430f568f1c654f26c250f1ca75d8787e1b71b9fc6308ada33fa",
+      "8e3ada30e09da2843ba83e746af050e6dff32798c18dfdcb69475ef2d2d85e02",
+      "007e6fdaabcd2589152a71b52fe81c4121835967234004d31bcd8af285fe8995",
+      "8e3ada30e09da2843ba83e746af050e6dff32798c18dfdcb69475ef2d2d85e02",
+      "47c9cbc88e7f0430f568f1c654f26c250f1ca75d8787e1b71b9fc6308ada33fa",
+      "fde8c89815716882585e1f8195d112e611f51040b87b4eb06cb6482ad6259d98",
+      "9ee35f63de8fd96688440b763c1f3f4c175f528115cb77b937912514be9972e9",
+      "6e4872f2a90e2404fb633284a980ca065294a0d18eb4f9219a6126242f484324",
+      "f88af703d4713f076be53aa07940f789e5c1d45b368380f515b3fc17ae46da2f",
+      "5cff12841f2b0ef89a308fa7ebc06b2f231b478e4eb6c2eccc7b19f704d0343d"
+    ],
+    "license": "Canonical ASSET_LICENSES.md project-art attribution, retained in the same change",
+    "provider_seed_request_id": "Not applicable; zero generation/provider calls",
+    "position_guide": "Not used; the motion-weight image is a technical control and supplies no appearance pixels"
+  },
+  "reviews": {
+    "human_identity_style": "PENDING",
+    "human_motion_contact_seam": "PENDING",
+    "source_export_machine": "PASS; manifest tests and Aseprite all-cel equality",
+    "cinematic_machine": "NOT_APPLICABLE; ambient study and game-window review capture",
+    "gameplay_machine": "PASS in isolated demo and all82 trusted existing probes through the source-bound canonical prefix/continuations and one unchanged native retry; verification_summary.json retains the original failures.",
+    "device": "PENDING; no tablet session or APK acceptance",
+    "child_owner": "PENDING"
+  },
+  "status": {
+    "archive_complete": "PENDING remote byte verification",
+    "generation_ready": "NOT_APPLICABLE; no generation request",
+    "delivery_accepted": false,
+    "runtime_integration": "STANDALONE_DEMO_ONLY",
+    "release": "NOT_REQUESTED"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "result": "ALL_REQUIRED_GATES_VERIFIED_WITH_RETRY",
+  "baseline": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+  "engine": "4.7.2-stable official ed1daf0bf",
+  "trusted_probe_count": 82,
+  "canonical_roster_complete": true,
+  "original_nonzero_exits": [
+    [
+      "probe_dust_boss",
+      "127"
+    ]
+  ],
+  "retry": {
+    "command": [
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\sky-lagoon-overlay-work",
+      "-s",
+      "scripts/probe_dust_boss.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "process_exit": 0,
+    "timed_out": false,
+    "timeout_seconds": 480,
+    "elapsed_seconds": 56.229,
+    "nonempty_output": true,
+    "failure_lines": [],
+    "result": "PASS"
+  },
+  "validation_chain": [
+    "Successful static-prefix gates in full_ci_attempt02.log",
+    "Audio862/862 and remaining successful visual/art gates in full_ci_attempt03.log",
+    "Unchanged guarded import, migration inventory and complete ordered82 probes in full_ci.log",
+    "Unchanged direct native dust-boss retry with480s guard, full failure classifier and exit0"
+  ],
+  "single_canonical_run_exit": 1,
+  "reason_for_single_run_exit": "Retained original dust-boss127 process termination. No failed assertion; independent unchanged native retry passes. Cause of original exit remains unproven.",
+  "log_sha256": {
+    "full_ci_attempt02.log": "f705fb01f499eb160867c718429b8987adb381cffff84802a4cf6b19b32da09d",
+    "full_ci_attempt03.log": "c944abee57ea30864dda39713f42a8dcada2470a48ecea19a2aaf5fb50ad3147",
+    "full_ci.log": "94fec2eef555fe7276096f69bb04e5a3a5b4b3e5669ff66c8f65322c9d1a6a64",
+    "dust_boss_native_retry.log": "1d05616ae145a7dca0f3e940613bc73c3a1294489cac8053b80fab7a095c3316",
+    "dust_boss_native_retry.json": "01901651017da41f02c4317a29ab258ca429ec12ce06fc22dcee81db86fec76a"
+  },
+  "verified_utc": "2026-11-05T08:48:41.936580+00:00",
+  "acceptance": "Regression evidence only; owner/device/child and exact motion/occlusion acceptance remain open."
+}
