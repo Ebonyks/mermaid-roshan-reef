@@ -330,6 +330,8 @@ poses as broken motion.
 
 ## MA-VIS-006
 
+[R141 painted Racer source candidates](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/README.md) registers seven actual object outputs with contextual limits; no finding closure, accepted removal or Dev integration. Exact Mobile/Speedy, complete route/state and human acceptance remain open.
+
 [Dolls progress hearts Dev integration](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_integration/README.md) verifies 8d16b9a5 after green source CI. The finding remains open for remaining artwork and required acceptance.
 
 [Dolls cradle focus Dev integration](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_dev_integration/README.md) verifies bfc60e1e after green source CI. The finding remains open for remaining artwork and required acceptance.
@@ -527,6 +529,8 @@ R126source production2026-11-02: [painted Melody note token](../../docs/handoffs
 | history | 2026-08-29: repeated owner report reproduced. Root causes include an abandoned topic branch, removal of only one of two false foreground cards, two baked/blurred background footprints, regeneration tooling that could restore the defect, node-only probes, a runtime route allow-list that rejected the repaired route, and cwd-relative review tooling that could inspect stale branches or composite against an obsolete plate. Both bathroom footprints were repaired and exact 4.7.2 dirty/clean captures passed. Three parallel scrubs dispositioned the game, drove full-frame regeneration of seven Castle plates plus Opera Detective and Nursery, retired the incomplete duplicate tent-flap card, repaired the cupboard's incomplete rest frame, and independently reviewed all 96 retained V4 frames against exact worktree/runtime paths. The complete exact-4.7.2 local suite exits zero; lifecycle advances to `FIXED_PENDING_VERIFICATION` while exact `dev` and external acceptance remain open.  2026-10-12: [R6 independent audit packet](../../docs/handoffs/codex_flat_vector_art_2026-10-07/README.md) preserves immutable R5 and unchanged origin/dev runtime.980 new/1584 cumulative bounded diagnostic frames,1686 retained including102 excluded diagnostics;76/176 partial,zero complete,18 scope inventory classifications/351 unresolved. Three independent reviews bind44 existing named records with partial context;none establishes acceptance.0 replacements/accepted removals;unique artwork total unknown. Full inventory,QA11,device/child/owner acceptance remain open; lifecycle unchanged. Publication and remote receipt required separately. |
 
 ## MA-VIS-008
+
+[R141 painted Racer source candidates](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/README.md) registers seven actual object outputs with contextual limits; no finding closure, accepted removal or Dev integration. Exact Mobile/Speedy, complete route/state and human acceptance remain open.
 
 [Dolls progress hearts Dev integration](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_integration/README.md) verifies 8d16b9a5 after green source CI. The finding remains open for remaining artwork and required acceptance.
 
@@ -2024,6 +2028,8 @@ R73 supporting source evidence (MA-VIS-006,MA-VIS-008,MA-DOC-007,MA-2D-002): [sh
 2026-10-16 [R82](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r82_touch_flash_reuse/README.md), source `dd799b2d43871b29d1d6e0503646308a194dad1e`, CHG-089:11existing-source fit dispositions and one whole painted-ring sample for existing TouchUI flash subpart. Two native cases /84checks /39frames,4source4candidate lifecycles; candidate material only, original input/Panel/fade/free retained.263roles/35families and76existingpartial unchanged; production flat flash, new-use/opacity/occlusion/full caller/QA11/device/child/owner/global inventory remain open. MA-VIS-006, MA-VIS-008, MA-DOC-007 and MA-2D-002 lifecycles unchanged; no accepted removal.
 
 ## MA-VIS-010
+
+[R141 painted Racer source candidates](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/README.md) registers seven actual object outputs with contextual limits; no finding closure, accepted removal or Dev integration. Exact Mobile/Speedy, complete route/state and human acceptance remain open.
 
 [Dolls progress hearts Dev integration](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_integration/README.md) verifies 8d16b9a5 after green source CI. The finding remains open for remaining artwork and required acceptance.
 

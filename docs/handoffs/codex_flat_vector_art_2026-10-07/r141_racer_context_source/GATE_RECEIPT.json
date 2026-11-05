@@ -1,0 +1,40 @@
+{
+  "state": "PASS_PREPUBLICATION_DOCUMENT_GATES",
+  "checked_at_utc": "2026-11-05T12:34:50.539193+00:00",
+  "baseline": "1aa5ce5f0f9d5d632f0710e153da0131f4521eec",
+  "results": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log_sha256": "1e9f0437a3ef1eab9c9efbf3a5ceebe8661c24a8099f2f613a9293ccb380b450"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log_sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "log_sha256": "d54b7859b08e177891f50a0852eb5966d2e9f6be6e9d2d6744f34a29727446f4"
+    }
+  ],
+  "source_runtime_suite_repeated_here": false,
+  "reason": "Only canonical source/provenance/context metadata changes; unchanged exact source runtime proof retained. Final manifest gates run again without engine duplication."
+}

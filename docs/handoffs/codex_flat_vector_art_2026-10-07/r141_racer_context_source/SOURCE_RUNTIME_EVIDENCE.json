@@ -1,0 +1,390 @@
+{
+  "source_revision": "96511087fcdbc572b090028db201a3f422d652fa",
+  "green_runtime_revision": "b2bd2942266c6a8d953529de4eab086e08c1a06e",
+  "game_code_CI": 42009623320,
+  "game_code_CI_conclusion": "success",
+  "runtime_tree_equal_from_green_to_source": true,
+  "runtime_tree_comparison_scope": [
+    "assets",
+    "scripts",
+    "scenes",
+    "shaders",
+    "project.godot"
+  ],
+  "engine": "Godot 4.7.2-stable official.ed1daf0bf",
+  "rendered_profile": "Forward Mobile, NVIDIA RTX 3060 Ti; actual tablet pending",
+  "focused_checks": {
+    "pc": 44,
+    "canal": 45,
+    "failures": 0,
+    "stderr": "empty",
+    "evidence": [
+      "evidence/pc.log",
+      "evidence/canal.log"
+    ]
+  },
+  "full_suite": {
+    "command": "GODOT=approved Godot 4.7.2; bash scripts/ci.sh",
+    "exit": 0,
+    "ordered_probes": [
+      {
+        "probe": "probe_reef_districts",
+        "exit": 0
+      },
+      {
+        "probe": "probe_ocean_kingdoms",
+        "exit": 0
+      },
+      {
+        "probe": "probe_audit",
+        "exit": 0
+      },
+      {
+        "probe": "probe_passive",
+        "exit": 0
+      },
+      {
+        "probe": "probe_living_world",
+        "exit": 0
+      },
+      {
+        "probe": "probe_load",
+        "exit": 0
+      },
+      {
+        "probe": "probe_rank",
+        "exit": 0
+      },
+      {
+        "probe": "probe_save_recovery",
+        "exit": 0
+      },
+      {
+        "probe": "probe_galaxy_state",
+        "exit": 0
+      },
+      {
+        "probe": "probe_collection",
+        "exit": 0
+      },
+      {
+        "probe": "probe_mg2d",
+        "exit": 0
+      },
+      {
+        "probe": "probe_fetch",
+        "exit": 0
+      },
+      {
+        "probe": "probe_melody",
+        "exit": 0
+      },
+      {
+        "probe": "probe_dolls",
+        "exit": 0
+      },
+      {
+        "probe": "probe_seek",
+        "exit": 0
+      },
+      {
+        "probe": "probe_audio",
+        "exit": 0
+      },
+      {
+        "probe": "probe_dance",
+        "exit": 0
+      },
+      {
+        "probe": "probe_l2",
+        "exit": 0
+      },
+      {
+        "probe": "probe_l2_living_cards",
+        "exit": 0
+      },
+      {
+        "probe": "probe_sky_lagoon_animals",
+        "exit": 0
+      },
+      {
+        "probe": "probe_l2_reenter",
+        "exit": 0
+      },
+      {
+        "probe": "probe_crown",
+        "exit": 0
+      },
+      {
+        "probe": "probe_throne",
+        "exit": 0
+      },
+      {
+        "probe": "probe_northern",
+        "exit": 0
+      },
+      {
+        "probe": "probe_human_art_audit",
+        "exit": 0
+      },
+      {
+        "probe": "probe_train",
+        "exit": 0
+      },
+      {
+        "probe": "probe_verbs",
+        "exit": 0
+      },
+      {
+        "probe": "probe_skins",
+        "exit": 0
+      },
+      {
+        "probe": "probe_touch_router",
+        "exit": 0
+      },
+      {
+        "probe": "probe_touch_stress",
+        "exit": 0
+      },
+      {
+        "probe": "probe_interaction",
+        "exit": 0
+      },
+      {
+        "probe": "probe_touch_adversary",
+        "exit": 0
+      },
+      {
+        "probe": "probe_touch_look",
+        "exit": 0
+      },
+      {
+        "probe": "probe_ui_system",
+        "exit": 0
+      },
+      {
+        "probe": "probe_voice",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_voice",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_d8_revisits",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_handoffs",
+        "exit": 0
+      },
+      {
+        "probe": "probe_kart_feel",
+        "exit": 0
+      },
+      {
+        "probe": "probe_combat",
+        "exit": 0
+      },
+      {
+        "probe": "probe_dust_bunny",
+        "exit": 0
+      },
+      {
+        "probe": "probe_dust_bunny_boss",
+        "exit": 0
+      },
+      {
+        "probe": "probe_dust_boss",
+        "exit": 0
+      },
+      {
+        "probe": "probe_hit",
+        "exit": 0
+      },
+      {
+        "probe": "probe_partner",
+        "exit": 0
+      },
+      {
+        "probe": "probe_combat_tutorial",
+        "exit": 0
+      },
+      {
+        "probe": "probe_imp_ai",
+        "exit": 0
+      },
+      {
+        "probe": "probe_mic",
+        "exit": 0
+      },
+      {
+        "probe": "probe_stuffie",
+        "exit": 0
+      },
+      {
+        "probe": "probe_dungeon",
+        "exit": 0
+      },
+      {
+        "probe": "probe_ember",
+        "exit": 0
+      },
+      {
+        "probe": "probe_opera",
+        "exit": 0
+      },
+      {
+        "probe": "probe_opera_2d",
+        "exit": 0
+      },
+      {
+        "probe": "probe_opera_diegetic_paths",
+        "exit": 0
+      },
+      {
+        "probe": "probe_opera_detective",
+        "exit": 0
+      },
+      {
+        "probe": "probe_opera_pipe",
+        "exit": 0
+      },
+      {
+        "probe": "probe_opera_nursery",
+        "exit": 0
+      },
+      {
+        "probe": "probe_opera_gesture_quality",
+        "exit": 0
+      },
+      {
+        "probe": "probe_kitchen_props",
+        "exit": 0
+      },
+      {
+        "probe": "probe_bathroom_props",
+        "exit": 0
+      },
+      {
+        "probe": "probe_castle_door_language",
+        "exit": 0
+      },
+      {
+        "probe": "probe_bathroom_integration",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_bathroom_bunny",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_bathroom_cleanup",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_bathroom_movie_handoff",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_director",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_integration",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_pool_cleanup",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_art_attack_state",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_castle_dressing",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_story_clips",
+        "exit": 0
+      },
+      {
+        "probe": "probe_chapter2",
+        "exit": 0
+      },
+      {
+        "probe": "probe_chapter2_farmer_resume",
+        "exit": 0
+      },
+      {
+        "probe": "probe_chapter2_lawn",
+        "exit": 0
+      },
+      {
+        "probe": "probe_alpha_milestone_save",
+        "exit": 0
+      },
+      {
+        "probe": "probe_dust_boss_balance",
+        "exit": 0
+      },
+      {
+        "probe": "probe_start_menu_routing",
+        "exit": 0
+      },
+      {
+        "probe": "probe_start_menu_new_game",
+        "exit": 0
+      },
+      {
+        "probe": "probe_castle_pool_life_2d",
+        "exit": 0
+      },
+      {
+        "probe": "probe_castle_pearl_art",
+        "exit": 0
+      },
+      {
+        "probe": "probe_fairy_art",
+        "exit": 0
+      },
+      {
+        "probe": "probe_props",
+        "exit": 0
+      }
+    ],
+    "original_log_sha256": "494c6fbf222eebed273a7257f16f7ad2bcc25c5de05253d4495b445232806448",
+    "published_log": "assets_src/imagegen/reef_kart_context_20261105/evidence/full-ci.log",
+    "published_log_sha256": "aa290fa408eee3592155e4d15d9a6315b8ef127b80949a3ba004bf7af070f161",
+    "classifiers": "Unmodified scripts/ci.sh. All 82 ordered probe process exits are zero. Initial incomplete draft coverage failure is retained separately; no runtime assertion was waived."
+  },
+  "advisory_results": [
+    {
+      "name": "Opera balance",
+      "state": "CAPPED",
+      "details": "Chef speedy/casual/dreamy reach the time cap. Racer personas are NOT_MEASURED because the generic tool does not support racer/kart_race; no balance score is inferred."
+    },
+    {
+      "name": "Sky Lagoon visual review",
+      "state": "FAILED",
+      "details": "Receipt reports rendering_method gl_compatibility, which does not meet the required Mobile profile."
+    },
+    {
+      "name": "Dust-boss arena visual review",
+      "state": "FAILED",
+      "details": "Advisory receipt reports process exit 1 or explicit failure; not treated as visual acceptance."
+    },
+    {
+      "name": "Pearl-castle visual review",
+      "state": "FAILED",
+      "details": "13 of 13 screenshots written, but receipt is FAIL; image count is not acceptance."
+    }
+  ],
+  "profile_limit": "Forward Mobile is the Godot Vulkan Mobile renderer label. Exact Speedy configuration and approved EXPAND profile are not established by the posed captures. Actual tablet, controller, child and owner pending.",
+  "new_engine_runs_here": 0,
+  "new_runtime_changes_here": 0,
+  "no_global_art_acceptance": true
+}

@@ -1,0 +1,99 @@
+{
+  "id": "flat-vector-r141-racer-source-reconcile-20261105",
+  "baseline": "1aa5ce5f0f9d5d632f0710e153da0131f4521eec",
+  "scope": "Reconcile seven newly published painted Racer object candidates and source provenance into canonical per-piece registry, scene coverage and tally. One external bounded source artifact; source-only. No new generation, runtime edit, Dev mutation or engine run.",
+  "rules": [
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-06",
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-MED-09",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-VIS-09"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010"
+  ],
+  "files": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/flat-vector-r141-racer-source-reconcile-20261105.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/CANDIDATE_RECORDS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/DEV_SOURCE_SEPARATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/FRAME_EVENTS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/GATE_RECEIPT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/SOURCE_RUNTIME_EVIDENCE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/SOURCE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/TEN_AXIS_COMPARISON.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "114 selected immutable peer-source files anonymous GET/byte/SHA256 and Git comparison",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/SOURCE_VERIFICATION.json"
+    },
+    {
+      "command": "Eight direct same-room reference/candidate images; ten named axes for each of seven roles",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/TEN_AXIS_COMPARISON.json; partial observations only, no numeric score/full-context acceptance"
+    },
+    {
+      "command": "Existing exact runtime source proof and CI, without repeating unchanged engine suite",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/SOURCE_RUNTIME_EVIDENCE.json; b2bd CI42009623320 green and runtime trees equal to96511087"
+    },
+    {
+      "command": "Required authority and AUTO/HEAD change coverage",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/GATE_RECEIPT.json"
+    },
+    {
+      "command": "Manifest and all required delivery files anonymously verified at immutable revisions",
+      "result": "PENDING",
+      "evidence": "After normal canonical publication; exact receipt retained with continuation and final delivery link."
+    }
+  ],
+  "acceptance_gaps": "Source-only candidates. Posed KEEP/no-Speedy diagnostic captures, non-identical baseline/candidate poses and near-camera tent composition leave exact full context open. Formal QA11, actual device/controllers, child and owner acceptance, Dev integration and matching APK pending. MA-VIS-006/008/010 remain open. Whole-game denominators unknown.",
+  "references_used": [
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/generation_jobs.json at 96511087fcdbc572b090028db201a3f422d652fa",
+      "purpose": "Exact seven prompts, attempts, reference hashes and unexposed backend provenance"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/validation_receipt.json at 96511087fcdbc572b090028db201a3f422d652fa",
+      "purpose": "Actual source-bound 4.7.2 machine evidence, not global or human acceptance"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "purpose": "Current authority classification; historical 3D pipelines superseded"
+    }
+  ]
+}

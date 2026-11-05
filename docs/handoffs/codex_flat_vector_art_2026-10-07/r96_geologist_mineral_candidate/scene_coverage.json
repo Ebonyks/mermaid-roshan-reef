@@ -16963,7 +16963,29 @@
       "route_or_saved_variants_complete": false,
       "device_child_owner": null,
       "route_method": "Programmatic room checkpoint; actual pointer entry; declared owner leave",
-      "earlier_phase_evidence": "live_v6/room_routes/EARLIER_PHASE_BINDINGS.json"
+      "earlier_phase_evidence": "live_v6/room_routes/EARLIER_PHASE_BINDINGS.json",
+      "r141_source_candidate_context": {
+        "source_revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "source_branch": "codex/reef-kart-art-20261104",
+        "capture_index": "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/FRAME_EVENTS.json",
+        "courses": [
+          "playroom",
+          "kitchen",
+          "mermaid_pool",
+          "opera_hall"
+        ],
+        "variants": [
+          "PC solo",
+          "PC split",
+          "original one-finger canal controller machine checks"
+        ],
+        "posed_native_events": 54,
+        "new_bounded_route_credits": 0,
+        "natural_route_complete": false,
+        "Dev_integrated": false,
+        "formal_QA11": null,
+        "limits": "KEEP/no-Speedy posed fixtures; eight directly inspected reference/candidate images. Four courses and existing touch mode do not imply all reachable routes or states covered."
+      }
     },
     {
       "id": "game.magician",
@@ -28482,7 +28504,7 @@
     }
   ],
   "coverage_note": "Craft80 guarded API fixture adds game.craft_studio partial alias;77/176partial,0complete,99without. Natural/full states/acceptance and distinct screen total remain unknown.",
-  "revision": "FV-AUDIT-20261105-R140-DOLLS-PROGRESS-DEV",
+  "revision": "FV-AUDIT-20261105-R141-RACER-SOURCE-CANDIDATES",
   "partial_entries": 78,
   "complete_entries": 0,
   "entries_without_current_slice": 98,
@@ -36397,7 +36419,7 @@
       "other need/growth/action variants"
     ]
   },
-  "current_effective_summary": "SUMMARY.json. 42 published bounded source artifacts, 26 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native frame event counts stay at 7,823 bounded and 4,340 excluded, with 12,163 retained.",
+  "current_effective_summary": "SUMMARY.json. 43 published bounded source artifacts, 26 partial Dev artifacts and zero accepted removals. The 270 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native frame register: 7,823 bounded, 4,394 excluded, 12,217 retained. New54 are posed source diagnostics, not approved Mobile/Speedy evidence.",
   "intro_entry_ownership": {
     "revision": "FV-AUDIT-20261016-R77",
     "topic_baseline": "7fd93aa0d2036c06c9a65aea6c79a990cc9ae01b",
@@ -37557,7 +37579,7 @@
     "original_source_CI_green": "39079175770 at ce05d4d3",
     "current_source_CI": "SOURCE_CI_HANDLES.json"
   },
-  "new_generation_calls": 1,
+  "new_generation_calls": 0,
   "r99_new_native_frame_events": 8,
   "r100_parent_receipt_revision": "54522f81b6cc77419d36367f0bcce76fc5f6faa8",
   "r100_pan_ci_recovery": {
@@ -43192,5 +43214,30 @@
     "child": null,
     "owner": null,
     "accepted_removed": 0
+  },
+  "r141_racer_context_source": {
+    "state": "SEVEN_PAINTED_RACER_OBJECTS_SOURCE_INTEGRATED_DEV_PENDING",
+    "source_revision": "96511087fcdbc572b090028db201a3f422d652fa",
+    "source_branch": "codex/reef-kart-art-20261104",
+    "canonical_record": "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/README.md",
+    "manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/MANIFEST.json",
+    "artifact_key": "r141_racer_context_source",
+    "source_artifact_delta": 1,
+    "role_delta": 7,
+    "family_delta": 0,
+    "Dev_delta": 0,
+    "native_bounded_delta": 0,
+    "native_excluded_delta": 54,
+    "native_retained_delta": 54,
+    "new_generations_here": 0,
+    "producer_static_calls": 7,
+    "new_runtime_changes_here": 0,
+    "accepted_removed": 0,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "acceptance_limit": "References and candidates use the same rooms/courses, but are not identical poses/positions. The source also changes the road field and prop mounting. This is a contextual comparison, not pixel-isolated attribution or evidence of complete target retirement.",
+    "current_Dev_at_snapshot": "94c2a91512d2216deb26651f670469432c8f4242"
   }
 }

@@ -1,0 +1,306 @@
+{
+  "schema": "reef.ten_axis_comparison/1",
+  "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+  "reviewer": "Codex coordinator, direct inspection of eight published reference/candidate images",
+  "direct_images_viewed": [
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/review/baseline/playroom-feature.png",
+      "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+      "bytes": 565697,
+      "sha256": "9a9e805dc96a140a39b5cc4f40f1159c71aad2729fd90949ac6e5d5e6c31eee8"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/review/candidate/playroom-solo-bend.png",
+      "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+      "bytes": 650526,
+      "sha256": "94170c3910c4256475f7f5195c840ab82c7601d6917fff42e4bca6061f62457f"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/review/candidate/prop-kitchen_teapot.png",
+      "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+      "bytes": 659440,
+      "sha256": "c2677eccaeb907803b414a41e8320bf962a10f5c47adb158054fdfc7eb954392"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/review/candidate/prop-play_tent.png",
+      "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+      "bytes": 604147,
+      "sha256": "f8ab2a322d05359c367f96c45156f01eb71426efe2408318d7118f3b970fd033"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/review/candidate/mermaid_pool-solo-kelp.png",
+      "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+      "bytes": 669828,
+      "sha256": "27cdbe09a2559caafedea20094f9851a42a4725a7e268fab58bf0406e38a37f5"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/review/baseline/kitchen-feature.png",
+      "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+      "bytes": 581544,
+      "sha256": "03b4911d9f5000525b859c8eb980bf5de0899ef05195bbc66113d474ffa39e21"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/review/baseline/mermaid_pool-feature.png",
+      "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+      "bytes": 634331,
+      "sha256": "70a52d61932d78aab3146055a188ff763680f61168ca122912279da5863bdd2a"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/review/candidate/prop-play_blocks.png",
+      "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+      "bytes": 645414,
+      "sha256": "eb9765c801c8435e0199db9ec7106922cd30d864eafe48272649f08b926db46a"
+    }
+  ],
+  "producer_image_count": 54,
+  "coordinator_direct_image_count": 8,
+  "same_scene_limit": "References and candidates use the same rooms/courses, but are not identical poses/positions. The source also changes the road field and prop mounting. This is a contextual comparison, not pixel-isolated attribution or evidence of complete target retirement.",
+  "producer_review_scope": "Producer local_visual_review.json uses five provisional dimensions at 4.5. Those attributed scores are not ten-axis coordinator scores, owner approval or formal QA11.",
+  "numeric_scores": null,
+  "roles": [
+    {
+      "id": "FVR-D147419B7EE0",
+      "name": "Floating shell item capsule",
+      "source_reference": {
+        "path": "assets_src/imagegen/reef_kart_context_20261105/review/baseline/playroom-feature.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 565697,
+        "sha256": "9a9e805dc96a140a39b5cc4f40f1159c71aad2729fd90949ac6e5d5e6c31eee8"
+      },
+      "candidate_context": [
+        {
+          "path": "assets_src/imagegen/reef_kart_context_20261105/review/candidate/playroom-solo-bend.png",
+          "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "bytes": 650526,
+          "sha256": "94170c3910c4256475f7f5195c840ab82c7601d6917fff42e4bca6061f62457f"
+        }
+      ],
+      "axes": {
+        "contour": "Rounded aqua scallop capsule with violet pearl clasp replaces the generic pickup motif in the inspected source candidate. This is a distinct item-roll identity rather than currency.",
+        "material": "The candidates show broad painted value bands appropriate to shell, kelp, cloth, blocks and ceramic. They are provisional usable texture candidates; the source floor, road markings and HUD remain separately unresolved visible art.",
+        "palette": "Aqua, mint, lilac, warm cream and restrained gold harmonize with the viewed room palettes and existing kart. These are state-local observations, not a whole-source color average.",
+        "light": "Painted highlights and cool shadows read in the inspected room composites. Exact Mobile/Speedy on-device presentation and all placements are unreviewed.",
+        "perspective": "The still sprites are consumed by the existing true-Canvas projected Racer. Viewed room cues support their pictorial placement; no all-camera or near-plane perspective acceptance is granted.",
+        "scale": "The viewed props are readable in posed 1280x720 views. The inspected block view also shows a very large translucent tent across the upper scene/road; near-camera scale/fade and split-view mounts remain open.",
+        "contact": "Capsules float; kelp lies low on the lane; room ornaments are roadside. Posed images alone do not establish support, every route position, contact during action or physical-device behavior.",
+        "occlusion": "Inspected objects sit among authored room art and the kart/HUD. Foreground tent translucency in prop-play_blocks is an unresolved composition observation; no whole-course occlusion pass is claimed.",
+        "readability": "Shell clasp, teapot handle/spout, tent opening, block stack and seahorse form are recognizable in the inspected views. Child comprehension, phone-scale split views, rewards and state transitions remain open.",
+        "action_state": "These seven are static object candidates with engine-driven placement/state. Indexed views are posed diagnostics. Cooldown, item use, repeats, natural input journey and full route/state QA11 require separate evidence. Floating silhouette and approach/cooldown states need complete natural-route and phone review."
+      },
+      "status": "PARTIAL_CONTEXT_CANDIDATE; no numeric score or full-context pass",
+      "remaining": "Floating silhouette and approach/cooldown states need complete natural-route and phone review."
+    },
+    {
+      "id": "FVR-59E3B726D2F1",
+      "name": "Kelp world trap and matching item icon",
+      "source_reference": {
+        "path": "assets_src/imagegen/reef_kart_context_20261105/review/baseline/mermaid_pool-feature.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 634331,
+        "sha256": "70a52d61932d78aab3146055a188ff763680f61168ca122912279da5863bdd2a"
+      },
+      "candidate_context": [
+        {
+          "path": "assets_src/imagegen/reef_kart_context_20261105/review/candidate/mermaid_pool-solo-kelp.png",
+          "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "bytes": 669828,
+          "sha256": "27cdbe09a2559caafedea20094f9851a42a4725a7e268fab58bf0406e38a37f5"
+        }
+      ],
+      "axes": {
+        "contour": "The lane obstacle reads as a folded green/aqua kelp mat in the pool view; the same texture supplies the item icon.",
+        "material": "The candidates show broad painted value bands appropriate to shell, kelp, cloth, blocks and ceramic. They are provisional usable texture candidates; the source floor, road markings and HUD remain separately unresolved visible art.",
+        "palette": "Aqua, mint, lilac, warm cream and restrained gold harmonize with the viewed room palettes and existing kart. These are state-local observations, not a whole-source color average.",
+        "light": "Painted highlights and cool shadows read in the inspected room composites. Exact Mobile/Speedy on-device presentation and all placements are unreviewed.",
+        "perspective": "The still sprites are consumed by the existing true-Canvas projected Racer. Viewed room cues support their pictorial placement; no all-camera or near-plane perspective acceptance is granted.",
+        "scale": "The viewed props are readable in posed 1280x720 views. The inspected block view also shows a very large translucent tent across the upper scene/road; near-camera scale/fade and split-view mounts remain open.",
+        "contact": "Capsules float; kelp lies low on the lane; room ornaments are roadside. Posed images alone do not establish support, every route position, contact during action or physical-device behavior.",
+        "occlusion": "Inspected objects sit among authored room art and the kart/HUD. Foreground tent translucency in prop-play_blocks is an unresolved composition observation; no whole-course occlusion pass is claimed.",
+        "readability": "Shell clasp, teapot handle/spout, tent opening, block stack and seahorse form are recognizable in the inspected views. Child comprehension, phone-scale split views, rewards and state transitions remain open.",
+        "action_state": "These seven are static object candidates with engine-driven placement/state. Indexed views are posed diagnostics. Cooldown, item use, repeats, natural input journey and full route/state QA11 require separate evidence. A still low lane placement does not establish all dropping, contact, spent or split-view states."
+      },
+      "status": "PARTIAL_CONTEXT_CANDIDATE; no numeric score or full-context pass",
+      "remaining": "A still low lane placement does not establish all dropping, contact, spent or split-view states."
+    },
+    {
+      "id": "FVR-BF5A2026B837",
+      "name": "Painted roadside bend marker",
+      "source_reference": {
+        "path": "assets_src/imagegen/reef_kart_context_20261105/review/baseline/playroom-feature.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 565697,
+        "sha256": "9a9e805dc96a140a39b5cc4f40f1159c71aad2729fd90949ac6e5d5e6c31eee8"
+      },
+      "candidate_context": [
+        {
+          "path": "assets_src/imagegen/reef_kart_context_20261105/review/candidate/playroom-solo-bend.png",
+          "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "bytes": 650526,
+          "sha256": "94170c3910c4256475f7f5195c840ab82c7601d6917fff42e4bca6061f62457f"
+        }
+      ],
+      "axes": {
+        "contour": "A painted roadside bend sign is visible in the playroom candidate, within the existing road and room staging.",
+        "material": "The candidates show broad painted value bands appropriate to shell, kelp, cloth, blocks and ceramic. They are provisional usable texture candidates; the source floor, road markings and HUD remain separately unresolved visible art.",
+        "palette": "Aqua, mint, lilac, warm cream and restrained gold harmonize with the viewed room palettes and existing kart. These are state-local observations, not a whole-source color average.",
+        "light": "Painted highlights and cool shadows read in the inspected room composites. Exact Mobile/Speedy on-device presentation and all placements are unreviewed.",
+        "perspective": "The still sprites are consumed by the existing true-Canvas projected Racer. Viewed room cues support their pictorial placement; no all-camera or near-plane perspective acceptance is granted.",
+        "scale": "The viewed props are readable in posed 1280x720 views. The inspected block view also shows a very large translucent tent across the upper scene/road; near-camera scale/fade and split-view mounts remain open.",
+        "contact": "Capsules float; kelp lies low on the lane; room ornaments are roadside. Posed images alone do not establish support, every route position, contact during action or physical-device behavior.",
+        "occlusion": "Inspected objects sit among authored room art and the kart/HUD. Foreground tent translucency in prop-play_blocks is an unresolved composition observation; no whole-course occlusion pass is claimed.",
+        "readability": "Shell clasp, teapot handle/spout, tent opening, block stack and seahorse form are recognizable in the inspected views. Child comprehension, phone-scale split views, rewards and state transitions remain open.",
+        "action_state": "These seven are static object candidates with engine-driven placement/state. Indexed views are posed diagnostics. Cooldown, item use, repeats, natural input journey and full route/state QA11 require separate evidence. It does not accept the remaining procedural road-edge, checker, tuning or HUD marker families."
+      },
+      "status": "PARTIAL_CONTEXT_CANDIDATE; no numeric score or full-context pass",
+      "remaining": "It does not accept the remaining procedural road-edge, checker, tuning or HUD marker families."
+    },
+    {
+      "id": "FVR-9858194221D0",
+      "name": "Playroom roadside block stack",
+      "source_reference": {
+        "path": "assets_src/imagegen/reef_kart_context_20261105/review/baseline/playroom-feature.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 565697,
+        "sha256": "9a9e805dc96a140a39b5cc4f40f1159c71aad2729fd90949ac6e5d5e6c31eee8"
+      },
+      "candidate_context": [
+        {
+          "path": "assets_src/imagegen/reef_kart_context_20261105/review/candidate/playroom-solo-bend.png",
+          "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "bytes": 650526,
+          "sha256": "94170c3910c4256475f7f5195c840ab82c7601d6917fff42e4bca6061f62457f"
+        },
+        {
+          "path": "assets_src/imagegen/reef_kart_context_20261105/review/candidate/prop-play_blocks.png",
+          "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "bytes": 645414,
+          "sha256": "eb9765c801c8435e0199db9ec7106922cd30d864eafe48272649f08b926db46a"
+        }
+      ],
+      "axes": {
+        "contour": "The block stack has separate rounded blocks and painted value bands in its room context.",
+        "material": "The candidates show broad painted value bands appropriate to shell, kelp, cloth, blocks and ceramic. They are provisional usable texture candidates; the source floor, road markings and HUD remain separately unresolved visible art.",
+        "palette": "Aqua, mint, lilac, warm cream and restrained gold harmonize with the viewed room palettes and existing kart. These are state-local observations, not a whole-source color average.",
+        "light": "Painted highlights and cool shadows read in the inspected room composites. Exact Mobile/Speedy on-device presentation and all placements are unreviewed.",
+        "perspective": "The still sprites are consumed by the existing true-Canvas projected Racer. Viewed room cues support their pictorial placement; no all-camera or near-plane perspective acceptance is granted.",
+        "scale": "The viewed props are readable in posed 1280x720 views. The inspected block view also shows a very large translucent tent across the upper scene/road; near-camera scale/fade and split-view mounts remain open.",
+        "contact": "Capsules float; kelp lies low on the lane; room ornaments are roadside. Posed images alone do not establish support, every route position, contact during action or physical-device behavior.",
+        "occlusion": "Inspected objects sit among authored room art and the kart/HUD. Foreground tent translucency in prop-play_blocks is an unresolved composition observation; no whole-course occlusion pass is claimed.",
+        "readability": "Shell clasp, teapot handle/spout, tent opening, block stack and seahorse form are recognizable in the inspected views. Child comprehension, phone-scale split views, rewards and state transitions remain open.",
+        "action_state": "These seven are static object candidates with engine-driven placement/state. Indexed views are posed diagnostics. Cooldown, item use, repeats, natural input journey and full route/state QA11 require separate evidence. The inspected block view also contains the very large translucent tent foreground. This mount/composition limit remains open."
+      },
+      "status": "PARTIAL_CONTEXT_CANDIDATE; no numeric score or full-context pass",
+      "remaining": "The inspected block view also contains the very large translucent tent foreground. This mount/composition limit remains open."
+    },
+    {
+      "id": "FVR-9ACC098FAEDB",
+      "name": "Playroom roadside cloth tent",
+      "source_reference": {
+        "path": "assets_src/imagegen/reef_kart_context_20261105/review/baseline/playroom-feature.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 565697,
+        "sha256": "9a9e805dc96a140a39b5cc4f40f1159c71aad2729fd90949ac6e5d5e6c31eee8"
+      },
+      "candidate_context": [
+        {
+          "path": "assets_src/imagegen/reef_kart_context_20261105/review/candidate/playroom-solo-bend.png",
+          "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "bytes": 650526,
+          "sha256": "94170c3910c4256475f7f5195c840ab82c7601d6917fff42e4bca6061f62457f"
+        },
+        {
+          "path": "assets_src/imagegen/reef_kart_context_20261105/review/candidate/prop-play_tent.png",
+          "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "bytes": 604147,
+          "sha256": "f8ab2a322d05359c367f96c45156f01eb71426efe2408318d7118f3b970fd033"
+        }
+      ],
+      "axes": {
+        "contour": "The cloth tent has painted fold/value cues and a readable entrance in its named prop view.",
+        "material": "The candidates show broad painted value bands appropriate to shell, kelp, cloth, blocks and ceramic. They are provisional usable texture candidates; the source floor, road markings and HUD remain separately unresolved visible art.",
+        "palette": "Aqua, mint, lilac, warm cream and restrained gold harmonize with the viewed room palettes and existing kart. These are state-local observations, not a whole-source color average.",
+        "light": "Painted highlights and cool shadows read in the inspected room composites. Exact Mobile/Speedy on-device presentation and all placements are unreviewed.",
+        "perspective": "The still sprites are consumed by the existing true-Canvas projected Racer. Viewed room cues support their pictorial placement; no all-camera or near-plane perspective acceptance is granted.",
+        "scale": "The viewed props are readable in posed 1280x720 views. The inspected block view also shows a very large translucent tent across the upper scene/road; near-camera scale/fade and split-view mounts remain open.",
+        "contact": "Capsules float; kelp lies low on the lane; room ornaments are roadside. Posed images alone do not establish support, every route position, contact during action or physical-device behavior.",
+        "occlusion": "Inspected objects sit among authored room art and the kart/HUD. Foreground tent translucency in prop-play_blocks is an unresolved composition observation; no whole-course occlusion pass is claimed.",
+        "readability": "Shell clasp, teapot handle/spout, tent opening, block stack and seahorse form are recognizable in the inspected views. Child comprehension, phone-scale split views, rewards and state transitions remain open.",
+        "action_state": "These seven are static object candidates with engine-driven placement/state. Indexed views are posed diagnostics. Cooldown, item use, repeats, natural input journey and full route/state QA11 require separate evidence. A separate inspected block view shows this tent large and translucent over the scene; texture eligibility does not accept all runtime placements."
+      },
+      "status": "PARTIAL_CONTEXT_CANDIDATE; no numeric score or full-context pass",
+      "remaining": "A separate inspected block view shows this tent large and translucent over the scene; texture eligibility does not accept all runtime placements."
+    },
+    {
+      "id": "FVR-11A8BF9D26AF",
+      "name": "Kitchen roadside teapot",
+      "source_reference": {
+        "path": "assets_src/imagegen/reef_kart_context_20261105/review/baseline/kitchen-feature.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 581544,
+        "sha256": "03b4911d9f5000525b859c8eb980bf5de0899ef05195bbc66113d474ffa39e21"
+      },
+      "candidate_context": [
+        {
+          "path": "assets_src/imagegen/reef_kart_context_20261105/review/candidate/prop-kitchen_teapot.png",
+          "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "bytes": 659440,
+          "sha256": "c2677eccaeb907803b414a41e8320bf962a10f5c47adb158054fdfc7eb954392"
+        }
+      ],
+      "axes": {
+        "contour": "The rounded teapot handle, spout and painted body belong to the viewed kitchen palette and room staging.",
+        "material": "The candidates show broad painted value bands appropriate to shell, kelp, cloth, blocks and ceramic. They are provisional usable texture candidates; the source floor, road markings and HUD remain separately unresolved visible art.",
+        "palette": "Aqua, mint, lilac, warm cream and restrained gold harmonize with the viewed room palettes and existing kart. These are state-local observations, not a whole-source color average.",
+        "light": "Painted highlights and cool shadows read in the inspected room composites. Exact Mobile/Speedy on-device presentation and all placements are unreviewed.",
+        "perspective": "The still sprites are consumed by the existing true-Canvas projected Racer. Viewed room cues support their pictorial placement; no all-camera or near-plane perspective acceptance is granted.",
+        "scale": "The viewed props are readable in posed 1280x720 views. The inspected block view also shows a very large translucent tent across the upper scene/road; near-camera scale/fade and split-view mounts remain open.",
+        "contact": "Capsules float; kelp lies low on the lane; room ornaments are roadside. Posed images alone do not establish support, every route position, contact during action or physical-device behavior.",
+        "occlusion": "Inspected objects sit among authored room art and the kart/HUD. Foreground tent translucency in prop-play_blocks is an unresolved composition observation; no whole-course occlusion pass is claimed.",
+        "readability": "Shell clasp, teapot handle/spout, tent opening, block stack and seahorse form are recognizable in the inspected views. Child comprehension, phone-scale split views, rewards and state transitions remain open.",
+        "action_state": "These seven are static object candidates with engine-driven placement/state. Indexed views are posed diagnostics. Cooldown, item use, repeats, natural input journey and full route/state QA11 require separate evidence. All projected distances and complete kart occlusion/support behavior remain unreviewed."
+      },
+      "status": "PARTIAL_CONTEXT_CANDIDATE; no numeric score or full-context pass",
+      "remaining": "All projected distances and complete kart occlusion/support behavior remain unreviewed."
+    },
+    {
+      "id": "FVR-02870A096ED1",
+      "name": "Pool roadside seahorse ornament",
+      "source_reference": {
+        "path": "assets_src/imagegen/reef_kart_context_20261105/review/baseline/mermaid_pool-feature.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 634331,
+        "sha256": "70a52d61932d78aab3146055a188ff763680f61168ca122912279da5863bdd2a"
+      },
+      "candidate_context": [
+        {
+          "path": "assets_src/imagegen/reef_kart_context_20261105/review/candidate/mermaid_pool-solo-kelp.png",
+          "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "bytes": 669828,
+          "sha256": "27cdbe09a2559caafedea20094f9851a42a4725a7e268fab58bf0406e38a37f5"
+        }
+      ],
+      "axes": {
+        "contour": "A curved seahorse ornament fits the pool room motif in the inspected pool candidate.",
+        "material": "The candidates show broad painted value bands appropriate to shell, kelp, cloth, blocks and ceramic. They are provisional usable texture candidates; the source floor, road markings and HUD remain separately unresolved visible art.",
+        "palette": "Aqua, mint, lilac, warm cream and restrained gold harmonize with the viewed room palettes and existing kart. These are state-local observations, not a whole-source color average.",
+        "light": "Painted highlights and cool shadows read in the inspected room composites. Exact Mobile/Speedy on-device presentation and all placements are unreviewed.",
+        "perspective": "The still sprites are consumed by the existing true-Canvas projected Racer. Viewed room cues support their pictorial placement; no all-camera or near-plane perspective acceptance is granted.",
+        "scale": "The viewed props are readable in posed 1280x720 views. The inspected block view also shows a very large translucent tent across the upper scene/road; near-camera scale/fade and split-view mounts remain open.",
+        "contact": "Capsules float; kelp lies low on the lane; room ornaments are roadside. Posed images alone do not establish support, every route position, contact during action or physical-device behavior.",
+        "occlusion": "Inspected objects sit among authored room art and the kart/HUD. Foreground tent translucency in prop-play_blocks is an unresolved composition observation; no whole-course occlusion pass is claimed.",
+        "readability": "Shell clasp, teapot handle/spout, tent opening, block stack and seahorse form are recognizable in the inspected views. Child comprehension, phone-scale split views, rewards and state transitions remain open.",
+        "action_state": "These seven are static object candidates with engine-driven placement/state. Indexed views are posed diagnostics. Cooldown, item use, repeats, natural input journey and full route/state QA11 require separate evidence. Complete near/far placements, silhouette at phone size and source-state retirement remain pending."
+      },
+      "status": "PARTIAL_CONTEXT_CANDIDATE; no numeric score or full-context pass",
+      "remaining": "Complete near/far placements, silhouette at phone size and source-state retirement remain pending."
+    }
+  ],
+  "acceptance": {
+    "full_ten_axis_floor_met": false,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
+  }
+}

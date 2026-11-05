@@ -1,0 +1,992 @@
+{
+  "schema": "reef.r141_candidate_records/1",
+  "records": [
+    {
+      "id": "FVR-D147419B7EE0",
+      "role_key": "item_capsule",
+      "name": "Floating shell item capsule",
+      "family": "opera_racer",
+      "stable_id_seed": "opera_racer|reef_kart_context|item_capsule",
+      "source": {
+        "path": "scripts/racer/reef_kart_race.gd",
+        "function": "_draw_bubble",
+        "start_line": 1186,
+        "end_line": 1199,
+        "sha256": "f93c912cd345846a7f0d47bbf42ac0f66af82e29df57de1eff459687fd45bc4a",
+        "hash_mode": "LF-canonical text",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa"
+      },
+      "runtime_asset": "assets/racer/context_v2/item_capsule.png",
+      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_POSED_DIAGNOSTICS",
+      "source_revision": "96511087fcdbc572b090028db201a3f422d652fa",
+      "native_output": {
+        "path": "assets_src/imagegen/reef_kart_context_20261105/item_capsule_native.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 907767,
+        "sha256": "f4a366d0c8126f6069061afde3c6ddfe18558f6e3e2ad0fd5df8d5c631438f10",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "candidate_output": {
+        "path": "assets/racer/context_v2/item_capsule.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 952138,
+        "sha256": "5b356f6adb1822859b8b9db62d7b0780ce90d1b650c27470fc3e33cb128cd635",
+        "dimensions": [
+          1024,
+          1024
+        ]
+      },
+      "runtime_import": {
+        "path": "assets/racer/context_v2/item_capsule.png.import",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 963,
+        "sha256": "22a567215901ecc7492ccd8c504805926d3e7332b78f8802116ea8df9f1202bf"
+      },
+      "derivation": {
+        "content_rect": [
+          8,
+          67,
+          1008,
+          890
+        ],
+        "crop": [
+          151,
+          198,
+          945,
+          834
+        ],
+        "id": "item_capsule",
+        "operation": "Alpha threshold 0.06 only selects crop bounds, add eight source pixels, preserve all pixels inside crop, proportional Lanczos export centered on transparent 1024 square. Native preserved.",
+        "runtime": "res://assets/racer/context_v2/item_capsule.png",
+        "runtime_sha256": "5b356f6adb1822859b8b9db62d7b0780ce90d1b650c27470fc3e33cb128cd635",
+        "size": [
+          1024,
+          1024
+        ],
+        "source": "res://assets_src/imagegen/reef_kart_context_20261105/item_capsule_native.png",
+        "source_sha256": "f4a366d0c8126f6069061afde3c6ddfe18558f6e3e2ad0fd5df8d5c631438f10",
+        "source_size": [
+          1254,
+          1254
+        ]
+      },
+      "provenance": {
+        "generation_job": {
+          "path": "assets_src/imagegen/reef_kart_context_20261105/generation_jobs.json",
+          "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "bytes": 45809,
+          "sha256": "3422a3569005d3282e6c555914a3be32839f3014f6c0025ba8d4ad6c1f592a5e"
+        },
+        "job_id": "item_capsule",
+        "prompt_sha256": "df7d67e841eaabb79e68207e5c9daf81b85d79d9a508e56d39de343a57eb659d",
+        "attempts": [
+          {
+            "attempt": 1,
+            "native_path": "assets_src/imagegen/reef_kart_context_20261105/item_capsule_native.png",
+            "native_sha256": "f4a366d0c8126f6069061afde3c6ddfe18558f6e3e2ad0fd5df8d5c631438f10",
+            "state": "runtime_pass",
+            "provider": "built-in image_gen",
+            "provider_revision": "unexposed",
+            "response_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f as C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f\\exec-1a530e43-8064-40c3-8e48-ddccf6a717d4.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+            "acceptance_scope": "Local configured still-art candidate; see local_visual_review.json. Not owner_accepted."
+          }
+        ],
+        "backend": "built-in image_gen",
+        "provider_model_revision": "unexposed",
+        "requested_version_not_claimed": true,
+        "new_calls_here": 0,
+        "producer_attempt_count": 1,
+        "budget_scope": "Static named gaps, max two per named gap; unrelated funded animation caps unchanged."
+      },
+      "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/TEN_AXIS_COMPARISON.json",
+      "texture_scope_ids": [],
+      "component_roles": [
+        "item_capsule"
+      ],
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261105-R141-RACER-SOURCE-CANDIDATES",
+          "source_revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "status": "SEVEN_PAINTED_SOURCE_CANDIDATES_RECONCILED",
+          "scope": "Floating silhouette and approach/cooldown states need complete natural-route and phone review."
+        }
+      ],
+      "reuse_ready": null,
+      "drawing_required": null,
+      "samples_awaiting_review": 1,
+      "integration_sha": "96511087fcdbc572b090028db201a3f422d652fa",
+      "acceptance_evidence": {
+        "candidate": true,
+        "approved": false,
+        "source_work_branch_integrated": true,
+        "Dev_integrated": false,
+        "runtime_verified_replacement": false,
+        "source_machine_evidence": "assets_src/imagegen/reef_kart_context_20261105/validation_receipt.json at 96511087fcdbc572b090028db201a3f422d652fa",
+        "configured_Mobile": true,
+        "Speedy_attested": false,
+        "DL_QA_11": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0,
+        "full_context_review_complete": false
+      },
+      "blocked_dependencies": [
+        "Exact current Mobile/Speedy profile and natural route/state coverage",
+        "Near-camera placement, occlusion and all sibling uses",
+        "Formal QA11, physical device, child and owner acceptance",
+        "Current Dev integration and matching build"
+      ]
+    },
+    {
+      "id": "FVR-59E3B726D2F1",
+      "role_key": "kelp_trap",
+      "name": "Kelp world trap and matching item icon",
+      "family": "opera_racer",
+      "stable_id_seed": "opera_racer|reef_kart_context|kelp_trap",
+      "source": {
+        "path": "scripts/racer/reef_kart_race.gd",
+        "function": "_draw_world",
+        "start_line": 1087,
+        "end_line": 1141,
+        "sha256": "f93c912cd345846a7f0d47bbf42ac0f66af82e29df57de1eff459687fd45bc4a",
+        "hash_mode": "LF-canonical text",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa"
+      },
+      "runtime_asset": "assets/racer/context_v2/kelp_trap.png",
+      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_POSED_DIAGNOSTICS",
+      "source_revision": "96511087fcdbc572b090028db201a3f422d652fa",
+      "native_output": {
+        "path": "assets_src/imagegen/reef_kart_context_20261105/kelp_trap_native.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 963517,
+        "sha256": "ba32f32252b5a634c74ab76994b068eacfc9a81441fce38a4816844477d04801",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "candidate_output": {
+        "path": "assets/racer/context_v2/kelp_trap.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 720171,
+        "sha256": "7a9e0b17c5282f516666e3bfce12dcf75e244aec89bb37bf6b791b3200700795",
+        "dimensions": [
+          1024,
+          1024
+        ]
+      },
+      "runtime_import": {
+        "path": "assets/racer/context_v2/kelp_trap.png.import",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 954,
+        "sha256": "da132688290da61f7a37d44b851933c55024c4346545003cde3e99ff7b012370"
+      },
+      "derivation": {
+        "content_rect": [
+          8,
+          194,
+          1008,
+          635
+        ],
+        "crop": [
+          40,
+          245,
+          1153,
+          726
+        ],
+        "id": "kelp_trap",
+        "operation": "Alpha threshold 0.06 only selects crop bounds, add eight source pixels, preserve all pixels inside crop, proportional Lanczos export centered on transparent 1024 square. Native preserved.",
+        "runtime": "res://assets/racer/context_v2/kelp_trap.png",
+        "runtime_sha256": "7a9e0b17c5282f516666e3bfce12dcf75e244aec89bb37bf6b791b3200700795",
+        "size": [
+          1024,
+          1024
+        ],
+        "source": "res://assets_src/imagegen/reef_kart_context_20261105/kelp_trap_native.png",
+        "source_sha256": "ba32f32252b5a634c74ab76994b068eacfc9a81441fce38a4816844477d04801",
+        "source_size": [
+          1254,
+          1254
+        ]
+      },
+      "provenance": {
+        "generation_job": {
+          "path": "assets_src/imagegen/reef_kart_context_20261105/generation_jobs.json",
+          "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "bytes": 45809,
+          "sha256": "3422a3569005d3282e6c555914a3be32839f3014f6c0025ba8d4ad6c1f592a5e"
+        },
+        "job_id": "kelp_trap",
+        "prompt_sha256": "1226c164f94a0652742bd8a736e0ed8eca694c9c87e2dff3f89b85f8beb2b590",
+        "attempts": [
+          {
+            "attempt": 1,
+            "native_path": "assets_src/imagegen/reef_kart_context_20261105/kelp_trap_native.png",
+            "native_sha256": "ba32f32252b5a634c74ab76994b068eacfc9a81441fce38a4816844477d04801",
+            "state": "runtime_pass",
+            "provider": "built-in image_gen",
+            "provider_revision": "unexposed",
+            "response_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f as C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f\\exec-7f15ba9c-6f79-4396-a4cc-ac3972a9558d.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+            "acceptance_scope": "Local configured still-art candidate; see local_visual_review.json. Not owner_accepted."
+          }
+        ],
+        "backend": "built-in image_gen",
+        "provider_model_revision": "unexposed",
+        "requested_version_not_claimed": true,
+        "new_calls_here": 0,
+        "producer_attempt_count": 1,
+        "budget_scope": "Static named gaps, max two per named gap; unrelated funded animation caps unchanged."
+      },
+      "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/TEN_AXIS_COMPARISON.json",
+      "texture_scope_ids": [],
+      "component_roles": [
+        "kelp_trap"
+      ],
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261105-R141-RACER-SOURCE-CANDIDATES",
+          "source_revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "status": "SEVEN_PAINTED_SOURCE_CANDIDATES_RECONCILED",
+          "scope": "A still low lane placement does not establish all dropping, contact, spent or split-view states."
+        }
+      ],
+      "reuse_ready": null,
+      "drawing_required": null,
+      "samples_awaiting_review": 1,
+      "integration_sha": "96511087fcdbc572b090028db201a3f422d652fa",
+      "acceptance_evidence": {
+        "candidate": true,
+        "approved": false,
+        "source_work_branch_integrated": true,
+        "Dev_integrated": false,
+        "runtime_verified_replacement": false,
+        "source_machine_evidence": "assets_src/imagegen/reef_kart_context_20261105/validation_receipt.json at 96511087fcdbc572b090028db201a3f422d652fa",
+        "configured_Mobile": true,
+        "Speedy_attested": false,
+        "DL_QA_11": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0,
+        "full_context_review_complete": false
+      },
+      "blocked_dependencies": [
+        "Exact current Mobile/Speedy profile and natural route/state coverage",
+        "Near-camera placement, occlusion and all sibling uses",
+        "Formal QA11, physical device, child and owner acceptance",
+        "Current Dev integration and matching build"
+      ]
+    },
+    {
+      "id": "FVR-BF5A2026B837",
+      "role_key": "turn_marker",
+      "name": "Painted roadside bend marker",
+      "family": "opera_racer",
+      "stable_id_seed": "opera_racer|reef_kart_context|turn_marker",
+      "source": {
+        "path": "scripts/racer/reef_kart_race.gd",
+        "function": "_draw_landmark",
+        "start_line": 1150,
+        "end_line": 1174,
+        "sha256": "f93c912cd345846a7f0d47bbf42ac0f66af82e29df57de1eff459687fd45bc4a",
+        "hash_mode": "LF-canonical text",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa"
+      },
+      "runtime_asset": "assets/racer/context_v2/turn_marker.png",
+      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_POSED_DIAGNOSTICS",
+      "source_revision": "96511087fcdbc572b090028db201a3f422d652fa",
+      "native_output": {
+        "path": "assets_src/imagegen/reef_kart_context_20261105/turn_marker_native.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 1334907,
+        "sha256": "01cf1301a096a4759578bffb6be75273281f889531bc69ef950b2f526400bee4",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "candidate_output": {
+        "path": "assets/racer/context_v2/turn_marker.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 896635,
+        "sha256": "b9cb0744d19319fac2314c8b4adf720c240607f26c2a950b8de338ec4df568c7",
+        "dimensions": [
+          1024,
+          1024
+        ]
+      },
+      "runtime_import": {
+        "path": "assets/racer/context_v2/turn_marker.png.import",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 960,
+        "sha256": "38e6d3dcfb93e52b3241d33cf90f9d3b3f688f36b0eaf42537bbc6091373711f"
+      },
+      "derivation": {
+        "content_rect": [
+          8,
+          134,
+          1008,
+          755
+        ],
+        "crop": [
+          31,
+          263,
+          1189,
+          891
+        ],
+        "id": "turn_marker",
+        "operation": "Alpha threshold 0.06 only selects crop bounds, add eight source pixels, preserve all pixels inside crop, proportional Lanczos export centered on transparent 1024 square. Native preserved.",
+        "runtime": "res://assets/racer/context_v2/turn_marker.png",
+        "runtime_sha256": "b9cb0744d19319fac2314c8b4adf720c240607f26c2a950b8de338ec4df568c7",
+        "size": [
+          1024,
+          1024
+        ],
+        "source": "res://assets_src/imagegen/reef_kart_context_20261105/turn_marker_native.png",
+        "source_sha256": "01cf1301a096a4759578bffb6be75273281f889531bc69ef950b2f526400bee4",
+        "source_size": [
+          1254,
+          1254
+        ]
+      },
+      "provenance": {
+        "generation_job": {
+          "path": "assets_src/imagegen/reef_kart_context_20261105/generation_jobs.json",
+          "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "bytes": 45809,
+          "sha256": "3422a3569005d3282e6c555914a3be32839f3014f6c0025ba8d4ad6c1f592a5e"
+        },
+        "job_id": "turn_marker",
+        "prompt_sha256": "755cb0f54db4fb57b5e3f3bcf324d7be9f82f93fef3b91e31307d93418b8044d",
+        "attempts": [
+          {
+            "attempt": 1,
+            "native_path": "assets_src/imagegen/reef_kart_context_20261105/turn_marker_native.png",
+            "native_sha256": "01cf1301a096a4759578bffb6be75273281f889531bc69ef950b2f526400bee4",
+            "state": "runtime_pass",
+            "provider": "built-in image_gen",
+            "provider_revision": "unexposed",
+            "response_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f as C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f\\exec-6fa1e919-d8fa-46e7-bb83-13374529deef.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+            "acceptance_scope": "Local configured still-art candidate; see local_visual_review.json. Not owner_accepted."
+          }
+        ],
+        "backend": "built-in image_gen",
+        "provider_model_revision": "unexposed",
+        "requested_version_not_claimed": true,
+        "new_calls_here": 0,
+        "producer_attempt_count": 1,
+        "budget_scope": "Static named gaps, max two per named gap; unrelated funded animation caps unchanged."
+      },
+      "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/TEN_AXIS_COMPARISON.json",
+      "texture_scope_ids": [],
+      "component_roles": [
+        "turn_marker"
+      ],
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261105-R141-RACER-SOURCE-CANDIDATES",
+          "source_revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "status": "SEVEN_PAINTED_SOURCE_CANDIDATES_RECONCILED",
+          "scope": "It does not accept the remaining procedural road-edge, checker, tuning or HUD marker families."
+        }
+      ],
+      "reuse_ready": null,
+      "drawing_required": null,
+      "samples_awaiting_review": 1,
+      "integration_sha": "96511087fcdbc572b090028db201a3f422d652fa",
+      "acceptance_evidence": {
+        "candidate": true,
+        "approved": false,
+        "source_work_branch_integrated": true,
+        "Dev_integrated": false,
+        "runtime_verified_replacement": false,
+        "source_machine_evidence": "assets_src/imagegen/reef_kart_context_20261105/validation_receipt.json at 96511087fcdbc572b090028db201a3f422d652fa",
+        "configured_Mobile": true,
+        "Speedy_attested": false,
+        "DL_QA_11": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0,
+        "full_context_review_complete": false
+      },
+      "blocked_dependencies": [
+        "Exact current Mobile/Speedy profile and natural route/state coverage",
+        "Near-camera placement, occlusion and all sibling uses",
+        "Formal QA11, physical device, child and owner acceptance",
+        "Current Dev integration and matching build"
+      ]
+    },
+    {
+      "id": "FVR-9858194221D0",
+      "role_key": "play_blocks",
+      "name": "Playroom roadside block stack",
+      "family": "opera_racer",
+      "stable_id_seed": "opera_racer|reef_kart_context|play_blocks",
+      "source": {
+        "path": "scripts/racer/reef_kart_race.gd",
+        "function": "_draw_landmark",
+        "start_line": 1150,
+        "end_line": 1174,
+        "sha256": "f93c912cd345846a7f0d47bbf42ac0f66af82e29df57de1eff459687fd45bc4a",
+        "hash_mode": "LF-canonical text",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa"
+      },
+      "runtime_asset": "assets/racer/context_v2/play_blocks.png",
+      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_POSED_DIAGNOSTICS",
+      "source_revision": "96511087fcdbc572b090028db201a3f422d652fa",
+      "native_output": {
+        "path": "assets_src/imagegen/reef_kart_context_20261105/play_blocks_native.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 1217854,
+        "sha256": "95c20d512ce3d3c71cbdbe4a7fe1b334b8e79fc280073fe55d7169866723917b",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "candidate_output": {
+        "path": "assets/racer/context_v2/play_blocks.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 1151489,
+        "sha256": "72b10a0da025dfb4d8c5ad99c064f446045032c9ea58599dc6c8efd83fe1ef4d",
+        "dimensions": [
+          1024,
+          1024
+        ]
+      },
+      "runtime_import": {
+        "path": "assets/racer/context_v2/play_blocks.png.import",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 960,
+        "sha256": "c88d21174613611ef219037356dfaf7a54460e58da1dfa40877fb64bbb7d8401"
+      },
+      "derivation": {
+        "content_rect": [
+          8,
+          13,
+          1008,
+          997
+        ],
+        "crop": [
+          124,
+          124,
+          995,
+          984
+        ],
+        "id": "play_blocks",
+        "operation": "Alpha threshold 0.06 only selects crop bounds, add eight source pixels, preserve all pixels inside crop, proportional Lanczos export centered on transparent 1024 square. Native preserved.",
+        "runtime": "res://assets/racer/context_v2/play_blocks.png",
+        "runtime_sha256": "72b10a0da025dfb4d8c5ad99c064f446045032c9ea58599dc6c8efd83fe1ef4d",
+        "size": [
+          1024,
+          1024
+        ],
+        "source": "res://assets_src/imagegen/reef_kart_context_20261105/play_blocks_native.png",
+        "source_sha256": "95c20d512ce3d3c71cbdbe4a7fe1b334b8e79fc280073fe55d7169866723917b",
+        "source_size": [
+          1254,
+          1254
+        ]
+      },
+      "provenance": {
+        "generation_job": {
+          "path": "assets_src/imagegen/reef_kart_context_20261105/generation_jobs.json",
+          "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "bytes": 45809,
+          "sha256": "3422a3569005d3282e6c555914a3be32839f3014f6c0025ba8d4ad6c1f592a5e"
+        },
+        "job_id": "play_blocks",
+        "prompt_sha256": "17f9c5738c024077db25f39ba0b225c6ce26c9710e0a5f051189aaee361245ad",
+        "attempts": [
+          {
+            "attempt": 1,
+            "native_path": "assets_src/imagegen/reef_kart_context_20261105/play_blocks_native.png",
+            "native_sha256": "95c20d512ce3d3c71cbdbe4a7fe1b334b8e79fc280073fe55d7169866723917b",
+            "state": "runtime_pass",
+            "provider": "built-in image_gen",
+            "provider_revision": "unexposed",
+            "response_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f as C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f\\exec-ae5eed4d-0ae5-4510-8fde-439fd26bddd4.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+            "acceptance_scope": "Local configured still-art candidate; see local_visual_review.json. Not owner_accepted."
+          }
+        ],
+        "backend": "built-in image_gen",
+        "provider_model_revision": "unexposed",
+        "requested_version_not_claimed": true,
+        "new_calls_here": 0,
+        "producer_attempt_count": 1,
+        "budget_scope": "Static named gaps, max two per named gap; unrelated funded animation caps unchanged."
+      },
+      "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/TEN_AXIS_COMPARISON.json",
+      "texture_scope_ids": [],
+      "component_roles": [
+        "play_blocks"
+      ],
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261105-R141-RACER-SOURCE-CANDIDATES",
+          "source_revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "status": "SEVEN_PAINTED_SOURCE_CANDIDATES_RECONCILED",
+          "scope": "The inspected block view also contains the very large translucent tent foreground. This mount/composition limit remains open."
+        }
+      ],
+      "reuse_ready": null,
+      "drawing_required": null,
+      "samples_awaiting_review": 1,
+      "integration_sha": "96511087fcdbc572b090028db201a3f422d652fa",
+      "acceptance_evidence": {
+        "candidate": true,
+        "approved": false,
+        "source_work_branch_integrated": true,
+        "Dev_integrated": false,
+        "runtime_verified_replacement": false,
+        "source_machine_evidence": "assets_src/imagegen/reef_kart_context_20261105/validation_receipt.json at 96511087fcdbc572b090028db201a3f422d652fa",
+        "configured_Mobile": true,
+        "Speedy_attested": false,
+        "DL_QA_11": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0,
+        "full_context_review_complete": false
+      },
+      "blocked_dependencies": [
+        "Exact current Mobile/Speedy profile and natural route/state coverage",
+        "Near-camera placement, occlusion and all sibling uses",
+        "Formal QA11, physical device, child and owner acceptance",
+        "Current Dev integration and matching build"
+      ]
+    },
+    {
+      "id": "FVR-9ACC098FAEDB",
+      "role_key": "play_tent",
+      "name": "Playroom roadside cloth tent",
+      "family": "opera_racer",
+      "stable_id_seed": "opera_racer|reef_kart_context|play_tent",
+      "source": {
+        "path": "scripts/racer/reef_kart_race.gd",
+        "function": "_draw_landmark",
+        "start_line": 1150,
+        "end_line": 1174,
+        "sha256": "f93c912cd345846a7f0d47bbf42ac0f66af82e29df57de1eff459687fd45bc4a",
+        "hash_mode": "LF-canonical text",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa"
+      },
+      "runtime_asset": "assets/racer/context_v2/play_tent.png",
+      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_POSED_DIAGNOSTICS",
+      "source_revision": "96511087fcdbc572b090028db201a3f422d652fa",
+      "native_output": {
+        "path": "assets_src/imagegen/reef_kart_context_20261105/play_tent_native.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 1231488,
+        "sha256": "71c2619d4ddff2923aa39f8630926d39c7cd09ab360668db4198c2ab5ad12518",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "candidate_output": {
+        "path": "assets/racer/context_v2/play_tent.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 897170,
+        "sha256": "87ac91e89d3fc933e7bf9467ba28b15310e5ee59c0dc2b2bf375f27b83b5b47d",
+        "dimensions": [
+          1024,
+          1024
+        ]
+      },
+      "runtime_import": {
+        "path": "assets/racer/context_v2/play_tent.png.import",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 953,
+        "sha256": "927cc1a660b477be0c2e3bcc44b11a529ecbaec74bd9885a3a6ce397e143bef0"
+      },
+      "derivation": {
+        "content_rect": [
+          8,
+          38,
+          1008,
+          947
+        ],
+        "crop": [
+          33,
+          72,
+          1174,
+          1103
+        ],
+        "id": "play_tent",
+        "operation": "Alpha threshold 0.06 only selects crop bounds, add eight source pixels, preserve all pixels inside crop, proportional Lanczos export centered on transparent 1024 square. Native preserved.",
+        "runtime": "res://assets/racer/context_v2/play_tent.png",
+        "runtime_sha256": "87ac91e89d3fc933e7bf9467ba28b15310e5ee59c0dc2b2bf375f27b83b5b47d",
+        "size": [
+          1024,
+          1024
+        ],
+        "source": "res://assets_src/imagegen/reef_kart_context_20261105/play_tent_native.png",
+        "source_sha256": "71c2619d4ddff2923aa39f8630926d39c7cd09ab360668db4198c2ab5ad12518",
+        "source_size": [
+          1254,
+          1254
+        ]
+      },
+      "provenance": {
+        "generation_job": {
+          "path": "assets_src/imagegen/reef_kart_context_20261105/generation_jobs.json",
+          "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "bytes": 45809,
+          "sha256": "3422a3569005d3282e6c555914a3be32839f3014f6c0025ba8d4ad6c1f592a5e"
+        },
+        "job_id": "play_tent",
+        "prompt_sha256": "9a06e0da396e8f5a901aa43c3ed3ff4578aa4e1416c7ca0ceaba7ca15c5e8a23",
+        "attempts": [
+          {
+            "attempt": 1,
+            "native_path": "assets_src/imagegen/reef_kart_context_20261105/play_tent_native.png",
+            "native_sha256": "71c2619d4ddff2923aa39f8630926d39c7cd09ab360668db4198c2ab5ad12518",
+            "state": "runtime_pass",
+            "provider": "built-in image_gen",
+            "provider_revision": "unexposed",
+            "response_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f as C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f\\exec-c4e63cd9-bbe8-47ed-b53a-f3c6c5df837e.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+            "acceptance_scope": "Local configured still-art candidate; see local_visual_review.json. Not owner_accepted."
+          }
+        ],
+        "backend": "built-in image_gen",
+        "provider_model_revision": "unexposed",
+        "requested_version_not_claimed": true,
+        "new_calls_here": 0,
+        "producer_attempt_count": 1,
+        "budget_scope": "Static named gaps, max two per named gap; unrelated funded animation caps unchanged."
+      },
+      "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/TEN_AXIS_COMPARISON.json",
+      "texture_scope_ids": [],
+      "component_roles": [
+        "play_tent"
+      ],
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261105-R141-RACER-SOURCE-CANDIDATES",
+          "source_revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "status": "SEVEN_PAINTED_SOURCE_CANDIDATES_RECONCILED",
+          "scope": "A separate inspected block view shows this tent large and translucent over the scene; texture eligibility does not accept all runtime placements."
+        }
+      ],
+      "reuse_ready": null,
+      "drawing_required": null,
+      "samples_awaiting_review": 1,
+      "integration_sha": "96511087fcdbc572b090028db201a3f422d652fa",
+      "acceptance_evidence": {
+        "candidate": true,
+        "approved": false,
+        "source_work_branch_integrated": true,
+        "Dev_integrated": false,
+        "runtime_verified_replacement": false,
+        "source_machine_evidence": "assets_src/imagegen/reef_kart_context_20261105/validation_receipt.json at 96511087fcdbc572b090028db201a3f422d652fa",
+        "configured_Mobile": true,
+        "Speedy_attested": false,
+        "DL_QA_11": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0,
+        "full_context_review_complete": false
+      },
+      "blocked_dependencies": [
+        "Exact current Mobile/Speedy profile and natural route/state coverage",
+        "Near-camera placement, occlusion and all sibling uses",
+        "Formal QA11, physical device, child and owner acceptance",
+        "Current Dev integration and matching build"
+      ]
+    },
+    {
+      "id": "FVR-11A8BF9D26AF",
+      "role_key": "kitchen_teapot",
+      "name": "Kitchen roadside teapot",
+      "family": "opera_racer",
+      "stable_id_seed": "opera_racer|reef_kart_context|kitchen_teapot",
+      "source": {
+        "path": "scripts/racer/reef_kart_race.gd",
+        "function": "_draw_landmark",
+        "start_line": 1150,
+        "end_line": 1174,
+        "sha256": "f93c912cd345846a7f0d47bbf42ac0f66af82e29df57de1eff459687fd45bc4a",
+        "hash_mode": "LF-canonical text",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa"
+      },
+      "runtime_asset": "assets/racer/context_v2/kitchen_teapot.png",
+      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_POSED_DIAGNOSTICS",
+      "source_revision": "96511087fcdbc572b090028db201a3f422d652fa",
+      "native_output": {
+        "path": "assets_src/imagegen/reef_kart_context_20261105/kitchen_teapot_native.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 1236399,
+        "sha256": "9182268ce0d8f320318c9f6e6b4cab8227ee12a7a46a1b11c32099898ab0d82b",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "candidate_output": {
+        "path": "assets/racer/context_v2/kitchen_teapot.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 845115,
+        "sha256": "35337c962c41f16ff643cb9ec89dcb54f71bc10c4e470e871b3af2de85ad5a72",
+        "dimensions": [
+          1024,
+          1024
+        ]
+      },
+      "runtime_import": {
+        "path": "assets/racer/context_v2/kitchen_teapot.png.import",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 968,
+        "sha256": "355f242e32082741c7fe061933748edcf84e3448bccafb81bdb0130e6889c3e7"
+      },
+      "derivation": {
+        "content_rect": [
+          8,
+          113,
+          1008,
+          798
+        ],
+        "crop": [
+          23,
+          144,
+          1217,
+          964
+        ],
+        "id": "kitchen_teapot",
+        "operation": "Alpha threshold 0.06 only selects crop bounds, add eight source pixels, preserve all pixels inside crop, proportional Lanczos export centered on transparent 1024 square. Native preserved.",
+        "runtime": "res://assets/racer/context_v2/kitchen_teapot.png",
+        "runtime_sha256": "35337c962c41f16ff643cb9ec89dcb54f71bc10c4e470e871b3af2de85ad5a72",
+        "size": [
+          1024,
+          1024
+        ],
+        "source": "res://assets_src/imagegen/reef_kart_context_20261105/kitchen_teapot_native.png",
+        "source_sha256": "9182268ce0d8f320318c9f6e6b4cab8227ee12a7a46a1b11c32099898ab0d82b",
+        "source_size": [
+          1254,
+          1254
+        ]
+      },
+      "provenance": {
+        "generation_job": {
+          "path": "assets_src/imagegen/reef_kart_context_20261105/generation_jobs.json",
+          "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "bytes": 45809,
+          "sha256": "3422a3569005d3282e6c555914a3be32839f3014f6c0025ba8d4ad6c1f592a5e"
+        },
+        "job_id": "kitchen_teapot",
+        "prompt_sha256": "9aadf973f33dd1250f5bd64948be0516bbdd4999bfa8cd6648f2102a9a661db5",
+        "attempts": [
+          {
+            "attempt": 1,
+            "native_path": "assets_src/imagegen/reef_kart_context_20261105/kitchen_teapot_native.png",
+            "native_sha256": "9182268ce0d8f320318c9f6e6b4cab8227ee12a7a46a1b11c32099898ab0d82b",
+            "state": "runtime_pass",
+            "provider": "built-in image_gen",
+            "provider_revision": "unexposed",
+            "response_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f as C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f\\exec-b98fef31-1d37-4ab2-a157-e756a02b7bc5.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+            "acceptance_scope": "Local configured still-art candidate; see local_visual_review.json. Not owner_accepted."
+          }
+        ],
+        "backend": "built-in image_gen",
+        "provider_model_revision": "unexposed",
+        "requested_version_not_claimed": true,
+        "new_calls_here": 0,
+        "producer_attempt_count": 1,
+        "budget_scope": "Static named gaps, max two per named gap; unrelated funded animation caps unchanged."
+      },
+      "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/TEN_AXIS_COMPARISON.json",
+      "texture_scope_ids": [],
+      "component_roles": [
+        "kitchen_teapot"
+      ],
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261105-R141-RACER-SOURCE-CANDIDATES",
+          "source_revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "status": "SEVEN_PAINTED_SOURCE_CANDIDATES_RECONCILED",
+          "scope": "All projected distances and complete kart occlusion/support behavior remain unreviewed."
+        }
+      ],
+      "reuse_ready": null,
+      "drawing_required": null,
+      "samples_awaiting_review": 1,
+      "integration_sha": "96511087fcdbc572b090028db201a3f422d652fa",
+      "acceptance_evidence": {
+        "candidate": true,
+        "approved": false,
+        "source_work_branch_integrated": true,
+        "Dev_integrated": false,
+        "runtime_verified_replacement": false,
+        "source_machine_evidence": "assets_src/imagegen/reef_kart_context_20261105/validation_receipt.json at 96511087fcdbc572b090028db201a3f422d652fa",
+        "configured_Mobile": true,
+        "Speedy_attested": false,
+        "DL_QA_11": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0,
+        "full_context_review_complete": false
+      },
+      "blocked_dependencies": [
+        "Exact current Mobile/Speedy profile and natural route/state coverage",
+        "Near-camera placement, occlusion and all sibling uses",
+        "Formal QA11, physical device, child and owner acceptance",
+        "Current Dev integration and matching build"
+      ]
+    },
+    {
+      "id": "FVR-02870A096ED1",
+      "role_key": "pool_seahorse",
+      "name": "Pool roadside seahorse ornament",
+      "family": "opera_racer",
+      "stable_id_seed": "opera_racer|reef_kart_context|pool_seahorse",
+      "source": {
+        "path": "scripts/racer/reef_kart_race.gd",
+        "function": "_draw_landmark",
+        "start_line": 1150,
+        "end_line": 1174,
+        "sha256": "f93c912cd345846a7f0d47bbf42ac0f66af82e29df57de1eff459687fd45bc4a",
+        "hash_mode": "LF-canonical text",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa"
+      },
+      "runtime_asset": "assets/racer/context_v2/pool_seahorse.png",
+      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_POSED_DIAGNOSTICS",
+      "source_revision": "96511087fcdbc572b090028db201a3f422d652fa",
+      "native_output": {
+        "path": "assets_src/imagegen/reef_kart_context_20261105/pool_seahorse_native.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 924592,
+        "sha256": "fe2b74902ca428e851d71aecf74a973cd279f333495d1dc3a2d6c4c6657fe239",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "candidate_output": {
+        "path": "assets/racer/context_v2/pool_seahorse.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 717924,
+        "sha256": "47d8c2749df2455a1995a553909360a99aaf388cb027e165e32e439582015078",
+        "dimensions": [
+          1024,
+          1024
+        ]
+      },
+      "runtime_import": {
+        "path": "assets/racer/context_v2/pool_seahorse.png.import",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 966,
+        "sha256": "5177a4e3d553b718ee29dfeaa09d2097b525c7c9f7503b36cb36f53a240c3645"
+      },
+      "derivation": {
+        "content_rect": [
+          210,
+          8,
+          603,
+          1008
+        ],
+        "crop": [
+          266,
+          9,
+          718,
+          1201
+        ],
+        "id": "pool_seahorse",
+        "operation": "Alpha threshold 0.06 only selects crop bounds, add eight source pixels, preserve all pixels inside crop, proportional Lanczos export centered on transparent 1024 square. Native preserved.",
+        "runtime": "res://assets/racer/context_v2/pool_seahorse.png",
+        "runtime_sha256": "47d8c2749df2455a1995a553909360a99aaf388cb027e165e32e439582015078",
+        "size": [
+          1024,
+          1024
+        ],
+        "source": "res://assets_src/imagegen/reef_kart_context_20261105/pool_seahorse_native.png",
+        "source_sha256": "fe2b74902ca428e851d71aecf74a973cd279f333495d1dc3a2d6c4c6657fe239",
+        "source_size": [
+          1254,
+          1254
+        ]
+      },
+      "provenance": {
+        "generation_job": {
+          "path": "assets_src/imagegen/reef_kart_context_20261105/generation_jobs.json",
+          "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "bytes": 45809,
+          "sha256": "3422a3569005d3282e6c555914a3be32839f3014f6c0025ba8d4ad6c1f592a5e"
+        },
+        "job_id": "pool_seahorse",
+        "prompt_sha256": "c751de03e172e3c729186217caba5a9c3071f68012160043006a758d2640b034",
+        "attempts": [
+          {
+            "attempt": 1,
+            "native_path": "assets_src/imagegen/reef_kart_context_20261105/pool_seahorse_native.png",
+            "native_sha256": "fe2b74902ca428e851d71aecf74a973cd279f333495d1dc3a2d6c4c6657fe239",
+            "state": "runtime_pass",
+            "provider": "built-in image_gen",
+            "provider_revision": "unexposed",
+            "response_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f as C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f\\exec-a1a07a1f-ea54-4909-ac9e-fe47ecf39951.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+            "acceptance_scope": "Local configured still-art candidate; see local_visual_review.json. Not owner_accepted."
+          }
+        ],
+        "backend": "built-in image_gen",
+        "provider_model_revision": "unexposed",
+        "requested_version_not_claimed": true,
+        "new_calls_here": 0,
+        "producer_attempt_count": 1,
+        "budget_scope": "Static named gaps, max two per named gap; unrelated funded animation caps unchanged."
+      },
+      "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/TEN_AXIS_COMPARISON.json",
+      "texture_scope_ids": [],
+      "component_roles": [
+        "pool_seahorse"
+      ],
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261105-R141-RACER-SOURCE-CANDIDATES",
+          "source_revision": "96511087fcdbc572b090028db201a3f422d652fa",
+          "status": "SEVEN_PAINTED_SOURCE_CANDIDATES_RECONCILED",
+          "scope": "Complete near/far placements, silhouette at phone size and source-state retirement remain pending."
+        }
+      ],
+      "reuse_ready": null,
+      "drawing_required": null,
+      "samples_awaiting_review": 1,
+      "integration_sha": "96511087fcdbc572b090028db201a3f422d652fa",
+      "acceptance_evidence": {
+        "candidate": true,
+        "approved": false,
+        "source_work_branch_integrated": true,
+        "Dev_integrated": false,
+        "runtime_verified_replacement": false,
+        "source_machine_evidence": "assets_src/imagegen/reef_kart_context_20261105/validation_receipt.json at 96511087fcdbc572b090028db201a3f422d652fa",
+        "configured_Mobile": true,
+        "Speedy_attested": false,
+        "DL_QA_11": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0,
+        "full_context_review_complete": false
+      },
+      "blocked_dependencies": [
+        "Exact current Mobile/Speedy profile and natural route/state coverage",
+        "Near-camera placement, occlusion and all sibling uses",
+        "Formal QA11, physical device, child and owner acceptance",
+        "Current Dev integration and matching build"
+      ]
+    }
+  ]
+}
