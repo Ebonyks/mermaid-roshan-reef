@@ -1,7 +1,7 @@
 {
   "id": "flat-vector-r140-dev-carrier-status-20261105",
-  "baseline": "d2c3fdc4165d7205198c013ad1abda4179545093",
-  "scope": "Reconcile new verified delivery context for the already delivered R140 painted hearts. Record exact runtime retention and newer failed Dev gate. No runtime edit, counter or art acceptance change.",
+  "baseline": "148039244420f7a717868368e03e8324ab5d2a8d",
+  "scope": "Correct this chat\u2019s mistaken attribution of a newer Dev gate failure. The exact job log proves46 uncovered tooling paths stopped static validation before the separate Opera advisory. Preserve painted art, all source passes and historical record14803924. No runtime, counter or visual-acceptance change.",
   "rules": [
     "DL-AUTH-01",
     "DL-AUTH-05",
@@ -27,19 +27,19 @@
   ],
   "validation": [
     {
-      "command": "Exact R140 blob retention and GitHub failed-job snapshot",
+      "command": "Review complete failed-job log ordering and all46 AUDITDEV failures",
       "result": "PASS",
-      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R140_RUNTIME_RETENTION.json and DEV_CI_REGRESSION.json"
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/DEV_CI_REGRESSION.json; original log SHA256 retained"
     },
     {
-      "command": "Newer Dev Opera manifest gate",
+      "command": "Current Dev audit-development gate",
       "result": "FAIL",
-      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/DEV_CI_REGRESSION.json; original source passes remain separate"
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/DEV_CI_REGRESSION.json;46 uncovered paths. Opera error is separately advisory."
     },
     {
-      "command": "Document authority and AUTO/HEAD coverage",
+      "command": "Document authority and AUTO/HEAD coverage on the correction",
       "result": "PASS",
-      "evidence": "Authority, AUTO and HEAD passed; repeated on final manifest. No healthy engine suite repeated for metadata."
+      "evidence": "Authority, AUTO and HEAD passed on the exact metadata correction; repeated on final manifest. No engine suite repeated."
     }
   ],
   "acceptance_gaps": "Current Dev build gate and matching APK, formal QA11, physical device, child and owner review remain open. Whole-game inventory gaps remain."
