@@ -27,6 +27,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/DEV94_APK_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/DEV94_DOCUMENT_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/DEV94_REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/MANIFEST.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R140_RUNTIME_RETENTION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json",
@@ -65,8 +66,8 @@
     },
     {
       "command": "Current delivery manifest and every required Git file anonymously verified at immutable revisions",
-      "result": "PENDING",
-      "evidence": "After normal durable-branch publication; exact remote receipt retained and published separately."
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/DEV94_REMOTE_VERIFICATION.json; payload 7039599faf31e9716866bdf7174058ccdf5bcada and29 required Git files verified, plus complete preceding APK/checksum stream. Final receipt/current bindings fetched separately."
     }
   ],
   "acceptance_gaps": "R142 is a partial Dev candidate, new matching APK pending. Verified package belongs to preceding Dev94; no install, physical-device/child/owner/formal QA11 or full motion acceptance. Active coordinator owns remaining Dev integration; this chat changes only its topic-branch evidence. No source/design/family/frame delta; one partial Dev artifact26to27; goal stays open.",
