@@ -148,11 +148,15 @@ var _minimap_rect := Rect2(1090, 18, 170, 170)
 var _count_mark := 3
 var _time := 0.0
 var _confetti_t := 0.0
+var _duel := false
+var winner_slot := -1
 
 
 func setup(options: Dictionary = {}) -> void:
 	set_process(false)
 	track = TrackScript.new()
+	_duel = bool(options.get("duel", false))
+	winner_slot = -1
 	assist = clampf(float(options.get("assist", 0.75)), 0.0, 1.0)
 	rng.seed = int(options.get("seed", 20261103))
 	var roster: Array = options.get("racers", [
@@ -171,10 +175,48 @@ func setup(options: Dictionary = {}) -> void:
 	_refresh_view()
 
 
+## A second camera reads the live race. Only the original instance steps it.
+func setup_camera_view(source: ReefKartRace, slot: int) -> void:
+	set_process(false)
+	track = source.track
+	karts = source.karts
+	traps = source.traps
+	projectiles = source.projectiles
+	_pl = karts[slot]
+	_tex = source._tex
+	_sky_tex = source._sky_tex
+	_skyline = source._skyline
+	_landmark_tex = source._landmark_tex
+	_build_view()
+	_build_minimap()
+	_update_camera(1.0, true)
+	_refresh_view()
+
+
+func refresh_camera_view(source: ReefKartRace, delta: float) -> void:
+	state = source.state
+	clock = source.clock
+	go_t = source.go_t
+	_time = source._time
+	_confetti_t = source._confetti_t
+	_update_camera(delta, false)
+	_refresh_view()
+
+
+func use_pc_hud() -> void:
+	_hud.hide()
+
+
 func _new_kart(spec: Dictionary) -> Dictionary:
 	return {
 		"id": String(spec.get("id", "racer")), "player": bool(spec.get("player", false)),
 		"skill": float(spec.get("skill", 1.0)), "base_skill": float(spec.get("skill", 1.0)),
+		"vehicle": String(spec.get("vehicle", "kart")), "driver": String(spec.get("driver", "")),
+		"driver_art": String(spec.get("driver_art", "")), "portrait_crop": spec.get("portrait_crop", Rect2()),
+		"ride_tint": spec.get("ride_tint", Color.WHITE),
+		"player_color": spec.get("player_color", Color.TRANSPARENT),
+		"pace": float(spec.get("pace", 1.0)), "lane_rate": float(spec.get("lane_rate", 1.0)),
+		"turn_rate": float(spec.get("turn_rate", 1.0)),
 		"pos": Vector2.ZERO, "heading": 0.0, "speed": 0.0, "track_s": 0.0, "race_s": 0.0,
 		"lat": 0.0, "lat_goal": 0.0, "lap": 0, "pearls": 0, "item": "", "pending": "",
 		"roulette_t": 0.0, "boost_t": 0.0, "spin_t": 0.0, "slow_t": 0.0,
@@ -215,6 +257,21 @@ func _load_textures() -> void:
 		var path: String = TEXTURES[key]
 		if ResourceLoader.exists(path):
 			_tex[key] = load(path) as Texture2D
+	for kart: Dictionary in karts:
+		var driver := String(kart["driver"])
+		if driver == "":
+			continue
+		var vehicle := String(kart["vehicle"])
+		var driver_key := "driver_" + driver
+		if not _tex.has(driver_key):
+			_tex[driver_key] = load(String(kart["driver_art"])) as Texture2D
+		var body_key := vehicle + "_empty"
+		if not _tex.has(body_key):
+			_tex[body_key] = load("res://assets/kart/chase/empty_%s.png" % vehicle) as Texture2D
+		if driver == "roshan" and vehicle != "kart":
+			for pose: String in ["straight", "left", "right", "boost"]:
+				var key := vehicle + "_" + pose
+				_tex[key] = load("res://assets/kart/chase/%s.png" % key) as Texture2D
 	_sky_tex.clear()
 	for path: String in PALACE_TILES:
 		if ResourceLoader.exists(path):
@@ -358,9 +415,6 @@ func step_race(delta: float, input: Dictionary) -> void:
 
 
 func _step_racers(delta: float, input: Dictionary) -> void:
-	if bool(input.get("item_pressed", false)) and String(_pl["item"]) != "" \
-			and float(_pl["roulette_t"]) <= 0.0:
-		_use_item(_pl)
 	for k: Dictionary in karts:
 		if bool(k["finished"]):
 			k["speed"] = move_toward(float(k["speed"]), 0.0, BRAKE * 0.45 * delta)
@@ -369,8 +423,12 @@ func _step_racers(delta: float, input: Dictionary) -> void:
 		var steer := 0.0
 		var braking := false
 		if bool(k["player"]):
-			steer = _player_steer(k, clampf(float(input.get("steer", 0.0)), -1.0, 1.0), delta)
-			braking = bool(input.get("brake", false))
+			var controls_for_kart: Dictionary = input if is_same(k, _pl) else input.get("second", {})
+			if bool(controls_for_kart.get("item_pressed", false)) and String(k["item"]) != "" \
+					and float(k["roulette_t"]) <= 0.0:
+				_use_item(k)
+			steer = _player_steer(k, clampf(float(controls_for_kart.get("steer", 0.0)), -1.0, 1.0), delta)
+			braking = bool(controls_for_kart.get("brake", false))
 		else:
 			steer = _ai_steer(k)
 			_ai_items(k, delta)
@@ -405,7 +463,7 @@ func _check_lead() -> void:
 ## course on its own.
 func _player_steer(k: Dictionary, stick: float, delta: float) -> float:
 	var guard := ReefKartTrack.ROAD_HALF * 0.74
-	var lat_goal := clampf(float(k["lat_goal"]) + stick * LANE_RATE * delta, -guard, guard)
+	var lat_goal := clampf(float(k["lat_goal"]) + stick * LANE_RATE * float(k["lane_rate"]) * delta, -guard, guard)
 	k["lat_goal"] = lat_goal
 	var error := wrapf(track.heading_at(float(k["track_s"])) - float(k["heading"]), -PI, PI)
 	if absf(error) > WRONG_WAY:
@@ -432,7 +490,7 @@ func _steer_to(k: Dictionary, lateral: float) -> float:
 	# A lane off the centre line bends tighter (inside) or wider (outside).
 	var bend := track.curvature_at(preview)
 	var lane_bend := bend / maxf(0.3, 1.0 - bend * float(k["lat"]))
-	var feed := speed * lane_bend / (TURN_MAX * grip)
+	var feed := speed * lane_bend / (TURN_MAX * float(k["turn_rate"]) * grip)
 	return clampf(feed + wrapf(wanted - float(k["heading"]), -PI, PI) * 2.6, -1.0, 1.0)
 
 
@@ -443,7 +501,7 @@ func _ai_steer(k: Dictionary) -> float:
 
 
 func _top_speed(k: Dictionary, terrain: int) -> float:
-	var top := BASE_TOP * float(k["skill"])
+	var top := BASE_TOP * float(k["skill"]) * float(k["pace"])
 	if bool(k["player"]):
 		top *= 1.0 + PEARL_BONUS * float(k["pearls"])
 	else:
@@ -477,7 +535,7 @@ func _corner_speed(k: Dictionary, top: float) -> float:
 		worst = maxf(worst, absf(lane_bend))
 	if worst < 0.0005:
 		return top
-	var holdable := TURN_MAX * (1.0 - GRIP_LOSS) / worst
+	var holdable := TURN_MAX * float(k["turn_rate"]) * (1.0 - GRIP_LOSS) / worst
 	return lerpf(top, minf(top, holdable), assist)
 
 
@@ -503,7 +561,7 @@ func _drive(k: Dictionary, steer: float, braking: bool, delta: float) -> void:
 		k["spin_vis"] = 0.0
 	var grip := clampf(speed / 90.0, 0.0, 1.0) \
 		* (1.0 - GRIP_LOSS * pow(minf(1.0, speed / maxf(1.0, top)), 2.0))
-	var turn := steer * TURN_MAX * grip * (1.25 if braking else 1.0)
+	var turn := steer * TURN_MAX * float(k["turn_rate"]) * grip * (1.25 if braking else 1.0)
 	k["heading"] = wrapf(float(k["heading"]) + turn * delta, -PI, PI)
 	k["steer_vis"] = lerpf(float(k["steer_vis"]), steer, 1.0 - exp(-10.0 * delta))
 	k["speed"] = speed
@@ -727,6 +785,17 @@ func _tick_pickups(delta: float) -> void:
 
 func _check_finish() -> void:
 	var goal := track.length * float(LAPS)
+	if _duel:
+		var ahead := 0 if float(karts[0]["race_s"]) >= float(karts[1]["race_s"]) else 1
+		var leader: Dictionary = karts[ahead]
+		if float(leader["race_s"]) >= goal:
+			winner_slot = ahead
+			leader["race_s"] = goal
+			leader["finished"] = true
+			leader["finish_time"] = race_time
+			state = "finished"
+			race_event.emit("finish", float(ahead + 1))
+		return
 	var imp_kart := imp()
 	# The imp's one scripted mistake: a spin early in the second lap.
 	if not bool(imp_kart["flubbed"]) and float(imp_kart["race_s"]) >= track.length * 1.12:
@@ -735,6 +804,7 @@ func _check_finish() -> void:
 		race_event.emit("imp_flub", 0.0)
 	if float(_pl["race_s"]) >= goal and not bool(_pl["finished"]):
 		# Ties go to Roshan: she is checked first in the same step.
+		winner_slot = 0
 		_pl["finished"] = true
 		_pl["finish_time"] = race_time
 		_pl["race_s"] = goal
@@ -1125,16 +1195,51 @@ func _draw_sparkle(screen: Vector2, scale: float) -> void:
 	_draw_star(_world, at, r * 0.9, Color("#fff8c8"))
 
 
+func _draw_selected_driver(k: Dictionary, rect: Rect2) -> void:
+	var vehicle := String(k["vehicle"])
+	var driver := String(k["driver"])
+	if driver == "roshan":
+		var motion := "straight"
+		if float(k["boost_t"]) > 0.0:
+			motion = "boost"
+		elif float(k["steer_vis"]) > 0.35:
+			motion = "right"
+		elif float(k["steer_vis"]) < -0.35:
+			motion = "left"
+		var pose := _tex.get(vehicle + "_" + motion) as Texture2D
+		if pose != null:
+			_world.draw_texture_rect(pose, rect, false, k["ride_tint"])
+			return
+	elif driver == "imp" and vehicle == "kart" and _tex.has("imp_kart_straight"):
+		_world.draw_texture_rect(_tex["imp_kart_straight"] as Texture2D, rect, false, k["ride_tint"])
+		return
+	var face := _tex.get("driver_" + driver) as Texture2D
+	var body := _tex.get(vehicle + "_empty") as Texture2D
+	if face != null:
+		var source: Rect2 = k["portrait_crop"]
+		var head := rect.size.x * (0.38 if vehicle == "moto" else 0.44)
+		var head_height := minf(rect.size.y * 0.45, head * source.size.y / source.size.x)
+		var head_rect := Rect2(-head * 0.5, rect.position.y + rect.size.y * 0.015, head, head_height)
+		_world.draw_texture_rect_region(face, head_rect, source)
+	if body != null:
+		_world.draw_texture_rect(body, rect.grow(-rect.size.x * 0.04), false, k["ride_tint"])
+
+
 func _draw_kart(k: Dictionary, screen: Vector2, scale: float) -> void:
 	var size := KART_SPRITE * scale
 	_world.draw_set_transform(screen, 0.0, Vector2(1.0, 0.3))
 	_world.draw_circle(Vector2.ZERO, size * 0.42, Color(0.15, 0.1, 0.28, 0.24))
+	var driver_color: Color = k["player_color"]
+	if driver_color.a > 0.0:
+		_world.draw_arc(Vector2.ZERO, size * 0.43, 0.0, TAU, 20, driver_color, maxf(1.0, size * 0.035), true)
 	_world.draw_set_transform(Vector2.ZERO)
 	var center := screen - Vector2(0.0, size * 0.42)
 	var wobble := sin(float(k["spin_vis"])) * 0.45
 	_world.draw_set_transform(center, wobble, Vector2.ONE)
 	var rect := Rect2(-size * 0.5, -size * 0.44, size, size)
-	if bool(k["player"]):
+	if String(k["driver"]) != "":
+		_draw_selected_driver(k, rect)
+	elif bool(k["player"]):
 		var key := "kart_straight"
 		if float(k["boost_t"]) > 0.0:
 			key = "kart_boost"

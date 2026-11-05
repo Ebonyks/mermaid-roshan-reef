@@ -101,6 +101,11 @@ func build() -> void:
 	# Options only opens the settings sheet. A held press never restores the
 	# New Game archive; that stays an off-device grown-up step (BACKUP.md).
 	_options_button.pressed.connect(_toggle_options)
+	if OS.has_feature("pc"):
+		var racer_button := _menu_button(
+			stage, "StartMenuReefGrandPrix", "REEF GRAND PRIX", Rect2(26, 594, 210, 104), "secondary", 22)
+		racer_button.pressed.connect(func() -> void:
+			m.get_tree().change_scene_to_file("res://scenes/racer/reef_grand_prix_pc.tscn"))
 	_build_options(stage)
 	_build_new_game_confirmation(stage)
 	# Focus is deferred one frame so a launch key/button cannot activate the
