@@ -1,0 +1,58 @@
+{
+  "id": "bubble-duel-dev-reconcile-20261105",
+  "baseline": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
+  "scope": "Reconcile completed Bubble Duel rebuild with latest dev Dolls/art and owner-installed editor bridge. Preserve both license sections. Correct exact-byte checkout of hash-pinned vendor sources on Windows without changing vendor code, network settings, execution guards, or audit logic. Replace a lexical code-marker in the upstream JSON audit prose with the same meaning in plain language; the scanner and migration manifest stay unchanged.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-SAVE-03"
+  ],
+  "findings": [],
+  "no_findings_reason": "Integration and literal vendor-byte preservation; no gameplay finding closure or acceptance change. The Bubble Duel product scope and open visual/device/human gates retain their original impact records.",
+  "files": [
+    ".gitattributes",
+    "ASSET_LICENSES.md",
+    "assets_src/bubble_duel_v2/evidence/full-ci-dev-crlf-failed.log.gz",
+    "assets_src/bubble_duel_v2/evidence/full-ci-dev-crlf-failed.json",
+    "design/audit_impacts/godot-mcp-editor-bridge-20261105.json",
+    "assets_src/bubble_duel_v2/evidence/full-ci-dev-metadata-failed.log.gz",
+    "assets_src/bubble_duel_v2/evidence/full-ci-dev-metadata-failed.json",
+    "assets_src/bubble_duel_v2/evidence/dev-combined-probes-pass.log.gz",
+    "assets_src/bubble_duel_v2/evidence/dev-combined-runtime-snapshot.json",
+    "assets_src/bubble_duel_v2/evidence/dev-combined-feature-bindings.json",
+    "assets_src/bubble_duel_v2/evidence/dev-ci-continuation-used.sh",
+    "assets_src/bubble_duel_v2/evidence/dev-combined-verification.json"
+  ],
+  "validation": [
+    {
+      "command": "Exact-byte vendor index and manifest comparison",
+      "result": "PASS",
+      "evidence": "All 39 pinned index blobs match the existing manifest. Working files restored byte-for-byte; only checkout policy changes."
+    },
+    {
+      "command": "Combined scripts/ci.sh first run",
+      "result": "FAIL",
+      "evidence": "assets_src/bubble_duel_v2/evidence/full-ci-dev-crlf-failed.json: gate rejects 14 Windows line-ending mismatches. Previous 95 visual-contract tests and all prefix gates passed; no probe phase reached."
+    },
+    {
+      "command": "Combined unchanged prefix, corrected inventory gate and complete canonical trusted-probe phase",
+      "result": "PASS",
+      "evidence": "assets_src/bubble_duel_v2/evidence/dev-combined-verification.json: prefix95/24 and official import pass; corrected inventory NO_REGRESSION; 82/82 probes exit0; unchanged runtime index table bb474cdf2392e3d1d2501f002866dd203e516343e47803b0b38e7b5a2eb0a84c. This is a segmented local result, not a single post-repair whole-script exit0."
+    },
+    {
+      "command": "Exact published merged-head canonical GitHub Probe Suite",
+      "result": "PENDING",
+      "evidence": "Required before dev integration. Feature-parent run42012359137 is success but proves only that parent."
+    },
+    {
+      "command": "Reconcile origin/dev 94c2a915 documentation-only correction",
+      "result": "PASS",
+      "evidence": "Adopt the upstream version of the same prose-only fix in the MCP audit record. All 5123 runtime Git blobs retain digest bb474cdf2392e3d1d2501f002866dd203e516343e47803b0b38e7b5a2eb0a84c. No gameplay, asset, configuration, vendor or probe source changes."
+    }
+  ],
+  "acceptance_gaps": "Machine integration only. Master remains UNSATISFIED; formal QA11, native background coverage/font authority, exact voice/motion, physical device, child and owner acceptance remain open."
+}

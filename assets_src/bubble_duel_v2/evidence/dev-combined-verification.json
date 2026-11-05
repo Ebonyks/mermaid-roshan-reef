@@ -1,0 +1,24 @@
+{
+  "finished_utc": "2026-11-05T13:06:23.971432+00:00",
+  "result": "PASS_COMBINED_LOCAL_GATES",
+  "feature_parent": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
+  "dev_parent": "96e8d3a20a64772ec712ee6b0bea3fb22e36a793",
+  "prefix_evidence": "full-ci-dev-metadata-failed.json and exact archived log: canonical scripts/ci.sh completed all prefix checks, 95 visual-contract tests, 24 fuzz rounds and official Godot import. It failed only when the newly added audit prose was classified as code.",
+  "only_change_after_prefix": "Same-count wording in upstream JSON audit record. No runtime code, art, vendor, tool, migration-manifest or probe change.",
+  "continuation": "dev-ci-continuation-used.sh: canonical scripts/ci.sh suffix from the inventory gate onward, with its exact two error-regex assignments and runtime resolution.",
+  "continuation_exit": 0,
+  "trusted_probes": 82,
+  "all_process_exits_zero": true,
+  "inventory_result": "NO_REGRESSION; all 14 exact pinned tooling sources identified correctly. Master remains UNSATISFIED.",
+  "raw_archive": "dev-combined-probes-pass.log.gz",
+  "raw_log_sha256": "b43ff32b51708255bf237d734da38ebc0e960af3f4648eec58f929a59c27e8f7",
+  "archive_sha256": "53fbc4f4f96ad322ec5b3cd20527050f39086de6e7bf4bdb968544fe68fa21d9",
+  "runtime_index_blob_table_sha256": "bb474cdf2392e3d1d2501f002866dd203e516343e47803b0b38e7b5a2eb0a84c",
+  "runtime_entries": 5123,
+  "feature_remote_ci": {
+    "id": 42012359137,
+    "head": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
+    "conclusion": "success"
+  },
+  "limits": "This is a combined local prefix plus continuation result, not a claim that one complete post-repair scripts/ci.sh invocation exited zero. Exact merged published-head canonical remote workflow remains mandatory before dev integration. Formal QA11/native background/font/device/child/owner acceptance stays open."
+}

@@ -1,0 +1,9 @@
+{
+  "result": "FAIL",
+  "cause": "Windows CRLF checkout disagreed with the exact LF vendor SHA-256 pins. Fourteen tooling sources re-entered production debt; gate correctly failed closed.",
+  "dev_parent": "96e8d3a20a64772ec712ee6b0bea3fb22e36a793",
+  "log_archive": "full-ci-dev-crlf-failed.log.gz",
+  "raw_log_sha256": "a801f030488ae2c965936dce0ced106c4dceb5ba06b38b2e3b2ca0ca48483087",
+  "archive_sha256": "a542971e400377d47d7d67d25795850ec598c6cfbdc152b8c9dafda5118c5060",
+  "repair": "Preserve literal addons/godot_mcp/** bytes in .gitattributes; restore exact existing index blobs. No vendor source, SHA pin or audit logic change."
+}

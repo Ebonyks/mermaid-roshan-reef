@@ -1,0 +1,1961 @@
+{
+  "baseline": "ff0e7b74bae73c8c7b1f66c59c65719e1b94039f",
+  "reviewer": "Codex local visual inspection, 2026-11-04/05",
+  "scope": "Provisional appearance-only per-role assessment of the rebuilt Bubble Duel. No averaged score and no authoritative master-audit PASS.",
+  "floor": 4.6,
+  "minimum": 4.6,
+  "appearance_target_met": true,
+  "formal_master_pass": false,
+  "formal_visual_status": "COVERAGE_GAP under DL-QA-11",
+  "rules": [
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16",
+    "DL-QA-11",
+    "DL-QA-12"
+  ],
+  "score_definition": "Judgement of silhouette, painted contours, values/palette, recognizable storybook identity and readability in the listed desktop states. All dimensions must reach 4.6; 5.0 requires owner acceptance.",
+  "assets": [
+    {
+      "name": "Pool room",
+      "path": "assets/flats/castle/interactions_v4/backgrounds/room_mermaid_pool_background.png",
+      "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+      "dimensions": [
+        1024,
+        576
+      ],
+      "role": "Arena and menus at 1280x720, 1600x720 and 960x720",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Symmetric fill, continuous pool and complete controls. Existing 1024x576 runtime/source-resolution debt remains a separate technical limitation; this appearance score does not accept native coverage.",
+      "evidence": [
+        "1280/02-hub.png",
+        "1600/03-wide-duel.png",
+        "960/03-wide-duel.png",
+        "960/04-wide-shop.png"
+      ]
+    },
+    {
+      "name": "Bubble",
+      "path": "assets/opera/bubble_duel_v2/bubble.png",
+      "sha256": "eca98a5ca895774d10649bc05c438dfb8be22b8f5a1527a64750b2c516161127",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Five purchased tints, practice target and opponent",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.7,
+        "values_palette": 4.6,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Broad pearly highlight replaces mottling. Peach rival differs from five player swatches; dark contour and visible tethers retain ownership. Source transparent RGB fringe has negligible alpha and is absent in scene composites.",
+      "evidence": [
+        "1280/bubble-color-0.png",
+        "1280/bubble-color-1.png",
+        "1280/bubble-color-2.png",
+        "1280/bubble-color-3.png",
+        "1280/bubble-color-4.png",
+        "1280/05-practice.png"
+      ]
+    },
+    {
+      "name": "Marlo swimming",
+      "path": "assets/opera/bubble_duel_v2/marlo_swim.png",
+      "sha256": "33cf0fc3f01754f65cd03e49c44341db46c174f3e8dfa89047d9651d46fd50dc",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "Hub card and swimming opponent",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.7,
+        "values_palette": 4.7,
+        "storybook_identity": 4.6,
+        "runtime_readability": 4.7
+      },
+      "minimum": 4.6,
+      "observation": "Four complete horizontal paddle poses, stable scale and torso, cream face and warm-brown authored contours. All four cells inspected; loop timing is five poses per second. Whole-motion human/device acceptance remains pending.",
+      "evidence": [
+        "1280/02-hub.png",
+        "1600/03-wide-duel.png"
+      ],
+      "cells_reviewed": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "Pearl collectible",
+      "path": "assets/opera/worlds/teacher/pearl_uncounted.png",
+      "sha256": "4f71a7beff48024df5eb89a5cbd760148576ada6bf05fe784bd8d2828dba4037",
+      "dimensions": [
+        128,
+        128
+      ],
+      "role": "Current Ride card and targets",
+      "scores": {
+        "silhouette": 4.8,
+        "contours": 4.7,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.7
+      },
+      "minimum": 4.7,
+      "observation": "Simple ivory orb separates from the water. Pickup disappears for 0.9 seconds and neighbours retain continuous motion.",
+      "evidence": [
+        "1280/07-current.png",
+        "1280/08-collected.png"
+      ]
+    },
+    {
+      "name": "Water burst",
+      "path": "assets/sprites/fx_water/fx_water_bubble_burst_atlas.png",
+      "sha256": "4c98dd531d6869a2137d210c161efab86dff03c08ce2378e855d1d46c9c2896c",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "role": "Contact feedback",
+      "scores": {
+        "silhouette": 4.6,
+        "contours": 4.6,
+        "values_palette": 4.6,
+        "storybook_identity": 4.6,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Enlarged 155px burst and expanding pearl reward make the short event visible. Correct surviving bubble is retained.",
+      "evidence": [
+        "1280/06-practice-pop.png",
+        "1280/09-first-contact.png"
+      ],
+      "cells_reviewed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "name": "Picture pointer",
+      "path": "assets/castle/training/ghost_hand.png",
+      "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "First-action guidance",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.6,
+        "runtime_readability": 4.7
+      },
+      "minimum": 4.6,
+      "observation": "Large warm pointing hand remains distinct from both water and bubble rim; direction points at an actual reachable target.",
+      "evidence": [
+        "1600/03-wide-duel.png"
+      ]
+    },
+    {
+      "name": "Navigation card",
+      "path": "assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+      "sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+      "dimensions": [
+        236,
+        256
+      ],
+      "role": "Back, shop page and large repeat-arrow controls",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.7,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.7
+      },
+      "minimum": 4.7,
+      "observation": "Consistent painted shell frame; clear arrows and complete corners. The 176px repeat control uses a 72px glyph and needs no reading.",
+      "evidence": [
+        "1280/03-shop-page-1.png",
+        "1600/04-wide-shop.png",
+        "1280/10-replay.png"
+      ]
+    },
+    {
+      "name": "Tidewing Ribbons",
+      "path": "assets/opera/bubble_duel_v2/items.png",
+      "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "role": "Atlas cell 0: shop, power, launcher or reward",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.7,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Distinct painted silhouette and grouped highlights. Reviewed at the 62px shop-icon and 90px power scale where applicable.",
+      "evidence": [
+        "1280/03-shop-page-1.png",
+        "1280/04-shop-page-2.png",
+        "1280/06-practice-pop.png"
+      ],
+      "cells_reviewed": [
+        0
+      ]
+    },
+    {
+      "name": "Moonpearl",
+      "path": "assets/opera/bubble_duel_v2/items.png",
+      "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "role": "Atlas cell 1: shop, power, launcher or reward",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.7,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Distinct painted silhouette and grouped highlights. Reviewed at the 62px shop-icon and 90px power scale where applicable.",
+      "evidence": [
+        "1280/03-shop-page-1.png",
+        "1280/04-shop-page-2.png",
+        "1280/06-practice-pop.png"
+      ],
+      "cells_reviewed": [
+        1
+      ]
+    },
+    {
+      "name": "Swift Conch",
+      "path": "assets/opera/bubble_duel_v2/items.png",
+      "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "role": "Atlas cell 2: shop, power, launcher or reward",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.7,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Distinct painted silhouette and grouped highlights. Reviewed at the 62px shop-icon and 90px power scale where applicable.",
+      "evidence": [
+        "1280/03-shop-page-1.png",
+        "1280/04-shop-page-2.png",
+        "1280/06-practice-pop.png"
+      ],
+      "cells_reviewed": [
+        2
+      ]
+    },
+    {
+      "name": "Rainbow wand",
+      "path": "assets/opera/bubble_duel_v2/items.png",
+      "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "role": "Atlas cell 3: shop, power, launcher or reward",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.7,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Distinct painted silhouette and grouped highlights. Reviewed at the 62px shop-icon and 90px power scale where applicable.",
+      "evidence": [
+        "1280/03-shop-page-1.png",
+        "1280/04-shop-page-2.png",
+        "1280/06-practice-pop.png"
+      ],
+      "cells_reviewed": [
+        3
+      ]
+    },
+    {
+      "name": "Living kelp",
+      "path": "assets/opera/bubble_duel_v2/items.png",
+      "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "role": "Atlas cell 4: shop, power, launcher or reward",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.7,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Distinct painted silhouette and grouped highlights. Reviewed at the 62px shop-icon and 90px power scale where applicable.",
+      "evidence": [
+        "1280/03-shop-page-1.png",
+        "1280/04-shop-page-2.png",
+        "1280/06-practice-pop.png"
+      ],
+      "cells_reviewed": [
+        4
+      ]
+    },
+    {
+      "name": "Lullaby shell",
+      "path": "assets/opera/bubble_duel_v2/items.png",
+      "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "role": "Atlas cell 5: shop, power, launcher or reward",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.7,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Distinct painted silhouette and grouped highlights. Reviewed at the 62px shop-icon and 90px power scale where applicable.",
+      "evidence": [
+        "1280/03-shop-page-1.png",
+        "1280/04-shop-page-2.png",
+        "1280/06-practice-pop.png"
+      ],
+      "cells_reviewed": [
+        5
+      ]
+    },
+    {
+      "name": "Twilight squid",
+      "path": "assets/opera/bubble_duel_v2/items.png",
+      "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "role": "Atlas cell 6: shop, power, launcher or reward",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.7,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Distinct painted silhouette and grouped highlights. Reviewed at the 62px shop-icon and 90px power scale where applicable.",
+      "evidence": [
+        "1280/03-shop-page-1.png",
+        "1280/04-shop-page-2.png",
+        "1280/06-practice-pop.png"
+      ],
+      "cells_reviewed": [
+        6
+      ]
+    },
+    {
+      "name": "Pearl coin",
+      "path": "assets/opera/bubble_duel_v2/items.png",
+      "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "role": "Atlas cell 7: shop, power, launcher or reward",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.7,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Distinct painted silhouette and grouped highlights. Reviewed at the 62px shop-icon and 90px power scale where applicable.",
+      "evidence": [
+        "1280/03-shop-page-1.png",
+        "1280/04-shop-page-2.png",
+        "1280/06-practice-pop.png"
+      ],
+      "cells_reviewed": [
+        7
+      ]
+    },
+    {
+      "name": "roshan_base",
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Purchased classic portrait/rest art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-1.jpg",
+        "1280/outfit-classic-rest.png"
+      ],
+      "cells_reviewed": [
+        0
+      ]
+    },
+    {
+      "name": "roshan_swim_front",
+      "path": "assets/characters/roshan_25d/roshan_swim_front.png",
+      "sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Purchased classic swim art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-1.jpg",
+        "1280/outfit-classic-swim.png"
+      ],
+      "cells_reviewed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "name": "roshan_base_body_magician_v1",
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_body_magician_v1.png",
+      "sha256": "79c35c20febab6467d137f9fed01ce88ea04a31ffdd818d5e394b096e6b5b6cb",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Purchased squid portrait/rest art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-2.jpg",
+        "1280/outfit-squid-rest.png"
+      ],
+      "cells_reviewed": [
+        0
+      ]
+    },
+    {
+      "name": "roshan_base_head_magician_v1",
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_head_magician_v1.png",
+      "sha256": "702ad933d9d49d6f04a3ac69af810a6e6484f5c69c4ffca2aed30be3148c5ead",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Purchased squid portrait/rest art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-2.jpg",
+        "1280/outfit-squid-rest.png"
+      ],
+      "cells_reviewed": [
+        0
+      ]
+    },
+    {
+      "name": "roshan_swim_front_body_magician_v1",
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_body_magician_v1.png",
+      "sha256": "ad1e89aaee7dba13941783c1aa02f4e15763abaa22fe15ab9317cc52ba8f112c",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Purchased squid swim art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-2.jpg",
+        "1280/outfit-squid-swim.png"
+      ],
+      "cells_reviewed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "name": "roshan_swim_front_head_magician_v1",
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_head_magician_v1.png",
+      "sha256": "2c280a1dc4cb5ea481ed0aa2711129736de610a57e2be1f3e08f2741aa657032",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Purchased squid swim art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-2.jpg",
+        "1280/outfit-squid-swim.png"
+      ],
+      "cells_reviewed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "name": "roshan_base_garden",
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_base_garden.png",
+      "sha256": "bb7d3a2901e49338a551e834c9d397abeb0004d856cd143cce8e554190165f27",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Purchased swiftconch portrait/rest art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-1.jpg",
+        "1280/outfit-swiftconch-rest.png"
+      ],
+      "cells_reviewed": [
+        0
+      ]
+    },
+    {
+      "name": "roshan_base_party",
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_base_party.png",
+      "sha256": "fe113e84b14c4784c2bb86860afa6e7e4d21cd38d2fa7268ee3978146aea421b",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Purchased moonpearl portrait/rest art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-1.jpg",
+        "1280/outfit-moonpearl-rest.png"
+      ],
+      "cells_reviewed": [
+        0
+      ]
+    },
+    {
+      "name": "roshan_base_ribbon",
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_base_ribbon.png",
+      "sha256": "1a0a5ba7a6c7cde7da58d993721e2cf4a35fd301a870465065614684931678a4",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Purchased tidewing portrait/rest art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-1.jpg",
+        "1280/outfit-tidewing-rest.png"
+      ],
+      "cells_reviewed": [
+        0
+      ]
+    },
+    {
+      "name": "roshan_swim_front_garden",
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_swim_front_garden.png",
+      "sha256": "41f9696d391cd5223454b104fc8e3e9b17457ec95142e024764902199851f9e3",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Purchased swiftconch swim art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-1.jpg",
+        "1280/outfit-swiftconch-swim.png"
+      ],
+      "cells_reviewed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "name": "roshan_swim_front_party",
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_swim_front_party.png",
+      "sha256": "199a4e47e8dfb8f003a3371741325d99e7886caee584ac144ae6e27739ed49dc",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Purchased moonpearl swim art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-1.jpg",
+        "1280/outfit-moonpearl-swim.png"
+      ],
+      "cells_reviewed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "name": "roshan_swim_front_ribbon",
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_swim_front_ribbon.png",
+      "sha256": "3838b5340e1285028d2fb10ae2207068d6070e9195784af8e12776a8db780085",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Purchased tidewing swim art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-1.jpg",
+        "1280/outfit-tidewing-swim.png"
+      ],
+      "cells_reviewed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "name": "roshan_base_body_blossom_v1",
+      "path": "assets/fashion/slots_v1/layers/roshan_base_body_blossom_v1.png",
+      "sha256": "b78ca153b901915cde7fd6e8a3b608d921986fec53a9e5b8f84b455d1018f1ea",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Purchased kelp portrait/rest art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-2.jpg",
+        "1280/outfit-kelp-rest.png"
+      ],
+      "cells_reviewed": [
+        0
+      ]
+    },
+    {
+      "name": "roshan_base_body_star_v1",
+      "path": "assets/fashion/slots_v1/layers/roshan_base_body_star_v1.png",
+      "sha256": "ecbec164733fdc2810186d856c8cc6323d064950520b9e33f76fd0309776153c",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Purchased rainbow portrait/rest art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-2.jpg",
+        "1280/outfit-rainbow-rest.png"
+      ],
+      "cells_reviewed": [
+        0
+      ]
+    },
+    {
+      "name": "roshan_base_body_winter_v1",
+      "path": "assets/fashion/slots_v1/layers/roshan_base_body_winter_v1.png",
+      "sha256": "58ec53a0c0451899c60b14ec29125aa5754550f1d0961d4df63685f035cb5861",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Purchased lullaby portrait/rest art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-2.jpg",
+        "1280/outfit-lullaby-rest.png"
+      ],
+      "cells_reviewed": [
+        0
+      ]
+    },
+    {
+      "name": "roshan_base_head_blossom_v1",
+      "path": "assets/fashion/slots_v1/layers/roshan_base_head_blossom_v1.png",
+      "sha256": "d09612cc82e5458456f75dac6953469e75e729a28abbc0d57be7191a3ecf0eec",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Purchased kelp portrait/rest art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-2.jpg",
+        "1280/outfit-kelp-rest.png"
+      ],
+      "cells_reviewed": [
+        0
+      ]
+    },
+    {
+      "name": "roshan_base_head_star_v1",
+      "path": "assets/fashion/slots_v1/layers/roshan_base_head_star_v1.png",
+      "sha256": "08fdc28029546376431b6b97d59ebd1038293d7022492ad520f88003b33fdddc",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Purchased rainbow portrait/rest art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-2.jpg",
+        "1280/outfit-rainbow-rest.png"
+      ],
+      "cells_reviewed": [
+        0
+      ]
+    },
+    {
+      "name": "roshan_base_head_winter_v1",
+      "path": "assets/fashion/slots_v1/layers/roshan_base_head_winter_v1.png",
+      "sha256": "ec959860419185bc0cdf22435100c975b2daf74491df8a4e792e1b0577d7d3f4",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Purchased lullaby portrait/rest art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-2.jpg",
+        "1280/outfit-lullaby-rest.png"
+      ],
+      "cells_reviewed": [
+        0
+      ]
+    },
+    {
+      "name": "roshan_swim_front_body_blossom_v1",
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_body_blossom_v1.png",
+      "sha256": "7e5edad903b6ec9cc7542d412b83c0eb3c2e9afecf89f3d974b80e2383bdc3f4",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Purchased kelp swim art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-2.jpg",
+        "1280/outfit-kelp-swim.png"
+      ],
+      "cells_reviewed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "name": "roshan_swim_front_body_star_v1",
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_body_star_v1.png",
+      "sha256": "00bc7925ac7a964ef91682db7626e067ad76f4f3a705979bd367a71aeb67e15e",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Purchased rainbow swim art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-2.jpg",
+        "1280/outfit-rainbow-swim.png"
+      ],
+      "cells_reviewed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "name": "roshan_swim_front_body_winter_v1",
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_body_winter_v1.png",
+      "sha256": "ca8008f61a959d35845008dfa72348dc852042fadaa82e6cb13da50bb5353fbc",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Purchased lullaby swim art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-2.jpg",
+        "1280/outfit-lullaby-swim.png"
+      ],
+      "cells_reviewed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "name": "roshan_swim_front_head_blossom_v1",
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_head_blossom_v1.png",
+      "sha256": "bcfff219db2bc3107ebabf0d4f6bf5450454a13287c6ee5432d0430b09510016",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Purchased kelp swim art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-2.jpg",
+        "1280/outfit-kelp-swim.png"
+      ],
+      "cells_reviewed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "name": "roshan_swim_front_head_star_v1",
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_head_star_v1.png",
+      "sha256": "7cbadaf6539dfbd701e004fb9fe93590d4176295fed0c0ef705e50325a3b0945",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Purchased rainbow swim art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-2.jpg",
+        "1280/outfit-rainbow-swim.png"
+      ],
+      "cells_reviewed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "name": "roshan_swim_front_head_winter_v1",
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_head_winter_v1.png",
+      "sha256": "969059cab827c574ac9295e179a754b08a0e75fe4695dc963141d012a00466b9",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Purchased lullaby swim art or composite layer",
+      "scores": {
+        "silhouette": 4.7,
+        "contours": 4.6,
+        "values_palette": 4.7,
+        "storybook_identity": 4.7,
+        "runtime_readability": 4.6
+      },
+      "minimum": 4.6,
+      "observation": "Reviewed in full composition; all sixteen swim cells and resting figure preserve Roshan identity, original tail geometry and authored clothing contours. Per-cell torso anchors correct tether registration.",
+      "evidence": [
+        "outfit-source-review-2.jpg",
+        "1280/outfit-lullaby-swim.png"
+      ],
+      "cells_reviewed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    }
+  ],
+  "unique_image_files": 32,
+  "source_cells_reviewed": "8 resting figures and 128 outfit swim cells; Marlo four cells; eight icons; eight burst cells",
+  "corrections": [
+    "Viewport alignment and cover crop",
+    "Continuous Current Ride neighbours and pickup cooldown",
+    "Opaque painted fin contact and per-frame torso anchors",
+    "Surviving bubble keeps its actual side",
+    "True swimming Marlo action",
+    "Clean neutral bubble with separate rival tint",
+    "Visible coin and enlarged burst",
+    "Themed shell launcher",
+    "Seven persistent outfit/power purchases with exact charges",
+    "Shop name/price fitting and light headings",
+    "Focus loss cancels powers and projectiles",
+    "One wand projectile at a time",
+    "JSON numeric color IDs normalized so purchases survive a fresh process",
+    "Aspect-aware pool source crop also fills 4:3 without outside-source sampling",
+    "Large native repeat arrow replaces the ambiguous replay picture",
+    "Friend-targeting powers appear only in Duel and cannot consume glow in solo modes",
+    "Marlo spawn and movement origin match, removing the first-step position jump"
+  ],
+  "machine": {
+    "engine": "Godot 4.7.2 stable official.ed1daf0bf",
+    "renderer": "Mobile / Speedy",
+    "automated_full_tours": 100,
+    "tour_checks": 1537,
+    "tour_failures": 0,
+    "physics_bouts": 100,
+    "physics_wins": 100,
+    "physics_pops": 200,
+    "physics_taps": 224,
+    "seconds_median": 2.1799999999999997,
+    "seconds_max": 4.53333333333333,
+    "max_swept_contact_gap_px": 1.91046142578125,
+    "profiles": [
+      "drag",
+      "hitch",
+      "imprecise",
+      "interrupt",
+      "tap"
+    ],
+    "all_negative_and_save_flags": true,
+    "full_suite": "PASS: scripts/ci.sh, complete frozen-source run, all 82 trusted probes exit zero; runtime patch and eight feature source hashes verified unchanged. See evidence/full-ci-frozen-pass.json/.log. Earlier failures remain preserved.",
+    "fresh_process_reload_checks": 9,
+    "fresh_process_reload_failures": 0
+  },
+  "physics_settings": {
+    "swim_px_s": 550,
+    "gravity_with_bubbles": 560,
+    "gravity_without_bubbles": 780,
+    "fall_cap_px_s": 365,
+    "landing_assist_px_s": 165,
+    "rebound_px_s": 150,
+    "fin_local_px": [
+      31,
+      49
+    ],
+    "max_catchup_s": 0.1,
+    "substep_s": 0.016666666666666666,
+    "target_radius_px": 33,
+    "opponent_wave_center_px": [
+      856,
+      515
+    ]
+  },
+  "physics_limit": "Seeded bots provide deterministic regression and tolerance evidence. They do not establish which weights feel best to the child.",
+  "inventory": {
+    "starting_local_pearls": 100,
+    "prices": [
+      60,
+      120,
+      150,
+      220,
+      260,
+      300,
+      340
+    ],
+    "color_prices": [
+      0,
+      20,
+      20,
+      20,
+      30
+    ],
+    "powers": [
+      "gentle lift",
+      "hover",
+      "current dash",
+      "projectile pop",
+      "gentle pull",
+      "slow current",
+      "pause friend"
+    ],
+    "save_key": "bubble_duel",
+    "purchase_failure": "Rollback prior local inventory; existing career, story, medals and global pearls preserved.",
+    "duel_only_powers": [
+      "kelp",
+      "lullaby",
+      "squid"
+    ]
+  },
+  "source_bindings": [
+    {
+      "path": "scripts/opera_bubble_duel.gd",
+      "sha256": "d8bc07d8c642b346f2c898a8ae37a7a5b932e6c37a0a958c0b6d89d169f512b3"
+    },
+    {
+      "path": "scripts/bubble_duel_inventory.gd",
+      "sha256": "747644e479c9004c98df462908deaf892005dc5ac90e44711c79353a096e8e21"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "sha256": "aa15f790b3e7ed639a5a2084229f779b41ff9ea6b50ecdf0e9b859ecf5ba38a2"
+    },
+    {
+      "path": "scripts/probe_bubble_duel_stress.gd",
+      "sha256": "f53db7967bb50f636527eca3fcefa338ef3d626e62ed31b4534dfd4752cbdae8"
+    },
+    {
+      "path": "scripts/probe_bubble_duel_capture.gd",
+      "sha256": "7678a8ecc35b920ee56745630def519ff8344a852de54220fe2d96cabf34de8e"
+    },
+    {
+      "path": "tools/run_bubble_duel_stress.py",
+      "sha256": "d18f3f07f5d763a5a352fbe72704315406fc3d4cbe262b898adc64eacb467f2a"
+    },
+    {
+      "path": "tools/build_bubble_duel_v2_art.py",
+      "sha256": "a9722b2271b238a14a0d6b0785d08b03f33bf52dadf09533b3f9dcce0050e7d5"
+    },
+    {
+      "path": "scripts/probe_opera.gd",
+      "sha256": "7693da59b253e24b4a12f656e47fbf15bb27e75a5204402b4085465a33b563c1"
+    }
+  ],
+  "captures": [
+    {
+      "file": "01-jobs.png",
+      "h": 720,
+      "role": "Illustrated shop launcher in Jobs",
+      "sha256": "760afd5ee2c4d031d24c69b701b568c05cb6febb367225b33043d5c48276bfc4",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/01-jobs.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "02-hub.png",
+      "h": 720,
+      "role": "Rebuilt hub",
+      "sha256": "0d2e09dcc8e208e9a7e8d6f169ffed78482929853289c0858511f4b6c0534026",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/02-hub.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "03-shop-page-1.png",
+      "h": 720,
+      "role": "Purchase prices, color ownership and first four outfits",
+      "sha256": "df3fd129f7e1ed286d03d7fdcff52edeca37bb9f28ca0cdde318b90b5c4a919f",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/03-shop-page-1.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "outfit-classic-rest.png",
+      "h": 720,
+      "role": "Purchased outfit on Roshan at rest",
+      "sha256": "0f190922af214e925a90edeb0294d3cc5f19f2cba21ad01221fc23641564b0a8",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/outfit-classic-rest.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "outfit-classic-swim.png",
+      "h": 720,
+      "role": "Same purchased outfit during an anchored swim",
+      "sha256": "66c615ba7d3aa241e4ceb99006e2436c99de81e355e8761c6460df95fce05783",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/outfit-classic-swim.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "outfit-tidewing-rest.png",
+      "h": 720,
+      "role": "Purchased outfit on Roshan at rest",
+      "sha256": "06eaa0ddfecfd8338c79ae42314e7be0a3f8b6b51137f02e6a187a20e6047e2f",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/outfit-tidewing-rest.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "outfit-tidewing-swim.png",
+      "h": 720,
+      "role": "Same purchased outfit during an anchored swim",
+      "sha256": "6560ee1270fa9a563d362400568880f21c2d3d950ea1a46f22286b3975443fc0",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/outfit-tidewing-swim.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "outfit-moonpearl-rest.png",
+      "h": 720,
+      "role": "Purchased outfit on Roshan at rest",
+      "sha256": "d5d7875fad9930b14010bc54ad301ee5222bb7e221e05a444e86e49268f18daf",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/outfit-moonpearl-rest.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "outfit-moonpearl-swim.png",
+      "h": 720,
+      "role": "Same purchased outfit during an anchored swim",
+      "sha256": "ceed73f392a491dc6654a3e345bf9b555df1b3ada1489daf27adf9dd2ace27d6",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/outfit-moonpearl-swim.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "power-moonpearl.png",
+      "h": 720,
+      "role": "Player-activated power during the bout",
+      "sha256": "ca62ec46fab43b58572335129a49f74f07258b6b01b8f5b8279d83ddb05b4fa6",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/power-moonpearl.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "outfit-swiftconch-rest.png",
+      "h": 720,
+      "role": "Purchased outfit on Roshan at rest",
+      "sha256": "8d0ba4bc3936c5080888da8174f82932c5a1e8ae89bf6ae935945bbeec05994f",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/outfit-swiftconch-rest.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "outfit-swiftconch-swim.png",
+      "h": 720,
+      "role": "Same purchased outfit during an anchored swim",
+      "sha256": "6a1270184d5fcc06079295768b72ec81913aff0c45d31387811aff886b5a051b",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/outfit-swiftconch-swim.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "power-swiftconch.png",
+      "h": 720,
+      "role": "Player-activated power during the bout",
+      "sha256": "94f769bd2d3ae62790aedc8146f06c7075a90f11566a22cf3672db4a93984ef6",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/power-swiftconch.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "04-shop-page-2.png",
+      "h": 720,
+      "role": "Second four outfits",
+      "sha256": "74e60f6830732e53cb4a308734f0db2f94ee8c2f695c76c86e1e8ba643d0a13b",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/04-shop-page-2.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "outfit-rainbow-rest.png",
+      "h": 720,
+      "role": "Purchased outfit on Roshan at rest",
+      "sha256": "9f77fad49640d926eb7d78451c7d4deff1163dd784dd41a32489dab8bc5d446c",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/outfit-rainbow-rest.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "outfit-rainbow-swim.png",
+      "h": 720,
+      "role": "Same purchased outfit during an anchored swim",
+      "sha256": "ef575a33ef6448eccbbe3e0aa56b4936f0d25835b491e3e861ad2657a4f2e630",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/outfit-rainbow-swim.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "power-rainbow.png",
+      "h": 720,
+      "role": "Player-activated power during the bout",
+      "sha256": "786c7716874ea495e9ed1cec88259d314832fc3ef0a426ec2b3e4f0a4c690330",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/power-rainbow.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "outfit-kelp-rest.png",
+      "h": 720,
+      "role": "Purchased outfit on Roshan at rest",
+      "sha256": "6dc5f755837eb6f93c3e3241ab3e3de0d91f89780d0c0ca5b536b729eea755fe",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/outfit-kelp-rest.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "outfit-kelp-swim.png",
+      "h": 720,
+      "role": "Same purchased outfit during an anchored swim",
+      "sha256": "06091b0bdbfa9c852d6734ca930d0b6ae8216c74f2bad536b829fc2c5a785b94",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/outfit-kelp-swim.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "power-kelp.png",
+      "h": 720,
+      "role": "Player-activated power during the bout",
+      "sha256": "4da2fa0d1ecea068912b819c82068d1cf83959fcfc8c1c2b3cf987588432ed38",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/power-kelp.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "outfit-lullaby-rest.png",
+      "h": 720,
+      "role": "Purchased outfit on Roshan at rest",
+      "sha256": "8645b51134c2f8cce039bec3d2815306fb7dbb50ae10c178cb24b4fa952fc015",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/outfit-lullaby-rest.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "outfit-lullaby-swim.png",
+      "h": 720,
+      "role": "Same purchased outfit during an anchored swim",
+      "sha256": "6825373167fa3a69215b55c479c51e86e96629354b0b6d49da7fef9458be2da9",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/outfit-lullaby-swim.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "power-lullaby.png",
+      "h": 720,
+      "role": "Player-activated power during the bout",
+      "sha256": "8da2752eea98361369f2ca62b478ad44dc7c6006972e338cadce651f7e7808c8",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/power-lullaby.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "outfit-squid-rest.png",
+      "h": 720,
+      "role": "Purchased outfit on Roshan at rest",
+      "sha256": "a41f15bf5280fba862da7311381be6a3bef9d87f87063da8a91f328569282ac7",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/outfit-squid-rest.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "outfit-squid-swim.png",
+      "h": 720,
+      "role": "Same purchased outfit during an anchored swim",
+      "sha256": "36f3cf13171f9667d99860a129d2e46d8424bcd50d8bca9a8748e8d34785c4ec",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/outfit-squid-swim.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "power-squid.png",
+      "h": 720,
+      "role": "Player-activated power during the bout",
+      "sha256": "5a54345f7d6d1f031cc6e4a622ad32e074f3418e384343749e5ebf56ca81aec1",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/power-squid.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "bubble-color-0.png",
+      "h": 720,
+      "role": "Purchased bubble color against the actual arena",
+      "sha256": "a41f15bf5280fba862da7311381be6a3bef9d87f87063da8a91f328569282ac7",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/bubble-color-0.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "bubble-color-1.png",
+      "h": 720,
+      "role": "Purchased bubble color against the actual arena",
+      "sha256": "4dd8e229afbd5d85a1ddf080e0ab63669673e0ad575565974600c5c18a3d4acd",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/bubble-color-1.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "bubble-color-2.png",
+      "h": 720,
+      "role": "Purchased bubble color against the actual arena",
+      "sha256": "a8bcc65530ba37136c1ee87d1a9fb3e7c8d4c5ef726da898627f3fbbc3ee8c6e",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/bubble-color-2.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "bubble-color-3.png",
+      "h": 720,
+      "role": "Purchased bubble color against the actual arena",
+      "sha256": "000daaac75413f222a7f6889e57d30af243269261c7f916b1e42162f2cd95c98",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/bubble-color-3.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "bubble-color-4.png",
+      "h": 720,
+      "role": "Purchased bubble color against the actual arena",
+      "sha256": "759a1feebe694043ff0df391096640e56790f243f4079ecb79516d17645463dd",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/bubble-color-4.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "05-practice.png",
+      "h": 720,
+      "role": "Practice target and pearl payoff",
+      "sha256": "c99426f02639895de4f5e50c4cf37869f5887435f520370a16f67b2e7fe8b4d8",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/05-practice.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "06-practice-pop.png",
+      "h": 720,
+      "role": "Pop and earned pearl",
+      "sha256": "421426259b3cfc6132c1858526281c55fe46feb3e5a382979c25c44722d61e8f",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/06-practice-pop.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "07-current.png",
+      "h": 720,
+      "role": "Current Ride collectible",
+      "sha256": "dfb56fd9869ebb4c73593653ab1e33296747f252a34fca71e7be84e13acf6a66",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/07-current.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "08-collected.png",
+      "h": 720,
+      "role": "Collected pearl disappears before respawn",
+      "sha256": "940db5e4809d6093b11f1f3ad3f6ba9fd1443c96535648b849652265cf98d6c3",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/08-collected.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "09-first-contact.png",
+      "h": 720,
+      "role": "Burst and correct surviving bubble",
+      "sha256": "e959f934d9cd734b1f3a54a3480604ab1fef1168d7bac7af574eb1e18c8920dc",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/09-first-contact.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "10-replay.png",
+      "h": 720,
+      "role": "Earned pearls and replay control",
+      "sha256": "9afee07db70a2eac33d8ccca7c405ebffd927cfba6c3e290b7394dd83082812c",
+      "w": 1280,
+      "path": "assets_src/bubble_duel_v2/review/1280/10-replay.png",
+      "aspect": "1280"
+    },
+    {
+      "file": "01-jobs.png",
+      "h": 720,
+      "role": "Illustrated shop launcher in Jobs",
+      "sha256": "cfaca7d0c0634fba061375e605c1f4290c0ca36e5d9d813640ac518a7bb03655",
+      "w": 1600,
+      "path": "assets_src/bubble_duel_v2/review/1600/01-jobs.png",
+      "aspect": "1600"
+    },
+    {
+      "file": "02-hub.png",
+      "h": 720,
+      "role": "Rebuilt hub",
+      "sha256": "cd4bfbce4607415c20ec36416cef721857116153aafd75923b600d1140a6663a",
+      "w": 1600,
+      "path": "assets_src/bubble_duel_v2/review/1600/02-hub.png",
+      "aspect": "1600"
+    },
+    {
+      "file": "03-wide-duel.png",
+      "h": 720,
+      "role": "Symmetric wide viewport, complete room and actors",
+      "sha256": "c4fa4ae1548dda6a5f87aebea9ee7da38c63fffb2dbab8d2d706cc97b9ea151d",
+      "w": 1600,
+      "path": "assets_src/bubble_duel_v2/review/1600/03-wide-duel.png",
+      "aspect": "1600"
+    },
+    {
+      "file": "04-wide-shop.png",
+      "h": 720,
+      "role": "Wide viewport shop",
+      "sha256": "2350068ff9d97be04d409bfec1ade2742dcc8d60332e4f4bbe5bf86147709e44",
+      "w": 1600,
+      "path": "assets_src/bubble_duel_v2/review/1600/04-wide-shop.png",
+      "aspect": "1600"
+    },
+    {
+      "file": "01-jobs.png",
+      "h": 720,
+      "role": "Illustrated shop launcher in Jobs",
+      "sha256": "3737530a7705a0ea03ec4eee05c22f0bc89337a3319ca342ecc1b2a9d8b74c34",
+      "w": 960,
+      "path": "assets_src/bubble_duel_v2/review/960/01-jobs.png",
+      "aspect": "960"
+    },
+    {
+      "file": "02-hub.png",
+      "h": 720,
+      "role": "Rebuilt hub",
+      "sha256": "be507ab7bb4be68293b3cbf767e00a2f1601b5fc25d05fa2d46ae0c4e9b5cf76",
+      "w": 960,
+      "path": "assets_src/bubble_duel_v2/review/960/02-hub.png",
+      "aspect": "960"
+    },
+    {
+      "file": "03-wide-duel.png",
+      "h": 720,
+      "role": "Supported viewport, complete room and actors",
+      "sha256": "8fb8308b2e050854053b9c02d27ca0a428d989d32789100e2673899dd4c8a002",
+      "w": 960,
+      "path": "assets_src/bubble_duel_v2/review/960/03-wide-duel.png",
+      "aspect": "960"
+    },
+    {
+      "file": "04-wide-shop.png",
+      "h": 720,
+      "role": "Supported viewport shop",
+      "sha256": "a67ce8757016971171adb0a6d0b4696d1925eadfa43106cd04258bed742ef79b",
+      "w": 960,
+      "path": "assets_src/bubble_duel_v2/review/960/04-wide-shop.png",
+      "aspect": "960"
+    }
+  ],
+  "remaining_acceptance": [
+    "Canonical same-process fresh-runtime QA11 adapter and closed dependency evidence",
+    "Physical Lenovo Tab M11 touch/performance and 30fps/overdraw checks",
+    "Observed child session and subjective physics tuning",
+    "Owner identity/style/motion acceptance",
+    "Exact objective/power voice review; existing family voices reused",
+    "Existing room native-source resolution and shared typography authority debt",
+    "Exact-head remote CI and normal green dev integration; November 3 owner correction keeps dev open"
+  ],
+  "evidence_policy": "PNGs and source sheets are diagnostic. Synthetic review pearls are declared; all purchases use real controls. Saves are isolated. No protected original changed. No finding closed.",
+  "history": [
+    "Initial fresh-process reload failed 5/9 checks because JSON numeric color IDs decoded as floats. Known color IDs now normalize to integers, unknown values remain preserved; replacement fresh process passes 9/9.",
+    "ODR-DEV-OPEN-INTEGRATION-20261103 from origin/dev supersedes the earlier demo integration freeze. Normal probes-green topic integration applies.",
+    "Complete first local suite exits 1 solely for three Bubble Duel checks that required unchanged file bytes. New owner-commissioned purchases intentionally persist. Diagnostic changed-key list is only save_file_sha256. Other practice surfaces retain their unchanged-file check; Bubble Duel additionally verifies saved wallet and semantic story/career data.",
+    "Complete frozen recheck passed all 82 with zero process exits; source patch and feature hashes unchanged. This does not grant formal visual, device, child or owner acceptance."
+  ],
+  "capture_binding_note": "Thirty-seven normal-aspect captures refreshed after final replay, mode-context and movement-seam corrections. Eight earlier alternate-aspect views show unchanged idle Duel/shop states. All 45 file hashes verified. These are diagnostic views, not canonical fresh-runtime evidence.",
+  "device_check": "2026-11-04: adb devices -l reports no connected devices; no physical Android acceptance claimed.",
+  "frozen_verification": "Final 100 tours / 1301 checks, new process 9/9 reload checks, and final 100 physics bouts run against these unchanged gameplay source hashes.",
+  "physics_comparison": {
+    "baseline_commit": "ff0e7b74bae73c8c7b1f66c59c65719e1b94039f",
+    "matched_final_round": {
+      "data_file": "final.json",
+      "sha256": "a6810de28d26e3754bdb83da068a8268bba2d33b285363e4b26b08e420973f47",
+      "groups": [
+        {
+          "variant": "current",
+          "n": 100,
+          "wins": 100,
+          "seconds_p50": 4.216666666666655,
+          "seconds_p90": 7.69999999999998,
+          "first_pop_p50": 2.0300000000000047,
+          "drag_p50": 7.908333333333315,
+          "resurfaces": 88,
+          "bubble_losses": 15,
+          "taps": 318,
+          "gap_over_four": 10,
+          "max_gap": 19.3668098449707,
+          "wrong_survivor": 70,
+          "control_failures": 0
+        },
+        {
+          "variant": "moderate_final",
+          "n": 100,
+          "wins": 100,
+          "seconds_p50": 2.144166666666665,
+          "seconds_p90": 2.26666666666667,
+          "first_pop_p50": 1.5,
+          "drag_p50": 2.1,
+          "resurfaces": 3,
+          "bubble_losses": 0,
+          "taps": 223,
+          "gap_over_four": 0,
+          "max_gap": 0.0,
+          "wrong_survivor": 0,
+          "control_failures": 0
+        }
+      ],
+      "count": 200
+    },
+    "weights_before_after": [
+      [
+        "Swim approach speed",
+        "440 px/s",
+        "550 px/s"
+      ],
+      [
+        "Fall acceleration with bubbles",
+        "470 px/s\u00b2",
+        "560 px/s\u00b2"
+      ],
+      [
+        "Fall acceleration after losing bubbles",
+        "690 px/s\u00b2",
+        "780 px/s\u00b2"
+      ],
+      [
+        "Downward fall cap",
+        "325 px/s",
+        "365 px/s"
+      ],
+      [
+        "Horizontal guidance while landing",
+        "190 px/s",
+        "165 px/s"
+      ],
+      [
+        "Post-pop rebound",
+        "155 px/s up",
+        "150 px/s up"
+      ],
+      [
+        "Fin contact point",
+        "31 px lateral, 61 px down",
+        "31 px lateral, 49 px down"
+      ],
+      [
+        "Hitch catch-up",
+        "One step capped at 33 ms",
+        "At most 100 ms in 16.7 ms steps"
+      ]
+    ],
+    "interpretation": "The moderate profile provides reliable contact with reduced landing guidance and bounded hitch steps. Automated completion/contact criteria support this choice; child preference and subjective feel remain unmeasured."
+  },
+  "capture_isolation": "Both review probes now bind OS.get_user_data_dir() to the explicitly supplied isolated root before creating ReefMain. Mismatched capture root exits 2 before fixture credits; correct root renders four smoke captures. See evidence/capture-guard-negative.log and capture-guard-positive.log.",
+  "local_suite_source_limit": "The second complete local run used unchanged final feature code, verified by its frozen runtime patch and eight source bindings. The preceding mixed-stage/obsolete-SHA failure remains historical evidence. Exact published-head CI is still required before dev integration.",
+  "baseline_visual_archive": {
+    "source_commit": "ff0e7b74bae73c8c7b1f66c59c65719e1b94039f",
+    "files": [
+      {
+        "reference": "motion-states.jpg",
+        "path": "assets_src/bubble_duel_v2/evidence/baseline/motion-states.jpg",
+        "sha256": "13b3830d9121abb5ced2764df371029ab767b6fd354f0d0a3765047b41547d7a"
+      },
+      {
+        "reference": "visual-wide-review/07-current.png",
+        "path": "assets_src/bubble_duel_v2/evidence/baseline/visual-wide-review/07-current.png",
+        "sha256": "a4313ae911a012ec6c33422dd2deff1708be3191585e7b55b344b8cb3c81e547"
+      },
+      {
+        "reference": "visual-wide-review/tint-0-duel.png",
+        "path": "assets_src/bubble_duel_v2/evidence/baseline/visual-wide-review/tint-0-duel.png",
+        "sha256": "939b330597670d3c26a7f6bb051bfc149a52fd8799a0bb81e0036ea7ee4b0b68"
+      },
+      {
+        "reference": "visual-wide-review/tint-1-duel.png",
+        "path": "assets_src/bubble_duel_v2/evidence/baseline/visual-wide-review/tint-1-duel.png",
+        "sha256": "fd2cdfaf648213566802c9028bff754cffc6eddf274def482459f7ed52b99776"
+      },
+      {
+        "reference": "visual-wide-review/tint-2-duel.png",
+        "path": "assets_src/bubble_duel_v2/evidence/baseline/visual-wide-review/tint-2-duel.png",
+        "sha256": "15e628342d21f35b0332df4fdc409f1c3323f682ebe5b27cf076ada5f14606c5"
+      },
+      {
+        "reference": "visual-wide-review/tint-3-duel.png",
+        "path": "assets_src/bubble_duel_v2/evidence/baseline/visual-wide-review/tint-3-duel.png",
+        "sha256": "dfce2543f8ff4823614188457e503ee245753c13587a7e133630f8c29cc2a724"
+      },
+      {
+        "reference": "visual-wide-review/tint-4-duel.png",
+        "path": "assets_src/bubble_duel_v2/evidence/baseline/visual-wide-review/tint-4-duel.png",
+        "sha256": "d8521b49c53ef94ffcf67155684ca74b37b5a7c76a88240f0878849bc89ee850"
+      },
+      {
+        "reference": "visual/01-jobs-launcher.png",
+        "path": "assets_src/bubble_duel_v2/evidence/baseline/visual/01-jobs-launcher.png",
+        "sha256": "e40a75ef04d0e8d4739fba0cf905abdf8e6d1861e259ec97b44ca9f5335a5f51"
+      },
+      {
+        "reference": "visual/02-hub.png",
+        "path": "assets_src/bubble_duel_v2/evidence/baseline/visual/02-hub.png",
+        "sha256": "42409b1a08a45990ffc0878d6de513b7f6b161a9a82ad84218e62fbed172ac29"
+      },
+      {
+        "reference": "visual/03-shop.png",
+        "path": "assets_src/bubble_duel_v2/evidence/baseline/visual/03-shop.png",
+        "sha256": "acb456c318371312ff69ab983de02610d27e1983a45540e5008cd3ed647e3581"
+      },
+      {
+        "reference": "visual/05-practice.png",
+        "path": "assets_src/bubble_duel_v2/evidence/baseline/visual/05-practice.png",
+        "sha256": "4699947a770270d43f2155a6993d429cc3fbc8333fff31140e9fa541cad59e4b"
+      },
+      {
+        "reference": "visual/06-practice-pop.png",
+        "path": "assets_src/bubble_duel_v2/evidence/baseline/visual/06-practice-pop.png",
+        "sha256": "db49ea9bb9c52e512ca0fe01382b6cd9052ae62188c584f9931ffad773344928"
+      },
+      {
+        "reference": "visual/08-current-score.png",
+        "path": "assets_src/bubble_duel_v2/evidence/baseline/visual/08-current-score.png",
+        "sha256": "38f6542c87a0a33b74732b004d7d72fa8b850f2af89d714fbe5b3b8f1bfbe2e2"
+      },
+      {
+        "reference": "visual/09-duel.png",
+        "path": "assets_src/bubble_duel_v2/evidence/baseline/visual/09-duel.png",
+        "sha256": "69e5870b1126cce617489b2080a614df9f97e2b3ae844abd70e17a97fd17f125"
+      },
+      {
+        "reference": "visual/10-replay.png",
+        "path": "assets_src/bubble_duel_v2/evidence/baseline/visual/10-replay.png",
+        "sha256": "759ac9acfef22105115ea34cb29d35f5a1bd40bcf6d722ee09887216b9621965"
+      }
+    ],
+    "unavailable_references": [],
+    "reference_root": "../evidence/baseline/"
+  }
+}
