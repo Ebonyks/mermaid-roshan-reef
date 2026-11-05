@@ -24,6 +24,7 @@ extends Node2D
 signal race_event(kind: String, value: float)
 
 const TrackScript := preload("res://scripts/racer/reef_kart_track.gd")
+const RoomCourses := preload("res://scripts/racer/reef_kart_courses.gd")
 const FloorShader := preload("res://scripts/racer/reef_kart_floor.gdshader")
 
 const VIEW := Vector2(1280.0, 720.0)
@@ -141,9 +142,11 @@ var _floor_material: ShaderMaterial = null
 var _tex: Dictionary = {}
 var _sky_tex: Array[Texture2D] = []
 var _skyline: Texture2D = null
+var _room_art: Texture2D
 var _landmark_tex: Dictionary = {}
 var _drawables: Array = []
 var _minimap := PackedVector2Array()
+var _pc_hud := false
 var _minimap_rect := Rect2(1090, 18, 170, 170)
 var _count_mark := 3
 var _time := 0.0
@@ -154,7 +157,7 @@ var winner_slot := -1
 
 func setup(options: Dictionary = {}) -> void:
 	set_process(false)
-	track = TrackScript.new()
+	track = TrackScript.new(options.get("course", {}))
 	_duel = bool(options.get("duel", false))
 	winner_slot = -1
 	assist = clampf(float(options.get("assist", 0.75)), 0.0, 1.0)
@@ -186,6 +189,7 @@ func setup_camera_view(source: ReefKartRace, slot: int) -> void:
 	_tex = source._tex
 	_sky_tex = source._sky_tex
 	_skyline = source._skyline
+	_room_art = source._room_art
 	_landmark_tex = source._landmark_tex
 	_build_view()
 	_build_minimap()
@@ -203,8 +207,10 @@ func refresh_camera_view(source: ReefKartRace, delta: float) -> void:
 	_refresh_view()
 
 
-func use_pc_hud() -> void:
-	_hud.hide()
+func use_pc_hud(view_width: int) -> void:
+	_pc_hud = true
+	_minimap_rect = Rect2((VIEW.x + float(view_width)) * 0.5 - 111.0, 32, 86, 86)
+	_build_minimap()
 
 
 func _new_kart(spec: Dictionary) -> Dictionary:
@@ -273,22 +279,35 @@ func _load_textures() -> void:
 				var key := vehicle + "_" + pose
 				_tex[key] = load("res://assets/kart/chase/%s.png" % key) as Texture2D
 	_sky_tex.clear()
-	for path: String in PALACE_TILES:
-		if ResourceLoader.exists(path):
-			_sky_tex.append(load(path) as Texture2D)
 	_skyline = null
-	if ResourceLoader.exists(ReefKartTrack.PAINTED_SKYLINE):
-		_skyline = load(ReefKartTrack.PAINTED_SKYLINE) as Texture2D
+	_room_art = null
+	if track.room.is_empty():
+		for path: String in PALACE_TILES:
+			if ResourceLoader.exists(path):
+				_sky_tex.append(load(path) as Texture2D)
+		if ResourceLoader.exists(ReefKartTrack.PAINTED_SKYLINE):
+			_skyline = load(ReefKartTrack.PAINTED_SKYLINE) as Texture2D
+	else:
+		_room_art = RoomCourses.room_art(track.room)
 	for key: String in OPTIONAL_ART:
 		var path: String = ART_ROOT + String(OPTIONAL_ART[key])
 		if ResourceLoader.exists(path):
 			_tex[key] = load(path) as Texture2D
 	_landmark_tex.clear()
-	for landmark: Dictionary in ReefKartTrack.LANDMARKS:
+	for landmark: Dictionary in track.landmarks:
 		var id := String(landmark["id"])
 		var path := ReefKartTrack.TRACK_ROOT + "billboards/%s.png" % id
+		if not track.room.is_empty():
+			path = RoomCourses.ROOMS + id + ".png"
 		if not _landmark_tex.has(id) and ResourceLoader.exists(path):
-			_landmark_tex[id] = load(path) as Texture2D
+			var texture := load(path) as Texture2D
+			if landmark.has("crop"):
+				var crop := AtlasTexture.new()
+				crop.atlas = texture
+				crop.region = landmark["crop"]
+				crop.filter_clip = true
+				texture = crop
+			_landmark_tex[id] = texture
 
 
 func _build_view() -> void:
@@ -303,7 +322,7 @@ func _build_view() -> void:
 	_floor.size = Vector2(VIEW.x, VIEW.y - HORIZON_Y)
 	_floor_material = ShaderMaterial.new()
 	_floor_material.shader = FloorShader
-	var painted := ResourceLoader.exists(ReefKartTrack.PAINTED_FLOOR)
+	var painted := track.room.is_empty() and ResourceLoader.exists(ReefKartTrack.PAINTED_FLOOR)
 	_floor_material.set_shader_parameter("use_painted", painted)
 	if painted:
 		_floor_material.set_shader_parameter("painted_floor", load(ReefKartTrack.PAINTED_FLOOR))
@@ -312,10 +331,12 @@ func _build_view() -> void:
 	_floor_material.set_shader_parameter("rect_size", _floor.size)
 	_floor_material.set_shader_parameter("cam_height", CAM_HEIGHT)
 	_floor_material.set_shader_parameter("focal", FOCAL)
-	_floor_material.set_shader_parameter("world_size", ReefKartTrack.WORLD_SIZE)
+	_floor_material.set_shader_parameter("world_size", track.world_size)
 	_floor_material.set_shader_parameter("road_edge", ReefKartTrack.ROAD_HALF / ReefKartTrack.FIELD_FAR)
 	_floor_material.set_shader_parameter("rail_edge", ReefKartTrack.RAIL / ReefKartTrack.FIELD_FAR)
 	_floor_material.set_shader_parameter("lane_line", 40.0 / ReefKartTrack.FIELD_FAR)
+	if not track.room.is_empty():
+		_style_room_floor()
 	_floor.material = _floor_material
 	add_child(_floor)
 	_world = Node2D.new()
@@ -333,9 +354,31 @@ func _build_view() -> void:
 	_controls.draw.connect(_draw_controls)
 
 
+func _style_room_floor() -> void:
+	var paint: Array = track.room["palette"]
+	var uniforms := ["water_a", "water_b", "foam", "sand_a", "sand_b", "haze"]
+	for index in range(uniforms.size()):
+		_floor_material.set_shader_parameter(uniforms[index], paint[index])
+	_floor_material.set_shader_parameter("curb_b", paint[1])
+	_floor_material.set_shader_parameter("room_pattern", track.room["pattern"])
+	_floor_material.set_shader_parameter("haze_start", 410.0)
+	_floor_material.set_shader_parameter("haze_end", 1200.0)
+	_floor_material.set_shader_parameter("finish_pos", track.point_at(0.0))
+	_floor_material.set_shader_parameter("finish_forward", track.tangent_at(0.0))
+	var bridges: Array = track.room.get("bridges", [])
+	var scale := float(track.room["scale"])
+	var shift: Vector2 = track.room["shift"]
+	for index in range(bridges.size()):
+		var area: Rect2 = bridges[index]
+		var start := area.position * scale + shift
+		var end := area.end * scale + shift
+		var uniform := "bridge_a" if index == 0 else "bridge_b"
+		_floor_material.set_shader_parameter(uniform, Vector4(start.x, start.y, end.x, end.y))
+
+
 func _build_minimap() -> void:
 	_minimap = PackedVector2Array()
-	var scale := _minimap_rect.size.x / ReefKartTrack.WORLD_SIZE
+	var scale := _minimap_rect.size.x / track.world_size
 	for index in range(0, ReefKartTrack.SAMPLES, 6):
 		_minimap.append(_minimap_rect.position + track.center[index] * scale)
 	_minimap.append(_minimap[0])
@@ -894,6 +937,19 @@ func _screen(world: Vector2, depth: float) -> Vector2:
 
 
 func _draw_sky() -> void:
+	if _room_art != null:
+		var source_size := _room_art.get_size()
+		var pan := 0.08 + 0.075 * sin(cam_heading)
+		var source := Rect2(source_size * Vector2(pan, 0.02), source_size * Vector2(0.84, 0.54))
+		var wall := Rect2(0.0, 0.0, VIEW.x, HORIZON_Y + 2.0)
+		_sky.draw_texture_rect_region(_room_art, wall, source)
+		var palette: Array = track.room["palette"]
+		var haze: Color = palette[5]
+		var top := wall.end.y - 29.0
+		_sky.draw_polygon(PackedVector2Array([
+			Vector2(0, top), Vector2(VIEW.x, top), wall.end, Vector2(0, wall.end.y)]),
+			PackedColorArray([Color(haze, 0), Color(haze, 0), haze, haze]))
+		return
 	_sky.draw_rect(Rect2(Vector2.ZERO, Vector2(VIEW.x, HORIZON_Y + 2.0)), SKY_WATER)
 	var band_y := HORIZON_Y - SKY_BAND + 2.0
 	if _skyline != null:
@@ -998,11 +1054,16 @@ func _draw_landmark(landmark: Dictionary, screen: Vector2, scale: float) -> void
 	var texture := _landmark_tex.get(id) as Texture2D
 	if texture == null:
 		return
-	var size := Vector2(float(landmark["w"]), float(landmark["h"])) * scale
+	var width := float(landmark["w"])
+	var aspect := float(texture.get_height()) / float(texture.get_width())
+	var world_size := Vector2(width, float(landmark.get("h", width * aspect)))
+	if not track.room.is_empty():
+		world_size *= minf(1.0, 176.0 / world_size.y)
+	var size := world_size * scale
 	if size.x < 3.0:
 		return
 	var bottom := screen.y - float(landmark.get("lift", 0.0)) * scale
-	if id.begins_with("reef_"):
+	if id.begins_with("reef_") or not track.room.is_empty():
 		_world.draw_set_transform(screen, 0.0, Vector2(1.0, 0.16))
 		_world.draw_circle(Vector2.ZERO, size.x * 0.32, Color(0.24, 0.14, 0.31, 0.17), true, -1.0, true)
 		_world.draw_set_transform(Vector2.ZERO)
@@ -1290,6 +1351,9 @@ func _draw_kart(k: Dictionary, screen: Vector2, scale: float) -> void:
 
 
 func _draw_hud() -> void:
+	if _pc_hud:
+		_draw_minimap()
+		return
 	for lap in range(LAPS):
 		var center := Vector2(190.0 + float(lap) * 88.0, 68.0)
 		var done := player_progress() >= float(lap + 1)
@@ -1370,14 +1434,18 @@ func _draw_order_faces() -> void:
 
 
 func _draw_minimap() -> void:
-	_hud.draw_rect(_minimap_rect.grow(10.0), Color(1.0, 1.0, 1.0, 0.55))
-	_hud.draw_polyline(_minimap, INK, 9.0, true)
-	_hud.draw_polyline(_minimap, Color("#f4e6f0"), 5.0, true)
-	var scale := _minimap_rect.size.x / ReefKartTrack.WORLD_SIZE
+	var plate := Color(0.07, 0.20, 0.30, 0.86) if _pc_hud else Color(1.0, 1.0, 1.0, 0.55)
+	_hud.draw_rect(_minimap_rect.grow(10.0), plate)
+	_hud.draw_polyline(_minimap, INK, 6.0 if _pc_hud else 9.0, true)
+	_hud.draw_polyline(_minimap, Color("#f4e6f0"), 2.5 if _pc_hud else 5.0, true)
+	var scale := _minimap_rect.size.x / track.world_size
 	for k: Dictionary in karts:
 		var at := _minimap_rect.position + (k["pos"] as Vector2) * scale
-		_hud.draw_circle(at, 8.0, INK)
-		_hud.draw_circle(at, 6.0, Color("#ff9db6") if bool(k["player"]) else Color("#b48ce8"))
+		var color := Color("#ff9db6") if bool(k["player"]) else Color("#b48ce8")
+		if _pc_hud:
+			color = k.get("player_color", color)
+		_hud.draw_circle(at, 5.5 if _pc_hud else 8.0, INK)
+		_hud.draw_circle(at, 4.0 if _pc_hud else 6.0, color)
 
 
 ## Green steering stick (left), red brake and the item bubble (right).

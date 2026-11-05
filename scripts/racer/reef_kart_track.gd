@@ -137,6 +137,9 @@ const LANDMARKS: Array[Dictionary] = [
 const CHECKPOINTS := 8
 
 var id := "pearl_canal"
+var room: Dictionary
+var world_size := WORLD_SIZE
+var _control_points := PackedVector2Array(POINTS)
 var center := PackedVector2Array()
 var tangents := PackedVector2Array()
 var cumulative := PackedFloat32Array()
@@ -150,11 +153,24 @@ var landmarks: Array[Dictionary] = []
 var gate_s: Array[float] = []
 
 static var _field_cache: ImageTexture = null
+static var _room_fields: Dictionary = {}
 
 
-func _init() -> void:
+func _init(course: Dictionary = {}) -> void:
+	room = course
+	if not room.is_empty():
+		id = String(room["id"])
+		world_size = float(room["world_size"])
+		_control_points.clear()
+		var scale := float(room["scale"])
+		var shift: Vector2 = room["shift"]
+		for point: Vector2 in room["points"]:
+			_control_points.append(point * scale + shift)
 	_build_centerline()
-	_build_features()
+	if room.is_empty():
+		_build_features()
+	else:
+		_build_room_features()
 
 
 func _catmull(p0: Vector2, p1: Vector2, p2: Vector2, p3: Vector2, t: float) -> Vector2:
@@ -168,12 +184,12 @@ func _build_centerline() -> void:
 	# Dense pass, then resample uniformly by arc length so every sample is the
 	# same distance apart and projection windows have a fixed meaning.
 	var dense := PackedVector2Array()
-	var count := POINTS.size()
+	var count := _control_points.size()
 	for index in range(count):
-		var p0 := POINTS[(index - 1 + count) % count]
-		var p1 := POINTS[index]
-		var p2 := POINTS[(index + 1) % count]
-		var p3 := POINTS[(index + 2) % count]
+		var p0 := _control_points[(index - 1 + count) % count]
+		var p1 := _control_points[index]
+		var p2 := _control_points[(index + 1) % count]
+		var p3 := _control_points[(index + 2) % count]
 		for step in range(24):
 			dense.append(_catmull(p0, p1, p2, p3, float(step) / 24.0))
 	var dense_len := PackedFloat32Array()
@@ -213,7 +229,7 @@ func _build_centerline() -> void:
 
 ## Course distance of a control point plus an along-course offset.
 func s_of(point: int, offset: float = 0.0) -> float:
-	return wrap_s(point_s[clampi(point, 0, POINTS.size() - 1)] + offset)
+	return wrap_s(point_s[clampi(point, 0, _control_points.size() - 1)] + offset)
 
 
 func _build_features() -> void:
@@ -243,6 +259,43 @@ func _build_features() -> void:
 		entry["s"] = s
 		entry["pos"] = point_at(s, float(spec["lat"]))
 		landmarks.append(entry)
+
+
+func _build_room_features() -> void:
+	for point: int in room["items"]:
+		var s := s_of(point)
+		gate_s.append(s)
+		for lat: float in ITEM_LATS:
+			bubbles.append({"s": s, "lat": lat, "pos": point_at(s, lat), "respawn_t": 0.0})
+	var row := 0
+	for point: int in room["pearls"]:
+		var lat := -74.0 if row % 2 == 0 else 74.0
+		for index in range(4):
+			var s := s_of(point, float(index) * 45.0)
+			pearls.append({"s": s, "lat": lat, "pos": point_at(s, lat), "respawn_t": 0.0})
+		row += 1
+	var props: Array = room["props"]
+	var prop_count := maxi(10, roundi(length / 440.0))
+	for index in range(prop_count):
+		var s := length * (float(index) + 0.36) / float(prop_count)
+		var side := -1.0 if index % 2 == 0 else 1.0
+		var lateral := side * (240.0 + 75.0 * float(index % 3))
+		var pos := point_at(s, lateral)
+		# The inside of a switchback can be next to a different road section.
+		# Place each prop on the side where it clears every part of the route.
+		if not _clear_of_road(pos):
+			pos = point_at(s, -lateral)
+		if not _clear_of_road(pos):
+			continue
+		var prop: Array = props[index % props.size()]
+		landmarks.append({"id": prop[0], "s": s, "pos": pos, "w": prop[1], "crop": prop[2]})
+
+
+func _clear_of_road(pos: Vector2) -> bool:
+	for sample in range(0, SAMPLES, 3):
+		if pos.distance_squared_to(center[sample]) < 190.0 * 190.0:
+			return false
+	return true
 
 
 func wrap_s(s: float) -> float:
@@ -349,29 +402,38 @@ func checkpoint_of(s: float) -> int:
 ## sample against nearby 16-unit cells) and never used when PAINTED_FLOOR
 ## exists. Bilinear filtering keeps the band edges smooth.
 func floor_field() -> ImageTexture:
-	if _field_cache != null:
+	var is_room := not room.is_empty()
+	if is_room and _room_fields.has(id):
+		return _room_fields[id] as ImageTexture
+	if not is_room and _field_cache != null:
 		return _field_cache
-	var cell := WORLD_SIZE / float(FIELD_SIZE)
+	var resolution := 512 if is_room else FIELD_SIZE
+	var cell := world_size / float(resolution)
 	var distances := PackedFloat32Array()
-	distances.resize(FIELD_SIZE * FIELD_SIZE)
+	distances.resize(resolution * resolution)
 	distances.fill(FIELD_FAR)
 	var reach := int(ceil(FIELD_REACH / cell))
-	for sample in range(0, SAMPLES, 3):
+	var stride := 1 if is_room else 3
+	for sample in range(0, SAMPLES, stride):
 		var p := center[sample]
 		var cx := int(p.x / cell)
 		var cy := int(p.y / cell)
-		for gy in range(maxi(0, cy - reach), mini(FIELD_SIZE, cy + reach + 1)):
+		for gy in range(maxi(0, cy - reach), mini(resolution, cy + reach + 1)):
 			var wy := (float(gy) + 0.5) * cell - p.y
-			for gx in range(maxi(0, cx - reach), mini(FIELD_SIZE, cx + reach + 1)):
+			for gx in range(maxi(0, cx - reach), mini(resolution, cx + reach + 1)):
 				var wx := (float(gx) + 0.5) * cell - p.x
 				var d := sqrt(wx * wx + wy * wy)
-				var key := gy * FIELD_SIZE + gx
+				var key := gy * resolution + gx
 				if d < distances[key]:
 					distances[key] = d
 	var bytes := PackedByteArray()
-	bytes.resize(FIELD_SIZE * FIELD_SIZE)
+	bytes.resize(resolution * resolution)
 	for key in range(FIELD_SIZE * FIELD_SIZE):
 		bytes[key] = clampi(int(round(distances[key] / FIELD_FAR * 255.0)), 0, 255)
-	var image := Image.create_from_data(FIELD_SIZE, FIELD_SIZE, false, Image.FORMAT_L8, bytes)
-	_field_cache = ImageTexture.create_from_image(image)
-	return _field_cache
+	var image := Image.create_from_data(resolution, resolution, false, Image.FORMAT_L8, bytes)
+	var texture := ImageTexture.create_from_image(image)
+	if is_room:
+		_room_fields[id] = texture
+	else:
+		_field_cache = texture
+	return texture

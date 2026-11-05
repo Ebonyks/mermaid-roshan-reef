@@ -3,6 +3,7 @@ extends SceneTree
 const PC := preload("res://scripts/racer/reef_kart_pc.gd")
 const Scene := preload("res://scenes/racer/reef_grand_prix_pc.tscn")
 const Catalog := preload("res://scripts/racer/reef_kart_catalog.gd")
+const Courses := preload("res://scripts/racer/reef_kart_courses.gd")
 const STEP := 1.0 / 60.0
 var failures := 0
 
@@ -65,6 +66,15 @@ func _run() -> void:
 	tap(6, JOY_BUTTON_A)
 	check("one player cannot launch a two-player race", pc._race == null and pc._ready_players == [true, false])
 	tap(11, JOY_BUTTON_A)
+	check("both ready opens the four-course picker", pc._screen == PC.Screen.COURSE
+		and Courses.COURSES.size() == 4 and pc._race == null)
+	tap(11, JOY_BUTTON_DPAD_RIGHT)
+	tap(11, JOY_BUTTON_A)
+	check("P2 cannot change or start P1's course", pc._course_choice == 0 and pc._race == null)
+	tap(6, JOY_BUTTON_DPAD_RIGHT)
+	check("P1 can select the next course", pc._course_choice == 1)
+	tap(6, JOY_BUTTON_DPAD_LEFT)
+	tap(6, JOY_BUTTON_A)
 	var race: ReefKartRace = pc._race
 	var second: ReefKartRace = pc._second_view
 	check("two cameras are bound to the same race and different drivers",
@@ -122,22 +132,53 @@ func _run() -> void:
 		and pc._race == null and pc._ready_players == [false, false])
 	tap(6, JOY_BUTTON_A)
 	tap(13, JOY_BUTTON_A)
+	pc._controller_connection(13, false)
+	check("controller loss on course selection returns to garage",
+		pc._screen == PC.Screen.GARAGE and pc._devices == [6, -1])
+	tap(13, JOY_BUTTON_A)
+	tap(6, JOY_BUTTON_A)
+	tap(13, JOY_BUTTON_A)
+	tap(6, JOY_BUTTON_A)
 	pc._controller_connection(6, false)
 	pc._controller_connection(13, false)
 	pc._key(KEY_ESCAPE)
 	check("keyboard can return to garage when both controllers are disconnected",
 		pc._screen == PC.Screen.GARAGE and pc._race == null)
-	pc._show_mode()
-	pc._show_garage(1, -1)
-	check("solo has keyboard fallback", pc._devices == [-2, -1])
-	pc._toggle_ready(0)
-	var solo: ReefKartRace = pc._race
-	for i in range(4200):
-		pc._physics_process(STEP)
-		if solo.winner_slot >= 0:
-			break
-	check("solo keeps the Imp opponent and completes a real two-lap race",
-		solo.winner_slot == 0 and solo.karts[1]["id"] == "imp" and pc._screen == PC.Screen.RESULT)
+	for index in range(Courses.COURSES.size()):
+		pc._show_mode()
+		pc._show_garage(1, -1)
+		if index == 0:
+			check("solo has keyboard fallback", pc._devices == [-2, -1])
+		pc._key(KEY_ENTER)
+		while pc._course_choice != index:
+			pc._key(KEY_RIGHT)
+		pc._key(KEY_ENTER)
+		var solo: ReefKartRace = pc._race
+		var spec: Dictionary = Courses.COURSES[index]
+		var track := solo.track
+		var course_ok: bool = track.id == spec["id"] and solo._room_art != null \
+			and solo._landmark_tex.size() == 4 and track.landmarks.size() >= 8 \
+			and track.gate_s.size() == spec["items"].size()
+		for item: Dictionary in track.bubbles:
+			var road_pos := track.project(item["pos"], item["s"], 50.0)
+			course_ok = course_ok and absf(road_pos.y - float(item["lat"])) < 4.0
+		check("%s uses its own art, landmarks and road-aligned item rows" % track.id, course_ok)
+		for step in range(12000):
+			pc._physics_process(STEP)
+			if solo.winner_slot >= 0:
+				break
+		check("%s finishes two laps in solo" % track.id, solo.winner_slot == 0
+			and solo.karts[1]["id"] == "imp" and pc._screen == PC.Screen.RESULT)
+		pc._show_mode()
+		pc._show_garage(2, 6)
+		tap(11, JOY_BUTTON_A)
+		tap(6, JOY_BUTTON_A)
+		tap(11, JOY_BUTTON_A)
+		tap(6, JOY_BUTTON_A)
+		check("%s binds the same course and art to both players" % track.id,
+			pc._race.track.id == track.id and is_same(pc._race.track, pc._second_view.track)
+			and is_same(pc._race._room_art, pc._second_view._room_art))
+		await process_frame
 	pc.queue_free()
 	await process_frame
 	print("REEF_KART_PC|DONE|failures=", failures)

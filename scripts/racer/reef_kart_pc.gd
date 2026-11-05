@@ -1,6 +1,7 @@
 extends Control
 
 const Catalog := preload("res://scripts/racer/reef_kart_catalog.gd")
+const Courses := preload("res://scripts/racer/reef_kart_courses.gd")
 const Race := preload("res://scripts/racer/reef_kart_race.gd")
 const TITLE_SCENE := "res://scenes/main.tscn"
 const VIEW := Vector2(1280, 720)
@@ -15,11 +16,12 @@ const ITEM_ICONS := {
 	"pearls": preload("res://assets/racer/icons/pearls.png"),
 }
 
-enum Screen { MODE, GARAGE, RACE, RESULT }
+enum Screen { MODE, GARAGE, COURSE, RACE, RESULT }
 
 var _screen := Screen.MODE
 var _count := 1
 var _mode_choice := 0
+var _course_choice := 0
 var _devices: Array[int] = [VACANT, VACANT]
 var _drivers: Array[int] = [0, 1]
 var _rides: Array[int] = [0, 0]
@@ -101,6 +103,13 @@ func _pad(device: int, button: int) -> void:
 				JOY_BUTTON_DPAD_RIGHT: _choose(slot, false, 1)
 				JOY_BUTTON_A: _toggle_ready(slot)
 				JOY_BUTTON_B: _garage_back(slot)
+		Screen.COURSE:
+			if slot == 0:
+				match button:
+					JOY_BUTTON_DPAD_LEFT: _choose_course(_course_choice - 1)
+					JOY_BUTTON_DPAD_RIGHT: _choose_course(_course_choice + 1)
+					JOY_BUTTON_A: _start_race()
+					JOY_BUTTON_B: _return_to_garage()
 		Screen.RACE:
 			if button == JOY_BUTTON_START:
 				_toggle_pause()
@@ -128,6 +137,7 @@ func _key(key: int) -> bool:
 	if key == KEY_ESCAPE:
 		match _screen:
 			Screen.GARAGE: _garage_back(0)
+			Screen.COURSE: _return_to_garage()
 			Screen.RACE:
 				if _paused and not _has_all_players():
 					_return_to_garage()
@@ -145,6 +155,12 @@ func _key(key: int) -> bool:
 				KEY_LEFT: _choose(0, false, -1)
 				KEY_RIGHT: _choose(0, false, 1)
 				KEY_ENTER: _toggle_ready(0)
+				_: return false
+		Screen.COURSE:
+			match key:
+				KEY_LEFT: _choose_course(_course_choice - 1)
+				KEY_RIGHT: _choose_course(_course_choice + 1)
+				KEY_ENTER, KEY_SPACE: _start_race()
 				_: return false
 		Screen.RACE:
 			if key in [KEY_SPACE, KEY_ENTER] and not _paused:
@@ -170,6 +186,8 @@ func _controller_connection(device: int, connected: bool) -> void:
 	_items_queued[slot] = false
 	if _screen == Screen.GARAGE:
 		_build_garage()
+	elif _screen == Screen.COURSE:
+		_return_to_garage()
 	elif _screen == Screen.RACE:
 		_pause()
 
@@ -200,7 +218,7 @@ func _show_mode() -> void:
 	_reset_content()
 	_menu_backdrop()
 	_label(_content, "REEF GRAND PRIX", Rect2(0, 94, 1280, 86), 63)
-	_label(_content, "Pearl Canal Circuit", Rect2(0, 180, 1280, 55), 32)
+	_label(_content, "Four room circuits", Rect2(0, 180, 1280, 55), 32)
 	_button(_content, "1 PLAYER\nRace the Imp", Rect2(236, 292, 380, 155),
 		_show_garage.bind(1, VACANT), _mode_choice == 0)
 	_button(_content, "2 PLAYERS\nSplit-screen race", Rect2(664, 292, 380, 155),
@@ -290,12 +308,69 @@ func _toggle_ready(slot: int) -> void:
 		return
 	_ready_players[slot] = not _ready_players[slot]
 	if _ready_players[0] and (_count == 1 or _ready_players[1]) and _has_all_players():
-		_start_race()
+		_show_courses()
 	else:
 		_build_garage()
 
 
+func _choose_course(index: int) -> void:
+	_course_choice = posmod(index, Courses.COURSES.size())
+	_show_courses()
+
+
+func _show_courses() -> void:
+	_screen = Screen.COURSE
+	_reset_content()
+	_menu_backdrop()
+	_label(_content, "CHOOSE A COURSE", Rect2(0, 25, 1280, 70), 47)
+	_label(_content, "Player 1 chooses  ·  D-pad or ← / →  ·  A or Enter to race",
+		Rect2(0, 97, 1280, 46), 24)
+	for index in range(Courses.COURSES.size()):
+		var course: Dictionary = Courses.COURSES[index]
+		var x := 34.0 + float(index) * 307.0
+		var selected := index == _course_choice
+		var palette: Array = course["palette"]
+		_button(_content, "", Rect2(x, 163, 291, 374), _choose_course.bind(index), selected)
+		_label(_content, "%d  ·  %s" % [index + 1, course["room"]],
+			Rect2(x + 10, 181, 271, 37), 22, Color("#332354"))
+		_picture(_content, Courses.room_art(course), Rect2(x + 20, 218, 251, 142))
+		_panel(_content, Rect2(x + 25, 372, 241, 105), Color("#193651"), palette[2])
+		_draw_course_map(course["points"], Rect2(x + 50, 382, 191, 85), palette[2])
+		_label(_content, String(course["name"]), Rect2(x + 7, 488, 277, 36), 22, Color("#332354"))
+	var chosen: Dictionary = Courses.COURSES[_course_choice]
+	_label(_content, String(chosen["hint"]), Rect2(168, 548, 944, 46), 26)
+	_button(_content, "Back", Rect2(32, 629, 155, 62), _return_to_garage)
+	_button(_content, "Race!", Rect2(490, 613, 300, 74), _start_race, true)
+
+
+func _draw_course_map(points: Array, area: Rect2, paint: Color) -> void:
+	var bounds := Rect2(points[0], Vector2.ZERO)
+	for point: Vector2 in points:
+		bounds = bounds.expand(point)
+	var scale := minf(area.size.x / bounds.size.x, area.size.y / bounds.size.y)
+	var offset := area.get_center() - bounds.get_center() * scale
+	var route := Line2D.new()
+	route.width = 4.0
+	route.antialiased = true
+	route.default_color = paint
+	route.joint_mode = Line2D.LINE_JOINT_ROUND
+	route.closed = true
+	for point: Vector2 in points:
+		route.add_point(offset + point * scale)
+	_content.add_child(route)
+	var start := offset + (points[0] as Vector2) * scale
+	var dot := ColorRect.new()
+	dot.color = Color.WHITE
+	dot.size = Vector2(6, 6)
+	dot.position = start - dot.size * 0.5
+	dot.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_content.add_child(dot)
+
+
 func _start_race() -> void:
+	if not _has_all_players():
+		_return_to_garage()
+		return
 	_screen = Screen.RACE
 	_reset_content()
 	_paused = false
@@ -307,14 +382,14 @@ func _start_race() -> void:
 	else:
 		roster.append({"id": "imp", "player": false, "skill": ReefKartRace.IMP_PACE})
 	_race = Race.new()
-	_race.setup({"racers": roster, "duel": _count == 2})
-	_race.use_pc_hud()
+	_race.setup({"racers": roster, "duel": _count == 2, "course": Courses.COURSES[_course_choice]})
 	var pane := 640 if _count == 2 else 1280
+	_race.use_pc_hud(pane)
 	_add_view(_race, 0, pane)
 	if _count == 2:
 		_second_view = Race.new()
 		_second_view.setup_camera_view(_race, 1)
-		_second_view.use_pc_hud()
+		_second_view.use_pc_hud(pane)
 		_add_view(_second_view, 1, pane)
 		_panel(_content, Rect2(638, 0, 4, 720), Color("#b9eef0"), Color("#b9eef0"), 0)
 	_panel_labels.clear()
@@ -445,7 +520,8 @@ func _show_result() -> void:
 	var driver := Catalog.driver(_drivers[winner])
 	_panel(_content, Rect2(337, 174, 606, 340), Color("#17405a"), P_COLORS[winner])
 	_picture(_content, Catalog.portrait(driver), Rect2(510, 185, 260, 150))
-	_label(_content, "%s wins!" % driver["name"], Rect2(363, 335, 554, 66), 47)
+	_label(_content, "%s wins!" % driver["name"], Rect2(363, 326, 554, 56), 45)
+	_label(_content, String(_race.track.room["name"]), Rect2(363, 380, 554, 31), 22)
 	_button(_content, "Race again", Rect2(385, 424, 242, 66), _return_to_garage, true)
 	_button(_content, "Menu", Rect2(653, 424, 242, 66), _show_mode)
 
