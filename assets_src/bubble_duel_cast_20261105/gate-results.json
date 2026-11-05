@@ -1,0 +1,242 @@
+{
+  "result": "PASS",
+  "time_utc": "2026-11-05T20:37:59.760228+00:00",
+  "documentation": [
+    {
+      "gate": "authority",
+      "exit": 0,
+      "output": "DOCAUTH|INVENTORY=919|LEDGER=919|ACTIVE=75|RECORDS=78\nDOCAUTH|RESULT|ALL OK\n"
+    },
+    {
+      "gate": "coverage",
+      "exit": 0,
+      "output": "AUDITDEV|BASE|169f6e90faff072affb40874f49566a97c2814ef\nAUDITDEV|RESULT|ALL OK\n"
+    }
+  ],
+  "parser_inference_owner_register_and_Godot_current_source": {
+    "checks": [
+      {
+        "command": [
+          "python",
+          "-m",
+          "gdtoolkit.parser",
+          "scripts/bubble_duel_cast.gd",
+          "scripts/bubble_duel_inventory.gd",
+          "scripts/bubble_duel_preview.gd",
+          "scripts/bubble_duel_two_player.gd",
+          "scripts/opera_bubble_duel.gd",
+          "scripts/probe_bubble_duel_capture.gd",
+          "scripts/probe_bubble_duel_cast.gd",
+          "scripts/probe_bubble_duel_cast_capture.gd",
+          "scripts/probe_bubble_duel_dual_active.gd",
+          "scripts/probe_bubble_duel_stress.gd",
+          "scripts/probe_opera.gd"
+        ],
+        "exit": 0,
+        "result": "PASS",
+        "output": ""
+      },
+      {
+        "command": [
+          "python",
+          "tools/lint_inference.py",
+          "scripts/bubble_duel_cast.gd",
+          "scripts/bubble_duel_inventory.gd",
+          "scripts/bubble_duel_preview.gd",
+          "scripts/bubble_duel_two_player.gd",
+          "scripts/opera_bubble_duel.gd",
+          "scripts/probe_bubble_duel_capture.gd",
+          "scripts/probe_bubble_duel_cast.gd",
+          "scripts/probe_bubble_duel_cast_capture.gd",
+          "scripts/probe_bubble_duel_dual_active.gd",
+          "scripts/probe_bubble_duel_stress.gd",
+          "scripts/probe_opera.gd"
+        ],
+        "exit": 0,
+        "result": "PASS",
+        "output": ""
+      },
+      {
+        "command": [
+          "python",
+          "-B",
+          "tools/record_owner_decision.py",
+          "--check",
+          "--base",
+          "169f6e90faff072affb40874f49566a97c2814ef"
+        ],
+        "exit": 0,
+        "result": "PASS",
+        "output": "DECISIONS|COUNT|121\nDECISIONS|RESULT|ALL OK\n"
+      },
+      {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "--path",
+          "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\bubble-duel-cast-two-player-20261105",
+          "--check-only",
+          "-s",
+          "scripts/bubble_duel_cast.gd"
+        ],
+        "exit": 0,
+        "result": "PASS",
+        "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+      },
+      {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "--path",
+          "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\bubble-duel-cast-two-player-20261105",
+          "--check-only",
+          "-s",
+          "scripts/bubble_duel_inventory.gd"
+        ],
+        "exit": 0,
+        "result": "PASS",
+        "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+      },
+      {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "--path",
+          "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\bubble-duel-cast-two-player-20261105",
+          "--check-only",
+          "-s",
+          "scripts/bubble_duel_preview.gd"
+        ],
+        "exit": 0,
+        "result": "PASS",
+        "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+      },
+      {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "--path",
+          "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\bubble-duel-cast-two-player-20261105",
+          "--check-only",
+          "-s",
+          "scripts/bubble_duel_two_player.gd"
+        ],
+        "exit": 0,
+        "result": "PASS",
+        "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+      },
+      {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "--path",
+          "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\bubble-duel-cast-two-player-20261105",
+          "--check-only",
+          "-s",
+          "scripts/opera_bubble_duel.gd"
+        ],
+        "exit": 0,
+        "result": "PASS",
+        "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+      },
+      {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "--path",
+          "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\bubble-duel-cast-two-player-20261105",
+          "--check-only",
+          "-s",
+          "scripts/probe_bubble_duel_capture.gd"
+        ],
+        "exit": 0,
+        "result": "PASS",
+        "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+      },
+      {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "--path",
+          "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\bubble-duel-cast-two-player-20261105",
+          "--check-only",
+          "-s",
+          "scripts/probe_bubble_duel_cast.gd"
+        ],
+        "exit": 0,
+        "result": "PASS",
+        "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+      },
+      {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "--path",
+          "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\bubble-duel-cast-two-player-20261105",
+          "--check-only",
+          "-s",
+          "scripts/probe_bubble_duel_cast_capture.gd"
+        ],
+        "exit": 0,
+        "result": "PASS",
+        "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+      },
+      {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "--path",
+          "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\bubble-duel-cast-two-player-20261105",
+          "--check-only",
+          "-s",
+          "scripts/probe_bubble_duel_dual_active.gd"
+        ],
+        "exit": 0,
+        "result": "PASS",
+        "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+      },
+      {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "--path",
+          "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\bubble-duel-cast-two-player-20261105",
+          "--check-only",
+          "-s",
+          "scripts/probe_bubble_duel_stress.gd"
+        ],
+        "exit": 0,
+        "result": "PASS",
+        "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+      },
+      {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "--path",
+          "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\bubble-duel-cast-two-player-20261105",
+          "--check-only",
+          "-s",
+          "scripts/probe_opera.gd"
+        ],
+        "exit": 0,
+        "result": "PASS",
+        "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+      }
+    ],
+    "source_hashes": {
+      "scripts/bubble_duel_cast.gd": "5c305774c188f37e6e39daf87fd746344f620c10122c2efa6ff4707342ad4229",
+      "scripts/bubble_duel_inventory.gd": "9c6ba0f80cde98dc53c602ddadde3766b79ca648f780456733bf1e487e80f50b",
+      "scripts/bubble_duel_preview.gd": "fec6a582523adf484ece840dc16c5e307bde8b65e326db6f0794f49e867d8ad4",
+      "scripts/bubble_duel_two_player.gd": "68b20d9bf7e0a3726eed84753bf5bb23c3dfcc99b558f49184b390c3343a90a5",
+      "scripts/opera_bubble_duel.gd": "9983f63bc0786de188017b15f2e7401b678b859c254ed6533383929fd719928f",
+      "scripts/probe_bubble_duel_capture.gd": "3b524c63bfcd550e1a0c8d6a5bb4c3934ea1c7176569596f08cc25e94bcd0ccf",
+      "scripts/probe_bubble_duel_cast.gd": "636d0e7d9e8a8fbc6beb09c2bd6f9e483b43c018cb939f297c6c30fe65da5af4",
+      "scripts/probe_bubble_duel_cast_capture.gd": "df09c06598ac5a8fe648fa774eab069211d32aa5c959e4ffce92099dffafde86",
+      "scripts/probe_bubble_duel_dual_active.gd": "9a7bb1ce0a075f6e3f730b96e8aa0438136841036ecba05d78104e268ede771f",
+      "scripts/probe_bubble_duel_stress.gd": "e0c693236ca066449353ab30617c7b7048818741c4a8a5e6cb49fa5a0a5b172f",
+      "scripts/probe_opera.gd": "62093e93c2067b4044d0e30120dcd1e1f0035862db3124553a5f841551060a62"
+    }
+  },
+  "runtime_scope": "local-regression.json aggregate82; final125 native frames; final renderer/HUD-only byte-delta chain; exact published-head CI separately pending at this commit snapshot."
+}

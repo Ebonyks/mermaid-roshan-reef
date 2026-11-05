@@ -3,9 +3,10 @@ extends RefCounted
 ## Closed shop IDs. Pearl balances and owned equipment use the shared save transaction.
 
 const SAVE_KEY := "bubble_duel"
+const CAST_IDS: Array[String] = ["roshan", "rumi", "daddy_mermaid", "baby_eagle", "rainbow_dust_bunny", "marlo"]
 const COLOR_PRICES: Array[int] = [0, 20, 20, 20, 30]
 const ITEMS: Array[Dictionary] = [
-	{"id": "classic", "name": "Roshan", "price": 0, "use": 0, "icon": -1, "outfit": "roshan_original", "help": "Your own lovely tail"},
+	{"id": "classic", "name": "Original", "price": 0, "use": 0, "icon": -1, "outfit": "roshan_original", "help": "Your own familiar look"},
 	{"id": "tidewing", "name": "Tidewing Ribbons", "price": 60, "use": 0, "icon": 0, "outfit": "roshan_ribbon_v1", "help": "Ribbons give a gentle lift"},
 	{"id": "moonpearl", "name": "Moonpearl Guardian", "price": 120, "use": 2, "icon": 1, "outfit": "roshan_party_dress_v1", "help": "Float gently with your pearl"},
 	{"id": "swiftconch", "name": "Swift Conch Courier", "price": 150, "use": 40, "icon": 2, "outfit": "roshan_garden_v1", "help": "Ride a quick current"},
@@ -44,18 +45,25 @@ static func state(main: ReefMain) -> Dictionary:
 			result["colors"][index] = int(saved)
 	if 0 not in result["colors"]:
 		result["colors"].append(0)
+	var unlocked: Variant = result.get("cast_unlocked", CAST_IDS)
+	result["cast_unlocked"] = unlocked.duplicate() if unlocked is Array else CAST_IDS.duplicate()
+	if "roshan" not in result["cast_unlocked"]:
+		result["cast_unlocked"].append("roshan")
+	var players: Variant = result.get("players", {})
+	result["players"] = players.duplicate(true) if players is Dictionary else {}
 	return result
 
 
-static func equipped(main: ReefMain) -> String:
+static func equipped(main: ReefMain, player: int = 0) -> String:
 	var data := state(main)
-	var id := String(data.get("equipped", "classic"))
+	var profile := _raw_profile(data, player)
+	var id := String(profile.get("gear", data.get("equipped", "classic") if player == 0 else "classic"))
 	return id if id in data["owned"] and item(id)["id"] == id else "classic"
 
 
-static func color(main: ReefMain) -> int:
+static func color(main: ReefMain, player: int = 0) -> int:
 	var data := state(main)
-	var raw: Variant = data.get("color", 0)
+	var raw: Variant = _raw_profile(data, player).get("color", data.get("color", 0) if player == 0 else 0)
 	return int(raw) if (raw is int or raw is float) and int(raw) in data["colors"] and int(raw) in range(5) else 0
 
 
@@ -72,7 +80,9 @@ static func _store(main: ReefMain, data: Dictionary) -> bool:
 	return false
 
 
-static func choose_item(main: ReefMain, id: String) -> bool:
+static func choose_item(main: ReefMain, id: String, player: int = 0) -> bool:
+	if player not in [0, 1]:
+		return false
 	var entry := item(id)
 	if entry["id"] != id:
 		return false
@@ -83,11 +93,18 @@ static func choose_item(main: ReefMain, id: String) -> bool:
 			return false
 		data["pearls"] = int(data["pearls"]) - price
 		data["owned"].append(id)
-	data["equipped"] = id
+	var profile := _raw_profile(data, player)
+	profile["gear"] = id
+	profile["look"] = "set:" + id
+	_set_profile(data, player, profile)
+	if player == 0:
+		data["equipped"] = id
 	return _store(main, data)
 
 
-static func choose_color(main: ReefMain, index: int) -> bool:
+static func choose_color(main: ReefMain, index: int, player: int = 0) -> bool:
+	if player not in [0, 1]:
+		return false
 	if index not in range(COLOR_PRICES.size()):
 		return false
 	var data := state(main)
@@ -96,7 +113,11 @@ static func choose_color(main: ReefMain, index: int) -> bool:
 			return false
 		data["pearls"] = int(data["pearls"]) - COLOR_PRICES[index]
 		data["colors"].append(index)
-	data["color"] = index
+	var profile := _raw_profile(data, player)
+	profile["color"] = index
+	_set_profile(data, player, profile)
+	if player == 0:
+		data["color"] = index
 	return _store(main, data)
 
 
@@ -110,3 +131,78 @@ static func reward(main: ReefMain, amount: int, won: bool = false) -> bool:
 	main.save_data[SAVE_KEY] = data
 	return main._write_save()
 
+
+
+static func _raw_profile(data: Dictionary, player: int) -> Dictionary:
+	var raw: Variant = (data.get("players", {}) as Dictionary).get(str(clampi(player, 0, 1)), {})
+	return raw.duplicate(true) if raw is Dictionary else {}
+
+
+static func _set_profile(data: Dictionary, player: int, profile: Dictionary) -> void:
+	(data["players"] as Dictionary)[str(clampi(player, 0, 1))] = profile
+
+
+static func profile(main: ReefMain, player: int = 0) -> Dictionary:
+	var data := state(main)
+	var result := _raw_profile(data, player)
+	var person := String(result.get("character", "roshan" if player == 0 else "rumi"))
+	if person not in CAST_IDS or person not in data["cast_unlocked"]:
+		person = "roshan"
+	result["character"] = person
+	result["gear"] = equipped(main, player)
+	result["color"] = color(main, player)
+	var look := String(result.get("look", "set:" + String(result["gear"])))
+	result["look"] = look if look_available(main, person, look) else "set:classic"
+	return result
+
+
+static func look_available(main: ReefMain, person: String, look: String) -> bool:
+	if person not in CAST_IDS:
+		return false
+	if look.begins_with("set:"):
+		var id := look.trim_prefix("set:")
+		return item(id)["id"] == id and id in state(main)["owned"] and \
+			(person in FashionParts.PEOPLE or id in (["classic"] if person == "marlo" else ["classic", "tidewing", "moonpearl", "swiftconch"]))
+	var definition := FashionDesigner.outfit(look)
+	return not definition.is_empty() and String(definition.get("character", "")) in [person, "*"] \
+		and String(definition.get("slot", "body")) == "body" and FashionDesigner.owned(main, look)
+
+
+static func looks(main: ReefMain, person: String) -> Array[Dictionary]:
+	var result: Array[Dictionary] = []
+	for entry: Dictionary in ITEMS:
+		if look_available(main, person, "set:" + String(entry["id"])):
+			result.append({"id": "set:" + String(entry["id"]), "name": String(entry["name"]) + " set"})
+	if person != "marlo":
+		for entry: Dictionary in FashionDesigner.outfits(person):
+			if String(entry["id"]) != person + "_original" and look_available(main, person, String(entry["id"])):
+				result.append({"id": entry["id"], "name": entry.get("label", entry["id"])})
+		if person in FashionParts.PEOPLE:
+			for entry: Dictionary in FashionParts.items(person, "body"):
+				if not String(entry["id"]).begins_with(person + "_") and look_available(main, person, String(entry["id"])):
+					result.append({"id": entry["id"], "name": entry.get("label", entry["id"])})
+	return result
+
+
+static func choose_character(main: ReefMain, id: String, player: int = 0) -> bool:
+	var data := state(main)
+	if player not in [0, 1] or id not in CAST_IDS or id not in data["cast_unlocked"]:
+		return false
+	var chosen := _raw_profile(data, player)
+	chosen["character"] = id
+	if not look_available(main, id, String(chosen.get("look", "set:classic"))):
+		chosen["look"] = "set:classic"
+	_set_profile(data, player, chosen)
+	return _store(main, data)
+
+
+static func choose_look(main: ReefMain, look: String, player: int = 0) -> bool:
+	if player not in [0, 1]:
+		return false
+	var chosen := profile(main, player)
+	if not look_available(main, String(chosen["character"]), look):
+		return false
+	chosen["look"] = look
+	var data := state(main)
+	_set_profile(data, player, chosen)
+	return _store(main, data)

@@ -1,0 +1,48 @@
+{
+  "checks": 1483,
+  "cycles": [
+    {
+      "gear": "classic",
+      "owned": [
+        "classic",
+        "moonpearl",
+        "tidewing",
+        "swiftconch",
+        "rainbow",
+        "kelp",
+        "lullaby",
+        "squid"
+      ],
+      "passed": false,
+      "pearls": 28480,
+      "run": 0
+    },
+    {
+      "gear": "tidewing",
+      "owned": [
+        "classic",
+        "moonpearl",
+        "tidewing",
+        "swiftconch",
+        "rainbow",
+        "kelp",
+        "lullaby",
+        "squid"
+      ],
+      "passed": true,
+      "pearls": 28490,
+      "run": 1
+    }
+  ],
+  "engine": "4.7.2-stable (official)",
+  "failures": 1,
+  "powers_seen": {
+    "kelp": true,
+    "lullaby": true,
+    "moonpearl": true,
+    "rainbow": true,
+    "squid": true,
+    "swiftconch": true,
+    "tidewing": true
+  }
+}

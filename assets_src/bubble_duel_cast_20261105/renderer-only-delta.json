@@ -1,0 +1,12 @@
+{
+  "before_sha256": "038f714a97e204811d2493ef1bd56faad9bb94c556f0a5c2d5eead03dc42c9ab",
+  "after_sha256": "6d7216ae7c7da4ac4756c3cef2d3e64f1bb719935d960eb52279a2e303bd7769",
+  "all_non_draw_overlay_functions_byte_identical": true,
+  "unchanged_physics_inventory_cast_hashes": {
+    "scripts/bubble_duel_two_player.gd": "68b20d9bf7e0a3726eed84753bf5bb23c3dfcc99b558f49184b390c3343a90a5",
+    "scripts/bubble_duel_inventory.gd": "9c6ba0f80cde98dc53c602ddadde3766b79ca648f780456733bf1e487e80f50b",
+    "scripts/bubble_duel_cast.gd": "5c305774c188f37e6e39daf87fd746344f620c10122c2efa6ff4707342ad4229"
+  },
+  "scope": "Only player marker positions in _draw_two_player; same-position avatars now keep both badges visible. Active100 may already be in flight on the preceding render function. Gameplay/input/collision functions are byte-identical; no claim that its whole overlay-file hash is the final renderer. New native125-frame capture binds the completed renderer.",
+  "hash_scope": "UTF-8 LF-normalized source text, as produced by pathlib.read_text; native source-bindings retain original Windows working-file bytes. git-normalization.json records LF Git blobs separately."
+}

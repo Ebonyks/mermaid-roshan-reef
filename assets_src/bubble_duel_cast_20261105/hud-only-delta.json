@@ -1,0 +1,13 @@
+{
+  "before_sha256": "6d7216ae7c7da4ac4756c3cef2d3e64f1bb719935d960eb52279a2e303bd7769",
+  "after_sha256": "af1a0f1ff0d220b5e21398de6cf6d72ae64fb77a01ad562db80bf298e79a530a",
+  "all_bytes_identical_after_reverting_exact_three_UI_changes": true,
+  "scope": "Only balance Label visibility in its existing UI refresh/update functions, and the second pad dot label. No physics, input, inventory, geometry, mode transitions or reward/save code changes. Exact string reversal reproduces the preceding overlay bytes.",
+  "rejected_frame": {
+    "path": "history/rejected-wallet-overlap.png",
+    "sha256": "b6ba8d6c788f2b4714669905dc13bf61492d7d0057976538b39c914394732d1f",
+    "observation": "Native real-two-finger ceiling/wall overlap case reveals wallet text over the right bubble. No appearance-pass credit for this HUD state."
+  },
+  "evidence_chain": "renderer-only-delta.json -> this HUD-only delta -> final source-bound native captures. Earlier100-playthrough results retain their exact renderer scope; unchanged gameplay functions remain applicable.",
+  "hash_scope": "UTF-8 LF-normalized source text, as produced by pathlib.read_text; native source-bindings retain original Windows working-file bytes. git-normalization.json records LF Git blobs separately."
+}

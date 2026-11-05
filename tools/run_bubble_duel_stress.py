@@ -13,7 +13,12 @@ ROOT = Path(__file__).resolve().parents[1]
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--cast", action="store_true", help="Run cast and local two-player checks")
+    parser.add_argument("--dual-active", action="store_true", help="Both touch policies actively chase and drift")
+    parser.add_argument("--cycles", type=int, default=100, choices=range(1, 101))
     args = parser.parse_args()
+    probe = ("scripts/probe_bubble_duel_dual_active.gd" if args.dual_active else
+             "scripts/probe_bubble_duel_cast.gd" if args.cast else "scripts/probe_bubble_duel_stress.gd")
     output = args.output.resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
     resolver = subprocess.run([sys.executable, "-B", str(ROOT / "tools/resolve_godot.py")],
@@ -27,12 +32,13 @@ def main():
             target = state / folder
             target.mkdir()
             env[key] = str(target)
+        env["BUBBLE_DUEL_CYCLES"] = str(args.cycles)
         env["BUBBLE_DUEL_STRESS_ROOT"] = str(state)
         env["BUBBLE_DUEL_STRESS_OUTPUT"] = str(output)
         log = output.with_suffix(".log")
         with log.open("w", encoding="utf-8") as transcript:
             run = subprocess.run([engine, "--headless", "--path", str(ROOT),
-                                  "-s", "scripts/probe_bubble_duel_stress.gd", "--",
+                                  "-s", probe, "--",
                                   "--touch", "--classic-touch-test"],
                                  cwd=ROOT, env=env, stdout=transcript,
                                  stderr=subprocess.STDOUT, timeout=600)
@@ -43,7 +49,7 @@ def main():
         if run.returncode or not output.exists():
             return run.returncode or 1
         result = json.loads(output.read_text(encoding="utf-8"))
-        if len(result["cycles"]) != 100 or result["failures"] or any(not r["passed"] for r in result["cycles"]):
+        if len(result["cycles"]) != args.cycles or result["failures"] or any(not r["passed"] for r in result["cycles"]):
             return 1
         reload_output = output.with_name(output.stem + "-reload.json")
         env["BUBBLE_DUEL_VERIFY_RELOAD"] = "1"
@@ -52,7 +58,7 @@ def main():
             transcript.write("\nRELOAD_PHASE: new Godot process, same isolated save\n")
             transcript.flush()
             reload_run = subprocess.run([engine, "--headless", "--path", str(ROOT),
-                                         "-s", "scripts/probe_bubble_duel_stress.gd", "--",
+                                         "-s", probe, "--",
                                          "--touch", "--classic-touch-test"],
                                         cwd=ROOT, env=env, stdout=transcript,
                                         stderr=subprocess.STDOUT, timeout=120)

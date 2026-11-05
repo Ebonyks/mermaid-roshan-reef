@@ -1,0 +1,65 @@
+{
+  "checked_utc": "2026-11-05T21:37:17.858981+00:00",
+  "feature_commit": "b2671073f8b95cbc1b3707d57e9c360fb939598f",
+  "feature_required_ci": {
+    "run_id": 42106008736,
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42106008736",
+    "jobs": {
+      "probes": "success",
+      "area-music-provenance": "success"
+    }
+  },
+  "incoming_dev": "bc02217f087b80884e07acf0cd6ea1e0789ce3a9",
+  "feature_production_paths_identical": [
+    "scripts/bubble_duel_cast.gd",
+    "scripts/bubble_duel_inventory.gd",
+    "scripts/bubble_duel_preview.gd",
+    "scripts/bubble_duel_two_player.gd",
+    "scripts/opera_bubble_duel.gd",
+    "scripts/probe_bubble_duel_capture.gd",
+    "scripts/probe_bubble_duel_cast.gd",
+    "scripts/probe_bubble_duel_cast_capture.gd",
+    "scripts/probe_bubble_duel_dual_active.gd",
+    "scripts/probe_bubble_duel_stress.gd",
+    "scripts/probe_opera.gd"
+  ],
+  "conflict_resolution": "Both master index rows retained; upstream owner register kept in exact original order with unchanged Bubble Duel decision appended; generated owner view regenerated. Asset licenses auto-merged. No production Bubble Duel changes.",
+  "incoming_scope": "Owner-authorized pinned editor-tool payload and existing Fetch/Skins/Verbs fixture references. Upstream .codex/config.toml and tooling safety gates retained without local changes.",
+  "combined_head_ci": "PENDING exact published merge-head checks before normal dev integration; no master promotion.",
+  "acceptance": "Original appearance/machine proof remains scoped to identical Bubble Duel inputs; physical two-player phone/performance/child/owner and formal art/motion gaps remain open.",
+  "local_combined_gates": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "exit": 0,
+      "result": "919/919 ledger,75 active,78 records; ALL OK"
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "exit": 0,
+      "result": "ALL OK, base bc02217f087b80884e07acf0cd6ea1e0789ce3a9"
+    },
+    {
+      "command": "python -B tools/record_owner_decision.py --check --base origin/dev",
+      "exit": 0,
+      "result": "122 decisions ALL OK"
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_godot_mcp_scope tools.tests.test_audit_game_2d",
+      "exit": 0,
+      "result": "100 tests OK in236.461s;19 falsification/control assertions ALL OK"
+    }
+  ],
+  "failed_topic_integration": {
+    "commit": "1d07c9cb7fb17a8e4709431e5c6c121a3b0d3c62",
+    "run_id": 42115142455,
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42115142455",
+    "job": 127552680489,
+    "result": "FAIL static owner-decision append-only guard; gameplay/import/analyzer not reached",
+    "assertion": "existing decisions must keep their order; append new ones at the end",
+    "comparison_base": "b2671073f8b95cbc1b3707d57e9c360fb939598f (push event.before)",
+    "diagnosis": "The two parents independently appended different decisions. Merge preserves canonical dev MCP-first then new Bubble Duel decision, but the topic push compares against its Bubble-Duel-first parent. Canonical dev append-only check passes; topic-parent order check correctly fails.",
+    "correction": "Fresh codex/bubble-duel-cast-two-player-integrated-20261105 starts from exact origin/dev bc02217f and merges the complete retained candidate. Existing register and source remain unchanged. The new-branch CI baseline is canonical dev, so the full actual feature delta is checked. No guard/source rewrite, no existing record edit, no force push or erased failed history."
+  },
+  "canonical_integration_parent": "bc02217f087b80884e07acf0cd6ea1e0789ce3a9",
+  "retained_candidate_parent": "1d07c9cb7fb17a8e4709431e5c6c121a3b0d3c62"
+}

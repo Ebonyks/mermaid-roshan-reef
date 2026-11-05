@@ -1,0 +1,17 @@
+--- before-marker-overlay.gd
++++ after-marker-overlay.gd
+@@ -1089,10 +1089,11 @@
+ 			_draw_bubble(duo.bubble_at(player, side), point, tint)
+ 		appearance.draw_actor(self, profile, point, float(fighter["facing"]), bool(fighter["held"]), active_time)
+ 		# Player numbers stay outside anatomy, with two dots as a non-reading cue.
+-		draw_circle(point + Vector2(-63, -28), 16, Color(0.25, 0.76, 0.91) if player == 0 else Color(0.96, 0.48, 0.68))
+-		draw_circle(point + Vector2(-63, -28), 12, Color(0.12, 0.24, 0.39, 0.95))
++		var badge := point + Vector2(-63.0 if player == 0 else 63.0, -28.0)
++		draw_circle(badge, 16, Color(0.25, 0.76, 0.91) if player == 0 else Color(0.96, 0.48, 0.68))
++		draw_circle(badge, 12, Color(0.12, 0.24, 0.39, 0.95))
+ 		for dot: int in range(player + 1):
+-			draw_circle(point + Vector2(-67 + dot * 8, -28), 3, Color.WHITE)
++			draw_circle(badge + Vector2(0.0 if player == 0 else -4.0 + dot * 8.0, 0.0), 3, Color.WHITE)
+ 		for shot: Dictionary in fighter["shots"]:
+ 			draw_texture_rect(PEARL, Rect2((shot["position"] as Vector2) - Vector2(15, 15), Vector2(30, 30)), false)
+ 	for pop: Dictionary in duo_pops:

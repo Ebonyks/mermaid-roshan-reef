@@ -1517,6 +1517,21 @@
         "tools/tests/test_godot_mcp_scope.py"
       ],
       "cycle": "godot-mcp-20261104"
+    },
+    {
+      "id": "ODR-BUBBLE-DUEL-CAST-2P-20261105",
+      "date": "2026-11-05",
+      "subject": "Bubble Duel larger cast, two players and wearable items",
+      "decision": "Use the existing larger cast. Both local players choose unlocked characters, clothes and power items independently. Make the otter an optional friend and attach displayed equipment sensibly to each character.",
+      "source": "assets_src/bubble_duel_cast_20261105/owner_request.json",
+      "question": "Owner correction of initial one-otter solo adaptation",
+      "authority": "recorded_owner",
+      "checkable": true,
+      "checks": [
+        "scripts/probe_bubble_duel_cast.gd",
+        "scripts/probe_opera.gd"
+      ],
+      "cycle": "bubble-duel-cast-20261105"
     }
   ]
 }

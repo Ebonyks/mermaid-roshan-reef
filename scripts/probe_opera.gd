@@ -582,6 +582,12 @@ func _audit_bubble_duel() -> void:
 		return
 	var card := duel.menu.get_child(0) as Button
 	_tap_control(card, 61)
+	_check("Duel offers pictured character and gear setup", duel.mode == duel.Mode.SETUP)
+	for child: Node in duel.menu.get_children():
+		if child is Button and child.tooltip_text == "Play":
+			_tap_control(child as Control, 611)
+			break
+	_check("setup starts the selected friendly bout", duel.mode == duel.Mode.DUEL)
 	await _frames(5)
 	_check("idle duel neither moves Roshan nor scores", duel.swimmer == duel.START
 		and duel.score == 0 and duel.rival_bubbles == 2)
@@ -627,6 +633,28 @@ func _audit_bubble_duel() -> void:
 	for tick: int in range(180):
 		duel._process(1.0 / 60.0)
 	_check("Current Ride scores a contacted pearl once", duel.score == 1)
+	main._navigation_ref().press()
+	_tap_control(duel.menu.get_child(4) as Button, 71)
+	_check("two friends opens independent setup", duel.mode == duel.Mode.SETUP and duel.setup_two_player)
+	for child: Node in duel.menu.get_children():
+		if child is Button and child.tooltip_text == "Play together":
+			_tap_control(child as Control, 72)
+			break
+	_check("two-player pictured Play starts two independent profiles", duel.mode == duel.Mode.VERSUS and duel.fighters.size() == 2 and duel.fighters[0]["profile"] == BUBBLE_SHOP.profile(main, 0) and duel.fighters[1]["profile"] == BUBBLE_SHOP.profile(main, 1))
+	var local_wallet := BUBBLE_SHOP.state(main)
+	for player: int in range(2):
+		var touch := InputEventScreenTouch.new()
+		touch.index = 73 + player
+		touch.pressed = true
+		touch.position = _control_screen_point(duel, duel.Duo.PADS[player].get_center())
+		duel.get_viewport().push_input(touch, false)
+	for tick: int in range(12): duel._process(1.0 / 60.0)
+	_check("native two-finger input moves both characters", duel.duo_touch_owners.size() == 2 and (duel.fighters[0]["position"] as Vector2).y < 480 and (duel.fighters[1]["position"] as Vector2).y < 480)
+	duel.notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
+	var local_first: Vector2 = duel.fighters[0]["position"]
+	var local_second: Vector2 = duel.fighters[1]["position"]
+	for tick: int in range(60): duel._process(1.0 / 60.0)
+	_check("two-player focus loss stops both without reward", duel.duo_touch_owners.is_empty() and duel.fighters[0]["position"] == local_first and duel.fighters[1]["position"] == local_second and BUBBLE_SHOP.state(main) == local_wallet and _bubble_duel_progress_snapshot() == progress)
 	main._navigation_ref().press()
 	main._navigation_ref().press()
 	_check("Back from the hub restores Jobs, ambience and input",

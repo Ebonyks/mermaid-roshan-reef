@@ -1,3 +1,4 @@
+class_name BubbleDuelOverlay
 extends Control
 ## Optional Opera practice game. All swim and color state belongs to this overlay.
 
@@ -26,8 +27,28 @@ const COLORS: Array[Color] = [
 	Color(0.74, 1.0, 0.81), Color(0.85, 0.76, 1.0),
 ]
 
-enum Mode { HUB, DUEL, PRACTICE, CURRENT, SHOP, CELEBRATE }
+enum Mode { HUB, DUEL, PRACTICE, CURRENT, SHOP, CELEBRATE, SETUP, PICKER, VERSUS }
 
+const Cast := preload("res://scripts/bubble_duel_cast.gd")
+const Duo := preload("res://scripts/bubble_duel_two_player.gd")
+const Preview := preload("res://scripts/bubble_duel_preview.gd")
+
+var appearance: BubbleDuelCast
+var duo: BubbleDuelTwoPlayer
+var fighters: Array[Dictionary] = []
+var duo_touch_owners: Dictionary = {}
+var duo_keys: Dictionary = {}
+var duo_pops: Array[Dictionary] = []
+var duo_guides: Array[TextureRect] = []
+var local_two_player := false
+var setup_two_player := false
+var selected_player := 0
+var picker_kind := "character"
+var picker_page := 0
+var shop_player := 0
+var shop_from_setup := false
+var second_power_button: Button
+var second_glow_bar: ProgressBar
 var main: ReefMain
 var mode := Mode.HUB
 var menu: Control
@@ -78,6 +99,8 @@ var rival_pull_target := Vector2.ZERO
 
 func setup(owner_main: ReefMain) -> void:
 	main = owner_main
+	appearance = Cast.new(main)
+	duo = Duo.new(self)
 	name = "OperaBubbleDuel"
 	size = StorybookUI.CANVAS_SIZE
 	tint_index = Shop.color(main)
@@ -124,6 +147,17 @@ func setup(owner_main: ReefMain) -> void:
 	glow_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	glow_bar.hide()
 	add_child(glow_bar)
+	second_power_button = Button.new()
+	second_power_button.position = Vector2(1138, 556)
+	second_power_button.size = Vector2(124, 124)
+	StorybookUI.style_picture_button(second_power_button)
+	second_power_button.pressed.connect(func() -> void: duo.activate(1))
+	second_power_button.hide()
+	add_child(second_power_button)
+	second_glow_bar = glow_bar.duplicate() as ProgressBar
+	second_glow_bar.position.x = 1139
+	second_glow_bar.hide()
+	add_child(second_glow_bar)
 	menu = Control.new()
 	menu.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(menu)
@@ -150,6 +184,7 @@ func _label(at: Vector2, font_size: int) -> Label:
 
 
 func _clear_menu() -> void:
+	duo_guides.clear()
 	for child: Node in menu.get_children():
 		menu.remove_child(child)
 		child.queue_free()
@@ -191,6 +226,9 @@ func _show_hub() -> void:
 	_reset_input()
 	_clear_menu()
 	mode = Mode.HUB
+	local_two_player = false
+	shop_player = 0
+	shop_from_setup = false
 	heading.text = "Bubble Duel"
 	hint.text = "Choose a place to play"
 	power_button.hide()
@@ -199,10 +237,17 @@ func _show_hub() -> void:
 	var otter := AtlasTexture.new()
 	otter.atlas = OTTER
 	otter.region = Rect2(0, 0, 256, 256)
-	_card("Bubble Duel", otter, Vector2(194, 278), _begin.bind(Mode.DUEL))
+	var friend: Texture2D = appearance.texture(Shop.profile(main, 1), false)
+	var duel_card := _card("Bubble Duel", friend, Vector2(194, 278), _show_setup.bind(false))
+	(duel_card.get_child(0) as TextureRect).hide()
+	_preview(duel_card, _solo_rival_profile(), Rect2(32, 3, 144, 112))
 	_card("Practice Lagoon", bubble, Vector2(422, 278), _begin.bind(Mode.PRACTICE))
 	_card("Current Ride", PEARL, Vector2(650, 278), _begin.bind(Mode.CURRENT))
 	_card("Shell Shop", _icon(1), Vector2(878, 278), _show_shop)
+	var two := _card("Two friends", ROSHAN, Vector2(490, 482), _show_setup.bind(true), Color.WHITE, Vector2(300, 165))
+	(two.get_child(0) as TextureRect).hide()
+	_preview(two, Shop.profile(main, 0), Rect2(17, 0, 118, 112))
+	_preview(two, Shop.profile(main, 1), Rect2(164, 0, 118, 112), -1.0)
 	queue_redraw()
 
 
@@ -213,12 +258,12 @@ func _show_shop() -> void:
 	power_button.hide()
 	glow_bar.hide()
 	heading.text = "Pearl & Shell Shop"
-	hint.text = "Choose your bubbles or a magical outfit"
+	hint.text = "Player %d: choose bubbles and worn power items" % (shop_player + 1)
 	var data := Shop.state(main)
 	for index: int in range(COLORS.size()):
 		var owned: bool = index in data["colors"]
 		var color_name: String = ["Aqua", "Rose", "Gold", "Mint", "Lilac"][index]
-		var price: String = "✓" if tint_index == index else ("Owned" if owned else str(Shop.COLOR_PRICES[index]) + " pearls")
+		var price: String = "✓" if Shop.color(main, shop_player) == index else ("Owned" if owned else str(Shop.COLOR_PRICES[index]) + " pearls")
 		_card(color_name + "  " + price, bubble, Vector2(164 + index * 194, 190),
 			_select_color.bind(index), COLORS[index], Vector2(178, 150))
 	var title := Label.new()
@@ -235,12 +280,17 @@ func _show_shop() -> void:
 		var index := shop_page * 4 + slot
 		var item: Dictionary = Shop.ITEMS[index]
 		var id := String(item["id"])
-		var equipped: bool = id == gear
+		var equipped: bool = id == Shop.equipped(main, shop_player)
 		var price: String = "Wearing" if equipped else ("Owned" if id in data["owned"] else str(item["price"]) + " pearls")
 		var portrait := _outfit_texture(ROSHAN.resource_path, id)
 		var card := _card(String(item["name"]) + "\n" + price, portrait,
 			Vector2(160 + slot * 226, 410), _choose_gear.bind(id), Color.WHITE, Vector2(210, 226))
 		card.set_meta("gear_id", id)
+		(card.get_child(0) as TextureRect).hide()
+		var worn := Shop.profile(main, shop_player)
+		worn["gear"] = id
+		worn["look"] = "set:" + id
+		_preview(card, worn, Rect2(16, 1, 172, 135))
 		if int(item["icon"]) >= 0:
 			var prop := TextureRect.new()
 			prop.position = Vector2(142, 78)
@@ -261,7 +311,7 @@ func _show_shop() -> void:
 
 
 func _select_color(index: int) -> void:
-	var bought := Shop.choose_color(main, index)
+	var bought := Shop.choose_color(main, index, shop_player)
 	if bought:
 		tint_index = Shop.color(main)
 	_show_shop()
@@ -272,6 +322,10 @@ func _begin(next: Mode) -> void:
 	_reset_input()
 	_clear_menu()
 	mode = next
+	local_two_player = false
+	gear = Shop.equipped(main)
+	tint_index = Shop.color(main)
+	_bind_outfit()
 	swimmer = START
 	direction = 1.0
 	rival = Vector2(856, 515)
@@ -305,7 +359,10 @@ func _begin(next: Mode) -> void:
 
 
 func go_back() -> void:
-	if mode == Mode.HUB:
+	if mode == Mode.PICKER or (mode == Mode.SHOP and shop_from_setup):
+		_show_setup(setup_two_player)
+		main._navigation_push(ROUTE_ID, self, go_back)
+	elif mode == Mode.HUB:
 		close_requested.emit()
 	else:
 		main.clear_dialogue()
@@ -325,6 +382,11 @@ func shutdown() -> void:
 
 
 func _reset_input() -> void:
+	if duo != null:
+		duo.flush()
+	if second_power_button != null:
+		second_power_button.hide()
+		second_glow_bar.hide()
 	touch_id = -1
 	mouse_held = false
 	armed = false
@@ -342,6 +404,10 @@ func _notification(what: int) -> void:
 
 
 func _gui_input(event: InputEvent) -> void:
+	if mode == Mode.VERSUS:
+		duo.input(event)
+		accept_event()
+		return
 	if mode != Mode.DUEL and mode != Mode.PRACTICE and mode != Mode.CURRENT:
 		return
 	if event is InputEventScreenTouch:
@@ -405,7 +471,8 @@ func _assist_released_drag() -> void:
 		return
 	if aim.distance_to(press_at) <= 18.0:
 		return
-	var projected_fin_x := aim.x - direction * FIN_X
+	var contact := appearance.contact(Shop.profile(main), false, active_time)
+	var projected_fin_x := aim.x + direction * contact.x
 	var closest := 54.0
 	for slot: int in range(rival_bubbles):
 		var target := _target(slot)
@@ -426,9 +493,24 @@ func _target(slot: int) -> Vector2:
 
 
 func _process(delta: float) -> void:
-	if mode in [Mode.HUB, Mode.SHOP]:
+	if mode in [Mode.HUB, Mode.SHOP, Mode.SETUP, Mode.PICKER]:
 		return
 	elapsed += delta
+	if local_two_player:
+		for index: int in range(duo_pops.size() - 1, -1, -1):
+			duo_pops[index]["time"] = float(duo_pops[index]["time"]) - delta
+			if float(duo_pops[index]["time"]) <= 0.0:
+				duo_pops.remove_at(index)
+	if mode == Mode.VERSUS:
+		active_time += minf(delta, 0.1)
+		var left := minf(delta, 0.1)
+		while left > 0.00001 and mode == Mode.VERSUS:
+			var step := minf(left, 1.0 / 60.0)
+			duo.tick(step)
+			left -= step
+		_refresh_power()
+		queue_redraw()
+		return
 	pop_time = maxf(0.0, pop_time - delta)
 	return_cooldown = maxf(0.0, return_cooldown - delta)
 	for slot: int in range(pickup_cooldowns.size()):
@@ -467,7 +549,8 @@ func _tick_swim(delta: float) -> void:
 	if climbing:
 		if assisted_slot >= 0:
 			var target := _target(assisted_slot)
-			aim = target if mode == Mode.CURRENT else target + Vector2(direction * FIN_X, -122)
+			var contact := appearance.contact(Shop.profile(main), false, active_time)
+			aim = target if mode == Mode.CURRENT else target + Vector2(-direction * contact.x, -contact.y - 73.0)
 		var swim_speed := 1000.0 if gear == "swiftconch" and power_time > 0.0 else 550.0
 		swimmer = swimmer.move_toward(aim, swim_speed * delta)
 		if swimmer.is_equal_approx(aim) and touch_id < 0 and not mouse_held:
@@ -484,7 +567,8 @@ func _tick_swim(delta: float) -> void:
 		velocity_y = minf(365.0, velocity_y + gravity * delta)
 		swimmer.y += velocity_y * delta
 		if assisted_slot >= 0 and mode != Mode.CURRENT:
-			var landing_x := _target(assisted_slot).x + direction * FIN_X
+			var contact := appearance.contact(Shop.profile(main), false, active_time)
+			var landing_x := _target(assisted_slot).x - direction * contact.x
 			swimmer.x = move_toward(swimmer.x, landing_x, 165.0 * delta)
 	if mode == Mode.CURRENT:
 		for slot: int in range(rival_bubbles):
@@ -492,8 +576,9 @@ func _tick_swim(delta: float) -> void:
 				_pop_target(slot)
 				return
 	elif swimmer.y > previous.y and not climbing and player_bubbles > 0:
-		var fin := swimmer + Vector2(-direction * FIN_X, FIN_Y)
-		var previous_fin_y := previous.y + FIN_Y
+		var contact := appearance.contact(Shop.profile(main), false, active_time)
+		var fin := swimmer + Vector2(direction * contact.x, contact.y)
+		var previous_fin_y := previous.y + contact.y
 		for slot: int in range(rival_bubbles - 1, -1, -1):
 			var target := _target(slot)
 			var old_target := target
@@ -509,7 +594,11 @@ func _tick_swim(delta: float) -> void:
 				return
 	if mode == Mode.DUEL and player_bubbles > 0 and rival.y > previous_rival.y:
 		var tether := _player_bubble(player_bubbles - 1)
-		if tether.distance_to(rival + Vector2(-34, 15)) < 35.0:
+		var contact := appearance.contact(_solo_rival_profile(), true, active_time)
+		contact.x *= -1.0
+		var from := previous_rival + contact - (tether + previous - swimmer)
+		var to := rival + contact - tether
+		if from.y < 0.0 and to.y > from.y and Geometry2D.get_closest_point_to_segment(Vector2.ZERO, from, to).length_squared() <= TARGET_RADIUS * TARGET_RADIUS:
 			player_bubbles -= 1
 			_show_pop(tether)
 			if player_bubbles == 0:
@@ -593,12 +682,15 @@ func _draw() -> void:
 	draw_texture_rect_region(POOL, canvas, source)
 	draw_rect(canvas, Color(0.05, 0.20, 0.30, 0.11))
 	draw_style_box(title_style, Rect2(170, 12, 940, 125))
-	if mode in [Mode.HUB, Mode.SHOP]:
+	if mode in [Mode.HUB, Mode.SHOP, Mode.SETUP, Mode.PICKER]:
+		return
+	if local_two_player:
+		_draw_two_player()
 		return
 	if mode in [Mode.DUEL, Mode.CELEBRATE]:
 		for slot: int in range(rival_bubbles):
 			_draw_bubble(_target(slot), rival, Color(1.0, 0.74, 0.53))
-		_draw_cell(OTTER, int(active_time * 5.0) % 4, 2, rival, 185.0)
+		appearance.draw_actor(self, _solo_rival_profile(), rival, -1.0, true, active_time)
 	else:
 		for slot: int in range(rival_bubbles):
 			if not _target_is_visible(slot):
@@ -609,19 +701,9 @@ func _draw() -> void:
 				draw_texture_rect(bubble, Rect2(_target(slot) - Vector2(34, 34), Vector2(68, 68)), false, Color(1.0, 0.80, 0.55))
 	for slot: int in range(player_bubbles):
 		_draw_bubble(_player_bubble(slot), swimmer, COLORS[tint_index])
-	var frame := int(active_time * 15.0) % 16
-	var shift := Vector2.ZERO
-	if climbing:
-		shift = (Vector2(128, 128) - RoshanSpriteAnchors.anchor("swim_front", frame)) * PLAYER_SIZE / 256.0
-	draw_set_transform(swimmer, 0.0, Vector2(direction, 1.0))
-	var body := Rect2(-Vector2.ONE * PLAYER_SIZE * 0.5 + shift, Vector2.ONE * PLAYER_SIZE)
-	if climbing:
-		draw_texture_rect_region(swim_art, body, _cell(frame, 4))
-	else:
-		draw_texture_rect(base_art, body, false)
-	draw_set_transform(Vector2.ZERO)
+	appearance.draw_actor(self, Shop.profile(main), swimmer, direction, climbing, active_time)
 	for shot: Dictionary in projectiles:
-		draw_texture_rect(_icon(3), Rect2((shot["position"] as Vector2) - Vector2(26, 26), Vector2(52, 52)), false)
+		draw_texture_rect(PEARL, Rect2((shot["position"] as Vector2) - Vector2(15, 15), Vector2(30, 30)), false)
 	if mode == Mode.DUEL and power_time > 0.0 and gear in ["kelp", "lullaby", "squid"]:
 		var accent := _icon(int(Shop.item(gear)["icon"]))
 		draw_texture_rect(accent, Rect2(rival + Vector2(-45, -155), Vector2(90, 90)), false, Color(1, 1, 1, 0.75))
@@ -686,12 +768,12 @@ func _outfit_texture(source: String, id: String) -> Texture2D:
 
 
 func _bind_outfit() -> void:
-	base_art = _outfit_texture(ROSHAN.resource_path, gear)
-	swim_art = _outfit_texture(SWIM.resource_path, gear)
+	base_art = appearance.texture(Shop.profile(main), false)
+	swim_art = appearance.texture(Shop.profile(main), true)
 
 
 func _choose_gear(id: String) -> void:
-	var bought := Shop.choose_item(main, id)
+	var bought := Shop.choose_item(main, id, shop_player)
 	if bought:
 		gear = Shop.equipped(main)
 		_bind_outfit()
@@ -711,9 +793,31 @@ func _turn_shop_page() -> void:
 func _update_wallet() -> void:
 	if wallet != null:
 		wallet.text = str(Shop.state(main)["pearls"]) + " pearls"
+		wallet.visible = mode in [Mode.HUB, Mode.SHOP, Mode.SETUP, Mode.PICKER]
 
 
 func _refresh_power() -> void:
+	if wallet != null:
+		wallet.visible = mode in [Mode.HUB, Mode.SHOP, Mode.SETUP, Mode.PICKER]
+	if local_two_player and fighters.size() == 2:
+		for player: int in range(2):
+			var button: Button = power_button if player == 0 else second_power_button
+			var bar: ProgressBar = glow_bar if player == 0 else second_glow_bar
+			var fighter: Dictionary = fighters[player]
+			if player < duo_guides.size():
+				duo_guides[player].visible = mode == Mode.VERSUS and not bool(fighter["armed"])
+				duo_guides[player].position = Duo.PADS[player].size * 0.5 + Vector2(-26.0 + sin(elapsed * 4.0) * 10.0, -22.0 - sin(elapsed * 4.0) * 13.0)
+			var id := String((fighter["profile"] as Dictionary)["gear"])
+			var entry := Shop.item(id)
+			button.visible = mode == Mode.VERSUS and id != "classic"
+			bar.visible = button.visible
+			bar.value = float(fighter["glow"])
+			button.disabled = float(fighter["recover"]) > 0.0 or id in ["classic", "tidewing"] or float(fighter["glow"]) < float(entry["use"]) or (id == "rainbow" and not (fighter["shots"] as Array).is_empty())
+			button.icon = _icon(int(entry["icon"])) if int(entry["icon"]) >= 0 else null
+			button.expand_icon = true
+			button.add_theme_constant_override("icon_max_width", 90)
+			button.modulate.a = 0.55 if button.disabled else 1.0
+		return
 	glow_bar.value = glow
 	var entry := Shop.item(gear)
 	power_button.disabled = gear in ["classic", "tidewing"] or glow < float(entry["use"]) \
@@ -726,6 +830,9 @@ func _refresh_power() -> void:
 
 
 func _activate_power() -> void:
+	if mode == Mode.VERSUS:
+		duo.activate(0)
+		return
 	if mode not in [Mode.DUEL, Mode.PRACTICE, Mode.CURRENT] or player_bubbles == 0:
 		return
 	if gear in ["kelp", "lullaby", "squid"] and mode != Mode.DUEL:
@@ -747,7 +854,7 @@ func _activate_power() -> void:
 			aim.y = maxf(ARENA.position.y, swimmer.y - 30.0)
 			climbing = true
 		"rainbow":
-			projectiles.append({"position": swimmer + Vector2(direction * 30, -30), "life": 2.5})
+			projectiles.append({"position": appearance.tool_tip(Shop.profile(main), swimmer, direction, climbing, active_time), "life": 2.5})
 		"kelp":
 			rival_pull_target = (swimmer - rival).normalized() * 90.0
 			power_time = 1.2
@@ -774,3 +881,224 @@ func _tick_projectiles(delta: float) -> void:
 			_pop_target(0)
 		elif float(shot["life"]) <= 0.0:
 			projectiles.remove_at(index)
+
+
+func _input(event: InputEvent) -> void:
+	if mode == Mode.VERSUS and event is InputEventKey and duo.input(event):
+		get_viewport().set_input_as_handled()
+
+
+func _solo_rival_profile() -> Dictionary:
+	var chosen := Shop.profile(main, 1)
+	# Computer bouts use a plain loadout; the second human's saved gear is untouched.
+	chosen["gear"] = "classic"
+	return chosen
+
+
+func _preview(parent: Control, profile: Dictionary, rect: Rect2, facing: float = 1.0) -> Control:
+	var picture := Preview.new()
+	picture.appearance = appearance
+	picture.profile = profile.duplicate(true)
+	picture.position = rect.position
+	picture.size = rect.size
+	picture.facing = facing
+	parent.add_child(picture)
+	return picture
+
+
+func _show_setup(two_players: bool) -> void:
+	_reset_input()
+	_clear_menu()
+	mode = Mode.SETUP
+	local_two_player = false
+	setup_two_player = two_players
+	power_button.hide()
+	glow_bar.hide()
+	heading.text = "Two friends" if two_players else "Friendly Bubble Duel"
+	hint.text = "Choose each friend, clothes and power item"
+	for player: int in range(2):
+		var chosen := Shop.profile(main, player)
+		if player == 1 and not two_players:
+			chosen = _solo_rival_profile()
+		var title := ("Player %d" % (player + 1)) if two_players or player == 0 else "Computer friend"
+		var card := _card(title + " · " + String(Cast.character(chosen["character"])["name"]), ROSHAN,
+			Vector2(150 + player * 620, 178), _open_picker.bind(player, "character"), Color.WHITE, Vector2(360, 284))
+		(card.get_child(0) as TextureRect).hide()
+		_preview(card, chosen, Rect2(63, 0, 235, 220), 1.0 if player == 0 else -1.0)
+		var ribbon: Texture2D = preload("res://assets/fashion/skin_engine_v2/garments/party.png")
+		_card("Clothes", ribbon, Vector2(165 + player * 620, 475), _open_picker.bind(player, "look"), Color.WHITE, Vector2(158, 138))
+		if two_players or player == 0:
+			var icon := int(Shop.item(String(chosen["gear"]))["icon"])
+			_card("Items & bubbles", bubble if icon < 0 else _icon(icon), Vector2(340 + player * 620, 475), _open_player_shop.bind(player), Color.WHITE, Vector2(158, 138))
+	var play := Button.new()
+	play.position = Vector2(552, 494)
+	play.size = Vector2(176, 176)
+	StorybookUI.style_navigation_button(play, "▶", "Play together" if two_players else "Play")
+	play.add_theme_font_size_override("font_size", 64)
+	play.pressed.connect(_begin_versus if two_players else _begin.bind(Mode.DUEL))
+	menu.add_child(play)
+	_update_wallet()
+	queue_redraw()
+
+
+func _open_player_shop(player: int) -> void:
+	shop_player = player
+	shop_from_setup = true
+	_show_shop()
+
+
+func _open_picker(player: int, kind: String) -> void:
+	selected_player = player
+	picker_kind = kind
+	picker_page = 0
+	_show_picker()
+
+
+func _show_picker() -> void:
+	_reset_input()
+	_clear_menu()
+	mode = Mode.PICKER
+	power_button.hide()
+	glow_bar.hide()
+	heading.text = "Player %d · %s" % [selected_player + 1, "Friends" if picker_kind == "character" else "Clothes"]
+	hint.text = "Choose a picture"
+	var chosen := Shop.profile(main, selected_player)
+	var choices: Array[Dictionary] = Cast.ROSTER if picker_kind == "character" else Shop.looks(main, String(chosen["character"]))
+	var pages := maxi(1, ceili(float(choices.size()) / 6.0))
+	picker_page = clampi(picker_page, 0, pages - 1)
+	for slot: int in range(6):
+		var index := picker_page * 6 + slot
+		if index >= choices.size(): break
+		var entry: Dictionary = choices[index]
+		var preview := chosen.duplicate(true)
+		if picker_kind == "character":
+			preview["character"] = entry["id"]
+			if not Shop.look_available(main, String(entry["id"]), String(preview["look"])):
+				preview["look"] = "set:classic"
+		else:
+			preview["look"] = entry["id"]
+		var card := _card(String(entry["name"]), ROSHAN, Vector2(170 + (slot % 3) * 330, 174 + (slot / 3) * 211),
+			_pick.bind(String(entry["id"])), Color.WHITE, Vector2(280, 198))
+		(card.get_child(0) as TextureRect).hide()
+		_preview(card, preview, Rect2(67, 0, 146, 142))
+		card.set_meta("choice_id", entry["id"])
+		if picker_kind == "character":
+			card.disabled = entry["id"] not in Shop.state(main)["cast_unlocked"]
+	if pages > 1:
+		var previous := Button.new()
+		previous.position = Vector2(180, 604)
+		StorybookUI.style_navigation_button(previous, "←", "Previous clothes")
+		previous.pressed.connect(_turn_picker.bind(-1))
+		previous.disabled = picker_page == 0
+		menu.add_child(previous)
+		var next := Button.new()
+		next.position = Vector2(992, 604)
+		StorybookUI.style_navigation_button(next, "→", "More clothes")
+		next.pressed.connect(_turn_picker.bind(1))
+		next.disabled = picker_page == pages - 1
+		menu.add_child(next)
+	var back := Button.new()
+	back.position = Vector2(584, 604)
+	back.size = Vector2(112, 112)
+	StorybookUI.style_navigation_button(back, "✓", "Ready")
+	back.pressed.connect(_show_setup.bind(setup_two_player))
+	menu.add_child(back)
+	queue_redraw()
+
+
+func _turn_picker(offset: int) -> void:
+	picker_page += offset
+	_show_picker()
+
+
+func _pick(id: String) -> void:
+	var selected := Shop.choose_character(main, id, selected_player) if picker_kind == "character" else Shop.choose_look(main, id, selected_player)
+	if selected:
+		main._audio_ref().pop(1)
+		_show_setup(setup_two_player)
+
+
+func _begin_versus() -> void:
+	_reset_input()
+	_clear_menu()
+	local_two_player = true
+	mode = Mode.VERSUS
+	active_time = 0.0
+	elapsed = 0.0
+	round_rewarded = false
+	projectiles.clear()
+	duo.start()
+	heading.text = "Two friends · Bubble Duel"
+	hint.text = "Slide to swim · let go to drift"
+	for player: int in range(2):
+		var pad := Button.new()
+		pad.position = Duo.PADS[player].position
+		pad.size = Duo.PADS[player].size
+		pad.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		StorybookUI.style_picture_button(pad)
+		pad.text = "●  1" if player == 0 else "● ●  2"
+		pad.add_theme_font_size_override("font_size", 34)
+		var panel := pad.get_theme_stylebox("normal").duplicate() as StyleBoxFlat
+		panel.border_color = Color(0.25, 0.76, 0.91) if player == 0 else Color(0.96, 0.48, 0.68)
+		pad.add_theme_stylebox_override("normal", panel)
+		menu.add_child(pad)
+		var guide := TextureRect.new()
+		guide.texture = HAND
+		guide.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		guide.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		guide.size = Vector2(62, 62)
+		guide.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		pad.add_child(guide)
+		duo_guides.append(guide)
+	_refresh_power()
+	main._say("roshan", "idle2")
+	queue_redraw()
+
+
+func _complete_two_player(winner: int) -> void:
+	if mode != Mode.VERSUS:
+		return
+	mode = Mode.CELEBRATE
+	duo.flush()
+	_clear_menu()
+	hint.text = "A shared splash!" if winner < 0 else "Player %d popped both bubbles!" % (winner + 1)
+	if not round_rewarded:
+		round_rewarded = true
+		Shop.reward(main, 10, true)
+		hint.text += "  +10 shared pearls"
+	power_button.hide()
+	glow_bar.hide()
+	second_power_button.hide()
+	second_glow_bar.hide()
+	var replay := Button.new()
+	replay.position = Vector2(552, 494)
+	replay.size = Vector2(176, 176)
+	StorybookUI.style_navigation_button(replay, "↻", "Play together again")
+	replay.add_theme_font_size_override("font_size", 72)
+	replay.pressed.connect(_begin_versus)
+	menu.add_child(replay)
+	_update_wallet()
+
+
+func _draw_two_player() -> void:
+	for player: int in range(fighters.size()):
+		var fighter: Dictionary = fighters[player]
+		var profile: Dictionary = fighter["profile"]
+		var point: Vector2 = fighter["position"]
+		var tint: Color = COLORS[int(profile["color"])]
+		if float(fighter["recover"]) > 0.0:
+			tint.a = 0.55 + 0.18 * sin(active_time * 20.0)
+		for side: int in fighter["bubbles"]:
+			_draw_bubble(duo.bubble_at(player, side), point, tint)
+		appearance.draw_actor(self, profile, point, float(fighter["facing"]), bool(fighter["held"]), active_time)
+		# Player numbers stay outside anatomy, with two dots as a non-reading cue.
+		var badge := point + Vector2(-63.0 if player == 0 else 63.0, -28.0)
+		draw_circle(badge, 16, Color(0.25, 0.76, 0.91) if player == 0 else Color(0.96, 0.48, 0.68))
+		draw_circle(badge, 12, Color(0.12, 0.24, 0.39, 0.95))
+		for dot: int in range(player + 1):
+			draw_circle(badge + Vector2(0.0 if player == 0 else -4.0 + dot * 8.0, 0.0), 3, Color.WHITE)
+		for shot: Dictionary in fighter["shots"]:
+			draw_texture_rect(PEARL, Rect2((shot["position"] as Vector2) - Vector2(15, 15), Vector2(30, 30)), false)
+	for pop: Dictionary in duo_pops:
+		var progress := (0.32 - float(pop["time"])) / 0.32
+		_draw_cell(POP, mini(7, int(progress * 8)), 4, pop["position"], 128.0)
