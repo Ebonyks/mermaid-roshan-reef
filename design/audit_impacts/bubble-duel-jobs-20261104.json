@@ -1,0 +1,165 @@
+{
+  "id": "bubble-duel-jobs-20261104",
+  "scope": "Native Canvas 2D Bubble Duel practice candidate in the Opera jobs venue, based on the owner-supplied standalone game. Optional activity, outside the career progression and demo integration.",
+  "baseline": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-UI-01",
+    "DL-UI-03",
+    "DL-INT-01",
+    "DL-INT-04",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-QA-02"
+  ],
+  "findings": [
+    "MA-DOC-006",
+    "MA-VIS-010",
+    "MA-2D-002"
+  ],
+  "files": [
+    "scripts/opera_house_venue_2d.gd",
+    "scripts/opera_bubble_duel.gd",
+    "scripts/probe_opera.gd"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "758 inventoried documents, 758 ledger rows, 74 active findings and 77 retained records at baseline plus candidate."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV ALL OK over bfc60e1e80f49824f299896fe51431ff018c6ddb and the candidate paths."
+    },
+    {
+      "command": "Godot 4.7.2-stable --headless --import",
+      "result": "PASS",
+      "evidence": "Official ed1daf0bf completed import in the candidate worktree; all six refreshed tracked import sidecars byte-identical to HEAD."
+    },
+    {
+      "command": "Godot 4.7.2-stable: focused _audit_bubble_duel from scripts/probe_opera.gd",
+      "result": "PASS",
+      "evidence": "Official ed1daf0bf, fresh isolated user data, 14/14 through the real Opera venue. Launch, idle, descending fin pops, replay, picture colors, focus cancel and retry, pearl collection, Back, teardown and career save snapshot. Focus log SHA-256 14fd098a4849bbd9c8aa254e1ebb16300d5b95099c597a9db000ef548797d7c0."
+    },
+    {
+      "command": "scripts/ci.sh",
+      "result": "FAIL",
+      "evidence": "Completed all static gates and all 82 trusted invocations. Aggregate returned nonzero solely after probe_melody exited 127 mid-run. The other 81 probes, including full Opera, exited 0. Full log SHA-256 39ee2b7a5297d4f9355c11295e38c64f3c1f717433d8f96c040d39e4a86873ec."
+    },
+    {
+      "command": "Godot 4.7.2-stable desktop Forward Mobile capture",
+      "result": "PASS",
+      "evidence": "Rendered and visually inspected hub and arena locally; arena capture 2560x1369, SHA-256 d0172bc8f8425ae4881753c70d68c57cbae59c9f544ecd3fae11a3ad5d62853a. Desktop capture only."
+    },
+    {
+      "command": "python -m gdtoolkit.parser and python -B tools/lint_inference.py on changed GDScript",
+      "result": "PASS",
+      "evidence": "Changed venue, overlay and probe scripts parsed; inference lint emitted no findings."
+    },
+    {
+      "command": "Local probe-by-probe verification, including isolated exact Melody retry",
+      "result": "PASS",
+      "evidence": "All 82 trusted probes have passing results against the candidate. The isolated Windows Melody retry used the same official 4.7.2 executable, same classic-touch arguments and a fresh isolated save; exit 0, MELODY result ALL OK. Retry log SHA-256 2f5fe6722eb2ec8f7c90feec1011853edbacb666e631c2822c51e12a50c9240b."
+    },
+    {
+      "command": "GitHub exact-head Probe Suite",
+      "result": "PENDING",
+      "evidence": "Topic branch only during demo freeze. Integration and release pending."
+    }
+  ],
+  "acceptance_gaps": "Exact Mobile visual/contact, phone/M11 input and performance, child comprehension, and owner acceptance remain pending. Entry uses the existing Roshan swimming line plus a pictured pointer; a Bubble Duel-specific spoken instruction still needs the project's audition pipeline. No linked finding closure or whole-game audit acceptance.",
+  "source_archive_sha256": "901ba6624f803cb06b4e42d942a2833badaf500d875ae7e7b9b753bc353e58d9",
+  "reused_art": [
+    {
+      "path": "assets/flats/castle/interactions_v4/backgrounds/room_mermaid_pool_background.png",
+      "source_commit": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+      "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+      "use": "Direct runtime reuse; source image byte-for-byte"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png",
+      "source_commit": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+      "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+      "use": "Runtime atlas region only; source image reused byte-for-byte"
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "source_commit": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "use": "Direct runtime reuse; source image byte-for-byte"
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_swim_front.png",
+      "source_commit": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+      "sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01",
+      "use": "Runtime atlas region only; source image reused byte-for-byte"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/animals/otter_idle_atlas.png",
+      "source_commit": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+      "sha256": "e6497ab0f6c7e4f98899c18451740cade7683abcaa97b7d342f9c783a8c599af",
+      "use": "Runtime atlas region only; source image reused byte-for-byte"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/pearl_uncounted.png",
+      "source_commit": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+      "sha256": "4f71a7beff48024df5eb89a5cbd760148576ada6bf05fe784bd8d2828dba4037",
+      "use": "Direct runtime reuse; source image byte-for-byte"
+    },
+    {
+      "path": "assets/ui/pearl_full.png",
+      "source_commit": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+      "sha256": "9a0e76dd56e32efbb201d77901d0147b99be0d002ff36430f4a656c64060e2d5",
+      "use": "Direct runtime reuse; source image byte-for-byte"
+    },
+    {
+      "path": "assets/sprites/fx_water/fx_water_bubble_burst_atlas.png",
+      "source_commit": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+      "sha256": "4c98dd531d6869a2137d210c161efab86dff03c08ce2378e855d1d46c9c2896c",
+      "use": "Runtime atlas region only; source image reused byte-for-byte"
+    },
+    {
+      "path": "assets/castle/training/ghost_hand.png",
+      "source_commit": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+      "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+      "use": "Direct runtime reuse; source image byte-for-byte"
+    }
+  ],
+  "implementation_scope": {
+    "entry": "Optional painted bubble launcher in the Opera jobs venue; shares the existing global Back stack.",
+    "adaptations": [
+      "One Marlo bout; tail contact from above pops the two tethered bubbles.",
+      "One-finger assisted targeting and steering; a gentle resurfacing loop replaces lives and game-over.",
+      "Practice bubbles, moving pearl collection and five session-only bubble tints.",
+      "No durable rewards or career progression writes. The browser ZIP and placeholder PNGs are reference material."
+    ],
+    "deferred_from_browser_source": [
+      "Remaining rivals and stages",
+      "Grumbletooth and trench encounter",
+      "Charms and pearl economy",
+      "Two-player mode",
+      "Current Ride hazards"
+    ]
+  },
+  "candidate_sources_sha256": {
+    "scripts/opera_house_venue_2d.gd": "7561d2165273645fbff95d27c0c5ae1b3c7363a99843dc0ba3c5e1d9d572f52b",
+    "scripts/opera_bubble_duel.gd": "a0570113d0d4d1bd8b442aa712b23eb8562d7b2defb3a6d31efac9bca3089eee",
+    "scripts/probe_opera.gd": "721cfe67f507f13869aac24bc4fa93bd35072cf1edf2af7e4d92aefe0a345536"
+  },
+  "commit_whitespace_cleanup": {
+    "path": "scripts/opera_bubble_duel.gd",
+    "sha256": "2715f597f02967376218a2192907a1fb788dcb94997872899dc4f54ff1b159d0",
+    "scope": "Removed only surplus newline at EOF after runtime verification."
+  }
+}

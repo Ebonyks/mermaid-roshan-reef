@@ -9,6 +9,8 @@ extends Control
 ## reused career pictures identify the four-door waves. The accepted background
 ## and Roshan source art are unchanged.
 
+const BubbleDuel := preload("res://scripts/opera_bubble_duel.gd")
+
 const CANVAS_SIZE := Vector2(1280.0, 720.0)
 const TILE_ROOT := \
 	"res://assets/flats/castle/opera_house_venue_2d/background_tiles/"
@@ -72,6 +74,9 @@ var last_refresh_objective := ""
 var background_input: Control
 var elapsed := 0.0
 var practice_book: TextureButton
+var bubble_duel_button: TextureButton
+var bubble_duel: BubbleDuel
+var bubble_duel_living_was_visible := false
 var tree_book_test: OperaTreeBookTest
 var job_playtest_menu: OperaJobPlaytestMenu
 
@@ -107,6 +112,7 @@ func setup(main: ReefMain, star_mask: int, launch_callback: Callable) -> void:
 	_build_portals()
 	_build_guide_pointer()
 	_build_practice_book()
+	_build_bubble_duel_button()
 	_build_playtest_elevator()
 	refresh(star_mask)
 
@@ -128,6 +134,7 @@ func close() -> void:
 	if job_playtest_menu != null:
 		job_playtest_menu.shutdown()
 	_close_tree_book(false)
+	_close_bubble_duel(false)
 	m._navigation_remove("opera_venue")
 	_cancel_travel()
 	accepting_input = false
@@ -166,6 +173,8 @@ func refresh(star_mask: int) -> void:
 	last_refresh_objective = m.chapter2_active_objective
 	if practice_book != null:
 		practice_book.disabled = not accepting_input
+	if bubble_duel_button != null:
+		bubble_duel_button.disabled = not accepting_input or m.day_one_jobs_locked()
 	for button: Button in buttons:
 		var act_index := int(button.get_meta("act_index", -1))
 		var complete := _portal_is_complete(act_index, star_mask)
@@ -646,7 +655,7 @@ func _portal_input(event: InputEvent, act_index: int) -> void:
 func _notification(what: int) -> void:
 	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_PAUSED]:
 		_cancel_travel()
-		accepting_input = visible and tree_book_test == null \
+		accepting_input = visible and tree_book_test == null and bubble_duel == null \
 			and (job_playtest_menu == null or not job_playtest_menu.session_open)
 
 
@@ -779,6 +788,60 @@ func _close_tree_book(restore_venue: bool = true) -> void:
 	m._navigation_remove("arborist_tree_book_test")
 	m._set_world_controls_enabled(true, "tree_book_practice")
 	m._write_save()
+	if restore_venue and visible:
+		accepting_input = true
+		refresh(m.opera_stars)
+
+
+func _build_bubble_duel_button() -> void:
+	bubble_duel_button = TextureButton.new()
+	bubble_duel_button.name = "BubbleDuelPractice"
+	bubble_duel_button.z_index = 8
+	bubble_duel_button.position = Vector2(178, 552)
+	bubble_duel_button.size = Vector2(138, 131)
+	bubble_duel_button.texture_normal = BubbleDuel.BUBBLES
+	bubble_duel_button.ignore_texture_size = true
+	bubble_duel_button.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
+	bubble_duel_button.tooltip_text = "Bubble Duel"
+	bubble_duel_button.pressed.connect(open_bubble_duel)
+	add_child(bubble_duel_button)
+
+
+func open_bubble_duel() -> void:
+	if not is_visible_in_tree() or not accepting_input or pending_act >= 0 \
+			or bubble_duel != null or touch_owner >= 0 or m.day_one_jobs_locked():
+		return
+	_cancel_travel()
+	accepting_input = false
+	m._set_world_controls_enabled(false, BubbleDuel.ROUTE_ID)
+	refresh(m.opera_stars)
+	if guide_pointer != null:
+		guide_pointer.hide()
+	m.clear_dialogue()
+	m.msg_timer = 0.0
+	if m.hud_msg != null:
+		m.hud_msg.text = ""
+		m.hud_msg.hide()
+	bubble_duel_living_was_visible = m.living_layer != null and m.living_layer.visible
+	if m.living_layer != null:
+		m.living_layer.hide()
+	bubble_duel = BubbleDuel.new()
+	bubble_duel.setup(m)
+	bubble_duel.close_requested.connect(_close_bubble_duel)
+	add_child(bubble_duel)
+	m._navigation_push(BubbleDuel.ROUTE_ID, bubble_duel, bubble_duel.go_back)
+
+
+func _close_bubble_duel(restore_venue: bool = true) -> void:
+	if bubble_duel == null:
+		return
+	bubble_duel.shutdown()
+	bubble_duel.queue_free()
+	bubble_duel = null
+	m._navigation_remove(BubbleDuel.ROUTE_ID)
+	m._set_world_controls_enabled(true, BubbleDuel.ROUTE_ID)
+	if m.living_layer != null:
+		m.living_layer.visible = bubble_duel_living_was_visible
 	if restore_venue and visible:
 		accepting_input = true
 		refresh(m.opera_stars)

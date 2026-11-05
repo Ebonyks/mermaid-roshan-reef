@@ -80,6 +80,7 @@ func _init() -> void:
 	await _audit_wrong_and_passive_routes()
 	await _audit_cancel_return()
 	await _audit_job_playtest_menu()
+	await _audit_bubble_duel()
 	await _audit_all_career_lifecycles()
 	await _audit_replay_curtain()
 	await _finish()
@@ -555,6 +556,84 @@ func _audit_cancel_return() -> void:
 		_route_returned(room_id) and main.opera_stars == stars_before
 		and main.opera_progress == progress_before and main.pearl_count == pearls_before
 		and main.cur_track == expected_room_track)
+
+
+func _audit_bubble_duel() -> void:
+	rooms.show_room("opera_hall", false)
+	await _frames(3)
+	_check("Bubble Duel uses the Opera jobs venue", routes.open_opera_venue())
+	await _frames(3)
+	var venue := routes.opera_venue
+	if venue == null:
+		return
+	var progress := _playtest_progress_snapshot()
+	var living_visible := main.living_layer.visible
+	_tap_control(venue.bubble_duel_button, 60)
+	await _frames(2)
+	var duel := venue.bubble_duel
+	_check("touching the painted bubbles opens one modal practice route",
+		duel != null and main._navigation_ref().top_id() == OperaHouseVenue2D.BubbleDuel.ROUTE_ID
+		and not venue.accepting_input and not main.living_layer.visible)
+	if duel == null:
+		venue.close()
+		return
+	var card := duel.menu.get_child(0) as Button
+	_tap_control(card, 61)
+	await _frames(5)
+	_check("idle duel neither moves Roshan nor scores", duel.swimmer == duel.START
+		and duel.score == 0 and duel.rival_bubbles == 2)
+	duel.set_process(false)
+	for remaining: int in [2, 1]:
+		_tap_control(duel, 62, duel._target(0))
+		for tick: int in range(180):
+			duel._process(1.0 / 60.0)
+			if duel.rival_bubbles < remaining:
+				break
+		_check("one actual arena touch produces a descending fin pop (%d left)" % (remaining - 1),
+			duel.rival_bubbles == remaining - 1)
+	_check("the second pop shows replay without changing career rewards",
+		duel.mode == duel.Mode.CELEBRATE and duel.score == 2
+		and _playtest_progress_snapshot() == progress)
+	main._navigation_ref().press()
+	_check("Back from a bout returns to the Bubble Duel hub", duel.mode == duel.Mode.HUB)
+	_tap_control(duel.menu.get_child(3) as Button, 64)
+	_tap_control(duel.menu.get_child(2) as Button, 65)
+	_check("Shell Shop equips a pictured color without spending pearls",
+		duel.tint_index == 2 and _playtest_progress_snapshot() == progress)
+	main._navigation_ref().press()
+	_tap_control(duel.menu.get_child(1) as Button, 66)
+	_tap_control(duel, 67, duel._target(0))
+	duel.notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
+	for tick: int in range(180):
+		duel._process(1.0 / 60.0)
+	_check("focus loss cancels the practice kick before any pop", duel.score == 0 and not duel.armed)
+	_tap_control(duel, 68, duel._target(0))
+	for tick: int in range(180):
+		duel._process(1.0 / 60.0)
+	_check("Practice Lagoon accepts a fresh kick after focus loss", duel.score == 1)
+	main._navigation_ref().press()
+	_tap_control(duel.menu.get_child(2) as Button, 69)
+	_tap_control(duel, 70, duel._target(0))
+	for tick: int in range(180):
+		duel._process(1.0 / 60.0)
+	_check("Current Ride scores a contacted pearl once", duel.score == 1)
+	main._navigation_ref().press()
+	main._navigation_ref().press()
+	_check("Back from the hub restores Jobs, ambience and input",
+		venue.bubble_duel == null and venue.accepting_input and main.living_layer.visible == living_visible
+		and not main.touch_control_blocks.has(OperaHouseVenue2D.BubbleDuel.ROUTE_ID)
+		and main._navigation_ref().top_id() == "opera_venue")
+	_tap_control(venue.bubble_duel_button, 63)
+	await _frames(2)
+	_check("reopening Bubble Duel starts a new hub", venue.bubble_duel != null
+		and venue.bubble_duel.mode == venue.bubble_duel.Mode.HUB)
+	venue.close()
+	_check("venue shutdown removes the activity and keeps career state",
+		venue.bubble_duel == null and not main.touch_control_blocks.has(OperaHouseVenue2D.BubbleDuel.ROUTE_ID)
+		and _playtest_progress_snapshot() == progress)
+	await _frames(2)
+
+
 
 
 func _audit_job_playtest_menu() -> void:
