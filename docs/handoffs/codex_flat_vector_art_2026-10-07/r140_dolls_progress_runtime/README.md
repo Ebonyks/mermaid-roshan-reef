@@ -1,0 +1,7 @@
+# Painted Dolls progress hearts
+
+The original Main/Faron Dolls route now uses two whole painted cloth heart states from the archived R119 candidate. The images and import settings are byte-identical to that source. The existing three slots, count threshold, scale, spacing and vertical position drive the two states. [Provenance](PROVENANCE.json) · [Archived delivery](https://github.com/Ebonyks/mermaid-roshan-reef/blob/634c8e4a06aae91e30e71e5a5e314c59c29570ce/docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/MANIFEST.json).
+
+The current baseline passed 132 configured checks and the candidate passed 144 across 1280 × 720 and 1600 × 720. All 18 gameplay frame pairs differ only inside the progress row. The fixture holds Main polling to inspect the full three-heart state, then restores it and confirms the original reward, save and teardown. The two teardown pairs have a dynamic overworld and are reviewed separately from the progress-row pixel comparison. [Ten-axis review](VISUAL_REVIEW.json) · [Candidate checks](CANDIDATE_FOCUSED_RESULT.json).
+
+The initial static runner stopped on disk exhaustion and was found to target an older checkout. The completed rerun binds this exact current candidate. Exact Godot 4.7.2 import, 82 trusted probes, four analyzers and the 2D regression gate passed. The 11 normal save paths matched their pre-run state. Formal QA11, physical-device, child and owner reviews remain open. [Full validation](checks/FINAL_RESULT.json).

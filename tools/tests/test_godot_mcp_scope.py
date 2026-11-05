@@ -44,6 +44,7 @@ class GodotMCPScopeTests(unittest.TestCase):
         subprocess.run(['git', 'init', '-q', str(self.root)], check=True, capture_output=True)
         clean = audit.discover(self.root)
         self.assertFalse(clean.production_3d_files)
+        self.assertIn('addons/godot_mcp/game_bridge/mcp_game_bridge.gd', clean.reviewed_tooling_3d_files)
         (self.root / 'scripts').mkdir()
         (self.root / 'scripts/game.gd').write_text('extends Node3D\n')
         game = audit.discover(self.root)

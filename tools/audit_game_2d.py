@@ -56,6 +56,15 @@ from typing import Iterable, Mapping
 
 SCHEMA_VERSION = 4
 DEFAULT_MANIFEST = "tools/game_2d_migration_manifest.json"
+# Owner decision 2026-11-05: satelliteoflove/godot-mcp is vendored as
+# third-party editor/debugger agent tooling, not game content.  Its editor
+# command handlers legitimately name 3D classes (scene3d, gridmap, mesh
+# validation tools) for any project, so those files are reported separately
+# instead of as Roshan migration debt.  The exemption is fail-closed and exact:
+# a file leaves the production inventory only when it sits under a reviewed
+# payload AND the entire manifest matches its compiled-in trust anchor. Any
+# payload edit, added or missing file, or manifest rewrite invalidates approval.
+REVIEWED_TOOLING_MANIFEST = "tools/godot_mcp/addon_manifest.json"
 # Trust anchor for this repository's first full debt ceiling.  Updating this
 # literal is an explicit contract change, not a normal manifest regeneration.
 INITIAL_CEILING_SHA256 = "2da7db0ed6a3b67c33165a988450d322013f58455d590d3b73783646d59be2e2"
@@ -382,6 +391,9 @@ class Inventory:
 	probe_3d_files: dict[str, dict[str, int]] = field(default_factory=dict)
 	scene_3d_files: dict[str, dict[str, int]] = field(default_factory=dict)
 	configuration_3d_files: dict[str, dict[str, int]] = field(default_factory=dict)
+	# Hash-pinned third-party tooling (REVIEWED_TOOLING_MANIFEST).  Reported for
+	# visibility; deliberately excluded from debt_count() and counts().
+	reviewed_tooling_3d_files: dict[str, dict[str, int]] = field(default_factory=dict)
 
 	def debt_count(self) -> int:
 		# Active/export and scan-coverage lists are explanatory subsets of model
@@ -524,6 +536,24 @@ def _json_loads_unique(text: str) -> object:
 		return result
 
 	return json.loads(text, object_pairs_hook=unique_object)
+
+
+def _reviewed_tooling_hashes(root: Path) -> dict[str, str]:
+	"""Report only the exact, completely authenticated owner-approved payload."""
+	return {
+		name: hashlib.sha256((root / name).read_bytes()).hexdigest()
+		for name in _approved_editor_tool_sources(root)
+	}
+
+
+def _is_reviewed_tooling(path: Path, root: Path, pinned: Mapping[str, str]) -> bool:
+	expected = pinned.get(_relative(path, root))
+	if expected is None or path.is_symlink() or not path.is_file():
+		return False
+	try:
+		return hashlib.sha256(path.read_bytes()).hexdigest() == expected
+	except OSError:
+		return False
 
 
 def _is_active_path(path: Path, root: Path) -> bool:
@@ -1856,7 +1886,7 @@ def _active_files(root: Path) -> Iterable[Path]:
 
 # Owner decision ODR-GODOT-MCP-DEVTOOLS-20261104: exact development tooling,
 # never a path-wide exemption or a model/resource inventory exemption.
-EDITOR_TOOL_MANIFEST_SHA256 = "d3ea01b7b447aed84d76e2199ca376c3e1228e3a89eacaee2a62c49f74ce9eb6"
+EDITOR_TOOL_MANIFEST_SHA256 = "e8682258f8c21243a734d4c9e54aea2dd7644e5f54f825d40fece275ac391109"
 
 
 def _approved_editor_tool_sources(root: Path) -> set[str]:
@@ -2225,17 +2255,20 @@ def discover(root: Path,
 	)
 	active_models = tuple(sorted(active_model_set))
 
-	approved_editor_tools = _approved_editor_tool_sources(root)
 	production: dict[str, dict[str, int]] = {}
+	reviewed_tooling: dict[str, dict[str, int]] = {}
+	pinned_tooling = _reviewed_tooling_hashes(root)
 	for path in (
 			candidate for candidate in active_files
 			if candidate.suffix.lower() in PRODUCTION_SOURCE_EXTENSIONS
-			and _relative(candidate, root) not in approved_editor_tools
 			and not (candidate.suffix.lower() == ".gd"
 				and candidate.name.startswith("probe_"))):
 		counts = _token_counts(_read_text_cached(path, text_cache))
 		if counts:
-			production[_relative(path, root)] = counts
+			if _is_reviewed_tooling(path, root, pinned_tooling):
+				reviewed_tooling[_relative(path, root)] = counts
+			else:
+				production[_relative(path, root)] = counts
 	for path in (
 			candidate for candidate in active_files
 			if candidate.suffix.lower() in NATIVE_BINARY_EXTENSIONS
@@ -2300,6 +2333,7 @@ def discover(root: Path,
 		model_import_sidecar_fingerprints=dict(sorted(sidecar_fingerprints.items())),
 		model_archive_files=model_archives,
 		production_3d_files=dict(sorted(production.items())),
+		reviewed_tooling_3d_files=dict(sorted(reviewed_tooling.items())),
 		probe_3d_files=dict(sorted(probes.items())),
 		scene_3d_files=dict(sorted(scenes.items())),
 		configuration_3d_files=dict(sorted(configuration.items())),
@@ -3623,6 +3657,11 @@ def render(result: AuditResult, mode: str = "default") -> str:
 		"GAME2D| DEBT| " + "| ".join(
 			f"{field}={counts[field]}" for field in CATEGORY_FIELDS) +
 		f"| archive_now_model_files={archive_count}")
+	if result.inventory.reviewed_tooling_3d_files:
+		lines.append(
+			"GAME2D| TOOLING| reviewed_third_party_tooling_3d_files="
+			f"{len(result.inventory.reviewed_tooling_3d_files)}| hash-pinned in "
+			f"{REVIEWED_TOOLING_MANIFEST}; editor/debugger tooling, not migration debt")
 	lines.append(f"GAME2D| STATUS| {result.status}")
 	if result.satisfied:
 		lines.append("GAME2D| RESULT| SATISFIED - active game is fully 2D")
@@ -3723,6 +3762,46 @@ def stress() -> int:
 		expect("new 3D code file must fail",
 			lambda: any(item.check_id == "G2D101" for item in new_code.findings))
 		(root / "scripts/new_3d.gd").unlink()
+
+		tool_dir = root / "addons/vendor_tool"
+		tool_dir.mkdir(parents=True, exist_ok=True)
+		tool_file = tool_dir / "scene3d_commands.gd"
+		tool_file.write_text("var camera: Camera3D\n", encoding="utf-8")
+		tooling_manifest = root / REVIEWED_TOOLING_MANIFEST
+		tooling_manifest.parent.mkdir(parents=True, exist_ok=True)
+
+		def write_tooling_manifest(digest: str, prefix: str = "addons/vendor_tool") -> None:
+			tooling_manifest.write_text(json.dumps({"schema": 1, "entries": [{
+				"prefix": prefix,
+				"files": {"addons/vendor_tool/scene3d_commands.gd": digest},
+			}]}), encoding="utf-8")
+
+		unpinned_tool = audit(root, manifest_path)
+		expect("unpinned third-party tooling 3D code must fail",
+			lambda: any(item.check_id == "G2D101" for item in unpinned_tool.findings))
+		write_tooling_manifest(hashlib.sha256(tool_file.read_bytes()).hexdigest())
+		pinned_tool = audit(root, manifest_path)
+		expect("an arbitrary tooling manifest cannot grant an exemption",
+			lambda: any(item.check_id == "G2D101" for item in pinned_tool.findings)
+			and not pinned_tool.inventory.reviewed_tooling_3d_files)
+		tool_file.write_text("var camera: Camera3D\nvar more: Node3D\n", encoding="utf-8")
+		tampered_tool = audit(root, manifest_path)
+		expect("edited pinned tooling must fail as new debt",
+			lambda: any(item.check_id == "G2D101" for item in tampered_tool.findings))
+		tool_file.write_text("var camera: Camera3D\n", encoding="utf-8")
+		write_tooling_manifest(hashlib.sha256(tool_file.read_bytes()).hexdigest(), "scripts")
+		escaped_tool = audit(root, manifest_path)
+		expect("tooling exemption outside addons/ must fail closed",
+			lambda: any(item.check_id == "G2D101" for item in escaped_tool.findings))
+		tooling_manifest.write_text("{not json", encoding="utf-8")
+		malformed_tool = audit(root, manifest_path)
+		expect("malformed tooling manifest must fail closed",
+			lambda: any(item.check_id == "G2D101" for item in malformed_tool.findings))
+		tooling_manifest.unlink()
+		tooling_manifest.parent.rmdir()
+		tool_file.unlink()
+		tool_dir.rmdir()
+		(root / "addons").rmdir()
 
 		legacy = root / "scripts/legacy.gd"
 		original = legacy.read_text(encoding="utf-8")

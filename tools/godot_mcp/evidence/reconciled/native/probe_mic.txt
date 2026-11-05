@@ -1,0 +1,37 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+MIC|nothing is castable before the spells are taught: OK
+MIC|teaching ICE banks five templates: OK
+MIC|teaching both spells completes enrollment: OK
+MIC|a spoken ICE is recognised (6/6): OK
+MIC|a spoken FIRE is recognised (6/6): OK
+MIC|a sloppier delivery of the same word still lands (8/8): OK
+MIC|the two spells are never confused for each other: OK
+MIC|room noise casts no spell (0/8 leaked): OK
+MIC|silence casts no spell: OK
+MIC|a blip too short to be a word casts no spell: OK
+MIC|an ambiguous sound stays silent instead of guessing (<silent>): OK
+MIC|templates are stored outside reef_save.json: OK
+MIC|a relaunch reloads the taught spells: OK
+WARNING: MicInput: user://mic_spells.json is unreadable; spells must be taught again
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _load_templates (res://scripts/mic_input.gd:538)
+       [1] classify (res://scripts/mic_input.gd:397)
+       [2] _finish_utterance (res://scripts/mic_input.gd:367)
+       [3] test_utterance (res://scripts/mic_input.gd:583)
+       [4] _persistence_case (res://scripts/probe_mic.gd:205)
+       [5] _init (res://scripts/probe_mic.gd:35)
+MIC|a corrupt template file degrades to silence, not a crash: OK
+MIC|the toggle off refuses to arm the microphone: OK
+MIC|a disarmed microphone captures nothing: OK
+MIC|the toggle persists to the save document: OK
+MIC|the save document round-trips the toggle off: OK
+MIC|the ice arena builds with spoken spells enabled: OK
+MIC|no device means no spoken-spell promise is shown: OK
+MIC|spoken spells cannot win a battle passively: OK
+MIC|a stray word is dropped when the arena is not listening: OK
+MIC|a spoken ICE casts ice in the ice arena: OK
+MIC|a spoken FIRE is inert in the ice arena: OK
+MIC|leaving the arena closes the capture device: OK
+MIC|result: ALL OK

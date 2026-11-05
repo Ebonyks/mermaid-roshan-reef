@@ -40,8 +40,14 @@ func _ready() -> void:
 	# not the game's pause state. Children (the sampler) inherit this mode.
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	if not EngineDebugger.is_active():
+		# Mermaid Roshan local patch (docs/GODOT_MCP.md): with no editor
+		# debugger session the bridge can never be driven, so leave the tree
+		# entirely. This keeps phone launches at zero per-frame cost and keeps
+		# SceneTree probes, which add main.tscn in _init() before autoloads
+		# and then read root's last child, seeing the game instead of the bridge.
 		set_process(false)
 		set_physics_process(false)
+		queue_free()
 		return
 	_logger = _MCPGameLogger.new()
 	OS.add_logger(_logger)

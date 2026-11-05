@@ -35,10 +35,11 @@
     "addons/godot_mcp/game_bridge/key_names.gd": "ebd17a51b81ba28ce5e2103c37340df52926851d1d8a6d980652ade56c1a5679",
     "addons/godot_mcp/game_bridge/mcp_exec_guard.gd": "4a70542248f6a4028add00a1cfaaa217846deece6e1bc4631158deb5ea42db8c",
     "addons/godot_mcp/game_bridge/mcp_frame_profiler.gd": "149d11b070e9ca6d9d49ccfb5ce6bce9e39d7daa2ead995afcd70ea6c0446d1b",
-    "addons/godot_mcp/game_bridge/mcp_game_bridge.gd": "0ad0cadb1ab0e18ccab8105055a0da69f20113b7b23a02e7eb53cd672026f1f6",
+    "addons/godot_mcp/game_bridge/mcp_game_bridge.gd": "429e28488e83ddd49ef25ba16ffd7538cd6738b26d4a42bf9faf512fb903a410",
     "addons/godot_mcp/game_bridge/mcp_runtime_state_sampler.gd": "309922cc019504e5420bf32b9a452d0d02f83a110968d9c782c4191844922d89",
     "addons/godot_mcp/game_bridge/mesh_validator.gd": "1df3d00bda630874ce885752b7877591f8285aa43e1583b19c84990d314b2717",
     "addons/godot_mcp/game_bridge/onscreen.gd": "595d7908d7066ef47a14b39b2d44c33384ec44d5e805d0f4b15d7516975d4357",
+    "addons/godot_mcp/LICENSE": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
     "addons/godot_mcp/LICENSE.txt": "b800a52c77c8ac924a16bbd34136fe2877f477efac1eaa1af7af0c36703d8966",
     "addons/godot_mcp/plugin.cfg": "86ce36894fd3355e9e9a9c0a0df88b5639c5353dc4189db67c6290556ff767e4",
     "addons/godot_mcp/plugin.gd": "ffe5f6c435a3d0550fa6b5fbbf0d16de6e342733fba23a26ed7b98613c2c6744",
@@ -46,5 +47,6 @@
     "addons/godot_mcp/ui/status_panel.tscn": "b033f650b7e68e18cb51fc2a64cf7ea503aeec76ba2dc1531cfea87d1dc7a346",
     "addons/godot_mcp/websocket_server.gd": "1fbbaa9c553642944591eb91433678b74a36bafc24149d510cb0d97e5ce863ee"
   },
-  "modifications": "Three explicit String/StringName annotations for project inference lint; avoid ProjectSettings.save on unchanged plugin startup to preserve project comments/defaults; disable bridge process/physics callbacks when no debugger is active. Added upstream MIT LICENSE.txt."
+  "modifications": "Three explicit String/StringName annotations for project inference lint; avoid ProjectSettings.save on unchanged plugin startup to preserve project comments/defaults; disable bridge process/physics callbacks when no debugger is active. Added upstream MIT LICENSE.txt.",
+  "reconciliation": "Preserves origin/dev 208a12cf inactive-bridge removal and LICENSE attribution; retains three explicit type annotations, startup-save suppression and inactive callback suppression. This authenticated manifest supersedes the generic third-party tooling manifest as inventory authority."
 }

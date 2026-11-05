@@ -85,6 +85,7 @@ Scoped Luna repair implementation from integration `831d0bbb` is tracked by [CHG
 | `ASSET_LICENSES.md` | 🟢 | `BINDING_LEDGER`; one provenance/licence entry per new asset in the same commit, including the merged Opera/minigame/atlas and 42-cue music deliveries. Provenance does not grant art acceptance. Row count not asserted here; 2026-09-30 append-only Chapter Two synthetic speech and source-bound Mobile review captures; protected originals unchanged. |
 | `WORKFLOW_BRANCHING_2026-07-18.md` | 🟢 | `BINDING_OPERATIONAL`; the dev/master promotion rule. Summarized in 03 §6. |
 | `docs/ANDROID_RELEASE.md` | 🟢 | `BINDING_OPERATIONAL`; signing-key safety — a key change destroys the child's save. |
+| `docs/GODOT_MCP.md` | 🟢 | `BINDING_OPERATIONAL` setup for Codex/Claude and exact owner-authorized development-tool exception ODR-GODOT-MCP-DEVTOOLS-20261104; no gameplay, art, release or acceptance authority. |
 | `design/00_MASTER_INDEX.md` | 🔵 | `SUPPORTING_CURRENT`; authority navigation and precedence, explicitly not an exhaustive ledger. |
 | `design/01_GAME_DESIGN.md` | 🟢 | `BINDING_DOMAIN` within the newer owner decision/design-language scope; 2.5D/3D history explicitly superseded. Its Roshan identity-anchor sentence ("lavender clothing, green-right / pink-left tail") is superseded by the 2026-09-30 owner decision recorded in `MA-DOC-008`: the approved atlases are Roshan's primary identity authority, and her tail is iridescent, lavender-pink-purple or rainbow depending on the light. |
 | `design/02_ART_DIRECTION.md` | 🟢 | `BINDING_DOMAIN`; true-2D visual medium plus the protected-content and absolute cinematic rules. Its Roshan anchor sentence in section 5 is superseded by the 2026-09-30 owner decision recorded in `MA-DOC-008`: the approved atlases are Roshan's primary identity authority, and her tail is iridescent, lavender-pink-purple or rainbow depending on the light. |
@@ -1213,4 +1214,6 @@ The bounded 2026-11-01 [Chapter Two startup watchdog prerequisite](audit_impacts
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/README.md` | 🟣 | SUPPORTING_CURRENT / CANDIDATE. Bounded painted feedback after passive safe landing in Dolls. External acceptance remains open. |
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/README.md` | 🟣 | SUPPORTING_CURRENT / CANDIDATE. Painted idle focus cue for the existing Dolls sling. |
 
-| `docs/GODOT_MCP.md` | 🟢 | Current operational setup and exact owner-authorized development-tool exception ODR-GODOT-MCP-DEVTOOLS-20261104; no gameplay, art, release or acceptance authority. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/README.md` | 🟣 | SUPPORTING_CURRENT / CANDIDATE. Exact R119 progress states on current Dev-based source. |
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_reconcile/README.md` | 🟣 | SUPPORTING_CURRENT / VERIFIED_MERGE_CONTEXT. Reconciles tested R140 with current Dev policy and audit. |
