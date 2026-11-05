@@ -1,17 +1,17 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-AUDIT-20261105-R139-DOLLS-CRADLE-FOCUS-SOURCE",
-  "current_entry": "r139_dolls_cradle_focus_source/README.md",
+  "revision": "FV-AUDIT-20261105-R139-DOLLS-CRADLE-FOCUS-DEV",
+  "current_entry": "r139_dolls_cradle_focus_dev_integration/README.md",
   "current_per_piece": "r96_geologist_mineral_candidate/per_piece.json",
   "current_scene_coverage": "r96_geologist_mineral_candidate/scene_coverage.json",
   "current_tally": "r96_geologist_mineral_candidate/tally.json",
   "current_backlog": "r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "r139_dolls_cradle_focus_source/MANIFEST.json",
+  "current_manifest": "r139_dolls_cradle_focus_dev_integration/MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "r139_dolls_cradle_focus_source/SOURCE_CI_STATUS.json",
+  "current_ci_evidence": "r139_dolls_cradle_focus_dev_integration/DEV_VERIFICATION.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -6679,5 +6679,8 @@
       }
     },
     "receipt": "r139_dolls_cradle_focus_source/R138_DEV_APK_VERIFICATION.json"
-  }
+  },
+  "r139_dolls_cradle_focus_dev_revision": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+  "immutable_r139_canonical_source_revision": "58f4f6c3297f095be3ade876fe7aac7b5f7b130c",
+  "r139_prior_canonical_verification": "r139_dolls_cradle_focus_dev_integration/PRIOR_CANONICAL_VERIFICATION.json"
 }

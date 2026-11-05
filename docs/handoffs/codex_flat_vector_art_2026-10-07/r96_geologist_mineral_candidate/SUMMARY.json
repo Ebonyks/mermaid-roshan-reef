@@ -14,29 +14,29 @@
   "retained_excluded": 4340,
   "retained_native_events": 12123,
   "existing_sample_work_branch_implemented": 42,
-  "known_implementation_count_scope": "42 published bounded source artifacts, 24 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown.",
+  "known_implementation_count_scope": "42 published bounded source artifacts, 25 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown.",
   "samples_awaiting_review_global": null,
   "approved": 0,
-  "dev_integrated": 24,
+  "dev_integrated": 25,
   "runtime_verified_replacements_formal": 0,
   "accepted_removed": 0,
-  "revision": "FV-AUDIT-20261105-R139-DOLLS-CRADLE-FOCUS-SOURCE",
+  "revision": "FV-AUDIT-20261105-R139-DOLLS-CRADLE-FOCUS-DEV",
   "inherited_summary": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/898ab3421a20e4ec876e5eb3a5a6a3ba3b706cda/docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/SUMMARY.json",
   "new_roles": 0,
   "new_families": 0,
   "new_alias_credits": 0,
   "new_partial_role_credit": 0,
-  "new_native_frames": 60,
-  "new_bounded_contexts": 60,
+  "new_native_frames": 0,
+  "new_bounded_contexts": 0,
   "new_excluded_diagnostics": 0,
   "source_views_here": 2,
   "existing_context_frames_reinspected_here": 54,
-  "new_samples": 1,
-  "new_runtime_implementations": 1,
-  "new_generation_calls": 2,
+  "new_samples": 0,
+  "new_runtime_implementations": 0,
+  "new_generation_calls": 0,
   "reuse_ready_whole_role": false,
   "drawing_required_global": null,
-  "chosen_next_consumer": "Follow exact source CI 41949093878, then green Dev integration.",
+  "chosen_next_consumer": "Follow exact Dev CI 41956013666 and the matching APK. Continue selected painted replacements when production is idle.",
   "mission_complete": false,
   "dev_integrated_unit": "Partial bounded implementation artifacts, not complete artwork-role replacements or accepted removals.",
   "dev_integrated_complete_named_roles": 0,
@@ -64,7 +64,8 @@
     "r135_garden_backdrop_runtime",
     "r136_geologist_riverbed_runtime",
     "r137_geologist_cave_runtime",
-    "r138_dolls_safe_landing_runtime"
+    "r138_dolls_safe_landing_runtime",
+    "r139_dolls_cradle_focus_runtime"
   ],
   "r92_dev_ci_timeout": {
     "state": "DEV_ATTEMPT1_CANCELLED_CONFIRMED_55MIN_LIMIT_RETRY_PENDING",
@@ -2167,7 +2168,7 @@
     "mission_complete": false,
     "remaining": "Cavebackground/strata/beams/floor, actorstaging/contact, floating/off-target invitations, riverexcavation/connectedchannel, remaining art and natural/training/allroutes/performance/formalQA11/device/child/owner/global acceptance remain OPEN. Existing whole sources keep provisional scope. No backgroundresolution, actorcontact or acceptedremoval credit."
   },
-  "new_runtime_PNG_this_revision": 1,
+  "new_runtime_PNG_this_revision": 0,
   "r116_parent_receipt_revision": "cd3e905da6404be3d93551cd3ba78564da3a9312",
   "r116_layered_rock_runtime": {
     "stable_id": "FV-192FA763EF56",
@@ -2515,7 +2516,7 @@
     },
     "remaining": "Entire campaign parked afterR118 until owner resumes afterdemo. Future sourceCI/currentDev reconciliation/integration, naturalroutes/formalQA11/device/child/owner/global denominators remainOPEN. No new art or engine suite for preservation bookkeeping."
   },
-  "new_partial_Dev_artifacts": 0,
+  "new_partial_Dev_artifacts": 1,
   "production_hold": "Latest owner authorizes recent completed green updates to Dev and continuing art; prior Devfreeze is historical. No image/QA/device/child/owner acceptance inferred.",
   "r120_parent_receipt_revision": "3c3b39838b2ceacb13281a83957442662ca2f5b9",
   "r120_melody_curtains_runtime": {
@@ -6072,8 +6073,9 @@
     },
     "integration": {
       "source_work_branch": true,
-      "Dev": false,
-      "procedural_idle_arcs_replaced": true
+      "Dev": true,
+      "procedural_idle_arcs_replaced": true,
+      "Dev_revision": "bfc60e1e80f49824f299896fe51431ff018c6ddb"
     },
     "runtime_evidence": {
       "engine": "4.7.2.stable.official.ed1daf0bf Mobile/Speedy",
@@ -6090,7 +6092,12 @@
       "analyzers": 4,
       "normal_save_hashes_unchanged": 11,
       "CI_run": 41949093878,
-      "CI_status_at_snapshot": "in_progress"
+      "CI_status_at_snapshot": "in_progress",
+      "exact_source_CI_result": "success",
+      "exact_source_CI_revision": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+      "exact_source_CI_run": 41949093878,
+      "Dev_CI_run": 41956013666,
+      "Dev_CI_status_at_snapshot": "in_progress"
     },
     "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bfc60e1e80f49824f299896fe51431ff018c6ddb/docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/CANDIDATE_FOCUSED_RESULT.json",
     "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bfc60e1e80f49824f299896fe51431ff018c6ddb/docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/VISUAL_REVIEW.json",
@@ -6141,5 +6148,78 @@
       }
     },
     "receipt": "r139_dolls_cradle_focus_source/R138_DEV_APK_VERIFICATION.json"
+  },
+  "r139_dolls_cradle_focus_dev_integration": {
+    "state": "DOLLS_CRADLE_FOCUS_FAST_FORWARDED_TO_DEV",
+    "verified_at": "2026-11-05T02:34:12.163734+00:00",
+    "revision": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+    "art_source_revision": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+    "previous_Dev_head": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220",
+    "remote_ref": "refs/heads/dev",
+    "exact_source_CI": {
+      "id": 41949093878,
+      "head_sha": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+      "head_branch": "codex/flat-vector-dolls-cradle-focus-20261105",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41949093878",
+      "run_attempt": 1,
+      "created_at": "2026-11-05T01:31:26Z",
+      "updated_at": "2026-11-05T02:31:01Z"
+    },
+    "exact_Dev_CI_at_snapshot": {
+      "id": 41956013666,
+      "head_sha": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+      "head_branch": "dev",
+      "status": "in_progress",
+      "conclusion": null,
+      "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41956013666",
+      "run_attempt": 1,
+      "created_at": "2026-11-05T02:33:41Z",
+      "updated_at": "2026-11-05T02:33:45Z"
+    },
+    "exact_source_CI_jobs": [
+      {
+        "id": 126988483562,
+        "name": "area-music-provenance",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41949093878/job/126988483562",
+        "completed_at": "2026-11-05T01:39:41Z"
+      },
+      {
+        "id": 126988484069,
+        "name": "probes",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41949093878/job/126988484069",
+        "completed_at": "2026-11-05T02:31:01Z"
+      }
+    ],
+    "source_manifest": {
+      "revision": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+      "manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/MANIFEST.json",
+      "manifest_sha256": "7578d29c791473b97ae9bcc9e4cece065149e472a8fd43114257de60416c922b",
+      "required_files_including_manifest": 186
+    },
+    "apk_verified": false,
+    "stable_id": "FV-B23A63BF66D8",
+    "variant": "Main/Faron Dolls idle cradle focus",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
+  },
+  "r139_prior_integration_local_fields": {
+    "revision": "FV-AUDIT-20261105-R139-DOLLS-CRADLE-FOCUS-SOURCE",
+    "new_native_frames": 60,
+    "new_bounded_contexts": 60,
+    "new_excluded_diagnostics": 0,
+    "new_samples": 1,
+    "new_runtime_implementations": 1,
+    "new_generation_calls": 2,
+    "chosen_next_consumer": "Follow exact source CI 41949093878, then green Dev integration.",
+    "known_implementation_count_scope": "42 published bounded source artifacts, 24 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown."
   }
 }

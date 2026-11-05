@@ -3240,7 +3240,8 @@
         "source": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
         "frame_index": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bfc60e1e80f49824f299896fe51431ff018c6ddb/docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/CANDIDATE_FOCUSED_RESULT.json",
         "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bfc60e1e80f49824f299896fe51431ff018c6ddb/docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/VISUAL_REVIEW.json",
-        "route_complete": false
+        "route_complete": false,
+        "Dev_revision": "bfc60e1e80f49824f299896fe51431ff018c6ddb"
       }
     },
     {
@@ -24510,7 +24511,8 @@
         "source": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
         "frame_index": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bfc60e1e80f49824f299896fe51431ff018c6ddb/docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/CANDIDATE_FOCUSED_RESULT.json",
         "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bfc60e1e80f49824f299896fe51431ff018c6ddb/docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/VISUAL_REVIEW.json",
-        "route_complete": false
+        "route_complete": false,
+        "Dev_revision": "bfc60e1e80f49824f299896fe51431ff018c6ddb"
       }
     },
     {
@@ -27826,7 +27828,7 @@
     }
   ],
   "coverage_note": "Craft80 guarded API fixture adds game.craft_studio partial alias;77/176partial,0complete,99without. Natural/full states/acceptance and distinct screen total remain unknown.",
-  "revision": "FV-AUDIT-20261105-R139-DOLLS-CRADLE-FOCUS-SOURCE",
+  "revision": "FV-AUDIT-20261105-R139-DOLLS-CRADLE-FOCUS-DEV",
   "partial_entries": 78,
   "complete_entries": 0,
   "entries_without_current_slice": 98,
@@ -35741,7 +35743,7 @@
       "other need/growth/action variants"
     ]
   },
-  "current_effective_summary": "SUMMARY.json. 42 published bounded source artifacts, 24 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native events total 7,783 bounded and 4,340 excluded, with 12,123 retained.",
+  "current_effective_summary": "SUMMARY.json. 42 published bounded source artifacts, 25 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native frame event counts stay at 7,783 bounded and 4,340 excluded, with 12,123 retained.",
   "intro_entry_ownership": {
     "revision": "FV-AUDIT-20261016-R77",
     "topic_baseline": "7fd93aa0d2036c06c9a65aea6c79a990cc9ae01b",
@@ -42262,8 +42264,9 @@
     },
     "integration": {
       "source_work_branch": true,
-      "Dev": false,
-      "procedural_idle_arcs_replaced": true
+      "Dev": true,
+      "procedural_idle_arcs_replaced": true,
+      "Dev_revision": "bfc60e1e80f49824f299896fe51431ff018c6ddb"
     },
     "runtime_evidence": {
       "engine": "4.7.2.stable.official.ed1daf0bf Mobile/Speedy",
@@ -42280,7 +42283,12 @@
       "analyzers": 4,
       "normal_save_hashes_unchanged": 11,
       "CI_run": 41949093878,
-      "CI_status_at_snapshot": "in_progress"
+      "CI_status_at_snapshot": "in_progress",
+      "exact_source_CI_result": "success",
+      "exact_source_CI_revision": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+      "exact_source_CI_run": 41949093878,
+      "Dev_CI_run": 41956013666,
+      "Dev_CI_status_at_snapshot": "in_progress"
     },
     "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bfc60e1e80f49824f299896fe51431ff018c6ddb/docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/CANDIDATE_FOCUSED_RESULT.json",
     "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bfc60e1e80f49824f299896fe51431ff018c6ddb/docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/VISUAL_REVIEW.json",
@@ -42294,5 +42302,67 @@
     "bounded": 60,
     "excluded": 0,
     "retained": 60
+  },
+  "r139_dolls_cradle_focus_dev_integration": {
+    "state": "DOLLS_CRADLE_FOCUS_FAST_FORWARDED_TO_DEV",
+    "verified_at": "2026-11-05T02:34:12.163734+00:00",
+    "revision": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+    "art_source_revision": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+    "previous_Dev_head": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220",
+    "remote_ref": "refs/heads/dev",
+    "exact_source_CI": {
+      "id": 41949093878,
+      "head_sha": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+      "head_branch": "codex/flat-vector-dolls-cradle-focus-20261105",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41949093878",
+      "run_attempt": 1,
+      "created_at": "2026-11-05T01:31:26Z",
+      "updated_at": "2026-11-05T02:31:01Z"
+    },
+    "exact_Dev_CI_at_snapshot": {
+      "id": 41956013666,
+      "head_sha": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+      "head_branch": "dev",
+      "status": "in_progress",
+      "conclusion": null,
+      "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41956013666",
+      "run_attempt": 1,
+      "created_at": "2026-11-05T02:33:41Z",
+      "updated_at": "2026-11-05T02:33:45Z"
+    },
+    "exact_source_CI_jobs": [
+      {
+        "id": 126988483562,
+        "name": "area-music-provenance",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41949093878/job/126988483562",
+        "completed_at": "2026-11-05T01:39:41Z"
+      },
+      {
+        "id": 126988484069,
+        "name": "probes",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41949093878/job/126988484069",
+        "completed_at": "2026-11-05T02:31:01Z"
+      }
+    ],
+    "source_manifest": {
+      "revision": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+      "manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/MANIFEST.json",
+      "manifest_sha256": "7578d29c791473b97ae9bcc9e4cece065149e472a8fd43114257de60416c922b",
+      "required_files_including_manifest": 186
+    },
+    "apk_verified": false,
+    "stable_id": "FV-B23A63BF66D8",
+    "variant": "Main/Faron Dolls idle cradle focus",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
   }
 }
