@@ -1,0 +1,205 @@
+{
+  "source_dev": "208a12cf4ba79fea7ddbf317bb6c686180b652fb",
+  "working_pin_mismatches_before": [
+    "addons/godot_mcp/LICENSE",
+    "addons/godot_mcp/command_router.gd",
+    "addons/godot_mcp/commands/animation_commands.gd",
+    "addons/godot_mcp/commands/debug_commands.gd",
+    "addons/godot_mcp/commands/exec_commands.gd",
+    "addons/godot_mcp/commands/game_time_commands.gd",
+    "addons/godot_mcp/commands/input_commands.gd",
+    "addons/godot_mcp/commands/mesh_commands.gd",
+    "addons/godot_mcp/commands/node_commands.gd",
+    "addons/godot_mcp/commands/profiler_commands.gd",
+    "addons/godot_mcp/commands/project_commands.gd",
+    "addons/godot_mcp/commands/resource_commands.gd",
+    "addons/godot_mcp/commands/runtime_state_commands.gd",
+    "addons/godot_mcp/commands/scene3d_commands.gd",
+    "addons/godot_mcp/commands/scene_commands.gd",
+    "addons/godot_mcp/commands/screenshot_commands.gd",
+    "addons/godot_mcp/commands/selection_commands.gd",
+    "addons/godot_mcp/commands/system_commands.gd",
+    "addons/godot_mcp/commands/tilemap_commands.gd",
+    "addons/godot_mcp/core/base_command.gd",
+    "addons/godot_mcp/core/mcp_constants.gd",
+    "addons/godot_mcp/core/mcp_debugger_plugin.gd",
+    "addons/godot_mcp/core/mcp_enums.gd",
+    "addons/godot_mcp/core/mcp_log.gd",
+    "addons/godot_mcp/core/mcp_logger.gd",
+    "addons/godot_mcp/core/mcp_utils.gd",
+    "addons/godot_mcp/game_bridge/joy_names.gd",
+    "addons/godot_mcp/game_bridge/key_names.gd",
+    "addons/godot_mcp/game_bridge/mcp_exec_guard.gd",
+    "addons/godot_mcp/game_bridge/mcp_frame_profiler.gd",
+    "addons/godot_mcp/game_bridge/mcp_game_bridge.gd",
+    "addons/godot_mcp/game_bridge/mcp_runtime_state_sampler.gd",
+    "addons/godot_mcp/game_bridge/mesh_validator.gd",
+    "addons/godot_mcp/game_bridge/onscreen.gd",
+    "addons/godot_mcp/plugin.cfg",
+    "addons/godot_mcp/plugin.gd",
+    "addons/godot_mcp/ui/status_panel.gd",
+    "addons/godot_mcp/ui/status_panel.tscn",
+    "addons/godot_mcp/websocket_server.gd"
+  ],
+  "staged_pin_mismatches_before": [],
+  "result": "PASS",
+  "method": "Recover exact staged upstream/patched bytes and preserve them with a folder-scoped -text attribute. The manifest and vendored source content remain byte-identical to current dev. Hash validation and falsification checks remain intact.",
+  "files": [
+    {
+      "path": "addons/godot_mcp/LICENSE",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241"
+    },
+    {
+      "path": "addons/godot_mcp/command_router.gd",
+      "sha256": "a217feb1c123e5ea1410c3776e5531af39e8fd4d2881338cf1e3f25421ab27cf"
+    },
+    {
+      "path": "addons/godot_mcp/commands/animation_commands.gd",
+      "sha256": "76879fd1e4c3bb24c7db73a577ab8b69c5a0b8e5114c0a78ba8c3d7dab1f9ffa"
+    },
+    {
+      "path": "addons/godot_mcp/commands/debug_commands.gd",
+      "sha256": "2a82e69b7532cbf0f3adaf49748f10c28d79dfc016dfb39db3af8a568ecd1c9b"
+    },
+    {
+      "path": "addons/godot_mcp/commands/exec_commands.gd",
+      "sha256": "060aecdb8385028cba37fdeabd80e1bae8b89b0033be695e8f18c368587c404f"
+    },
+    {
+      "path": "addons/godot_mcp/commands/game_time_commands.gd",
+      "sha256": "c4b91751d3f17f1ff4119dfc2dc6f269db6d85fdc9bf308168a1949d566d21f8"
+    },
+    {
+      "path": "addons/godot_mcp/commands/input_commands.gd",
+      "sha256": "3eb7466f8cbc57476fda2759354eb71343974dab8112b7f383d0c9b558478e64"
+    },
+    {
+      "path": "addons/godot_mcp/commands/mesh_commands.gd",
+      "sha256": "26e1da4ac24d1434cdbe19f34a707feba139f2d9777990b2add55b47cca7d47e"
+    },
+    {
+      "path": "addons/godot_mcp/commands/node_commands.gd",
+      "sha256": "b28882afe15bcf24d3ca2e80a75c0b2aada0b44377202fefc01f4f1e5aaa95ff"
+    },
+    {
+      "path": "addons/godot_mcp/commands/profiler_commands.gd",
+      "sha256": "86f2d7dbb02a5269d93f40937fce49be5bf75fe06c745c9165e15b0fd83f3e59"
+    },
+    {
+      "path": "addons/godot_mcp/commands/project_commands.gd",
+      "sha256": "0c57a0adc2424c4b2b454c4b0833e143a38e52826345cfeae2bed3cd867ca0df"
+    },
+    {
+      "path": "addons/godot_mcp/commands/resource_commands.gd",
+      "sha256": "83d38c016947d50b14635827f39c5fe84856748e8d9760d09d0f2af541987587"
+    },
+    {
+      "path": "addons/godot_mcp/commands/runtime_state_commands.gd",
+      "sha256": "aabe2ee8c6429c5aa11426be29fd2921db2ac41038950017c6aab07bc38c1b13"
+    },
+    {
+      "path": "addons/godot_mcp/commands/scene3d_commands.gd",
+      "sha256": "985259d79aa45cd4d07652a23c78ed7441fb9f8a958ab030ffbb4552c33c5e74"
+    },
+    {
+      "path": "addons/godot_mcp/commands/scene_commands.gd",
+      "sha256": "d1edab4ae1b24d5bfa7b4aeb981573d51eef4e9c3a8245857cef1efaaf334884"
+    },
+    {
+      "path": "addons/godot_mcp/commands/screenshot_commands.gd",
+      "sha256": "5a77c1f6fdf732ad4ced7bbcdccdc8e84a837dc8bddff914accbf2a910d74247"
+    },
+    {
+      "path": "addons/godot_mcp/commands/selection_commands.gd",
+      "sha256": "f6b703e48d85993d115ae8db49659de01fc992fef52dc02c14a694341c7f0ec8"
+    },
+    {
+      "path": "addons/godot_mcp/commands/system_commands.gd",
+      "sha256": "19bd583e45012e500aef8f4a1074ab73b6ae661fcd219f61587fffb05cee7e18"
+    },
+    {
+      "path": "addons/godot_mcp/commands/tilemap_commands.gd",
+      "sha256": "f0cabc1fba600191200d3db0141f39a7f8093c7c1bd97ef8bedd865d17385e25"
+    },
+    {
+      "path": "addons/godot_mcp/core/base_command.gd",
+      "sha256": "17201f6ba274e8258e1b76553bb4bf74000c51316498c8b734b941b05b906ee3"
+    },
+    {
+      "path": "addons/godot_mcp/core/mcp_constants.gd",
+      "sha256": "1c2dfd88ed857ad54e920b4d62ee4a82eb684811c870ce9c2b8ccb4e05e8c17d"
+    },
+    {
+      "path": "addons/godot_mcp/core/mcp_debugger_plugin.gd",
+      "sha256": "431eb7d80836ec550752dd0f99aceb2371f3a1fa3eeb81a604dc77a5cca1f9af"
+    },
+    {
+      "path": "addons/godot_mcp/core/mcp_enums.gd",
+      "sha256": "d21e6ba420574b01f29d28231d3ea4bc83a3772c9ade3536c50abd6f55b20fb6"
+    },
+    {
+      "path": "addons/godot_mcp/core/mcp_log.gd",
+      "sha256": "7c7f3bb098837fbc8d6b67dd09a88b0de2170d7472a34cfc2623601ea2323113"
+    },
+    {
+      "path": "addons/godot_mcp/core/mcp_logger.gd",
+      "sha256": "79576521ab8f9dc5f8bece69db93135a33e8b0202a425cdd5549103325dd8f30"
+    },
+    {
+      "path": "addons/godot_mcp/core/mcp_utils.gd",
+      "sha256": "1a808673b10420bd445bd313eaab36d117ffdecbeff31dc947dd0510196c561c"
+    },
+    {
+      "path": "addons/godot_mcp/game_bridge/joy_names.gd",
+      "sha256": "29fe8eec05d5fd212f1c509b56884cb708971a1bc2b34381d4e79ec373baab44"
+    },
+    {
+      "path": "addons/godot_mcp/game_bridge/key_names.gd",
+      "sha256": "ebd17a51b81ba28ce5e2103c37340df52926851d1d8a6d980652ade56c1a5679"
+    },
+    {
+      "path": "addons/godot_mcp/game_bridge/mcp_exec_guard.gd",
+      "sha256": "4a70542248f6a4028add00a1cfaaa217846deece6e1bc4631158deb5ea42db8c"
+    },
+    {
+      "path": "addons/godot_mcp/game_bridge/mcp_frame_profiler.gd",
+      "sha256": "149d11b070e9ca6d9d49ccfb5ce6bce9e39d7daa2ead995afcd70ea6c0446d1b"
+    },
+    {
+      "path": "addons/godot_mcp/game_bridge/mcp_game_bridge.gd",
+      "sha256": "4e0cf07232468e51627d9ce240902e32fc0c1fef7a45a280df517dde2ae1c727"
+    },
+    {
+      "path": "addons/godot_mcp/game_bridge/mcp_runtime_state_sampler.gd",
+      "sha256": "309922cc019504e5420bf32b9a452d0d02f83a110968d9c782c4191844922d89"
+    },
+    {
+      "path": "addons/godot_mcp/game_bridge/mesh_validator.gd",
+      "sha256": "1df3d00bda630874ce885752b7877591f8285aa43e1583b19c84990d314b2717"
+    },
+    {
+      "path": "addons/godot_mcp/game_bridge/onscreen.gd",
+      "sha256": "595d7908d7066ef47a14b39b2d44c33384ec44d5e805d0f4b15d7516975d4357"
+    },
+    {
+      "path": "addons/godot_mcp/plugin.cfg",
+      "sha256": "86ce36894fd3355e9e9a9c0a0df88b5639c5353dc4189db67c6290556ff767e4"
+    },
+    {
+      "path": "addons/godot_mcp/plugin.gd",
+      "sha256": "36101f5b4971a8d2dc1bc4f751e2e60e3c95691f7bea2b84809fe5e94d804970"
+    },
+    {
+      "path": "addons/godot_mcp/ui/status_panel.gd",
+      "sha256": "8c300f5bdb66fb89460b9c314c7c7160a14ce001657e86e3ddb559eb2686a75f"
+    },
+    {
+      "path": "addons/godot_mcp/ui/status_panel.tscn",
+      "sha256": "b033f650b7e68e18cb51fc2a64cf7ea503aeec76ba2dc1531cfea87d1dc7a346"
+    },
+    {
+      "path": "addons/godot_mcp/websocket_server.gd",
+      "sha256": "1fbbaa9c553642944591eb91433678b74a36bafc24149d510cb0d97e5ce863ee"
+    }
+  ]
+}

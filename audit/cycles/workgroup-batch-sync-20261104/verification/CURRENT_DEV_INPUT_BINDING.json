@@ -1,0 +1,38 @@
+{
+  "checked_utc": "2026-11-05T11:55:26.394270+00:00",
+  "source_dev": "208a12cf4ba79fea7ddbf317bb6c686180b652fb",
+  "native_local_checkpoint_tree": "6f0eda4fe49d84bb60149d942ca46446d164a08f",
+  "static_local_checkpoint_tree": "03bf5ead2b23b3bfe7c251c0ed3281ae300739f3",
+  "runtime_scope_git_object_ids": {
+    "scripts": "be0fc45bb5c912867b27c2d789cf8fe5d5afd052",
+    "assets": "e4f4d320b058a20ba5da60189606806cf9b040d1",
+    "assets_src": "11d5e93d8c9fa6444e74a112bf061543625b318f",
+    "addons": "759fe8b73a8d674a69e15c6a5783470b963e6426",
+    "scenes": "34209479016672c9a91cfec2ce33f89e2075f4ff",
+    "shaders": "9888a82057eececf56c4042ede9abf3f07704bee",
+    "project.godot": "84da90ba17c376d4b08a0268faabaab4b110db3b",
+    ".mcp.json": "5e14ff24ebc7b8aee2012230be159956763fa1d9",
+    "design/reference/book_sources": "e21004a9b056f50b2bf681d3a053ee04b6bb4e83",
+    "tools/audit_game_2d.py": "cdae7b561ad2749211ab2f1e4a14533395b86909",
+    "tools/game_2d_migration_manifest.json": "c3beaef609997bda9ffbd7e52072d54e3b2522f4",
+    "tools/third_party_tooling_manifest.json": "8d6f9f290b62b3864324b76f0025f0ec5d9df3c1",
+    "tools/resolve_godot.py": "d6b5e791d1b848330e7e8d1e5cd0813c574eae91",
+    "scripts/ci.sh": "98a976788ad77436f0beab78d7999e725ef43a10"
+  },
+  "static_tools_git_tree": "086ae6444ec257ef32d4726d5a42341d22ab31ea",
+  "final_commit_binding": "Each path resolves to this same Git object in the publication revision. These objects are reachable from that revision and bind tested source without requiring the temporary checkpoint root.",
+  "native_result": "Approved Godot 4.7.2 import, original inventory gate and all 82 trusted probes accepted under original limits, error rules and isolated saves.",
+  "static_result": "Complete original ci.sh prefix executed with only its working-directory locator adjusted. All original commands and assertions retained. Includes 81 model-audit tests, 19 model falsification controls and 96 visual-audit tests. The additional77 focused tests also pass.",
+  "native_to_static_tool_changes": [
+    "tools/audit_visual_design.py",
+    "tools/tests/test_audit_visual_design.py"
+  ],
+  "tool_change_scope": "Only the cross-drive missing-facts display path and its regression control differ between native and static checkpoints. Runtime code/assets/addons/project and the native validator inputs are identical. The final official model gate is rerun on the corrected tools.",
+  "pinned_addon_files_byte_verified": 39,
+  "protected_original_changes": [],
+  "high_risk_changes_against_current_dev": [
+    ".github/workflows/probes.yml"
+  ],
+  "authorization": "../owner_authorization.json",
+  "claim_scope": "Machine verification across explicitly retained checkpoints. Historical failures, source-only/review status and master-audit, artistic, device, child and owner acceptance retain their separate scopes."
+}

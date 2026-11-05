@@ -12,7 +12,7 @@
     "project.godot": "2351cb32085bcefe893ee220ed1b9ec88c4d2875",
     "design/reference/book_sources": "e21004a9b056f50b2bf681d3a053ee04b6bb4e83"
   },
-  "final_commit_binding": "Each listed path resolves to this same tree/blob object in the publication commit. These reachable objects bind the tested inputs without relying on the local-only checkpoint root.",
+  "final_commit_binding": "These objects bind the prior 5988e751 checkpoint. Current publication inputs after dev208a12cf integration are bound by CURRENT_DEV_INPUT_BINDING.json.",
   "static_to_native_changes": [
     "tools/audit_game_2d.py",
     "tools/tests/test_audit_game_2d.py"
@@ -38,5 +38,7 @@
       "reason": "Live profile repeatedly identified quadratic JSON suffix copying. In-place matching preserves exact classifications and has a structural regression test."
     }
   ],
-  "claim_scope": "Combined checkpoint evidence across retained attempts. Whole-game master-audit, artistic, device, child and owner acceptance remain independently scoped."
+  "claim_scope": "Combined checkpoint evidence across retained attempts. Whole-game master-audit, artistic, device, child and owner acceptance remain independently scoped.",
+  "applies_to_checkpoint": "5988e751cfb463503f5fcae3c578b37207aee8d4",
+  "later_reconciliation": "CURRENT_DEV_INPUT_BINDING.json"
 }

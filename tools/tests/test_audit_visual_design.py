@@ -570,6 +570,14 @@ class VisualEvidenceContractTests(unittest.TestCase):
 			rows = json.loads(stdout.getvalue())
 			self.assertEqual(rows[0]["disposition"], ava.COVERAGE_GAP)
 
+	def test_missing_facts_diagnostic_does_not_require_same_drive(self) -> None:
+		zone = mock.Mock(id="fx")
+		zone.runtime_facts.return_value = None
+		with mock.patch.object(ava.os.path, "relpath", side_effect=ValueError("different drives")):
+			finding = next(ava._tap_targets(zone))
+		self.assertEqual(finding.disposition, ava.COVERAGE_GAP)
+		self.assertIn("audit/visual_runtime_facts.json", finding.message)
+
 	def test_fresh_capture_snapshot_survives_consumed_temp_files(self) -> None:
 		with tempfile.TemporaryDirectory() as raw_root:
 			root = Path(raw_root)

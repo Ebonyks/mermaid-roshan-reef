@@ -1,0 +1,174 @@
+from __future__ import annotations
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+import time
+
+project = Path(r"H:\Dev\Worktrees\workgroup-batch-sync-20261104")
+logs = Path(r"H:\Dev\Temp\workgroup-batch-sync-20261104")
+engine = Path(r"C:\Users\Peter\Documents\mermaid-roshan-reef\tmp\godot-4.7.2\editor\Godot_v4.7.2-stable_win64.exe")
+expected_engine_hash = "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424"
+assert hashlib.sha256(engine.read_bytes()).hexdigest() == expected_engine_hash
+
+ci_source = (project / "scripts/ci.sh").read_text(encoding="utf-8")
+probe_match = re.search(r"(?m)^for p in (probe_.*); do$", ci_source)
+assert probe_match is not None
+probes = probe_match.group(1).split()
+assert len(probes) == 82 and len(set(probes)) == 82
+assert all(re.fullmatch(r"probe_[a-z0-9_]+", probe) for probe in probes)
+
+def original_pattern(name: str) -> str:
+    match = re.search(r"(?m)^" + name + r"='(.*)'$", ci_source)
+    assert match is not None
+    return match.group(1)
+
+runtime_error_pattern = original_pattern("RUNTIME_ERROR_RE")
+failure_pattern = original_pattern("FAILURE_RE")
+import_error_pattern = runtime_error_pattern + "|Parse Error|Compile Error|ERR_FILE_CORRUPT|Error importing|Cannot load resource"
+creation_flags = subprocess.CREATE_NO_WINDOW
+version = subprocess.check_output(
+    [str(engine), "--headless", "--version"],
+    cwd=project,
+    timeout=60,
+    creationflags=creation_flags,
+).decode("utf-8").strip()
+assert version == "4.7.2.stable.official.ed1daf0bf", version
+
+probe_logs = logs / "native_probes_04"
+probe_logs.mkdir(exist_ok=True)
+user_roots = logs / "native_probe_userdata_04"
+user_roots.mkdir(exist_ok=True)
+receipt_path = logs / "NATIVE_RUNTIME_RESULT_04.json"
+receipt = {
+    "engine": str(engine),
+    "engine_version": version,
+    "engine_sha256": expected_engine_hash,
+    "source_ci_sha256_lf": hashlib.sha256(ci_source.encode("utf-8")).hexdigest(),
+    "probe_count_required": len(probes),
+    "method": "Direct approved Windows engine, original ci.sh commands, patterns, touch modes, deadlines and isolated saves",
+    "result": "RUNNING",
+    "checks": [],
+}
+
+def save_receipt() -> None:
+    receipt_path.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
+
+def run_command(name: str, arguments: list[str], environment: dict[str, str], seconds: int | None) -> tuple[dict, str]:
+    output = probe_logs / (name + ".log")
+    started = time.monotonic()
+    with output.open("wb") as stream:
+        process = subprocess.Popen(
+            arguments,
+            cwd=project,
+            env=environment,
+            stdout=stream,
+            stderr=subprocess.STDOUT,
+            creationflags=creation_flags,
+        )
+        try:
+            code = process.wait(timeout=seconds)
+        except subprocess.TimeoutExpired:
+            process.kill()
+            process.wait()
+            code = 124
+    data = output.read_bytes()
+    text = data.decode("utf-8", errors="replace")
+    result = {
+        "name": name,
+        "arguments": arguments,
+        "timeout_seconds": seconds,
+        "exit_code": code,
+        "elapsed_seconds": round(time.monotonic() - started, 3),
+        "log": str(output),
+        "log_sha256": hashlib.sha256(data).hexdigest(),
+        "log_bytes": len(data),
+    }
+    return result, text
+
+environment = os.environ.copy()
+environment["PYTHONUTF8"] = "1"
+environment["PYTHONDONTWRITEBYTECODE"] = "1"
+result, output = run_command(
+    "import",
+    [str(engine), "--headless", "--path", str(project), "--import"],
+    environment,
+    720,
+)
+result["accepted"] = result["exit_code"] == 0 and not re.search(import_error_pattern, output)
+receipt["checks"].append(result)
+save_receipt()
+print("NATIVE IMPORT", result["exit_code"], result["accepted"], flush=True)
+if not result["accepted"]:
+    receipt["result"] = "FAIL"
+    save_receipt()
+    sys.exit(1)
+
+result, output = run_command(
+    "game_2d",
+    [sys.executable, "-B", "tools/audit_game_2d.py", "--regression-gate"],
+    environment,
+    None,
+)
+result["accepted"] = result["exit_code"] == 0
+receipt["checks"].append(result)
+save_receipt()
+print("NATIVE GAME2D", result["exit_code"], result["accepted"], flush=True)
+if not result["accepted"]:
+    receipt["result"] = "FAIL"
+    save_receipt()
+    sys.exit(1)
+
+hybrid = {"probe_passive", "probe_touch_router", "probe_touch_stress", "probe_interaction", "probe_touch_adversary"}
+for probe in probes:
+    if not (project / "scripts" / (probe + ".gd")).is_file():
+        receipt["checks"].append({"name": probe, "accepted": False, "reason": "required script missing"})
+        save_receipt()
+        continue
+    home = Path(tempfile.mkdtemp(prefix=probe + "-", dir=user_roots))
+    for folder in ("data", "config", "appdata", "localappdata"):
+        (home / folder).mkdir()
+    probe_environment = environment.copy()
+    probe_environment.update({
+        "APPDATA": str(home / "appdata"),
+        "LOCALAPPDATA": str(home / "localappdata"),
+        "XDG_DATA_HOME": str(home / "data"),
+        "XDG_CONFIG_HOME": str(home / "config"),
+    })
+    touch_mode = "--hybrid-touch-test" if probe in hybrid else "--classic-touch-test"
+    result, output = run_command(
+        probe,
+        [str(engine), "--headless", "-s", "scripts/" + probe + ".gd", "--", "--touch", touch_mode],
+        probe_environment,
+        480,
+    )
+    verdict_before_exit_timeout = result["exit_code"] == 124 and re.search(r"ALL OK|RESULT", "\n".join(output.splitlines()[-5:])) is not None
+    accepted_exit = result["exit_code"] == 0 or verdict_before_exit_timeout
+    result["verdict_before_exit_timeout"] = verdict_before_exit_timeout
+    result["accepted"] = bool(
+        accepted_exit
+        and output
+        and not re.search(failure_pattern, output)
+        and not re.search(runtime_error_pattern, output)
+    )
+    receipt["checks"].append(result)
+    save_receipt()
+    print("NATIVE PROBE", probe, result["exit_code"], result["accepted"], flush=True)
+    if result["accepted"]:
+        resolved = home.resolve()
+        if not resolved.is_relative_to(user_roots.resolve()) or resolved == user_roots.resolve():
+            raise RuntimeError("Unexpected isolated-save cleanup path")
+        shutil.rmtree(resolved)
+    if re.search(r"Parse Error|Compile Error", output):
+        break
+
+probe_results = [row for row in receipt["checks"] if row["name"] in probes]
+receipt["result"] = "PASS" if len(probe_results) == len(probes) and all(row["accepted"] for row in receipt["checks"]) else "FAIL"
+save_receipt()
+print("NATIVE RUNTIME", receipt["result"], "completed", len(probe_results), "of", len(probes), flush=True)
+sys.exit(0 if receipt["result"] == "PASS" else 1)

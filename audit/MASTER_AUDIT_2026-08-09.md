@@ -2483,3 +2483,5 @@ The two new R140 receipt rows from dev8d16b9a5 are retained here during workgrou
 |---|---|---|
 | Painted Dolls progress hearts | [Candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/README.md) | [Impact](../design/audit_impacts/flat-vector-dolls-progress-integration-20261105.json); exact archived art in the current Dolls route. |
 | R140 Dolls progress Dev reconciliation | [Merged context](../docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_reconcile/README.md) | [Impact](../design/audit_impacts/flat-vector-r140-dev-reconcile-20261105.json); tested runtime retained with current Dev policy and audit context. |
+
+Current-dev 208a12cf reconciliation is bound by the [complete machine receipt](cycles/workgroup-batch-sync-20261104/verification/CURRENT_DEV_INPUT_BINDING.json). Original static checks, the 158 focused cases, 96 visual-audit cases and all 82 trusted probes pass. The editor bridge and pin manifest retain their current-dev source bytes. Exact-head remote CI remains required for integration, and MA-DOC-010 retains its owner/source-attribution gaps.
