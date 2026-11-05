@@ -45,6 +45,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/GATE_RECEIPT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/MANIFEST.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/SOURCE_RUNTIME_EVIDENCE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/SOURCE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/TEN_AXIS_COMPARISON.json",
@@ -77,8 +78,8 @@
     },
     {
       "command": "Manifest and all required delivery files anonymously verified at immutable revisions",
-      "result": "PENDING",
-      "evidence": "After normal canonical publication; exact receipt retained with continuation and final delivery link."
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r141_racer_context_source/REMOTE_VERIFICATION.json; original canonical payload 997e010d3d7b71b681432823ef815164cb5fec4b and114 source files verified anonymously; final receipt/current binding is verified separately after publication."
     }
   ],
   "acceptance_gaps": "Source-only candidates. Posed KEEP/no-Speedy diagnostic captures, non-identical baseline/candidate poses and near-camera tent composition leave exact full context open. Formal QA11, actual device/controllers, child and owner acceptance, Dev integration and matching APK pending. MA-VIS-006/008/010 remain open. Whole-game denominators unknown.",
