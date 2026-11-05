@@ -1,0 +1,145 @@
+{
+  "state": "DEV94_APK_ANONYMOUS_BYTES_AND_PUBLISHED_SHA256_VERIFIED",
+  "source_revision": "94c2a91512d2216deb26651f670469432c8f4242",
+  "Dev_CI": {
+    "id": 42025443895,
+    "head_sha": "94c2a91512d2216deb26651f670469432c8f4242",
+    "head_branch": "dev",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42025443895"
+  },
+  "Android_build": {
+    "id": 42037578794,
+    "head_sha": "ff68f9550c28f7d979896d5c84d1214264c29165",
+    "head_branch": "master",
+    "event": "workflow_run",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42037578794"
+  },
+  "workflow_source_policy": {
+    "path": ".github/workflows/android.yml",
+    "revision": "ff68f9550c28f7d979896d5c84d1214264c29165",
+    "bytes": 11174,
+    "sha256": "a8d3b4fdfd064361daa461023b1de3957358803e5772f0aea64b535bc8b15aae",
+    "relevant_bindings": [
+      {
+        "line": 16,
+        "text": "  group: android-${{ github.event.workflow_run.head_branch }}"
+      },
+      {
+        "line": 26,
+        "text": "  GODOT_VERSION: \"4.7.2\""
+      },
+      {
+        "line": 28,
+        "text": "  GODOT_RELEASE: \"4.7.2-stable\""
+      },
+      {
+        "line": 38,
+        "text": "       github.event.workflow_run.conclusion == 'success' &&"
+      },
+      {
+        "line": 39,
+        "text": "       (github.event.workflow_run.head_branch == 'master' ||"
+      },
+      {
+        "line": 40,
+        "text": "        github.event.workflow_run.head_branch == 'dev')"
+      },
+      {
+        "line": 45,
+        "text": "          ref: ${{ github.event.workflow_run.head_sha }}"
+      },
+      {
+        "line": 182,
+        "text": "          BUILD_BRANCH: ${{ github.event.workflow_run.head_branch }}"
+      },
+      {
+        "line": 200,
+        "text": "            Commit: ${{ github.event.workflow_run.head_sha }}"
+      }
+    ]
+  },
+  "release_snapshot": {
+    "release_id": 357748929,
+    "tag": "android-dev",
+    "body": "Debug APK of Mermaid Roshan Reef of Light, built only after the probe suite passed.\nCommit: 94c2a91512d2216deb26651f670469432c8f4242\nOn the phone: download roshan-reef.apk, open it, and allow \"install unknown apps\" when prompted.\n\nBookmarkable direct link (always the newest build on this channel):\nhttps://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-dev/roshan-reef.apk\n\nFrom a computer with the phone plugged in: `./pull-apk.sh`\n",
+    "assets": [
+      {
+        "id": 713580315,
+        "name": "roshan-reef.apk",
+        "size": 863445647,
+        "digest": "sha256:886e50e3362c2e007a6d38135f7e57012a7f6848df3aa10fc8b869fe88609644",
+        "browser_download_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-dev/roshan-reef.apk"
+      },
+      {
+        "id": 713580314,
+        "name": "roshan-reef.apk.sha256",
+        "size": 82,
+        "digest": "sha256:ad934c4dc7724f8da281b3ad5062968c98393be618c55790516de453cefd7fba",
+        "browser_download_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-dev/roshan-reef.apk.sha256"
+      }
+    ]
+  },
+  "release_notes_commit_verified": true,
+  "source_runtime_blob_retention": [
+    {
+      "path": "scripts/games/dolls.gd",
+      "revision": "94c2a91512d2216deb26651f670469432c8f4242",
+      "bytes": 14657,
+      "sha256": "10cfa789c8c309e7701f78434b99f1e8578d5931505831c38c1c657d03bc5ba6",
+      "git_blob": "c47dccb447e527b2307db0dd313dfc40c27059c5",
+      "identical_to_tested_R140_8d16": true
+    },
+    {
+      "path": "assets/dolls/progress_empty_painted.png",
+      "revision": "94c2a91512d2216deb26651f670469432c8f4242",
+      "bytes": 289391,
+      "sha256": "33f4460f116add379f27ff172363bfd43b36a3f7378e58aa4866ea9e9f3d6161",
+      "git_blob": "a41e5839338bcc0daa9c73ce23ed9593144d678e",
+      "identical_to_tested_R140_8d16": true
+    },
+    {
+      "path": "assets/dolls/progress_empty_painted.png.import",
+      "revision": "94c2a91512d2216deb26651f670469432c8f4242",
+      "bytes": 984,
+      "sha256": "10801e72e529f9e061fb0ca6ecf0f9fe725f4c4effc6546715e5b6c223af94d8",
+      "git_blob": "3f6b2723cb6f799d732f2d6a2097dcfde6dbf3c3",
+      "identical_to_tested_R140_8d16": true
+    },
+    {
+      "path": "assets/dolls/progress_filled_painted.png",
+      "revision": "94c2a91512d2216deb26651f670469432c8f4242",
+      "bytes": 272304,
+      "sha256": "c93096eebb7213bddc36bc02d770e5e5ed6eb934e8129561ae127d5f6b0f1b58",
+      "git_blob": "77aa88c95671d5fd1a1ed1011768226a653ebd22",
+      "identical_to_tested_R140_8d16": true
+    },
+    {
+      "path": "assets/dolls/progress_filled_painted.png.import",
+      "revision": "94c2a91512d2216deb26651f670469432c8f4242",
+      "bytes": 988,
+      "sha256": "47b7e2f63415cd9b453a991a670214c4db8343366ab0e7b35b5aa93c9b66c60f",
+      "git_blob": "b91d6cb5b100fadd5dd4ef9d6ebfb2962249e013",
+      "identical_to_tested_R140_8d16": true
+    }
+  ],
+  "apk_bytes": 863445647,
+  "apk_sha256": "886e50e3362c2e007a6d38135f7e57012a7f6848df3aa10fc8b869fe88609644",
+  "sha256_sidecar_body": "886e50e3362c2e007a6d38135f7e57012a7f6848df3aa10fc8b869fe88609644  roshan-reef.apk\n",
+  "post_download_release_body_and_asset_ids_unchanged": true,
+  "Dev_ref_after": "94c2a91512d2216deb26651f670469432c8f4242",
+  "matches_current_Dev_at_check": true,
+  "checked_at_utc": "2026-11-05T14:05:12.134899+00:00",
+  "access_mode": "Anonymous HTTPS, complete streamed APK and checksum sidecar; exact source/release/asset IDs checked before and after. APK bytes were not retained or republished.",
+  "channel_mutability": "android-dev is the established mutable latest-build alias; this receipt preserves the checked asset IDs/digests and source revision, not a permanent binary URL.",
+  "new_art_artifacts": 0,
+  "new_frame_events": 0,
+  "accepted_removed": 0,
+  "formal_QA11": null,
+  "physical_device_install": null,
+  "child": null,
+  "owner": null
+}

@@ -1,0 +1,40 @@
+{
+  "state": "PASS_CURRENT_COMBINED_SCOPE_DOCUMENT_GATES",
+  "baseline": "cb7bdd22d26d74e86d712547cb195ec1b8ae1f6e",
+  "checked_at_utc": "2026-11-05T15:03:45.594020+00:00",
+  "results": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log_sha256": "fbf797c7907531a53aa7defcc15b82db5b269b91b65a61a139a39e555cd4feaa"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log_sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "log_sha256": "98d2ea54b1a8f0b24dc44ff5f119abb0482a5a8f08e300bce0abce5770b62582"
+    }
+  ],
+  "scope": "Actual R142 exact-green Dev integration plus independently verified preceding Dev94 APK and required CHG maintenance. Source/designed-piece/family/native counts unchanged;partialDev26to27.",
+  "engine_or_build_started_here": false
+}

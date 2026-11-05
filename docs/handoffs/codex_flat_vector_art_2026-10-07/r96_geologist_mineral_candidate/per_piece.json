@@ -29457,7 +29457,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
+  "revision": "FV-INTEGRATION-20261105-R142-DEV-AND-DEV94-APK",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -33279,7 +33279,7 @@
           "hash_mode": "LF complete source"
         }
       ],
-      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "status": "DEV_PARTIAL_CANDIDATE_CONTEXT",
       "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_BOUNDED_MOBILE_SPEEDY_FIXTURES",
       "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
       "native_output": {
@@ -33345,6 +33345,11 @@
           "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
           "observation": "The same arena and shop show clean transparent interiors and broad rim highlights replacing the jagged/mottled draft. Existing tether strokes are unchanged visible art.",
           "source_revision": "6892c5753c75161986b4463c186f8711a0c12870"
+        },
+        {
+          "revision": "FV-INTEGRATION-20261105-R142-DEV-AND-DEV94-APK",
+          "observation": "Exact green source fast-forwarded to Dev6892; no full-context/motion/device/child/owner acceptance.",
+          "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json"
         }
       ],
       "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json",
@@ -33360,7 +33365,7 @@
         "candidate": true,
         "approved": false,
         "source_work_branch_integrated": true,
-        "Dev_integrated": false,
+        "Dev_integrated": true,
         "runtime_verified_replacement": false,
         "source_feature_CI": 42012359137,
         "source_feature_revision": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
@@ -33378,14 +33383,22 @@
         "device": null,
         "child": null,
         "owner": null,
-        "accepted_removed": 0
+        "accepted_removed": 0,
+        "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "exact_source_CI": 42033167812,
+        "matching_Dev_APK_verified": false
       },
       "blocked_dependencies": [
         "Full exact pose/identity, motion/contact/transition/loop review for actor and effects",
         "All natural routes, states, repeated use and teardown/focus variants",
         "Background native coverage, font authority and remaining flat UI/pointer/tethers",
         "Merged-head green CI and Dev delivery; physical device, child and owner acceptance"
-      ]
+      ],
+      "current_Dev_delivery": {
+        "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "source_CI": 42033167812,
+        "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json"
+      }
     },
     {
       "id": "FVR-4AF007BDD168",
@@ -33425,7 +33438,7 @@
           "hash_mode": "LF complete source"
         }
       ],
-      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "status": "DEV_PARTIAL_CANDIDATE_CONTEXT",
       "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_BOUNDED_MOBILE_SPEEDY_FIXTURES",
       "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
       "native_output": {
@@ -33543,6 +33556,11 @@
           "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
           "observation": "The four native keys retain warm brown fur and cream muzzle/chest and replace land poses with horizontal paddling. All four cells were directly inspected as stills; identity/proportions, timing, transitions and loop seam still need exact human motion review.",
           "source_revision": "6892c5753c75161986b4463c186f8711a0c12870"
+        },
+        {
+          "revision": "FV-INTEGRATION-20261105-R142-DEV-AND-DEV94-APK",
+          "observation": "Exact green source fast-forwarded to Dev6892; no full-context/motion/device/child/owner acceptance.",
+          "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json"
         }
       ],
       "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json",
@@ -33558,7 +33576,7 @@
         "candidate": true,
         "approved": false,
         "source_work_branch_integrated": true,
-        "Dev_integrated": false,
+        "Dev_integrated": true,
         "runtime_verified_replacement": false,
         "source_feature_CI": 42012359137,
         "source_feature_revision": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
@@ -33576,7 +33594,10 @@
         "device": null,
         "child": null,
         "owner": null,
-        "accepted_removed": 0
+        "accepted_removed": 0,
+        "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "exact_source_CI": 42033167812,
+        "matching_Dev_APK_verified": false
       },
       "blocked_dependencies": [
         "Full exact pose/identity, motion/contact/transition/loop review for actor and effects",
@@ -33622,7 +33643,12 @@
           ]
         }
       ],
-      "animation_limit": "Four authored source keys, five frames per second in source; no full-speed or frame-step motion acceptance here. No Aseprite master/round-trip is declared."
+      "animation_limit": "Four authored source keys, five frames per second in source; no full-speed or frame-step motion acceptance here. No Aseprite master/round-trip is declared.",
+      "current_Dev_delivery": {
+        "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "source_CI": 42033167812,
+        "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json"
+      }
     },
     {
       "id": "FVR-180A868E1378",
@@ -33677,7 +33703,7 @@
         256,
         256
       ],
-      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "status": "DEV_PARTIAL_CANDIDATE_CONTEXT",
       "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_BOUNDED_MOBILE_SPEEDY_FIXTURES",
       "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
       "native_output": {
@@ -33737,6 +33763,11 @@
           "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
           "observation": "Lavender/coral ribbons and a tail-fin clasp are distinct in the item atlas and first shop page. This supplies the named missing icon rather than redesigning Roshan.",
           "source_revision": "6892c5753c75161986b4463c186f8711a0c12870"
+        },
+        {
+          "revision": "FV-INTEGRATION-20261105-R142-DEV-AND-DEV94-APK",
+          "observation": "Exact green source fast-forwarded to Dev6892; no full-context/motion/device/child/owner acceptance.",
+          "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json"
         }
       ],
       "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json",
@@ -33752,7 +33783,7 @@
         "candidate": true,
         "approved": false,
         "source_work_branch_integrated": true,
-        "Dev_integrated": false,
+        "Dev_integrated": true,
         "runtime_verified_replacement": false,
         "source_feature_CI": 42012359137,
         "source_feature_revision": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
@@ -33770,14 +33801,22 @@
         "device": null,
         "child": null,
         "owner": null,
-        "accepted_removed": 0
+        "accepted_removed": 0,
+        "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "exact_source_CI": 42033167812,
+        "matching_Dev_APK_verified": false
       },
       "blocked_dependencies": [
         "Full exact pose/identity, motion/contact/transition/loop review for actor and effects",
         "All natural routes, states, repeated use and teardown/focus variants",
         "Background native coverage, font authority and remaining flat UI/pointer/tethers",
         "Merged-head green CI and Dev delivery; physical device, child and owner acceptance"
-      ]
+      ],
+      "current_Dev_delivery": {
+        "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "source_CI": 42033167812,
+        "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json"
+      }
     },
     {
       "id": "FVR-28EE0DD2A93F",
@@ -33832,7 +33871,7 @@
         256,
         256
       ],
-      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "status": "DEV_PARTIAL_CANDIDATE_CONTEXT",
       "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_BOUNDED_MOBILE_SPEEDY_FIXTURES",
       "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
       "native_output": {
@@ -33892,6 +33931,11 @@
           "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
           "observation": "A pearl in a lavender shell is distinct in the atlas and first shop page; phone-size material/edge readability remains open.",
           "source_revision": "6892c5753c75161986b4463c186f8711a0c12870"
+        },
+        {
+          "revision": "FV-INTEGRATION-20261105-R142-DEV-AND-DEV94-APK",
+          "observation": "Exact green source fast-forwarded to Dev6892; no full-context/motion/device/child/owner acceptance.",
+          "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json"
         }
       ],
       "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json",
@@ -33907,7 +33951,7 @@
         "candidate": true,
         "approved": false,
         "source_work_branch_integrated": true,
-        "Dev_integrated": false,
+        "Dev_integrated": true,
         "runtime_verified_replacement": false,
         "source_feature_CI": 42012359137,
         "source_feature_revision": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
@@ -33925,14 +33969,22 @@
         "device": null,
         "child": null,
         "owner": null,
-        "accepted_removed": 0
+        "accepted_removed": 0,
+        "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "exact_source_CI": 42033167812,
+        "matching_Dev_APK_verified": false
       },
       "blocked_dependencies": [
         "Full exact pose/identity, motion/contact/transition/loop review for actor and effects",
         "All natural routes, states, repeated use and teardown/focus variants",
         "Background native coverage, font authority and remaining flat UI/pointer/tethers",
         "Merged-head green CI and Dev delivery; physical device, child and owner acceptance"
-      ]
+      ],
+      "current_Dev_delivery": {
+        "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "source_CI": 42033167812,
+        "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json"
+      }
     },
     {
       "id": "FVR-8849D357BDF9",
@@ -33987,7 +34039,7 @@
         256,
         256
       ],
-      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "status": "DEV_PARTIAL_CANDIDATE_CONTEXT",
       "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_BOUNDED_MOBILE_SPEEDY_FIXTURES",
       "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
       "native_output": {
@@ -34047,6 +34099,11 @@
           "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
           "observation": "The turquoise/gold spiral conch reads in the atlas and first shop page; the current/effect action remains separately unreviewed.",
           "source_revision": "6892c5753c75161986b4463c186f8711a0c12870"
+        },
+        {
+          "revision": "FV-INTEGRATION-20261105-R142-DEV-AND-DEV94-APK",
+          "observation": "Exact green source fast-forwarded to Dev6892; no full-context/motion/device/child/owner acceptance.",
+          "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json"
         }
       ],
       "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json",
@@ -34062,7 +34119,7 @@
         "candidate": true,
         "approved": false,
         "source_work_branch_integrated": true,
-        "Dev_integrated": false,
+        "Dev_integrated": true,
         "runtime_verified_replacement": false,
         "source_feature_CI": 42012359137,
         "source_feature_revision": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
@@ -34080,14 +34137,22 @@
         "device": null,
         "child": null,
         "owner": null,
-        "accepted_removed": 0
+        "accepted_removed": 0,
+        "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "exact_source_CI": 42033167812,
+        "matching_Dev_APK_verified": false
       },
       "blocked_dependencies": [
         "Full exact pose/identity, motion/contact/transition/loop review for actor and effects",
         "All natural routes, states, repeated use and teardown/focus variants",
         "Background native coverage, font authority and remaining flat UI/pointer/tethers",
         "Merged-head green CI and Dev delivery; physical device, child and owner acceptance"
-      ]
+      ],
+      "current_Dev_delivery": {
+        "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "source_CI": 42033167812,
+        "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json"
+      }
     },
     {
       "id": "FVR-39F685E469E7",
@@ -34142,7 +34207,7 @@
         256,
         256
       ],
-      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "status": "DEV_PARTIAL_CANDIDATE_CONTEXT",
       "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_BOUNDED_MOBILE_SPEEDY_FIXTURES",
       "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
       "native_output": {
@@ -34202,6 +34267,11 @@
           "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
           "observation": "The pearl/star wand is distinct in the atlas and second shop page. Existing Roshan costume sources remain unchanged; no whole power-performance approval.",
           "source_revision": "6892c5753c75161986b4463c186f8711a0c12870"
+        },
+        {
+          "revision": "FV-INTEGRATION-20261105-R142-DEV-AND-DEV94-APK",
+          "observation": "Exact green source fast-forwarded to Dev6892; no full-context/motion/device/child/owner acceptance.",
+          "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json"
         }
       ],
       "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json",
@@ -34217,7 +34287,7 @@
         "candidate": true,
         "approved": false,
         "source_work_branch_integrated": true,
-        "Dev_integrated": false,
+        "Dev_integrated": true,
         "runtime_verified_replacement": false,
         "source_feature_CI": 42012359137,
         "source_feature_revision": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
@@ -34235,14 +34305,22 @@
         "device": null,
         "child": null,
         "owner": null,
-        "accepted_removed": 0
+        "accepted_removed": 0,
+        "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "exact_source_CI": 42033167812,
+        "matching_Dev_APK_verified": false
       },
       "blocked_dependencies": [
         "Full exact pose/identity, motion/contact/transition/loop review for actor and effects",
         "All natural routes, states, repeated use and teardown/focus variants",
         "Background native coverage, font authority and remaining flat UI/pointer/tethers",
         "Merged-head green CI and Dev delivery; physical device, child and owner acceptance"
-      ]
+      ],
+      "current_Dev_delivery": {
+        "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "source_CI": 42033167812,
+        "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json"
+      }
     },
     {
       "id": "FVR-B589FEEB2D12",
@@ -34297,7 +34375,7 @@
         256,
         256
       ],
-      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "status": "DEV_PARTIAL_CANDIDATE_CONTEXT",
       "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_BOUNDED_MOBILE_SPEEDY_FIXTURES",
       "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
       "native_output": {
@@ -34357,6 +34435,11 @@
           "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
           "observation": "The green kelp loop and gold clasp read on the second shop page; moving effect/edge/contact states still require review.",
           "source_revision": "6892c5753c75161986b4463c186f8711a0c12870"
+        },
+        {
+          "revision": "FV-INTEGRATION-20261105-R142-DEV-AND-DEV94-APK",
+          "observation": "Exact green source fast-forwarded to Dev6892; no full-context/motion/device/child/owner acceptance.",
+          "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json"
         }
       ],
       "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json",
@@ -34372,7 +34455,7 @@
         "candidate": true,
         "approved": false,
         "source_work_branch_integrated": true,
-        "Dev_integrated": false,
+        "Dev_integrated": true,
         "runtime_verified_replacement": false,
         "source_feature_CI": 42012359137,
         "source_feature_revision": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
@@ -34390,14 +34473,22 @@
         "device": null,
         "child": null,
         "owner": null,
-        "accepted_removed": 0
+        "accepted_removed": 0,
+        "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "exact_source_CI": 42033167812,
+        "matching_Dev_APK_verified": false
       },
       "blocked_dependencies": [
         "Full exact pose/identity, motion/contact/transition/loop review for actor and effects",
         "All natural routes, states, repeated use and teardown/focus variants",
         "Background native coverage, font authority and remaining flat UI/pointer/tethers",
         "Merged-head green CI and Dev delivery; physical device, child and owner acceptance"
-      ]
+      ],
+      "current_Dev_delivery": {
+        "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "source_CI": 42033167812,
+        "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json"
+      }
     },
     {
       "id": "FVR-F5E8FE218736",
@@ -34452,7 +34543,7 @@
         256,
         256
       ],
-      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "status": "DEV_PARTIAL_CANDIDATE_CONTEXT",
       "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_BOUNDED_MOBILE_SPEEDY_FIXTURES",
       "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
       "native_output": {
@@ -34512,6 +34603,11 @@
           "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
           "observation": "A peach scallop and crescent pearl distinguish the lullaby icon on the second shop page. No audio/voice or child comprehension claim follows.",
           "source_revision": "6892c5753c75161986b4463c186f8711a0c12870"
+        },
+        {
+          "revision": "FV-INTEGRATION-20261105-R142-DEV-AND-DEV94-APK",
+          "observation": "Exact green source fast-forwarded to Dev6892; no full-context/motion/device/child/owner acceptance.",
+          "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json"
         }
       ],
       "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json",
@@ -34527,7 +34623,7 @@
         "candidate": true,
         "approved": false,
         "source_work_branch_integrated": true,
-        "Dev_integrated": false,
+        "Dev_integrated": true,
         "runtime_verified_replacement": false,
         "source_feature_CI": 42012359137,
         "source_feature_revision": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
@@ -34545,14 +34641,22 @@
         "device": null,
         "child": null,
         "owner": null,
-        "accepted_removed": 0
+        "accepted_removed": 0,
+        "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "exact_source_CI": 42033167812,
+        "matching_Dev_APK_verified": false
       },
       "blocked_dependencies": [
         "Full exact pose/identity, motion/contact/transition/loop review for actor and effects",
         "All natural routes, states, repeated use and teardown/focus variants",
         "Background native coverage, font authority and remaining flat UI/pointer/tethers",
         "Merged-head green CI and Dev delivery; physical device, child and owner acceptance"
-      ]
+      ],
+      "current_Dev_delivery": {
+        "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "source_CI": 42033167812,
+        "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json"
+      }
     },
     {
       "id": "FVR-909C1736BC43",
@@ -34607,7 +34711,7 @@
         256,
         256
       ],
-      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "status": "DEV_PARTIAL_CANDIDATE_CONTEXT",
       "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_BOUNDED_MOBILE_SPEEDY_FIXTURES",
       "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
       "native_output": {
@@ -34667,6 +34771,11 @@
           "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
           "observation": "The purple squid charm is recognizable in the second shop page and the inspected contact/power frame. Its ink effect and repeated-use readability remain open.",
           "source_revision": "6892c5753c75161986b4463c186f8711a0c12870"
+        },
+        {
+          "revision": "FV-INTEGRATION-20261105-R142-DEV-AND-DEV94-APK",
+          "observation": "Exact green source fast-forwarded to Dev6892; no full-context/motion/device/child/owner acceptance.",
+          "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json"
         }
       ],
       "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json",
@@ -34682,7 +34791,7 @@
         "candidate": true,
         "approved": false,
         "source_work_branch_integrated": true,
-        "Dev_integrated": false,
+        "Dev_integrated": true,
         "runtime_verified_replacement": false,
         "source_feature_CI": 42012359137,
         "source_feature_revision": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
@@ -34700,14 +34809,22 @@
         "device": null,
         "child": null,
         "owner": null,
-        "accepted_removed": 0
+        "accepted_removed": 0,
+        "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "exact_source_CI": 42033167812,
+        "matching_Dev_APK_verified": false
       },
       "blocked_dependencies": [
         "Full exact pose/identity, motion/contact/transition/loop review for actor and effects",
         "All natural routes, states, repeated use and teardown/focus variants",
         "Background native coverage, font authority and remaining flat UI/pointer/tethers",
         "Merged-head green CI and Dev delivery; physical device, child and owner acceptance"
-      ]
+      ],
+      "current_Dev_delivery": {
+        "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "source_CI": 42033167812,
+        "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json"
+      }
     },
     {
       "id": "FVR-4819A4D75C93",
@@ -34762,7 +34879,7 @@
         256,
         256
       ],
-      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "status": "DEV_PARTIAL_CANDIDATE_CONTEXT",
       "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_BOUNDED_MOBILE_SPEEDY_FIXTURES",
       "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
       "native_output": {
@@ -34822,6 +34939,11 @@
           "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
           "observation": "The pearl coin is distinct in the atlas and inspected first-contact reward. Its timing, overlap and phone-scale payoff still need complete review.",
           "source_revision": "6892c5753c75161986b4463c186f8711a0c12870"
+        },
+        {
+          "revision": "FV-INTEGRATION-20261105-R142-DEV-AND-DEV94-APK",
+          "observation": "Exact green source fast-forwarded to Dev6892; no full-context/motion/device/child/owner acceptance.",
+          "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json"
         }
       ],
       "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json",
@@ -34837,7 +34959,7 @@
         "candidate": true,
         "approved": false,
         "source_work_branch_integrated": true,
-        "Dev_integrated": false,
+        "Dev_integrated": true,
         "runtime_verified_replacement": false,
         "source_feature_CI": 42012359137,
         "source_feature_revision": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
@@ -34855,14 +34977,22 @@
         "device": null,
         "child": null,
         "owner": null,
-        "accepted_removed": 0
+        "accepted_removed": 0,
+        "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "exact_source_CI": 42033167812,
+        "matching_Dev_APK_verified": false
       },
       "blocked_dependencies": [
         "Full exact pose/identity, motion/contact/transition/loop review for actor and effects",
         "All natural routes, states, repeated use and teardown/focus variants",
         "Background native coverage, font authority and remaining flat UI/pointer/tethers",
         "Merged-head green CI and Dev delivery; physical device, child and owner acceptance"
-      ]
+      ],
+      "current_Dev_delivery": {
+        "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "source_CI": 42033167812,
+        "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json"
+      }
     }
   ],
   "known_named_design_records_including_supplemental": 240,
@@ -42775,7 +42905,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "SUMMARY.json. 44 published bounded source artifacts,26 partial Dev artifacts and zero accepted removals. The280 known roles and36 families are lower bounds. Whole-game totals remain unknown. Native register:7,868 bounded,4,394 excluded,12,262 retained; new45 are source review events with explicit fixture limits.",
+  "current_effective_summary": "SUMMARY.json. 44 published bounded source artifacts, 27 partial Dev artifacts and zero accepted removals. The 280 known roles and 36 families remain lower bounds; whole-game totals remain unknown. Native register remains 7,868 bounded, 4,394 excluded and 12,262 retained; no new events in this delivery update.",
   "unresolved_care_glyph_scopes": [
     "neutral/title heart U+2665 versus cuddle U+2764 attribution",
     "disabled Change-palette pictogram",
@@ -49738,7 +49868,7 @@
     "current_Dev_at_snapshot": "94c2a91512d2216deb26651f670469432c8f4242"
   },
   "r142_bubble_duel_source": {
-    "state": "TEN_BUBBLE_DUEL_PAINTED_SOURCE_ROLE_CANDIDATES_DEV_PENDING",
+    "state": "TEN_PAINTED_BUBBLE_DUEL_DESIGNS_DEV_PARTIAL_CANDIDATES",
     "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
     "source_branch": "codex/bubble-duel-jobs-20261104",
     "canonical_record": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/README.md",
@@ -49763,6 +49893,103 @@
     "device": null,
     "child": null,
     "owner": null,
-    "current_Dev_at_snapshot": "94c2a91512d2216deb26651f670469432c8f4242"
+    "current_Dev_at_snapshot": "94c2a91512d2216deb26651f670469432c8f4242",
+    "source_publication_state": "TEN_BUBBLE_DUEL_PAINTED_SOURCE_ROLE_CANDIDATES_DEV_PENDING",
+    "source_publication_canonical_revision": "cb7bdd22d26d74e86d712547cb195ec1b8ae1f6e",
+    "current_Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+    "current_Dev_integration_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json",
+    "Dev_delta_field_scope": "Dev_delta0 above belongs to the source publication; new integration delta1 is recorded separately in r142_bubble_duel_dev_integration."
+  },
+  "r142_bubble_duel_dev_integration": {
+    "state": "R142_EXACT_GREEN_SOURCE_FAST_FORWARDED_TO_DEV",
+    "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+    "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+    "source_CI": {
+      "id": 42033167812,
+      "head_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+      "head_branch": "codex/bubble-duel-jobs-20261104",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42033167812"
+    },
+    "Dev_workflows_at_snapshot": [
+      {
+        "id": 42042239702,
+        "head_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+        "head_branch": "dev",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42042239702"
+      }
+    ],
+    "checked_at_utc": "2026-11-05T14:37:10.148017+00:00",
+    "producer_owned_integration": true,
+    "our_Dev_mutation": false,
+    "new_bounded_source_artifacts": 0,
+    "new_partial_Dev_artifacts": 1,
+    "new_frame_events": 0,
+    "accepted_removed": 0,
+    "formal_QA11": "COVERAGE_GAP",
+    "device": null,
+    "child": null,
+    "owner": null,
+    "matching_APK_verified": false,
+    "preceding_verified_APK_source": "94c2a91512d2216deb26651f670469432c8f4242",
+    "stable_ids": [
+      "FVR-EEBC51E8DED0",
+      "FVR-4AF007BDD168",
+      "FVR-180A868E1378",
+      "FVR-28EE0DD2A93F",
+      "FVR-8849D357BDF9",
+      "FVR-39F685E469E7",
+      "FVR-B589FEEB2D12",
+      "FVR-F5E8FE218736",
+      "FVR-909C1736BC43",
+      "FVR-4819A4D75C93"
+    ],
+    "source_artifact_key": "r142_bubble_duel_source",
+    "unchanged_source_files": [
+      {
+        "path": "scripts/opera_bubble_duel.gd",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 26679,
+        "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c"
+      },
+      {
+        "path": "scripts/bubble_duel_inventory.gd",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 4745,
+        "sha256": "2413e9c44d88f8b85519bc26d08bcda208d2be35c07141008a1e08451dc10f4b"
+      },
+      {
+        "path": "scripts/opera_house_venue_2d.gd",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 30844,
+        "sha256": "aa15f790b3e7ed639a5a2084229f779b41ff9ea6b50ecdf0e9b859ecf5ba38a2"
+      },
+      {
+        "path": "assets/opera/bubble_duel_v2/bubble.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 92710,
+        "sha256": "eca98a5ca895774d10649bc05c438dfb8be22b8f5a1527a64750b2c516161127"
+      },
+      {
+        "path": "assets/opera/bubble_duel_v2/items.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 634266,
+        "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5"
+      },
+      {
+        "path": "assets/opera/bubble_duel_v2/marlo_swim.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 103290,
+        "sha256": "33cf0fc3f01754f65cd03e49c44341db46c174f3e8dfa89047d9651d46fd50dc"
+      }
+    ],
+    "source_packet_revision": "cb7bdd22d26d74e86d712547cb195ec1b8ae1f6e",
+    "source_packet_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/MANIFEST.json",
+    "source_context_limit": "The same six source/art blobs are now exactly Dev. Existing45 Mobile/Speedy controlled review events and all source acceptance limits retain their original scope; no new capture, full-motion, device or owner acceptance.",
+    "new_source_artifacts": 0,
+    "current_matching_APK_verified": false
   }
 }

@@ -1,0 +1,87 @@
+{
+  "id": "flat-vector-r140-dev94-apk-delivery-20261105",
+  "baseline": "cb7bdd22d26d74e86d712547cb195ec1b8ae1f6e",
+  "scope": "Reconcile actual new R142 exact-green Dev integration, one existing source artifact with ten designs; retain the independently verified preceding Dev94 APK and unchanged R140 blobs. Supply missing CHG-148/149 source-registry entries and CHG-146/149 maintenance. No code/art/generation/frame or Dev/master mutation by this chat.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14",
+    "DL-MED-09",
+    "DL-ASSET-03"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/flat-vector-r140-dev94-apk-delivery-20261105.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/DEV94_APK_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/DEV94_DOCUMENT_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R140_RUNTIME_RETENTION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Exact green R142 source, six identical consumers/assets and actual Dev ref6892",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json; source CI42033167812 success, new Dev CI is separate"
+    },
+    {
+      "command": "Complete anonymous Dev94 APK and checksum stream plus source/release/asset identity before and after",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/DEV94_APK_VERIFICATION.json;863445647 bytes;886e50e3362c2e007a6d38135f7e57012a7f6848df3aa10fc8b869fe88609644"
+    },
+    {
+      "command": "Five unchanged tested R140 source blobs and exact4.7.2 checkout/release workflow policy",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R140_RUNTIME_RETENTION.json; all six immutable source files anonymously GET/byte/hash verified"
+    },
+    {
+      "command": "R141/R142 retrospective CHG entries with exact commits/paths, benefit, risks, dependencies and manual rollback classes",
+      "result": "PASS",
+      "evidence": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md CHG-148/149; no rollback execution or production/counter change"
+    },
+    {
+      "command": "Document authority and AUTO/HEAD change coverage on actual delivery metadata",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/DEV94_DOCUMENT_GATES.json; current expanded17-file scope"
+    },
+    {
+      "command": "Current delivery manifest and every required Git file anonymously verified at immutable revisions",
+      "result": "PENDING",
+      "evidence": "After normal durable-branch publication; exact remote receipt retained and published separately."
+    }
+  ],
+  "acceptance_gaps": "R142 is a partial Dev candidate, new matching APK pending. Verified package belongs to preceding Dev94; no install, physical-device/child/owner/formal QA11 or full motion acceptance. Active coordinator owns remaining Dev integration; this chat changes only its topic-branch evidence. No source/design/family/frame delta; one partial Dev artifact26to27; goal stays open.",
+  "references_used": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/DEV94_APK_VERIFICATION.json",
+      "purpose": "Complete newly published binary/sidecar/source proof; no republishing protected/runtime binary"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "purpose": "Required DL-QA-14 repair and bounded forward-only rollback guidance"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/MANIFEST.json at cb7bdd22d26d74e86d712547cb195ec1b8ae1f6e",
+      "purpose": "Unchanged latest art source evidence is cited immutably, not recursively rebound into this small delivery context."
+    }
+  ]
+}
