@@ -455,6 +455,11 @@
       "command": "Non-runtime audit-record boundary, retained model detection and fresh normal import/model gates",
       "result": "PASS",
       "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/POST_CI_METADATA_ROLE.json. 82 model cases and19 controls pass, fresh approved-engine import passes, live inventory is exact52 with14 pinned tooling files. Checker source and manifest remain exact."
+    },
+    {
+      "command": "Reconcile dev94c2a915 audit-record wording",
+      "result": "PASS",
+      "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/POST_CI_METADATA_ROLE.json. One operational record changes after the role checkpoint. Tested game, addon and validator objects remain exact."
     }
   ],
   "acceptance_gaps": "Static-book, prototype, source-only, art/motion, formal QA11, actual-device, child and owner statuses retain their source-specific scopes. The master audit remains UNSATISFIED.",
@@ -516,5 +521,6 @@
     "first_fixture_result": "FAIL because a scene3d filename alone did not match the actual inventory marker",
     "correction": "Include the exact field name from the CI record. Retain all three assertions and the failed first fixture log."
   },
-  "current_metadata_role_evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/POST_CI_METADATA_ROLE.json"
+  "current_metadata_role_evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/POST_CI_METADATA_ROLE.json",
+  "latest_integration_dev": "94c2a91512d2216deb26651f670469432c8f4242"
 }
