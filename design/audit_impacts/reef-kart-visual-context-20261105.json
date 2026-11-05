@@ -182,7 +182,9 @@
     "assets_src/imagegen/reef_kart_context_20261105/evidence/authority-final.log",
     "assets_src/imagegen/reef_kart_context_20261105/evidence/coverage-auto-final.log",
     "assets_src/imagegen/reef_kart_context_20261105/evidence/coverage-baseline-final.log",
-    "assets_src/imagegen/reef_kart_context_20261105/remote-verification.json"
+    "assets_src/imagegen/reef_kart_context_20261105/remote-verification.json",
+    "assets_src/imagegen/reef_kart_context_20261105/remote_ci_summary.json",
+    "assets_src/imagegen/reef_kart_context_20261105/evidence/github-probes-b2bd2942.log"
   ],
   "validation": [
     {
@@ -234,6 +236,16 @@
       "command": "Documentation precision review against the row-major field serializer",
       "result": "PASS",
       "evidence": "The former 128*128 loop wrote 16,384 entries: the first 32 rows at width 512. Correct the earlier spatial shorthand in the master index and review; runtime source fingerprints and test results remain identical."
+    },
+    {
+      "command": "GitHub Probe suite (graphics fork), run 42009623320",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/reef_kart_context_20261105/remote_ci_summary.json; exact runtime revision b2bd2942266c6a8d953529de4eab086e08c1a06e. Required gates, trusted probes and boot succeed. Workflow success does not accept advisory visual/balance reports."
+    },
+    {
+      "command": "GitHub advisory balance and world-visual receipts",
+      "result": "FAIL",
+      "evidence": "assets_src/imagegen/reef_kart_context_20261105/remote_ci_summary.json and evidence/github-probes-b2bd2942.log; Chef capped and Sky Lagoon/dust-boss/castle visual receipts failed. Generic Racer balance is NOT_MEASURED (unsupported kart_race mode). No failure is waived or converted into acceptance."
     }
   ],
   "acceptance_gaps": "Exact canonical fresh-runtime QA11 certification, physical PC controllers and tablet, child comprehension and owner visual acceptance remain open.",
