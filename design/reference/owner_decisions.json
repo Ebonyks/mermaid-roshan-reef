@@ -1506,6 +1506,19 @@
       "cycle": "story-backfill-20261031"
     },
     {
+      "id": "ODR-GODOT-MCP-DEVTOOLS-20261104",
+      "date": "2026-11-04",
+      "subject": "Godot MCP exact development-tool exception",
+      "decision": "Use the full add-on with a narrowly documented exception for development tools only",
+      "source": "docs/GODOT_MCP.md#owner-decision-and-scope",
+      "authority": "recorded_owner",
+      "question": "The add-on loads successfully, but its general-purpose 3D inspection helpers conflict with this project’s audit rule against adding any 3D code. Which integration do you want?",
+      "checks": [
+        "tools/tests/test_godot_mcp_scope.py"
+      ],
+      "cycle": "godot-mcp-20261104"
+    },
+    {
       "id": "ODR-BUBBLE-DUEL-CAST-2P-20261105",
       "date": "2026-11-05",
       "subject": "Bubble Duel larger cast, two players and wearable items",

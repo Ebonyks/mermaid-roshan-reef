@@ -147,4 +147,8 @@ docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_reconcile
 
 
 # Hash-pinned vendor tooling must retain the exact upstream bytes on Windows.
-addons/godot_mcp/** -text
+
+# Preserve the owner-reviewed Godot MCP payload and manifest byte hashes.
+addons/godot_mcp/** -text -whitespace
+tools/godot_mcp/** -text whitespace=cr-at-eol
+tools/godot_mcp/evidence/** -whitespace

@@ -1,0 +1,10 @@
+from pathlib import Path
+import subprocess,hashlib,json,datetime,os
+p=Path("tmp/godot_mcp_workgroup_prefix.sh");log=Path("tmp/godot_mcp_workgroup_prefix.log")
+engine=subprocess.check_output(["python","-B","tools/resolve_godot.py"],text=True).strip()
+r={"started_at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"ci_script_sha256":hashlib.sha256(Path("scripts/ci.sh").read_bytes()).hexdigest(),"prefix_sha256":hashlib.sha256(p.read_bytes()).hexdigest(),"incoming_dev":"80975b0051f6a5be29b0680e8b84e15f30d3c316","scope":"Exact current scripts/ci.sh prefix through static/assets/import/2D; native full82 runs independently on the same frozen combined source."}
+with log.open("w",encoding="utf-8") as output:code=subprocess.call([r"C:\Program Files\Git\bin\bash.exe",str(p)],stdout=output,stderr=subprocess.STDOUT,env={**os.environ,"GODOT":engine.replace("\\","/"),"PYTHONUTF8":"1"})
+r.update({"exit_code":code,"completed_at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"log_sha256":hashlib.sha256(log.read_bytes()).hexdigest(),"result":"PASS" if code==0 else "FAIL"})
+Path("tmp/godot_mcp_workgroup_prefix.json").write_text(json.dumps(r,indent=2)+"\n")
+print("WORKGROUP_PREFIX",r["result"],code,flush=True)
+raise SystemExit(code)

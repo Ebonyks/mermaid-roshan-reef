@@ -50,3 +50,15 @@ enable_socks5_udp = false
 allow_upstream_proxy = true
 dangerously_allow_non_loopback_proxy = false
 dangerously_allow_all_unix_sockets = false
+
+# Owner-requested satelliteoflove/godot-mcp; version is locked in tools/godot_mcp.
+[mcp_servers.satellite_godot]
+command = "node"
+args = ["tools/godot_mcp/node_modules/@satelliteoflove/godot-mcp/dist/cli.js"]
+startup_timeout_sec = 30
+tool_timeout_sec = 60
+
+[mcp_servers.satellite_godot.env]
+GODOT_HOST = "127.0.0.1"
+GODOT_PORT = "6550"
+GODOT_MCP_USAGE_LOG = "0"

@@ -1,0 +1,12 @@
+{
+  "recorded_at_utc": "2026-11-05T19:43:28.701336+00:00",
+  "run": 42092557072,
+  "job": 127474118722,
+  "head": "76ae50106d07f3ecc774f59fc50a99245c767f0e",
+  "result": "FAIL",
+  "failed_step": "Static gates; test_live_register_only_appends_since_the_comparison_base",
+  "comparison_before": "df13b0a958f9079a82235ef965bb0367f1d477df",
+  "cause": "Strict prefix rule compares to previous feature push, while reconciled array preserves canonical Dev80975b00 prefix. All existing decision values are unchanged.",
+  "advisory_limit": "OperaHouse parse error occurs after import is skipped due to static failure; not a new game runtime result.",
+  "log_sha256": "243f6d27b136497392b25e1ffa13db82cbe7a713ebbe70758b65e566f7d1d4c8"
+}

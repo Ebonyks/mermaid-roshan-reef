@@ -1,0 +1,23 @@
+{
+  "name": "satellite_godot",
+  "enabled": true,
+  "disabled_reason": null,
+  "transport": {
+    "type": "stdio",
+    "command": "node",
+    "args": [
+      "tools/godot_mcp/node_modules/@satelliteoflove/godot-mcp/dist/cli.js"
+    ],
+    "env": {
+      "GODOT_HOST": "127.0.0.1",
+      "GODOT_PORT": "6550",
+      "GODOT_MCP_USAGE_LOG": "0"
+    },
+    "env_vars": [],
+    "cwd": null
+  },
+  "enabled_tools": null,
+  "disabled_tools": null,
+  "startup_timeout_sec": 30.0,
+  "tool_timeout_sec": 60.0
+}

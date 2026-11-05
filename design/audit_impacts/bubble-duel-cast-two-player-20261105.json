@@ -272,7 +272,8 @@
     "scripts/probe_bubble_duel_stress.gd",
     "scripts/probe_opera.gd",
     "tools/run_bubble_duel_capture.py",
-    "tools/run_bubble_duel_stress.py"
+    "tools/run_bubble_duel_stress.py",
+    "audit/cycles/bubble-duel-cast-20261105/integration.json"
   ],
   "validation": [
     {
@@ -323,7 +324,12 @@
     {
       "command": "Exact published-head GitHub required checks and normal dev integration",
       "result": "PENDING",
-      "evidence": "Not yet published at this source-record snapshot. Final exact-head CI is checked externally before integration; no master promotion requested."
+      "evidence": "Feature commit b2671073f8b95cbc1b3707d57e9c360fb939598f passed both required jobs in run42106008736. Later dev editor-tooling integration bc02217f087b80884e07acf0cd6ea1e0789ce3a9 was merged without altering any Bubble Duel production input. audit/cycles/bubble-duel-cast-20261105/integration.json binds the exact preserved inputs. Exact combined-head CI remains required before dev integration; no master promotion."
+    },
+    {
+      "command": "Merge latest canonical editor-tooling dev preserving both audit entries and append-only decisions",
+      "result": "PASS",
+      "evidence": "audit/cycles/bubble-duel-cast-20261105/integration.json records source equality and explicit conflict resolution. No Bubble Duel gameplay/art change."
     }
   ],
   "acceptance_gaps": "All48 character/item still-appearance roles and eight UI roles have provisional desktop dimension minima >=4.6. No formal master PASS: QA11 coverage, native background coverage, font authority, full authored motion/acting/contact, actual-phone two-person touch/performance, exact voice, child and owner acceptance remain separate and open. No game-wide finding closed.",
@@ -348,7 +354,7 @@
       "purpose": "Six explicit existing-art reuse action cards; no false predeclared/generated-take or motion acceptance claim."
     }
   ],
-  "integration_baseline": "169f6e90faff072affb40874f49566a97c2814ef",
+  "integration_baseline": "bc02217f087b80884e07acf0cd6ea1e0789ce3a9",
   "lessons": [
     {
       "lesson": "Source-alpha contact changes across the otter paddle cycle made six P2 attack bouts fail even though a four-bout smoke passed. Stable authored rest contact plus all36 ordered character pairs catches this asymmetry.",

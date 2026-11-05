@@ -1,0 +1,341 @@
+{
+  "recorded_at_utc": "2026-11-05T10:54:55.080063+00:00",
+  "original_task_baseline": "65c63ae849b091e3fb91cdbeaf1e2837e10778fe",
+  "original_work_head": "196913b0e9997f2459644db0301eef0159ed5c23",
+  "incoming_dev": "208a12cf4ba79fea7ddbf317bb6c686180b652fb",
+  "prior_work_ci": {
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42006400450",
+    "result": "CANCELLED_AS_SUPERSEDED",
+    "completed_stages": [
+      "area-music-provenance",
+      "syntax gates",
+      "import",
+      "full analyzer"
+    ],
+    "trusted_probe_stage": "incomplete at cancellation; no green claim"
+  },
+  "incoming_dev_ci": {
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42007402685",
+    "result": "FAIL",
+    "job": 127178005942,
+    "reason": "AUDITDEV coverage:46 MCP paths had no changed impact record; later advisory art-manifest failed after import was skipped, not a game runtime result"
+  },
+  "dolls_preservation": {
+    "scripts/games/dolls.gd": {
+      "origin_dev_blob": "c47dccb447e527b2307db0dd313dfc40c27059c5",
+      "merged_index_blob": "c47dccb447e527b2307db0dd313dfc40c27059c5",
+      "working_sha256": "31a15f83048c87b2806dfc8df13386585b1a865f1b69704f3fdb0f4f769be482"
+    },
+    "assets/dolls/progress_empty_painted.png": {
+      "origin_dev_blob": "a41e5839338bcc0daa9c73ce23ed9593144d678e",
+      "merged_index_blob": "a41e5839338bcc0daa9c73ce23ed9593144d678e",
+      "working_sha256": "33f4460f116add379f27ff172363bfd43b36a3f7378e58aa4866ea9e9f3d6161"
+    },
+    "assets/dolls/progress_empty_painted.png.import": {
+      "origin_dev_blob": "3f6b2723cb6f799d732f2d6a2097dcfde6dbf3c3",
+      "merged_index_blob": "3f6b2723cb6f799d732f2d6a2097dcfde6dbf3c3",
+      "working_sha256": "777a7d8390f536f9b66498ba82f79578d7584bb409bff18c137810a033e60113"
+    },
+    "assets/dolls/progress_filled_painted.png": {
+      "origin_dev_blob": "77aa88c95671d5fd1a1ed1011768226a653ebd22",
+      "merged_index_blob": "77aa88c95671d5fd1a1ed1011768226a653ebd22",
+      "working_sha256": "c93096eebb7213bddc36bc02d770e5e5ed6eb934e8129561ae127d5f6b0f1b58"
+    },
+    "assets/dolls/progress_filled_painted.png.import": {
+      "origin_dev_blob": "b91d6cb5b100fadd5dd4ef9d6ebfb2962249e013",
+      "merged_index_blob": "b91d6cb5b100fadd5dd4ef9d6ebfb2962249e013",
+      "working_sha256": "d3c0b6898095bda54b47b0d00b68454b009d83329209a681fdb8e558527e3183"
+    }
+  },
+  "payload_manifest_sha256": "e8682258f8c21243a734d4c9e54aea2dd7644e5f54f825d40fece275ac391109",
+  "combined_checks": {
+    "scope_controls": "PASS:7 final actual-payload and fail-closed controls",
+    "syntax_inference": "PASS all changed/added GDScript",
+    "standalone": "PASS4.7.2: bridge removed without debugger on cleaned project settings",
+    "full_local_prefix": "PASS exit0: exact scripts/ci.sh prefix through all static/asset/import/NO_REGRESSION gates",
+    "full_native_roster": "PASS82/82, all actual exits0, unchanged4027-source snapshot and both Dolls PNG hashes",
+    "exact_head_remote_ci": "PENDING: required before dev integration",
+    "native_codex_configuration": "PASS: enabled entry recognized by Codex",
+    "post_metadata_2d": "NO_REGRESSION exit0;14 authenticated tooling files reported separately; global UNSATISFIED unchanged",
+    "final_authority_coverage": "PASS after metadata merge at94c2a915; raw prepush logs retained"
+  },
+  "source_scope": "No production game change relative to incoming dev; Fetch/Skins/Verbs fixture references retained. Generic mutable manifest authority replaced by exact compiled-in whole-payload anchor, preserving TOOLING visibility and strengthening arbitrary-manifest negative control. Both client setups and MIT attribution files retained. CHG-147 avoids existing Dolls CHG-146.",
+  "completed_at_utc": "2026-11-05T12:30:37.509751+00:00",
+  "latest_known_dev_metadata_commit": "96e8d3a20a64772ec712ee6b0bea3fb22e36a793",
+  "native_source_snapshot": {
+    "dolls_art_sha256": {
+      "assets/dolls/progress_empty_painted.png": "33f4460f116add379f27ff172363bfd43b36a3f7378e58aa4866ea9e9f3d6161",
+      "assets/dolls/progress_filled_painted.png": "c93096eebb7213bddc36bc02d770e5e5ed6eb934e8129561ae127d5f6b0f1b58"
+    },
+    "algorithm": "sha256_repository_source_candidates_with_protected_path_exclusions_v1",
+    "file_count": 4027,
+    "sha256": "53443a1afbb8a618c16ad737f1a4a176cafed6d8ed8eae49ecd2c12ec910689b",
+    "asset_git_state": {
+      "unstaged": "",
+      "staged": "-\t-\tassets/dolls/progress_empty_painted.png\n40\t0\tassets/dolls/progress_empty_painted.png.import\n-\t-\tassets/dolls/progress_filled_painted.png\n40\t0\tassets/dolls/progress_filled_painted.png.import\n"
+    }
+  },
+  "native_receipt": "tools/godot_mcp/evidence/reconciled/native.json",
+  "prefix_receipt": "tools/godot_mcp/evidence/reconciled/prefix.json",
+  "interrupted_run": {
+    "receipt": "tools/godot_mcp/evidence/reconciled/interrupted_native.json",
+    "result": "INTERRUPTED_SUPERSEDED",
+    "completed_invocations": 63,
+    "reason": "Automatic merge duplicated identical project settings blocks at different positions. Restore byte-exact incoming dev project.godot and repeat all82; no partial whole-suite pass."
+  },
+  "execution_schedule": "Static prefix and isolated per-probe native lane ran concurrently after a fresh import. During static validation, duplicate project settings were removed and Claude env made explicitly local/log-off; exact canonical project settings were reimported by the final prefix. Final clean native matrix began after both changes and all4027 candidates plus two art hashes remained identical. Snapshot asset status uses content-level Git numstat to avoid importer stat-only/EOL noise; new art has explicit raw SHA-256.",
+  "codex_launch_resolution": {
+    "source_revision": "86ac0916597244a2e67a197822a5483924660ff1",
+    "source": "https://github.com/openai/codex/blob/86ac0916597244a2e67a197822a5483924660ff1/codex-rs/rmcp-client/src/stdio_server_launcher.rs",
+    "session_source": "https://github.com/openai/codex/blob/86ac0916597244a2e67a197822a5483924660ff1/codex-rs/core/src/session/mcp_runtime.rs",
+    "conclusion": "Omitted cwd falls back to local runtime cwd. Start the Codex chat from this project root; no machine-specific absolute path is committed. Current official source review, native config inspection and actual server/editor handshake are distinct checks."
+  },
+  "export_scope": "tools/.gdignore and both existing export presets tools/* exclude keep the Node host/dependencies/evidence out of phone exports. Bridge GDScript dependencies can ship and are removed from the tree without a debugger; device/child acceptance remains separate.",
+  "implementation_files_sha256": {
+    ".codex/config.toml": "c1c4059dd63d0aed5a25dce695747ac4ed02fb0567b1a7accd45f5142d62ffc2",
+    ".mcp.json": "a5f7d501f8679e4d0ffcbdd49c9aadb4809b9d4a81a3fafe1c9aabccc9ba1d82",
+    ".gitattributes": "a9c03aa6c7412f1c238f5b1749b2a6855ce7891f2b48081224071963f3b6ebe9",
+    ".gitignore": "c2d1fdaa4417765ece77df338d9ea6dd6066c23d78d3c3852938974c1d768fb1",
+    "project.godot": "62d62e562ca352cb6fa6df9b3dae3b84ffc54439cdea901b6186158e7416e081",
+    "tools/audit_game_2d.py": "865987b898ac722ced22102f46488093b1e2b84809ca34d3ab96c7b160c80da0",
+    "tools/godot_mcp/addon_manifest.json": "e8682258f8c21243a734d4c9e54aea2dd7644e5f54f825d40fece275ac391109",
+    "tools/godot_mcp/package.json": "2b5e6302393c1f0c332d04d975f0531f8cc467321323ac6fd26436b98fc854ca",
+    "tools/godot_mcp/package-lock.json": "0c61d484fa19a3ecc6dcd39d7e2fceb3411d74b5b57edd8ca7c60e2cc952b8c9",
+    "tools/godot_mcp/probe_inactive.gd": "55c7c9b81b78a27d5ffeb4b31b4c68c852fa209e543e712c790f14dc79e594bb",
+    "tools/godot_mcp/smoke.mjs": "7dc0523e7906c68d9976e799612f4da3bd5f5301a91b1239a7eb9245f51e5a03",
+    "tools/tests/test_godot_mcp_scope.py": "25ae9b86b731849810c370916a48cc856c0b42bb448148709a50e8be6791c1bd",
+    "tools/tests/test_audit_game_2d.py": "91276cf13bb6434fdbba7c868325cb36cbdb99e2aedf911a6c3a10298dcd0577",
+    "scripts/probe_fetch.gd": "45c4d924503941dbf5b169bf6e68cc702745ba8e80f213c5c5833620098417aa",
+    "scripts/probe_skins.gd": "dd1e7576cf064180e4a58b2161caace1c060e8f59591ff2af0bb41d18150c1fd",
+    "scripts/probe_verbs.gd": "3ea72d493d5675dd51ea311f41c76fda0d3bb3ccf31b86d799156e85ddd971ef",
+    "scripts/games/dolls.gd": "31a15f83048c87b2806dfc8df13386585b1a865f1b69704f3fdb0f4f769be482"
+  },
+  "evidence_sha256": {
+    "tools/godot_mcp/evidence/reconciled/authority_final.txt": "bdf9cb86c4617c8d14060af05c5ea2e8135049ffd96d4f1f4bb347d3e51f7013",
+    "tools/godot_mcp/evidence/reconciled/codex_config.txt": "49c36cc51a7009df0479a9f6707b3e0e2e50f895d14351cdc99f1a8794bbe725",
+    "tools/godot_mcp/evidence/reconciled/contract_tests_final.txt": "74aec8a14e71e90579b731f24bdcaffaffe7432ef9ab36f2f7359570554b3a03",
+    "tools/godot_mcp/evidence/reconciled/coverage_final.txt": "2f284cdec07676878b4170696b8b4ed15ceb1917e24e62ed251ba236f354f527",
+    "tools/godot_mcp/evidence/reconciled/diff_check.txt": "f2073eb46249709b1a398036c02573f9a8fa6f19f7d16320fce7abf4e7d27b09",
+    "tools/godot_mcp/evidence/reconciled/focused.json": "36e4e4f9c90df5075a4658fc3a87805ee0820fcc7dca77ded6f1e9a1370e271b",
+    "tools/godot_mcp/evidence/reconciled/inference.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tools/godot_mcp/evidence/reconciled/interrupted_native.json": "288916cc89c4524597aecb2d56e21433df9c125dc90b06fe33c17f1a2245bdcf",
+    "tools/godot_mcp/evidence/reconciled/interrupted_native_logs.txt": "987b729e5b266b4c9debcdd437682470a7c80d5cee491c94adcef4cb050747c9",
+    "tools/godot_mcp/evidence/reconciled/native/probe_alpha_milestone_save.txt": "c8fee9f0a438dd1b2493699c49a5d84994e818e7bd65fb0f6655fbfca08bc584",
+    "tools/godot_mcp/evidence/reconciled/native/probe_audio.txt": "d6e4cc0d68e8a0c02fdd6beb01ca228bc3516847bc8a46dba833793bc19ed33b",
+    "tools/godot_mcp/evidence/reconciled/native/probe_audit.txt": "de20af59632cd872b128293d718bbe83620e1281aa5cc16db146e8d26c516d56",
+    "tools/godot_mcp/evidence/reconciled/native/probe_bathroom_integration.txt": "0b93b196a5572ccb0f9f76698bce1c3d2aa27084f08b0cca93da8ab561ace330",
+    "tools/godot_mcp/evidence/reconciled/native/probe_bathroom_props.txt": "f1a9243fa397b4679dd72416d4e7b6fba6d21014c949cf112f3e3c29eefd494f",
+    "tools/godot_mcp/evidence/reconciled/native/probe_castle_door_language.txt": "4abaa12c13b1268f31ba2dcbd5a0d01bef5d51f9d72bfae4a3e1289ea6b2240b",
+    "tools/godot_mcp/evidence/reconciled/native/probe_castle_pearl_art.txt": "d8b8736c33297053b3cf2276eb4f9565097cdbf80b75ac55256eaaac36130a92",
+    "tools/godot_mcp/evidence/reconciled/native/probe_castle_pool_life_2d.txt": "3c743dae2d362340c1369418a95b8feacb00f3f8933ddb78daa109c17bf5b6b9",
+    "tools/godot_mcp/evidence/reconciled/native/probe_chapter2.txt": "52682f5018633c0558d9f391688018d6caa1fdf85121fed3615e6fd710afc8c1",
+    "tools/godot_mcp/evidence/reconciled/native/probe_chapter2_farmer_resume.txt": "2f43fc12adfc92b0ef5bfde77ceba276190604eb8b7471697746afcbe21d942d",
+    "tools/godot_mcp/evidence/reconciled/native/probe_chapter2_lawn.txt": "b50aaf7aeae0823dcbfb26e58ab58b9b739c7780e04efb36fb554433be6d55e1",
+    "tools/godot_mcp/evidence/reconciled/native/probe_collection.txt": "b109f82b958ac2652e4b94d374fb4016f9ca24ac49ed0eb0d2b129d1aadff690",
+    "tools/godot_mcp/evidence/reconciled/native/probe_combat.txt": "67aec55ee70333770a4faecb2cfd06051dfd5f0c3522629f4a522650ae60e613",
+    "tools/godot_mcp/evidence/reconciled/native/probe_combat_tutorial.txt": "744b4d5752836b437e1eccd3dc9fa32b0328a8c7383acbaa1f367fb27cba925f",
+    "tools/godot_mcp/evidence/reconciled/native/probe_crown.txt": "e905499ca760a7b70173509e41cb3823642decea24559c2f9ddef655872745d8",
+    "tools/godot_mcp/evidence/reconciled/native/probe_dance.txt": "e9d68243d211c408223d1196cf163535148aa1e6ee06258eef1fba2a6f60ad6e",
+    "tools/godot_mcp/evidence/reconciled/native/probe_day_one_art_attack_state.txt": "f60c2a724f4c1d99e78da2e83ed099fad0afd2bd2bbd4ba7e730c3ee1f1b6114",
+    "tools/godot_mcp/evidence/reconciled/native/probe_day_one_bathroom_bunny.txt": "b2317cefbc14362cdb2509477c136b7ddbf79e88550d370040f165ad452d500c",
+    "tools/godot_mcp/evidence/reconciled/native/probe_day_one_bathroom_cleanup.txt": "e3ac904c4ddad2ceec6937274324e0f46e845f5bc74095a74bd985a7a25a3d14",
+    "tools/godot_mcp/evidence/reconciled/native/probe_day_one_bathroom_movie_handoff.txt": "3c38263a6313fdfe5cfb49b7378d9e9890d36373f6f014af0411e016529f5f86",
+    "tools/godot_mcp/evidence/reconciled/native/probe_day_one_castle_dressing.txt": "17ea5dbf7d18d174c7029081bb94f79ae44f439fb81b7c77093083efceba80a0",
+    "tools/godot_mcp/evidence/reconciled/native/probe_day_one_d8_revisits.txt": "8a62f8e03b7bbc051aa7e60d1919e69a59951770d17b526d811fe1d4aa1dc631",
+    "tools/godot_mcp/evidence/reconciled/native/probe_day_one_director.txt": "c55a83f10ed8b5e8f241a127a88fdfb1001bbdb65486d44989606a1ece6e1c0e",
+    "tools/godot_mcp/evidence/reconciled/native/probe_day_one_handoffs.txt": "908a3ed2410a386f95ff5d4b1a9190b6b2e049faf6f08be47f7dd399298c1a82",
+    "tools/godot_mcp/evidence/reconciled/native/probe_day_one_integration.txt": "5d2a85cd038e521120be433551a63bdcaa394be2c493b151f616650805b1ab46",
+    "tools/godot_mcp/evidence/reconciled/native/probe_day_one_pool_cleanup.txt": "aa48dc2b302e349bb4313abc166162341f4367db5449155adabb0c0e7ec0a8cf",
+    "tools/godot_mcp/evidence/reconciled/native/probe_day_one_story_clips.txt": "811e20c6e97da8efb3aa06e7e0a74e02f822b74ca0ed33a9548abd5e4e8cf1a8",
+    "tools/godot_mcp/evidence/reconciled/native/probe_day_one_voice.txt": "50a7a84c1ce20b02a158485dab22961bc3b440dc9b823a60f9ef124cdca2dbea",
+    "tools/godot_mcp/evidence/reconciled/native/probe_dolls.txt": "d6fe1bf694b8499806f1cb9c4d89e4e1242d6cdcd6da470ea49e401cd4249dbf",
+    "tools/godot_mcp/evidence/reconciled/native/probe_dungeon.txt": "e375bfcd6815b9b8d614c8ce0b555d08c2bc3c1c9daced36bc7bde6c04a5b836",
+    "tools/godot_mcp/evidence/reconciled/native/probe_dust_boss.txt": "1d05616ae145a7dca0f3e940613bc73c3a1294489cac8053b80fab7a095c3316",
+    "tools/godot_mcp/evidence/reconciled/native/probe_dust_boss_balance.txt": "b8473e102a39c472c1b4d99f48911ff55044818646c6357650204474133fa3f6",
+    "tools/godot_mcp/evidence/reconciled/native/probe_dust_bunny.txt": "4663fb2a0de3512c5d77b0e136a6a59139e23f411d0224912e38b45ebde441dc",
+    "tools/godot_mcp/evidence/reconciled/native/probe_dust_bunny_boss.txt": "8fc65c5380675ca971e99523bbe8e17c34f09c503cd2d87029fe79d4b73aed3d",
+    "tools/godot_mcp/evidence/reconciled/native/probe_ember.txt": "bfd3bbf78d4afc8f0be1f7b1b24e83c9e1369694a5ad2ddf6f93502c08621e70",
+    "tools/godot_mcp/evidence/reconciled/native/probe_fairy_art.txt": "97aa66835cca2cf482d202e46a6119b11319755d18c86c10f76174a009ff34c4",
+    "tools/godot_mcp/evidence/reconciled/native/probe_fetch.txt": "f86938eff414e08b05d9386d48e6bd0d7f0679bc4c7fe02b1ccdea9d18320bd1",
+    "tools/godot_mcp/evidence/reconciled/native/probe_galaxy_state.txt": "2dbcb031ae77368f9ada02c12fac265a6e335201ae9e4dc735bda625917f0964",
+    "tools/godot_mcp/evidence/reconciled/native/probe_hit.txt": "785d740aaff6eb57e72a8ecc2fa239cfd66b6f84d956f2ff0bb0ab109e22aaf7",
+    "tools/godot_mcp/evidence/reconciled/native/probe_human_art_audit.txt": "5b5415d1b810a7a04bf84518731c22c3121478261795d5c89429aeca2c966dc5",
+    "tools/godot_mcp/evidence/reconciled/native/probe_imp_ai.txt": "9ae03f976731e38ad51ab9e60fa5e43461359f99af606bbb269f3c7c660ab874",
+    "tools/godot_mcp/evidence/reconciled/native/probe_interaction.txt": "75e9425089cda25286cf58484513493b928490e6fa9f0d6971cfab45fcf12a63",
+    "tools/godot_mcp/evidence/reconciled/native/probe_kart_feel.txt": "8e5e7052479e2995606bc435babbefe753452e6f934e670fd46dc269c13c2da0",
+    "tools/godot_mcp/evidence/reconciled/native/probe_kitchen_props.txt": "085ee788c6a4ea61b380dc094a318f0546223c723a4a06343e564902678217fd",
+    "tools/godot_mcp/evidence/reconciled/native/probe_l2.txt": "8e881adda82bc98d735b809119b9febb0b99a941977a41ace357663bb97b3f07",
+    "tools/godot_mcp/evidence/reconciled/native/probe_l2_living_cards.txt": "921b5cd605a190217e3358549c84c2a1c4c6445892701463b6dc6a7d9924eeb4",
+    "tools/godot_mcp/evidence/reconciled/native/probe_l2_reenter.txt": "0836edebc4578a0f6ad00c902b5b9db5457646438bb895b91e769498e18b9b94",
+    "tools/godot_mcp/evidence/reconciled/native/probe_living_world.txt": "b18af2adbf40b63615f990dad8d30a8c0168ccd87eefe3c287993cb30d795f98",
+    "tools/godot_mcp/evidence/reconciled/native/probe_load.txt": "d1b64a9cf36f331c655da3d789f62d551d78bca1fff25754445d3daa5c3ed1c8",
+    "tools/godot_mcp/evidence/reconciled/native/probe_melody.txt": "649e7a540a85dc4a8c6612dd84fc2eb62d0860a924ced1438395188b65444661",
+    "tools/godot_mcp/evidence/reconciled/native/probe_mg2d.txt": "f250841d28a11e3d4572bd84e60e79c22a17b91d228c644bfdfe67b945640b69",
+    "tools/godot_mcp/evidence/reconciled/native/probe_mic.txt": "4c186e6413f73aacf682d34e95d955e600da20b553d525b7b4d49cf7bdd8dd26",
+    "tools/godot_mcp/evidence/reconciled/native/probe_northern.txt": "fba9e9483c9e24b53dd6437408ab313959bb7968d3a41347a011b6c0fa98013c",
+    "tools/godot_mcp/evidence/reconciled/native/probe_ocean_kingdoms.txt": "df234d3d43c3aa502846363ab085a2cdb54b8b65e295a3444595f275951f7b59",
+    "tools/godot_mcp/evidence/reconciled/native/probe_opera.txt": "353e00099c991c605b0337fe55bdb49d34b260c9443d38eef13cc979576e2254",
+    "tools/godot_mcp/evidence/reconciled/native/probe_opera_2d.txt": "cc31f2f59b2a42472e80e0aa425c89befc9b11d028fc6a179726081194d3973c",
+    "tools/godot_mcp/evidence/reconciled/native/probe_opera_detective.txt": "ada2802f1fd8ddfa452d4ca6d40b560d95e2fe6a0d784f3c5ebc5161755a2498",
+    "tools/godot_mcp/evidence/reconciled/native/probe_opera_diegetic_paths.txt": "8b4fa69dca1eb815b72a9592ac787d7f7cf9650e94c21745b3a3293da39dfeb8",
+    "tools/godot_mcp/evidence/reconciled/native/probe_opera_gesture_quality.txt": "a43da324a58611dbc9bf75af931039b7b963e01d25b34da73f4a06aed6f8f7cd",
+    "tools/godot_mcp/evidence/reconciled/native/probe_opera_nursery.txt": "ea99b8b123e699dca13b66bab6a6a0fc607ad7af6509935a9623c08e23a24dac",
+    "tools/godot_mcp/evidence/reconciled/native/probe_opera_pipe.txt": "9e37f1451cf963674947e78580377efe684cb07070ef3ded7221671a9cf74efc",
+    "tools/godot_mcp/evidence/reconciled/native/probe_partner.txt": "975f35172cb1329e2eb83c9d772ba96fdaf1c79126ba32f7b9a97a6e5a72ba5c",
+    "tools/godot_mcp/evidence/reconciled/native/probe_passive.txt": "5946d5388fd2fe27c4d0d930f2a17e9df27da03dc37b8d7fe0a2ffe76fe5395f",
+    "tools/godot_mcp/evidence/reconciled/native/probe_props.txt": "c2b732eb8c197eb5004fec74f7df0fb71d031b4dff532a6de5e16c2564a3125c",
+    "tools/godot_mcp/evidence/reconciled/native/probe_rank.txt": "435e795685cc5cd4b9bbd6442e111d2b46ec44535660a0a13aae8d13f83c5c7d",
+    "tools/godot_mcp/evidence/reconciled/native/probe_reef_districts.txt": "97a6d8b58ab878973011b9bddb5709bdfdafcc6fd2f58069e7826b2cb095c0bd",
+    "tools/godot_mcp/evidence/reconciled/native/probe_save_recovery.txt": "113bce7f4f4618f7dadfe05c3dfbb527ddb58bc8cc0f915590c473f07c5de38f",
+    "tools/godot_mcp/evidence/reconciled/native/probe_seek.txt": "ad3d7281a2cfef86bd440a62afc6afd83cadf88ddc2fe62645894b7646f00b14",
+    "tools/godot_mcp/evidence/reconciled/native/probe_skins.txt": "8925983b17113d743ea7d1c6b17a05e8946c83d9b570c1c7f96aa7d35594909d",
+    "tools/godot_mcp/evidence/reconciled/native/probe_sky_lagoon_animals.txt": "1f403e7dc1d681de9f8ee0f2ffbb4158afc26142f61693fb695760e89c42fc08",
+    "tools/godot_mcp/evidence/reconciled/native/probe_start_menu_new_game.txt": "60ae9285a48b1ae7e0a603d30ecfe65857528c43259523217d8d25a7feec89b7",
+    "tools/godot_mcp/evidence/reconciled/native/probe_start_menu_routing.txt": "c192b57ce2a0672867a9ce4420e32fde1eab6d258fc7e9e200127891e4d0c163",
+    "tools/godot_mcp/evidence/reconciled/native/probe_stuffie.txt": "ce98c5879cc8f528799c7c4a8bcfdb583da7c27f90f837794b913fc5691b7455",
+    "tools/godot_mcp/evidence/reconciled/native/probe_throne.txt": "b8b0333544dd3f6bb48cb28b125a4875e78c42667763fbe1772773d2a8719527",
+    "tools/godot_mcp/evidence/reconciled/native/probe_touch_adversary.txt": "7dce7b16bedf0a78e23f3951656cebf93faf911ab4ab7ef1e163c81feb2a5643",
+    "tools/godot_mcp/evidence/reconciled/native/probe_touch_look.txt": "60351641e3a32197e818e5df8416233946f40c138599c4ae85a723642cdc25fb",
+    "tools/godot_mcp/evidence/reconciled/native/probe_touch_router.txt": "c2892f8084bd847bc1ef4669ea66e602741a48571030e21b659066cb38aea07e",
+    "tools/godot_mcp/evidence/reconciled/native/probe_touch_stress.txt": "8d265e38b04f15e2cb1bfb3f641ae05cf642dacefd55eec732cfc158a37dfd0d",
+    "tools/godot_mcp/evidence/reconciled/native/probe_train.txt": "2617369a4b121d48b4e9cb8c9ced9a4fee3e787530afaa463169a19ab224ddb7",
+    "tools/godot_mcp/evidence/reconciled/native/probe_ui_system.txt": "fd6065e09969b8da7bbeb040707d99c214a6f3a76e5db6e1f245bdd218e6b33b",
+    "tools/godot_mcp/evidence/reconciled/native/probe_verbs.txt": "9924cbf8efbbdf83b80cc91f1f852f20347d80257a2f7097ce885fd661069652",
+    "tools/godot_mcp/evidence/reconciled/native/probe_voice.txt": "3238753d67ea37cde8a93ca120333ce20bd07b9a8d2c792f55a569ceb7931453",
+    "tools/godot_mcp/evidence/reconciled/native.json": "f5b4c5d52c3d457931fce6347c551d9dc668be7fa68e015c7b57be53109e4c12",
+    "tools/godot_mcp/evidence/reconciled/native_driver_source.txt": "0370f3b8eb9a2eeaf62cc829713bcf3bcf6b68634e1fea8213387d77db5e9d92",
+    "tools/godot_mcp/evidence/reconciled/native_progress.txt": "4274bbcae507159b4db80bce1615458b4e48f6cca112532b32f58d1e55c3fe6a",
+    "tools/godot_mcp/evidence/reconciled/parser.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tools/godot_mcp/evidence/reconciled/post_metadata_2d.txt": "4022b0d0dd00dd5e333ac2fdd5684e1ec48df71542d261cc30972ea71a23d6d5",
+    "tools/godot_mcp/evidence/reconciled/prefix.json": "c7f910c5bf667cd91ac442d4180b971e1f5dc7b2c86d321d8448dd80051de7d8",
+    "tools/godot_mcp/evidence/reconciled/prefix.txt": "1664e66c9ea9c33b80b3d117d05747edc16a7c7af6d67a6ed6ec82ed7733881e",
+    "tools/godot_mcp/evidence/reconciled/prefix_source.txt": "02fdf72083228f197b1da97b39fc54ee40b2ddd6ca39dd8d926e63e2734c9382",
+    "tools/godot_mcp/evidence/reconciled/prepush_authority.txt": "bdf9cb86c4617c8d14060af05c5ea2e8135049ffd96d4f1f4bb347d3e51f7013",
+    "tools/godot_mcp/evidence/reconciled/prepush_coverage.txt": "a07015674387de03989d3f8eabdd2bb2f28fd8a9513d4c54fbed2ee29e3b4ebb",
+    "tools/godot_mcp/evidence/reconciled/scope.txt": "d840938f0b3f64f8754f2d5ac31bf3a4fa21de1dfa73166fb4102d27bce88ff2",
+    "tools/godot_mcp/evidence/reconciled/standalone.txt": "3b8525d8efa5b8c8be620f0f6ad06d1e39c8c8e0d3b0171bf5ef83dc1973dce3"
+  },
+  "git_byte_mapping": {
+    ".codex/config.toml": {
+      "tested_working_sha256": "c1c4059dd63d0aed5a25dce695747ac4ed02fb0567b1a7accd45f5142d62ffc2",
+      "git_blob_sha256": "654c3370b3f2691bac94dcff56e32e8322c35b7c7bf81a25721303b6a86d7174",
+      "normalization": "CRLF_to_LF"
+    },
+    ".mcp.json": {
+      "tested_working_sha256": "a5f7d501f8679e4d0ffcbdd49c9aadb4809b9d4a81a3fafe1c9aabccc9ba1d82",
+      "git_blob_sha256": "53f680734f0ba89e27f3a447339e5e11f9a3032c46a4315c92f1e41a21d185ab",
+      "normalization": "CRLF_to_LF"
+    },
+    ".gitattributes": {
+      "tested_working_sha256": "a9c03aa6c7412f1c238f5b1749b2a6855ce7891f2b48081224071963f3b6ebe9",
+      "git_blob_sha256": "a9c03aa6c7412f1c238f5b1749b2a6855ce7891f2b48081224071963f3b6ebe9",
+      "normalization": "byte_exact"
+    },
+    ".gitignore": {
+      "tested_working_sha256": "c2d1fdaa4417765ece77df338d9ea6dd6066c23d78d3c3852938974c1d768fb1",
+      "git_blob_sha256": "6778e2f177df2a5bc6a4e1032925a9deb99aa4964802100c4da8a4210b9693bd",
+      "normalization": "CRLF_to_LF"
+    },
+    "project.godot": {
+      "tested_working_sha256": "62d62e562ca352cb6fa6df9b3dae3b84ffc54439cdea901b6186158e7416e081",
+      "git_blob_sha256": "62d62e562ca352cb6fa6df9b3dae3b84ffc54439cdea901b6186158e7416e081",
+      "normalization": "byte_exact"
+    },
+    "tools/audit_game_2d.py": {
+      "tested_working_sha256": "865987b898ac722ced22102f46488093b1e2b84809ca34d3ab96c7b160c80da0",
+      "git_blob_sha256": "865987b898ac722ced22102f46488093b1e2b84809ca34d3ab96c7b160c80da0",
+      "normalization": "byte_exact"
+    },
+    "tools/godot_mcp/addon_manifest.json": {
+      "tested_working_sha256": "e8682258f8c21243a734d4c9e54aea2dd7644e5f54f825d40fece275ac391109",
+      "git_blob_sha256": "e8682258f8c21243a734d4c9e54aea2dd7644e5f54f825d40fece275ac391109",
+      "normalization": "byte_exact"
+    },
+    "tools/godot_mcp/package.json": {
+      "tested_working_sha256": "2b5e6302393c1f0c332d04d975f0531f8cc467321323ac6fd26436b98fc854ca",
+      "git_blob_sha256": "2b5e6302393c1f0c332d04d975f0531f8cc467321323ac6fd26436b98fc854ca",
+      "normalization": "byte_exact"
+    },
+    "tools/godot_mcp/package-lock.json": {
+      "tested_working_sha256": "0c61d484fa19a3ecc6dcd39d7e2fceb3411d74b5b57edd8ca7c60e2cc952b8c9",
+      "git_blob_sha256": "0c61d484fa19a3ecc6dcd39d7e2fceb3411d74b5b57edd8ca7c60e2cc952b8c9",
+      "normalization": "byte_exact"
+    },
+    "tools/godot_mcp/probe_inactive.gd": {
+      "tested_working_sha256": "55c7c9b81b78a27d5ffeb4b31b4c68c852fa209e543e712c790f14dc79e594bb",
+      "git_blob_sha256": "55c7c9b81b78a27d5ffeb4b31b4c68c852fa209e543e712c790f14dc79e594bb",
+      "normalization": "byte_exact"
+    },
+    "tools/godot_mcp/smoke.mjs": {
+      "tested_working_sha256": "7dc0523e7906c68d9976e799612f4da3bd5f5301a91b1239a7eb9245f51e5a03",
+      "git_blob_sha256": "7dc0523e7906c68d9976e799612f4da3bd5f5301a91b1239a7eb9245f51e5a03",
+      "normalization": "byte_exact"
+    },
+    "tools/tests/test_godot_mcp_scope.py": {
+      "tested_working_sha256": "25ae9b86b731849810c370916a48cc856c0b42bb448148709a50e8be6791c1bd",
+      "git_blob_sha256": "25ae9b86b731849810c370916a48cc856c0b42bb448148709a50e8be6791c1bd",
+      "normalization": "byte_exact"
+    },
+    "tools/tests/test_audit_game_2d.py": {
+      "tested_working_sha256": "91276cf13bb6434fdbba7c868325cb36cbdb99e2aedf911a6c3a10298dcd0577",
+      "git_blob_sha256": "e40deeca7495b21d562d6cc5cdd7fdc916d2f4e71c282cffea28b8756042bb02",
+      "normalization": "CRLF_to_LF"
+    },
+    "scripts/probe_fetch.gd": {
+      "tested_working_sha256": "45c4d924503941dbf5b169bf6e68cc702745ba8e80f213c5c5833620098417aa",
+      "git_blob_sha256": "f005138c7534b4a5e1001c29f291b6201e619600a1566dc6f92b9250aed11783",
+      "normalization": "CRLF_to_LF"
+    },
+    "scripts/probe_skins.gd": {
+      "tested_working_sha256": "dd1e7576cf064180e4a58b2161caace1c060e8f59591ff2af0bb41d18150c1fd",
+      "git_blob_sha256": "b3358034386ca791e3613373cb833db8c3a87d8b71b3f51251ce3a20bed91ff2",
+      "normalization": "CRLF_to_LF"
+    },
+    "scripts/probe_verbs.gd": {
+      "tested_working_sha256": "3ea72d493d5675dd51ea311f41c76fda0d3bb3ccf31b86d799156e85ddd971ef",
+      "git_blob_sha256": "85e8d251c54edf0000c41d48fa09dec8070990fa6ad5fb76d99ebe7a297eb011",
+      "normalization": "CRLF_to_LF"
+    },
+    "scripts/games/dolls.gd": {
+      "tested_working_sha256": "31a15f83048c87b2806dfc8df13386585b1a865f1b69704f3fdb0f4f769be482",
+      "git_blob_sha256": "10cfa789c8c309e7701f78434b99f1e8578d5931505831c38c1c657d03bc5ba6",
+      "normalization": "CRLF_to_LF"
+    }
+  },
+  "newline_scope": "Native snapshots bind Windows working bytes; existing Git text normalization applies to selected owned files. Mapping verifies normalization is CRLF-to-LF only. Vendor payload, package lock and raw evidence preserve exact bytes via attributes; every staged vendor blob matches the authenticated manifest.",
+  "implementation_commit": "f0295f3b347320f1c03391c7a8fb212270c761c9",
+  "latest_reconciled_dev": "94c2a91512d2216deb26651f670469432c8f4242",
+  "metadata_reconciliation": {
+    "changed_incoming_paths": [
+      "design/audit_impacts/godot-mcp-editor-bridge-20261105.json"
+    ],
+    "scope": "Only the concurrent MCP impact record is added, including its latest wording correction; all implementation Git blobs remain exact at the verified source commit.",
+    "incoming_commit": "94c2a91512d2216deb26651f670469432c8f4242"
+  },
+  "runtime_implementation_commit": "f0295f3b347320f1c03391c7a8fb212270c761c9",
+  "export_notice_packaging": {
+    "proof": "tools/godot_mcp/evidence/export_notices/proof.json",
+    "result": "PASS",
+    "scope": "Exact4.7.2 generic Windows resource-pack export with real include/exclude filter values; both live presets have identical filters. Empty separate consumer project prevents unpacked-source fallback. This is notice-byte packaging proof, not a full Android APK/signing/device claim.",
+    "preset_sha256": "407f3d678e9c48841535f0af5bcede02444f5b671fc3c11657b6a08a0128e5e8",
+    "runtime_scope": "All17 bound implementation paths and all addon payload bytes remain exact from f0295f3b; the sole later configuration change adds two notice include paths to export_presets.cfg. The82-probe snapshot predates this export-only change.",
+    "git_blob_sha256": "1f73b529adc8663cea6447b1966878eeb81fef56a871cee022ebbbf627152c40",
+    "working_sha256": "407f3d678e9c48841535f0af5bcede02444f5b671fc3c11657b6a08a0128e5e8",
+    "only_change_verified": "Removing the two notice include prefixes reproduces the prior Git blob exactly.",
+    "evidence_sha256": {
+      "tools/godot_mcp/evidence/export_notices/authority.txt": "bdf9cb86c4617c8d14060af05c5ea2e8135049ffd96d4f1f4bb347d3e51f7013",
+      "tools/godot_mcp/evidence/export_notices/baseline_export.txt": "72d905f17eeebde677f903e6d7eb0fd5514cdfdbfedfbf4fd0cb95b7dca012bc",
+      "tools/godot_mcp/evidence/export_notices/baseline_verify.txt": "ccb0a1049a65ffbe22550f1844f3b8c1b5bc86e0d8f9cc8a401c708a0f882212",
+      "tools/godot_mcp/evidence/export_notices/candidate_export.txt": "9030c5253bf87b3970a5e847c6f83a23751bbe77a957c188454fc01b0f36730b",
+      "tools/godot_mcp/evidence/export_notices/candidate_preset_source.txt": "562b415fbaa8edf46a751b5599add8e686453aa4b073ac5ecb99c3e1d9d39f01",
+      "tools/godot_mcp/evidence/export_notices/candidate_verify.txt": "4b166563a932c951aa1dd72d87396d2c6f242c2c1e48b9484b99fa6f8ec2a971",
+      "tools/godot_mcp/evidence/export_notices/coverage.txt": "a07015674387de03989d3f8eabdd2bb2f28fd8a9513d4c54fbed2ee29e3b4ebb",
+      "tools/godot_mcp/evidence/export_notices/diff_check.txt": "86cbb641eece11b5c2412cf5f0f8e87edcba5dc67e258ea8b084c43d8148f4b6",
+      "tools/godot_mcp/evidence/export_notices/fixture_project_source.txt": "7ac1276471f3e3c4b69ca87f7797e2663cc7e1c344b3fc4567b61edfea0ce28f",
+      "tools/godot_mcp/evidence/export_notices/game2d.txt": "4022b0d0dd00dd5e333ac2fdd5684e1ec48df71542d261cc30972ea71a23d6d5",
+      "tools/godot_mcp/evidence/export_notices/import.txt": "b728de0c23f24d9aa31bc7608b177d7ca13857d7c3aca862a08506d00675123b",
+      "tools/godot_mcp/evidence/export_notices/proof.json": "05f7c02dcd8cc4424e1e997790d274585995b3c1514b299eb74a5c48417527ca",
+      "tools/godot_mcp/evidence/export_notices/verifier_source.txt": "de582a177fd60bbdbba7d4a175cd646eea4a0b3410d36dc605d21b1806c52f3a"
+    }
+  }
+}

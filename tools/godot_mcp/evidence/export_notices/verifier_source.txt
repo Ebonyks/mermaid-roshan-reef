@@ -1,0 +1,21 @@
+extends SceneTree
+
+func _initialize() -> void:
+	var args: PackedStringArray = OS.get_cmdline_user_args()
+	if not ProjectSettings.load_resource_pack(args[0], true):
+		printerr("MCPNOTICE|FAIL|Cannot load pack")
+		quit(1)
+		return
+	var expected: Dictionary = {"res://addons/godot_mcp/LICENSE": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241", "res://addons/godot_mcp/LICENSE.txt": "b800a52c77c8ac924a16bbd34136fe2877f477efac1eaa1af7af0c36703d8966"}
+	var failed: bool = false
+	for key: Variant in expected:
+		var path: String = str(key)
+		if FileAccess.file_exists(path):
+			var digest: String = FileAccess.get_sha256(path)
+			print("MCPNOTICE|FILE|" + path + "|" + digest)
+			failed = failed or digest != str(expected[key])
+		else:
+			print("MCPNOTICE|FILE|" + path + "|MISSING")
+			failed = failed or args[1] == "candidate"
+	print("MCPNOTICE|RESULT|" + ("FAIL" if failed else "OK"))
+	quit(1 if failed else 0)

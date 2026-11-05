@@ -1,0 +1,1113 @@
+{
+  "recorded_at_utc": "2026-11-05T19:05:01.265616+00:00",
+  "incoming_dev": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+  "prior_topic_head": "df13b0a958f9079a82235ef965bb0367f1d477df",
+  "change_id": "CHG-148",
+  "result": "PASS_LOCAL_PER_PROBE_WITH_RETAINED_FAILURE",
+  "native_full82": "FAIL",
+  "native_primary_passes": 81,
+  "native_primary_failures": 1,
+  "isolated_start_new_result": "PASS",
+  "aggregate_native82": "PASS_PER_PROBE_WITH_RETAINED_PRIMARY_FAILURE",
+  "headless_display_only_skip": [
+    "probe_human_art_audit"
+  ],
+  "assertion_probe_coverage": 81,
+  "canonical_command_count": 82,
+  "skip_scope": "The canonical command roster includes one zero-exit HEADLESS SKIP display-only capture. It is not assertion-based or rendered/human acceptance; raw driver PASS is an exit-status classification only.",
+  "source_snapshot": {
+    "runtime_art_sha256": {
+      "assets/dolls/progress_empty_painted.png": "33f4460f116add379f27ff172363bfd43b36a3f7378e58aa4866ea9e9f3d6161",
+      "assets/dolls/progress_filled_painted.png": "c93096eebb7213bddc36bc02d770e5e5ed6eb934e8129561ae127d5f6b0f1b58",
+      "assets/melody/crown_header_painted.png": "3865d7d6801d5688d5c7aa41c4d6cd5e1e2f3310a3a80638d3e7a884aa91419e",
+      "assets/melody/crown_header_painted.png.import": "82b9a193a333672946fc92dd1e41a3615351eafa9e0116ad5dd2fd20ac39f2c8",
+      "assets/melody/curtain_left_painted.png": "e9c0c4c107c16b51508109781ce2e39aa8b61289a1db545676648085bd9c43c8",
+      "assets/melody/curtain_left_painted.png.import": "a7099f189a959639c42226adc7b248f9d97e767b9a3bfceda3b0f6aa64ec056a",
+      "assets/melody/curtain_right_painted.png": "4dfe744ce24b4d536256ae783edb2cff508268c8e7dd0e4b1b16c2f7821f2d4e",
+      "assets/melody/curtain_right_painted.png.import": "507a8e9517e878b217f7db7c50f58dc8ffb15a83b8dd78191aa3b21fd3f30acc",
+      "assets/melody/footlight_green.png": "89573cd0da3fa3c12c0ef3637e179f1e8724f0bf2ade95c42f6a76d44666ffcd",
+      "assets/melody/footlight_green.png.import": "8478ecc94463a30c63bbe436c76da12ee24b4550122f251e127c805ad0273df1",
+      "assets/melody/footlight_orange.png": "4de72f443c95b9916b1f3bde03a1a121c02e3f5bd2eacd517d8e455c75228b16",
+      "assets/melody/footlight_orange.png.import": "8ba064fdfe03fad957ea544d32d8d5c13acfcf0412ac9d586b85ff0ac7b56ed6",
+      "assets/melody/footlight_periwinkle.png": "55e40d08fc49dd481cf47618e257ffb48181bc07644f130b8380b819e6625eb3",
+      "assets/melody/footlight_periwinkle.png.import": "5de5946c8512ae2cda028c10360b2ab83d165aafd56c2235f75703c0cd356478",
+      "assets/melody/footlight_purple.png": "e0a23b4ca38a7d9f8c4c7184d378cd3efe5568fc79bb5dee03b10891beeb0ce7",
+      "assets/melody/footlight_purple.png.import": "e49ab09ddf2037fe73f1c75944d9fc156dd8f3f991db6bfa62037ce502a733bc",
+      "assets/melody/footlight_rail_painted.png": "50018caeaa9ceb61fb7dedb53343b19cd7d16d413df2a595459e4abffd42b813",
+      "assets/melody/footlight_rail_painted.png.import": "676a7ef8fbc0c8dc26057ee3702bc39356526339eea23c70d538f13621515b87",
+      "assets/melody/footlight_red.png": "2038c40b6546a6f2a62af9a1e28d24252f8381381fa22a240814bb074387d61e",
+      "assets/melody/footlight_red.png.import": "85cdfe2ce74035acc062db62555eca670f1c3582f54a4f3b9d1f188ecfe21bdc",
+      "assets/melody/footlight_sky_blue.png": "10da6826c6c18cef931664be8977c1e8080a99a875aa3de86c6da0990d6e9bd6",
+      "assets/melody/footlight_sky_blue.png.import": "c032aa788b9a78ec17ef0d9646af09b8ee0ff5ad31a696f47f703ca801bb7fad",
+      "assets/melody/footlight_yellow.png": "e2e950b8dfca5f6fac8ece0f439bb32ff0b64794b03e8c8678a9f5f1405b2a53",
+      "assets/melody/footlight_yellow.png.import": "db40a4523755d77639d19ba90d06c136691952a9a0d12ae6f8153582da7c9914",
+      "assets/melody/guide_arrow_head_painted.png": "102ffb6caabc034f8ea534d0d181d0ec0dbd2d1210b62c3aaf2d81b6cdb88d87",
+      "assets/melody/guide_arrow_head_painted.png.import": "bbe63e7683c278a8722b14ff4d3d5003e9c70b8af51031fa95ef11fa9d4e59c5",
+      "assets/melody/guide_beam_painted.png": "638cc29b254ecfc90995019d09656edccf479d599a51743a3954ec5872b6adb0",
+      "assets/melody/guide_beam_painted.png.import": "9e0380f327e0f0c5f4792048a338507a9d3f2c5ca9bcd4d118ba445468f0a418",
+      "assets/melody/guide_double_ring_painted.png": "2fd0371e2483e94b2b5d16ba782d8549c59e87436730541a64f2ff367cc57878",
+      "assets/melody/guide_double_ring_painted.png.import": "0d064d99cc14c92975aae6ce4407842624653611608fde9f0919a5a4266748a4",
+      "assets/melody/mobile/curtain_left_painted.png": "5adf76d1d59b3966b1586f4bd202a4a3f5a3ed62a930433d974cd7e3cff74f30",
+      "assets/melody/mobile/curtain_left_painted.png.import": "2e34e53db334755f28287aa167cad836ad0de2ead10c2a66497d29426808c255",
+      "assets/melody/mobile/curtain_right_painted.png": "0840554754b88d944dd1fe8529a38eac877165c70c708e017e5ab045cca0ff8f",
+      "assets/melody/mobile/curtain_right_painted.png.import": "ac21624df162cdbc02c5f68c6cd83cf7f9399422c666871ec8c1aa51b6e1fccc",
+      "assets/melody/mobile/daddy.png": "817b9ce280a31344436c2a8fc800d5dec893f2541ec5ad5581e656922e014887",
+      "assets/melody/mobile/daddy.png.import": "05c7b204c8a9bac432d01770125fbd53f53b03277497dbbf7e1e5cf898cda2db",
+      "assets/melody/mobile/footlight_green.png": "0a9c33bb3c5f767504408c2333cdca6a9d5b3f5b0d6e3ef0683b7bd94b03def2",
+      "assets/melody/mobile/footlight_green.png.import": "06ee45ec68bfa16b17d5eb2c559c84c3b4b589d1c4ba9ebe647e6a223ea269f5",
+      "assets/melody/mobile/footlight_orange.png": "bbfe599ea0f4dfd8bbefe1c05948e15c2b7c2b4dd2be7cab91a1fdf06430463a",
+      "assets/melody/mobile/footlight_orange.png.import": "29e488fb0710b96ab7fa6b125a119d750683ce350e7e3dc2a0ae4c08f293e671",
+      "assets/melody/mobile/footlight_periwinkle.png": "03cbca2fdb701edfdc2c9672f5147ff13539f25ea40abb859f90e7575e420c58",
+      "assets/melody/mobile/footlight_periwinkle.png.import": "668fec2400cd5adf7d4cf559e7829d8e8d53188bce0aaaeb9a2d0c8743b3c612",
+      "assets/melody/mobile/footlight_purple.png": "0574142f21ef6f81f624287806e4513d161a8215bbdd94859035eeb4b6347059",
+      "assets/melody/mobile/footlight_purple.png.import": "b75db54a507dfe6c3b0d434c70e74da812b4148e58f58c48712079b99f06a0ea",
+      "assets/melody/mobile/footlight_red.png": "7bd75dc8783c1ef80ea6fd8e7c3295906824e0e27426f335398095b16f4ea3a0",
+      "assets/melody/mobile/footlight_red.png.import": "2a0967c014d11a0f4396ed0bd36061fa3e63de50adb2c299a17487bec0bf4736",
+      "assets/melody/mobile/footlight_sky_blue.png": "5e49ea7b473d4f7e50fe4e8210866e590f15eb5d8fd232131760cce1804ef00f",
+      "assets/melody/mobile/footlight_sky_blue.png.import": "caf76b1c4697d668ff3c92100e7eb842fad88f8f80a019fc6eff71d215723286",
+      "assets/melody/mobile/footlight_yellow.png": "e3fd6e28d52558031cf39e5cadfbf2a7b105a46ebc5fa83629cc1bd928e0f341",
+      "assets/melody/mobile/footlight_yellow.png.import": "995d7858c57b1495070ffa3caed201a96e82a15081fc9b235870434f61440c99",
+      "assets/melody/mobile/progress_pip_current_blue_painted.png": "f6ee7ab463b8523cb8c3dd6f3f160b65581937423cf8b3e0f05d2c79d0805fa4",
+      "assets/melody/mobile/progress_pip_current_blue_painted.png.import": "401a4fcc4f661e9da0ceef48a242cd5f95b70a960db1c29b57170599dd5ec7f4",
+      "assets/melody/mobile/progress_pip_current_green_painted.png": "ff371611699d41819217d26d4bf7beb4af0901f59f68ec9fbd95aa1116f4ddec",
+      "assets/melody/mobile/progress_pip_current_green_painted.png.import": "f1392e6f1b1b9a710601c3ed80cdf2c7adbc3362acf49bbea3962272cfda443d",
+      "assets/melody/mobile/progress_pip_current_indigo_painted.png": "31ceb443be056a459ed78994bb9875381231ad3fb6a34bfc35e116b68e44976a",
+      "assets/melody/mobile/progress_pip_current_indigo_painted.png.import": "e0dee314418f98732a3be9e5e00239ced9baf6c57783cf918db52080ed0b4f47",
+      "assets/melody/mobile/progress_pip_current_orange_painted.png": "f53c71fecf55f09ac4b9b39f585ddb1687519825c3d130e7d449a9b9d319cd77",
+      "assets/melody/mobile/progress_pip_current_orange_painted.png.import": "4290b7d7f3d5b88ba71213a3b61c7c16ca13176452a2a33aaca5a56ea655b257",
+      "assets/melody/mobile/progress_pip_current_red_painted.png": "8c602d8644de697945e71fb7571cd9a73dfe3ff235a576d2546e4941b064952c",
+      "assets/melody/mobile/progress_pip_current_red_painted.png.import": "9bdac8c1eeb5261cd0adcb491cfd54b967358371f2666eb5779da94878990bf5",
+      "assets/melody/mobile/progress_pip_current_violet_painted.png": "7a494556cd92daa74b38f4da00e9cb50b0f83e5e1dc91476ddf11bb95b0ebd81",
+      "assets/melody/mobile/progress_pip_current_violet_painted.png.import": "ee799db221a4376235e69682a04fed774b14fc429a5edca07b9ebe0ce2bfe3d7",
+      "assets/melody/mobile/progress_pip_current_yellow_painted.png": "87d6a9a62933e554f02629fe733e4c4852433b5d128473f0a226a24ece1c66ae",
+      "assets/melody/mobile/progress_pip_current_yellow_painted.png.import": "8c5b7828ddca6153079a61ebb64e0d3f4fa02ee60a8443861820e144f3a9a80b",
+      "assets/melody/mobile/progress_pip_filled_blue_painted.png": "ee7cd4d27686fd4272a0ccc6de7928f61b6f47ec9f15d2067cad827f237f736a",
+      "assets/melody/mobile/progress_pip_filled_blue_painted.png.import": "d4eafdcb290621b92cc30370e0ea20d9f3fc01c3c38e155d2a6bfc8fc581c679",
+      "assets/melody/mobile/progress_pip_filled_green_painted.png": "ce4ccbee30c0439c1124bd2c754b41f336eb012baeb3ca9f3e0094a8f60574cd",
+      "assets/melody/mobile/progress_pip_filled_green_painted.png.import": "5c4565dc7dc0a061199d53a636b20bd68d888e6458d07858eb25898b4be21284",
+      "assets/melody/mobile/progress_pip_filled_indigo_painted.png": "a57c2671f088b6602ca740109eeff34efb5bd340e961c9c21c9fb519383fe955",
+      "assets/melody/mobile/progress_pip_filled_indigo_painted.png.import": "1c5c8833050b28711446234b0e10845b0ac3e9ee8c433d85dfb1fee4260bc298",
+      "assets/melody/mobile/progress_pip_filled_orange_painted.png": "d357e20ad1f81f522eff3bce33adde97bfc14f303e317d8d1a662be7b23e4fd9",
+      "assets/melody/mobile/progress_pip_filled_orange_painted.png.import": "1e096e16add7975b0dbfeaf7d1e7fb64f2f2c50f5c7646e78169c8b5a5fb4430",
+      "assets/melody/mobile/progress_pip_filled_red_painted.png": "c38df6fedfe896772679fd71269a02c36ef996a87e294512e9694d0c073b3ce8",
+      "assets/melody/mobile/progress_pip_filled_red_painted.png.import": "f05a87e2a8f1658fc2f327420e438a8c752cc2b2c04c908d4bfdf97ddf007b86",
+      "assets/melody/mobile/progress_pip_filled_violet_painted.png": "a89694f33d1e6d8ee84abdcd21ad0464ec50463ce5a76d39d2cd35539d3440ed",
+      "assets/melody/mobile/progress_pip_filled_violet_painted.png.import": "beebdd60c71ef6e3047208a45e8210000f50842a9448dcebe37f6f2b7e4e7f90",
+      "assets/melody/mobile/progress_pip_filled_yellow_painted.png": "a63c267bc7460f4488980ec1e82574915312d252b0e202e7b4694a17985c88eb",
+      "assets/melody/mobile/progress_pip_filled_yellow_painted.png.import": "7a2e996445df0bf180f5e10b8550ab75b47b112a2f4266848b03fad5d5255317",
+      "assets/melody/mobile/progress_pip_idle_blue_painted.png": "d219aa00d0ea77cc8c0e0178797dda74de6468eb31c9821c0f53bbf096b10e07",
+      "assets/melody/mobile/progress_pip_idle_blue_painted.png.import": "6192159f31639a99b780d54d721b0fb2495527e093c09e7f84b0857145058881",
+      "assets/melody/mobile/progress_pip_idle_green_painted.png": "823a5cb5a8d0d26578bfdf4ccf9c554776c609e717680a108d41c2ef580076e2",
+      "assets/melody/mobile/progress_pip_idle_green_painted.png.import": "651c01d5c42c813389e358bdac8870ce95708b1eadec20ec7521e718446469d9",
+      "assets/melody/mobile/progress_pip_idle_indigo_painted.png": "1ab4e45121bda1b18d4308d719ebd845cca376078336cfec3cb399e773c6c49d",
+      "assets/melody/mobile/progress_pip_idle_indigo_painted.png.import": "548236a72b880de49dcf6722d3b414209fc5d92ff68facaf7c6530af179c4660",
+      "assets/melody/mobile/progress_pip_idle_orange_painted.png": "5742f6e0794a6b32140d602589843673ce946634ee52ff500975e2e2728f7f69",
+      "assets/melody/mobile/progress_pip_idle_orange_painted.png.import": "9bd183e998b8597c309c57990733dbb64fa61ea106971494747534c66768db7b",
+      "assets/melody/mobile/progress_pip_idle_red_painted.png": "359dc047cf4ac1139fb3c7b30a5ae9839a99e697139ccd94dddb20095870b2d1",
+      "assets/melody/mobile/progress_pip_idle_red_painted.png.import": "65a9f73aeaa7e51f9c7ede342d8e2b6898e19b118b7daca2e60b94f24deefcf6",
+      "assets/melody/mobile/progress_pip_idle_violet_painted.png": "e94bdf73ea6cf052c3e23604ba723ac64ba56eb19a5c9eee853eef8c8da3e3d2",
+      "assets/melody/mobile/progress_pip_idle_violet_painted.png.import": "a849bf096c5aadf88fead0099193a8878420cf5b608cfb3d20cad65a387f521c",
+      "assets/melody/mobile/progress_pip_idle_yellow_painted.png": "e3abef716c5b3b0504178ac2c411a6f77b2dcbc2a6d659155e9715ff6c0ea699",
+      "assets/melody/mobile/progress_pip_idle_yellow_painted.png.import": "591b4811a14441bf73b65355d62e0e0a9fe2a7d848344659afcc91ebb7b3e5f6",
+      "assets/melody/mobile/rainbow_note_blue_painted.png": "e7a362f1574b67d5b49b23539aa1dd9b2745d782e0a36bcc595d1415401e006a",
+      "assets/melody/mobile/rainbow_note_blue_painted.png.import": "a842cba41a9220971ccfa8f931158f73d2d0ce9fb8b5f405f113eb8fbfa93967",
+      "assets/melody/mobile/rainbow_note_green_painted.png": "e5eefee584b30816d1ce367d3d1f511760725233a9f1e5be7424a9c9457b83a5",
+      "assets/melody/mobile/rainbow_note_green_painted.png.import": "14a836e3b71ae5b9f2d4e54a0775c6f632d964d832da71ecb6f6a502ccd37bc1",
+      "assets/melody/mobile/rainbow_note_indigo_painted.png": "1c833f698b766f70da8c4f131e2a8f6bd1c7801ffd68d265cfa6c34b2d626fc5",
+      "assets/melody/mobile/rainbow_note_indigo_painted.png.import": "6d5c1b0cb70532ebbcb881b96943b4412dc107c27a02663d4a96e4396144a146",
+      "assets/melody/mobile/rainbow_note_orange_painted.png": "1717e195d81072d4c935275d7bd980d087ee4a1b20634640df73a69947e0aade",
+      "assets/melody/mobile/rainbow_note_orange_painted.png.import": "768190f635398130e310e6d4a1b56d5b88d7f69cf9796495bfa0079d02c0e954",
+      "assets/melody/mobile/rainbow_note_red_painted.png": "8cc34e6ae22dad44ae602613788ceaea629a0b8199c8eed9795cb9932dec091b",
+      "assets/melody/mobile/rainbow_note_red_painted.png.import": "0da40c1ea0e4eb53df7534d26b7aebef547879ec873082b3004d02a861be9e45",
+      "assets/melody/mobile/rainbow_note_violet_painted.png": "eed74ab7c8305feac0ef6b6e5df62ba44c31bee38c67b26da5c1f5e38683e8ba",
+      "assets/melody/mobile/rainbow_note_violet_painted.png.import": "56a5eda8c8b69b4300cdfc929ae662e64cc1d977282bada9f6fbb9fae02ea01e",
+      "assets/melody/mobile/rainbow_note_yellow_painted.png": "d61c552c051d0f5ce376bd91387591ba2a9804030d36703c471efaf499d098b4",
+      "assets/melody/mobile/rainbow_note_yellow_painted.png.import": "93dca119c573b07851243cd6ed9a5f105b25c2489bb5068cc8e7b9ed1f0260ca",
+      "assets/melody/mobile/roshan_popstar.png": "a53faa148653ea1988e1ceea711d243323412ddc46e2c4037aa671136d2e0cd1",
+      "assets/melody/mobile/roshan_popstar.png.import": "7b8151c62b876a0bb9f6d2ddc586c22cc4b9f64f599a925e72163c8de14fe609",
+      "assets/melody/mobile/star_painted.png": "927f3d10440f93fcfac2123a4e1e51cd3caeb94713262400f6257934707ce103",
+      "assets/melody/mobile/star_painted.png.import": "3cc3b6b505d8c087f92eb57cdc0ebb4660fc1b93d654fd48996e4d6047efd9d7",
+      "assets/melody/progress_pip_current_blue_painted.png": "9315090d77bd38d3c37e5a51cf8422b8c408d04cd4413fa099b899fcd06f9b11",
+      "assets/melody/progress_pip_current_blue_painted.png.import": "b3b99fb15e7fa8d5a3781f493971c9552f288a24d8a95a0995dfb38d702b4379",
+      "assets/melody/progress_pip_current_green_painted.png": "83481cdaf3f8e3665228e432d90be009eae87be31f8edb728b60b00903fc5e28",
+      "assets/melody/progress_pip_current_green_painted.png.import": "05d9156463a8bb3a1b45ebcb0bf87f41f6c31198cb770587335956c322a05b96",
+      "assets/melody/progress_pip_current_indigo_painted.png": "4a06f82e29d492f6130574e0d203fa3ca7797f1d8d1b81b73e88b112d11d9b77",
+      "assets/melody/progress_pip_current_indigo_painted.png.import": "0d97ad7e17e5ef4d5599d27baab4c5e80c253db57b1a7a37d1f2c0aea3c73db8",
+      "assets/melody/progress_pip_current_orange_painted.png": "d7770b7601cd3891ce1d614bc22065808a660298617cc82082642bf0b4ad2a1b",
+      "assets/melody/progress_pip_current_orange_painted.png.import": "159f771f3ffce4e8c8937994e17e1b06c579b6ba00fe8ce2554f048e4f82c6e2",
+      "assets/melody/progress_pip_current_red_painted.png": "e9a12bfd56934a9a7c5787398dbfe9568d3d2f1381acbf0f126e997ef4a9e494",
+      "assets/melody/progress_pip_current_red_painted.png.import": "fb708df00bc22075041fdedcc4174d8b678754a3c40160563025b2dad3f8c5be",
+      "assets/melody/progress_pip_current_violet_painted.png": "1d9cfa232e530e9c4e14ab0f2690f1101cb609a8506074395e388128fb9a0cc2",
+      "assets/melody/progress_pip_current_violet_painted.png.import": "c8d9fe43542fc7dd3b58d3ed03e531381f4c102b5b606bef0428441ae11acf25",
+      "assets/melody/progress_pip_current_yellow_painted.png": "167b573580690da9d23a181a3490d6a26d27a140eb5efbcdcec27cbbc274a109",
+      "assets/melody/progress_pip_current_yellow_painted.png.import": "2a5fbab07a0ae02a84ceb2c717063ec351f8180130f34693d11c150066f7f51f",
+      "assets/melody/progress_pip_filled_blue_painted.png": "f9961374ffe822af8eb2f8a087ee8637265c792caee539f9da0a1ac945de5421",
+      "assets/melody/progress_pip_filled_blue_painted.png.import": "e95a9f5a0e0a74c62f0a033a574b7e58d72856e778da0dd6af5f82bf6bc26279",
+      "assets/melody/progress_pip_filled_green_painted.png": "8b8f065b358e28deb320ce23f0ce1a00f20e006ea4602d241efd4204371316a0",
+      "assets/melody/progress_pip_filled_green_painted.png.import": "b8a8e0dca3b16c8fffffecad1ba8ff235c6343db3a958679ccc01cc234acf657",
+      "assets/melody/progress_pip_filled_indigo_painted.png": "ff5ca08c3237ffc32d31ef90ca92eb6b991ff87ce1a3ea2e11a5c48edfd5c78e",
+      "assets/melody/progress_pip_filled_indigo_painted.png.import": "3bbc26038a6514eb55dd4696aec3d54876b1e606d7bd1c18d1e47a28f3fdcdaa",
+      "assets/melody/progress_pip_filled_orange_painted.png": "3ef0627f259720318e7d1f0ba9770b96464ef7d4adb5c497c412943b01f12508",
+      "assets/melody/progress_pip_filled_orange_painted.png.import": "d5ba600f5c11d393f3848fdbb31e655dce3eb8755ac8bf4f855a0a891b412d6e",
+      "assets/melody/progress_pip_filled_red_painted.png": "9b4ba704beabfcf5e3f33d5da6f856ab50c0c3283593be307000b942650fe92a",
+      "assets/melody/progress_pip_filled_red_painted.png.import": "488d98619baf9ed7fd5e61ae781e29ddbbe3c6aa2177e67e16975b3c4c47827f",
+      "assets/melody/progress_pip_filled_violet_painted.png": "3839641ac6b8c11d7619df92e566da9fe8022f19f10e2fe5335f21175106d5d5",
+      "assets/melody/progress_pip_filled_violet_painted.png.import": "886e4724d1f6e6c76f844b07761201f72813d180f32a99129d2252bfcd232fe4",
+      "assets/melody/progress_pip_filled_yellow_painted.png": "2511f899af13ada340fb34cd0a51e180cfe2daac82283a9b2d3b8f00a771dfc8",
+      "assets/melody/progress_pip_filled_yellow_painted.png.import": "0126a0cac7b9bab5b5d2c86bee3177824d4b1da4fe578f9af8344c0b47c31f43",
+      "assets/melody/progress_pip_idle_blue_painted.png": "bf334cb5b7b4b61926b83cf6ecd20d7fa5005db0cc2e4755050b11a8b3671fe4",
+      "assets/melody/progress_pip_idle_blue_painted.png.import": "dd0e539402520059e10333a583c6a2e35c84bb31e77231ca330c54438ebe5fe7",
+      "assets/melody/progress_pip_idle_green_painted.png": "08e6b0b89b062ac98755c163c5d22c1d9c1855126b585c1d0b14590ea31a52fd",
+      "assets/melody/progress_pip_idle_green_painted.png.import": "1d41027e9841c5bc508d7240a953a169516653d4ebcc93a66e71244a67a5ae5d",
+      "assets/melody/progress_pip_idle_indigo_painted.png": "dc4afb1485f1492060d22d1014f6c65c33e99063d326aab9d0c37c5b49c6ddd0",
+      "assets/melody/progress_pip_idle_indigo_painted.png.import": "b512558f06836df839da0daaa6389058a3361512099de7ea31937da6f04d507d",
+      "assets/melody/progress_pip_idle_orange_painted.png": "17733b77a4fd8e497738ed541b845c39ed83135096749b3043dd835631179b1b",
+      "assets/melody/progress_pip_idle_orange_painted.png.import": "b99683ca5db2b2e7dd39dc482dc65406d916230120613b06a4e3099530fb87fb",
+      "assets/melody/progress_pip_idle_red_painted.png": "d0917d181d9890eefb93f15ee14e92c2da766d4c202230512494684d3c332f3f",
+      "assets/melody/progress_pip_idle_red_painted.png.import": "c390bf8847009836b1478ae3d5da704a8a188dfb156a82e5d1247cbdf8c4a8ae",
+      "assets/melody/progress_pip_idle_violet_painted.png": "301798f5bd6ea2dcfd714345d2619a59d1a9b8c6779e159d48d20e2fe7d8a40e",
+      "assets/melody/progress_pip_idle_violet_painted.png.import": "c22ec1a3cb6f2f0c291295093101d4fa0f14cfc340cfb8785bc999ab970e64c5",
+      "assets/melody/progress_pip_idle_yellow_painted.png": "175d3bbaab4232f7193afd9810bcd1f86cbee7553604cd12ba029add6ee71da6",
+      "assets/melody/progress_pip_idle_yellow_painted.png.import": "f3e056ee3adce825640ccc94e73afcf31a8c2a6d5bd0921b612202199becf9f5",
+      "assets/melody/rainbow_note_blue_painted.png": "6fa514888498221dfd0727fd5c70c5362a8ed63bfcb5d15f728949ef7d8b70c1",
+      "assets/melody/rainbow_note_blue_painted.png.import": "4935d9e0129c20e811a0fcdbd854e31d86edf12d27393dac545786844a022e76",
+      "assets/melody/rainbow_note_green_painted.png": "1ae079c7d022ebe03a06809094521f02ef524df546a007315e302cf843437429",
+      "assets/melody/rainbow_note_green_painted.png.import": "da1759f85be48b3c0045e9d1a6623571aa085878fe342ac8a1664f295338eafb",
+      "assets/melody/rainbow_note_indigo_painted.png": "14d78588224523486f01611a18d6a10e87ff1d2c263d9865b29a7b7f94fae7e2",
+      "assets/melody/rainbow_note_indigo_painted.png.import": "a0a8183e1d6b5b1afaf5fb6ca442877d158dde1b9abb2b143d93f392f3e05790",
+      "assets/melody/rainbow_note_orange_painted.png": "83cf5aba818c6f7101dfd319f5d355d09119efd5d8e21e45b957300f2c134567",
+      "assets/melody/rainbow_note_orange_painted.png.import": "2dd37c8afdf2087063a9fc5126b004a763a15a3c8ff5f7cfb0186ae156662762",
+      "assets/melody/rainbow_note_red_painted.png": "8e31e25551ba1af58467581c924460edcbb4940e4724b4c122dabae404196aa6",
+      "assets/melody/rainbow_note_red_painted.png.import": "ffbf7d4875f9d4f390997d6f5663c9fa49cacf4b894826d85a97c16163078d18",
+      "assets/melody/rainbow_note_violet_painted.png": "3dfa929249a8c829b9b5d118197420144a3d2ae5367ba81c12b0abc4e7c20593",
+      "assets/melody/rainbow_note_violet_painted.png.import": "823e87184d1b085537dc608f61209513b52246870bf3fe5e039a71788bd3ffc8",
+      "assets/melody/rainbow_note_yellow_painted.png": "a7a5ee15af599870188d4c95b5f95795373d90c6741c3c13605926625dfe14ba",
+      "assets/melody/rainbow_note_yellow_painted.png.import": "776d631d4446cd19031241641839af076e5a1df89f0102ad25f2dcc778a6fdbd",
+      "assets/melody/stage_apron_painted.png": "1fd0435da5bc651a814a665e13a621b6c248371179f65935b906e5c79b5351ee",
+      "assets/melody/stage_apron_painted.png.import": "6a3cf1eede65c11f207c4a35fa4e0c2ae000ab48f40a9c334dda084a5b0bb4d0",
+      "assets/melody/stage_apron_rainbow_painted.png": "b06b424cad29a673b76139a2258e7408e0df816e2aab2469ed8b05e074101d9c",
+      "assets/melody/stage_apron_rainbow_painted.png.import": "7a0ba297ae9237c91f1c20259fc6d6be88241cba9d8c3922c46f95f2cba98bb7",
+      "assets/melody/star_painted.png": "44a7b3a8351778b5912ac3a9c54085b20a990967e2b036aeff88f2b388a93e8e",
+      "assets/melody/star_painted.png.import": "8232bc85c569b709c01038880c1fc212718f33d4c1fee3310efbeb9663181711",
+      "assets/melody/theatre_bulb_cream_painted.png": "6b77475880e6b86c45fd3e0ac481814a4a19a1cdd7bc6d67e16e4379fc56d24d",
+      "assets/melody/theatre_bulb_cream_painted.png.import": "41e54b2577b2e33cd8fecbb714994a69ac44033e0cdfceab4b66616a7f5dbcfc",
+      "assets/melody/theatre_bulb_gold_painted.png": "6bbb37224b78c39dda1a40d56cbb7904a2fbf4987b5d15e643196be42dc1ccc2",
+      "assets/melody/theatre_bulb_gold_painted.png.import": "6c22380b07ea6c99b075835002cc95e23b12e0422b9eb1b4fd26a26df121afc9",
+      "assets/melody/timing_window_aura_painted.png": "af8491e4b87e670983c3c035453acec2ce5bf8349b83fd02c8466ad8bdce213e",
+      "assets/melody/timing_window_aura_painted.png.import": "efbfaae9edb5d0294ba5929cb77fde0dccbe542152aa14c567d395ed714b1ae5",
+      "assets/melody/timing_window_medallion_painted.png": "efc3dfd123a1c193c7fa9195689c66d5d16e0238341b6b636168d3592b8ab833",
+      "assets/melody/timing_window_medallion_painted.png.import": "9247c791a90d9113fe3964b054f2ae13189c0c6b1bc679e63906337190f37804",
+      "assets/mg/picture_feedback/sparkle_amber_painted.png": "b483e90100f3d32b430965356de4752a9aa1ed3aa024c08e787cc76693bd2833",
+      "assets/mg/picture_feedback/sparkle_amber_painted.png.import": "28d5aaefcd07950a34539343a69fb87938b8065491f7cdda158098ff83832542",
+      "assets/mg/picture_feedback/sparkle_coral_painted.png": "9b2d2a82ec67bc9d2d435dbae609ef8a8704fe91eaf7a6b5dde9e7c5c4bde542",
+      "assets/mg/picture_feedback/sparkle_coral_painted.png.import": "5b9d0929badec48c6aa16d960c6135b78450cf1a3a9cd80d4b938213074cdfa1",
+      "assets/mg/picture_feedback/sparkle_ice_painted.png": "844a2ab3229b84b6680e2a89cf6972743dd300dbdc49b8fbd9917c45e3741880",
+      "assets/mg/picture_feedback/sparkle_ice_painted.png.import": "db23e5960e4c1417939f5796e0b4c98182ac3c06ccc57c6c423e21157b1a1b12",
+      "assets/mg/picture_feedback/sparkle_leaf_painted.png": "fe579d961845401339343e2d3879c9297a4c0dbba61db0911391a834f7519b61",
+      "assets/mg/picture_feedback/sparkle_leaf_painted.png.import": "ab61ca78281e1d22e720caaf6a74807097d1fd35294544dcae07adb2b25eeca9",
+      "assets/mg/picture_feedback/sparkle_lemon_painted.png": "9bb9f39e4a9d53760e807ec7908f4329c417bba933be4ed0d92307359ad24a8e",
+      "assets/mg/picture_feedback/sparkle_lemon_painted.png.import": "f9afbf4fbd5b31e9ce880517b94ee8028f88d8484500bffcff444aa6e83bca7d",
+      "assets/mg/picture_feedback/sparkle_mint_painted.png": "7b88b1a3c3d30d0c0c631895921075fb39519c3a5af205a4d911eadce0e88b04",
+      "assets/mg/picture_feedback/sparkle_mint_painted.png.import": "003365ecf8a2846b7f6199bb18cc0e903fb954a50f4c3a1af832b4165b002c2f",
+      "assets/mg/picture_feedback/sparkle_rose_painted.png": "1742cf9b993f79471bbebefe28e32668a6017874071d983aba1b9759dbc2174b",
+      "assets/mg/picture_feedback/sparkle_rose_painted.png.import": "69a6e1c6d1b3511682d6947d2a475e2855f12e0e11e6d3820aeb5953c9603703",
+      "assets/mg/picture_feedback/sparkle_sky_painted.png": "0a314f76c00e4cb759aabb6e7d643ce5e5a6a61fc1c3bfd1648620d4e2e156f4",
+      "assets/mg/picture_feedback/sparkle_sky_painted.png.import": "960ccb90f29e229ebdaa3c909511b76d16dfc2c3aa257743c053bd36094b5f1b",
+      "assets/mg/picture_feedback/sparkle_violet_painted.png": "d0fd497b49adc6b035553cd0c398eb6c2d88d44e3cc3717e10d1e6780d56c7aa",
+      "assets/mg/picture_feedback/sparkle_violet_painted.png.import": "a1641d30ecf0c19f03b7f16c5c1a8adb4a254822585377c9f39d3495366f0e0b",
+      "assets/mg/snowball_painted.png": "07eac348486145d2c32c6da7c645b4099679aabbbe938263dbf612def779be11",
+      "assets/mg/snowball_painted.png.import": "8b7b24ba93082c8e1f406a4daae47bdf015d4f42eac26d971b45d6998158ef74",
+      "assets/mg/snowfield_painted_00.png": "833fc86408da6544c49a108e4c23ba77f17cec39e7442906ed45c2722fad1174",
+      "assets/mg/snowfield_painted_00.png.import": "270d67a8338947471d611dd1f5c3fcbe3b426f5c229ced921f3a4cfb522c9dc9",
+      "assets/mg/snowfield_painted_01.png": "b1d92f665f29427d06b5f7c907f58872983af266ca92a530ccc031539a0958ef",
+      "assets/mg/snowfield_painted_01.png.import": "002b6892104fabfe0bc952c835e595b3311ff083e561cd738ae0cd6cff8de184",
+      "assets/mg/snowfield_painted_10.png": "c90415293b8e4d189512e859438e2dafb7e24069daa54a32f7e059d45c08151c",
+      "assets/mg/snowfield_painted_10.png.import": "212d6d1ddb9c9f50590262a53668fbece91859d81a9febdbe2b0b182808076c5",
+      "assets/mg/snowfield_painted_11.png": "9492cca5957854c995e82e6050fa63c1feaa2cbba38fbb32269c7b46718adc61",
+      "assets/mg/snowfield_painted_11.png.import": "1f99196894d8a18be8aca43160bac265a6a9047c66cdf6e909443108ad456dcc",
+      "assets/mg/snowman_coal_painted.png": "279dffbe48bf8e42c195bd118b50e6fc71ae1e9179c2f182ed81572853448612",
+      "assets/mg/snowman_coal_painted.png.import": "101309b9a2935a21aea2222ca4bab2322618993813cf13b2a3064400eafe6435",
+      "assets/mg/trampoline_pad_painted.png": "5dbe87c969009046242a38564bdb2359a94cb16fd30a10a0f44404e8297acf04",
+      "assets/mg/trampoline_pad_painted.png.import": "a2eb78f9ba117fb6c1175a1196cefc8e9e77b21cca1ed55b06feb33e981c90ee",
+      "assets/opera/bubble_duel_v2/bubble.png": "eca98a5ca895774d10649bc05c438dfb8be22b8f5a1527a64750b2c516161127",
+      "assets/opera/bubble_duel_v2/items.png": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+      "assets/opera/bubble_duel_v2/marlo_swim.png": "33cf0fc3f01754f65cd03e49c44341db46c174f3e8dfa89047d9651d46fd50dc",
+      "assets/review/opera_tiled_detail_v1/background_0_0.png": "ced858a9645534dc8e11b7bc6de6b837e6e1a36d783481a90f3b977750bc08d2",
+      "assets/review/opera_tiled_detail_v1/background_0_1.png": "395fb99cc1418a7aadfcc9ca29d44b0cd42b72d2813a8c87236e133f46781808",
+      "assets/review/opera_tiled_detail_v1/background_0_2.png": "60949c5f2cb11cd5e58f4e02ff2d788718b17b88efbd4a9763a00209433e05ee",
+      "assets/review/opera_tiled_detail_v1/background_0_3.png": "2dd705781fe80634f49667750fa5be2ce2093d00d8fa2d1244823fcb7440fd85",
+      "assets/review/opera_tiled_detail_v1/background_0_4.png": "7960f79d0016e42e3a9e17ba26878968d2d713557f29c3ccaed9be64700a682e",
+      "assets/review/opera_tiled_detail_v1/background_0_5.png": "835643c58a2ecf43bf3cbe4fd0b8edd93a37cc8d3fa94b2d3b2509a02d8d8932",
+      "assets/review/opera_tiled_detail_v1/background_0_6.png": "aaa8996ebf196dc43bf75e966cd361b6f7f1aefa2f3422ed2226917379e2bc33",
+      "assets/review/opera_tiled_detail_v1/background_0_7.png": "57b3fb2e621d17d306a3df00a1036c546e9e8fbb27c610d5c51352c9c0e30c0d",
+      "assets/review/opera_tiled_detail_v1/background_1_0.png": "e040008f5537a307be74f38ab903bf8053030ea665fdb2303fbf7e72d2ee40af",
+      "assets/review/opera_tiled_detail_v1/background_1_1.png": "5c82f6cfb91fb38cb9c65ec070d22cb2475d997b700d28cc9e79411a7615c910",
+      "assets/review/opera_tiled_detail_v1/background_1_2.png": "e9d84d4f6d5282e1fa269df8c8cda294845a0104677b88bf75f865de627fa35d",
+      "assets/review/opera_tiled_detail_v1/background_1_3.png": "609d60c1d0e35c5a022fd0c0eba1cfb73d866ef6b905db4d397a523efd670d1f",
+      "assets/review/opera_tiled_detail_v1/background_1_4.png": "6d95f6c5222b4b4a40edb8cfbb8735e1cf0022a10c868bf0c2eef40a3ba8b77d",
+      "assets/review/opera_tiled_detail_v1/background_1_5.png": "40963f65238f0ea064ad1061562bc456c849bf5d535de68da2f464e16bed0d38",
+      "assets/review/opera_tiled_detail_v1/background_1_6.png": "acba20b26992c4674583cb9786cd2417e3765fec95d273c188f638ad4921aa96",
+      "assets/review/opera_tiled_detail_v1/background_1_7.png": "9bb884259f9ea496aa828454da166b33566c4217432a384b909abcad7aef35e0",
+      "assets/review/opera_tiled_detail_v1/background_2_0.png": "5621e343d5f90c07a65234b30f9a0666d1818c328da3e1a5f9b13598eaeb72e0",
+      "assets/review/opera_tiled_detail_v1/background_2_1.png": "36175c7cd564aa686cc57ecb9302d68a0dcb7f5a8228077215522e9dde1b43f0",
+      "assets/review/opera_tiled_detail_v1/background_2_2.png": "5e5124f4a2c11dfd223f9df46017c52f81c559c96a0a4c8bb5a463825159a170",
+      "assets/review/opera_tiled_detail_v1/background_2_3.png": "dfc892a04f8096dd70801af20eb62d134d746fa95c71d87d6927c78328fa0e39",
+      "assets/review/opera_tiled_detail_v1/background_2_4.png": "606e27134e113dc0af1bd305f7a7c9943fb2809f267ede046ae7a4f533f8bfe4",
+      "assets/review/opera_tiled_detail_v1/background_2_5.png": "2010b2cdb9db8f1786a7507dbf114811c2ba86d8520ca9f9e4756512ce9b21e9",
+      "assets/review/opera_tiled_detail_v1/background_2_6.png": "f454c09196d3d1341653792bc9649c97e07cb996d64ba8de9ed690e3df763aed",
+      "assets/review/opera_tiled_detail_v1/background_2_7.png": "cd89f3cf19d5b24c9f0c790cfbe7da80d1327287e9965f8ea53a8fb4cacccbb5",
+      "assets/review/opera_tiled_detail_v1/background_3_0.png": "5bb67e493b021c0f3a2d3c031067211e719f3ad2c77fa773351e6e4d5fb95f8b",
+      "assets/review/opera_tiled_detail_v1/background_3_1.png": "18e020083a7751df16f01abffe19a09cb687b5ea16b61dfb93659c248c5202a8",
+      "assets/review/opera_tiled_detail_v1/background_3_2.png": "56086974c3cd508bff8c37a1975dd3de45646ec4be293b7d263ac89c6c99aabb",
+      "assets/review/opera_tiled_detail_v1/background_3_3.png": "1f4d5a8af79dc871e30bc95c272d2ced5c4da29a96f22d6d0d00b033e026bf8a",
+      "assets/review/opera_tiled_detail_v1/background_3_4.png": "094955542d579ecc4c9dbab4f66bc41375e0606b17453f297ff1c6d86c3775e2",
+      "assets/review/opera_tiled_detail_v1/background_3_5.png": "aa16d85424b5fe6bb31942f23b2cb223e03f3660faaf4656c3fa2d60d9f3ca98",
+      "assets/review/opera_tiled_detail_v1/background_3_6.png": "52cf55d54f062711ca790b89122ed6d2b070fcbe9ee363c6a3730f455ef79648",
+      "assets/review/opera_tiled_detail_v1/background_3_7.png": "6b83af27ac23ea263259314dfd92f05862d2f7e807a861ff2f371992993681c0",
+      "assets/review/opera_tiled_detail_v1/background_4_0.png": "381d91fcd692e9506eb4ecb14965808043b6107cad143cf732ea10eec76cc80d",
+      "assets/review/opera_tiled_detail_v1/background_4_1.png": "9ae3a349ff1f81a17db698b50da73dac210d8b968812b927ee7d6366201bf347",
+      "assets/review/opera_tiled_detail_v1/background_4_2.png": "fd3ea44ab464370f9f6772b3341bc88ec2474409fb4f5848daa0d9c8a39c6879",
+      "assets/review/opera_tiled_detail_v1/background_4_3.png": "0fd2498f3910c80e77307a88bc9b23f9ea704cb5e83822dd86d5080c2b45198b",
+      "assets/review/opera_tiled_detail_v1/background_4_4.png": "89e1ea6a79fd286778ca5266b2a33c7256c77bbda43ecb286dc5ae16da494149",
+      "assets/review/opera_tiled_detail_v1/background_4_5.png": "04f35f616e26b5bced554d43b2170b983029b9c71298af1cc8aedd594d987b38",
+      "assets/review/opera_tiled_detail_v1/background_4_6.png": "7e71a33edf2a3859769defd6226cf92bce4800b3eaa3e67b3e2798aa5a8b032e",
+      "assets/review/opera_tiled_detail_v1/background_4_7.png": "5e706d11770115a0ec106e4c898a13308d8270cc8c546ad3ba8f3f67c28678ed",
+      "assets/review/opera_tiled_detail_v1/curtain_0_0.png": "8975ebbd77b06b5e632aaf11967753aa0980539a0b77a106a1012ecae59373b4",
+      "assets/review/opera_tiled_detail_v1/curtain_0_1.png": "7d13ab56edc9add2017c4929d9b139f2b1659d886521747637531f6194911fce",
+      "assets/review/opera_tiled_detail_v1/curtain_0_2.png": "e986643d0ccd73e673449797395e1e0721ac526c46ae17dede7aeb8371bba5b5",
+      "assets/review/opera_tiled_detail_v1/curtain_0_3.png": "f29fe0fa089c1a599f06f10ff4862a32b67ce9010ded53b1ab580981846bd3a9",
+      "assets/review/opera_tiled_detail_v1/curtain_1_0.png": "4858642363106367ff3a7cfaf16d88de89c612d1e691b91dd0fea5e29f3b7e45",
+      "assets/review/opera_tiled_detail_v1/curtain_1_1.png": "af3d4366ed4ba1afc9443f845a544a4659b8c7720325c9a38a8af3e5199a0516",
+      "assets/review/opera_tiled_detail_v1/curtain_1_2.png": "cec7f99326cc6f41a750f4e4bb06521ae276ca5811e131226eccd4d6f8656aab",
+      "assets/review/opera_tiled_detail_v1/curtain_1_3.png": "45f7b4991bd65241b6508be92ecdb3a42a1c06bfb731855c1592d9f02905075c",
+      "assets/review/opera_tiled_detail_v1/curtain_2_0.png": "2c96a93039e5058cae5a53c7b2d5e916a5cadf4c887a2e7f1319bf864838856c",
+      "assets/review/opera_tiled_detail_v1/curtain_2_1.png": "fd87d505f19223fc31ecaf50f43ffdeb592c8fb825f2f5ebf35871671db05740",
+      "assets/review/opera_tiled_detail_v1/curtain_2_2.png": "27db1028b024f8532eccc55909431afc69af53bf4cf2f019749d03fc4034d70e",
+      "assets/review/opera_tiled_detail_v1/curtain_2_3.png": "b4ed8a522ad777130a0cf30904f90468966d81f3939fe17f7aaf46f4426ec9c9",
+      "assets/review/opera_tiled_detail_v1/layout.json": "3922cd93108259597229a0be88bd7f9b663932f33208c87cf0918f0311ba8ae5",
+      "assets/review/opera_tiled_detail_v1/source_ceiling_moulding_0_0.png": "201c3e40ff589d1f7890582114ab7c8366badd38b6589891441cc776c753c9cf",
+      "assets/review/opera_tiled_detail_v1/source_ceiling_moulding_0_1.png": "c96167e764d161b484cf005ec0a3342c2637395b3eaa129c73b3a7a163cf80f9",
+      "assets/review/opera_tiled_detail_v1/source_central_island_0_0.png": "7ad59f7b7ceaab5f44e2b05832c250959a28ec9f4b7c6700bba6891f9ba90299",
+      "assets/review/opera_tiled_detail_v1/source_central_island_0_1.png": "7269bb36f679519c3f474830870f563961ee38a9ea362a0ef982a3092283f1dc",
+      "assets/review/opera_tiled_detail_v1/source_central_island_1_0.png": "3e2c80754399a6550d80e71d90a81e5429e4c2c5882872e322018ed98a729745",
+      "assets/review/opera_tiled_detail_v1/source_central_island_1_1.png": "268ca126a92de9b5727197b83e30af099a16f7092e5a777bc5ac4bd01c9731b0",
+      "assets/review/opera_tiled_detail_v1/source_door_0_0_0_0.png": "0fd9aaf8c963d766e8f3434b9d509fe16efd1ba4613ef64108cbda1615dae1d0",
+      "assets/review/opera_tiled_detail_v1/source_door_0_1_0_0.png": "20a525de56bec2dd780e7bdc3c6ac0afab35989141d40b4f7178e00bc2a98403",
+      "assets/review/opera_tiled_detail_v1/source_door_0_2_0_0.png": "fbfd1457c464eb0f3747011271208d859139e5f935dedd280a5584a9fcbf5633",
+      "assets/review/opera_tiled_detail_v1/source_door_0_3_0_0.png": "b0f8671cc438648cf4eb0e19cb6afbb2c87ccd2d7b30502ed0b1f70d4e87d881",
+      "assets/review/opera_tiled_detail_v1/source_door_1_0_0_0.png": "58ec751d6f81c05689b8979cfbf43abff3e2b9a3eb0a5c929a746cc42353c474",
+      "assets/review/opera_tiled_detail_v1/source_door_1_1_0_0.png": "932229c49edf32f5dcf3cec3a918e515cd529320d164eb3c2dcace4e763c6800",
+      "assets/review/opera_tiled_detail_v1/source_door_1_2_0_0.png": "ec566f604d3fd992be4ade8bdd508bdc5f9950a78f729ab078dfebcd0559490d",
+      "assets/review/opera_tiled_detail_v1/source_door_1_3_0_0.png": "b4fd5065c4cf110b256ffd0ce5af7805c7355ad2f649ac36022fa8d236e26779",
+      "assets/review/opera_tiled_detail_v1/source_door_2_0_0_0.png": "38e9bcc94cb5bc347c3240f4d6f30aea7c70b4b997190d66b19ce83e7db1308b",
+      "assets/review/opera_tiled_detail_v1/source_door_2_1_0_0.png": "24bb219f5a0d6a2bc767220aceb09c57aa11d0efc2108c62124dc87da2e378fa",
+      "assets/review/opera_tiled_detail_v1/source_door_2_2_0_0.png": "4f73527f6ab808d75de9a5af1e0516e90d64110db0b6e334ec57502c4f40490c",
+      "assets/review/opera_tiled_detail_v1/source_door_2_3_0_0.png": "20d4164e8dd89495550ab50c9091d7fa4c2933b9260db417206e555619161a46",
+      "assets/review/opera_tiled_detail_v1/source_left_chandelier_0_0.png": "2c26bebbdb9f0c52fde028319a01c5c185d49d25c71b91e1c0760e1797e132e0",
+      "assets/review/opera_tiled_detail_v1/source_left_dressing_0_0.png": "68ab2f80fb0f3f2568e62fcfcecd5213c4aeab4172a59a7417fbc1cd98be8cce",
+      "assets/review/opera_tiled_detail_v1/source_left_dressing_1_0.png": "68a0da69d16389debd5c561f9ff5c561df4fd1c2199122d2fc534d7b3a638d41",
+      "assets/review/opera_tiled_detail_v1/source_left_lift_0_0.png": "da79c21cee17d58c07cc768f107e2d1ba4bdb94ba868dba79ea8c336a232d465",
+      "assets/review/opera_tiled_detail_v1/source_left_lift_1_0.png": "cd66d63eb78dd5bd16fa317ae3af9724a192809cd21cf275b4a6fc75bd36ec5a",
+      "assets/review/opera_tiled_detail_v1/source_left_lounge_0_0.png": "b2a9cd2ca14764886309d13774e947d793db53a21d63d3d3498bd2e84d049bf7",
+      "assets/review/opera_tiled_detail_v1/source_left_service_edge_0_0.png": "37035fd52aae67ce3e8710cb4d9257d3497e8d496caec38736f43a547011c1b6",
+      "assets/review/opera_tiled_detail_v1/source_left_stairs_counter_0_0.png": "b2b79942ae03cf8a31a5812ef8b0ddb9fe936e826509c378c9f346ae4bc4e8f8",
+      "assets/review/opera_tiled_detail_v1/source_middle_balcony_0_0.png": "c3a821054684bd63447aefa012bc9310c3eff3bc227dc65bf98f075686f4b227",
+      "assets/review/opera_tiled_detail_v1/source_right_chandelier_0_0.png": "0e56d502eab25afe3dff2343f1c9504fa67927e133545cbb20f71a01932bf0d5",
+      "assets/review/opera_tiled_detail_v1/source_right_dressing_0_0.png": "bb2d673ea419c9d593d4baf01c426c58a539f47d3a6bbab3c1eb8420d4f6d68c",
+      "assets/review/opera_tiled_detail_v1/source_right_dressing_1_0.png": "b3b5499f2691e4b4368f325ef8ecf742e906eda1c9fd30c5abffe923e4036d5d",
+      "assets/review/opera_tiled_detail_v1/source_right_lift_0_0.png": "2442f5befa18b176025db9567c3d4cd98dfbab7414f127f3d337199b097f9bfb",
+      "assets/review/opera_tiled_detail_v1/source_right_lift_1_0.png": "3ad74006c29522bcd2d192572eb85354f76ff2e778c7dc22ed2991059c046f6f",
+      "assets/review/opera_tiled_detail_v1/source_right_lounge_0_0.png": "d6269087afa9580c6394accf551f8db6541c19f0822085c271ed83b80baa5fa4",
+      "assets/review/opera_tiled_detail_v1/source_right_service_edge_0_0.png": "256eb8f8bf43d58753063db6a9be2838dc15041099132b2d0185fae35a6ba425",
+      "assets/review/opera_tiled_detail_v1/source_right_stairs_rack_0_0.png": "e96873f3a9884bee5917462d9931b5095cd68c6ab5d5e81b3a00dfb30c9bb55d",
+      "assets/review/opera_tiled_detail_v1/source_sconce_0_0_0_0.png": "9f4f1795a455f7b13a319b297d45ffa7d60c5efb326c73652289eeba7920c016",
+      "assets/review/opera_tiled_detail_v1/source_sconce_0_1_0_0.png": "9e6f8b2d0385e3fe78c8cee3933024aabda1f0d2977bb2b570d0d9325f2e6f1b",
+      "assets/review/opera_tiled_detail_v1/source_sconce_0_2_0_0.png": "f6e506e11b3c2bf5de39aca4d670fb5ea31a5a4c4af604a65123658129e4f769",
+      "assets/review/opera_tiled_detail_v1/source_sconce_0_3_0_0.png": "8c70abaac4402c5dcfb6062461027956305aada2e24a234919ccdc58df9859d5",
+      "assets/review/opera_tiled_detail_v1/source_sconce_0_4_0_0.png": "dfe7a57c158413fd1aa9539df1bfa43ff514eab94f7d2eda8a9fc887cf945ebd",
+      "assets/review/opera_tiled_detail_v1/source_sconce_1_0_0_0.png": "a90e1d888b702331f6723799e7dccda20b9482b2027da5747d1e8d3c81882ae6",
+      "assets/review/opera_tiled_detail_v1/source_sconce_1_1_0_0.png": "f92ecf5e2bbdf34d61c68c585cb960ec8d0790f0330ebbd2003814a4a316a664",
+      "assets/review/opera_tiled_detail_v1/source_sconce_1_2_0_0.png": "2300cd02eb34f7abdf2b3b253df68ab97fd8dd72ad03425e8cb89c4e81c8f8b5",
+      "assets/review/opera_tiled_detail_v1/source_sconce_1_3_0_0.png": "e73a69c134da656c7d73ba61c20b17f64f8c3a47bf78391a68015b6026210167",
+      "assets/review/opera_tiled_detail_v1/source_sconce_1_4_0_0.png": "233635f7e7e3a1fb59b201c25962358ce14644ad321e76ec382ba43d553e7817",
+      "assets/review/opera_tiled_detail_v1/source_sconce_2_0_0_0.png": "45f086d1cbcce2647183e884161118b3ce61feaa0a6746c99c080765c35a1450",
+      "assets/review/opera_tiled_detail_v1/source_sconce_2_1_0_0.png": "c771d922268ebb9fcb0d19bcb174f73a15527a36a6bb20a8da8542f2d8b1bb65",
+      "assets/review/opera_tiled_detail_v1/source_sconce_2_2_0_0.png": "7f99820d547521dcea439a8dc567b5bb0527985ac9639d8b120aaab126d77eff",
+      "assets/review/opera_tiled_detail_v1/source_sconce_2_3_0_0.png": "5035ad435cad13fcb798a66d986c38f1b94c499afe16b648a00dc859e2accba5",
+      "assets/review/opera_tiled_detail_v1/source_sconce_2_4_0_0.png": "e140a625d2e5478339053a33e6ff5802ae77480e6388d18222c8eee134e5ff2b",
+      "assets/review/opera_tiled_detail_v1/source_upper_balcony_0_0.png": "433d0d3537bb3fd2d3128873c1089b294370875cdf679792e0f08894dde998e5",
+      "assets/review/opera_translation_v1/house_0_0.png": "4a112d9da1b32c1c430c11671d0d4000f2e793f1cdd7f21ee6223a5c2f0de64d",
+      "assets/review/opera_translation_v1/house_0_1.png": "791bfe32edc483123e1964252a3d71445b7086db38b756bf24ec266fc3dc4864",
+      "assets/review/opera_translation_v1/house_1_0.png": "7bd23224fb3f9a5d54dad954ce2683ef4042cf0f45cda5a52e72c47d5a1d57d1",
+      "assets/review/opera_translation_v1/house_1_1.png": "d7b4da41ff14342f3cf326a4aa05157e5656d1d342b0746c33959fabe2038072",
+      "assets/review/opera_translation_v1/layout.json": "3c0816fad684ff0f655267a6fcb503388822419339d0647a8c5765eeed403395",
+      "assets/review/opera_translation_v1/restoration_healed_source.png": "b94febc55e98d32154639385db3a706489582a238dacfaa6bf792a107bd42941",
+      "assets/review/opera_translation_v1/restoration_medallion_source.png": "ef0a23a38dcabde07652bd477aaf701bd95f87d72c63b52dce1228ceee7f04a1"
+    },
+    "algorithm": "sha256_repository_source_candidates_with_protected_path_exclusions_v1",
+    "file_count": 7440,
+    "sha256": "6686d8a6ae77ba6a1c088cff3b96dcc57fb8d3d7c4a0395c5eedbd05d4621de7",
+    "asset_git_state": {
+      "unstaged": "",
+      "staged": "-\t-\tassets/melody/crown_header_painted.png\n40\t0\tassets/melody/crown_header_painted.png.import\n-\t-\tassets/melody/curtain_left_painted.png\n40\t0\tassets/melody/curtain_left_painted.png.import\n-\t-\tassets/melody/curtain_right_painted.png\n40\t0\tassets/melody/curtain_right_painted.png.import\n-\t-\tassets/melody/footlight_green.png\n40\t0\tassets/melody/footlight_green.png.import\n-\t-\tassets/melody/footlight_orange.png\n40\t0\tassets/melody/footlight_orange.png.import\n-\t-\tassets/melody/footlight_periwinkle.png\n40\t0\tassets/melody/footlight_periwinkle.png.import\n-\t-\tassets/melody/footlight_purple.png\n40\t0\tassets/melody/footlight_purple.png.import\n-\t-\tassets/melody/footlight_rail_painted.png\n40\t0\tassets/melody/footlight_rail_painted.png.import\n-\t-\tassets/melody/footlight_red.png\n40\t0\tassets/melody/footlight_red.png.import\n-\t-\tassets/melody/footlight_sky_blue.png\n40\t0\tassets/melody/footlight_sky_blue.png.import\n-\t-\tassets/melody/footlight_yellow.png\n40\t0\tassets/melody/footlight_yellow.png.import\n-\t-\tassets/melody/guide_arrow_head_painted.png\n40\t0\tassets/melody/guide_arrow_head_painted.png.import\n-\t-\tassets/melody/guide_beam_painted.png\n40\t0\tassets/melody/guide_beam_painted.png.import\n-\t-\tassets/melody/guide_double_ring_painted.png\n40\t0\tassets/melody/guide_double_ring_painted.png.import\n-\t-\tassets/melody/mobile/curtain_left_painted.png\n40\t0\tassets/melody/mobile/curtain_left_painted.png.import\n-\t-\tassets/melody/mobile/curtain_right_painted.png\n40\t0\tassets/melody/mobile/curtain_right_painted.png.import\n-\t-\tassets/melody/mobile/daddy.png\n40\t0\tassets/melody/mobile/daddy.png.import\n-\t-\tassets/melody/mobile/footlight_green.png\n40\t0\tassets/melody/mobile/footlight_green.png.import\n-\t-\tassets/melody/mobile/footlight_orange.png\n40\t0\tassets/melody/mobile/footlight_orange.png.import\n-\t-\tassets/melody/mobile/footlight_periwinkle.png\n40\t0\tassets/melody/mobile/footlight_periwinkle.png.import\n-\t-\tassets/melody/mobile/footlight_purple.png\n40\t0\tassets/melody/mobile/footlight_purple.png.import\n-\t-\tassets/melody/mobile/footlight_red.png\n40\t0\tassets/melody/mobile/footlight_red.png.import\n-\t-\tassets/melody/mobile/footlight_sky_blue.png\n40\t0\tassets/melody/mobile/footlight_sky_blue.png.import\n-\t-\tassets/melody/mobile/footlight_yellow.png\n40\t0\tassets/melody/mobile/footlight_yellow.png.import\n-\t-\tassets/melody/mobile/progress_pip_current_blue_painted.png\n40\t0\tassets/melody/mobile/progress_pip_current_blue_painted.png.import\n-\t-\tassets/melody/mobile/progress_pip_current_green_painted.png\n40\t0\tassets/melody/mobile/progress_pip_current_green_painted.png.import\n-\t-\tassets/melody/mobile/progress_pip_current_indigo_painted.png\n40\t0\tassets/melody/mobile/progress_pip_current_indigo_painted.png.import\n-\t-\tassets/melody/mobile/progress_pip_current_orange_painted.png\n40\t0\tassets/melody/mobile/progress_pip_current_orange_painted.png.import\n-\t-\tassets/melody/mobile/progress_pip_current_red_painted.png\n40\t0\tassets/melody/mobile/progress_pip_current_red_painted.png.import\n-\t-\tassets/melody/mobile/progress_pip_current_violet_painted.png\n40\t0\tassets/melody/mobile/progress_pip_current_violet_painted.png.import\n-\t-\tassets/melody/mobile/progress_pip_current_yellow_painted.png\n40\t0\tassets/melody/mobile/progress_pip_current_yellow_painted.png.import\n-\t-\tassets/melody/mobile/progress_pip_filled_blue_painted.png\n40\t0\tassets/melody/mobile/progress_pip_filled_blue_painted.png.import\n-\t-\tassets/melody/mobile/progress_pip_filled_green_painted.png\n40\t0\tassets/melody/mobile/progress_pip_filled_green_painted.png.import\n-\t-\tassets/melody/mobile/progress_pip_filled_indigo_painted.png\n40\t0\tassets/melody/mobile/progress_pip_filled_indigo_painted.png.import\n-\t-\tassets/melody/mobile/progress_pip_filled_orange_painted.png\n40\t0\tassets/melody/mobile/progress_pip_filled_orange_painted.png.import\n-\t-\tassets/melody/mobile/progress_pip_filled_red_painted.png\n40\t0\tassets/melody/mobile/progress_pip_filled_red_painted.png.import\n-\t-\tassets/melody/mobile/progress_pip_filled_violet_painted.png\n40\t0\tassets/melody/mobile/progress_pip_filled_violet_painted.png.import\n-\t-\tassets/melody/mobile/progress_pip_filled_yellow_painted.png\n40\t0\tassets/melody/mobile/progress_pip_filled_yellow_painted.png.import\n-\t-\tassets/melody/mobile/progress_pip_idle_blue_painted.png\n40\t0\tassets/melody/mobile/progress_pip_idle_blue_painted.png.import\n-\t-\tassets/melody/mobile/progress_pip_idle_green_painted.png\n40\t0\tassets/melody/mobile/progress_pip_idle_green_painted.png.import\n-\t-\tassets/melody/mobile/progress_pip_idle_indigo_painted.png\n40\t0\tassets/melody/mobile/progress_pip_idle_indigo_painted.png.import\n-\t-\tassets/melody/mobile/progress_pip_idle_orange_painted.png\n40\t0\tassets/melody/mobile/progress_pip_idle_orange_painted.png.import\n-\t-\tassets/melody/mobile/progress_pip_idle_red_painted.png\n40\t0\tassets/melody/mobile/progress_pip_idle_red_painted.png.import\n-\t-\tassets/melody/mobile/progress_pip_idle_violet_painted.png\n40\t0\tassets/melody/mobile/progress_pip_idle_violet_painted.png.import\n-\t-\tassets/melody/mobile/progress_pip_idle_yellow_painted.png\n40\t0\tassets/melody/mobile/progress_pip_idle_yellow_painted.png.import\n-\t-\tassets/melody/mobile/rainbow_note_blue_painted.png\n40\t0\tassets/melody/mobile/rainbow_note_blue_painted.png.import\n-\t-\tassets/melody/mobile/rainbow_note_green_painted.png\n40\t0\tassets/melody/mobile/rainbow_note_green_painted.png.import\n-\t-\tassets/melody/mobile/rainbow_note_indigo_painted.png\n40\t0\tassets/melody/mobile/rainbow_note_indigo_painted.png.import\n-\t-\tassets/melody/mobile/rainbow_note_orange_painted.png\n40\t0\tassets/melody/mobile/rainbow_note_orange_painted.png.import\n-\t-\tassets/melody/mobile/rainbow_note_red_painted.png\n40\t0\tassets/melody/mobile/rainbow_note_red_painted.png.import\n-\t-\tassets/melody/mobile/rainbow_note_violet_painted.png\n40\t0\tassets/melody/mobile/rainbow_note_violet_painted.png.import\n-\t-\tassets/melody/mobile/rainbow_note_yellow_painted.png\n40\t0\tassets/melody/mobile/rainbow_note_yellow_painted.png.import\n-\t-\tassets/melody/mobile/roshan_popstar.png\n42\t0\tassets/melody/mobile/roshan_popstar.png.import\n-\t-\tassets/melody/mobile/star_painted.png\n40\t0\tassets/melody/mobile/star_painted.png.import\n-\t-\tassets/melody/progress_pip_current_blue_painted.png\n40\t0\tassets/melody/progress_pip_current_blue_painted.png.import\n-\t-\tassets/melody/progress_pip_current_green_painted.png\n40\t0\tassets/melody/progress_pip_current_green_painted.png.import\n-\t-\tassets/melody/progress_pip_current_indigo_painted.png\n40\t0\tassets/melody/progress_pip_current_indigo_painted.png.import\n-\t-\tassets/melody/progress_pip_current_orange_painted.png\n40\t0\tassets/melody/progress_pip_current_orange_painted.png.import\n-\t-\tassets/melody/progress_pip_current_red_painted.png\n40\t0\tassets/melody/progress_pip_current_red_painted.png.import\n-\t-\tassets/melody/progress_pip_current_violet_painted.png\n40\t0\tassets/melody/progress_pip_current_violet_painted.png.import\n-\t-\tassets/melody/progress_pip_current_yellow_painted.png\n40\t0\tassets/melody/progress_pip_current_yellow_painted.png.import\n-\t-\tassets/melody/progress_pip_filled_blue_painted.png\n40\t0\tassets/melody/progress_pip_filled_blue_painted.png.import\n-\t-\tassets/melody/progress_pip_filled_green_painted.png\n40\t0\tassets/melody/progress_pip_filled_green_painted.png.import\n-\t-\tassets/melody/progress_pip_filled_indigo_painted.png\n40\t0\tassets/melody/progress_pip_filled_indigo_painted.png.import\n-\t-\tassets/melody/progress_pip_filled_orange_painted.png\n40\t0\tassets/melody/progress_pip_filled_orange_painted.png.import\n-\t-\tassets/melody/progress_pip_filled_red_painted.png\n40\t0\tassets/melody/progress_pip_filled_red_painted.png.import\n-\t-\tassets/melody/progress_pip_filled_violet_painted.png\n40\t0\tassets/melody/progress_pip_filled_violet_painted.png.import\n-\t-\tassets/melody/progress_pip_filled_yellow_painted.png\n40\t0\tassets/melody/progress_pip_filled_yellow_painted.png.import\n-\t-\tassets/melody/progress_pip_idle_blue_painted.png\n40\t0\tassets/melody/progress_pip_idle_blue_painted.png.import\n-\t-\tassets/melody/progress_pip_idle_green_painted.png\n40\t0\tassets/melody/progress_pip_idle_green_painted.png.import\n-\t-\tassets/melody/progress_pip_idle_indigo_painted.png\n40\t0\tassets/melody/progress_pip_idle_indigo_painted.png.import\n-\t-\tassets/melody/progress_pip_idle_orange_painted.png\n40\t0\tassets/melody/progress_pip_idle_orange_painted.png.import\n-\t-\tassets/melody/progress_pip_idle_red_painted.png\n40\t0\tassets/melody/progress_pip_idle_red_painted.png.import\n-\t-\tassets/melody/progress_pip_idle_violet_painted.png\n40\t0\tassets/melody/progress_pip_idle_violet_painted.png.import\n-\t-\tassets/melody/progress_pip_idle_yellow_painted.png\n40\t0\tassets/melody/progress_pip_idle_yellow_painted.png.import\n-\t-\tassets/melody/rainbow_note_blue_painted.png\n40\t0\tassets/melody/rainbow_note_blue_painted.png.import\n-\t-\tassets/melody/rainbow_note_green_painted.png\n40\t0\tassets/melody/rainbow_note_green_painted.png.import\n-\t-\tassets/melody/rainbow_note_indigo_painted.png\n40\t0\tassets/melody/rainbow_note_indigo_painted.png.import\n-\t-\tassets/melody/rainbow_note_orange_painted.png\n40\t0\tassets/melody/rainbow_note_orange_painted.png.import\n-\t-\tassets/melody/rainbow_note_red_painted.png\n40\t0\tassets/melody/rainbow_note_red_painted.png.import\n-\t-\tassets/melody/rainbow_note_violet_painted.png\n40\t0\tassets/melody/rainbow_note_violet_painted.png.import\n-\t-\tassets/melody/rainbow_note_yellow_painted.png\n40\t0\tassets/melody/rainbow_note_yellow_painted.png.import\n-\t-\tassets/melody/stage_apron_painted.png\n40\t0\tassets/melody/stage_apron_painted.png.import\n-\t-\tassets/melody/stage_apron_rainbow_painted.png\n40\t0\tassets/melody/stage_apron_rainbow_painted.png.import\n-\t-\tassets/melody/star_painted.png\n40\t0\tassets/melody/star_painted.png.import\n-\t-\tassets/melody/theatre_bulb_cream_painted.png\n40\t0\tassets/melody/theatre_bulb_cream_painted.png.import\n-\t-\tassets/melody/theatre_bulb_gold_painted.png\n40\t0\tassets/melody/theatre_bulb_gold_painted.png.import\n-\t-\tassets/melody/timing_window_aura_painted.png\n40\t0\tassets/melody/timing_window_aura_painted.png.import\n-\t-\tassets/melody/timing_window_medallion_painted.png\n40\t0\tassets/melody/timing_window_medallion_painted.png.import\n-\t-\tassets/mg/picture_feedback/sparkle_amber_painted.png\n40\t0\tassets/mg/picture_feedback/sparkle_amber_painted.png.import\n-\t-\tassets/mg/picture_feedback/sparkle_coral_painted.png\n40\t0\tassets/mg/picture_feedback/sparkle_coral_painted.png.import\n-\t-\tassets/mg/picture_feedback/sparkle_ice_painted.png\n40\t0\tassets/mg/picture_feedback/sparkle_ice_painted.png.import\n-\t-\tassets/mg/picture_feedback/sparkle_leaf_painted.png\n40\t0\tassets/mg/picture_feedback/sparkle_leaf_painted.png.import\n-\t-\tassets/mg/picture_feedback/sparkle_lemon_painted.png\n40\t0\tassets/mg/picture_feedback/sparkle_lemon_painted.png.import\n-\t-\tassets/mg/picture_feedback/sparkle_mint_painted.png\n40\t0\tassets/mg/picture_feedback/sparkle_mint_painted.png.import\n-\t-\tassets/mg/picture_feedback/sparkle_rose_painted.png\n40\t0\tassets/mg/picture_feedback/sparkle_rose_painted.png.import\n-\t-\tassets/mg/picture_feedback/sparkle_sky_painted.png\n40\t0\tassets/mg/picture_feedback/sparkle_sky_painted.png.import\n-\t-\tassets/mg/picture_feedback/sparkle_violet_painted.png\n40\t0\tassets/mg/picture_feedback/sparkle_violet_painted.png.import\n-\t-\tassets/mg/snowball_painted.png\n40\t0\tassets/mg/snowball_painted.png.import\n-\t-\tassets/mg/snowfield_painted_00.png\n40\t0\tassets/mg/snowfield_painted_00.png.import\n-\t-\tassets/mg/snowfield_painted_01.png\n40\t0\tassets/mg/snowfield_painted_01.png.import\n-\t-\tassets/mg/snowfield_painted_10.png\n40\t0\tassets/mg/snowfield_painted_10.png.import\n-\t-\tassets/mg/snowfield_painted_11.png\n40\t0\tassets/mg/snowfield_painted_11.png.import\n-\t-\tassets/mg/snowman_coal_painted.png\n40\t0\tassets/mg/snowman_coal_painted.png.import\n-\t-\tassets/mg/trampoline_pad_painted.png\n40\t0\tassets/mg/trampoline_pad_painted.png.import\n-\t-\tassets/review/opera_tiled_detail_v1/background_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_0_1.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_0_2.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_0_3.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_0_4.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_0_5.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_0_6.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_0_7.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_1_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_1_1.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_1_2.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_1_3.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_1_4.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_1_5.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_1_6.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_1_7.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_2_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_2_1.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_2_2.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_2_3.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_2_4.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_2_5.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_2_6.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_2_7.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_3_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_3_1.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_3_2.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_3_3.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_3_4.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_3_5.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_3_6.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_3_7.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_4_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_4_1.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_4_2.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_4_3.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_4_4.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_4_5.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_4_6.png\n-\t-\tassets/review/opera_tiled_detail_v1/background_4_7.png\n-\t-\tassets/review/opera_tiled_detail_v1/curtain_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/curtain_0_1.png\n-\t-\tassets/review/opera_tiled_detail_v1/curtain_0_2.png\n-\t-\tassets/review/opera_tiled_detail_v1/curtain_0_3.png\n-\t-\tassets/review/opera_tiled_detail_v1/curtain_1_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/curtain_1_1.png\n-\t-\tassets/review/opera_tiled_detail_v1/curtain_1_2.png\n-\t-\tassets/review/opera_tiled_detail_v1/curtain_1_3.png\n-\t-\tassets/review/opera_tiled_detail_v1/curtain_2_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/curtain_2_1.png\n-\t-\tassets/review/opera_tiled_detail_v1/curtain_2_2.png\n-\t-\tassets/review/opera_tiled_detail_v1/curtain_2_3.png\n2289\t0\tassets/review/opera_tiled_detail_v1/layout.json\n-\t-\tassets/review/opera_tiled_detail_v1/source_ceiling_moulding_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_ceiling_moulding_0_1.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_central_island_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_central_island_0_1.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_central_island_1_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_central_island_1_1.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_door_0_0_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_door_0_1_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_door_0_2_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_door_0_3_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_door_1_0_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_door_1_1_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_door_1_2_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_door_1_3_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_door_2_0_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_door_2_1_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_door_2_2_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_door_2_3_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_left_chandelier_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_left_dressing_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_left_dressing_1_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_left_lift_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_left_lift_1_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_left_lounge_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_left_service_edge_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_left_stairs_counter_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_middle_balcony_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_right_chandelier_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_right_dressing_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_right_dressing_1_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_right_lift_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_right_lift_1_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_right_lounge_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_right_service_edge_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_right_stairs_rack_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_sconce_0_0_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_sconce_0_1_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_sconce_0_2_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_sconce_0_3_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_sconce_0_4_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_sconce_1_0_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_sconce_1_1_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_sconce_1_2_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_sconce_1_3_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_sconce_1_4_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_sconce_2_0_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_sconce_2_1_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_sconce_2_2_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_sconce_2_3_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_sconce_2_4_0_0.png\n-\t-\tassets/review/opera_tiled_detail_v1/source_upper_balcony_0_0.png\n-\t-\tassets/review/opera_translation_v1/house_0_0.png\n-\t-\tassets/review/opera_translation_v1/house_0_1.png\n-\t-\tassets/review/opera_translation_v1/house_1_0.png\n-\t-\tassets/review/opera_translation_v1/house_1_1.png\n46\t0\tassets/review/opera_translation_v1/layout.json\n-\t-\tassets/review/opera_translation_v1/restoration_healed_source.png\n-\t-\tassets/review/opera_translation_v1/restoration_medallion_source.png\n"
+    }
+  },
+  "static_prefix": "PASS_ALL_OK_NO_REGRESSION_BEFORE_FINAL_HASH_REVIEW",
+  "syntax_active_changed_gd": 63,
+  "ignored_source_only_gd": 158,
+  "audit_tests_retry": {
+    "actual_exit_code_observed": 0,
+    "tool_session": 31723,
+    "tests": 89,
+    "result": "PASS",
+    "prior_disk_full_attempt": "tools/godot_mcp/evidence/workgroup_reconciled/disk_full_attempt.json"
+  },
+  "implementation_files": {
+    ".codex/config.toml": {
+      "historical_git_blob": "d00bf5243776f75e8d208604245ef135749ca301",
+      "current_git_blob": "d00bf5243776f75e8d208604245ef135749ca301",
+      "same_as_f029": true,
+      "raw_sha256": "c1c4059dd63d0aed5a25dce695747ac4ed02fb0567b1a7accd45f5142d62ffc2"
+    },
+    ".mcp.json": {
+      "historical_git_blob": "29e05a9048bc8a6e9d807657e24c8b51f6381b52",
+      "current_git_blob": "29e05a9048bc8a6e9d807657e24c8b51f6381b52",
+      "same_as_f029": true,
+      "raw_sha256": "a5f7d501f8679e4d0ffcbdd49c9aadb4809b9d4a81a3fafe1c9aabccc9ba1d82"
+    },
+    ".gitattributes": {
+      "historical_git_blob": "71065c5e9e8031908c9536fae18d8e63a780c478",
+      "current_git_blob": "c9f8b7a567ec71adcf15221019e31e258ae50b59",
+      "same_as_f029": false,
+      "raw_sha256": "10d3ffc8f1b5071c0d1b1ff6f43352dec0a3db9b118aff83a064ece835dc02ec"
+    },
+    ".gitignore": {
+      "historical_git_blob": "7701deeecfc68b4ed1aa10d92dc312cc9d42fd91",
+      "current_git_blob": "7701deeecfc68b4ed1aa10d92dc312cc9d42fd91",
+      "same_as_f029": true,
+      "raw_sha256": "c2d1fdaa4417765ece77df338d9ea6dd6066c23d78d3c3852938974c1d768fb1"
+    },
+    "project.godot": {
+      "historical_git_blob": "84da90ba17c376d4b08a0268faabaab4b110db3b",
+      "current_git_blob": "84da90ba17c376d4b08a0268faabaab4b110db3b",
+      "same_as_f029": true,
+      "raw_sha256": "62d62e562ca352cb6fa6df9b3dae3b84ffc54439cdea901b6186158e7416e081"
+    },
+    "tools/audit_game_2d.py": {
+      "historical_git_blob": "3a2d0a2bec6d0a01d2c8d76a7dc41d021575d1a9",
+      "current_git_blob": "570778077ae2e1775063d2eaf5504185caea4185",
+      "same_as_f029": false,
+      "raw_sha256": "945b3d1541584a8193665497d79b6ef762a138f055ce6adb1d9dad991a6730f6"
+    },
+    "tools/godot_mcp/addon_manifest.json": {
+      "historical_git_blob": "82f1fbdca69c823af50e9734a84cdfa9cae187a4",
+      "current_git_blob": "82f1fbdca69c823af50e9734a84cdfa9cae187a4",
+      "same_as_f029": true,
+      "raw_sha256": "e8682258f8c21243a734d4c9e54aea2dd7644e5f54f825d40fece275ac391109"
+    },
+    "tools/godot_mcp/package.json": {
+      "historical_git_blob": "12d6eeb0329359f5abeca3d1c70a193b7cc144ca",
+      "current_git_blob": "12d6eeb0329359f5abeca3d1c70a193b7cc144ca",
+      "same_as_f029": true,
+      "raw_sha256": "2b5e6302393c1f0c332d04d975f0531f8cc467321323ac6fd26436b98fc854ca"
+    },
+    "tools/godot_mcp/package-lock.json": {
+      "historical_git_blob": "943d79499e57ffe2c78cf7ff1da8c84da6e78c23",
+      "current_git_blob": "943d79499e57ffe2c78cf7ff1da8c84da6e78c23",
+      "same_as_f029": true,
+      "raw_sha256": "0c61d484fa19a3ecc6dcd39d7e2fceb3411d74b5b57edd8ca7c60e2cc952b8c9"
+    },
+    "tools/godot_mcp/probe_inactive.gd": {
+      "historical_git_blob": "32601cf1b799ee278873f204eabd1cbd2c9641b8",
+      "current_git_blob": "32601cf1b799ee278873f204eabd1cbd2c9641b8",
+      "same_as_f029": true,
+      "raw_sha256": "55c7c9b81b78a27d5ffeb4b31b4c68c852fa209e543e712c790f14dc79e594bb"
+    },
+    "tools/godot_mcp/smoke.mjs": {
+      "historical_git_blob": "dac79468d7f89f94e63c8ac829e5d88287710aee",
+      "current_git_blob": "dac79468d7f89f94e63c8ac829e5d88287710aee",
+      "same_as_f029": true,
+      "raw_sha256": "7dc0523e7906c68d9976e799612f4da3bd5f5301a91b1239a7eb9245f51e5a03"
+    },
+    "tools/tests/test_godot_mcp_scope.py": {
+      "historical_git_blob": "1ced1bf8dca8c6b5203583851dc67a55406b19c5",
+      "current_git_blob": "e7e4dcb756563d1168f8eb39c0bb185229be2d97",
+      "same_as_f029": false,
+      "raw_sha256": "a4b4b2519d9f90658c9895688dff476c0b4f80053f5bf69896599e3dcc3d12d9"
+    },
+    "tools/tests/test_audit_game_2d.py": {
+      "historical_git_blob": "dcf330191e06689d46cfad056c73f3df25a696a9",
+      "current_git_blob": "161e5a3ef9978c5220d03bf4f2c98708f016d2a1",
+      "same_as_f029": false,
+      "raw_sha256": "47a6c40208f5d2a370ba2986f14328ecd7c9e5d2168082c2f984240b535542ac"
+    },
+    "scripts/probe_fetch.gd": {
+      "historical_git_blob": "2816b33c30a70327b6a824365171863cb879daa8",
+      "current_git_blob": "2816b33c30a70327b6a824365171863cb879daa8",
+      "same_as_f029": true,
+      "raw_sha256": "45c4d924503941dbf5b169bf6e68cc702745ba8e80f213c5c5833620098417aa"
+    },
+    "scripts/probe_skins.gd": {
+      "historical_git_blob": "329a9bd6665665dede4a61abfed4785ad6e6b685",
+      "current_git_blob": "329a9bd6665665dede4a61abfed4785ad6e6b685",
+      "same_as_f029": true,
+      "raw_sha256": "dd1e7576cf064180e4a58b2161caace1c060e8f59591ff2af0bb41d18150c1fd"
+    },
+    "scripts/probe_verbs.gd": {
+      "historical_git_blob": "f973c6ccec0f417b4274c9bd5435a433aba0d229",
+      "current_git_blob": "f973c6ccec0f417b4274c9bd5435a433aba0d229",
+      "same_as_f029": true,
+      "raw_sha256": "3ea72d493d5675dd51ea311f41c76fda0d3bb3ccf31b86d799156e85ddd971ef"
+    },
+    "scripts/games/dolls.gd": {
+      "historical_git_blob": "c47dccb447e527b2307db0dd313dfc40c27059c5",
+      "current_git_blob": "c47dccb447e527b2307db0dd313dfc40c27059c5",
+      "same_as_f029": true,
+      "raw_sha256": "31a15f83048c87b2806dfc8df13386585b1a865f1b69704f3fdb0f4f769be482"
+    }
+  },
+  "unchanged_addon_files": 40,
+  "post_prefix_hash_guard_review": {
+    "recorded_at_utc": "2026-11-05T19:02:47.737426+00:00",
+    "result": "PASS",
+    "scope": "Audit-only expected-hash boundary correction after the frozen-source full static prefix. Runtime addon, project, game/probe scripts and assets unchanged. Prior native81/82 failure plus unchanged isolated pass retain their exact scope. No atomic whole-filesystem snapshot claim.",
+    "before_audit_sha256": "c3955d2fade10559344758ab1dddb470d768b3627518b4d4f1dbe70559c7afaa",
+    "after_audit_sha256": "945b3d1541584a8193665497d79b6ef762a138f055ce6adb1d9dad991a6730f6",
+    "after_tests_sha256": "a4b4b2519d9f90658c9895688dff476c0b4f80053f5bf69896599e3dcc3d12d9",
+    "checks": [
+      {
+        "name": "guard_regression_before",
+        "command": [
+          "python",
+          "-X",
+          "utf8",
+          "-B",
+          "-m",
+          "unittest",
+          "tools.tests.test_godot_mcp_scope.GodotMCPScopeTests.test_payload_changed_after_approval_is_not_reviewed",
+          "tools.tests.test_godot_mcp_scope.GodotMCPScopeTests.test_manifest_changed_after_approval_is_not_reviewed"
+        ],
+        "exit_code": 1,
+        "expected_exit_code": 1,
+        "log": "tools/godot_mcp/evidence/workgroup_reconciled/guard_regression_before.txt",
+        "log_sha256": "9969c0535e061ac3413227cb041b5706e9a6b39ed8f4a0bd4a4f6c01d19007c1"
+      },
+      {
+        "name": "guard_regression_after",
+        "command": [
+          "python",
+          "-X",
+          "utf8",
+          "-B",
+          "-m",
+          "unittest",
+          "tools.tests.test_godot_mcp_scope"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "log": "tools/godot_mcp/evidence/workgroup_reconciled/guard_regression_after.txt",
+        "log_sha256": "89289f594e9342926a9bfb3bf008d3f793456adc0ac3fc7aa5d08fca230ae91b"
+      },
+      {
+        "name": "guard_standing_tests",
+        "command": [
+          "python",
+          "-X",
+          "utf8",
+          "-B",
+          "-m",
+          "unittest",
+          "tools.tests.test_audit_game_2d"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "log": "tools/godot_mcp/evidence/workgroup_reconciled/guard_standing_tests.txt",
+        "log_sha256": "d8b9a5c07eded67710b1c0c20b8a45a09bb4bd183c392ddecad96fc86be5af87"
+      },
+      {
+        "name": "guard_inventory",
+        "command": [
+          "python",
+          "-X",
+          "utf8",
+          "-B",
+          "tools/audit_game_2d.py",
+          "--regression-gate"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "log": "tools/godot_mcp/evidence/workgroup_reconciled/guard_inventory.txt",
+        "log_sha256": "4022b0d0dd00dd5e333ac2fdd5684e1ec48df71542d261cc30972ea71a23d6d5"
+      }
+    ]
+  },
+  "source_reuse": "13 of17 original bound implementation paths and the complete40-file addon remain exact. Four changed paths reconcile incoming attributes/audit controls plus the final approved-hash boundary correction and its two regression tests, retaining the compiled-in exact-payload exception. Both exported-notice filters remain exact to the tested packaging revision.",
+  "limits": "Primary full82 attempt is FAIL81/82 from one unexplained Windows4294967295 exit before verdict. Unchanged isolated StartMenuNewGame passes, completing actual-zero-exit receipts for the82-command roster (81 assertion probes plus one explicit headless display-only SKIP) on identical7440-source/326-runtime-asset inputs. This is not a clean single-run82 claim. Audit-only expected-hash correction was applied after the complete prefix; its9 scope tests,91 standing tests and full2D inventory pass separately. Runtime addon/GD/project/assets remain exact. Prior Windows native/Bash exits and disk-full attempts remain historical failures, not explained or erased by this pass. Exact new published combined-head CI remains required before Dev integration. Full bridge input/frozen-time, device/child/owner/game-wide acceptance remain separate/open; no release claim.",
+  "evidence_files": {
+    "tools/godot_mcp/evidence/workgroup_reconciled/prefix.json": {
+      "source": "tmp/godot_mcp_workgroup_prefix.json",
+      "sha256": "9bd774530adbb3e402427cdef96c09a169c915ede67e324f5773ec9b3b422970"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/prefix.txt": {
+      "source": "tmp/godot_mcp_workgroup_prefix.log",
+      "sha256": "2fe2cc16a6a812117307c0ce6ab90b7cc5dd6770242395b015692fdca7080898"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/prefix_source.txt": {
+      "source": "tmp/godot_mcp_workgroup_prefix.sh",
+      "sha256": "bc531de89c80a701f07c542e9537b24e6e6eca391c522383a73104fc47a4a737"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/prefix_driver.source.txt": {
+      "source": "tmp/run_godot_mcp_workgroup_prefix.py",
+      "sha256": "4bdc4aa8cc8de4ef95a35847583874ecf5479f06a8c66cd3755aba9dc29b68d6"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/import.json": {
+      "source": "tmp/godot_mcp_workgroup_import.json",
+      "sha256": "06d159ed8563a778e0ac87c693390409fdc528e65759e19749e6e57291ccd3ba"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/import.txt": {
+      "source": "tmp/godot_mcp_workgroup_import.log",
+      "sha256": "a2be78705259b5458ca46738a4c5a3bebe4c4f2cfcd40f5bd61c201b4c68643d"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/import_driver.source.txt": {
+      "source": "tmp/run_godot_mcp_workgroup_import.py",
+      "sha256": "46efac2f99cc561b503ed78ea36e4b9fdcfae4a971c154c88d979715bd9016f3"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native.json": {
+      "source": "tmp/godot_mcp_workgroup_native_full_run.json",
+      "sha256": "3f343bef91f8320c1771f78cbab41b0aca0178ea36152802d7cea485f28943b8"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native_driver.source.txt": {
+      "source": "tmp/run_godot_mcp_workgroup_native_full.py",
+      "sha256": "0ea641bfa8f778744d2c4452bc098a9c32c32800c5ed1af36356f71523eeda1b"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/isolated.json": {
+      "source": "tmp/godot_mcp_workgroup_isolated_run.json",
+      "sha256": "8548ec51493cd686060e71692d9b04f2e6032d9e9fce8a5b5dc37ff83437c19e"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/isolated_driver.source.txt": {
+      "source": "tmp/run_godot_mcp_workgroup_isolated.py",
+      "sha256": "f7dc981bf606f1bfe08a511cc3498bc95003259cfe499b935124d38f71c94944"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/syntax.json": {
+      "source": "tmp/godot_mcp_workgroup_syntax.json",
+      "sha256": "70fa6f3ddad47f05423802159ee0c4f8b6a822b6a9a37bc5a611d985b64d4831"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/parser.txt": {
+      "source": "tmp/godot_mcp_workgroup_parser.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/inference.txt": {
+      "source": "tmp/godot_mcp_workgroup_inference.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/audit_tests_retry.txt": {
+      "source": "tmp/godot_mcp_workgroup_audit_tests_retry.log",
+      "sha256": "945ff91bacba723c6ea1cb2d9e3fa65dc4fdc7c16af6d58b1549bbabe341884e"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/parent_ci.json": {
+      "source": "tmp/godot_mcp_workgroup_parent_ci.json",
+      "sha256": "0d7a2d395ee4f88d734b0c5a5d9f9f35db006324d2d126ac178d4ae6bcc73aa0"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/owner_preflight.txt": {
+      "source": "tmp/godot_mcp_workgroup_owner.log",
+      "sha256": "e91e675b87808c14ea303894497722e3f16a66709aa2377ab7aca55c7e72832e"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/authority_preflight.txt": {
+      "source": "tmp/godot_mcp_workgroup_authority.log",
+      "sha256": "20e9c7763412e39895ff53632c4e1648f5aa11a76648c46b13875010378ad9f1"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/coverage_preflight.txt": {
+      "source": "tmp/godot_mcp_workgroup_coverage.log",
+      "sha256": "d058cdb9cd000ab9ac7df85faf829c6748d58904ba62bca92ecc0cce0a448b40"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_reef_districts.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_reef_districts.log",
+      "sha256": "97a6d8b58ab878973011b9bddb5709bdfdafcc6fd2f58069e7826b2cb095c0bd"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_ocean_kingdoms.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_ocean_kingdoms.log",
+      "sha256": "df234d3d43c3aa502846363ab085a2cdb54b8b65e295a3444595f275951f7b59"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_audit.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_audit.log",
+      "sha256": "bca822766fc921d07eb27c1b821f89d1bfecb8d8104bbfd69e9a3e6e4e3e7cd7"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_passive.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_passive.log",
+      "sha256": "5946d5388fd2fe27c4d0d930f2a17e9df27da03dc37b8d7fe0a2ffe76fe5395f"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_living_world.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_living_world.log",
+      "sha256": "b18af2adbf40b63615f990dad8d30a8c0168ccd87eefe3c287993cb30d795f98"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_load.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_load.log",
+      "sha256": "d1b64a9cf36f331c655da3d789f62d551d78bca1fff25754445d3daa5c3ed1c8"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_rank.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_rank.log",
+      "sha256": "435e795685cc5cd4b9bbd6442e111d2b46ec44535660a0a13aae8d13f83c5c7d"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_save_recovery.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_save_recovery.log",
+      "sha256": "113bce7f4f4618f7dadfe05c3dfbb527ddb58bc8cc0f915590c473f07c5de38f"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_galaxy_state.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_galaxy_state.log",
+      "sha256": "7741a368859cb6cf07d3f385f3e5aa5f2f502ba89ee3e891486d59f16cf5595a"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_collection.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_collection.log",
+      "sha256": "b109f82b958ac2652e4b94d374fb4016f9ca24ac49ed0eb0d2b129d1aadff690"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_mg2d.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_mg2d.log",
+      "sha256": "2e74ca5215013103ac4bbd6fc00cff8efca322ed3b72289bc2ef0d765dba03c9"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_fetch.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_fetch.log",
+      "sha256": "e1706c1c7b66d4968988c35eb1cc56c7c3b131d84775d90f96944d6bc3b27571"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_melody.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_melody.log",
+      "sha256": "fda5df3503be399f1cb5a01cc095ab4ad4faf49e7268245aea45501a8f47d433"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_dolls.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_dolls.log",
+      "sha256": "d6fe1bf694b8499806f1cb9c4d89e4e1242d6cdcd6da470ea49e401cd4249dbf"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_seek.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_seek.log",
+      "sha256": "ad3d7281a2cfef86bd440a62afc6afd83cadf88ddc2fe62645894b7646f00b14"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_audio.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_audio.log",
+      "sha256": "d6e4cc0d68e8a0c02fdd6beb01ca228bc3516847bc8a46dba833793bc19ed33b"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_dance.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_dance.log",
+      "sha256": "e9d68243d211c408223d1196cf163535148aa1e6ee06258eef1fba2a6f60ad6e"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_l2.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_l2.log",
+      "sha256": "f736f260afb3a5023faeb8156951ffd7d7577491977da1977388de09f7627522"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_l2_living_cards.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_l2_living_cards.log",
+      "sha256": "921b5cd605a190217e3358549c84c2a1c4c6445892701463b6dc6a7d9924eeb4"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_sky_lagoon_animals.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_sky_lagoon_animals.log",
+      "sha256": "1f403e7dc1d681de9f8ee0f2ffbb4158afc26142f61693fb695760e89c42fc08"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_l2_reenter.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_l2_reenter.log",
+      "sha256": "0836edebc4578a0f6ad00c902b5b9db5457646438bb895b91e769498e18b9b94"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_crown.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_crown.log",
+      "sha256": "fa6c01cc64b343b4bc4c64bbcce58279258a383f86d23836119a5a79d0935222"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_throne.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_throne.log",
+      "sha256": "45959e38408bad99bf65d767906d8ff8ed83a9a6a7816c8113576df7f37b97ae"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_northern.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_northern.log",
+      "sha256": "fba9e9483c9e24b53dd6437408ab313959bb7968d3a41347a011b6c0fa98013c"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_human_art_audit.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_human_art_audit.log",
+      "sha256": "5b5415d1b810a7a04bf84518731c22c3121478261795d5c89429aeca2c966dc5"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_train.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_train.log",
+      "sha256": "2617369a4b121d48b4e9cb8c9ced9a4fee3e787530afaa463169a19ab224ddb7"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_verbs.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_verbs.log",
+      "sha256": "814932325942b719958241263c60159f45a5a4a0136a80db42ec793927df6b3d"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_skins.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_skins.log",
+      "sha256": "8925983b17113d743ea7d1c6b17a05e8946c83d9b570c1c7f96aa7d35594909d"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_touch_router.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_touch_router.log",
+      "sha256": "c2892f8084bd847bc1ef4669ea66e602741a48571030e21b659066cb38aea07e"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_touch_stress.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_touch_stress.log",
+      "sha256": "9e330e92b19c13c1fd72b766f874c86b8233a407a7883745d6062b83ce96c432"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_interaction.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_interaction.log",
+      "sha256": "75e9425089cda25286cf58484513493b928490e6fa9f0d6971cfab45fcf12a63"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_touch_adversary.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_touch_adversary.log",
+      "sha256": "7dce7b16bedf0a78e23f3951656cebf93faf911ab4ab7ef1e163c81feb2a5643"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_touch_look.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_touch_look.log",
+      "sha256": "60351641e3a32197e818e5df8416233946f40c138599c4ae85a723642cdc25fb"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_ui_system.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_ui_system.log",
+      "sha256": "fd6065e09969b8da7bbeb040707d99c214a6f3a76e5db6e1f245bdd218e6b33b"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_voice.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_voice.log",
+      "sha256": "3238753d67ea37cde8a93ca120333ce20bd07b9a8d2c792f55a569ceb7931453"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_day_one_voice.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_day_one_voice.log",
+      "sha256": "50a7a84c1ce20b02a158485dab22961bc3b440dc9b823a60f9ef124cdca2dbea"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_day_one_d8_revisits.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_day_one_d8_revisits.log",
+      "sha256": "8a62f8e03b7bbc051aa7e60d1919e69a59951770d17b526d811fe1d4aa1dc631"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_day_one_handoffs.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_day_one_handoffs.log",
+      "sha256": "908a3ed2410a386f95ff5d4b1a9190b6b2e049faf6f08be47f7dd399298c1a82"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_kart_feel.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_kart_feel.log",
+      "sha256": "f1e895f2b8b61aa7dd100526a03c9667bfd142daeb354005a09e3d4932e94600"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_combat.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_combat.log",
+      "sha256": "67aec55ee70333770a4faecb2cfd06051dfd5f0c3522629f4a522650ae60e613"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_dust_bunny.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_dust_bunny.log",
+      "sha256": "4663fb2a0de3512c5d77b0e136a6a59139e23f411d0224912e38b45ebde441dc"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_dust_bunny_boss.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_dust_bunny_boss.log",
+      "sha256": "8fc65c5380675ca971e99523bbe8e17c34f09c503cd2d87029fe79d4b73aed3d"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_dust_boss.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_dust_boss.log",
+      "sha256": "1d05616ae145a7dca0f3e940613bc73c3a1294489cac8053b80fab7a095c3316"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_hit.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_hit.log",
+      "sha256": "785d740aaff6eb57e72a8ecc2fa239cfd66b6f84d956f2ff0bb0ab109e22aaf7"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_partner.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_partner.log",
+      "sha256": "975f35172cb1329e2eb83c9d772ba96fdaf1c79126ba32f7b9a97a6e5a72ba5c"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_combat_tutorial.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_combat_tutorial.log",
+      "sha256": "744b4d5752836b437e1eccd3dc9fa32b0328a8c7383acbaa1f367fb27cba925f"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_imp_ai.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_imp_ai.log",
+      "sha256": "9ae03f976731e38ad51ab9e60fa5e43461359f99af606bbb269f3c7c660ab874"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_mic.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_mic.log",
+      "sha256": "4c186e6413f73aacf682d34e95d955e600da20b553d525b7b4d49cf7bdd8dd26"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_stuffie.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_stuffie.log",
+      "sha256": "ce98c5879cc8f528799c7c4a8bcfdb583da7c27f90f837794b913fc5691b7455"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_dungeon.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_dungeon.log",
+      "sha256": "e375bfcd6815b9b8d614c8ce0b555d08c2bc3c1c9daced36bc7bde6c04a5b836"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_ember.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_ember.log",
+      "sha256": "bfd3bbf78d4afc8f0be1f7b1b24e83c9e1369694a5ad2ddf6f93502c08621e70"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_opera.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_opera.log",
+      "sha256": "7c75739c6f16c8ed2d89a44c3a3b865a2694b3884c522c9881ec590555e2fab4"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_opera_2d.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_opera_2d.log",
+      "sha256": "970283c998ee12470c891420cadd3a09898ce1e0f0c7f0593b7abe7e1b15f055"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_opera_diegetic_paths.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_opera_diegetic_paths.log",
+      "sha256": "8b4fa69dca1eb815b72a9592ac787d7f7cf9650e94c21745b3a3293da39dfeb8"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_opera_detective.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_opera_detective.log",
+      "sha256": "ada2802f1fd8ddfa452d4ca6d40b560d95e2fe6a0d784f3c5ebc5161755a2498"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_opera_pipe.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_opera_pipe.log",
+      "sha256": "9e37f1451cf963674947e78580377efe684cb07070ef3ded7221671a9cf74efc"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_opera_nursery.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_opera_nursery.log",
+      "sha256": "ea99b8b123e699dca13b66bab6a6a0fc607ad7af6509935a9623c08e23a24dac"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_opera_gesture_quality.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_opera_gesture_quality.log",
+      "sha256": "24092105cea880e323075053cccc45837478b6b5abc10532a055d8b64c5c5277"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_kitchen_props.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_kitchen_props.log",
+      "sha256": "085ee788c6a4ea61b380dc094a318f0546223c723a4a06343e564902678217fd"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_bathroom_props.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_bathroom_props.log",
+      "sha256": "f1a9243fa397b4679dd72416d4e7b6fba6d21014c949cf112f3e3c29eefd494f"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_castle_door_language.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_castle_door_language.log",
+      "sha256": "4abaa12c13b1268f31ba2dcbd5a0d01bef5d51f9d72bfae4a3e1289ea6b2240b"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_bathroom_integration.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_bathroom_integration.log",
+      "sha256": "0b93b196a5572ccb0f9f76698bce1c3d2aa27084f08b0cca93da8ab561ace330"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_day_one_bathroom_bunny.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_day_one_bathroom_bunny.log",
+      "sha256": "b2317cefbc14362cdb2509477c136b7ddbf79e88550d370040f165ad452d500c"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_day_one_bathroom_cleanup.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_day_one_bathroom_cleanup.log",
+      "sha256": "e3ac904c4ddad2ceec6937274324e0f46e845f5bc74095a74bd985a7a25a3d14"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_day_one_bathroom_movie_handoff.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_day_one_bathroom_movie_handoff.log",
+      "sha256": "3c38263a6313fdfe5cfb49b7378d9e9890d36373f6f014af0411e016529f5f86"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_day_one_director.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_day_one_director.log",
+      "sha256": "c55a83f10ed8b5e8f241a127a88fdfb1001bbdb65486d44989606a1ece6e1c0e"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_day_one_integration.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_day_one_integration.log",
+      "sha256": "5d2a85cd038e521120be433551a63bdcaa394be2c493b151f616650805b1ab46"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_day_one_pool_cleanup.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_day_one_pool_cleanup.log",
+      "sha256": "30a8f37d2f685dc03346fd080f1d55e96923622d8c7b14a179c07025dcdfadce"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_day_one_art_attack_state.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_day_one_art_attack_state.log",
+      "sha256": "f60c2a724f4c1d99e78da2e83ed099fad0afd2bd2bbd4ba7e730c3ee1f1b6114"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_day_one_castle_dressing.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_day_one_castle_dressing.log",
+      "sha256": "17ea5dbf7d18d174c7029081bb94f79ae44f439fb81b7c77093083efceba80a0"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_day_one_story_clips.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_day_one_story_clips.log",
+      "sha256": "811e20c6e97da8efb3aa06e7e0a74e02f822b74ca0ed33a9548abd5e4e8cf1a8"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_chapter2.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_chapter2.log",
+      "sha256": "e717c1b41712839202892e45685d911f1926cbd5c66dec682bab2d33393b871d"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_chapter2_farmer_resume.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_chapter2_farmer_resume.log",
+      "sha256": "2f43fc12adfc92b0ef5bfde77ceba276190604eb8b7471697746afcbe21d942d"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_chapter2_lawn.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_chapter2_lawn.log",
+      "sha256": "b50aaf7aeae0823dcbfb26e58ab58b9b739c7780e04efb36fb554433be6d55e1"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_alpha_milestone_save.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_alpha_milestone_save.log",
+      "sha256": "c8fee9f0a438dd1b2493699c49a5d84994e818e7bd65fb0f6655fbfca08bc584"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_dust_boss_balance.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_dust_boss_balance.log",
+      "sha256": "3d5551c7923838878bb0adc07ec6a87acf1633cebc990a7760bf01bed3fe4216"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_start_menu_routing.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_start_menu_routing.log",
+      "sha256": "c192b57ce2a0672867a9ce4420e32fde1eab6d258fc7e9e200127891e4d0c163"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_start_menu_new_game.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_start_menu_new_game.log",
+      "sha256": "2a4b9b5b493ceb43f7ddc372668b4e65150da2c924dc03692ca8a3617c380a84"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_castle_pool_life_2d.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_castle_pool_life_2d.log",
+      "sha256": "3c743dae2d362340c1369418a95b8feacb00f3f8933ddb78daa109c17bf5b6b9"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_castle_pearl_art.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_castle_pearl_art.log",
+      "sha256": "b90685971901b8ae4e1951920c275f6a75b96ae49c200a3403dfb87bc06898be"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_fairy_art.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_fairy_art.log",
+      "sha256": "97aa66835cca2cf482d202e46a6119b11319755d18c86c10f76174a009ff34c4"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/native/probe_props.txt": {
+      "source": "tmp/godot_mcp_workgroup_native_full/probe_props.log",
+      "sha256": "c2b732eb8c197eb5004fec74f7df0fb71d031b4dff532a6de5e16c2564a3125c"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/isolated/probe_start_menu_new_game.txt": {
+      "source": "tmp/godot_mcp_workgroup_isolated/probe_start_menu_new_game.log",
+      "sha256": "da325fb4c4585976b96bf8a0174873d5f72baef47d277c6a2b248959b4b5c602"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/audit_before_guard.source.txt": {
+      "source": "preserved earlier current-reconciliation capture",
+      "sha256": "c3955d2fade10559344758ab1dddb470d768b3627518b4d4f1dbe70559c7afaa"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/audit_tests_disk_full.txt": {
+      "source": "preserved earlier current-reconciliation capture",
+      "sha256": "d38841a1bd542eb54e1d515d5a6d938baf88ad424a1fd1892602f3d422b5619e"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/disk_cache_cleanup.json": {
+      "source": "preserved earlier current-reconciliation capture",
+      "sha256": "44f19b8bbb35451f87d46ef3b5faa54189adcbdebd4be5eb57ba076efeaa456c"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/disk_full_attempt.json": {
+      "source": "preserved earlier current-reconciliation capture",
+      "sha256": "c874d5470ce8ce80015b69600adcd7e123fff2d36b7335d1d6ef0956224a1291"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/focused_receipt_disk_full.empty.txt": {
+      "source": "preserved earlier current-reconciliation capture",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/guard_inventory.txt": {
+      "source": "preserved earlier current-reconciliation capture",
+      "sha256": "4022b0d0dd00dd5e333ac2fdd5684e1ec48df71542d261cc30972ea71a23d6d5"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/guard_regression_after.txt": {
+      "source": "preserved earlier current-reconciliation capture",
+      "sha256": "89289f594e9342926a9bfb3bf008d3f793456adc0ac3fc7aa5d08fca230ae91b"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/guard_regression_before.txt": {
+      "source": "preserved earlier current-reconciliation capture",
+      "sha256": "9969c0535e061ac3413227cb041b5706e9a6b39ed8f4a0bd4a4f6c01d19007c1"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/guard_standing_tests.txt": {
+      "source": "preserved earlier current-reconciliation capture",
+      "sha256": "d8b9a5c07eded67710b1c0c20b8a45a09bb4bd183c392ddecad96fc86be5af87"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/hash_guard_review.json": {
+      "source": "preserved earlier current-reconciliation capture",
+      "sha256": "d93ae70141ee371ba9c68abe5cbfd9fc26dd564b445043c2df53e5328fdddefd"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/hash_race_before.json": {
+      "source": "preserved earlier current-reconciliation capture",
+      "sha256": "6e3197e26985245da3db66c1fd330264498ba1535359d0341bd722ab5315625e"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/hash_race_before.txt": {
+      "source": "preserved earlier current-reconciliation capture",
+      "sha256": "fb813c56242943725c4d1924f153fe319fa3d30cee62530763af131882a1cda6"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/hash_race_probe.source.txt": {
+      "source": "preserved earlier current-reconciliation capture",
+      "sha256": "1dc7dbc3d5b2528c409a8392c1243a02f336f399f5b01c1fcd2c2b2cd70af95a"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/implementation_before_guard.json": {
+      "source": "preserved earlier current-reconciliation capture",
+      "sha256": "c7f0d01d7b25898638eadb6e06d6c3502225d6a9baa59c98fedc44e490207a34"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/preservation.json": {
+      "source": "preserved earlier current-reconciliation capture",
+      "sha256": "ab2129c56057e4962b35b1de22ffcf149b8fba095eb83a6527b8985293078e27"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/scope_tests_before_guard.source.txt": {
+      "source": "preserved earlier current-reconciliation capture",
+      "sha256": "25ae9b86b731849810c370916a48cc856c0b42bb448148709a50e8be6791c1bd"
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/authority_final.txt": {
+      "source": "final combined-candidate structural gate capture",
+      "sha256": "20e9c7763412e39895ff53632c4e1648f5aa11a76648c46b13875010378ad9f1",
+      "exit_code": 0
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/owner_final.txt": {
+      "source": "final combined-candidate structural gate capture",
+      "sha256": "e91e675b87808c14ea303894497722e3f16a66709aa2377ab7aca55c7e72832e",
+      "exit_code": 0
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/coverage_auto_final.txt": {
+      "source": "final combined-candidate structural gate capture",
+      "sha256": "d058cdb9cd000ab9ac7df85faf829c6748d58904ba62bca92ecc0cce0a448b40",
+      "exit_code": 0
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/coverage_full_final.txt": {
+      "source": "final combined-candidate structural gate capture",
+      "sha256": "2f284cdec07676878b4170696b8b4ed15ceb1917e24e62ed251ba236f354f527",
+      "exit_code": 0
+    },
+    "tools/godot_mcp/evidence/workgroup_reconciled/diff_final.txt": {
+      "source": "final combined-candidate structural gate capture",
+      "sha256": "7ed360da679c08e94e8eecc6f738ca767a7a2bdc2655fc6d8ff9cef32bfd536f",
+      "exit_code": 0
+    }
+  },
+  "final_structural_gates": {
+    "recorded_at_utc": "2026-11-05T19:10:27.356085+00:00",
+    "checks": [
+      {
+        "name": "authority_final",
+        "command": [
+          "python",
+          "-B",
+          "tools/audit_document_authority.py"
+        ],
+        "exit_code": 0,
+        "log": "tools/godot_mcp/evidence/workgroup_reconciled/authority_final.txt",
+        "sha256": "20e9c7763412e39895ff53632c4e1648f5aa11a76648c46b13875010378ad9f1"
+      },
+      {
+        "name": "owner_final",
+        "command": [
+          "python",
+          "-B",
+          "tools/record_owner_decision.py",
+          "--check",
+          "--base",
+          "origin/dev"
+        ],
+        "exit_code": 0,
+        "log": "tools/godot_mcp/evidence/workgroup_reconciled/owner_final.txt",
+        "sha256": "e91e675b87808c14ea303894497722e3f16a66709aa2377ab7aca55c7e72832e"
+      },
+      {
+        "name": "coverage_auto_final",
+        "command": [
+          "python",
+          "-B",
+          "tools/audit_development.py",
+          "--base",
+          "auto"
+        ],
+        "exit_code": 0,
+        "log": "tools/godot_mcp/evidence/workgroup_reconciled/coverage_auto_final.txt",
+        "sha256": "d058cdb9cd000ab9ac7df85faf829c6748d58904ba62bca92ecc0cce0a448b40"
+      },
+      {
+        "name": "coverage_full_final",
+        "command": [
+          "python",
+          "-B",
+          "tools/audit_development.py",
+          "--base",
+          "65c63ae849b091e3fb91cdbeaf1e2837e10778fe"
+        ],
+        "exit_code": 0,
+        "log": "tools/godot_mcp/evidence/workgroup_reconciled/coverage_full_final.txt",
+        "sha256": "2f284cdec07676878b4170696b8b4ed15ceb1917e24e62ed251ba236f354f527"
+      },
+      {
+        "name": "diff_final",
+        "command": [
+          "git",
+          "diff",
+          "--check",
+          "origin/dev"
+        ],
+        "exit_code": 0,
+        "log": "tools/godot_mcp/evidence/workgroup_reconciled/diff_final.txt",
+        "sha256": "7ed360da679c08e94e8eecc6f738ca767a7a2bdc2655fc6d8ff9cef32bfd536f"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1373 @@
+﻿2026-11-05T19:18:17.3942894Z Current runner version: '2.338.2'
+2026-11-05T19:18:17.3967866Z ##[group]Runner Image Provisioner
+2026-11-05T19:18:17.3968793Z Hosted Compute Agent
+2026-11-05T19:18:17.3969421Z Version: 20261028.624
+2026-11-05T19:18:17.3970023Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-05T19:18:17.3970908Z Build Date: 2026-10-28T21:51:42Z
+2026-11-05T19:18:17.3971817Z Worker ID: {52977df6-27e7-42be-af44-7d414fa042f0}
+2026-11-05T19:18:17.3972577Z Region: westcentralus
+2026-11-05T19:18:17.3973163Z Cloud: Azure
+2026-11-05T19:18:17.3973696Z ##[endgroup]
+2026-11-05T19:18:17.3975235Z ##[group]Operating System
+2026-11-05T19:18:17.3975899Z Ubuntu
+2026-11-05T19:18:17.3976389Z 26.04.1
+2026-11-05T19:18:17.3977025Z LTS
+2026-11-05T19:18:17.3977526Z ##[endgroup]
+2026-11-05T19:18:17.3978146Z ##[group]Runner Image
+2026-11-05T19:18:17.3978753Z Image: ubuntu-26.04
+2026-11-05T19:18:17.3979297Z Version: 20261101.186.1
+2026-11-05T19:18:17.3980631Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261101.186/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-05T19:18:17.3982830Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261101.186
+2026-11-05T19:18:17.3983862Z ##[endgroup]
+2026-11-05T19:18:17.3985101Z ##[group]GITHUB_TOKEN Permissions
+2026-11-05T19:18:17.3986987Z Contents: read
+2026-11-05T19:18:17.3987558Z Metadata: read
+2026-11-05T19:18:17.3988244Z ##[endgroup]
+2026-11-05T19:18:17.3990329Z Secret source: Actions
+2026-11-05T19:18:17.3991630Z Cache mode: write
+2026-11-05T19:18:17.3992451Z Prepare workflow directory
+2026-11-05T19:18:17.4399035Z Prepare all required actions
+2026-11-05T19:18:17.4447695Z Getting action download info
+2026-11-05T19:18:17.7108583Z Download action repository 'actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-11-05T19:18:17.8319310Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-05T19:18:18.0384059Z Complete job name: probes
+2026-11-05T19:18:18.1430209Z ##[group]Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+2026-11-05T19:18:18.1431513Z with:
+2026-11-05T19:18:18.1432019Z   fetch-depth: 0
+2026-11-05T19:18:18.1432529Z   filter: blob:none
+2026-11-05T19:18:18.1433054Z   persist-credentials: false
+2026-11-05T19:18:18.1433651Z   repository: Ebonyks/mermaid-roshan-reef
+2026-11-05T19:18:18.1437720Z   token: ***
+2026-11-05T19:18:18.1438202Z   ssh-strict: true
+2026-11-05T19:18:18.1438699Z   ssh-user: git
+2026-11-05T19:18:18.1439168Z   clean: true
+2026-11-05T19:18:18.1439673Z   sparse-checkout-cone-mode: true
+2026-11-05T19:18:18.1440249Z   fetch-tags: false
+2026-11-05T19:18:18.1440748Z   show-progress: true
+2026-11-05T19:18:18.1441239Z   lfs: false
+2026-11-05T19:18:18.1441814Z   submodules: false
+2026-11-05T19:18:18.1442317Z   set-safe-directory: true
+2026-11-05T19:18:18.1443090Z env:
+2026-11-05T19:18:18.1443545Z   GODOT_RELEASE: 4.7.2-stable
+2026-11-05T19:18:18.1444809Z   GODOT_ZIP_SHA512: 9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65
+2026-11-05T19:18:18.1446114Z ##[endgroup]
+2026-11-05T19:18:18.4572827Z Syncing repository: Ebonyks/mermaid-roshan-reef
+2026-11-05T19:18:18.4574803Z ##[group]Getting Git version info
+2026-11-05T19:18:18.4575807Z Working directory is '/home/runner/work/mermaid-roshan-reef/mermaid-roshan-reef'
+2026-11-05T19:18:18.4577340Z [command]/usr/bin/git version
+2026-11-05T19:18:18.4610483Z git version 2.56.0
+2026-11-05T19:18:18.4642997Z ##[endgroup]
+2026-11-05T19:18:18.4672104Z Temporarily overriding HOME='/home/runner/work/_temp/cc46f6c4-0d28-4ed8-945f-1ce019f3b11a' before making global git config changes
+2026-11-05T19:18:18.4689616Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-05T19:18:18.4700097Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mermaid-roshan-reef/mermaid-roshan-reef
+2026-11-05T19:18:18.4773318Z Deleting the contents of '/home/runner/work/mermaid-roshan-reef/mermaid-roshan-reef'
+2026-11-05T19:18:18.4810922Z ##[group]Initializing the repository
+2026-11-05T19:18:18.4812665Z [command]/usr/bin/git init /home/runner/work/mermaid-roshan-reef/mermaid-roshan-reef
+2026-11-05T19:18:18.4953324Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-05T19:18:18.4955712Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-05T19:18:18.4958738Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-05T19:18:18.4960644Z hint: call:
+2026-11-05T19:18:18.4962670Z hint:
+2026-11-05T19:18:18.4964354Z hint: 	git config --global init.defaultBranch <name>
+2026-11-05T19:18:18.4968061Z hint:
+2026-11-05T19:18:18.4969207Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-05T19:18:18.4970965Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-05T19:18:18.4972657Z hint:
+2026-11-05T19:18:18.4973536Z hint: 	git branch -m <name>
+2026-11-05T19:18:18.4974447Z hint:
+2026-11-05T19:18:18.4975627Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-05T19:18:18.4987443Z Initialized empty Git repository in /home/runner/work/mermaid-roshan-reef/mermaid-roshan-reef/.git/
+2026-11-05T19:18:18.4996918Z [command]/usr/bin/git remote add origin https://github.com/Ebonyks/mermaid-roshan-reef
+2026-11-05T19:18:18.5063297Z ##[endgroup]
+2026-11-05T19:18:18.5064623Z ##[group]Disabling automatic garbage collection
+2026-11-05T19:18:18.5068518Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-05T19:18:18.5105610Z ##[endgroup]
+2026-11-05T19:18:18.5106958Z ##[group]Setting up auth
+2026-11-05T19:18:18.5114527Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-05T19:18:18.5154558Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-05T19:18:18.5690244Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-05T19:18:18.5727276Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-05T19:18:18.6012220Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-05T19:18:18.6051619Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-05T19:18:18.6337913Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-05T19:18:18.6379860Z ##[endgroup]
+2026-11-05T19:18:18.6381529Z ##[group]Fetching the repository
+2026-11-05T19:18:18.6392131Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules --filter=blob:none origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-11-05T19:18:22.0444272Z From https://github.com/Ebonyks/mermaid-roshan-reef
+2026-11-05T19:18:22.0447357Z  * [new branch]        archive/first-level-texture-audit -> origin/archive/first-level-texture-audit
+2026-11-05T19:18:22.0450147Z  * [new branch]        archive/game-dev-mode-tools -> origin/archive/game-dev-mode-tools
+2026-11-05T19:18:22.0452837Z  * [new branch]        archive/physics-jolt-cove  -> origin/archive/physics-jolt-cove
+2026-11-05T19:18:22.0455404Z  * [new branch]        archive/replace-assets-voices -> origin/archive/replace-assets-voices
+2026-11-05T19:18:22.0458061Z  * [new branch]        archive/roshan-codebase-audit -> origin/archive/roshan-codebase-audit
+2026-11-05T19:18:22.0462494Z  * [new branch]        auto/integration-20260802-2039 -> origin/auto/integration-20260802-2039
+2026-11-05T19:18:22.0464496Z  * [new branch]        auto/integration-20260803-1515 -> origin/auto/integration-20260803-1515
+2026-11-05T19:18:22.0468631Z  * [new branch]        backup/pre-fork-2026-06-25 -> origin/backup/pre-fork-2026-06-25
+2026-11-05T19:18:22.0470423Z  * [new branch]        ccr-1ef62322-breknu        -> origin/ccr-1ef62322-breknu
+2026-11-05T19:18:22.0472422Z  * [new branch]        ccr-458535f1-79yjld        -> origin/ccr-458535f1-79yjld
+2026-11-05T19:18:22.0474236Z  * [new branch]        ccr-550899f6-4xmply        -> origin/ccr-550899f6-4xmply
+2026-11-05T19:18:22.0476122Z  * [new branch]        ccr-61d6faa7-0ajqtn        -> origin/ccr-61d6faa7-0ajqtn
+2026-11-05T19:18:22.0477738Z  * [new branch]        ccr-62241184-10wgzx        -> origin/ccr-62241184-10wgzx
+2026-11-05T19:18:22.0479620Z  * [new branch]        ccr-959aa3e4-hdmx6a        -> origin/ccr-959aa3e4-hdmx6a
+2026-11-05T19:18:22.0481750Z  * [new branch]        ccr-a84d5fc0-8iguzj        -> origin/ccr-a84d5fc0-8iguzj
+2026-11-05T19:18:22.0483493Z  * [new branch]        ccr-ba906acd-1aepcb        -> origin/ccr-ba906acd-1aepcb
+2026-11-05T19:18:22.0485266Z  * [new branch]        ccr-d108a6a1-swq9dd        -> origin/ccr-d108a6a1-swq9dd
+2026-11-05T19:18:22.0487328Z  * [new branch]        ccr-e63dd143-py5k73        -> origin/ccr-e63dd143-py5k73
+2026-11-05T19:18:22.0489614Z  * [new branch]        claude/2d-castle-version-status-axcnfk -> origin/claude/2d-castle-version-status-axcnfk
+2026-11-05T19:18:22.0493680Z  * [new branch]        claude/3d-2d-game-audit-oj3v9p -> origin/claude/3d-2d-game-audit-oj3v9p
+2026-11-05T19:18:22.0495913Z  * [new branch]        claude/alpha-polish-20260805 -> origin/claude/alpha-polish-20260805
+2026-11-05T19:18:22.0498077Z  * [new branch]        claude/android-apk-upload-6yzxxv -> origin/claude/android-apk-upload-6yzxxv
+2026-11-05T19:18:22.0500397Z  * [new branch]        claude/angry-roentgen-6a8f7b -> origin/claude/angry-roentgen-6a8f7b
+2026-11-05T19:18:22.0503020Z  * [new branch]        claude/anim-lab            -> origin/claude/anim-lab
+2026-11-05T19:18:22.0505695Z  * [new branch]        claude/apk-pull-shortcut-sw1gqy -> origin/claude/apk-pull-shortcut-sw1gqy
+2026-11-05T19:18:22.0509787Z  * [new branch]        claude/art-audit-blender-assessment-c0jmod -> origin/claude/art-audit-blender-assessment-c0jmod
+2026-11-05T19:18:22.0512996Z  * [new branch]        claude/asset-purge-dead-3d -> origin/claude/asset-purge-dead-3d
+2026-11-05T19:18:22.0515721Z  * [new branch]        claude/audit-consolidation-design-1m5yd2 -> origin/claude/audit-consolidation-design-1m5yd2
+2026-11-05T19:18:22.0518743Z  * [new branch]        claude/bowser-planet-world-2paqo6 -> origin/claude/bowser-planet-world-2paqo6
+2026-11-05T19:18:22.0521895Z  * [new branch]        claude/boxer-engine-handoff-20261101 -> origin/claude/boxer-engine-handoff-20261101
+2026-11-05T19:18:22.0524663Z  * [new branch]        claude/castle-animation-handoff -> origin/claude/castle-animation-handoff
+2026-11-05T19:18:22.0527064Z  * [new branch]        claude/castle-camera-audit -> origin/claude/castle-camera-audit
+2026-11-05T19:18:22.0529734Z  * [new branch]        claude/castle-courtyard-train-59qwf1 -> origin/claude/castle-courtyard-train-59qwf1
+2026-11-05T19:18:22.0533033Z  * [new branch]        claude/castle-interactive-items-y0cat7 -> origin/claude/castle-interactive-items-y0cat7
+2026-11-05T19:18:22.0535621Z  * [new branch]        claude/castle-touch-entry  -> origin/claude/castle-touch-entry
+2026-11-05T19:18:22.0538171Z  * [new branch]        claude/chapter-guide-handoff-20261031 -> origin/claude/chapter-guide-handoff-20261031
+2026-11-05T19:18:22.0540894Z  * [new branch]        claude/code-changes-audit-ngu0lf -> origin/claude/code-changes-audit-ngu0lf
+2026-11-05T19:18:22.0543894Z  * [new branch]        claude/codex-audit-design-items-11ooie -> origin/claude/codex-audit-design-items-11ooie
+2026-11-05T19:18:22.0546834Z  * [new branch]        claude/codex-redesign-audit-tool-ji7dqd -> origin/claude/codex-redesign-audit-tool-ji7dqd
+2026-11-05T19:18:22.0549937Z  * [new branch]        claude/codex-ui-enhancements-handoff-u3xhwu -> origin/claude/codex-ui-enhancements-handoff-u3xhwu
+2026-11-05T19:18:22.0553255Z  * [new branch]        claude/combat-wing-20260804 -> origin/claude/combat-wing-20260804
+2026-11-05T19:18:22.0555735Z  * [new branch]        claude/cozy-game-missing-features-awzejf -> origin/claude/cozy-game-missing-features-awzejf
+2026-11-05T19:18:22.0558154Z  * [new branch]        claude/craft-layer-canvases -> origin/claude/craft-layer-canvases
+2026-11-05T19:18:22.0560340Z  * [new branch]        claude/day-one-analysis-yv0z4m -> origin/claude/day-one-analysis-yv0z4m
+2026-11-05T19:18:22.0562913Z  * [new branch]        claude/day-one-castle-intro-u77vnf -> origin/claude/day-one-castle-intro-u77vnf
+2026-11-05T19:18:22.0565565Z  * [new branch]        claude/day-one-cleanup-clips-20260923 -> origin/claude/day-one-cleanup-clips-20260923
+2026-11-05T19:18:22.0568162Z  * [new branch]        claude/day-one-continue-fix-20260923 -> origin/claude/day-one-continue-fix-20260923
+2026-11-05T19:18:22.0570902Z  * [new branch]        claude/day-one-rebuild-handoff-20260923 -> origin/claude/day-one-rebuild-handoff-20260923
+2026-11-05T19:18:22.0573827Z  * [new branch]        claude/day-one-story-clips-20260923 -> origin/claude/day-one-story-clips-20260923
+2026-11-05T19:18:22.0576191Z  * [new branch]        claude/demo-readiness-20261031 -> origin/claude/demo-readiness-20261031
+2026-11-05T19:18:22.0578781Z  * [new branch]        claude/dungeon-difficulty-audit-qhcwph -> origin/claude/dungeon-difficulty-audit-qhcwph
+2026-11-05T19:18:22.0581182Z  * [new branch]        claude/dust-bunny-ai-keszd0 -> origin/claude/dust-bunny-ai-keszd0
+2026-11-05T19:18:22.0583579Z  * [new branch]        claude/dust-bunny-boss-ai-qdbf48 -> origin/claude/dust-bunny-boss-ai-qdbf48
+2026-11-05T19:18:22.0585744Z  * [new branch]        claude/elbow-audit         -> origin/claude/elbow-audit
+2026-11-05T19:18:22.0588078Z  * [new branch]        claude/emperor-king-character-dev-3mmtoy -> origin/claude/emperor-king-character-dev-3mmtoy
+2026-11-05T19:18:22.0590913Z  * [new branch]        claude/engine-screen-layering-bugs-qzatu2 -> origin/claude/engine-screen-layering-bugs-qzatu2
+2026-11-05T19:18:22.0594372Z  * [new branch]        claude/expiring-credits-prioritize-77zp34 -> origin/claude/expiring-credits-prioritize-77zp34
+2026-11-05T19:18:22.0597089Z  * [new branch]        claude/fable-constructed-models -> origin/claude/fable-constructed-models
+2026-11-05T19:18:22.0599988Z  * [new branch]        claude/fairy-minigame-2d-overhead-eebbl0 -> origin/claude/fairy-minigame-2d-overhead-eebbl0
+2026-11-05T19:18:22.0603186Z  * [new branch]        claude/first-level-texture-audit-gl8xyq -> origin/claude/first-level-texture-audit-gl8xyq
+2026-11-05T19:18:22.0606011Z  * [new branch]        claude/game-analysis-reflection-nnv3bj -> origin/claude/game-analysis-reflection-nnv3bj
+2026-11-05T19:18:22.0608618Z  * [new branch]        claude/game-art-audit-impl-j6p6ly -> origin/claude/game-art-audit-impl-j6p6ly
+2026-11-05T19:18:22.0611782Z  * [new branch]        claude/game-branches-audit-goals-bju3de -> origin/claude/game-branches-audit-goals-bju3de
+2026-11-05T19:18:22.0614526Z  * [new branch]        claude/game-dev-mode-tools-lhqs7l -> origin/claude/game-dev-mode-tools-lhqs7l
+2026-11-05T19:18:22.0617241Z  * [new branch]        claude/game-lighting-audit-ohe87o -> origin/claude/game-lighting-audit-ohe87o
+2026-11-05T19:18:22.0623387Z  * [new branch]        claude/game-narrative-day-structure-v2k7w4 -> origin/claude/game-narrative-day-structure-v2k7w4
+2026-11-05T19:18:22.0626407Z  * [new branch]        claude/game-redesign-2-5d-7nhkbw -> origin/claude/game-redesign-2-5d-7nhkbw
+2026-11-05T19:18:22.0628907Z  * [new branch]        claude/garden-minigame-scaling -> origin/claude/garden-minigame-scaling
+2026-11-05T19:18:22.0631983Z  * [new branch]        claude/go-kart-mobile-rainbow-track-8gyatx -> origin/claude/go-kart-mobile-rainbow-track-8gyatx
+2026-11-05T19:18:22.0635262Z  * [new branch]        claude/godot-lighting-shaders-audit-hgcof9 -> origin/claude/godot-lighting-shaders-audit-hgcof9
+2026-11-05T19:18:22.0638353Z  * [new branch]        claude/godot-upgrade-benefits-cwdnc0 -> origin/claude/godot-upgrade-benefits-cwdnc0
+2026-11-05T19:18:22.0641690Z  * [new branch]        claude/gold-star-audit-20261003 -> origin/claude/gold-star-audit-20261003
+2026-11-05T19:18:22.0644303Z  * [new branch]        claude/gold-star-overdraw-20261004 -> origin/claude/gold-star-overdraw-20261004
+2026-11-05T19:18:22.0646916Z  * [new branch]        claude/graphics-upgrade-fork -> origin/claude/graphics-upgrade-fork
+2026-11-05T19:18:22.0649113Z  * [new branch]        claude/hit-engine          -> origin/claude/hit-engine
+2026-11-05T19:18:22.0652458Z  * [new branch]        claude/hourly-branch-completion-agent-0d1nim -> origin/claude/hourly-branch-completion-agent-0d1nim
+2026-11-05T19:18:22.0655284Z  * [new branch]        claude/hud-cleanup         -> origin/claude/hud-cleanup
+2026-11-05T19:18:22.0657700Z  * [new branch]        claude/imp-combat-behavior-b2e64r -> origin/claude/imp-combat-behavior-b2e64r
+2026-11-05T19:18:22.0660623Z  * [new branch]        claude/job-art-imagegen-audit-20261017 -> origin/claude/job-art-imagegen-audit-20261017
+2026-11-05T19:18:22.0664097Z  * [new branch]        claude/job-game-takeover-audit-20260930 -> origin/claude/job-game-takeover-audit-20260930
+2026-11-05T19:18:22.0667453Z  * [new branch]        claude/job-games-comparative-audit-20261101 -> origin/claude/job-games-comparative-audit-20261101
+2026-11-05T19:18:22.0671026Z  * [new branch]        claude/job-platform-architecture-20260930 -> origin/claude/job-platform-architecture-20260930
+2026-11-05T19:18:22.0674519Z  * [new branch]        claude/jolt-physics-2-5d-sprites-7pheg3 -> origin/claude/jolt-physics-2-5d-sprites-7pheg3
+2026-11-05T19:18:22.0677572Z  * [new branch]        claude/jolt-physics-audit-1frh2m -> origin/claude/jolt-physics-audit-1frh2m
+2026-11-05T19:18:22.0680473Z  * [new branch]        claude/lagoon-roshan-facing-20260923 -> origin/claude/lagoon-roshan-facing-20260923
+2026-11-05T19:18:22.0683273Z  * [new branch]        claude/left-arm-hair-fix   -> origin/claude/left-arm-hair-fix
+2026-11-05T19:18:22.0686343Z  * [new branch]        claude/loop-implementation-audit-20261003 -> origin/claude/loop-implementation-audit-20261003
+2026-11-05T19:18:22.0689645Z  * [new branch]        claude/master-audit-game-analysis-qiko9l -> origin/claude/master-audit-game-analysis-qiko9l
+2026-11-05T19:18:22.0693340Z  * [new branch]        claude/master-audit-refinement-handoff-20260930 -> origin/claude/master-audit-refinement-handoff-20260930
+2026-11-05T19:18:22.0696811Z  * [new branch]        claude/mermaid-character-audit-nqx5ix -> origin/claude/mermaid-character-audit-nqx5ix
+2026-11-05T19:18:22.0699794Z  * [new branch]        claude/mermaid-land-animation-cjb7j8 -> origin/claude/mermaid-land-animation-cjb7j8
+2026-11-05T19:18:22.0702927Z  * [new branch]        claude/mermaid-roshan-combo-system-ctiokp -> origin/claude/mermaid-roshan-combo-system-ctiokp
+2026-11-05T19:18:22.0706281Z  * [new branch]        claude/mermaid-roshan-jobs-audit-a2zhla -> origin/claude/mermaid-roshan-jobs-audit-a2zhla
+2026-11-05T19:18:22.0710229Z  * [new branch]        claude/mermaid-roshan-jobs-integration-wznscg -> origin/claude/mermaid-roshan-jobs-integration-wznscg
+2026-11-05T19:18:22.0714009Z  * [new branch]        claude/mermaid-roshan-redesign-ufc790 -> origin/claude/mermaid-roshan-redesign-ufc790
+2026-11-05T19:18:22.0717188Z  * [new branch]        claude/mermaid-roshan-skinning-mhu96s -> origin/claude/mermaid-roshan-skinning-mhu96s
+2026-11-05T19:18:22.0720927Z  * [new branch]        claude/mermaid-roshan-spells-mdinxn -> origin/claude/mermaid-roshan-spells-mdinxn
+2026-11-05T19:18:22.0724328Z  * [new branch]        claude/meshy-models-sprite-migration-angc80 -> origin/claude/meshy-models-sprite-migration-angc80
+2026-11-05T19:18:22.0727823Z  * [new branch]        claude/microphone-input-spells-cost-r2mjun -> origin/claude/microphone-input-spells-cost-r2mjun
+2026-11-05T19:18:22.0731608Z  * [new branch]        claude/minigame-engine-architecture-pykzb9 -> origin/claude/minigame-engine-architecture-pykzb9
+2026-11-05T19:18:22.0735303Z  * [new branch]        claude/minigame-rebuild-analysis-20261017 -> origin/claude/minigame-rebuild-analysis-20261017
+2026-11-05T19:18:22.0738481Z  * [new branch]        claude/motion-audit        -> origin/claude/motion-audit
+2026-11-05T19:18:22.0741911Z  * [new branch]        claude/navigation-audit-world-castle-lzezdx -> origin/claude/navigation-audit-world-castle-lzezdx
+2026-11-05T19:18:22.0744966Z  * [new branch]        claude/new-game-hold-20260923 -> origin/claude/new-game-hold-20260923
+2026-11-05T19:18:22.0746889Z  * [new branch]        claude/opera-house-games-redesign-e3y590 -> origin/claude/opera-house-games-redesign-e3y590
+2026-11-05T19:18:22.0748993Z  * [new branch]        claude/opera-house-stage-kp3oq3 -> origin/claude/opera-house-stage-kp3oq3
+2026-11-05T19:18:22.0752000Z  * [new branch]        claude/opera-house-visual-guide-rxzsvq -> origin/claude/opera-house-visual-guide-rxzsvq
+2026-11-05T19:18:22.0754503Z  * [new branch]        claude/opera-integration-20260804 -> origin/claude/opera-integration-20260804
+2026-11-05T19:18:22.0756815Z  * [new branch]        claude/opera-minigame-rebuild -> origin/claude/opera-minigame-rebuild
+2026-11-05T19:18:22.0759375Z  * [new branch]        claude/pearl-monetization-animals-ivgvtc -> origin/claude/pearl-monetization-animals-ivgvtc
+2026-11-05T19:18:22.0762934Z  * [new branch]        claude/physics-engine-improvements-pdfz5r -> origin/claude/physics-engine-improvements-pdfz5r
+2026-11-05T19:18:22.0765590Z  * [new branch]        claude/playground-audit    -> origin/claude/playground-audit
+2026-11-05T19:18:22.0767709Z  * [new branch]        claude/playground-hand-audit -> origin/claude/playground-hand-audit
+2026-11-05T19:18:22.0770505Z  * [new branch]        claude/pokemon-minigame-system-r9k9dz -> origin/claude/pokemon-minigame-system-r9k9dz
+2026-11-05T19:18:22.0773705Z  * [new branch]        claude/project-backup-method-looaym -> origin/claude/project-backup-method-looaym
+2026-11-05T19:18:22.0776899Z  * [new branch]        claude/project-decommission-cleanup-w0gvn4 -> origin/claude/project-decommission-cleanup-w0gvn4
+2026-11-05T19:18:22.0780206Z  * [new branch]        claude/promote-stable-apk-channel -> origin/claude/promote-stable-apk-channel
+2026-11-05T19:18:22.0783011Z  * [new branch]        claude/push-latest-build-apk-gvd2ep -> origin/claude/push-latest-build-apk-gvd2ep
+2026-11-05T19:18:22.0785713Z  * [new branch]        claude/ranking-system-design-cb4ww8 -> origin/claude/ranking-system-design-cb4ww8
+2026-11-05T19:18:22.0788200Z  * [new branch]        claude/reef-kart-engine-20261103 -> origin/claude/reef-kart-engine-20261103
+2026-11-05T19:18:22.0790297Z  * [new branch]        claude/reef2-chuck-rescue  -> origin/claude/reef2-chuck-rescue
+2026-11-05T19:18:22.0792490Z  * [new branch]        claude/remove-3d-reef-20260923 -> origin/claude/remove-3d-reef-20260923
+2026-11-05T19:18:22.0794907Z  * [new branch]        claude/remove-cc0-assets-regen-sieh6e -> origin/claude/remove-cc0-assets-regen-sieh6e
+2026-11-05T19:18:22.0797650Z  * [new branch]        claude/remove-early-cosmetics-i9ca1s -> origin/claude/remove-early-cosmetics-i9ca1s
+2026-11-05T19:18:22.0800497Z  * [new branch]        claude/replace-assets-free-sources-lnplz7 -> origin/claude/replace-assets-free-sources-lnplz7
+2026-11-05T19:18:22.0803567Z  * [new branch]        claude/replace-assets-free-sources-z3jp2y -> origin/claude/replace-assets-free-sources-z3jp2y
+2026-11-05T19:18:22.0806485Z  * [new branch]        claude/review-new-elements-merge-yd5zfp -> origin/claude/review-new-elements-merge-yd5zfp
+2026-11-05T19:18:22.0808821Z  * [new branch]        claude/rig-pilot-20261007  -> origin/claude/rig-pilot-20261007
+2026-11-05T19:18:22.0811199Z  * [new branch]        claude/roshan-castle-swim-anchor-20260923 -> origin/claude/roshan-castle-swim-anchor-20260923
+2026-11-05T19:18:22.0814011Z  * [new branch]        claude/roshan-codebase-audit-ufn9cs -> origin/claude/roshan-codebase-audit-ufn9cs
+2026-11-05T19:18:22.0816615Z  * [new branch]        claude/roshan-motion-language-20261004 -> origin/claude/roshan-motion-language-20261004
+2026-11-05T19:18:22.0819496Z  * [new branch]        claude/roshan-sprite-visibility-1hraba -> origin/claude/roshan-sprite-visibility-1hraba
+2026-11-05T19:18:22.0821874Z  * [new branch]        claude/roshan-v4-both-arms -> origin/claude/roshan-v4-both-arms
+2026-11-05T19:18:22.0823980Z  * [new branch]        claude/rumi-book-revision-20261017 -> origin/claude/rumi-book-revision-20261017
+2026-11-05T19:18:22.0826479Z  * [new branch]        claude/security-audit-hardening-797qe6 -> origin/claude/security-audit-hardening-797qe6
+2026-11-05T19:18:22.0829099Z  * [new branch]        claude/self-improvement-loop-20261003 -> origin/claude/self-improvement-loop-20261003
+2026-11-05T19:18:22.0831245Z  * [new branch]        claude/skin-stress-fix     -> origin/claude/skin-stress-fix
+2026-11-05T19:18:22.0833711Z  * [new branch]        claude/skins-sprite-animation-reuse-mh1j15 -> origin/claude/skins-sprite-animation-reuse-mh1j15
+2026-11-05T19:18:22.0836425Z  * [new branch]        claude/sky-lagoon-animal-realism-5um611 -> origin/claude/sky-lagoon-animal-realism-5um611
+2026-11-05T19:18:22.0838782Z  * [new branch]        claude/sky-lagoon-pnw-runtime -> origin/claude/sky-lagoon-pnw-runtime
+2026-11-05T19:18:22.0840974Z  * [new branch]        claude/sprite-cutoff-audit-a6rn0z -> origin/claude/sprite-cutoff-audit-a6rn0z
+2026-11-05T19:18:22.0843673Z  * [new branch]        claude/stale-audit-consolidation-20260930 -> origin/claude/stale-audit-consolidation-20260930
+2026-11-05T19:18:22.0846388Z  * [new branch]        claude/start-menu-options-hold-20260923 -> origin/claude/start-menu-options-hold-20260923
+2026-11-05T19:18:22.0848702Z  * [new branch]        claude/storybook-diorama-fork -> origin/claude/storybook-diorama-fork
+2026-11-05T19:18:22.0850619Z  * [new branch]        claude/storybook-ui-dev    -> origin/claude/storybook-ui-dev
+2026-11-05T19:18:22.0852764Z  * [new branch]        claude/texture-codex-assets-dzfbij -> origin/claude/texture-codex-assets-dzfbij
+2026-11-05T19:18:22.0855402Z  * [new branch]        claude/toca-boca-design-analysis-m61udu -> origin/claude/toca-boca-design-analysis-m61udu
+2026-11-05T19:18:22.0857944Z  * [new branch]        claude/todo-implementation-i4hkmh -> origin/claude/todo-implementation-i4hkmh
+2026-11-05T19:18:22.0860410Z  * [new branch]        claude/touch-controls-sky-lagoon-np8zpl -> origin/claude/touch-controls-sky-lagoon-np8zpl
+2026-11-05T19:18:22.0863154Z  * [new branch]        claude/visual-design-language-20260930 -> origin/claude/visual-design-language-20260930
+2026-11-05T19:18:22.0865671Z  * [new branch]        claude/visual-polish-handoff-20260925 -> origin/claude/visual-polish-handoff-20260925
+2026-11-05T19:18:22.0868178Z  * [new branch]        claude/water-physics-evaluation-i4cj2w -> origin/claude/water-physics-evaluation-i4cj2w
+2026-11-05T19:18:22.0870351Z  * [new branch]        codex/adventure-dungeon    -> origin/codex/adventure-dungeon
+2026-11-05T19:18:22.0872425Z  * [new branch]        codex/alpine-house-interiors -> origin/codex/alpine-house-interiors
+2026-11-05T19:18:22.0874330Z  * [new branch]        codex/alpine-village-secret -> origin/codex/alpine-village-secret
+2026-11-05T19:18:22.0876136Z  * [new branch]        codex/ambient-stage-life   -> origin/codex/ambient-stage-life
+2026-11-05T19:18:22.0878388Z  * [new branch]        codex/animation-engine-benchmark-20261003 -> origin/codex/animation-engine-benchmark-20261003
+2026-11-05T19:18:22.0881150Z  * [new branch]        codex/animation-local-aseprite-20261003 -> origin/codex/animation-local-aseprite-20261003
+2026-11-05T19:18:22.0883795Z  * [new branch]        codex/arborist-art-recovery-20260929 -> origin/codex/arborist-art-recovery-20260929
+2026-11-05T19:18:22.0886015Z  * [new branch]        codex/arborist-spray-20261015 -> origin/codex/arborist-spray-20261015
+2026-11-05T19:18:22.0887874Z  * [new branch]        codex/art-archive-index    -> origin/codex/art-archive-index
+2026-11-05T19:18:22.0889661Z  * [new branch]        codex/art-reuse-budget-rule -> origin/codex/art-reuse-budget-rule
+2026-11-05T19:18:22.0891744Z  * [new branch]        codex/artwork-quality-20261018 -> origin/codex/artwork-quality-20261018
+2026-11-05T19:18:22.0894154Z  * [new branch]        codex/astronaut-clearance-20261006 -> origin/codex/astronaut-clearance-20261006
+2026-11-05T19:18:22.0896713Z  * [new branch]        codex/audio-quality-remediation-20260824 -> origin/codex/audio-quality-remediation-20260824
+2026-11-05T19:18:22.0899113Z  * [new branch]        codex/audio-soundscape-audit -> origin/codex/audio-soundscape-audit
+2026-11-05T19:18:22.0902022Z  * [new branch]        codex/audit-art-room-handoff-safe-reconcile-20260902 -> origin/codex/audit-art-room-handoff-safe-reconcile-20260902
+2026-11-05T19:18:22.0905185Z  * [new branch]        codex/audit-button-ui-reconcile-20260904 -> origin/codex/audit-button-ui-reconcile-20260904
+2026-11-05T19:18:22.0907974Z  * [new branch]        codex/audit-development-contract-20260906 -> origin/codex/audit-development-contract-20260906
+2026-11-05T19:18:22.0910340Z  * [new branch]        codex/audit-easy-repairs   -> origin/codex/audit-easy-repairs
+2026-11-05T19:18:22.0913017Z  * [new branch]        codex/audit-grok-handoff-doc-ledger-20260902 -> origin/codex/audit-grok-handoff-doc-ledger-20260902
+2026-11-05T19:18:22.0916033Z  * [new branch]        codex/audit-grok-regeneration-ledger-20260903 -> origin/codex/audit-grok-regeneration-ledger-20260903
+2026-11-05T19:18:22.0919386Z  * [new branch]        codex/audit-grok-regeneration-update-clean-20260904 -> origin/codex/audit-grok-regeneration-update-clean-20260904
+2026-11-05T19:18:22.0922699Z  * [new branch]        codex/audit-grok-v3-reconcile-clean-20260904 -> origin/codex/audit-grok-v3-reconcile-clean-20260904
+2026-11-05T19:18:22.0925796Z  * [new branch]        codex/audit-integrate-comfy-impact-fix-20260906 -> origin/codex/audit-integrate-comfy-impact-fix-20260906
+2026-11-05T19:18:22.0928437Z  * [new branch]        codex/audit-reconcile-20260812 -> origin/codex/audit-reconcile-20260812
+2026-11-05T19:18:22.0930451Z  * [new branch]        codex/audit-release-20260906 -> origin/codex/audit-release-20260906
+2026-11-05T19:18:22.0932627Z  * [new branch]        codex/baby-eagle-recolor   -> origin/codex/baby-eagle-recolor
+2026-11-05T19:18:22.0934810Z  * [new branch]        codex/ballerina-ballet-party-20260809 -> origin/codex/ballerina-ballet-party-20260809
+2026-11-05T19:18:22.0937125Z  * [new branch]        codex/battle-of-bands-20260920 -> origin/codex/battle-of-bands-20260920
+2026-11-05T19:18:22.0939421Z  * [new branch]        codex/boss-child-readability-20260830 -> origin/codex/boss-child-readability-20260830
+2026-11-05T19:18:22.0941862Z  * [new branch]        codex/boss-dodge-bonus-20260830 -> origin/codex/boss-dodge-bonus-20260830
+2026-11-05T19:18:22.0943973Z  * [new branch]        codex/boss-mercy-pacing-20260829 -> origin/codex/boss-mercy-pacing-20260829
+2026-11-05T19:18:22.0946404Z  * [new branch]        codex/boss-splash-language-bunny-20260830 -> origin/codex/boss-splash-language-bunny-20260830
+2026-11-05T19:18:22.0949296Z  * [new branch]        codex/boss-splash-storybook-refinement-20260830 -> origin/codex/boss-splash-storybook-refinement-20260830
+2026-11-05T19:18:22.0951983Z  * [new branch]        codex/bowser-world-graphics -> origin/codex/bowser-world-graphics
+2026-11-05T19:18:22.0954029Z  * [new branch]        codex/boxer-contact-engine-20261031 -> origin/codex/boxer-contact-engine-20261031
+2026-11-05T19:18:22.0956023Z  * [new branch]        codex/boxing-game-20260809 -> origin/codex/boxing-game-20260809
+2026-11-05T19:18:22.0957889Z  * [new branch]        codex/boxing-v2-design-20260812 -> origin/codex/boxing-v2-design-20260812
+2026-11-05T19:18:22.0959907Z  * [new branch]        codex/bubble-duel-jobs-20261104 -> origin/codex/bubble-duel-jobs-20261104
+2026-11-05T19:18:22.0962157Z  * [new branch]        codex/bunny-battle-rebuild-20260905 -> origin/codex/bunny-battle-rebuild-20260905
+2026-11-05T19:18:22.0964230Z  * [new branch]        codex/butterfly-castle-dance -> origin/codex/butterfly-castle-dance
+2026-11-05T19:18:22.0966406Z  * [new branch]        codex/button-audit-candidate-20260905 -> origin/codex/button-audit-candidate-20260905
+2026-11-05T19:18:22.0968786Z  * [new branch]        codex/button-audit-fix-20260906 -> origin/codex/button-audit-fix-20260906
+2026-11-05T19:18:22.0970917Z  * [new branch]        codex/candymaker-pixel10-20260809 -> origin/codex/candymaker-pixel10-20260809
+2026-11-05T19:18:22.0973222Z  * [new branch]        codex/candymaker-pour-art-20260810 -> origin/codex/candymaker-pour-art-20260810
+2026-11-05T19:18:22.0975550Z  * [new branch]        codex/candymaker-walkthrough-20261007 -> origin/codex/candymaker-walkthrough-20261007
+2026-11-05T19:18:22.0978225Z  * [new branch]        codex/castle-25d-rooms-dev-integration-20260729 -> origin/codex/castle-25d-rooms-dev-integration-20260729
+2026-11-05T19:18:22.0980664Z  * [new branch]        codex/castle-audit-current-2d -> origin/codex/castle-audit-current-2d
+2026-11-05T19:18:22.0982739Z  * [new branch]        codex/castle-banner-art-audit -> origin/codex/castle-banner-art-audit
+2026-11-05T19:18:22.0984567Z  * [new branch]        codex/castle-baseline-2d   -> origin/codex/castle-baseline-2d
+2026-11-05T19:18:22.0986293Z  * [new branch]        codex/castle-custom-banner -> origin/codex/castle-custom-banner
+2026-11-05T19:18:22.0988013Z  * [new branch]        codex/castle-door-focus    -> origin/codex/castle-door-focus
+2026-11-05T19:18:22.0989901Z  * [new branch]        codex/castle-door-language-final -> origin/codex/castle-door-language-final
+2026-11-05T19:18:22.0991967Z  * [new branch]        codex/castle-dramatic-glow -> origin/codex/castle-dramatic-glow
+2026-11-05T19:18:22.0993708Z  * [new branch]        codex/castle-dream-house   -> origin/codex/castle-dream-house
+2026-11-05T19:18:22.0995520Z  * [new branch]        codex/castle-dust-bunny-spawn -> origin/codex/castle-dust-bunny-spawn
+2026-11-05T19:18:22.0997725Z  * [new branch]        codex/castle-embrace-painting-20261027 -> origin/codex/castle-embrace-painting-20261027
+2026-11-05T19:18:22.0999877Z  * [new branch]        codex/castle-entry-current-25d -> origin/codex/castle-entry-current-25d
+2026-11-05T19:18:22.1002054Z  * [new branch]        codex/castle-four-room-2d-audit -> origin/codex/castle-four-room-2d-audit
+2026-11-05T19:18:22.1003908Z  * [new branch]        codex/castle-hall-polish   -> origin/codex/castle-hall-polish
+2026-11-05T19:18:22.1005645Z  * [new branch]        codex/castle-item-animations -> origin/codex/castle-item-animations
+2026-11-05T19:18:22.1007590Z  * [new branch]        codex/castle-layer-room-routing -> origin/codex/castle-layer-room-routing
+2026-11-05T19:18:22.1009435Z  * [new branch]        codex/castle-logo-studio   -> origin/codex/castle-logo-studio
+2026-11-05T19:18:22.1011233Z  * [new branch]        codex/castle-main-hall-redraw -> origin/codex/castle-main-hall-redraw
+2026-11-05T19:18:22.1013568Z  * [new branch]        codex/castle-native-object-interactions -> origin/codex/castle-native-object-interactions
+2026-11-05T19:18:22.1016038Z  * [new branch]        codex/castle-object-animations-v2-impl -> origin/codex/castle-object-animations-v2-impl
+2026-11-05T19:18:22.1018517Z  * [new branch]        codex/castle-object-animations-v3-double -> origin/codex/castle-object-animations-v3-double
+2026-11-05T19:18:22.1020804Z  * [new branch]        codex/castle-rainbow-shell-5of5 -> origin/codex/castle-rainbow-shell-5of5
+2026-11-05T19:18:22.1022740Z  * [new branch]        codex/castle-room-icons    -> origin/codex/castle-room-icons
+2026-11-05T19:18:22.1024373Z  * [new branch]        codex/castle-royal-hall    -> origin/codex/castle-royal-hall
+2026-11-05T19:18:22.1026248Z  * [new branch]        codex/castle-sprite-bloom-fixture -> origin/codex/castle-sprite-bloom-fixture
+2026-11-05T19:18:22.1028318Z  * [new branch]        codex/castle-visual-remediation -> origin/codex/castle-visual-remediation
+2026-11-05T19:18:22.1030319Z  * [new branch]        codex/cc0-ocean-concept-handoff -> origin/codex/cc0-ocean-concept-handoff
+2026-11-05T19:18:22.1032412Z  * [new branch]        codex/cc0-reconstructed-scope -> origin/codex/cc0-reconstructed-scope
+2026-11-05T19:18:22.1034269Z  * [new branch]        codex/chalet-creature-cages -> origin/codex/chalet-creature-cages
+2026-11-05T19:18:22.1036658Z  * [new branch]        codex/chalet-creature-cages-integration -> origin/codex/chalet-creature-cages-integration
+2026-11-05T19:18:22.1039078Z  * [new branch]        codex/chapter-planning-guide-20260905 -> origin/codex/chapter-planning-guide-20260905
+2026-11-05T19:18:22.1041679Z  * [new branch]        codex/chapter2-birthday-expansion-20260830 -> origin/codex/chapter2-birthday-expansion-20260830
+2026-11-05T19:18:22.1044266Z  * [new branch]        codex/chapter2-cake-progression-20260831 -> origin/codex/chapter2-cake-progression-20260831
+2026-11-05T19:18:22.1046775Z  * [new branch]        codex/chapter2-lawn-ember-alpha-20260906 -> origin/codex/chapter2-lawn-ember-alpha-20260906
+2026-11-05T19:18:22.1049165Z  * [new branch]        codex/chapter2-scale-handoff-20260906 -> origin/codex/chapter2-scale-handoff-20260906
+2026-11-05T19:18:22.1051201Z  * [new branch]        codex/chef-overdraw-20261003 -> origin/codex/chef-overdraw-20261003
+2026-11-05T19:18:22.1053339Z  * [new branch]        codex/cinematic-local-production-plan -> origin/codex/cinematic-local-production-plan
+2026-11-05T19:18:22.1055358Z  * [new branch]        codex/claude-art-qa-p0-join -> origin/codex/claude-art-qa-p0-join
+2026-11-05T19:18:22.1056942Z  * [new branch]        codex/combat-dungeon       -> origin/codex/combat-dungeon
+2026-11-05T19:18:22.1058462Z  * [new branch]        codex/combat-encounters    -> origin/codex/combat-encounters
+2026-11-05T19:18:22.1060391Z  * [new branch]        codex/comfy-evening-sidequest-20260905 -> origin/codex/comfy-evening-sidequest-20260905
+2026-11-05T19:18:22.1062359Z  * [new branch]        codex/comfy-games          -> origin/codex/comfy-games
+2026-11-05T19:18:22.1063812Z  * [new branch]        codex/converge-all         -> origin/codex/converge-all
+2026-11-05T19:18:22.1065340Z  * [new branch]        codex/courtyard-quality    -> origin/codex/courtyard-quality
+2026-11-05T19:18:22.1067117Z  * [new branch]        codex/creature-collection  -> origin/codex/creature-collection
+2026-11-05T19:18:22.1068933Z  * [new branch]        codex/daddy-mermaid-animations -> origin/codex/daddy-mermaid-animations
+2026-11-05T19:18:22.1070736Z  * [new branch]        codex/dance-rhythm-demo    -> origin/codex/dance-rhythm-demo
+2026-11-05T19:18:22.1072672Z  * [new branch]        codex/day-one-bathroom-cleanup -> origin/codex/day-one-bathroom-cleanup
+2026-11-05T19:18:22.1074833Z  * [new branch]        codex/day-one-bathroom-dev-integration -> origin/codex/day-one-bathroom-dev-integration
+2026-11-05T19:18:22.1077127Z  * [new branch]        codex/day-one-bathroom-grok-handoff -> origin/codex/day-one-bathroom-grok-handoff
+2026-11-05T19:18:22.1079492Z  * [new branch]        codex/day-one-bathroom-touch-dirt-20261002 -> origin/codex/day-one-bathroom-touch-dirt-20261002
+2026-11-05T19:18:22.1082214Z  * [new branch]        codex/day-one-davinci-game-cohesion-20260904 -> origin/codex/day-one-davinci-game-cohesion-20260904
+2026-11-05T19:18:22.1084374Z  * [new branch]        codex/day-one-dirty-pool   -> origin/codex/day-one-dirty-pool
+2026-11-05T19:18:22.1086122Z  * [new branch]        codex/day-one-dirty-stuffie -> origin/codex/day-one-dirty-stuffie
+2026-11-05T19:18:22.1088020Z  * [new branch]        codex/day-one-experience-20260902 -> origin/codex/day-one-experience-20260902
+2026-11-05T19:18:22.1090177Z  * [new branch]        codex/day-one-grok-discrete-handoffs -> origin/codex/day-one-grok-discrete-handoffs
+2026-11-05T19:18:22.1092168Z  * [new branch]        codex/day-one-opening      -> origin/codex/day-one-opening
+2026-11-05T19:18:22.1093814Z  * [new branch]        codex/day-one-opening-final -> origin/codex/day-one-opening-final
+2026-11-05T19:18:22.1095605Z  * [new branch]        codex/day-one-pool-activities -> origin/codex/day-one-pool-activities
+2026-11-05T19:18:22.1097524Z  * [new branch]        codex/day-one-pool-dust-bunnies -> origin/codex/day-one-pool-dust-bunnies
+2026-11-05T19:18:22.1099539Z  * [new branch]        codex/day-one-pool-reintegration -> origin/codex/day-one-pool-reintegration
+2026-11-05T19:18:22.1101679Z  * [new branch]        codex/day-one-rank-waterfall -> origin/codex/day-one-rank-waterfall
+2026-11-05T19:18:22.1103853Z  * [new branch]        codex/day-one-room-transitions-v2-20260829 -> origin/codex/day-one-room-transitions-v2-20260829
+2026-11-05T19:18:22.1106036Z  * [new branch]        codex/day-one-rumi-correction -> origin/codex/day-one-rumi-correction
+2026-11-05T19:18:22.1107960Z  * [new branch]        codex/day-one-sink-clean-20260909 -> origin/codex/day-one-sink-clean-20260909
+2026-11-05T19:18:22.1110032Z  * [new branch]        codex/day-one-toilet-clean-20260909 -> origin/codex/day-one-toilet-clean-20260909
+2026-11-05T19:18:22.1112208Z  * [new branch]        codex/day-one-two-alpha-20260930 -> origin/codex/day-one-two-alpha-20260930
+2026-11-05T19:18:22.1114370Z  * [new branch]        codex/day-one-usability-fixes-20260912 -> origin/codex/day-one-usability-fixes-20260912
+2026-11-05T19:18:22.1116783Z  * [new branch]        codex/day-two-objective-handoff-20260930 -> origin/codex/day-two-objective-handoff-20260930
+2026-11-05T19:18:22.1119041Z  * [new branch]        codex/day-two-safe-return-20260909 -> origin/codex/day-two-safe-return-20260909
+2026-11-05T19:18:22.1121203Z  * [new branch]        codex/day1-contextual-voices-20260901 -> origin/codex/day1-contextual-voices-20260901
+2026-11-05T19:18:22.1123717Z  * [new branch]        codex/day2-art-replacements-batch1-20260930 -> origin/codex/day2-art-replacements-batch1-20260930
+2026-11-05T19:18:22.1125990Z  * [new branch]        codex/day2-graphics-audit-20260930 -> origin/codex/day2-graphics-audit-20260930
+2026-11-05T19:18:22.1127798Z  * [new branch]        codex/demo-dr1-dr2-20261031 -> origin/codex/demo-dr1-dr2-20261031
+2026-11-05T19:18:22.1129614Z  * [new branch]        codex/demo-dr3b-pool-20261101-v2 -> origin/codex/demo-dr3b-pool-20261101-v2
+2026-11-05T19:18:22.1131991Z  * [new branch]        codex/deprecated-resources-roshan-20260809 -> origin/codex/deprecated-resources-roshan-20260809
+2026-11-05T19:18:22.1134569Z  * [new branch]        codex/dev-open-integration-20261103 -> origin/codex/dev-open-integration-20261103
+2026-11-05T19:18:22.1136451Z  * [new branch]        codex/dirty-castle-2d      -> origin/codex/dirty-castle-2d
+2026-11-05T19:18:22.1138405Z  * [new branch]        codex/dkc-six-track-mastering-20261103 -> origin/codex/dkc-six-track-mastering-20261103
+2026-11-05T19:18:22.1140757Z  * [new branch]        codex/dkc-six-track-production-20261103 -> origin/codex/dkc-six-track-production-20261103
+2026-11-05T19:18:22.1143227Z  * [new branch]        codex/dkc-soundtrack-profile-20261102 -> origin/codex/dkc-soundtrack-profile-20261102
+2026-11-05T19:18:22.1145341Z  * [new branch]        codex/doctor-clearance-20261006 -> origin/codex/doctor-clearance-20261006
+2026-11-05T19:18:22.1147196Z  * [new branch]        codex/dungeon-art-final    -> origin/codex/dungeon-art-final
+2026-11-05T19:18:22.1148962Z  * [new branch]        codex/dungeon-entry-fix    -> origin/codex/dungeon-entry-fix
+2026-11-05T19:18:22.1150655Z  * [new branch]        codex/dungeon-remediation  -> origin/codex/dungeon-remediation
+2026-11-05T19:18:22.1152818Z  * [new branch]        codex/dust-bunny-animated  -> origin/codex/dust-bunny-animated
+2026-11-05T19:18:22.1154489Z  * [new branch]        codex/early-level-back-arrow -> origin/codex/early-level-back-arrow
+2026-11-05T19:18:22.1156139Z  * [new branch]        codex/ecosystem-fit        -> origin/codex/ecosystem-fit
+2026-11-05T19:18:22.1157743Z  * [new branch]        codex/ember-concept-handoff -> origin/codex/ember-concept-handoff
+2026-11-05T19:18:22.1159932Z  * [new branch]        codex/fable-kit-revision-queue -> origin/codex/fable-kit-revision-queue
+2026-11-05T19:18:22.1162310Z  * [new branch]        codex/fable-opera-animation-kit -> origin/codex/fable-opera-animation-kit
+2026-11-05T19:18:22.1164063Z  * [new branch]        codex/fairy-art-rebuild    -> origin/codex/fairy-art-rebuild
+2026-11-05T19:18:22.1166016Z  * [new branch]        codex/fairy-conservatory-ch3-20260830 -> origin/codex/fairy-conservatory-ch3-20260830
+2026-11-05T19:18:22.1168948Z  * [new branch]        codex/fairy-conservatory-lilypad-correction-20260830 -> origin/codex/fairy-conservatory-lilypad-correction-20260830
+2026-11-05T19:18:22.1172214Z  * [new branch]        codex/fairy-gate-state-correction-20260830 -> origin/codex/fairy-gate-state-correction-20260830
+2026-11-05T19:18:22.1174749Z  * [new branch]        codex/fairy-restoration-prototype-20260930 -> origin/codex/fairy-restoration-prototype-20260930
+2026-11-05T19:18:22.1177198Z  * [new branch]        codex/fairy-storybook-bottom-up-20260930 -> origin/codex/fairy-storybook-bottom-up-20260930
+2026-11-05T19:18:22.1179395Z  * [new branch]        codex/fairy-texture-continuity -> origin/codex/fairy-texture-continuity
+2026-11-05T19:18:22.1181705Z  * [new branch]        codex/fashion-beta-20261025 -> origin/codex/fashion-beta-20261025
+2026-11-05T19:18:22.1183746Z  * [new branch]        codex/fashion-designer-review-20261006 -> origin/codex/fashion-designer-review-20261006
+2026-11-05T19:18:22.1185848Z  * [new branch]        codex/fashion-engine-20261007 -> origin/codex/fashion-engine-20261007
+2026-11-05T19:18:22.1187627Z  * [new branch]        codex/fashion-slots-20261007 -> origin/codex/fashion-slots-20261007
+2026-11-05T19:18:22.1189579Z  * [new branch]        codex/fashion-walkthrough-20261007 -> origin/codex/fashion-walkthrough-20261007
+2026-11-05T19:18:22.1191839Z  * [new branch]        codex/final-dev-integration-20260729 -> origin/codex/final-dev-integration-20260729
+2026-11-05T19:18:22.1194105Z  * [new branch]        codex/fix-promenade-toy-riders-latest -> origin/codex/fix-promenade-toy-riders-latest
+2026-11-05T19:18:22.1196339Z  * [new branch]        codex/flat-vector-art-audit-20261007 -> origin/codex/flat-vector-art-audit-20261007
+2026-11-05T19:18:22.1198833Z  * [new branch]        codex/flat-vector-critter-book-runtime-20261017 -> origin/codex/flat-vector-critter-book-runtime-20261017
+2026-11-05T19:18:22.1202095Z  * [new branch]        codex/flat-vector-critter-insect-tab-runtime-20261017 -> origin/codex/flat-vector-critter-insect-tab-runtime-20261017
+2026-11-05T19:18:22.1205059Z  * [new branch]        codex/flat-vector-dolls-cradle-focus-20261105 -> origin/codex/flat-vector-dolls-cradle-focus-20261105
+2026-11-05T19:18:22.1207981Z  * [new branch]        codex/flat-vector-dolls-progress-integration-20261105 -> origin/codex/flat-vector-dolls-progress-integration-20261105
+2026-11-05T19:18:22.1210897Z  * [new branch]        codex/flat-vector-dolls-safe-landing-20261104 -> origin/codex/flat-vector-dolls-safe-landing-20261104
+2026-11-05T19:18:22.1213622Z  * [new branch]        codex/flat-vector-garden-backdrop-20261103 -> origin/codex/flat-vector-garden-backdrop-20261103
+2026-11-05T19:18:22.1216112Z  * [new branch]        codex/flat-vector-geologist-cave-20261104 -> origin/codex/flat-vector-geologist-cave-20261104
+2026-11-05T19:18:22.1218869Z  * [new branch]        codex/flat-vector-geologist-mineral-runtime-20261029 -> origin/codex/flat-vector-geologist-mineral-runtime-20261029
+2026-11-05T19:18:22.1222006Z  * [new branch]        codex/flat-vector-geologist-pan-runtime-20261017 -> origin/codex/flat-vector-geologist-pan-runtime-20261017
+2026-11-05T19:18:22.1224818Z  * [new branch]        codex/flat-vector-geologist-riverbed-20261104 -> origin/codex/flat-vector-geologist-riverbed-20261104
+2026-11-05T19:18:22.1227349Z  * [new branch]        codex/flat-vector-melody-apron-20261102 -> origin/codex/flat-vector-melody-apron-20261102
+2026-11-05T19:18:22.1229711Z  * [new branch]        codex/flat-vector-melody-bulbs-20261102 -> origin/codex/flat-vector-melody-bulbs-20261102
+2026-11-05T19:18:22.1232270Z  * [new branch]        codex/flat-vector-melody-curtains-20261101 -> origin/codex/flat-vector-melody-curtains-20261101
+2026-11-05T19:18:22.1234845Z  * [new branch]        codex/flat-vector-melody-footlights-20261102 -> origin/codex/flat-vector-melody-footlights-20261102
+2026-11-05T19:18:22.1237336Z  * [new branch]        codex/flat-vector-melody-guide-20261102 -> origin/codex/flat-vector-melody-guide-20261102
+2026-11-05T19:18:22.1239880Z  * [new branch]        codex/flat-vector-melody-header-20261101 -> origin/codex/flat-vector-melody-header-20261101
+2026-11-05T19:18:22.1242583Z  * [new branch]        codex/flat-vector-melody-note-20261102 -> origin/codex/flat-vector-melody-note-20261102
+2026-11-05T19:18:22.1245221Z  * [new branch]        codex/flat-vector-melody-progress-pips-20261102 -> origin/codex/flat-vector-melody-progress-pips-20261102
+2026-11-05T19:18:22.1247717Z  * [new branch]        codex/flat-vector-melody-star-20261102 -> origin/codex/flat-vector-melody-star-20261102
+2026-11-05T19:18:22.1250259Z  * [new branch]        codex/flat-vector-melody-timing-window-20261102 -> origin/codex/flat-vector-melody-timing-window-20261102
+2026-11-05T19:18:22.1253346Z  * [new branch]        codex/flat-vector-navigation-runtime-20261017 -> origin/codex/flat-vector-navigation-runtime-20261017
+2026-11-05T19:18:22.1255593Z  * [new branch]        codex/flat-vector-r6-20261012 -> origin/codex/flat-vector-r6-20261012
+2026-11-05T19:18:22.1257583Z  * [new branch]        codex/flat-vector-snowballs-20261103 -> origin/codex/flat-vector-snowballs-20261103
+2026-11-05T19:18:22.1259824Z  * [new branch]        codex/flat-vector-snowman-coal-20261103 -> origin/codex/flat-vector-snowman-coal-20261103
+2026-11-05T19:18:22.1262344Z  * [new branch]        codex/flat-vector-touch-runtime-20261016 -> origin/codex/flat-vector-touch-runtime-20261016
+2026-11-05T19:18:22.1264794Z  * [new branch]        codex/flat-vector-trampoline-pad-20261102 -> origin/codex/flat-vector-trampoline-pad-20261102
+2026-11-05T19:18:22.1266815Z  * [new branch]        codex/font-audit-20260830  -> origin/codex/font-audit-20260830
+2026-11-05T19:18:22.1268875Z  * [new branch]        codex/full-texture-regeneration -> origin/codex/full-texture-regeneration
+2026-11-05T19:18:22.1270579Z  * [new branch]        codex/gabby-stage          -> origin/codex/gabby-stage
+2026-11-05T19:18:22.1272509Z  * [new branch]        codex/game-art-audit-35-pass -> origin/codex/game-art-audit-35-pass
+2026-11-05T19:18:22.1274154Z  * [new branch]        codex/game-polish          -> origin/codex/game-polish
+2026-11-05T19:18:22.1276058Z  * [new branch]        codex/geologist-mermaid-roshan-20260830 -> origin/codex/geologist-mermaid-roshan-20260830
+2026-11-05T19:18:22.1278417Z  * [new branch]        codex/grand-puff-attack-windup-20260913 -> origin/codex/grand-puff-attack-windup-20260913
+2026-11-05T19:18:22.1280513Z  * [new branch]        codex/grand-puff-care-20261017 -> origin/codex/grand-puff-care-20261017
+2026-11-05T19:18:22.1282480Z  * [new branch]        codex/grand-puff-crash-20261017 -> origin/codex/grand-puff-crash-20261017
+2026-11-05T19:18:22.1284594Z  * [new branch]        codex/grand-puff-free-movement-20260909 -> origin/codex/grand-puff-free-movement-20260909
+2026-11-05T19:18:22.1287032Z  * [new branch]        codex/grand-puff-grok-review-cycle-20260914 -> origin/codex/grand-puff-grok-review-cycle-20260914
+2026-11-05T19:18:22.1289365Z  * [new branch]        codex/grand-puff-intuitive-20260912 -> origin/codex/grand-puff-intuitive-20260912
+2026-11-05T19:18:22.1291756Z  * [new branch]        codex/grand-puff-storybook-cues-20260912 -> origin/codex/grand-puff-storybook-cues-20260912
+2026-11-05T19:18:22.1294029Z  * [new branch]        codex/grand-puff-video-cels-20260915 -> origin/codex/grand-puff-video-cels-20260915
+2026-11-05T19:18:22.1296111Z  * [new branch]        codex/grok-animation-series-guide -> origin/codex/grok-animation-series-guide
+2026-11-05T19:18:22.1297898Z  * [new branch]        codex/grok-broll-20260919  -> origin/codex/grok-broll-20260919
+2026-11-05T19:18:22.1299756Z  * [new branch]        codex/grok-builder-database-20260914 -> origin/codex/grok-builder-database-20260914
+2026-11-05T19:18:22.1302141Z  * [new branch]        codex/grok-builder-reshoot-loop-20260915 -> origin/codex/grok-builder-reshoot-loop-20260915
+2026-11-05T19:18:22.1304417Z  * [new branch]        codex/grok-handoff-2-packet-20260909 -> origin/codex/grok-handoff-2-packet-20260909
+2026-11-05T19:18:22.1306428Z  * [new branch]        codex/grok-handoff-v2      -> origin/codex/grok-handoff-v2
+2026-11-05T19:18:22.1308287Z  * [new branch]        codex/grok-handoffs-publish-20260905 -> origin/codex/grok-handoffs-publish-20260905
+2026-11-05T19:18:22.1310366Z  * [new branch]        codex/grok-master-handoff-system -> origin/codex/grok-master-handoff-system
+2026-11-05T19:18:22.1312511Z  * [new branch]        codex/grok-pool-cinematic-handoff -> origin/codex/grok-pool-cinematic-handoff
+2026-11-05T19:18:22.1314603Z  * [new branch]        codex/grok-pool-restoration-handoff -> origin/codex/grok-pool-restoration-handoff
+2026-11-05T19:18:22.1316560Z  * [new branch]        codex/grok-queue-a001-20260916 -> origin/codex/grok-queue-a001-20260916
+2026-11-05T19:18:22.1318812Z  * [new branch]        codex/grok-queue-a002-20260916 -> origin/codex/grok-queue-a002-20260916
+2026-11-05T19:18:22.1321493Z  * [new branch]        codex/grok-regen-return-20260916 -> origin/codex/grok-regen-return-20260916
+2026-11-05T19:18:22.1325239Z  * [new branch]        codex/grok-regeneration-handoffs-20260903 -> origin/codex/grok-regeneration-handoffs-20260903
+2026-11-05T19:18:22.1329078Z  * [new branch]        codex/grok-v2-repairs-20260919 -> origin/codex/grok-v2-repairs-20260919
+2026-11-05T19:18:22.1332970Z  * [new branch]        codex/grok-v3-remote-verification-repair -> origin/codex/grok-v3-remote-verification-repair
+2026-11-05T19:18:22.1364576Z  * [new branch]        codex/grok-visual-handoffs-20260902 -> origin/codex/grok-visual-handoffs-20260902
+2026-11-05T19:18:22.1367430Z  * [new branch]        codex/halloween-castle-concept-20261007 -> origin/codex/halloween-castle-concept-20261007
+2026-11-05T19:18:22.1369896Z  * [new branch]        codex/handoff-publication-memory-20260916 -> origin/codex/handoff-publication-memory-20260916
+2026-11-05T19:18:22.1384793Z  * [new branch]        codex/harper-slide-canvas-20260820 -> origin/codex/harper-slide-canvas-20260820
+2026-11-05T19:18:22.1387110Z  * [new branch]        codex/hourly-branch-audit-20261031 -> origin/codex/hourly-branch-audit-20261031
+2026-11-05T19:18:22.1388956Z  * [new branch]        codex/human-art-audit      -> origin/codex/human-art-audit
+2026-11-05T19:18:22.1390803Z  * [new branch]        codex/imp-animation-states-20260802 -> origin/codex/imp-animation-states-20260802
+2026-11-05T19:18:22.1393475Z  * [new branch]        codex/improvement-prototypes-dev-integration -> origin/codex/improvement-prototypes-dev-integration
+2026-11-05T19:18:22.1396203Z  * [new branch]        codex/integrate-level1-studio-attack-customizer -> origin/codex/integrate-level1-studio-attack-customizer
+2026-11-05T19:18:22.1398993Z  * [new branch]        codex/integrate-master-audit-priorities-20260829 -> origin/codex/integrate-master-audit-priorities-20260829
+2026-11-05T19:18:22.1402035Z  * [new branch]        codex/integrate-tablet-performance-20260830 -> origin/codex/integrate-tablet-performance-20260830
+2026-11-05T19:18:22.1404293Z  * [new branch]        codex/interaction-affordances -> origin/codex/interaction-affordances
+2026-11-05T19:18:22.1406843Z  * [new branch]        codex/interactive-background-duplication-audit-20260829 -> origin/codex/interactive-background-duplication-audit-20260829
+2026-11-05T19:18:22.1409422Z  * [new branch]        codex/job-art-astronaut-20261018 -> origin/codex/job-art-astronaut-20261018
+2026-11-05T19:18:22.1411185Z  * [new branch]        codex/job-art-chef-20261019 -> origin/codex/job-art-chef-20261019
+2026-11-05T19:18:22.1413122Z  * [new branch]        codex/job-art-nursery-20261019 -> origin/codex/job-art-nursery-20261019
+2026-11-05T19:18:22.1414908Z  * [new branch]        codex/job-art-review-v2-20261001 -> origin/codex/job-art-review-v2-20261001
+2026-11-05T19:18:22.1416979Z  * [new branch]        codex/job-art-support-careers-20261019 -> origin/codex/job-art-support-careers-20261019
+2026-11-05T19:18:22.1419091Z  * [new branch]        codex/job-art-teacher-20261018 -> origin/codex/job-art-teacher-20261018
+2026-11-05T19:18:22.1420764Z  * [new branch]        codex/kart-audit-repairs   -> origin/codex/kart-audit-repairs
+2026-11-05T19:18:22.1422808Z  * [new branch]        codex/kitchen-audit-fridge -> origin/codex/kitchen-audit-fridge
+2026-11-05T19:18:22.1424350Z  * [new branch]        codex/kitchen-textures     -> origin/codex/kitchen-textures
+2026-11-05T19:18:22.1425957Z  * [new branch]        codex/lagoon-bridge-support -> origin/codex/lagoon-bridge-support
+2026-11-05T19:18:22.1427627Z  * [new branch]        codex/landmark-art-rebuild -> origin/codex/landmark-art-rebuild
+2026-11-05T19:18:22.1429457Z  * [new branch]        codex/last24-integration-20260730-c -> origin/codex/last24-integration-20260730-c
+2026-11-05T19:18:22.1431688Z  * [new branch]        codex/last48-integration-20260802 -> origin/codex/last48-integration-20260802
+2026-11-05T19:18:22.1433582Z  * [new branch]        codex/laura-swim-test-20261101 -> origin/codex/laura-swim-test-20261101
+2026-11-05T19:18:22.1435594Z  * [new branch]        codex/level1-studio-attack-customizer -> origin/codex/level1-studio-attack-customizer
+2026-11-05T19:18:22.1437584Z  * [new branch]        codex/live-swing-integration -> origin/codex/live-swing-integration
+2026-11-05T19:18:22.1439449Z  * [new branch]        codex/local-godot-ai-sync-20260828 -> origin/codex/local-godot-ai-sync-20260828
+2026-11-05T19:18:22.1441550Z  * [new branch]        codex/ltx-registered-wave-20261004 -> origin/codex/ltx-registered-wave-20261004
+2026-11-05T19:18:22.1443484Z  * [new branch]        codex/ltx-two-pass-wave-20261004 -> origin/codex/ltx-two-pass-wave-20261004
+2026-11-05T19:18:22.1445225Z  * [new branch]        codex/ltx25-8gb-wave-20261004 -> origin/codex/ltx25-8gb-wave-20261004
+2026-11-05T19:18:22.1447056Z  * [new branch]        codex/luna-ci-validation-20261015 -> origin/codex/luna-ci-validation-20261015
+2026-11-05T19:18:22.1449089Z  * [new branch]        codex/luna-gameplay-repairs-20261014 -> origin/codex/luna-gameplay-repairs-20261014
+2026-11-05T19:18:22.1451177Z  * [new branch]        codex/luna-playtest-20261012 -> origin/codex/luna-playtest-20261012
+2026-11-05T19:18:22.1453158Z  * [new branch]        codex/magician-clearance-20261006 -> origin/codex/magician-clearance-20261006
+2026-11-05T19:18:22.1455340Z  * [new branch]        codex/main-gd-prune-and-storage-20260930 -> origin/codex/main-gd-prune-and-storage-20260930
+2026-11-05T19:18:22.1457348Z  * [new branch]        codex/master-audit-20260809 -> origin/codex/master-audit-20260809
+2026-11-05T19:18:22.1459205Z  * [new branch]        codex/master-audit-docctrl-20260813 -> origin/codex/master-audit-docctrl-20260813
+2026-11-05T19:18:22.1461479Z  * [new branch]        codex/master-audit-priorities-20260829 -> origin/codex/master-audit-priorities-20260829
+2026-11-05T19:18:22.1463482Z  * [new branch]        codex/master-promotion-rules -> origin/codex/master-promotion-rules
+2026-11-05T19:18:22.1465392Z  * [new branch]        codex/melody-canvas-repair-20260819 -> origin/codex/melody-canvas-repair-20260819
+2026-11-05T19:18:22.1467155Z  * [new branch]        codex/menu-system          -> origin/codex/menu-system
+2026-11-05T19:18:22.1468606Z  * [new branch]        codex/menu-system-wide     -> origin/codex/menu-system-wide
+2026-11-05T19:18:22.1470372Z  * [new branch]        codex/menu-ui-comprehensive-audit -> origin/codex/menu-ui-comprehensive-audit
+2026-11-05T19:18:22.1472483Z  * [new branch]        codex/mermaid-pool-expanded -> origin/codex/mermaid-pool-expanded
+2026-11-05T19:18:22.1474061Z  * [new branch]        codex/mermaid-pool-room    -> origin/codex/mermaid-pool-room
+2026-11-05T19:18:22.1475855Z  * [new branch]        codex/mermaid-roshan-picture-book -> origin/codex/mermaid-roshan-picture-book
+2026-11-05T19:18:22.1477609Z  * [new branch]        codex/mermaid-splash       -> origin/codex/mermaid-splash
+2026-11-05T19:18:22.1479566Z  * [new branch]        codex/minigame-art-dev-reconcile-20260905 -> origin/codex/minigame-art-dev-reconcile-20260905
+2026-11-05T19:18:22.1481831Z  * [new branch]        codex/minigame-graphical-audit -> origin/codex/minigame-graphical-audit
+2026-11-05T19:18:22.1484120Z  * [new branch]        codex/monitor-grok-integration-20260909 -> origin/codex/monitor-grok-integration-20260909
+2026-11-05T19:18:22.1486493Z  * [new branch]        codex/monitor-motion-integration-20260913 -> origin/codex/monitor-motion-integration-20260913
+2026-11-05T19:18:22.1488854Z  * [new branch]        codex/monitor-puff-audit-repair-20260914 -> origin/codex/monitor-puff-audit-repair-20260914
+2026-11-05T19:18:22.1491102Z  * [new branch]        codex/music-full-arrangements-20261101 -> origin/codex/music-full-arrangements-20261101
+2026-11-05T19:18:22.1493403Z  * [new branch]        codex/native-rig-costumes-20261031 -> origin/codex/native-rig-costumes-20261031
+2026-11-05T19:18:22.1495301Z  * [new branch]        codex/native-rig-stress-20261031 -> origin/codex/native-rig-stress-20261031
+2026-11-05T19:18:22.1497352Z  * [new branch]        codex/night-outdoor-fireflies-20260802 -> origin/codex/night-outdoor-fireflies-20260802
+2026-11-05T19:18:22.1500673Z  * [new branch]        codex/nightly-final-integration-20260728 -> origin/codex/nightly-final-integration-20260728
+2026-11-05T19:18:22.1503989Z  * [new branch]        codex/nightly-integration-20260726 -> origin/codex/nightly-integration-20260726
+2026-11-05T19:18:22.1505744Z  * [new branch]        codex/non5-art-critique    -> origin/codex/non5-art-critique
+2026-11-05T19:18:22.1507643Z  * [new branch]        codex/nonlighting-integration-20260803 -> origin/codex/nonlighting-integration-20260803
+2026-11-05T19:18:22.1509569Z  * [new branch]        codex/northern-art-audit   -> origin/codex/northern-art-audit
+2026-11-05T19:18:22.1511081Z  * [new branch]        codex/northern-kingdom     -> origin/codex/northern-kingdom
+2026-11-05T19:18:22.1512977Z  * [new branch]        codex/northern-kingdom-quality -> origin/codex/northern-kingdom-quality
+2026-11-05T19:18:22.1514616Z  * [new branch]        codex/northern-reconcile   -> origin/codex/northern-reconcile
+2026-11-05T19:18:22.1516454Z  * [new branch]        codex/nursery-clearance-20261006 -> origin/codex/nursery-clearance-20261006
+2026-11-05T19:18:22.1518095Z  * [new branch]        codex/nursery-job-12       -> origin/codex/nursery-job-12
+2026-11-05T19:18:22.1519756Z  * [new branch]        codex/object-generation-audit-log -> origin/codex/object-generation-audit-log
+2026-11-05T19:18:22.1522091Z  * [new branch]        codex/opening-cinematic-stabilization -> origin/codex/opening-cinematic-stabilization
+2026-11-05T19:18:22.1524357Z  * [new branch]        codex/opera-animation-handoff-20260803 -> origin/codex/opera-animation-handoff-20260803
+2026-11-05T19:18:22.1526330Z  * [new branch]        codex/opera-art-regeneration -> origin/codex/opera-art-regeneration
+2026-11-05T19:18:22.1528364Z  * [new branch]        codex/opera-career-distribution-20260812 -> origin/codex/opera-career-distribution-20260812
+2026-11-05T19:18:22.1530458Z  * [new branch]        codex/opera-competition-worlds -> origin/codex/opera-competition-worlds
+2026-11-05T19:18:22.1532595Z  * [new branch]        codex/opera-diegetic-room-ui-20260809 -> origin/codex/opera-diegetic-room-ui-20260809
+2026-11-05T19:18:22.1534702Z  * [new branch]        codex/opera-four-screen-v1-20261031 -> origin/codex/opera-four-screen-v1-20261031
+2026-11-05T19:18:22.1536768Z  * [new branch]        codex/opera-foyer-movement-20261017 -> origin/codex/opera-foyer-movement-20261017
+2026-11-05T19:18:22.1538812Z  * [new branch]        codex/opera-full-art-regen-20260802 -> origin/codex/opera-full-art-regen-20260802
+2026-11-05T19:18:22.1540838Z  * [new branch]        codex/opera-games-dev-integration -> origin/codex/opera-games-dev-integration
+2026-11-05T19:18:22.1542991Z  * [new branch]        codex/opera-house-art-revision -> origin/codex/opera-house-art-revision
+2026-11-05T19:18:22.1545159Z  * [new branch]        codex/opera-house-quality-overhaul-20260809 -> origin/codex/opera-house-quality-overhaul-20260809
+2026-11-05T19:18:22.1547206Z  * [new branch]        codex/opera-hybrid-levels  -> origin/codex/opera-hybrid-levels
+2026-11-05T19:18:22.1549123Z  * [new branch]        codex/opera-icons-above-doors-20261017 -> origin/codex/opera-icons-above-doors-20261017
+2026-11-05T19:18:22.1551637Z  * [new branch]        codex/opera-imp-contests-20260930 -> origin/codex/opera-imp-contests-20260930
+2026-11-05T19:18:22.1553428Z  * [new branch]        codex/opera-job-outfit-sets -> origin/codex/opera-job-outfit-sets
+2026-11-05T19:18:22.1555261Z  * [new branch]        codex/opera-job-playtest-20260930 -> origin/codex/opera-job-playtest-20260930
+2026-11-05T19:18:22.1557340Z  * [new branch]        codex/opera-job-regeneration-handoff -> origin/codex/opera-job-regeneration-handoff
+2026-11-05T19:18:22.1559237Z  * [new branch]        codex/opera-melody-20261017 -> origin/codex/opera-melody-20261017
+2026-11-05T19:18:22.1561171Z  * [new branch]        codex/opera-minigame-quality-20260809 -> origin/codex/opera-minigame-quality-20260809
+2026-11-05T19:18:22.1563691Z  * [new branch]        codex/opera-preserved-dev-reconcile-20260905 -> origin/codex/opera-preserved-dev-reconcile-20260905
+2026-11-05T19:18:22.1565784Z  * [new branch]        codex/opera-stage-restore  -> origin/codex/opera-stage-restore
+2026-11-05T19:18:22.1567315Z  * [new branch]        codex/ornate-shell-ui      -> origin/codex/ornate-shell-ui
+2026-11-05T19:18:22.1569030Z  * [new branch]        codex/overdraw-background-repair -> origin/codex/overdraw-background-repair
+2026-11-05T19:18:22.1571241Z  * [new branch]        codex/painter-engine-prototype-20260916 -> origin/codex/painter-engine-prototype-20260916
+2026-11-05T19:18:22.1573528Z  * [new branch]        codex/pearl-castle-interactivity -> origin/codex/pearl-castle-interactivity
+2026-11-05T19:18:22.1575785Z  * [new branch]        codex/picture-book-source-art-rules-20260920 -> origin/codex/picture-book-source-art-rules-20260920
+2026-11-05T19:18:22.1578004Z  * [new branch]        codex/placement-continuity-audit -> origin/codex/placement-continuity-audit
+2026-11-05T19:18:22.1580182Z  * [new branch]        codex/playground-equipment-audit-20260829 -> origin/codex/playground-equipment-audit-20260829
+2026-11-05T19:18:22.1582396Z  * [new branch]        codex/plot-affordance      -> origin/codex/plot-affordance
+2026-11-05T19:18:22.1583958Z  * [new branch]        codex/pointer-navigation   -> origin/codex/pointer-navigation
+2026-11-05T19:18:22.1585787Z  * [new branch]        codex/pool-roshan-action-20260906 -> origin/codex/pool-roshan-action-20260906
+2026-11-05T19:18:22.1587743Z  * [new branch]        codex/pool-visual-repair-20261017 -> origin/codex/pool-visual-repair-20261017
+2026-11-05T19:18:22.1589818Z  * [new branch]        codex/popstar-rhythm-rebuild-20261022 -> origin/codex/popstar-rhythm-rebuild-20261022
+2026-11-05T19:18:22.1591802Z  * [new branch]        codex/project-config       -> origin/codex/project-config
+2026-11-05T19:18:22.1593318Z  * [new branch]        codex/push-recent-20260905 -> origin/codex/push-recent-20260905
+2026-11-05T19:18:22.1595243Z  * [new branch]        codex/racer-castle-integration-20261022 -> origin/codex/racer-castle-integration-20261022
+2026-11-05T19:18:22.1597533Z  * [new branch]        codex/racer-existing-engine-2d-20261003 -> origin/codex/racer-existing-engine-2d-20261003
+2026-11-05T19:18:22.1599721Z  * [new branch]        codex/reaper-music-workflow-20260920 -> origin/codex/reaper-music-workflow-20260920
+2026-11-05T19:18:22.1601912Z  * [new branch]        codex/rebuild-apk-godot-472-20260829 -> origin/codex/rebuild-apk-godot-472-20260829
+2026-11-05T19:18:22.1603886Z  * [new branch]        codex/rebuild-roshan-arm-joints -> origin/codex/rebuild-roshan-arm-joints
+2026-11-05T19:18:22.1605892Z  * [new branch]        codex/recent-dev-integration-20260729 -> origin/codex/recent-dev-integration-20260729
+2026-11-05T19:18:22.1607945Z  * [new branch]        codex/recent-updates-dev-20261103 -> origin/codex/recent-updates-dev-20261103
+2026-11-05T19:18:22.1610024Z  * [new branch]        codex/recent-updates-followup-20261103 -> origin/codex/recent-updates-followup-20261103
+2026-11-05T19:18:22.1612215Z  * [new branch]        codex/recut-frame-repair-20260912 -> origin/codex/recut-frame-repair-20260912
+2026-11-05T19:18:22.1614266Z  * [new branch]        codex/redesign-promenade-swing -> origin/codex/redesign-promenade-swing
+2026-11-05T19:18:22.1616026Z  * [new branch]        codex/reef-kart-art-20261104 -> origin/codex/reef-kart-art-20261104
+2026-11-05T19:18:22.1617664Z  * [new branch]        codex/reef-redesign-repair -> origin/codex/reef-redesign-repair
+2026-11-05T19:18:22.1619260Z  * [new branch]        codex/reef-regional-assets -> origin/codex/reef-regional-assets
+2026-11-05T19:18:22.1620938Z  * [new branch]        codex/remove-all-glbs-20260826 -> origin/codex/remove-all-glbs-20260826
+2026-11-05T19:18:22.1623258Z  * [new branch]        codex/remove-opera-anteroom-verified-20261017 -> origin/codex/remove-opera-anteroom-verified-20261017
+2026-11-05T19:18:22.1625336Z  * [new branch]        codex/repair-roshan-rig    -> origin/codex/repair-roshan-rig
+2026-11-05T19:18:22.1627001Z  * [new branch]        codex/replace-roshan-meshy-v5 -> origin/codex/replace-roshan-meshy-v5
+2026-11-05T19:18:22.1628707Z  * [new branch]        codex/resculpt-roshan-arms -> origin/codex/resculpt-roshan-arms
+2026-11-05T19:18:22.1630499Z  * [new branch]        codex/restore-doorframes-20261015 -> origin/codex/restore-doorframes-20261015
+2026-11-05T19:18:22.1632415Z  * [new branch]        codex/retired-reef-20260909 -> origin/codex/retired-reef-20260909
+2026-11-05T19:18:22.1633996Z  * [new branch]        codex/roshan-25d-sprites   -> origin/codex/roshan-25d-sprites
+2026-11-05T19:18:22.1635930Z  * [new branch]        codex/roshan-animation-language-20260911 -> origin/codex/roshan-animation-language-20260911
+2026-11-05T19:18:22.1638358Z  * [new branch]        codex/roshan-contextual-integration-20260901 -> origin/codex/roshan-contextual-integration-20260901
+2026-11-05T19:18:22.1640863Z  * [new branch]        codex/roshan-grok-motion-auditions-20260912 -> origin/codex/roshan-grok-motion-auditions-20260912
+2026-11-05T19:18:22.1643451Z  * [new branch]        codex/roshan-grok-video-first-20260913 -> origin/codex/roshan-grok-video-first-20260913
+2026-11-05T19:18:22.1645840Z  * [new branch]        codex/roshan-job-rig-creative-space-20261101 -> origin/codex/roshan-job-rig-creative-space-20261101
+2026-11-05T19:18:22.1648284Z  * [new branch]        codex/roshan-job-rig-sport-stage-20261101 -> origin/codex/roshan-job-rig-sport-stage-20261101
+2026-11-05T19:18:22.1650407Z  * [new branch]        codex/roshan-laura-docs-20261101 -> origin/codex/roshan-laura-docs-20261101
+2026-11-05T19:18:22.1652451Z  * [new branch]        codex/roshan-less-chatter-20261031 -> origin/codex/roshan-less-chatter-20261031
+2026-11-05T19:18:22.1654271Z  * [new branch]        codex/roshan-motion-anchors -> origin/codex/roshan-motion-anchors
+2026-11-05T19:18:22.1655844Z  * [new branch]        codex/roshan-pool-pnw      -> origin/codex/roshan-pool-pnw
+2026-11-05T19:18:22.1657752Z  * [new branch]        codex/roshan-rig-investigation-20261101 -> origin/codex/roshan-rig-investigation-20261101
+2026-11-05T19:18:22.1659650Z  * [new branch]        codex/roshan-rig-study     -> origin/codex/roshan-rig-study
+2026-11-05T19:18:22.1661517Z  * [new branch]        codex/roshan-runtime-animation-fix -> origin/codex/roshan-runtime-animation-fix
+2026-11-05T19:18:22.1663787Z  * [new branch]        codex/roshan-swim-combined-handoff-20260914 -> origin/codex/roshan-swim-combined-handoff-20260914
+2026-11-05T19:18:22.1665930Z  * [new branch]        codex/roshan-swim-hair-physics -> origin/codex/roshan-swim-hair-physics
+2026-11-05T19:18:22.1668060Z  * [new branch]        codex/roshan-swim-start-loop-stop-20260914 -> origin/codex/roshan-swim-start-loop-stop-20260914
+2026-11-05T19:18:22.1670247Z  * [new branch]        codex/roshan-wave-repair-20261010 -> origin/codex/roshan-wave-repair-20261010
+2026-11-05T19:18:22.1672521Z  * [new branch]        codex/rumi-transparency-repair-20260930 -> origin/codex/rumi-transparency-repair-20260930
+2026-11-05T19:18:22.1674482Z  * [new branch]        codex/satellite-godot-mcp  -> origin/codex/satellite-godot-mcp
+2026-11-05T19:18:22.1676310Z  * [new branch]        codex/seahorse-mouth-20260909 -> origin/codex/seahorse-mouth-20260909
+2026-11-05T19:18:22.1678381Z  * [new branch]        codex/selected-movies-double-tap-20260930 -> origin/codex/selected-movies-double-tap-20260930
+2026-11-05T19:18:22.1680870Z  * [new branch]        codex/self-improvement-loop-verified-20261003 -> origin/codex/self-improvement-loop-verified-20261003
+2026-11-05T19:18:22.1683399Z  * [new branch]        codex/shared-roshan-skin-swim-20261101 -> origin/codex/shared-roshan-skin-swim-20261101
+2026-11-05T19:18:22.1685285Z  * [new branch]        codex/sky-lagoon-25d-stage -> origin/codex/sky-lagoon-25d-stage
+2026-11-05T19:18:22.1686769Z  * [new branch]        codex/sky-lagoon-5of5      -> origin/codex/sky-lagoon-5of5
+2026-11-05T19:18:22.1688600Z  * [new branch]        codex/sky-lagoon-anchor-castle-promote -> origin/codex/sky-lagoon-anchor-castle-promote
+2026-11-05T19:18:22.1690989Z  * [new branch]        codex/sky-lagoon-animal-boundaries-20261007 -> origin/codex/sky-lagoon-animal-boundaries-20261007
+2026-11-05T19:18:22.1693270Z  * [new branch]        codex/sky-lagoon-animal-support -> origin/codex/sky-lagoon-animal-support
+2026-11-05T19:18:22.1694963Z  * [new branch]        codex/sky-lagoon-animals   -> origin/codex/sky-lagoon-animals
+2026-11-05T19:18:22.1696938Z  * [new branch]        codex/sky-lagoon-animated-rebuild-20260920 -> origin/codex/sky-lagoon-animated-rebuild-20260920
+2026-11-05T19:18:22.1699244Z  * [new branch]        codex/sky-lagoon-animation-v3-20260919 -> origin/codex/sky-lagoon-animation-v3-20260919
+2026-11-05T19:18:22.1701555Z  * [new branch]        codex/sky-lagoon-canvas-repair-20260813 -> origin/codex/sky-lagoon-canvas-repair-20260813
+2026-11-05T19:18:22.1703810Z  * [new branch]        codex/sky-lagoon-capture-audit-20260813 -> origin/codex/sky-lagoon-capture-audit-20260813
+2026-11-05T19:18:22.1705892Z  * [new branch]        codex/sky-lagoon-castle-symmetry -> origin/codex/sky-lagoon-castle-symmetry
+2026-11-05T19:18:22.1707943Z  * [new branch]        codex/sky-lagoon-cohesion-audit -> origin/codex/sky-lagoon-cohesion-audit
+2026-11-05T19:18:22.1709930Z  * [new branch]        codex/sky-lagoon-congruency-rebuild -> origin/codex/sky-lagoon-congruency-rebuild
+2026-11-05T19:18:22.1712020Z  * [new branch]        codex/sky-lagoon-dev-integration -> origin/codex/sky-lagoon-dev-integration
+2026-11-05T19:18:22.1713874Z  * [new branch]        codex/sky-lagoon-frame-contact -> origin/codex/sky-lagoon-frame-contact
+2026-11-05T19:18:22.1715881Z  * [new branch]        codex/sky-lagoon-grok-profile-20260915 -> origin/codex/sky-lagoon-grok-profile-20260915
+2026-11-05T19:18:22.1717912Z  * [new branch]        codex/sky-lagoon-living-card-v2 -> origin/codex/sky-lagoon-living-card-v2
+2026-11-05T19:18:22.1720002Z  * [new branch]        codex/sky-lagoon-local-animation-20260930 -> origin/codex/sky-lagoon-local-animation-20260930
+2026-11-05T19:18:22.1722542Z  * [new branch]        codex/sky-lagoon-moderate-animation-20261001 -> origin/codex/sky-lagoon-moderate-animation-20261001
+2026-11-05T19:18:22.1726962Z  * [new branch]        codex/sky-lagoon-overlay-demo-20261104 -> origin/codex/sky-lagoon-overlay-demo-20261104
+2026-11-05T19:18:22.1729087Z  * [new branch]        codex/sky-lagoon-playground-anim -> origin/codex/sky-lagoon-playground-anim
+2026-11-05T19:18:22.1731121Z  * [new branch]        codex/sky-lagoon-playground-revision -> origin/codex/sky-lagoon-playground-revision
+2026-11-05T19:18:22.1733329Z  * [new branch]        codex/sky-lagoon-playground-scale -> origin/codex/sky-lagoon-playground-scale
+2026-11-05T19:18:22.1735407Z  * [new branch]        codex/sky-lagoon-pnw-flat-prototypes -> origin/codex/sky-lagoon-pnw-flat-prototypes
+2026-11-05T19:18:22.1737286Z  * [new branch]        codex/sky-lagoon-pnw-trees -> origin/codex/sky-lagoon-pnw-trees
+2026-11-05T19:18:22.1738846Z  * [new branch]        codex/sky-lagoon-quality   -> origin/codex/sky-lagoon-quality
+2026-11-05T19:18:22.1740473Z  * [new branch]        codex/sky-lagoon-queued-audit -> origin/codex/sky-lagoon-queued-audit
+2026-11-05T19:18:22.1742771Z  * [new branch]        codex/sky-lagoon-reductive-extraction -> origin/codex/sky-lagoon-reductive-extraction
+2026-11-05T19:18:22.1745334Z  * [new branch]        codex/sky-lagoon-review-refinement-20261001 -> origin/codex/sky-lagoon-review-refinement-20261001
+2026-11-05T19:18:22.1747534Z  * [new branch]        codex/sky-lagoon-shrub-variants -> origin/codex/sky-lagoon-shrub-variants
+2026-11-05T19:18:22.1749440Z  * [new branch]        codex/sky-lagoon-silhouette-tiles -> origin/codex/sky-lagoon-silhouette-tiles
+2026-11-05T19:18:22.1751847Z  * [new branch]        codex/sky-lagoon-tree-cloud-clearance -> origin/codex/sky-lagoon-tree-cloud-clearance
+2026-11-05T19:18:22.1753835Z  * [new branch]        codex/sky-lagoon-tree-ornaments -> origin/codex/sky-lagoon-tree-ornaments
+2026-11-05T19:18:22.1755822Z  * [new branch]        codex/sky-lagoon-v14-animation-20260916 -> origin/codex/sky-lagoon-v14-animation-20260916
+2026-11-05T19:18:22.1758153Z  * [new branch]        codex/stage-pathfinding-clearance-20260906 -> origin/codex/stage-pathfinding-clearance-20260906
+2026-11-05T19:18:22.1760666Z  * [new branch]        codex/stage-pathfinding-integration-20260906 -> origin/codex/stage-pathfinding-integration-20260906
+2026-11-05T19:18:22.1762969Z  * [new branch]        codex/start-menu-day-one-routing -> origin/codex/start-menu-day-one-routing
+2026-11-05T19:18:22.1764716Z  * [new branch]        codex/studio-art-quality-v2 -> origin/codex/studio-art-quality-v2
+2026-11-05T19:18:22.1766425Z  * [new branch]        codex/studio-scene-integration -> origin/codex/studio-scene-integration
+2026-11-05T19:18:22.1768117Z  * [new branch]        codex/stuffie-eagle-rescue -> origin/codex/stuffie-eagle-rescue
+2026-11-05T19:18:22.1769712Z  * [new branch]        codex/stuffie-studio-room  -> origin/codex/stuffie-studio-room
+2026-11-05T19:18:22.1771565Z  * [new branch]        codex/systematic-art-replacement -> origin/codex/systematic-art-replacement
+2026-11-05T19:18:22.1773434Z  * [new branch]        codex/tap-combat-feel      -> origin/codex/tap-combat-feel
+2026-11-05T19:18:22.1775024Z  * [new branch]        codex/three-star-art-rebuild -> origin/codex/three-star-art-rebuild
+2026-11-05T19:18:22.1776755Z  * [new branch]        codex/touch-centric-reversible -> origin/codex/touch-centric-reversible
+2026-11-05T19:18:22.1778370Z  * [new branch]        codex/tutorial-master      -> origin/codex/tutorial-master
+2026-11-05T19:18:22.1779959Z  * [new branch]        codex/ui-prototype-revisions -> origin/codex/ui-prototype-revisions
+2026-11-05T19:18:22.1781729Z  * [new branch]        codex/undersea-world-audit -> origin/codex/undersea-world-audit
+2026-11-05T19:18:22.1783461Z  * [new branch]        codex/unique-area-music-20260809 -> origin/codex/unique-area-music-20260809
+2026-11-05T19:18:22.1785352Z  * [new branch]        codex/update-testing-apk-20260829 -> origin/codex/update-testing-apk-20260829
+2026-11-05T19:18:22.1787367Z  * [new branch]        codex/visual-polish-repairs-20260926 -> origin/codex/visual-polish-repairs-20260926
+2026-11-05T19:18:22.1789502Z  * [new branch]        codex/voice-natural-overhaul-20260830 -> origin/codex/voice-natural-overhaul-20260830
+2026-11-05T19:18:22.1791382Z  * [new branch]        codex/water-fx-atlases     -> origin/codex/water-fx-atlases
+2026-11-05T19:18:22.1793419Z  * [new branch]        codex/whole-castle-halloween-concept-20261008 -> origin/codex/whole-castle-halloween-concept-20261008
+2026-11-05T19:18:22.1795832Z  * [new branch]        codex/whole-sprite-adaptation-20261007 -> origin/codex/whole-sprite-adaptation-20261007
+2026-11-05T19:18:22.1797943Z  * [new branch]        codex/workgroup-batch-sync-20261104 -> origin/codex/workgroup-batch-sync-20261104
+2026-11-05T19:18:22.1799905Z  * [new branch]        codex/workgroup-doc-sync-20261104 -> origin/codex/workgroup-doc-sync-20261104
+2026-11-05T19:18:22.1802101Z  * [new branch]        day-one-all-individual-clips-2026-09-03 -> origin/day-one-all-individual-clips-2026-09-03
+2026-11-05T19:18:22.1804352Z  * [new branch]        day-one-grok-library-export-2026-09-03 -> origin/day-one-grok-library-export-2026-09-03
+2026-11-05T19:18:22.1806642Z  * [new branch]        day-one-individual-clips-2026-09-03 -> origin/day-one-individual-clips-2026-09-03
+2026-11-05T19:18:22.1808580Z  * [new branch]        day1-handoff-v3-3sets-2026-09-05 -> origin/day1-handoff-v3-3sets-2026-09-05
+2026-11-05T19:18:22.1810264Z  * [new branch]        day1-regen-3sets-2026-09-04 -> origin/day1-regen-3sets-2026-09-04
+2026-11-05T19:18:22.1811947Z  * [new branch]        day1-regen-clips-2026-09-03 -> origin/day1-regen-clips-2026-09-03
+2026-11-05T19:18:22.1813800Z  * [new branch]        day1-v4-c14-3sets-complete-2026-09-06 -> origin/day1-v4-c14-3sets-complete-2026-09-06
+2026-11-05T19:18:22.1815820Z  * [new branch]        day1-v4-c14-3sets-staged-2026-09-05 -> origin/day1-v4-c14-3sets-staged-2026-09-05
+2026-11-05T19:18:22.1817344Z  * [new branch]        dev                        -> origin/dev
+2026-11-05T19:18:22.1818847Z  * [new branch]        grok/day-one-cinema-takes-20260922 -> origin/grok/day-one-cinema-takes-20260922
+2026-11-05T19:18:22.1820824Z  * [new branch]        grok/day-one-clips-release-pointer -> origin/grok/day-one-clips-release-pointer
+2026-11-05T19:18:22.1822933Z  * [new branch]        grok/grand-puff-motion-mp4-20260914 -> origin/grok/grand-puff-motion-mp4-20260914
+2026-11-05T19:18:22.1824946Z  * [new branch]        grok/imagine-bridge-return-20260913 -> origin/grok/imagine-bridge-return-20260913
+2026-11-05T19:18:22.1826965Z  * [new branch]        grok/imagine-reserved-pass-20260914 -> origin/grok/imagine-reserved-pass-20260914
+2026-11-05T19:18:22.1829009Z  * [new branch]        grok/roshan-4way-basic-swim-20260914 -> origin/grok/roshan-4way-basic-swim-20260914
+2026-11-05T19:18:22.1831234Z  * [new branch]        grok/sky-lagoon-env-motion-return-20260920 -> origin/grok/sky-lagoon-env-motion-return-20260920
+2026-11-05T19:18:22.1833366Z  * [new branch]        integration/opera-return-fix -> origin/integration/opera-return-fix
+2026-11-05T19:18:22.1834955Z  * [new branch]        master                     -> origin/master
+2026-11-05T19:18:22.1836284Z  * [new branch]        rescue/Peter-2026-08-22    -> origin/rescue/Peter-2026-08-22
+2026-11-05T19:18:22.1838202Z  * [new branch]        rescue/codex-windows-20261031-speech-start -> origin/rescue/codex-windows-20261031-speech-start
+2026-11-05T19:18:22.1840400Z  * [new branch]        rescue/desktop-2026-07-29-castle-prep -> origin/rescue/desktop-2026-07-29-castle-prep
+2026-11-05T19:18:22.1842905Z  * [new branch]        rescue/desktop-ibimu2e-2026-07-15-collection-start -> origin/rescue/desktop-ibimu2e-2026-07-15-collection-start
+2026-11-05T19:18:22.1845607Z  * [new branch]        rescue/desktop-ibimu2e-2026-07-16-art-audit-start -> origin/rescue/desktop-ibimu2e-2026-07-16-art-audit-start
+2026-11-05T19:18:22.1847891Z  * [new branch]        rescue/desktop-ibimu2e-2026-08-01 -> origin/rescue/desktop-ibimu2e-2026-08-01
+2026-11-05T19:18:22.1850046Z  * [new branch]        rescue/desktop-ibimu2e-2026-08-01-castle-start -> origin/rescue/desktop-ibimu2e-2026-08-01-castle-start
+2026-11-05T19:18:22.1852765Z  * [new branch]        rescue/desktop-ibimu2e-2026-08-01-dream-house-start -> origin/rescue/desktop-ibimu2e-2026-08-01-dream-house-start
+2026-11-05T19:18:22.1855430Z  * [new branch]        rescue/desktop-ibimu2e-2026-08-01-nursery-start -> origin/rescue/desktop-ibimu2e-2026-08-01-nursery-start
+2026-11-05T19:18:22.1857935Z  * [new branch]        rescue/desktop-ibimu2e-2026-08-01-opera-start -> origin/rescue/desktop-ibimu2e-2026-08-01-opera-start
+2026-11-05T19:18:22.1860069Z  * [new branch]        rescue/desktop-ibimu2e-20260809 -> origin/rescue/desktop-ibimu2e-20260809
+2026-11-05T19:18:22.1862271Z  * [new branch]        rescue/desktop-ibimu2e-20260809-ballet-start -> origin/rescue/desktop-ibimu2e-20260809-ballet-start
+2026-11-05T19:18:22.1864701Z  * [new branch]        rescue/desktop-ibimu2e-20260809-boxing-start -> origin/rescue/desktop-ibimu2e-20260809-boxing-start
+2026-11-05T19:18:22.1867198Z  * [new branch]        rescue/desktop-ibimu2e-20260809-detective-start -> origin/rescue/desktop-ibimu2e-20260809-detective-start
+2026-11-05T19:18:22.1870059Z  * [new branch]        rescue/desktop-ibimu2e-20260809-diegetic-inflight-2 -> origin/rescue/desktop-ibimu2e-20260809-diegetic-inflight-2
+2026-11-05T19:18:22.1873290Z  * [new branch]        rescue/desktop-ibimu2e-20260809-diegetic-inflight-on-ballet -> origin/rescue/desktop-ibimu2e-20260809-diegetic-inflight-on-ballet
+2026-11-05T19:18:22.1876147Z  * [new branch]        rescue/desktop-ibimu2e-20260828-ai-godot-sync -> origin/rescue/desktop-ibimu2e-20260828-ai-godot-sync
+2026-11-05T19:18:22.1878601Z  * [new branch]        rescue/desktop-ibimu2e-20260829-audit-delta19 -> origin/rescue/desktop-ibimu2e-20260829-audit-delta19
+2026-11-05T19:18:22.1881030Z  * [new branch]        rescue/desktop-ibimu2e-20260903-teacher-art -> origin/rescue/desktop-ibimu2e-20260903-teacher-art
+2026-11-05T19:18:22.1883740Z  * [new branch]        rescue/desktop-ibimu2e-20260930-main-cleanup-start -> origin/rescue/desktop-ibimu2e-20260930-main-cleanup-start
+2026-11-05T19:18:22.1886491Z  * [new branch]        rescue/desktop-ibimu2e-20260930-sky-animation-000443 -> origin/rescue/desktop-ibimu2e-20260930-sky-animation-000443
+2026-11-05T19:18:22.1889325Z  * [new branch]        rescue/desktop-ibimu2e-20260930-sky-animation-045944 -> origin/rescue/desktop-ibimu2e-20260930-sky-animation-045944
+2026-11-05T19:18:22.1892073Z  * [new branch]        rescue/desktop-ibimu2e-20261017-opera-music -> origin/rescue/desktop-ibimu2e-20261017-opera-music
+2026-11-05T19:18:22.1894550Z  * [new branch]        rescue/desktop-ibimu2e-20261025-fashion-imports -> origin/rescue/desktop-ibimu2e-20261025-fashion-imports
+2026-11-05T19:18:22.1896632Z  * [new branch]        rescue/desktop-master-work -> origin/rescue/desktop-master-work
+2026-11-05T19:18:22.1898270Z  * [new branch]        rescue/desktop-master-work-2 -> origin/rescue/desktop-master-work-2
+2026-11-05T19:18:22.1900527Z  * [new branch]        rescue/desktop-sky-refinement-20261001-060424 -> origin/rescue/desktop-sky-refinement-20261001-060424
+2026-11-05T19:18:22.1903141Z  * [new branch]        rescue/opera-four-floors-20260906-worktree -> origin/rescue/opera-four-floors-20260906-worktree
+2026-11-05T19:18:22.1905322Z  * [new branch]        rescue/peter-2026-07-14-art-batch-02 -> origin/rescue/peter-2026-07-14-art-batch-02
+2026-11-05T19:18:22.1907310Z  * [new branch]        rescue/peter-2026-07-14-combat-start -> origin/rescue/peter-2026-07-14-combat-start
+2026-11-05T19:18:22.1909393Z  * [new branch]        rescue/peter-2026-07-15-art-remediation -> origin/rescue/peter-2026-07-15-art-remediation
+2026-11-05T19:18:22.1911630Z  * [new branch]        rescue/peter-2026-07-15-landmark-start -> origin/rescue/peter-2026-07-15-landmark-start
+2026-11-05T19:18:22.1913752Z  * [new branch]        rescue/peter-2026-07-15-rig-study-start -> origin/rescue/peter-2026-07-15-rig-study-start
+2026-11-05T19:18:22.1915912Z  * [new branch]        rescue/peter-2026-07-18-claude-art-start -> origin/rescue/peter-2026-07-18-claude-art-start
+2026-11-05T19:18:22.1918074Z  * [new branch]        rescue/peter-2026-07-19-northern-start -> origin/rescue/peter-2026-07-19-northern-start
+2026-11-05T19:18:22.1920554Z  * [new branch]        rescue/peter-2026-07-22-fairy-background-preflight -> origin/rescue/peter-2026-07-22-fairy-background-preflight
+2026-11-05T19:18:22.1923131Z  * [new branch]        rescue/peter-2026-07-28-local-cartoon-video -> origin/rescue/peter-2026-07-28-local-cartoon-video
+2026-11-05T19:18:22.1925426Z  * [new branch]        rescue/peter-2026-07-29-dev-camera-p0-codex -> origin/rescue/peter-2026-07-29-dev-camera-p0-codex
+2026-11-05T19:18:22.1927814Z  * [new branch]        rescue/peter-2026-08-01-combat-assets-handoff -> origin/rescue/peter-2026-08-01-combat-assets-handoff
+2026-11-05T19:18:22.1930207Z  * [new branch]        rescue/peter-2026-08-01-combat-assets-start -> origin/rescue/peter-2026-08-01-combat-assets-start
+2026-11-05T19:18:22.1932658Z  * [new branch]        rescue/peter-2026-08-09-opera-takeover-start -> origin/rescue/peter-2026-08-09-opera-takeover-start
+2026-11-05T19:18:22.1934775Z  * [new branch]        rescue/peter-2026-08-22    -> origin/rescue/peter-2026-08-22
+2026-11-05T19:18:22.1936579Z  * [new branch]        rescue/peter-2026-08-22-1848-openingui -> origin/rescue/peter-2026-08-22-1848-openingui
+2026-11-05T19:18:22.1938673Z  * [new branch]        rescue/peter-2026-08-22-banner-handoff -> origin/rescue/peter-2026-08-22-banner-handoff
+2026-11-05T19:18:22.1940717Z  * [new branch]        rescue/peter-2026-08-22-local-update -> origin/rescue/peter-2026-08-22-local-update
+2026-11-05T19:18:22.1942905Z  * [new branch]        rescue/peter-2026-08-22-start-menu-shots -> origin/rescue/peter-2026-08-22-start-menu-shots
+2026-11-05T19:18:22.1944996Z  * [new branch]        rescue/peter-2026-08-22-stuffie-prep -> origin/rescue/peter-2026-08-22-stuffie-prep
+2026-11-05T19:18:22.1947155Z  * [new branch]        rescue/peter-2026-08-24-tutorial-preflight -> origin/rescue/peter-2026-08-24-tutorial-preflight
+2026-11-05T19:18:22.1949505Z  * [new branch]        rescue/peter-2026-08-30-cinematic-local-plan -> origin/rescue/peter-2026-08-30-cinematic-local-plan
+2026-11-05T19:18:22.1951726Z  * [new branch]        rescue/peter-2026-08-30-grok-audit -> origin/rescue/peter-2026-08-30-grok-audit
+2026-11-05T19:18:22.1953407Z  * [new branch]        rescue/peter-2026-09-05    -> origin/rescue/peter-2026-09-05
+2026-11-05T19:18:22.1955440Z  * [new branch]        rescue/peter-2026-09-06-before-audit-integration -> origin/rescue/peter-2026-09-06-before-audit-integration
+2026-11-05T19:18:22.1957719Z  * [new branch]        rescue/peter-2026-09-09-retired-reef -> origin/rescue/peter-2026-09-09-retired-reef
+2026-11-05T19:18:22.1959852Z  * [new branch]        rescue/peter-2026-09-20-picture-book-rules -> origin/rescue/peter-2026-09-20-picture-book-rules
+2026-11-05T19:18:22.1962252Z  * [new branch]        rescue/peter-2026-09-26-visual-polish-start -> origin/rescue/peter-2026-09-26-visual-polish-start
+2026-11-05T19:18:22.1964289Z  * [new branch]        rescue/peter-2026-09-30    -> origin/rescue/peter-2026-09-30
+2026-11-05T19:18:22.1966090Z  * [new branch]        rescue/peter-20260802-pool-room-start -> origin/rescue/peter-20260802-pool-room-start
+2026-11-05T19:18:22.1968466Z  * [new branch]        rescue/peter-20260809-opera-ballet-party-inflight -> origin/rescue/peter-20260809-opera-ballet-party-inflight
+2026-11-05T19:18:22.1970842Z  * [new branch]        rescue/peter-20260822-castle-baseline -> origin/rescue/peter-20260822-castle-baseline
+2026-11-05T19:18:22.1973059Z  * [new branch]        rescue/peter-20260823-audio-preflight -> origin/rescue/peter-20260823-audio-preflight
+2026-11-05T19:18:22.1975093Z  * [new branch]        rescue/peter-20260826-glb-task-start -> origin/rescue/peter-20260826-glb-task-start
+2026-11-05T19:18:22.1976972Z  * [new branch]        rescue/peter-20260828-castle-day1 -> origin/rescue/peter-20260828-castle-day1
+2026-11-05T19:18:22.1978648Z  * [new branch]        rescue/peter-20260829-apk  -> origin/rescue/peter-20260829-apk
+2026-11-05T19:18:22.1980275Z  * [new branch]        rescue/peter-20260829-apk-late -> origin/rescue/peter-20260829-apk-late
+2026-11-05T19:18:22.1982364Z  * [new branch]        rescue/peter-20260829-playground-preaudit -> origin/rescue/peter-20260829-playground-preaudit
+2026-11-05T19:18:22.1984767Z  * [new branch]        rescue/peter-20260829-pre-audit-implementation -> origin/rescue/peter-20260829-pre-audit-implementation
+2026-11-05T19:18:22.1987090Z  * [new branch]        rescue/peter-20260830-geologist-intake -> origin/rescue/peter-20260830-geologist-intake
+2026-11-05T19:18:22.1989397Z  * [new branch]        rescue/peter-20260830-master-audit-preflight-2 -> origin/rescue/peter-20260830-master-audit-preflight-2
+2026-11-05T19:18:22.1992007Z  * [new branch]        rescue/peter-20260830-master-audit-preflight-3 -> origin/rescue/peter-20260830-master-audit-preflight-3
+2026-11-05T19:18:22.1994524Z  * [new branch]        rescue/peter-20260830-master-audit-preflight-4 -> origin/rescue/peter-20260830-master-audit-preflight-4
+2026-11-05T19:18:22.1996988Z  * [new branch]        rescue/peter-20260830-web-demo-source -> origin/rescue/peter-20260830-web-demo-source
+2026-11-05T19:18:22.1999264Z  * [new branch]        rescue/peter-20260906-before-stage-pathfinding -> origin/rescue/peter-20260906-before-stage-pathfinding
+2026-11-05T19:18:22.2001633Z  * [new branch]        rescue/peter-20260906-chapter2-start -> origin/rescue/peter-20260906-chapter2-start
+2026-11-05T19:18:22.2003565Z  * [new branch]        rescue/peter-20260906-opera-start -> origin/rescue/peter-20260906-opera-start
+2026-11-05T19:18:22.2005458Z  * [new branch]        rescue/peter-20260906-pool-action -> origin/rescue/peter-20260906-pool-action
+2026-11-05T19:18:22.2007367Z  * [new branch]        rescue/peter-20260909-chapter-fixes -> origin/rescue/peter-20260909-chapter-fixes
+2026-11-05T19:18:22.2009244Z  * [new branch]        rescue/peter-20260909-puff-start -> origin/rescue/peter-20260909-puff-start
+2026-11-05T19:18:22.2011047Z  * [new branch]        rescue/peter-20260909-sink-start -> origin/rescue/peter-20260909-sink-start
+2026-11-05T19:18:22.2012813Z  * [new branch]        rescue/peter-20260920-bands -> origin/rescue/peter-20260920-bands
+2026-11-05T19:18:22.2014586Z  * [new branch]        rescue/peter-20261002-bathroom-start -> origin/rescue/peter-20261002-bathroom-start
+2026-11-05T19:18:22.2016586Z  * [new branch]        rescue/peter-20261015-arborist-start -> origin/rescue/peter-20261015-arborist-start
+2026-11-05T19:18:22.2018522Z  * [new branch]        rescue/peter-20261017-castle-start -> origin/rescue/peter-20261017-castle-start
+2026-11-05T19:18:22.2020374Z  * [new branch]        rescue/peter-20261017-grand-puff -> origin/rescue/peter-20261017-grand-puff
+2026-11-05T19:18:22.2022541Z  * [new branch]        rescue/peter-20261017-opera-before-movement -> origin/rescue/peter-20261017-opera-before-movement
+2026-11-05T19:18:22.2024628Z  * [new branch]        rescue/peter-20261017-opera-start -> origin/rescue/peter-20261017-opera-start
+2026-11-05T19:18:22.2026716Z  * [new branch]        rescue/peter-20261018-artwork-start -> origin/rescue/peter-20261018-artwork-start
+2026-11-05T19:18:22.2028836Z  * [new branch]        rescue/peter-20261031-before-falcon-211519 -> origin/rescue/peter-20261031-before-falcon-211519
+2026-11-05T19:18:22.2030930Z  * [new branch]        rescue/peter-20261031-chapter-audit -> origin/rescue/peter-20261031-chapter-audit
+2026-11-05T19:18:22.2033062Z  * [new branch]        rescue/peter-20261031-minigame-handoff -> origin/rescue/peter-20261031-minigame-handoff
+2026-11-05T19:18:22.2034901Z  * [new branch]        rescue/peter-20261031-opera -> origin/rescue/peter-20261031-opera
+2026-11-05T19:18:22.2036600Z  * [new branch]        rescue/peter-20261031-opera-start -> origin/rescue/peter-20261031-opera-start
+2026-11-05T19:18:22.2038487Z  * [new branch]        rescue/peter-20261101-laura-profile -> origin/rescue/peter-20261101-laura-profile
+2026-11-05T19:18:22.2040329Z  * [new branch]        rescue/peter-20261104-godot-mcp -> origin/rescue/peter-20261104-godot-mcp
+2026-11-05T19:18:22.2042301Z  * [new branch]        rescue/peter-completion-ui-20261017 -> origin/rescue/peter-completion-ui-20261017
+2026-11-05T19:18:22.2044373Z  * [new branch]        rescue/peter-desktop-20260930-job-menu -> origin/rescue/peter-desktop-20260930-job-menu
+2026-11-05T19:18:22.2046340Z  * [new branch]        rescue/peter-dev-freeze-20261103 -> origin/rescue/peter-dev-freeze-20261103
+2026-11-05T19:18:22.2048329Z  * [new branch]        rescue/peter-fairy-book-start-20260930 -> origin/rescue/peter-fairy-book-start-20260930
+2026-11-05T19:18:22.2050387Z  * [new branch]        rescue/peter-fashion-start-20261006 -> origin/rescue/peter-fashion-start-20261006
+2026-11-05T19:18:22.2052408Z  * [new branch]        rescue/peter-native-rig-20261031 -> origin/rescue/peter-native-rig-20261031
+2026-11-05T19:18:22.2054168Z  * [new branch]        rescue/peter-painter-20260916 -> origin/rescue/peter-painter-20260916
+2026-11-05T19:18:22.2056036Z  * [new branch]        rescue/peter-project-update-20260912 -> origin/rescue/peter-project-update-20260912
+2026-11-05T19:18:22.2058013Z  * [new branch]        rescue/peter-seahorse-20260909 -> origin/rescue/peter-seahorse-20260909
+2026-11-05T19:18:22.2059807Z  * [new branch]        rescue/peter-sky-overlay-20261104 -> origin/rescue/peter-sky-overlay-20261104
+2026-11-05T19:18:22.2061766Z  * [new branch]        rescue/peter-swim-start-20261101 -> origin/rescue/peter-swim-start-20261101
+2026-11-05T19:18:22.2063593Z  * [new branch]        rescue/peter-wave-start-20261007 -> origin/rescue/peter-wave-start-20261007
+2026-11-05T19:18:22.2065658Z  * [new branch]        rescue/peter-windows-20260930-job-platform -> origin/rescue/peter-windows-20260930-job-platform
+2026-11-05T19:18:22.2068242Z  * [new branch]        rescue/peter-windows-20261003-self-improvement-start -> origin/rescue/peter-windows-20261003-self-improvement-start
+2026-11-05T19:18:22.2070867Z  * [new branch]        rescue/peter-windows-20261007-animal-start -> origin/rescue/peter-windows-20261007-animal-start
+2026-11-05T19:18:22.2073015Z  * [new branch]        rescue/peter-windows-20261014 -> origin/rescue/peter-windows-20261014
+2026-11-05T19:18:22.2075103Z  * [new branch]        rescue/peter-windows-20261027-castle-painting -> origin/rescue/peter-windows-20261027-castle-painting
+2026-11-05T19:18:22.2077595Z  * [new branch]        rescue/peter-windows-20261031-audit-refinement -> origin/rescue/peter-windows-20261031-audit-refinement
+2026-11-05T19:18:22.2080015Z  * [new branch]        rescue/peter-windows-20261031-day-one-start -> origin/rescue/peter-windows-20261031-day-one-start
+2026-11-05T19:18:22.2082550Z  * [new branch]        rescue/windows-2026-09-30-art-replacement-start -> origin/rescue/windows-2026-09-30-art-replacement-start
+2026-11-05T19:18:22.2084794Z  * [new branch]        rescue/windows-2026-09-30-day2-audit -> origin/rescue/windows-2026-09-30-day2-audit
+2026-11-05T19:18:22.2087078Z  * [new branch]        rollback/grand-puff-before-intuitive-20260912 -> origin/rollback/grand-puff-before-intuitive-20260912
+2026-11-05T19:18:22.2089178Z  * [new branch]        tablet-performance         -> origin/tablet-performance
+2026-11-05T19:18:22.2090549Z  * [new branch]        ww-lighting-wind           -> origin/ww-lighting-wind
+2026-11-05T19:18:22.2091836Z  * [new tag]           android-dev                -> android-dev
+2026-11-05T19:18:22.2092863Z  * [new tag]           android-graphics           -> android-graphics
+2026-11-05T19:18:22.2093906Z  * [new tag]           android-test               -> android-test
+2026-11-05T19:18:22.2095006Z  * [new tag]           backup-master-2026-06-25   -> backup-master-2026-06-25
+2026-11-05T19:18:22.2096381Z  * [new tag]           day-one-grok-clips-2026-09-03 -> day-one-grok-clips-2026-09-03
+2026-11-05T19:18:22.2097923Z  * [new tag]           day1-regen-motion-ref-2026-09-03 -> day1-regen-motion-ref-2026-09-03
+2026-11-05T19:18:22.2099375Z  * [new tag]           day1-v4-c14-3sets-2026-09-06 -> day1-v4-c14-3sets-2026-09-06
+2026-11-05T19:18:22.2101013Z  * [new tag]           day1-world-animation-audit-2026-09-09 -> day1-world-animation-audit-2026-09-09
+2026-11-05T19:18:22.2103147Z  * [new tag]           grok-builder-reshoot-library-v4-2026-09-15 -> grok-builder-reshoot-library-v4-2026-09-15
+2026-11-05T19:18:22.2104945Z  * [new tag]           grok-regen-return-2026-09-16 -> grok-regen-return-2026-09-16
+2026-11-05T19:18:22.2106321Z  * [new tag]           music-iko-iko-v89-20260920 -> music-iko-iko-v89-20260920
+2026-11-05T19:18:22.2107873Z  * [new tag]           overnight-recut-repairs-2026-09-12 -> overnight-recut-repairs-2026-09-12
+2026-11-05T19:18:22.2110614Z [command]/usr/bin/git branch --list --remote origin/codex/satellite-godot-mcp
+2026-11-05T19:18:22.2112016Z   origin/codex/satellite-godot-mcp
+2026-11-05T19:18:22.2113798Z [command]/usr/bin/git rev-parse refs/remotes/origin/codex/satellite-godot-mcp
+2026-11-05T19:18:22.2114895Z 76ae50106d07f3ecc774f59fc50a99245c767f0e
+2026-11-05T19:18:22.2116608Z ##[endgroup]
+2026-11-05T19:18:22.2117444Z ##[group]Determining the checkout info
+2026-11-05T19:18:22.2118624Z ##[endgroup]
+2026-11-05T19:18:22.2119181Z [command]/usr/bin/git sparse-checkout disable
+2026-11-05T19:18:22.2120977Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-05T19:18:22.2124151Z ##[group]Checking out the ref
+2026-11-05T19:18:22.2125725Z [command]/usr/bin/git checkout --progress --force -B codex/satellite-godot-mcp refs/remotes/origin/codex/satellite-godot-mcp
+2026-11-05T19:29:29.6822872Z Updating files:   0% (1/49438)
+2026-11-05T19:29:29.8796343Z Updating files:   1% (495/49438)
+2026-11-05T19:29:29.9539817Z Updating files:   2% (989/49438)
+2026-11-05T19:29:30.1144187Z Updating files:   3% (1484/49438)
+2026-11-05T19:29:30.4851931Z Updating files:   3% (1662/49438)
+2026-11-05T19:29:30.8298123Z Updating files:   4% (1978/49438)
+2026-11-05T19:29:31.1132589Z Updating files:   5% (2472/49438)
+2026-11-05T19:29:31.2588960Z Updating files:   5% (2773/49438)
+2026-11-05T19:29:31.4763516Z Updating files:   6% (2967/49438)
+2026-11-05T19:29:31.7599569Z Updating files:   7% (3461/49438)
+2026-11-05T19:29:31.9749048Z Updating files:   8% (3956/49438)
+2026-11-05T19:29:32.1136282Z Updating files:   9% (4450/49438)
+2026-11-05T19:29:32.1892968Z Updating files:   9% (4839/49438)
+2026-11-05T19:29:33.1155945Z Updating files:  10% (4944/49438)
+2026-11-05T19:29:33.6605937Z Updating files:  10% (5342/49438)
+2026-11-05T19:29:34.1221851Z Updating files:  11% (5439/49438)
+2026-11-05T19:29:35.1323047Z Updating files:  11% (5574/49438)
+2026-11-05T19:29:36.1129661Z Updating files:  11% (5581/49438)
+2026-11-05T19:29:36.2968007Z Updating files:  11% (5672/49438)
+2026-11-05T19:29:37.1539428Z Updating files:  12% (5933/49438)
+2026-11-05T19:29:37.8650621Z Updating files:  12% (6322/49438)
+2026-11-05T19:29:38.2402476Z Updating files:  13% (6427/49438)
+2026-11-05T19:29:39.7262536Z Updating files:  13% (6457/49438)
+2026-11-05T19:29:40.2531927Z Updating files:  13% (6490/49438)
+2026-11-05T19:29:41.1504458Z Updating files:  13% (6492/49438)
+2026-11-05T19:29:41.7515372Z Updating files:  13% (6774/49438)
+2026-11-05T19:29:42.2062208Z Updating files:  14% (6922/49438)
+2026-11-05T19:29:43.2406771Z Updating files:  14% (6970/49438)
+2026-11-05T19:29:44.1149215Z Updating files:  14% (6974/49438)
+2026-11-05T19:29:44.1866759Z Updating files:  14% (7329/49438)
+2026-11-05T19:29:45.1520563Z Updating files:  15% (7416/49438)
+2026-11-05T19:29:46.1292017Z Updating files:  15% (7576/49438)
+2026-11-05T19:29:46.9403290Z Updating files:  15% (7640/49438)
+2026-11-05T19:29:47.1144318Z Updating files:  16% (7911/49438)
+2026-11-05T19:29:47.3212271Z Updating files:  16% (7999/49438)
+2026-11-05T19:29:47.6402770Z Updating files:  17% (8405/49438)
+2026-11-05T19:29:48.1687311Z Updating files:  18% (8899/49438)
+2026-11-05T19:29:49.2172963Z Updating files:  18% (9005/49438)
+2026-11-05T19:29:50.1409857Z Updating files:  18% (9014/49438)
+2026-11-05T19:29:50.8759110Z Updating files:  18% (9024/49438)
+2026-11-05T19:29:51.1137542Z Updating files:  19% (9394/49438)
+2026-11-05T19:29:51.3863382Z Updating files:  19% (9742/49438)
+2026-11-05T19:29:52.1653430Z Updating files:  20% (9888/49438)
+2026-11-05T19:29:53.5018635Z Updating files:  20% (10074/49438)
+2026-11-05T19:29:54.2686654Z Updating files:  20% (10115/49438)
+2026-11-05T19:29:56.6607861Z Updating files:  20% (10150/49438)
+2026-11-05T19:29:57.1131929Z Updating files:  20% (10243/49438)
+2026-11-05T19:29:57.1280570Z Updating files:  20% (10330/49438)
+2026-11-05T19:29:57.9627903Z Updating files:  21% (10382/49438)
+2026-11-05T19:29:58.1977672Z Updating files:  22% (10877/49438)
+2026-11-05T19:29:58.4622958Z Updating files:  22% (11107/49438)
+2026-11-05T19:29:59.1132829Z Updating files:  23% (11371/49438)
+2026-11-05T19:29:59.1955773Z Updating files:  23% (11778/49438)
+2026-11-05T19:29:59.8439857Z Updating files:  24% (11866/49438)
+2026-11-05T19:30:00.1601236Z Updating files:  25% (12360/49438)
+2026-11-05T19:30:02.9050990Z Updating files:  25% (12420/49438)
+2026-11-05T19:30:03.1444573Z Updating files:  25% (12473/49438)
+2026-11-05T19:30:03.4310034Z Updating files:  25% (12527/49438)
+2026-11-05T19:30:04.1780814Z Updating files:  26% (12854/49438)
+2026-11-05T19:30:04.7698763Z Updating files:  26% (13275/49438)
+2026-11-05T19:30:05.1140160Z Updating files:  27% (13349/49438)
+2026-11-05T19:30:05.7346215Z Updating files:  27% (13597/49438)
+2026-11-05T19:30:06.1166342Z Updating files:  28% (13843/49438)
+2026-11-05T19:30:07.1378699Z Updating files:  28% (14022/49438)
+2026-11-05T19:30:07.2842891Z Updating files:  28% (14332/49438)
+2026-11-05T19:30:07.9379105Z Updating files:  29% (14338/49438)
+2026-11-05T19:30:08.1358856Z Updating files:  30% (14832/49438)
+2026-11-05T19:30:09.1193826Z Updating files:  30% (14926/49438)
+2026-11-05T19:30:09.4892699Z Updating files:  30% (15228/49438)
+2026-11-05T19:30:10.1153689Z Updating files:  31% (15326/49438)
+2026-11-05T19:30:11.3668121Z Updating files:  31% (15450/49438)
+2026-11-05T19:30:12.1143636Z Updating files:  31% (15462/49438)
+2026-11-05T19:30:13.1222110Z Updating files:  31% (15466/49438)
+2026-11-05T19:30:14.1223474Z Updating files:  31% (15541/49438)
+2026-11-05T19:30:14.5581644Z Updating files:  31% (15585/49438)
+2026-11-05T19:30:15.1758734Z Updating files:  32% (15821/49438)
+2026-11-05T19:30:15.2895054Z Updating files:  32% (16267/49438)
+2026-11-05T19:30:16.1135592Z Updating files:  33% (16315/49438)
+2026-11-05T19:30:16.8497618Z Updating files:  33% (16479/49438)
+2026-11-05T19:30:17.1361279Z Updating files:  34% (16809/49438)
+2026-11-05T19:30:17.9417364Z Updating files:  34% (17011/49438)
+2026-11-05T19:30:18.1307056Z Updating files:  35% (17304/49438)
+2026-11-05T19:30:19.1186185Z Updating files:  35% (17308/49438)
+2026-11-05T19:30:19.9734204Z Updating files:  35% (17432/49438)
+2026-11-05T19:30:20.1347304Z Updating files:  36% (17798/49438)
+2026-11-05T19:30:21.1778985Z Updating files:  36% (17896/49438)
+2026-11-05T19:30:21.8072011Z Updating files:  36% (18069/49438)
+2026-11-05T19:30:22.2337062Z Updating files:  37% (18293/49438)
+2026-11-05T19:30:23.2281908Z Updating files:  37% (18527/49438)
+2026-11-05T19:30:23.8492732Z Updating files:  37% (18545/49438)
+2026-11-05T19:30:24.1536791Z Updating files:  38% (18787/49438)
+2026-11-05T19:30:24.6393512Z Updating files:  38% (18901/49438)
+2026-11-05T19:30:25.2283695Z Updating files:  39% (19281/49438)
+2026-11-05T19:30:25.5927941Z Updating files:  39% (19759/49438)
+2026-11-05T19:30:26.1214686Z Updating files:  40% (19776/49438)
+2026-11-05T19:30:27.1129017Z Updating files:  40% (19901/49438)
+2026-11-05T19:30:27.2160326Z Updating files:  40% (20165/49438)
+2026-11-05T19:30:28.2402725Z Updating files:  41% (20270/49438)
+2026-11-05T19:30:29.3385949Z Updating files:  41% (20339/49438)
+2026-11-05T19:30:30.1250835Z Updating files:  41% (20345/49438)
+2026-11-05T19:30:30.6473224Z Updating files:  41% (20529/49438)
+2026-11-05T19:30:31.1152704Z Updating files:  42% (20764/49438)
+2026-11-05T19:30:32.0893809Z Updating files:  42% (20997/49438)
+2026-11-05T19:30:32.1127761Z Updating files:  43% (21259/49438)
+2026-11-05T19:30:33.1137987Z Updating files:  43% (21343/49438)
+2026-11-05T19:30:33.1680066Z Updating files:  43% (21727/49438)
+2026-11-05T19:30:34.1144498Z Updating files:  44% (21753/49438)
+2026-11-05T19:30:35.1264584Z Updating files:  44% (22017/49438)
+2026-11-05T19:30:35.2430425Z Updating files:  44% (22204/49438)
+2026-11-05T19:30:36.1128575Z Updating files:  45% (22248/49438)
+2026-11-05T19:30:37.1178900Z Updating files:  45% (22437/49438)
+2026-11-05T19:30:37.2652830Z Updating files:  45% (22712/49438)
+2026-11-05T19:30:38.1246742Z Updating files:  46% (22742/49438)
+2026-11-05T19:30:39.1805607Z Updating files:  46% (22868/49438)
+2026-11-05T19:30:40.1922197Z Updating files:  46% (22877/49438)
+2026-11-05T19:30:41.5886517Z Updating files:  46% (22882/49438)
+2026-11-05T19:30:42.1160860Z Updating files:  46% (22894/49438)
+2026-11-05T19:30:42.3469922Z Updating files:  46% (23140/49438)
+2026-11-05T19:30:42.8172217Z Updating files:  47% (23236/49438)
+2026-11-05T19:30:43.0388976Z Updating files:  48% (23731/49438)
+2026-11-05T19:30:43.1196946Z Updating files:  49% (24225/49438)
+2026-11-05T19:30:44.1413981Z Updating files:  49% (24338/49438)
+2026-11-05T19:30:45.1305072Z Updating files:  49% (24541/49438)
+2026-11-05T19:30:46.1149207Z Updating files:  49% (24552/49438)
+2026-11-05T19:30:46.2772378Z Updating files:  49% (24681/49438)
+2026-11-05T19:30:47.1892454Z Updating files:  50% (24719/49438)
+2026-11-05T19:30:48.2798269Z Updating files:  50% (24814/49438)
+2026-11-05T19:30:49.1137760Z Updating files:  50% (24955/49438)
+2026-11-05T19:30:50.1166146Z Updating files:  50% (25064/49438)
+2026-11-05T19:30:50.3717677Z Updating files:  50% (25165/49438)
+2026-11-05T19:30:51.1272983Z Updating files:  51% (25214/49438)
+2026-11-05T19:30:52.1137114Z Updating files:  51% (25297/49438)
+2026-11-05T19:30:52.8431138Z Updating files:  51% (25608/49438)
+2026-11-05T19:30:53.1153111Z Updating files:  52% (25708/49438)
+2026-11-05T19:30:54.1153523Z Updating files:  52% (25727/49438)
+2026-11-05T19:30:54.4509040Z Updating files:  52% (26081/49438)
+2026-11-05T19:30:55.1213781Z Updating files:  53% (26203/49438)
+2026-11-05T19:30:56.2445407Z Updating files:  53% (26385/49438)
+2026-11-05T19:30:56.5053121Z Updating files:  53% (26630/49438)
+2026-11-05T19:30:57.1166718Z Updating files:  54% (26697/49438)
+2026-11-05T19:30:58.1306761Z Updating files:  54% (26799/49438)
+2026-11-05T19:30:58.5266209Z Updating files:  54% (27086/49438)
+2026-11-05T19:30:59.1153456Z Updating files:  55% (27191/49438)
+2026-11-05T19:31:00.1892022Z Updating files:  55% (27302/49438)
+2026-11-05T19:31:01.1429498Z Updating files:  55% (27439/49438)
+2026-11-05T19:31:02.1301734Z Updating files:  55% (27577/49438)
+2026-11-05T19:31:02.4607703Z Updating files:  55% (27647/49438)
+2026-11-05T19:31:03.1154960Z Updating files:  56% (27686/49438)
+2026-11-05T19:31:04.1142542Z Updating files:  56% (27867/49438)
+2026-11-05T19:31:05.1134655Z Updating files:  56% (28012/49438)
+2026-11-05T19:31:05.2247524Z Updating files:  56% (28152/49438)
+2026-11-05T19:31:06.1156835Z Updating files:  57% (28180/49438)
+2026-11-05T19:31:07.2332827Z Updating files:  57% (28385/49438)
+2026-11-05T19:31:07.6284029Z Updating files:  57% (28673/49438)
+2026-11-05T19:31:08.4889252Z Updating files:  58% (28675/49438)
+2026-11-05T19:31:09.1153947Z Updating files:  58% (28691/49438)
+2026-11-05T19:31:09.9176563Z Updating files:  58% (28937/49438)
+2026-11-05T19:31:10.1130539Z Updating files:  59% (29169/49438)
+2026-11-05T19:31:11.1153313Z Updating files:  59% (29353/49438)
+2026-11-05T19:31:11.4235624Z Updating files:  59% (29601/49438)
+2026-11-05T19:31:12.1130975Z Updating files:  60% (29663/49438)
+2026-11-05T19:31:13.2366989Z Updating files:  60% (29822/49438)
+2026-11-05T19:31:14.1781634Z Updating files:  60% (30017/49438)
+2026-11-05T19:31:15.1438252Z Updating files:  60% (30030/49438)
+2026-11-05T19:31:15.8554782Z Updating files:  60% (30037/49438)
+2026-11-05T19:31:16.1137612Z Updating files:  61% (30158/49438)
+2026-11-05T19:31:16.5446087Z Updating files:  61% (30294/49438)
+2026-11-05T19:31:16.6372087Z Updating files:  62% (30652/49438)
+2026-11-05T19:31:16.7969049Z Updating files:  63% (31146/49438)
+2026-11-05T19:31:17.0996101Z Updating files:  64% (31641/49438)
+2026-11-05T19:31:17.1129709Z Updating files:  65% (32135/49438)
+2026-11-05T19:31:17.1829213Z Updating files:  65% (32191/49438)
+2026-11-05T19:31:17.4670544Z Updating files:  66% (32630/49438)
+2026-11-05T19:31:17.9331124Z Updating files:  67% (33124/49438)
+2026-11-05T19:31:18.1146548Z Updating files:  68% (33618/49438)
+2026-11-05T19:31:19.2898220Z Updating files:  68% (33710/49438)
+2026-11-05T19:31:19.4262882Z Updating files:  68% (34079/49438)
+2026-11-05T19:31:20.2832976Z Updating files:  69% (34113/49438)
+2026-11-05T19:31:20.4363699Z Updating files:  69% (34321/49438)
+2026-11-05T19:31:21.1151826Z Updating files:  70% (34607/49438)
+2026-11-05T19:31:21.1747902Z Updating files:  70% (35048/49438)
+2026-11-05T19:31:22.1158618Z Updating files:  71% (35101/49438)
+2026-11-05T19:31:23.1268383Z Updating files:  71% (35284/49438)
+2026-11-05T19:31:24.7255387Z Updating files:  71% (35321/49438)
+2026-11-05T19:31:25.2395744Z Updating files:  71% (35407/49438)
+2026-11-05T19:31:25.8341875Z Updating files:  71% (35507/49438)
+2026-11-05T19:31:26.3629307Z Updating files:  72% (35596/49438)
+2026-11-05T19:31:27.1132464Z Updating files:  72% (35665/49438)
+2026-11-05T19:31:28.1853032Z Updating files:  72% (35759/49438)
+2026-11-05T19:31:29.1360645Z Updating files:  72% (35928/49438)
+2026-11-05T19:31:30.2412153Z Updating files:  72% (36022/49438)
+2026-11-05T19:31:30.4321792Z Updating files:  72% (36028/49438)
+2026-11-05T19:31:31.1604132Z Updating files:  73% (36090/49438)
+2026-11-05T19:31:32.1200944Z Updating files:  73% (36177/49438)
+2026-11-05T19:31:33.1189051Z Updating files:  73% (36437/49438)
+2026-11-05T19:31:33.7368749Z Updating files:  73% (36560/49438)
+2026-11-05T19:31:36.2742516Z Updating files:  74% (36585/49438)
+2026-11-05T19:31:37.1148561Z Updating files:  74% (36730/49438)
+2026-11-05T19:31:38.3166724Z Updating files:  74% (36841/49438)
+2026-11-05T19:31:38.3965465Z Updating files:  74% (37026/49438)
+2026-11-05T19:31:39.1355712Z Updating files:  75% (37079/49438)
+2026-11-05T19:31:40.1334253Z Updating files:  75% (37184/49438)
+2026-11-05T19:31:41.6349410Z Updating files:  75% (37321/49438)
+2026-11-05T19:31:42.1132136Z Updating files:  75% (37331/49438)
+2026-11-05T19:31:42.8305348Z Updating files:  75% (37363/49438)
+2026-11-05T19:31:42.9058670Z Updating files:  76% (37573/49438)
+2026-11-05T19:31:43.1164156Z Updating files:  77% (38068/49438)
+2026-11-05T19:31:43.1903099Z Updating files:  77% (38489/49438)
+2026-11-05T19:31:43.5354658Z Updating files:  78% (38562/49438)
+2026-11-05T19:31:43.9111905Z Updating files:  79% (39057/49438)
+2026-11-05T19:31:44.0855265Z Updating files:  80% (39551/49438)
+2026-11-05T19:31:44.1132003Z Updating files:  81% (40045/49438)
+2026-11-05T19:31:44.5927048Z Updating files:  81% (40124/49438)
+2026-11-05T19:31:45.2392725Z Updating files:  82% (40540/49438)
+2026-11-05T19:31:45.2803344Z Updating files:  82% (41022/49438)
+2026-11-05T19:31:46.1866308Z Updating files:  83% (41034/49438)
+2026-11-05T19:31:47.1375237Z Updating files:  83% (41339/49438)
+2026-11-05T19:31:47.8343236Z Updating files:  83% (41423/49438)
+2026-11-05T19:31:48.1134893Z Updating files:  84% (41528/49438)
+2026-11-05T19:31:48.1828124Z Updating files:  84% (41873/49438)
+2026-11-05T19:31:48.4439578Z Updating files:  85% (42023/49438)
+2026-11-05T19:31:48.7102718Z Updating files:  86% (42517/49438)
+2026-11-05T19:31:49.0674950Z Updating files:  87% (43012/49438)
+2026-11-05T19:31:49.1169568Z Updating files:  88% (43506/49438)
+2026-11-05T19:31:49.9909805Z Updating files:  88% (43549/49438)
+2026-11-05T19:31:50.1138787Z Updating files:  89% (44000/49438)
+2026-11-05T19:31:50.7006268Z Updating files:  89% (44062/49438)
+2026-11-05T19:31:51.0829754Z Updating files:  90% (44495/49438)
+2026-11-05T19:31:51.1136899Z Updating files:  91% (44989/49438)
+2026-11-05T19:31:51.4118054Z Updating files:  91% (45012/49438)
+2026-11-05T19:31:51.7326855Z Updating files:  92% (45483/49438)
+2026-11-05T19:31:51.9537218Z Updating files:  93% (45978/49438)
+2026-11-05T19:31:52.1233488Z Updating files:  94% (46472/49438)
+2026-11-05T19:31:53.0932652Z Updating files:  94% (46809/49438)
+2026-11-05T19:31:53.1200062Z Updating files:  95% (46967/49438)
+2026-11-05T19:31:53.6738511Z Updating files:  95% (46971/49438)
+2026-11-05T19:31:53.7419379Z Updating files:  96% (47461/49438)
+2026-11-05T19:31:53.9436244Z Updating files:  97% (47955/49438)
+2026-11-05T19:31:54.0844756Z Updating files:  98% (48450/49438)
+2026-11-05T19:31:54.1132656Z Updating files:  99% (48944/49438)
+2026-11-05T19:31:54.6059988Z Updating files:  99% (49091/49438)
+2026-11-05T19:31:54.6065663Z Updating files: 100% (49438/49438)
+2026-11-05T19:31:54.6071843Z Updating files: 100% (49438/49438), done.
+2026-11-05T19:31:54.6872928Z Switched to a new branch 'codex/satellite-godot-mcp'
+2026-11-05T19:31:54.6891997Z branch 'codex/satellite-godot-mcp' set up to track 'origin/codex/satellite-godot-mcp'.
+2026-11-05T19:31:54.8935154Z ##[endgroup]
+2026-11-05T19:31:54.9449151Z [command]/usr/bin/git log -1 --format=%H
+2026-11-05T19:31:54.9463795Z 76ae50106d07f3ecc774f59fc50a99245c767f0e
+2026-11-05T19:31:54.9737275Z ##[group]Removing auth
+2026-11-05T19:31:54.9765876Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-05T19:31:54.9798845Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-05T19:31:55.0487619Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-05T19:31:55.0739039Z http.https://github.com/.extraheader
+2026-11-05T19:31:55.0752096Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-05T19:31:55.0837425Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-05T19:31:55.1213161Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-05T19:31:55.1277067Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-05T19:31:55.1627835Z ##[endgroup]
+2026-11-05T19:31:55.4136164Z ##[group]Run godot_archive="${RUNNER_TEMP}/godot.zip"
+2026-11-05T19:31:55.4138396Z [36;1mgodot_archive="${RUNNER_TEMP}/godot.zip"[0m
+2026-11-05T19:31:55.4140609Z [36;1mgodot_extract="${RUNNER_TEMP}/godot"[0m
+2026-11-05T19:31:55.4143396Z [36;1mcurl -sSL -o "${godot_archive}" "https://github.com/godotengine/godot/releases/download/${GODOT_RELEASE}/Godot_v${GODOT_RELEASE}_linux.x86_64.zip"[0m
+2026-11-05T19:31:55.4144383Z [36;1mecho "${GODOT_ZIP_SHA512}  ${godot_archive}" | sha512sum -c -[0m
+2026-11-05T19:31:55.4146814Z [36;1mmkdir -p "${godot_extract}"[0m
+2026-11-05T19:31:55.4149532Z [36;1munzip -q "${godot_archive}" -d "${godot_extract}"[0m
+2026-11-05T19:31:55.4154693Z [36;1msudo mv "${godot_extract}/Godot_v${GODOT_RELEASE}_linux.x86_64" /usr/local/bin/godot[0m
+2026-11-05T19:31:55.5047948Z shell: /usr/bin/bash -e {0}
+2026-11-05T19:31:55.5051728Z env:
+2026-11-05T19:31:55.5054103Z   GODOT_RELEASE: 4.7.2-stable
+2026-11-05T19:31:55.5060151Z   GODOT_ZIP_SHA512: 9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65
+2026-11-05T19:31:55.5062891Z ##[endgroup]
+2026-11-05T19:31:56.3670889Z /home/runner/work/_temp/godot.zip: OK
+2026-11-05T19:31:58.3047994Z ##[group]Run pip install --quiet gdtoolkit==4.5.0 numpy==2.5.1 Pillow==12.3.0 scipy==1.18.0
+2026-11-05T19:31:58.3051258Z [36;1mpip install --quiet gdtoolkit==4.5.0 numpy==2.5.1 Pillow==12.3.0 scipy==1.18.0[0m
+2026-11-05T19:31:58.3054323Z [36;1mpython3 -m unittest tools.tests.test_audit_godot_baseline[0m
+2026-11-05T19:31:58.3059219Z [36;1mpython3 tools/audit_godot_baseline.py --godot godot[0m
+2026-11-05T19:31:58.3064718Z [36;1mpython3 -m gdtoolkit.parser $(find scripts -name '*.gd')[0m
+2026-11-05T19:31:58.3066787Z [36;1mpython3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.gd[0m
+2026-11-05T19:31:58.3070935Z [36;1m# Owner decision 2026-08-09: Mermaid Roshan is 2D-only. The stress[0m
+2026-11-05T19:31:58.3073231Z [36;1m# pass proves every rule can fail before the real project is gated.[0m
+2026-11-05T19:31:58.3073748Z [36;1mpython3 tools/audit_roshan_2d.py --stress[0m
+2026-11-05T19:31:58.3076745Z [36;1mpython3 tools/audit_roshan_2d.py[0m
+2026-11-05T19:31:58.3082789Z [36;1m# The Roshan audit remains the narrow atlas/identity invariant. The[0m
+2026-11-05T19:31:58.3083418Z [36;1m# authoritative game-wide migration contract must also prove that[0m
+2026-11-05T19:31:58.3085595Z [36;1m# its debt ceiling and falsification checks cannot be laundered.[0m
+2026-11-05T19:31:58.3090482Z [36;1mpython3 -m unittest tools.tests.test_audit_game_2d[0m
+2026-11-05T19:31:58.3096603Z [36;1mpython3 tools/audit_game_2d.py --stress[0m
+2026-11-05T19:31:58.3100693Z [36;1mpython3 -m unittest tools.tests.test_audit_roshan_sprite_clipping[0m
+2026-11-05T19:31:58.3103867Z [36;1mpython3 tools/audit_roshan_sprite_clipping.py[0m
+2026-11-05T19:31:58.3104572Z [36;1mpython3 tools/audit_probe_parity.py --stress[0m
+2026-11-05T19:31:58.3107227Z [36;1mpython3 tools/audit_probe_parity.py[0m
+2026-11-05T19:31:58.3109302Z [36;1m# Current documentation controls runtime and repair authority. Prove[0m
+2026-11-05T19:31:58.3111551Z [36;1m# exhaustive ledger/canonical-record checks can fail, then gate the[0m
+2026-11-05T19:31:58.3112143Z [36;1m# exact repository Markdown inventory before accepting any repair.[0m
+2026-11-05T19:31:58.3114396Z [36;1mpython3 -m unittest tools.tests.test_audit_document_authority[0m
+2026-11-05T19:31:58.3116629Z [36;1mpython3 tools/audit_document_authority.py --stress[0m
+2026-11-05T19:31:58.3120450Z [36;1mpython3 -m unittest tools.tests.test_audit_development tools.tests.test_record_owner_decision tools.tests.test_run_advisory_sensor tools.tests.test_study_game tools.tests.test_build_study_roadmap tools.tests.test_plan_prompt tools.tests.test_resolve_godot[0m
+2026-11-05T19:31:58.3121886Z [36;1mpython3 tools/audit_development.py --base auto[0m
+2026-11-05T19:31:58.3124341Z [36;1mpython3 tools/audit_document_authority.py[0m
+2026-11-05T19:31:58.3124766Z [36;1mpython3 tools/audit_fairy_art_v2.py[0m
+2026-11-05T19:31:58.3125213Z [36;1mpython3 tools/prepare_opera_nursery_art.py --check-only[0m
+2026-11-05T19:31:58.3128990Z [36;1mpython3 tools/prepare_opera_minigame_art.py --check-only[0m
+2026-11-05T19:31:58.3130924Z [36;1mpython3 tools/audit_opera_diegetic_hotspot_art.py[0m
+2026-11-05T19:31:58.3133306Z [36;1mpython3 tools/audit_opera_borderless_minigame_art.py[0m
+2026-11-05T19:31:58.3138376Z [36;1mpython3 tools/audit_opera_roshan_animation.py[0m
+2026-11-05T19:31:58.3143793Z [36;1mpython3 tools/audit_sky_lagoon_kit.py[0m
+2026-11-05T19:31:58.3145783Z [36;1mpython3 tools/audit_scene_congruency.py[0m
+2026-11-05T19:31:58.3147829Z [36;1m# Painted 2.5D flats are drawn unshaded, so the Environment grade is[0m
+2026-11-05T19:31:58.3149967Z [36;1m# the only thing between an approved PNG and the child's screen. This[0m
+2026-11-05T19:31:58.3152170Z [36;1m# replays the shipped grade over the real art and fails when a profile[0m
+2026-11-05T19:31:58.3155614Z [36;1m# clips or crushes pixels the source did not[0m
+2026-11-05T19:31:58.3157958Z [36;1m# (LIGHTING_2P5D_AUDIT_2026-08-02 §1.7/§E1). Needs no Godot binary,[0m
+2026-11-05T19:31:58.3166002Z [36;1m# so it belongs here with the other seconds-long static gates.[0m
+2026-11-05T19:31:58.3168074Z [36;1mpython3 -m unittest tools.tests.test_check_grade_headroom[0m
+2026-11-05T19:31:58.3171551Z [36;1mpython3 tools/check_grade_headroom.py[0m
+2026-11-05T19:31:58.3175136Z [36;1m# Castle V4 delivery is source-owned and frame-reviewed. Keep these[0m
+2026-11-05T19:31:58.3177766Z [36;1m# release gates in the protected probe workflow as well as ci.sh so[0m
+2026-11-05T19:31:58.3179731Z [36;1m# promotion cannot accept stale healing, cutouts, or approvals.[0m
+2026-11-05T19:31:58.3181765Z [36;1mpython3 tools/build_castle_interaction_v4_delivery.py --check[0m
+2026-11-05T19:31:58.3185662Z [36;1mpython3 tools/audit_castle_native_interactions.py[0m
+2026-11-05T19:31:58.3192201Z [36;1mpython3 tools/repair_castle_room_native_backgrounds.py --check[0m
+2026-11-05T19:31:58.3194590Z [36;1mpython3 tools/build_interactive_background_ownership.py --check[0m
+2026-11-05T19:31:58.3198102Z [36;1mpython3 tools/refine_castle_depth_cards.py --check[0m
+2026-11-05T19:31:58.3200599Z [36;1mpython3 tools/audit_castle_static_depth_cards.py[0m
+2026-11-05T19:31:58.3203252Z [36;1mpython3 -m unittest \[0m
+2026-11-05T19:31:58.3205905Z [36;1m  tools.test_audit_castle_native_interactions \[0m
+2026-11-05T19:31:58.3206394Z [36;1m  tools.test_build_castle_interaction_v4_delivery \[0m
+2026-11-05T19:31:58.3209404Z [36;1m  tools.test_castle_interaction_frame_qa \[0m
+2026-11-05T19:31:58.3212306Z [36;1m  tools.test_review_castle_interaction_frames_v4 \[0m
+2026-11-05T19:31:58.3214350Z [36;1m  tools.test_refine_castle_depth_cards \[0m
+2026-11-05T19:31:58.3214798Z [36;1m  tools.test_audit_castle_static_depth_cards \[0m
+2026-11-05T19:31:58.3215472Z [36;1m  tools.test_repair_castle_room_native_backgrounds \[0m
+2026-11-05T19:31:58.3218714Z [36;1m  tools.test_interactive_background_ownership[0m
+2026-11-05T19:31:58.3220975Z [36;1mpython3 tools/review_castle_interaction_frames_v4.py check[0m
+2026-11-05T19:31:58.3274563Z shell: /usr/bin/bash -e {0}
+2026-11-05T19:31:58.3274940Z env:
+2026-11-05T19:31:58.3279557Z   GODOT_RELEASE: 4.7.2-stable
+2026-11-05T19:31:58.3280337Z   GODOT_ZIP_SHA512: 9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65
+2026-11-05T19:31:58.3283648Z ##[endgroup]
+2026-11-05T19:32:08.5564781Z ....
+2026-11-05T19:32:08.5566948Z ----------------------------------------------------------------------
+2026-11-05T19:32:08.5571812Z Ran 4 tests in 0.008s
+2026-11-05T19:32:08.5574857Z 
+2026-11-05T19:32:08.5574976Z OK
+2026-11-05T19:32:08.6688345Z GODOTBASELINE|ALL OK|4.7.2-stable|official.ed1daf0bf
+2026-11-05T19:32:30.5210991Z ROSHAN2D| stress: 8 falsification cases ALL OK
+2026-11-05T19:32:32.7806383Z ROSHAN2D| RESULT: ALL OK - active project is 2D Roshan only
+2026-11-05T19:32:36.1933960Z ...........................................................................................
+2026-11-05T19:32:36.1940743Z ----------------------------------------------------------------------
+2026-11-05T19:32:36.1950655Z Ran 91 tests in 3.252s
+2026-11-05T19:32:36.1951020Z 
+2026-11-05T19:32:36.1953144Z OK
+2026-11-05T19:32:36.1953768Z GAME2D| stress: 19 falsification/control assertions ALL OK
+2026-11-05T19:32:36.5000092Z GAME2D| stress: 19 falsification/control assertions ALL OK
+2026-11-05T19:32:36.9304718Z .....
+2026-11-05T19:32:36.9309451Z ----------------------------------------------------------------------
+2026-11-05T19:32:36.9310151Z Ran 5 tests in 0.074s
+2026-11-05T19:32:36.9310403Z 
+2026-11-05T19:32:36.9313872Z OK
+2026-11-05T19:32:44.9030928Z naive 256px grid :      0 px of Roshan clipped,      0 px ghost
+2026-11-05T19:32:44.9032047Z shipped windows  :      0 px of Roshan clipped,      0 px ghost
+2026-11-05T19:32:44.9034636Z                    (0.00% -> 0.00% of her art lost)
+2026-11-05T19:32:44.9037701Z playground poses :     12 whole, single-silhouette 512px frames
+2026-11-05T19:32:44.9038270Z OK: every Roshan frame renders whole
+2026-11-05T19:32:44.9859102Z PROBE_PARITY|stress missing loop: OK
+2026-11-05T19:32:44.9863956Z PROBE_PARITY|stress duplicate probe: OK
+2026-11-05T19:32:44.9866867Z PROBE_PARITY|stress local/remote mismatch: OK
+2026-11-05T19:32:44.9872827Z PROBE_PARITY|stress missing probe file: OK
+2026-11-05T19:32:44.9883660Z PROBE_PARITY|stress missing separate invocation: OK
+2026-11-05T19:32:44.9886956Z PROBE_PARITY|stress missing parity gate: OK
+2026-11-05T19:32:44.9891857Z PROBE_PARITY|stress missing local music verifier: OK
+2026-11-05T19:32:44.9894185Z PROBE_PARITY|stress missing pinned music verifier: OK
+2026-11-05T19:32:45.0348912Z PROBE_PARITY|result: ALL OK
+2026-11-05T19:32:45.9554121Z ...................................................
+2026-11-05T19:32:45.9557302Z ----------------------------------------------------------------------
+2026-11-05T19:32:45.9560090Z Ran 51 tests in 0.727s
+2026-11-05T19:32:45.9560411Z 
+2026-11-05T19:32:45.9560558Z OK
+2026-11-05T19:32:45.9564046Z DOCAUTH|STRESS|6/6
+2026-11-05T19:32:46.0365545Z DOCAUTH|STRESS|6/6
+2026-11-05T19:32:49.9383285Z .................F.................................................................................................
+2026-11-05T19:32:49.9388797Z ======================================================================
+2026-11-05T19:32:49.9396177Z FAIL: test_live_register_only_appends_since_the_comparison_base (tools.tests.test_record_owner_decision.AppendOnlyTests.test_live_register_only_appends_since_the_comparison_base)
+2026-11-05T19:32:49.9397672Z ----------------------------------------------------------------------
+2026-11-05T19:32:49.9406070Z Traceback (most recent call last):
+2026-11-05T19:32:49.9417522Z   File "/home/runner/work/mermaid-roshan-reef/mermaid-roshan-reef/tools/tests/test_record_owner_decision.py", line 90, in test_live_register_only_appends_since_the_comparison_base
+2026-11-05T19:32:49.9422624Z     self.assertEqual([], intake.append_only_issues(before, after))
+2026-11-05T19:32:49.9426130Z     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-05T19:32:49.9429178Z AssertionError: Lists differ: [] != ['existing decisions must keep their order; append new ones at the end']
+2026-11-05T19:32:49.9429891Z 
+2026-11-05T19:32:49.9430154Z Second list contains 1 additional elements.
+2026-11-05T19:32:49.9433174Z First extra element 0:
+2026-11-05T19:32:49.9442019Z 'existing decisions must keep their order; append new ones at the end'
+2026-11-05T19:32:49.9445215Z 
+2026-11-05T19:32:49.9445403Z - []
+2026-11-05T19:32:49.9448256Z + ['existing decisions must keep their order; append new ones at the end']
+2026-11-05T19:32:49.9448894Z 
+2026-11-05T19:32:49.9449192Z ----------------------------------------------------------------------
+2026-11-05T19:32:49.9452754Z Ran 115 tests in 3.723s
+2026-11-05T19:32:49.9456016Z 
+2026-11-05T19:32:49.9456269Z FAILED (failures=1)
+2026-11-05T19:32:49.9601058Z ##[error]Process completed with exit code 1.
+2026-11-05T19:32:49.9802576Z ##[group]Run python3 tools/run_advisory_sensor.py --name opera-art-manifest --expected 'ARTMANIFEST|done' --require audit/opera_art_manifest.json --timeout 310 -- timeout 5m godot --headless -s scripts/probe_art_manifest.gd
+2026-11-05T19:32:49.9804265Z [36;1mpython3 tools/run_advisory_sensor.py --name opera-art-manifest --expected 'ARTMANIFEST|done' --require audit/opera_art_manifest.json --timeout 310 -- timeout 5m godot --headless -s scripts/probe_art_manifest.gd[0m
+2026-11-05T19:32:49.9855229Z shell: /usr/bin/bash -e {0}
+2026-11-05T19:32:49.9855571Z env:
+2026-11-05T19:32:49.9855963Z   GODOT_RELEASE: 4.7.2-stable
+2026-11-05T19:32:49.9856731Z   GODOT_ZIP_SHA512: 9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65
+2026-11-05T19:32:49.9857508Z ##[endgroup]
+2026-11-05T19:32:50.3628212Z Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+2026-11-05T19:32:50.3628985Z 
+2026-11-05T19:32:50.3629728Z SCRIPT ERROR: Parse Error: Identifier "OperaHouse" not declared in the current scope.
+2026-11-05T19:32:50.3635327Z           at: GDScript::reload (res://scripts/probe_art_manifest.gd:118)
+2026-11-05T19:32:50.3636148Z ERROR: Failed to load script "res://scripts/probe_art_manifest.gd" with error "Parse error".
+2026-11-05T19:32:50.3636828Z    at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+2026-11-05T19:32:50.3637660Z ADVISORY|opera-art-manifest|RESULT|FAILED|process exit 1 or explicit failure; existing unchanged outputs do not count as this run's evidence
+2026-11-05T19:32:50.3711909Z ##[error]Process completed with exit code 1.
+2026-11-05T19:32:50.3838478Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-05T19:32:50.3838902Z with:
+2026-11-05T19:32:50.3839128Z   name: opera-art-manifest
+2026-11-05T19:32:50.3839384Z   path: audit/opera_art_manifest.json
+2026-11-05T19:32:50.3839650Z   if-no-files-found: warn
+2026-11-05T19:32:50.3839878Z   compression-level: 6
+2026-11-05T19:32:50.3840093Z   overwrite: false
+2026-11-05T19:32:50.3840309Z   include-hidden-files: false
+2026-11-05T19:32:50.3840542Z env:
+2026-11-05T19:32:50.3840724Z   GODOT_RELEASE: 4.7.2-stable
+2026-11-05T19:32:50.3841612Z   GODOT_ZIP_SHA512: 9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65
+2026-11-05T19:32:50.3842303Z ##[endgroup]
+2026-11-05T19:32:50.6262979Z (node:4876) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-05T19:32:50.6264422Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-05T19:32:50.6296774Z ##[warning]No files were found with the provided path: audit/opera_art_manifest.json. No artifacts will be uploaded.
+2026-11-05T19:32:50.6478671Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-05T19:32:50.6479223Z with:
+2026-11-05T19:32:50.6479440Z   name: legacy-human-art-diagnostic
+2026-11-05T19:32:50.6479869Z   path: /tmp/legacy-human-art-shots/*.png
+2026-11-05T19:32:50.6480186Z   if-no-files-found: warn
+2026-11-05T19:32:50.6480535Z   compression-level: 6
+2026-11-05T19:32:50.6480756Z   overwrite: false
+2026-11-05T19:32:50.6480973Z   include-hidden-files: false
+2026-11-05T19:32:50.6481283Z env:
+2026-11-05T19:32:50.6481741Z   GODOT_RELEASE: 4.7.2-stable
+2026-11-05T19:32:50.6482584Z   GODOT_ZIP_SHA512: 9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65
+2026-11-05T19:32:50.6483384Z ##[endgroup]
+2026-11-05T19:32:50.8210620Z (node:4888) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-05T19:32:50.8211666Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-05T19:32:50.8228416Z ##[warning]No files were found with the provided path: /tmp/legacy-human-art-shots/*.png. No artifacts will be uploaded.
+2026-11-05T19:32:50.8384037Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-05T19:32:50.8384467Z with:
+2026-11-05T19:32:50.8384673Z   name: sky-lagoon-review
+2026-11-05T19:32:50.8385090Z   path: /tmp/sky-lagoon-shots/*.png
+/tmp/sky-lagoon-shots/sky_lagoon_review_manifest.json
+
+2026-11-05T19:32:50.8385545Z   if-no-files-found: warn
+2026-11-05T19:32:50.8385775Z   compression-level: 6
+2026-11-05T19:32:50.8385994Z   overwrite: false
+2026-11-05T19:32:50.8386219Z   include-hidden-files: false
+2026-11-05T19:32:50.8386457Z env:
+2026-11-05T19:32:50.8386647Z   GODOT_RELEASE: 4.7.2-stable
+2026-11-05T19:32:50.8387291Z   GODOT_ZIP_SHA512: 9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65
+2026-11-05T19:32:50.8387988Z ##[endgroup]
+2026-11-05T19:32:51.0184959Z (node:4900) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-05T19:32:51.0186771Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-05T19:32:51.0206360Z ##[warning]No files were found with the provided path: /tmp/sky-lagoon-shots/*.png
+/tmp/sky-lagoon-shots/sky_lagoon_review_manifest.json. No artifacts will be uploaded.
+2026-11-05T19:32:51.0422571Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-05T19:32:51.0423003Z with:
+2026-11-05T19:32:51.0423217Z   name: northern-world-review
+2026-11-05T19:32:51.0423485Z   path: /tmp/northern-shots/*.png
+2026-11-05T19:32:51.0423753Z   if-no-files-found: warn
+2026-11-05T19:32:51.0423987Z   compression-level: 6
+2026-11-05T19:32:51.0424206Z   overwrite: false
+2026-11-05T19:32:51.0424416Z   include-hidden-files: false
+2026-11-05T19:32:51.0424648Z env:
+2026-11-05T19:32:51.0424836Z   GODOT_RELEASE: 4.7.2-stable
+2026-11-05T19:32:51.0425512Z   GODOT_ZIP_SHA512: 9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65
+2026-11-05T19:32:51.0426178Z ##[endgroup]
+2026-11-05T19:32:51.2175802Z (node:4912) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-05T19:32:51.2176602Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-05T19:32:51.2194075Z ##[warning]No files were found with the provided path: /tmp/northern-shots/*.png. No artifacts will be uploaded.
+2026-11-05T19:32:51.2420581Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-05T19:32:51.2421265Z with:
+2026-11-05T19:32:51.2421821Z   name: dust-boss-arena-review
+2026-11-05T19:32:51.2422244Z   path: /tmp/dust-boss-shots/*.png
+2026-11-05T19:32:51.2422664Z   if-no-files-found: warn
+2026-11-05T19:32:51.2423036Z   compression-level: 6
+2026-11-05T19:32:51.2423613Z   overwrite: false
+2026-11-05T19:32:51.2423948Z   include-hidden-files: false
+2026-11-05T19:32:51.2424314Z env:
+2026-11-05T19:32:51.2424600Z   GODOT_RELEASE: 4.7.2-stable
+2026-11-05T19:32:51.2425714Z   GODOT_ZIP_SHA512: 9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65
+2026-11-05T19:32:51.2426874Z ##[endgroup]
+2026-11-05T19:32:51.4180046Z (node:4924) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-05T19:32:51.4181047Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-05T19:32:51.4197607Z ##[warning]No files were found with the provided path: /tmp/dust-boss-shots/*.png. No artifacts will be uploaded.
+2026-11-05T19:32:51.4400216Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-05T19:32:51.4400645Z with:
+2026-11-05T19:32:51.4400850Z   name: pearl-castle-review
+2026-11-05T19:32:51.4401654Z   path: /tmp/castle-pearl-shots/*.png
+/tmp/castle-pearl-shots/castle_review_manifest.json
+
+2026-11-05T19:32:51.4402142Z   if-no-files-found: warn
+2026-11-05T19:32:51.4402377Z   compression-level: 6
+2026-11-05T19:32:51.4402596Z   overwrite: false
+2026-11-05T19:32:51.4402813Z   include-hidden-files: false
+2026-11-05T19:32:51.4403043Z env:
+2026-11-05T19:32:51.4403227Z   GODOT_RELEASE: 4.7.2-stable
+2026-11-05T19:32:51.4403871Z   GODOT_ZIP_SHA512: 9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65
+2026-11-05T19:32:51.4404553Z ##[endgroup]
+2026-11-05T19:32:51.6281629Z (node:4936) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-05T19:32:51.6282982Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-05T19:32:51.6295732Z ##[warning]No files were found with the provided path: /tmp/castle-pearl-shots/*.png
+/tmp/castle-pearl-shots/castle_review_manifest.json. No artifacts will be uploaded.
+2026-11-05T19:32:51.6569573Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-05T19:32:51.6570176Z with:
+2026-11-05T19:32:51.6570410Z   name: advisory-sensor-receipts
+2026-11-05T19:32:51.6570682Z   path: audit/advisory/*
+2026-11-05T19:32:51.6570928Z   if-no-files-found: warn
+2026-11-05T19:32:51.6571161Z   compression-level: 6
+2026-11-05T19:32:51.6571644Z   overwrite: false
+2026-11-05T19:32:51.6571873Z   include-hidden-files: false
+2026-11-05T19:32:51.6572108Z env:
+2026-11-05T19:32:51.6572291Z   GODOT_RELEASE: 4.7.2-stable
+2026-11-05T19:32:51.6572952Z   GODOT_ZIP_SHA512: 9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65
+2026-11-05T19:32:51.6573649Z ##[endgroup]
+2026-11-05T19:32:51.8364734Z (node:4948) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-05T19:32:51.8366133Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-05T19:32:51.8455004Z With the provided path, there will be 2 files uploaded
+2026-11-05T19:32:51.8460385Z Artifact name is valid!
+2026-11-05T19:32:51.8462714Z Root directory input is valid!
+2026-11-05T19:32:52.1922635Z Beginning upload of artifact content to blob storage
+2026-11-05T19:32:52.2183203Z (node:4948) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-05T19:32:52.4147125Z Uploaded bytes 901
+2026-11-05T19:32:52.4889271Z Finished uploading artifact content to blob storage!
+2026-11-05T19:32:52.4890352Z SHA256 digest of uploaded artifact zip is 2c100fac9456aefd6a70c06a4bae5a742258328c391b8f112a66c7f9c34aa12e
+2026-11-05T19:32:52.4892402Z Finalizing artifact upload
+2026-11-05T19:32:52.9484438Z Artifact advisory-sensor-receipts.zip successfully finalized. Artifact ID 13447396400
+2026-11-05T19:32:52.9486251Z Artifact advisory-sensor-receipts has been successfully uploaded! Final size is 901 bytes. Artifact ID is 13447396400
+2026-11-05T19:32:52.9492880Z Artifact download URL: https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42092557072/artifacts/13447396400
+2026-11-05T19:32:52.9733183Z Post job cleanup.
+2026-11-05T19:32:53.0618759Z [command]/usr/bin/git version
+2026-11-05T19:32:53.0668030Z git version 2.56.0
+2026-11-05T19:32:53.0708843Z Temporarily overriding HOME='/home/runner/work/_temp/5804cb02-e7a2-48b5-9ef9-39184cd06e01' before making global git config changes
+2026-11-05T19:32:53.0710257Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-05T19:32:53.0714274Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mermaid-roshan-reef/mermaid-roshan-reef
+2026-11-05T19:32:53.0755709Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-05T19:32:53.0792731Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-05T19:32:53.1207159Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-05T19:32:53.1255989Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-05T19:32:53.1773363Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-05T19:32:53.1810820Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-05T19:32:53.2314635Z Cleaning up orphan processes
+2026-11-05T19:32:53.2952553Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

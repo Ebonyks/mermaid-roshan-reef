@@ -59,3 +59,6 @@ tools/kokoro/
 # git-worktree checkouts must never be committed as phantom gitlinks
 # (a tracked .worktrees/ entry with no .gitmodules URL breaks actions/checkout)
 .worktrees/
+
+# Locked Node editor-tool dependencies are restored with npm ci.
+/tools/godot_mcp/node_modules/

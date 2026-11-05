@@ -1,0 +1,23 @@
+[
+  {
+    "context": "old_feature_push",
+    "before": "df13b0a958f9079a82235ef965bb0367f1d477df",
+    "actual_exit": 1,
+    "expected_exit": 1,
+    "log": "tools/godot_mcp/evidence/workgroup_reconciled/canonical_integration/old_feature_push.txt"
+  },
+  {
+    "context": "new_branch_first_push",
+    "before": "0000000000000000000000000000000000000000",
+    "actual_exit": 0,
+    "expected_exit": 0,
+    "log": "tools/godot_mcp/evidence/workgroup_reconciled/canonical_integration/new_branch_first_push.txt"
+  },
+  {
+    "context": "dev_push",
+    "before": "169f6e90faff072affb40874f49566a97c2814ef",
+    "actual_exit": 0,
+    "expected_exit": 0,
+    "log": "tools/godot_mcp/evidence/workgroup_reconciled/canonical_integration/dev_push.txt"
+  }
+]

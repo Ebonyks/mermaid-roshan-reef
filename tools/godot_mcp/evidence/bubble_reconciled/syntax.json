@@ -1,0 +1,48 @@
+{
+  "recorded_at_utc": "2026-11-05T14:54:20.256318+00:00",
+  "files": [
+    "assets_src/bubble_duel_v2/evidence/physics-bench-used.gd",
+    "scripts/bubble_duel_inventory.gd",
+    "scripts/opera_bubble_duel.gd",
+    "scripts/opera_house_venue_2d.gd",
+    "scripts/probe_bubble_duel_capture.gd",
+    "scripts/probe_bubble_duel_stress.gd",
+    "scripts/probe_opera.gd"
+  ],
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "assets_src/bubble_duel_v2/evidence/physics-bench-used.gd",
+        "scripts/bubble_duel_inventory.gd",
+        "scripts/opera_bubble_duel.gd",
+        "scripts/opera_house_venue_2d.gd",
+        "scripts/probe_bubble_duel_capture.gd",
+        "scripts/probe_bubble_duel_stress.gd",
+        "scripts/probe_opera.gd"
+      ],
+      "exit_code": 0,
+      "log": "tmp/godot_mcp_bubble_parser.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "assets_src/bubble_duel_v2/evidence/physics-bench-used.gd",
+        "scripts/bubble_duel_inventory.gd",
+        "scripts/opera_bubble_duel.gd",
+        "scripts/opera_house_venue_2d.gd",
+        "scripts/probe_bubble_duel_capture.gd",
+        "scripts/probe_bubble_duel_stress.gd",
+        "scripts/probe_opera.gd"
+      ],
+      "exit_code": 0,
+      "log": "tmp/godot_mcp_bubble_inference.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

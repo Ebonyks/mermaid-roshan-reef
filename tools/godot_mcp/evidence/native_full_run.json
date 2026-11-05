@@ -1,0 +1,1666 @@
+{
+  "source_before": {
+    "algorithm": "sha256_repository_source_candidates_with_protected_path_exclusions_v1",
+    "file_count": 3998,
+    "sha256": "7150f4873f176e3f491c82940942f8d39315354e1879c2f8b9e716b60a18d3e1",
+    "asset_git_state": " M assets/dolls/cradle_focus_painted.png.import\n M assets/dolls/safe_landing_halo_painted.png.import\n M assets/mg/garden_backdrop_painted.png.import\n M assets/opera/worlds/backdrops/geologist_cave_painted_c0.png.import\n M assets/opera/worlds/backdrops/geologist_cave_painted_c1.png.import\n M assets/opera/worlds/props/geologist_riverbed_painted.png.import\n"
+  },
+  "roster": [
+    "probe_reef_districts",
+    "probe_ocean_kingdoms",
+    "probe_audit",
+    "probe_passive",
+    "probe_living_world",
+    "probe_load",
+    "probe_rank",
+    "probe_save_recovery",
+    "probe_galaxy_state",
+    "probe_collection",
+    "probe_mg2d",
+    "probe_fetch",
+    "probe_melody",
+    "probe_dolls",
+    "probe_seek",
+    "probe_audio",
+    "probe_dance",
+    "probe_l2",
+    "probe_l2_living_cards",
+    "probe_sky_lagoon_animals",
+    "probe_l2_reenter",
+    "probe_crown",
+    "probe_throne",
+    "probe_northern",
+    "probe_human_art_audit",
+    "probe_train",
+    "probe_verbs",
+    "probe_skins",
+    "probe_touch_router",
+    "probe_touch_stress",
+    "probe_interaction",
+    "probe_touch_adversary",
+    "probe_touch_look",
+    "probe_ui_system",
+    "probe_voice",
+    "probe_day_one_voice",
+    "probe_day_one_d8_revisits",
+    "probe_day_one_handoffs",
+    "probe_kart_feel",
+    "probe_combat",
+    "probe_dust_bunny",
+    "probe_dust_bunny_boss",
+    "probe_dust_boss",
+    "probe_hit",
+    "probe_partner",
+    "probe_combat_tutorial",
+    "probe_imp_ai",
+    "probe_mic",
+    "probe_stuffie",
+    "probe_dungeon",
+    "probe_ember",
+    "probe_opera",
+    "probe_opera_2d",
+    "probe_opera_diegetic_paths",
+    "probe_opera_detective",
+    "probe_opera_pipe",
+    "probe_opera_nursery",
+    "probe_opera_gesture_quality",
+    "probe_kitchen_props",
+    "probe_bathroom_props",
+    "probe_castle_door_language",
+    "probe_bathroom_integration",
+    "probe_day_one_bathroom_bunny",
+    "probe_day_one_bathroom_cleanup",
+    "probe_day_one_bathroom_movie_handoff",
+    "probe_day_one_director",
+    "probe_day_one_integration",
+    "probe_day_one_pool_cleanup",
+    "probe_day_one_art_attack_state",
+    "probe_day_one_castle_dressing",
+    "probe_day_one_story_clips",
+    "probe_chapter2",
+    "probe_chapter2_farmer_resume",
+    "probe_chapter2_lawn",
+    "probe_alpha_milestone_save",
+    "probe_dust_boss_balance",
+    "probe_start_menu_routing",
+    "probe_start_menu_new_game",
+    "probe_castle_pool_life_2d",
+    "probe_castle_pearl_art",
+    "probe_fairy_art",
+    "probe_props"
+  ],
+  "ci_script_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e",
+  "failure_re": "FAIL|FAILED|ISSUE|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error",
+  "runtime_re": "SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)",
+  "timeout_seconds": 480,
+  "started_at_utc": "2026-11-05T09:03:29.808309+00:00",
+  "result": "PASS",
+  "probes": [
+    {
+      "probe": "probe_reef_districts",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_reef_districts.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_reef_districts.log",
+      "log_sha256": "97a6d8b58ab878973011b9bddb5709bdfdafcc6fd2f58069e7826b2cb095c0bd",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_reef_districts.txt"
+    },
+    {
+      "probe": "probe_ocean_kingdoms",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_ocean_kingdoms.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_ocean_kingdoms.log",
+      "log_sha256": "df234d3d43c3aa502846363ab085a2cdb54b8b65e295a3444595f275951f7b59",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_ocean_kingdoms.txt"
+    },
+    {
+      "probe": "probe_audit",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_audit.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_audit.log",
+      "log_sha256": "ed07e5da2136651aa326ac6c8d36709c5467377f03c44e0ce4782559fa46c019",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_audit.txt"
+    },
+    {
+      "probe": "probe_passive",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_passive.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_passive.log",
+      "log_sha256": "5946d5388fd2fe27c4d0d930f2a17e9df27da03dc37b8d7fe0a2ffe76fe5395f",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_passive.txt"
+    },
+    {
+      "probe": "probe_living_world",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_living_world.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_living_world.log",
+      "log_sha256": "b18af2adbf40b63615f990dad8d30a8c0168ccd87eefe3c287993cb30d795f98",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_living_world.txt"
+    },
+    {
+      "probe": "probe_load",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_load.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_load.log",
+      "log_sha256": "d1b64a9cf36f331c655da3d789f62d551d78bca1fff25754445d3daa5c3ed1c8",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_load.txt"
+    },
+    {
+      "probe": "probe_rank",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_rank.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_rank.log",
+      "log_sha256": "435e795685cc5cd4b9bbd6442e111d2b46ec44535660a0a13aae8d13f83c5c7d",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_rank.txt"
+    },
+    {
+      "probe": "probe_save_recovery",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_save_recovery.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_save_recovery.log",
+      "log_sha256": "113bce7f4f4618f7dadfe05c3dfbb527ddb58bc8cc0f915590c473f07c5de38f",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_save_recovery.txt"
+    },
+    {
+      "probe": "probe_galaxy_state",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_galaxy_state.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_galaxy_state.log",
+      "log_sha256": "2dbcb031ae77368f9ada02c12fac265a6e335201ae9e4dc735bda625917f0964",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_galaxy_state.txt"
+    },
+    {
+      "probe": "probe_collection",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_collection.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_collection.log",
+      "log_sha256": "b109f82b958ac2652e4b94d374fb4016f9ca24ac49ed0eb0d2b129d1aadff690",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_collection.txt"
+    },
+    {
+      "probe": "probe_mg2d",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_mg2d.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_mg2d.log",
+      "log_sha256": "bd7c6da9a30c574dd7709b9be4676b164dbe39b0b45128731134b24dd160bc1a",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_mg2d.txt"
+    },
+    {
+      "probe": "probe_fetch",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_fetch.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_fetch.log",
+      "log_sha256": "c2039dde2ed99db9345752590ff8f08bb8f221cf72d7806813ef448073da7566",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_fetch.txt"
+    },
+    {
+      "probe": "probe_melody",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_melody.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_melody.log",
+      "log_sha256": "559773ba958cdb8398cc514ccc339f4f4d2a1e04e8faf55fb67239b6f495c5f4",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_melody.txt"
+    },
+    {
+      "probe": "probe_dolls",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_dolls.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_dolls.log",
+      "log_sha256": "d6fe1bf694b8499806f1cb9c4d89e4e1242d6cdcd6da470ea49e401cd4249dbf",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_dolls.txt"
+    },
+    {
+      "probe": "probe_seek",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_seek.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_seek.log",
+      "log_sha256": "ad3d7281a2cfef86bd440a62afc6afd83cadf88ddc2fe62645894b7646f00b14",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_seek.txt"
+    },
+    {
+      "probe": "probe_audio",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_audio.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_audio.log",
+      "log_sha256": "d6e4cc0d68e8a0c02fdd6beb01ca228bc3516847bc8a46dba833793bc19ed33b",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_audio.txt"
+    },
+    {
+      "probe": "probe_dance",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_dance.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_dance.log",
+      "log_sha256": "e9d68243d211c408223d1196cf163535148aa1e6ee06258eef1fba2a6f60ad6e",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_dance.txt"
+    },
+    {
+      "probe": "probe_l2",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_l2.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_l2.log",
+      "log_sha256": "023db1de56ea075d02998088c0fbaec926f74f57a35efcabb701b558d3087df0",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_l2.txt"
+    },
+    {
+      "probe": "probe_l2_living_cards",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_l2_living_cards.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_l2_living_cards.log",
+      "log_sha256": "921b5cd605a190217e3358549c84c2a1c4c6445892701463b6dc6a7d9924eeb4",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_l2_living_cards.txt"
+    },
+    {
+      "probe": "probe_sky_lagoon_animals",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_sky_lagoon_animals.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_sky_lagoon_animals.log",
+      "log_sha256": "1f403e7dc1d681de9f8ee0f2ffbb4158afc26142f61693fb695760e89c42fc08",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_sky_lagoon_animals.txt"
+    },
+    {
+      "probe": "probe_l2_reenter",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_l2_reenter.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_l2_reenter.log",
+      "log_sha256": "0836edebc4578a0f6ad00c902b5b9db5457646438bb895b91e769498e18b9b94",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_l2_reenter.txt"
+    },
+    {
+      "probe": "probe_crown",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_crown.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_crown.log",
+      "log_sha256": "7db591da96576d5f3c4f0dc0f223b889e4996dfed651f69ebf010cafad38a879",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_crown.txt"
+    },
+    {
+      "probe": "probe_throne",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_throne.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_throne.log",
+      "log_sha256": "0e9be395d931d6fda71d90c25a663a9c4abd62ce94c254b2dbefb4e7bd0d8157",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_throne.txt"
+    },
+    {
+      "probe": "probe_northern",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_northern.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_northern.log",
+      "log_sha256": "fba9e9483c9e24b53dd6437408ab313959bb7968d3a41347a011b6c0fa98013c",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_northern.txt"
+    },
+    {
+      "probe": "probe_human_art_audit",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_human_art_audit.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_human_art_audit.log",
+      "log_sha256": "5b5415d1b810a7a04bf84518731c22c3121478261795d5c89429aeca2c966dc5",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_human_art_audit.txt"
+    },
+    {
+      "probe": "probe_train",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_train.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_train.log",
+      "log_sha256": "2617369a4b121d48b4e9cb8c9ced9a4fee3e787530afaa463169a19ab224ddb7",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_train.txt"
+    },
+    {
+      "probe": "probe_verbs",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_verbs.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_verbs.log",
+      "log_sha256": "f5e2e264507b2cec9195967e490921bac7d9fb9d3419f65255b6cb9c4b0605f3",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_verbs.txt"
+    },
+    {
+      "probe": "probe_skins",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_skins.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_skins.log",
+      "log_sha256": "8925983b17113d743ea7d1c6b17a05e8946c83d9b570c1c7f96aa7d35594909d",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_skins.txt"
+    },
+    {
+      "probe": "probe_touch_router",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_touch_router.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_touch_router.log",
+      "log_sha256": "c2892f8084bd847bc1ef4669ea66e602741a48571030e21b659066cb38aea07e",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_touch_router.txt"
+    },
+    {
+      "probe": "probe_touch_stress",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_touch_stress.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_touch_stress.log",
+      "log_sha256": "3e8792c5efdd7f36604aaf5cad0a7d541d20ec453f47fbb5fe9a5398d7802123",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_touch_stress.txt"
+    },
+    {
+      "probe": "probe_interaction",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_interaction.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_interaction.log",
+      "log_sha256": "75e9425089cda25286cf58484513493b928490e6fa9f0d6971cfab45fcf12a63",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_interaction.txt"
+    },
+    {
+      "probe": "probe_touch_adversary",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_touch_adversary.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_touch_adversary.log",
+      "log_sha256": "7dce7b16bedf0a78e23f3951656cebf93faf911ab4ab7ef1e163c81feb2a5643",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_touch_adversary.txt"
+    },
+    {
+      "probe": "probe_touch_look",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_touch_look.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_touch_look.log",
+      "log_sha256": "60351641e3a32197e818e5df8416233946f40c138599c4ae85a723642cdc25fb",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_touch_look.txt"
+    },
+    {
+      "probe": "probe_ui_system",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_ui_system.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_ui_system.log",
+      "log_sha256": "fd6065e09969b8da7bbeb040707d99c214a6f3a76e5db6e1f245bdd218e6b33b",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_ui_system.txt"
+    },
+    {
+      "probe": "probe_voice",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_voice.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_voice.log",
+      "log_sha256": "3238753d67ea37cde8a93ca120333ce20bd07b9a8d2c792f55a569ceb7931453",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_voice.txt"
+    },
+    {
+      "probe": "probe_day_one_voice",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_voice.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_day_one_voice.log",
+      "log_sha256": "50a7a84c1ce20b02a158485dab22961bc3b440dc9b823a60f9ef124cdca2dbea",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_day_one_voice.txt"
+    },
+    {
+      "probe": "probe_day_one_d8_revisits",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_d8_revisits.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_day_one_d8_revisits.log",
+      "log_sha256": "8a62f8e03b7bbc051aa7e60d1919e69a59951770d17b526d811fe1d4aa1dc631",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_day_one_d8_revisits.txt"
+    },
+    {
+      "probe": "probe_day_one_handoffs",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_handoffs.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_day_one_handoffs.log",
+      "log_sha256": "908a3ed2410a386f95ff5d4b1a9190b6b2e049faf6f08be47f7dd399298c1a82",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_day_one_handoffs.txt"
+    },
+    {
+      "probe": "probe_kart_feel",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_kart_feel.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_kart_feel.log",
+      "log_sha256": "d2254262558e89ec00e070164dbe549c09ac366a94428bfd2a03d150e32c6f11",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_kart_feel.txt"
+    },
+    {
+      "probe": "probe_combat",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_combat.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_combat.log",
+      "log_sha256": "67aec55ee70333770a4faecb2cfd06051dfd5f0c3522629f4a522650ae60e613",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_combat.txt"
+    },
+    {
+      "probe": "probe_dust_bunny",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_dust_bunny.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_dust_bunny.log",
+      "log_sha256": "4663fb2a0de3512c5d77b0e136a6a59139e23f411d0224912e38b45ebde441dc",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_dust_bunny.txt"
+    },
+    {
+      "probe": "probe_dust_bunny_boss",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_dust_bunny_boss.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_dust_bunny_boss.log",
+      "log_sha256": "8fc65c5380675ca971e99523bbe8e17c34f09c503cd2d87029fe79d4b73aed3d",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_dust_bunny_boss.txt"
+    },
+    {
+      "probe": "probe_dust_boss",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_dust_boss.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_dust_boss.log",
+      "log_sha256": "1d05616ae145a7dca0f3e940613bc73c3a1294489cac8053b80fab7a095c3316",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_dust_boss.txt"
+    },
+    {
+      "probe": "probe_hit",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_hit.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_hit.log",
+      "log_sha256": "785d740aaff6eb57e72a8ecc2fa239cfd66b6f84d956f2ff0bb0ab109e22aaf7",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_hit.txt"
+    },
+    {
+      "probe": "probe_partner",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_partner.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_partner.log",
+      "log_sha256": "975f35172cb1329e2eb83c9d772ba96fdaf1c79126ba32f7b9a97a6e5a72ba5c",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_partner.txt"
+    },
+    {
+      "probe": "probe_combat_tutorial",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_combat_tutorial.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_combat_tutorial.log",
+      "log_sha256": "744b4d5752836b437e1eccd3dc9fa32b0328a8c7383acbaa1f367fb27cba925f",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_combat_tutorial.txt"
+    },
+    {
+      "probe": "probe_imp_ai",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_imp_ai.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_imp_ai.log",
+      "log_sha256": "9ae03f976731e38ad51ab9e60fa5e43461359f99af606bbb269f3c7c660ab874",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_imp_ai.txt"
+    },
+    {
+      "probe": "probe_mic",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_mic.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_mic.log",
+      "log_sha256": "4c186e6413f73aacf682d34e95d955e600da20b553d525b7b4d49cf7bdd8dd26",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_mic.txt"
+    },
+    {
+      "probe": "probe_stuffie",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_stuffie.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_stuffie.log",
+      "log_sha256": "ce98c5879cc8f528799c7c4a8bcfdb583da7c27f90f837794b913fc5691b7455",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_stuffie.txt"
+    },
+    {
+      "probe": "probe_dungeon",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_dungeon.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_dungeon.log",
+      "log_sha256": "e375bfcd6815b9b8d614c8ce0b555d08c2bc3c1c9daced36bc7bde6c04a5b836",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_dungeon.txt"
+    },
+    {
+      "probe": "probe_ember",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_ember.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_ember.log",
+      "log_sha256": "bfd3bbf78d4afc8f0be1f7b1b24e83c9e1369694a5ad2ddf6f93502c08621e70",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_ember.txt"
+    },
+    {
+      "probe": "probe_opera",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_opera.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_opera.log",
+      "log_sha256": "353e00099c991c605b0337fe55bdb49d34b260c9443d38eef13cc979576e2254",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_opera.txt"
+    },
+    {
+      "probe": "probe_opera_2d",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_opera_2d.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_opera_2d.log",
+      "log_sha256": "292591189c15fd30ee2a3c99bdb03a75e2a21c15ec64ae32309b4ea15a575391",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_opera_2d.txt"
+    },
+    {
+      "probe": "probe_opera_diegetic_paths",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_opera_diegetic_paths.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_opera_diegetic_paths.log",
+      "log_sha256": "8b4fa69dca1eb815b72a9592ac787d7f7cf9650e94c21745b3a3293da39dfeb8",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_opera_diegetic_paths.txt"
+    },
+    {
+      "probe": "probe_opera_detective",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_opera_detective.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_opera_detective.log",
+      "log_sha256": "ada2802f1fd8ddfa452d4ca6d40b560d95e2fe6a0d784f3c5ebc5161755a2498",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_opera_detective.txt"
+    },
+    {
+      "probe": "probe_opera_pipe",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_opera_pipe.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_opera_pipe.log",
+      "log_sha256": "9e37f1451cf963674947e78580377efe684cb07070ef3ded7221671a9cf74efc",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_opera_pipe.txt"
+    },
+    {
+      "probe": "probe_opera_nursery",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_opera_nursery.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_opera_nursery.log",
+      "log_sha256": "ea99b8b123e699dca13b66bab6a6a0fc607ad7af6509935a9623c08e23a24dac",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_opera_nursery.txt"
+    },
+    {
+      "probe": "probe_opera_gesture_quality",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_opera_gesture_quality.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_opera_gesture_quality.log",
+      "log_sha256": "a43da324a58611dbc9bf75af931039b7b963e01d25b34da73f4a06aed6f8f7cd",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_opera_gesture_quality.txt"
+    },
+    {
+      "probe": "probe_kitchen_props",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_kitchen_props.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_kitchen_props.log",
+      "log_sha256": "085ee788c6a4ea61b380dc094a318f0546223c723a4a06343e564902678217fd",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_kitchen_props.txt"
+    },
+    {
+      "probe": "probe_bathroom_props",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_bathroom_props.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_bathroom_props.log",
+      "log_sha256": "f1a9243fa397b4679dd72416d4e7b6fba6d21014c949cf112f3e3c29eefd494f",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_bathroom_props.txt"
+    },
+    {
+      "probe": "probe_castle_door_language",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_castle_door_language.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_castle_door_language.log",
+      "log_sha256": "4abaa12c13b1268f31ba2dcbd5a0d01bef5d51f9d72bfae4a3e1289ea6b2240b",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_castle_door_language.txt"
+    },
+    {
+      "probe": "probe_bathroom_integration",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_bathroom_integration.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_bathroom_integration.log",
+      "log_sha256": "0b93b196a5572ccb0f9f76698bce1c3d2aa27084f08b0cca93da8ab561ace330",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_bathroom_integration.txt"
+    },
+    {
+      "probe": "probe_day_one_bathroom_bunny",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_bathroom_bunny.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_day_one_bathroom_bunny.log",
+      "log_sha256": "b2317cefbc14362cdb2509477c136b7ddbf79e88550d370040f165ad452d500c",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_day_one_bathroom_bunny.txt"
+    },
+    {
+      "probe": "probe_day_one_bathroom_cleanup",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_bathroom_cleanup.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_day_one_bathroom_cleanup.log",
+      "log_sha256": "e3ac904c4ddad2ceec6937274324e0f46e845f5bc74095a74bd985a7a25a3d14",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_day_one_bathroom_cleanup.txt"
+    },
+    {
+      "probe": "probe_day_one_bathroom_movie_handoff",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_bathroom_movie_handoff.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_day_one_bathroom_movie_handoff.log",
+      "log_sha256": "3c38263a6313fdfe5cfb49b7378d9e9890d36373f6f014af0411e016529f5f86",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_day_one_bathroom_movie_handoff.txt"
+    },
+    {
+      "probe": "probe_day_one_director",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_director.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_day_one_director.log",
+      "log_sha256": "c55a83f10ed8b5e8f241a127a88fdfb1001bbdb65486d44989606a1ece6e1c0e",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_day_one_director.txt"
+    },
+    {
+      "probe": "probe_day_one_integration",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_integration.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_day_one_integration.log",
+      "log_sha256": "5d2a85cd038e521120be433551a63bdcaa394be2c493b151f616650805b1ab46",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_day_one_integration.txt"
+    },
+    {
+      "probe": "probe_day_one_pool_cleanup",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_pool_cleanup.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_day_one_pool_cleanup.log",
+      "log_sha256": "6390b1b804f5c64a619b8e2027adb91e61c3470fcb7a047be095542907be1134",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_day_one_pool_cleanup.txt"
+    },
+    {
+      "probe": "probe_day_one_art_attack_state",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_art_attack_state.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_day_one_art_attack_state.log",
+      "log_sha256": "f60c2a724f4c1d99e78da2e83ed099fad0afd2bd2bbd4ba7e730c3ee1f1b6114",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_day_one_art_attack_state.txt"
+    },
+    {
+      "probe": "probe_day_one_castle_dressing",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_castle_dressing.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_day_one_castle_dressing.log",
+      "log_sha256": "17ea5dbf7d18d174c7029081bb94f79ae44f439fb81b7c77093083efceba80a0",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_day_one_castle_dressing.txt"
+    },
+    {
+      "probe": "probe_day_one_story_clips",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_day_one_story_clips.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_day_one_story_clips.log",
+      "log_sha256": "811e20c6e97da8efb3aa06e7e0a74e02f822b74ca0ed33a9548abd5e4e8cf1a8",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_day_one_story_clips.txt"
+    },
+    {
+      "probe": "probe_chapter2",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_chapter2.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_chapter2.log",
+      "log_sha256": "d436c7013bbfbec383b8f76dcab593f62bb80b8d9e5b5ff6aa50e4b8ff660d4c",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_chapter2.txt"
+    },
+    {
+      "probe": "probe_chapter2_farmer_resume",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_chapter2_farmer_resume.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_chapter2_farmer_resume.log",
+      "log_sha256": "2f43fc12adfc92b0ef5bfde77ceba276190604eb8b7471697746afcbe21d942d",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_chapter2_farmer_resume.txt"
+    },
+    {
+      "probe": "probe_chapter2_lawn",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_chapter2_lawn.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_chapter2_lawn.log",
+      "log_sha256": "b50aaf7aeae0823dcbfb26e58ab58b9b739c7780e04efb36fb554433be6d55e1",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_chapter2_lawn.txt"
+    },
+    {
+      "probe": "probe_alpha_milestone_save",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_alpha_milestone_save.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_alpha_milestone_save.log",
+      "log_sha256": "c8fee9f0a438dd1b2493699c49a5d84994e818e7bd65fb0f6655fbfca08bc584",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_alpha_milestone_save.txt"
+    },
+    {
+      "probe": "probe_dust_boss_balance",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_dust_boss_balance.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_dust_boss_balance.log",
+      "log_sha256": "dc4887a0a7948cd24b10d0cd45c84d460e3c063ab265e0e02f5a82d2e7bc1b03",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_dust_boss_balance.txt"
+    },
+    {
+      "probe": "probe_start_menu_routing",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_start_menu_routing.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_start_menu_routing.log",
+      "log_sha256": "c192b57ce2a0672867a9ce4420e32fde1eab6d258fc7e9e200127891e4d0c163",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_start_menu_routing.txt"
+    },
+    {
+      "probe": "probe_start_menu_new_game",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_start_menu_new_game.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_start_menu_new_game.log",
+      "log_sha256": "325fb88807879e145e0a1146e4734d45bb70c24a0c3d58ae57717f00de413ad4",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_start_menu_new_game.txt"
+    },
+    {
+      "probe": "probe_castle_pool_life_2d",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_castle_pool_life_2d.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_castle_pool_life_2d.log",
+      "log_sha256": "3c743dae2d362340c1369418a95b8feacb00f3f8933ddb78daa109c17bf5b6b9",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_castle_pool_life_2d.txt"
+    },
+    {
+      "probe": "probe_castle_pearl_art",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_castle_pearl_art.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_castle_pearl_art.log",
+      "log_sha256": "72d071a313481581f42a9572ff76e8801ca3a18fdbe1178135374c842c97fee4",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_castle_pearl_art.txt"
+    },
+    {
+      "probe": "probe_fairy_art",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_fairy_art.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_fairy_art.log",
+      "log_sha256": "97aa66835cca2cf482d202e46a6119b11319755d18c86c10f76174a009ff34c4",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_fairy_art.txt"
+    },
+    {
+      "probe": "probe_props",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_props.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_native_full/probe_props.log",
+      "log_sha256": "c2b732eb8c197eb5004fec74f7df0fb71d031b4dff532a6de5e16c2564a3125c",
+      "published_log": "tools/godot_mcp/evidence/native_full/probe_props.txt"
+    }
+  ],
+  "source_after": {
+    "algorithm": "sha256_repository_source_candidates_with_protected_path_exclusions_v1",
+    "file_count": 3998,
+    "sha256": "7150f4873f176e3f491c82940942f8d39315354e1879c2f8b9e716b60a18d3e1",
+    "asset_git_state": " M assets/dolls/cradle_focus_painted.png.import\n M assets/dolls/safe_landing_halo_painted.png.import\n M assets/mg/garden_backdrop_painted.png.import\n M assets/opera/worlds/backdrops/geologist_cave_painted_c0.png.import\n M assets/opera/worlds/backdrops/geologist_cave_painted_c1.png.import\n M assets/opera/worlds/props/geologist_riverbed_painted.png.import\n"
+  },
+  "source_unchanged": true,
+  "completed_at_utc": "2026-11-05T09:43:09.619429+00:00"
+}

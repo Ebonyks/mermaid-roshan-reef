@@ -1,0 +1,65 @@
+{
+  "source_before": {
+    "runtime_art_sha256": {
+      "assets/dolls/progress_empty_painted.png": "33f4460f116add379f27ff172363bfd43b36a3f7378e58aa4866ea9e9f3d6161",
+      "assets/dolls/progress_filled_painted.png": "c93096eebb7213bddc36bc02d770e5e5ed6eb934e8129561ae127d5f6b0f1b58",
+      "assets/opera/bubble_duel_v2/bubble.png": "eca98a5ca895774d10649bc05c438dfb8be22b8f5a1527a64750b2c516161127",
+      "assets/opera/bubble_duel_v2/items.png": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+      "assets/opera/bubble_duel_v2/marlo_swim.png": "33cf0fc3f01754f65cd03e49c44341db46c174f3e8dfa89047d9651d46fd50dc"
+    },
+    "algorithm": "sha256_repository_source_candidates_with_protected_path_exclusions_v1",
+    "file_count": 4066,
+    "sha256": "cbada7722d0a48c06ae28314ed667390fe6e465d5e9f4ec33f07a8ad4d274f68",
+    "asset_git_state": {
+      "unstaged": "",
+      "staged": "-\t-\tassets/opera/bubble_duel_v2/bubble.png\n-\t-\tassets/opera/bubble_duel_v2/items.png\n-\t-\tassets/opera/bubble_duel_v2/marlo_swim.png\n"
+    }
+  },
+  "roster": [
+    "probe_opera_2d"
+  ],
+  "ci_script_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e",
+  "failure_re": "FAIL|FAILED|ISSUE|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error",
+  "runtime_re": "SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)",
+  "timeout_seconds": 480,
+  "started_at_utc": "2026-11-05T15:33:09.666180+00:00",
+  "result": "PASS",
+  "probes": [
+    {
+      "probe": "probe_opera_2d",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_opera_2d.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code_native": 0,
+      "timed_out": false,
+      "failure_marker": false,
+      "result": "PASS",
+      "log": "tmp/godot_mcp_bubble_opera_alone/probe_opera_2d.log",
+      "log_sha256": "292591189c15fd30ee2a3c99bdb03a75e2a21c15ec64ae32309b4ea15a575391"
+    }
+  ],
+  "source_after": {
+    "runtime_art_sha256": {
+      "assets/dolls/progress_empty_painted.png": "33f4460f116add379f27ff172363bfd43b36a3f7378e58aa4866ea9e9f3d6161",
+      "assets/dolls/progress_filled_painted.png": "c93096eebb7213bddc36bc02d770e5e5ed6eb934e8129561ae127d5f6b0f1b58",
+      "assets/opera/bubble_duel_v2/bubble.png": "eca98a5ca895774d10649bc05c438dfb8be22b8f5a1527a64750b2c516161127",
+      "assets/opera/bubble_duel_v2/items.png": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+      "assets/opera/bubble_duel_v2/marlo_swim.png": "33cf0fc3f01754f65cd03e49c44341db46c174f3e8dfa89047d9651d46fd50dc"
+    },
+    "algorithm": "sha256_repository_source_candidates_with_protected_path_exclusions_v1",
+    "file_count": 4066,
+    "sha256": "cbada7722d0a48c06ae28314ed667390fe6e465d5e9f4ec33f07a8ad4d274f68",
+    "asset_git_state": {
+      "unstaged": "",
+      "staged": "-\t-\tassets/opera/bubble_duel_v2/bubble.png\n-\t-\tassets/opera/bubble_duel_v2/items.png\n-\t-\tassets/opera/bubble_duel_v2/marlo_swim.png\n"
+    }
+  },
+  "source_unchanged": true,
+  "completed_at_utc": "2026-11-05T15:34:30.098241+00:00"
+}
