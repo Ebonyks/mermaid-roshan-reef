@@ -1,0 +1,94 @@
+{
+  "state": "PASS_COMPLETE_RUNTIME_SUBTREES_AND_FIXED_BUILD_INPUTS_EQUAL_TESTED_DEV",
+  "baseline": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+  "incoming": "e4c164a8c04a63e32e1df42fe0cc7578f89bce7d",
+  "source_CI_run": 42183590257,
+  "Dev_CI_run": 42202164628,
+  "runtime_Git_paths": 5557,
+  "exact_objects": [
+    {
+      "path": "scripts",
+      "Git_object": "6261f061ced80b44d01dcf2341ff6012d169ef8b",
+      "unchanged": true
+    },
+    {
+      "path": "assets",
+      "Git_object": "4e0c8bee17dea08d580a36c383f94190aa678528",
+      "unchanged": true
+    },
+    {
+      "path": "scenes",
+      "Git_object": "63d30e6133754dce7a5b07084c0de100ca96de8b",
+      "unchanged": true
+    },
+    {
+      "path": "shaders",
+      "Git_object": "9888a82057eececf56c4042ede9abf3f07704bee",
+      "unchanged": true
+    },
+    {
+      "path": "addons",
+      "Git_object": "2e9e993544fe2c312999d5e4f7c276ac7df45b1c",
+      "unchanged": true
+    },
+    {
+      "path": "project.godot",
+      "Git_object": "84da90ba17c376d4b08a0268faabaab4b110db3b",
+      "unchanged": true
+    },
+    {
+      "path": "export_presets.cfg",
+      "Git_object": "acbd3880aeaec025992d2ce7aa80aa15e453064b",
+      "unchanged": true
+    }
+  ],
+  "incoming_nonshared_metadata_exact": [
+    {
+      "path": "design/audit_impacts/dkc-acoustic-album-20261105.json",
+      "bytes": 3520,
+      "sha256": "d6430332e8e0277153b5e5f55742adcb8241bb0f872d9af396166f2c7c7a5d39"
+    },
+    {
+      "path": "design/music/dkc/ACOUSTIC_ALBUM_PLAN_2026-11-05.md",
+      "bytes": 10826,
+      "sha256": "3ff40a62520efaafa54339afe0d6b699e1e99297e2cb357974ee9fc3df53fc1d"
+    },
+    {
+      "path": "design/music/dkc/ACOUSTIC_SOUND_DESIGN_PROFILE_2026-11-05.md",
+      "bytes": 16754,
+      "sha256": "fd315d6b12f2d92593451202e4235f0854991c12378c18df9b05c1ad39d75c5a"
+    },
+    {
+      "path": "design/music/dkc/README.md",
+      "bytes": 21773,
+      "sha256": "7f98931d2310a817ac1d12d468eedac647f4f16cc07a922db14b86480f2655d9"
+    },
+    {
+      "path": "design/music/dkc/acoustic_album_board_v1.json",
+      "bytes": 20320,
+      "sha256": "9e98c41070fc105b0afd9a7e63df43becd7157bd5beb12ac6ee38f51e5a10933"
+    },
+    {
+      "path": "design/music/dkc/acoustic_album_call_sheets_v1.json",
+      "bytes": 1060046,
+      "sha256": "21652ff18fae30b48dcb4c7c1eeeb9a462debb8d2913b1460d48d0a6bbffabfd"
+    },
+    {
+      "path": "design/music/dkc/acoustic_album_production_receipt_v1.json",
+      "bytes": 10801,
+      "sha256": "ca402a4e02bb3bf0458091a7dc07465efb665f16bb6374a628315aa13951d965"
+    },
+    {
+      "path": "design/music/dkc/acoustic_album_reference_v1.json",
+      "bytes": 1361,
+      "sha256": "315b90040f48949eb38f3906b0445962026f31a2907602c5334d3b76a12110f7"
+    }
+  ],
+  "protected_original_changes": [],
+  "private_DKC_audio_or_extracted_source_exported": false,
+  "paid_generation_calls": 0,
+  "new_art_or_frame_or_Dev_artifact_credit": 0,
+  "full_local_engine_suite_repeated": false,
+  "reason": "Only public review metadata changes. Exact baselineF1 full source and Dev CI already passed; metadata gates assess this actual changed candidate.",
+  "checked_at_utc": "2026-11-06T13:24:47.723028+00:00"
+}

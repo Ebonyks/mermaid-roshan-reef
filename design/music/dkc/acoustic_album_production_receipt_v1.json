@@ -1,0 +1,259 @@
+{
+  "schema": "dkc-acoustic-album-production/1",
+  "date": "2026-11-05",
+  "status": "NEXT_BATCH_PRINTED_AND_VERIFIED_OWNER_REVIEW_OPEN",
+  "private_production_root": "H:/DKC-Production/20261105-album-profile",
+  "selected": [
+    {
+      "cue": "DKC-11",
+      "title": "Life in the Mines",
+      "internal_revision": 8,
+      "length_s": 263.2975833333333,
+      "mp3_loudness": {
+        "input_i": -18.5,
+        "input_tp": -5.3,
+        "input_lra": 12.2
+      },
+      "mono_loss_db": -0.09820255637168884,
+      "finite": true,
+      "clip_samples": 0
+    },
+    {
+      "cue": "DKC-15",
+      "title": "Funky’s Fugue",
+      "internal_revision": 5,
+      "length_s": 124.47722916666666,
+      "mp3_loudness": {
+        "input_i": -18.0,
+        "input_tp": -3.81,
+        "input_lra": 3.1
+      },
+      "mono_loss_db": -0.026964562013745308,
+      "finite": true,
+      "clip_samples": 0
+    },
+    {
+      "cue": "DKC-19",
+      "title": "Fear Factory",
+      "internal_revision": 6,
+      "length_s": 231.41702083333334,
+      "mp3_loudness": {
+        "input_i": -18.0,
+        "input_tp": -4.08,
+        "input_lra": 6.5
+      },
+      "mono_loss_db": -0.18611925840377808,
+      "finite": true,
+      "clip_samples": 0
+    },
+    {
+      "cue": "DKC-13",
+      "title": "Forest Frenzy",
+      "internal_revision": 6,
+      "length_s": 120.64408333333333,
+      "mp3_loudness": {
+        "input_i": -18.3,
+        "input_tp": -3.91,
+        "input_lra": 7.5
+      },
+      "mono_loss_db": -0.23038960993289948,
+      "finite": true,
+      "clip_samples": 0
+    },
+    {
+      "cue": "DKC-13-bass-alternate",
+      "title": "Forest Frenzy bass-led alternate",
+      "internal_revision": 5,
+      "length_s": 120.64408333333333,
+      "mp3_loudness": {
+        "input_i": -18.3,
+        "input_tp": -4.25,
+        "input_lra": 7.1
+      },
+      "mono_loss_db": -0.13673880696296692,
+      "finite": true,
+      "clip_samples": 0,
+      "review": "Local source, native-pitch and session checks; no additional Gemini review"
+    }
+  ],
+  "reference_driver_count": 27,
+  "album_scope": {
+    "long_form": 21,
+    "short_entries": 8,
+    "review_rows": 30,
+    "reconciled_unique_entries": 29
+  },
+  "current_main_logical_parts": 63,
+  "current_main_printed_stems": 69,
+  "bass_alternate_printed_stems": 20,
+  "editing_guides": 64,
+  "source_checks": {
+    "core_pitched_score_events": 5348,
+    "forest_pitched_score_events": 601,
+    "core_metal_percussion_gestures": 172,
+    "pitch_or_ordered_interval_substitutions": 0,
+    "score_onset_quantization_error_ms_less_than": 0.001,
+    "qualification": "Score invariants are separate from physical sounding register, sample attack and interpretation; native zones and selected source comparisons are separately tested."
+  },
+  "acoustic_state": "All selected loaded oscillator payloads are SamplePlayer; acoustic provenance reviewed. Explicitly requested Soul Bass string sound has synth payload removed. Raw sources stay private.",
+  "form": "Intro plus two complete source cycles and 8.5-second final fade/release; return repeats the same printed performance.",
+  "gemini_allowance": {
+    "authorized_total": 50,
+    "used_before_this_task": 22,
+    "used_this_task": 28,
+    "total_used": 50,
+    "remaining": 0,
+    "scope": "New DKC performances only; no family audio or raw library recordings sent.",
+    "accounting": "22 prior +28 bounded excerpts this task. Last3 cover repaired Mines, source-register-corrected Funky, and selected wood/piano Forest. Bass-led Forest alternate has local source/pitch checks, not another cloud review."
+  },
+  "evidence": [
+    {
+      "path": "H:/DKC-Production/20261105-album-profile/evidence/album-rom-reference-index.json",
+      "sha256": "10b567de4b2f310160f2ff35b67e1180c400a65b85825b1fa48e3dc99e6a4cab"
+    },
+    {
+      "path": "H:/DKC-Production/20261105-album-profile/evidence/reference-palette.json",
+      "sha256": "8e2dc1d084b639242de41dc8890a70ffb02267e6ebd5b43fda1847c73c1e28b5"
+    },
+    {
+      "path": "H:/DKC-Production/20261105-album-profile/evidence/selected-acoustic-palette.json",
+      "sha256": "cbf311e70499646ed0c3d124b01dd7f1d4439ed3769b301208914257cd48db27"
+    },
+    {
+      "path": "H:/DKC-Production/20261105-album-profile/evidence/native-audibility-palette.json",
+      "sha256": "8505b0979961a497afb04bde69d2544e8dc1a555046b1e0196edef0f57465f6e"
+    },
+    {
+      "path": "H:/DKC-Production/20261105-album-profile/evidence/source-identity-invariants.json",
+      "sha256": "91c2cd2144ec313e2795d38e82047c14f0ac760d3e7ca872c073a3cc3527ff4f"
+    },
+    {
+      "path": "H:/DKC-Production/20261105-album-profile/evidence/printed-session-sum.json",
+      "sha256": "1be5624b481195942b0b2e488366f250ec3fe3b97fd28b2612de7ff8fcf59217"
+    },
+    {
+      "path": "H:/DKC-Production/20261105-album-profile/evidence/forest-source-score-invariants.json",
+      "sha256": "0be0d2cde3af0b8bf8e88e73799c9654a4e79510447647fa22284ec7639c0e72"
+    },
+    {
+      "path": "H:/DKC-Production/20261105-album-profile/evidence/forest-session-sum.json",
+      "sha256": "e88f8734bcb4f43541fa757715a695524cf1808eb13eda60392cfa86152b67d7"
+    },
+    {
+      "path": "H:/DKC-Production/20261105-album-profile/evidence/forest-selected-listening-equivalence.json",
+      "sha256": "17562feba53e856096b95f9dd039f54f03cbc63513e456c917025dc5f8c9da2b"
+    },
+    {
+      "path": "H:/DKC-Production/20261105-album-profile/evidence/full-bass-range-pitch-test.json",
+      "sha256": "11418956c54b93f28469ff5673660043176ff1fa08052c5248e0f6e845298fc6"
+    },
+    {
+      "path": "H:/DKC-Production/20261105-album-profile/evidence/soul-bass-concert-register-test.json",
+      "sha256": "ed86f26fdba6d4dfe01be7a8df10603dec37ee167c32b0e95afa143d6b8e7620"
+    },
+    {
+      "path": "H:/DKC-Production/20261105-album-profile/evidence/pipe-bend-range-check.json",
+      "sha256": "f53047e3599309d67dc912f56508676a754bb5297764850f8093bc70fb41b605"
+    },
+    {
+      "path": "H:/DKC-Production/20261105-album-profile/evidence/forest-bass-wood-source-comparison.json",
+      "sha256": "f1cc5c6500d42081d41073781c112bced7f79e359916d9119a6a43206c7d5d5c"
+    },
+    {
+      "path": "H:/DKC-Production/20261105-album-profile/evidence/listening-ledger.json",
+      "sha256": "693a32dab70b1e5fd1c664db3bd2f875f983a843b340f6a0b3f4fb1d3e0bfeda"
+    },
+    {
+      "path": "H:/DKC-Production/20261105-album-profile/evidence/listening-allowance.json",
+      "sha256": "2f67c2a7ac11422b2c6065416c8de70e2133c733dca8ed7455344adb8143c07d"
+    },
+    {
+      "path": "H:/DKC-Production/20261105-album-profile/evidence/project-validation-receipt.json",
+      "sha256": "1e2206f196e617114a6e3c9acd18f5fedd8791421f1b09db8ac3c9788b6b778e"
+    },
+    {
+      "path": "H:/DKC-Production/20261105-album-profile/evidence/forest-selected-native-audibility.json",
+      "sha256": "467729ffed17054019f36b4869edbbc229b5114ef73b0dc1eb81cca3958b98ae"
+    },
+    {
+      "path": "H:/DKC-Production/20261105-album-profile/evidence/final-source-reference-file-check.json",
+      "sha256": "d5437d88bd2a5dd7da83e221bd2f426cbe7ec92f72bcce8af886242bf863d204"
+    },
+    {
+      "path": "H:/DKC-Production/20261105-album-profile/evidence/final-lossless-loudness.json",
+      "sha256": "5bc58463a9e3226f4608e1b65a9c6896d7d3cce666b3764f0dc28368fbbbaad2"
+    },
+    {
+      "path": "H:/DKC-Production/20261105-album-profile/evidence/saved-envelope-controls.json",
+      "sha256": "f7c77c5b753366d819b96367be33a710e3f3be7e5c55bcfd0050f45f336f1109"
+    }
+  ],
+  "project_validation": {
+    "initial_full_run_exit": 1,
+    "initial_failed_checks": [
+      "Slide opening cover complete-touch neutrality",
+      "Slide return poll Enter/keypad Enter/X/Y vocabulary"
+    ],
+    "failed_probe": "probe_audit",
+    "isolated_rerun_process_exit": 0,
+    "isolated_rerun_assertion_failures": 0,
+    "source_or_test_changes_between_runs": false,
+    "trusted_probe_headings": 82,
+    "coverage": "All82 trusted probes exercised:81 passed initial full run and the entire failed probe_audit passed an unchanged isolated rerun. Initial static gates,44/44 music and862/862 audio passed. Aggregate verification, not one uninterrupted green full run.",
+    "unresolved": "Initial transient failure cause not established; no game-wide, device, child, visual or audio-owner acceptance inferred.",
+    "second_full_run": "STOPPED_AS_REDUNDANT_DURING_VISUAL_UNIT_TESTS; not a passing full-run claim",
+    "second_log_sha256": "29d5b4858c6f4075038c6638a2f9867a429e9cc13aa22b36381c377001f58932",
+    "checked_utc": "2026-11-06T07:49:44.576219+00:00"
+  },
+  "remaining": [
+    "Owner full-song listening and artistic acceptance",
+    "Native-zone/source-pitch review of earlier three style references before album lock",
+    "Gameplay trigger references for Bonus Room Opened and Extra Life",
+    "Bonus Lose cadence/tail and K. Rool/Game Over presentation reconciliation",
+    "New performances and purposeful variations on returns; present repeats are disclosed",
+    "Remaining soundtrack arrangements, album sequencing, translation and final mastering"
+  ],
+  "acceptance": "No runtime change, release, device/child approval or MA-AUDIO-001 closure. Exact samples and current patches may still need owner artistic refinement.",
+  "selected_listening_scope": {
+    "DKC-11": "Mines7 middle excerpt reviewed; selected Mines8 has subsequent locally tested bass-extension gain/zone refinement.",
+    "DKC-15": "Selected Funky5 middle excerpt reviewed after actual source-register correction.",
+    "DKC-19": "Bounded excerpts and ending review; selected6 remains owner full-song review.",
+    "DKC-13": "Selected6 is sample-identical to reviewed wood/piano4; bass-led5 has local checks only."
+  },
+  "lossless_loudness": [
+    {
+      "file": "DKC-11-Life-in-the-Mines-album-draft.flac",
+      "integrated_lufs": -18.5,
+      "true_peak_dbtp": -5.31,
+      "loudness_range_lu": 12.2
+    },
+    {
+      "file": "DKC-15-Funkys-Fugue-album-draft.flac",
+      "integrated_lufs": -18.0,
+      "true_peak_dbtp": -3.82,
+      "loudness_range_lu": 3.1
+    },
+    {
+      "file": "DKC-19-Fear-Factory-album-draft.flac",
+      "integrated_lufs": -18.0,
+      "true_peak_dbtp": -4.09,
+      "loudness_range_lu": 6.5
+    },
+    {
+      "file": "DKC-13-Forest-Frenzy-album-draft.flac",
+      "integrated_lufs": -18.3,
+      "true_peak_dbtp": -3.9,
+      "loudness_range_lu": 7.5
+    },
+    {
+      "file": "DKC-13-Forest-Frenzy-bass-alternate-album-draft.flac",
+      "integrated_lufs": -18.3,
+      "true_peak_dbtp": -4.28,
+      "loudness_range_lu": 7.1
+    }
+  ],
+  "decisions_report": {
+    "path": "H:/DKC-Production/20261105-album-profile/Production-decisions-and-alternatives.txt",
+    "sha256": "4286acb9c4c4b1fb08917e9fb25055a4fd191d16bf8dbd6544f55a35585c89df"
+  }
+}

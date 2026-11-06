@@ -1,0 +1,59 @@
+{
+  "id": "recent-dkc-docs-dev-20261106",
+  "scope": "Reconcile finished green public DKC sound-profile/album-plan review metadata onto current Dev; runtime/build/protected sources remain byte-identical to greenF1. Publish exact matching R144 APK30-file anonymous receipt without importing old canonical game.",
+  "baseline": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SND-05",
+    "DL-SND-09",
+    "DL-SND-18",
+    "DL-ASSET-03"
+  ],
+  "findings": [
+    "MA-AUDIO-001"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/dkc-acoustic-album-20261105.json",
+    "design/music/dkc/ACOUSTIC_ALBUM_PLAN_2026-11-05.md",
+    "design/music/dkc/ACOUSTIC_SOUND_DESIGN_PROFILE_2026-11-05.md",
+    "design/music/dkc/README.md",
+    "design/music/dkc/acoustic_album_board_v1.json",
+    "design/music/dkc/acoustic_album_call_sheets_v1.json",
+    "design/music/dkc/acoustic_album_production_receipt_v1.json",
+    "design/music/dkc/acoustic_album_reference_v1.json",
+    "docs/handoffs/codex_recent_dkc_docs_dev_2026-11-06/DKC_SOURCE_CI.json",
+    "docs/handoffs/codex_recent_dkc_docs_dev_2026-11-06/GATES.json",
+    "docs/handoffs/codex_recent_dkc_docs_dev_2026-11-06/MANIFEST.json",
+    "docs/handoffs/codex_recent_dkc_docs_dev_2026-11-06/OWNER_REQUEST.json",
+    "docs/handoffs/codex_recent_dkc_docs_dev_2026-11-06/PLAN.json",
+    "docs/handoffs/codex_recent_dkc_docs_dev_2026-11-06/R144_APK_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_recent_dkc_docs_dev_2026-11-06/README.md",
+    "docs/handoffs/codex_recent_dkc_docs_dev_2026-11-06/RUNTIME_EQUALITY.json",
+    "docs/handoffs/codex_recent_dkc_docs_dev_2026-11-06/authority.log",
+    "docs/handoffs/codex_recent_dkc_docs_dev_2026-11-06/development_auto.log",
+    "docs/handoffs/codex_recent_dkc_docs_dev_2026-11-06/development_f1.log"
+  ],
+  "validation": [
+    {
+      "command": "Incoming exact e4 source CI42183590257 and complete F1 runtime/build Git-object equality",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_recent_dkc_docs_dev_2026-11-06/DKC_SOURCE_CI.json and RUNTIME_EQUALITY.json; full current DevCI42202164628 remains exact runtime authority"
+    },
+    {
+      "command": "Document authority and actual changed-file coverage",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_recent_dkc_docs_dev_2026-11-06/GATES.json after execution"
+    },
+    {
+      "command": "Exact new work-branch CI, immutable anonymous publication and current Dev integration",
+      "result": "PENDING",
+      "evidence": "Publish staged-byte manifest, verify every required file anonymously and wait normal work-branch green before guarded Dev integration"
+    }
+  ],
+  "acceptance_gaps": "Review docs grant no artistic/audio/runtime/device/child/owner acceptance. Existing private album failures/retries and source-only status remain. No source/audio export, game-resource changes, new funded usage or master promotion."
+}

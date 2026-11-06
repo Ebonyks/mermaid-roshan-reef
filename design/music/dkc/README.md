@@ -1,5 +1,12 @@
 # DKC soundtrack profile and listening register
 
+## Current acoustic album direction
+
+The [acoustic sound design profile](ACOUSTIC_SOUND_DESIGN_PROFILE_2026-11-05.md) develops the current Simian V4, Island V6 and Aquatic V5r3 performances into a concrete band identity: clear source themes, firm acoustic attacks, distinct answering voices, warm metal and lively hand percussion. The later owner-directed acoustic variant supersedes electronic instrument choices in earlier call sheets for this album; their source/theme analysis remains useful. The [album plan](ACOUSTIC_ALBUM_PLAN_2026-11-05.md) and [30-row board](acoustic_album_board_v1.json) target a complete rough sequence November 12 and refined album candidates November 19, 2026.
+
+The [actual acoustic calls](acoustic_album_call_sheets_v1.json) and [production receipt](acoustic_album_production_receipt_v1.json) track the next Mines, Funky and Fear Factory revisions plus the new Forest Frenzy pilot. Printed performances, native range corrections, source evidence, listening and remaining acceptance retain their exact scopes. This separate DKC album is a sound-palette study for Roshan; it does not replace runtime music or close MA-AUDIO-001.
+
+
 This separate study covers the original 1994 SNES Donkey Kong Country soundtrack. The original in-game sound is the authority. Performer profiles, Bonobo production preferences, General MIDI program labels and available libraries are resources for finding a match; they never require changing the original instrument. Add a patch, articulation, technique or performer capability when the source requires it.
 
 ## Detailed revision guide
