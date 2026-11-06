@@ -29887,7 +29887,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-DEV-20261106-R144-PAINTED-SHARED-SHELL",
+  "revision": "FV-SOURCE-20261106-R145-RACER-ZONES-PAINTED-FIXTURE",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -35624,6 +35624,110 @@
         "source_CI": 42033167812,
         "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json"
       }
+    },
+    {
+      "id": "FVR-B287940E825E",
+      "role_key": "pool_towel_cabinet",
+      "stable_id_seed": "opera_racer|reef_kart_context|pool_towel_cabinet",
+      "name": "Pool zone painted towel cabinet",
+      "family": "opera_racer",
+      "count_unit": "named_art_role_state_family",
+      "source": {
+        "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+        "path": "scripts/racer/reef_kart_zones.gd",
+        "bytes": 11163,
+        "sha256": "257ae1908ae295736c72ec387821ca7b987c140dfed856473985bd93f8edb2ba",
+        "role": "zone_and_fixture_binding"
+      },
+      "runtime_asset": "assets/racer/zones_v1/pool_towel_cabinet.png",
+      "native_output": {
+        "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+        "path": "assets_src/imagegen/reef_kart_zones_20261105/pool_towel_cabinet_native.png",
+        "bytes": 2024779,
+        "sha256": "b7db69a6e6e0bd8919918dcd32b5cea71baf40fde4f73ff92c670abf77db318b",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "candidate_output": {
+        "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+        "path": "assets/racer/zones_v1/pool_towel_cabinet.png",
+        "bytes": 1058833,
+        "sha256": "3e2e3388b4ae10a6f0708aa71f4c2df1c5388e51f4bbb8b27109cae2263e006a",
+        "dimensions": [
+          1024,
+          1024
+        ]
+      },
+      "runtime_import": {
+        "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+        "path": "assets/racer/zones_v1/pool_towel_cabinet.png.import",
+        "bytes": 979,
+        "sha256": "d0a50676052d6cfef53674926fb1d6cf41fafb6fdeb529d8a33e41ebb4dfbdf8"
+      },
+      "provenance": {
+        "producer_source": "8c9bc130766725965a76eca876ef683b92242334",
+        "generation_record": {
+          "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+          "path": "assets_src/imagegen/reef_kart_zones_20261105/generation_job.json",
+          "bytes": 1886,
+          "sha256": "8b45b0442a6a5adbe19e77314052e6d737de3054e09abe6926adc1f1846a6a23"
+        },
+        "actual_backend": "built-in image_gen; model/provider revision not exposed",
+        "producer_attempts": 1,
+        "new_calls_here": 0,
+        "method": "Generative background isolation/local base reconstruction from existing approved room reference; separate native and runtime exports. Not a literal pixel cutout. Source prompt/settings/history retained unchanged.",
+        "original_source": {
+          "path": "assets_src/imagegen/mermaid_pool_room_2026-08-02/room_mermaid_pool_fullframe_v3_native.png",
+          "sha256": "2a4bd923c26d5f7980fc8a723576ecb573097e30bc94090f75437833fc3d55a5",
+          "bytes": 2361881,
+          "dimensions": [
+            1672,
+            941
+          ]
+        }
+      },
+      "status": "SOURCE_IMPLEMENTED_CANDIDATE_CONTEXT_PARTIAL_DEV_PENDING",
+      "evidence_level": "PUBLISHED_SOURCE_AND_REVIEWED_CURRENT_NATIVE_DIAGNOSTICS",
+      "source_revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "integration_sha": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/TEN_AXIS_POOL_COMPARISON.json",
+      "review_record": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/CURRENT_NATIVE_VISUAL_REVIEW.json",
+      "screen_coverage": {
+        "same_pool_solo_split_zone_threshold": true,
+        "natural_route_complete": false,
+        "all_views_and_motion_complete": false,
+        "formal_QA11": null
+      },
+      "acceptance_evidence": {
+        "candidate": true,
+        "source_work_branch_integrated": true,
+        "Dev_integrated": false,
+        "runtime_verified_replacement": false,
+        "configured_Mobile": true,
+        "PC_quality_context": "fixed PC no quality selector; 30fps cap",
+        "Opera_Speedy": true,
+        "machine": "Exact Godot4.7.2 import/analyzers/static, 867 audio recheck, two focused Racer probes,82strict trusted exits and final2D pass after retained derived-summary merge failure; normal saves unchanged. Runtime5571 inputs preserved across later Dev-doc merge.",
+        "DL_QA_11": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0
+      },
+      "observed_weakness": "Baked room cabinet had no unique navigable track fixture; current isolated station is a candidate, while shelf/towel/base identity and full-speed contact remain unaccepted.",
+      "review_log": [
+        {
+          "revision": "FV-SOURCE-20261106-R145-RACER-ZONES-PAINTED-FIXTURE",
+          "source_revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+          "status": "SOURCE_PUBLISHED_LOCAL_VALIDATION_AND17_NATIVE_DIAGNOSTICS_PASS",
+          "scope": "One fixture; procedural road and HUD/control surfaces remain open."
+        }
+      ],
+      "reuse_ready": null,
+      "drawing_required": null,
+      "samples_awaiting_review": 1,
+      "replacement_history": []
     }
   ],
   "known_named_design_records_including_supplemental": 240,
@@ -43536,7 +43640,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "SUMMARY.json. 45 published bounded source artifacts,44 partial Dev artifacts;280 named roles and36 families remain lower bounds. Retained per-piece events8056 bounded/4398 excluded/12454 total are unchanged. Accepted removals0, complete scene coverage0, whole-game totals unknown. R144 is integrated on exact green sourceF1; formal and external acceptance remain open.",
+  "current_effective_summary": "46 published bounded source artifacts,44 partial Dev artifacts;281 named roles and36 families remain lower bounds. Retained per-piece events8073 bounded/4398 excluded/12471 total. Accepted removals0, complete scenes0, whole-game totals unknown. R145 source cafce6e8 is published with exact hosted CI running; Dev pending. Formal and external acceptance remain open.",
   "unresolved_care_glyph_scopes": [
     "neutral/title heart U+2665 versus cuddle U+2764 attribution",
     "disabled Change-palette pictogram",
@@ -50473,7 +50577,7 @@
     "known_named_design_records_including_supplemental": 240,
     "known_family_count_including_supplemental": 32
   },
-  "current_known_named_design_records": 280,
+  "current_known_named_design_records": 281,
   "current_known_family_count": 36,
   "r141_racer_context_source": {
     "state": "SEVEN_PAINTED_RACER_OBJECTS_SOURCE_INTEGRATED_DEV_PENDING",
@@ -51068,5 +51172,89 @@
     "owner": null,
     "master_promoted": false,
     "checked_at_utc": "2026-11-06T12:42:51.075424+00:00"
-  }
+  },
+  "r145_prior_current_fields": {
+    "revision": "FV-DEV-20261106-R144-PAINTED-SHARED-SHELL",
+    "current_effective_summary": "SUMMARY.json. 45 published bounded source artifacts,44 partial Dev artifacts;280 named roles and36 families remain lower bounds. Retained per-piece events8056 bounded/4398 excluded/12454 total are unchanged. Accepted removals0, complete scene coverage0, whole-game totals unknown. R144 is integrated on exact green sourceF1; formal and external acceptance remain open.",
+    "new_generation_calls": 0
+  },
+  "r145_racer_zones_painted_fixture_runtime": {
+    "state": "PUBLISHED_RACER_PAINTED_FIXTURE_SOURCE_CI_RUNNING_DEV_PENDING",
+    "artifact_key": "r145_racer_zones_painted_fixture_runtime",
+    "stable_source_item_id": "pool_towel_cabinet",
+    "stable_ids": [
+      "FVR-B287940E825E"
+    ],
+    "producer_source": "8c9bc130766725965a76eca876ef683b92242334",
+    "source_revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+    "source_branch": "codex/recent-finished-updates-dev-20261106",
+    "tested_runtime_checkpoint": "7fd0cd1a30e62433f58aafebf7dd77d6e8e05d98",
+    "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5/docs/handoffs/codex_recent_updates_dev_2026-11-06/MANIFEST.json",
+    "source_required_anonymous_files": 452,
+    "source_CI": {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "runs": [
+        {
+          "conclusion": "",
+          "databaseId": 42242512898,
+          "headSha": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+          "status": "in_progress",
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42242512898",
+          "workflowName": "Probe suite (graphics fork)"
+        }
+      ],
+      "checked_at_utc": "2026-11-06T15:23:32.308538+00:00"
+    },
+    "current_Dev_at_intake": "5b92d1c216a78852559725a9db0b8ec37f7f6c7e",
+    "Dev_integration": false,
+    "new_source_artifacts": 1,
+    "new_partial_Dev_artifacts": 0,
+    "new_named_roles": 1,
+    "new_families": 0,
+    "new_runtime_PNG_in_source": 1,
+    "new_generation_calls_here": 0,
+    "historical_named_static_generation_attempts": 1,
+    "actual_backend": "built-in image_gen; model/provider revision not exposed",
+    "new_native_frame_events": 17,
+    "new_bounded_frame_events": 17,
+    "new_excluded_frame_events": 0,
+    "historical_producer_views_not_retallied": 73,
+    "candidate": true,
+    "local_integration": true,
+    "runtime_machine": "Exact Godot4.7.2 import/analyzers/static, 867 audio recheck, two focused Racer probes,82strict trusted exits and final2D pass after retained derived-summary merge failure; normal saves unchanged. Runtime5571 inputs preserved across later Dev-doc merge.",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "complete_scene_coverage": 0,
+    "count_limits": "One painted fixture implementation, not five voice files, 16 course zones, one family or one complete game. Visible procedural roads, shader materials, HUD/control primitives remain open. No accepted-removal or whole-scene credit.",
+    "remaining_scope": [
+      "visible roads and floor material shader",
+      "HUD/minimap/control shapes",
+      "full-speed prop scale/contact/occlusion and natural routes",
+      "exact cabinet towel/shelf/base identity and ten-axis owner review",
+      "all zone/route/saved/input/device variants",
+      "formalQA11/device/child/owner acceptance"
+    ],
+    "mission_complete": false
+  },
+  "r145_current_effective_summary": {
+    "known_roles": 281,
+    "known_families": 36,
+    "published_bounded_source_artifacts": 46,
+    "partial_Dev_artifacts": 44,
+    "retained_bounded_native_events": 8073,
+    "retained_excluded_native_events": 4398,
+    "retained_native_events": 12471,
+    "accepted_removed": 0,
+    "complete_scene_coverage": 0,
+    "whole_game_total": null,
+    "revision": "FV-SOURCE-20261106-R145-RACER-ZONES-PAINTED-FIXTURE"
+  },
+  "retained_bounded_current_summary": 8073,
+  "retained_excluded_current_summary": 4398,
+  "retained_native_events_current_summary": 12471,
+  "bounded_implementation_artifacts_published_current_summary": 46,
+  "partial_dev_artifacts_current_summary": 44
 }

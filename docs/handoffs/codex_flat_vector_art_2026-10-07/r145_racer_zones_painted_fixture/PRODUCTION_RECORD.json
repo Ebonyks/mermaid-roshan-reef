@@ -1,0 +1,61 @@
+{
+  "state": "PUBLISHED_RACER_PAINTED_FIXTURE_SOURCE_CI_RUNNING_DEV_PENDING",
+  "artifact_key": "r145_racer_zones_painted_fixture_runtime",
+  "stable_source_item_id": "pool_towel_cabinet",
+  "stable_ids": [
+    "FVR-B287940E825E"
+  ],
+  "producer_source": "8c9bc130766725965a76eca876ef683b92242334",
+  "source_revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+  "source_branch": "codex/recent-finished-updates-dev-20261106",
+  "tested_runtime_checkpoint": "7fd0cd1a30e62433f58aafebf7dd77d6e8e05d98",
+  "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5/docs/handoffs/codex_recent_updates_dev_2026-11-06/MANIFEST.json",
+  "source_required_anonymous_files": 452,
+  "source_CI": {
+    "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+    "runs": [
+      {
+        "conclusion": "",
+        "databaseId": 42242512898,
+        "headSha": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+        "status": "in_progress",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42242512898",
+        "workflowName": "Probe suite (graphics fork)"
+      }
+    ],
+    "checked_at_utc": "2026-11-06T15:23:32.308538+00:00"
+  },
+  "current_Dev_at_intake": "5b92d1c216a78852559725a9db0b8ec37f7f6c7e",
+  "Dev_integration": false,
+  "new_source_artifacts": 1,
+  "new_partial_Dev_artifacts": 0,
+  "new_named_roles": 1,
+  "new_families": 0,
+  "new_runtime_PNG_in_source": 1,
+  "new_generation_calls_here": 0,
+  "historical_named_static_generation_attempts": 1,
+  "actual_backend": "built-in image_gen; model/provider revision not exposed",
+  "new_native_frame_events": 17,
+  "new_bounded_frame_events": 17,
+  "new_excluded_frame_events": 0,
+  "historical_producer_views_not_retallied": 73,
+  "candidate": true,
+  "local_integration": true,
+  "runtime_machine": "Exact Godot4.7.2 import/analyzers/static, 867 audio recheck, two focused Racer probes,82strict trusted exits and final2D pass after retained derived-summary merge failure; normal saves unchanged. Runtime5571 inputs preserved across later Dev-doc merge.",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "complete_scene_coverage": 0,
+  "count_limits": "One painted fixture implementation, not five voice files, 16 course zones, one family or one complete game. Visible procedural roads, shader materials, HUD/control primitives remain open. No accepted-removal or whole-scene credit.",
+  "remaining_scope": [
+    "visible roads and floor material shader",
+    "HUD/minimap/control shapes",
+    "full-speed prop scale/contact/occlusion and natural routes",
+    "exact cabinet towel/shelf/base identity and ten-axis owner review",
+    "all zone/route/saved/input/device variants",
+    "formalQA11/device/child/owner acceptance"
+  ],
+  "mission_complete": false
+}

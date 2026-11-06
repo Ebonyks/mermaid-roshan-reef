@@ -1,0 +1,30 @@
+{
+  "baseline": "ef37f6e2d4ce68f4faeda7f617047bf55f445b18",
+  "scope": "Reconcile actually published painted pool cabinet and Racer room-zone candidate; source branch exact CI running, Dev pending. No game-code change on old canonical checkout.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-ASSET-03",
+    "DL-ASSET-05",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-VIS-008"
+  ],
+  "stable_source_item_id": "pool_towel_cabinet",
+  "stable_registry_id": "FVR-B287940E825E",
+  "required_evidence": [
+    "actual452file anonymous source verification",
+    "actual candidate/source hashes",
+    "ten-axis same-room comparison",
+    "17 current native diagnostics",
+    "local full-validation chain",
+    "exact hosted CI and later actual Dev evidence separately",
+    "formalQA11/device/child/owner stay null"
+  ],
+  "no_findings_closed": true
+}

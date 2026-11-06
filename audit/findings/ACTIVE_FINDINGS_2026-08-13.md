@@ -538,6 +538,8 @@ R126source production2026-11-02: [painted Melody note token](../../docs/handoffs
 
 ## MA-VIS-008
 
+[R145 painted pool-cabinet/zone candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/README.md) registers one actual painted fixture,17 current native diagnostics and the full retained local validation chain. Source cafce6e8 is published and all452 required files are anonymously verified; hosted CI and Racer Dev integration remain pending. Visible roads, HUD/control shapes and full-speed contact remain open. No accepted removal, scene completion or lifecycle change.
+
 [R144 painted shared-shell candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md) is integrated on DevF1 after exact-head source CI passed; all33 current source-delivery files were anonymously byte-verified. The5557 runtime inputs and same-scene diagnostic evidence remain unchanged. Formal QA11, complete natural routes, device, child and owner acceptance remain open; finding lifecycle and accepted-removal credit are unchanged.
 
 [R143 Dev integration](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/README.md) publishes the exact required-painted Racer repair and verifies15existing implementations on Dev. Technical/source integration is evidenced; no visual/device/child/owner closure or accepted-removal credit is claimed.

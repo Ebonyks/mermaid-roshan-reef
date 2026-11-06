@@ -1,0 +1,79 @@
+{
+  "id": "flat-vector-r145-racer-source-canonical-20261106",
+  "baseline": "ef37f6e2d4ce68f4faeda7f617047bf55f445b18",
+  "scope": "Reconcile actually published painted pool cabinet and Racer room-zone candidate; source branch exact CI running, Dev pending. No game-code change on old canonical checkout.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-ASSET-03",
+    "DL-ASSET-05",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-VIS-008"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/CAPTURE_METHOD.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/COUNT_DELTA.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/CURRENT_NATIVE_VISUAL_REVIEW.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/DEV_METADATA_RECONCILIATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/DKC_DEV_INTEGRATED.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/FRAME_EVENTS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/PAINTED_FIXTURE_PROVENANCE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/PER_PIECE_RECORD.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/PLAN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/PRIOR_CANONICAL_CI_COMPLETED.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/PRODUCTION_RECORD.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/SOURCE_CI_AT_INTAKE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/SOURCE_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/TEN_AXIS_POOL_COMPARISON.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/VALIDATION_CHAIN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/authority.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/coverage_auto.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/coverage_base.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Actual Racer source manifest anonymous byte/SHA256 verification",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/SOURCE_REMOTE_VERIFICATION.json;452files exactcafce6e8."
+    },
+    {
+      "command": "Actual source local static/import/analyzers/2focused/82trusted/final2D and17native views",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/VALIDATION_CHAIN.json and FRAME_EVENTS.json; exact5571 source inputs, retained originalfailure and bounded repair."
+    },
+    {
+      "command": "Exact work branch hosted CI42242512898 and later Dev integration",
+      "result": "PENDING",
+      "evidence": "Sourcecafce6e8; existing healthy run retained, no restart or Dev claim."
+    },
+    {
+      "command": "Canonical metadata authority/coverage",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/GATES.json"
+    },
+    {
+      "command": "Repeat old canonical game engine suite",
+      "result": "NOT_APPLICABLE",
+      "evidence": "No runtime/build-input change on canonical checkout; actual current game proof is sourcecafce6e8, not this old game."
+    }
+  ],
+  "acceptance_gaps": "FormalQA11, whole routes/states, device, child, owner, listening/controller and complete art/contact/style remain open. Roads/HUD/control primitives remain visible unresolved scope. Zero accepted removals and complete scenes; unknown global denominators."
+}

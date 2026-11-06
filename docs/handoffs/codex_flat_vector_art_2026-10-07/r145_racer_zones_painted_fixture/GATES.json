@@ -1,0 +1,40 @@
+{
+  "state": "PASS_CANONICAL_METADATA_ONLY",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/authority.log",
+      "sha256": "35d4d8f4bdc091ba105955538ccd9595c37eecc85c8496b21e022ec8777d9b9d"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/coverage_auto.log",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "ef37f6e2d4ce68f4faeda7f617047bf55f445b18"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/coverage_base.log",
+      "sha256": "86d7f321f42fe111a59fa99dc07d3a6132f3aeb8de37058d5fea9953b4f3d496"
+    }
+  ],
+  "runtime_suite": "NOT_APPLICABLE; no game changes. Actual current sourcecafce6e8 full validation retained separately."
+}

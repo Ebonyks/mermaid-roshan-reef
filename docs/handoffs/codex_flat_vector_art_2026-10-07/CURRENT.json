@@ -1,12 +1,12 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-DEV-20261106-R144-PAINTED-SHARED-SHELL",
-  "current_entry": "r144_shared_painted_shell/README.md",
+  "revision": "FV-SOURCE-20261106-R145-RACER-ZONES-PAINTED-FIXTURE",
+  "current_entry": "r145_racer_zones_painted_fixture/README.md",
   "current_per_piece": "r96_geologist_mineral_candidate/per_piece.json",
   "current_scene_coverage": "r96_geologist_mineral_candidate/scene_coverage.json",
   "current_tally": "r96_geologist_mineral_candidate/tally.json",
   "current_backlog": "r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/MANIFEST.json",
+  "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
@@ -7111,8 +7111,8 @@
   "r143_partial_Dev_artifact_delta": 16,
   "immutable_r143_receipt_revision": "504c290443c280ae543cb5caa1fe671340821ad4",
   "immutable_r144_payload_revision": "4bd9101a5b88ce8f0388917f297a849403e01ef3",
-  "current_payload_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f1cced56d299695580509b0d3c96e75f7f5e75ce/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/MANIFEST.json",
-  "current_remote_verification": "r144_shared_painted_shell/dev_integration_20261106/SOURCE_REMOTE_VERIFICATION.json",
+  "current_payload_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5/docs/handoffs/codex_recent_updates_dev_2026-11-06/MANIFEST.json",
+  "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/SOURCE_REMOTE_VERIFICATION.json",
   "immutable_r144_receipt_revision": "d7c61f2636b4828a5158b3276dffdf695e5eeee3",
   "previous_receipt_manifest": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/d7c61f2636b4828a5158b3276dffdf695e5eeee3/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/RECEIPT_MANIFEST.json",
   "r144_prior_current_art_source_context": {
@@ -7201,5 +7201,73 @@
     "master_promoted": false,
     "checked_at_utc": "2026-11-06T12:42:51.075424+00:00"
   },
-  "current_manifest_at_Dev_integration_intake": "r144_shared_painted_shell/dev_integration_20261106/MANIFEST.json"
+  "current_manifest_at_Dev_integration_intake": "r144_shared_painted_shell/dev_integration_20261106/MANIFEST.json",
+  "r145_prior_navigation": {
+    "revision": "FV-DEV-20261106-R144-PAINTED-SHARED-SHELL",
+    "current_entry": "r144_shared_painted_shell/README.md",
+    "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/MANIFEST.json",
+    "current_payload_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f1cced56d299695580509b0d3c96e75f7f5e75ce/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/MANIFEST.json",
+    "current_remote_verification": "r144_shared_painted_shell/dev_integration_20261106/SOURCE_REMOTE_VERIFICATION.json"
+  },
+  "r145_source_production": {
+    "state": "PUBLISHED_RACER_PAINTED_FIXTURE_SOURCE_CI_RUNNING_DEV_PENDING",
+    "artifact_key": "r145_racer_zones_painted_fixture_runtime",
+    "stable_source_item_id": "pool_towel_cabinet",
+    "stable_ids": [
+      "FVR-B287940E825E"
+    ],
+    "producer_source": "8c9bc130766725965a76eca876ef683b92242334",
+    "source_revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+    "source_branch": "codex/recent-finished-updates-dev-20261106",
+    "tested_runtime_checkpoint": "7fd0cd1a30e62433f58aafebf7dd77d6e8e05d98",
+    "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5/docs/handoffs/codex_recent_updates_dev_2026-11-06/MANIFEST.json",
+    "source_required_anonymous_files": 452,
+    "source_CI": {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "runs": [
+        {
+          "conclusion": "",
+          "databaseId": 42242512898,
+          "headSha": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+          "status": "in_progress",
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42242512898",
+          "workflowName": "Probe suite (graphics fork)"
+        }
+      ],
+      "checked_at_utc": "2026-11-06T15:23:32.308538+00:00"
+    },
+    "current_Dev_at_intake": "5b92d1c216a78852559725a9db0b8ec37f7f6c7e",
+    "Dev_integration": false,
+    "new_source_artifacts": 1,
+    "new_partial_Dev_artifacts": 0,
+    "new_named_roles": 1,
+    "new_families": 0,
+    "new_runtime_PNG_in_source": 1,
+    "new_generation_calls_here": 0,
+    "historical_named_static_generation_attempts": 1,
+    "actual_backend": "built-in image_gen; model/provider revision not exposed",
+    "new_native_frame_events": 17,
+    "new_bounded_frame_events": 17,
+    "new_excluded_frame_events": 0,
+    "historical_producer_views_not_retallied": 73,
+    "candidate": true,
+    "local_integration": true,
+    "runtime_machine": "Exact Godot4.7.2 import/analyzers/static, 867 audio recheck, two focused Racer probes,82strict trusted exits and final2D pass after retained derived-summary merge failure; normal saves unchanged. Runtime5571 inputs preserved across later Dev-doc merge.",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "complete_scene_coverage": 0,
+    "count_limits": "One painted fixture implementation, not five voice files, 16 course zones, one family or one complete game. Visible procedural roads, shader materials, HUD/control primitives remain open. No accepted-removal or whole-scene credit.",
+    "remaining_scope": [
+      "visible roads and floor material shader",
+      "HUD/minimap/control shapes",
+      "full-speed prop scale/contact/occlusion and natural routes",
+      "exact cabinet towel/shelf/base identity and ten-axis owner review",
+      "all zone/route/saved/input/device variants",
+      "formalQA11/device/child/owner acceptance"
+    ],
+    "mission_complete": false
+  }
 }
