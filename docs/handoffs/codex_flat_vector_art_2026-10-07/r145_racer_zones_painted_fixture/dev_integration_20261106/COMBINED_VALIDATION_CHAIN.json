@@ -1,0 +1,36 @@
+{
+  "state": "ACTUAL_COMBINED_MACHINE_GATES_PASS_AFTER_RETAINED_CAST_SETUP_FAILURE",
+  "runtime_inputs": 5580,
+  "validated_staged_tree": "10a8ba0fcd1aa432d0fa85852edb04ecb3950f47",
+  "source_parents": [
+    "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+    "58b29d1014d27b29e7e5313d4dcff5f8beffc14b"
+  ],
+  "successful_gate_commands": 90,
+  "recorded_command_attempts": 91,
+  "first_stream_successes": 6,
+  "first_stream_setup_failure": {
+    "exit": 2,
+    "guard": "BUBBLESTRESS isolated test directory required",
+    "before_trial": true
+  },
+  "resumed_commands": 84,
+  "trusted_unique_commands": 82,
+  "expected_headless_capture_skip": 1,
+  "fixed_source_cast_bouts": 4,
+  "cast_checks": 740,
+  "fresh_process_reload": "PASS",
+  "source_or_probe_edits_for_repair": 0,
+  "new_physics_design_variants": 0,
+  "no_healthy_prefix_replayed": true,
+  "first_source_pin": "evidence/first_stream/SOURCE_PIN.json",
+  "final_result": "evidence/resumed_stream/FINAL_RESULT.json",
+  "normal_child_save_unchanged": true,
+  "new_native_frame_events": 0,
+  "existing17_Racer_capture_source": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "Dev_integrated": false
+}

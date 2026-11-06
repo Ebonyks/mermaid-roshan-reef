@@ -1,0 +1,72 @@
+{
+  "id": "flat-vector-r145-dev-integration-20261106",
+  "baseline": "08a5668d2c36b97471d8e0ab08a7e9fa9be97505",
+  "scope": "Publish verified actual R145 painted-cabinet/zone code integration on current green e700,305-file public source receipt and one partialDev artifact. Preserve all old source/native/failure/acceptance evidence and add already-counted R144 to key list with zero credit. Metadataonly oldcanonical checkout, never a runtime merge source.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-03",
+    "DL-ASSET-05",
+    "DL-VIS-07",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-008"
+  ],
+  "files": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/PRODUCTION_RECORD.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/COMBINED_VALIDATION_CHAIN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/COUNT_DELTA.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/DELIVERY_RECORD.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/DEV_INTEGRATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/FINAL_SOURCE_BINDING.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/PARENT_PRESERVATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/PRIOR_CANONICAL_CI_FAILURES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/RUNTIME_UNCHANGED.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/SOURCE_CI_COMPLETED.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/SOURCE_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/authority.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/coverage_auto.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/coverage_base.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Actual combined game local/hosted CI and normalgreen Dev integration",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/DEV_INTEGRATION.json and SOURCE_CI_COMPLETED.json; sourcee700,5580inputs,90localpassedcommands91attempts."
+    },
+    {
+      "command": "All305 current source required files anonymous byte/SHA256 verification",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/SOURCE_REMOTE_VERIFICATION.json"
+    },
+    {
+      "command": "Canonical metadata authority/coverage and source-unchanged proof",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/GATES.json and RUNTIME_UNCHANGED.json: all three exact commands exit0, every non-metadata root Git object unchanged."
+    },
+    {
+      "command": "Repeat oldcanonical game engine or newcapture/generation",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Metadataonly; actualcurrentgamee700 separatelytested, original17CAF diagnostic frames reused, zero newart/framecredit."
+    }
+  ],
+  "acceptance_gaps": "FormalQA11, natural/full route and view closure, physicaldevice/controllers, fullspeed/contact/style/identity, child and owner remainopen. Noacceptedremoval/complete scene; unknownwhole denominators. CurrentmatchingAPK separate."
+}

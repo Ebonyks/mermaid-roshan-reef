@@ -1,0 +1,19 @@
+{
+  "state": "RETAINED_OLDER_CANONICAL_MUSIC_DOWNLOAD_FAILURES_SEPARATE_FROM_GREEN_CURRENT_GAME",
+  "first": {
+    "run": 42243996610,
+    "head": "08a5668d2c36b97471d8e0ab08a7e9fa9be97505",
+    "job": 127981311271,
+    "log_sha256": "d6a33471a21190ee487349a735c5252d290f77814a20cc9341cb9ca21a811e96"
+  },
+  "only_failed_music_retry": {
+    "attempt": 2,
+    "job": 128009241759,
+    "log_sha256": "0604946deb653e23155ed642a478dae159364285b6470b0f939e6b6d5fefcfaa"
+  },
+  "cause": "PinnedFFmpeg8.1.2 downloadHTTP503; no musicrender verdict. ProbesSUCCESS retainedsametimes, no healthyengine rerun.",
+  "immutable_failure_evidence": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/e70081ea871bd2aab2440be2168abe33d20ee328/docs/handoffs/codex_recent_updates_dev_2026-11-06/dev_reconcile_58b29d10/evidence",
+  "current_actual_game_source_CI": 42263918314,
+  "current_game_both_jobs": "SUCCESS",
+  "canonical_runtime_repeat": "NOT_APPLICABLE; metadataonly oldcheckout is never a game merge source."
+}

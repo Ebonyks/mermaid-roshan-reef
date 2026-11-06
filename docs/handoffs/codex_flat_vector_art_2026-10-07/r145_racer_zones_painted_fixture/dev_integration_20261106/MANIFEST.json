@@ -1,0 +1,459 @@
+{
+  "state": "SEALED_ACTUAL_STAGED_BYTE_MANIFEST",
+  "id": "FV-R145-ACTUAL-DEV-20261106",
+  "baseline": "08a5668d2c36b97471d8e0ab08a7e9fa9be97505",
+  "actual_game_source": "e70081ea871bd2aab2440be2168abe33d20ee328",
+  "actual_game_source_CI": 42263918314,
+  "actual_Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/DEV_INTEGRATION.json",
+  "source_required_files_verified": 305,
+  "hash_contract": "SELF hashes are exact staged Git blob bytes; external immutable rows retain original image/capture/provenance revisions. Manifest fetched separately and hash-bound by remote receipt. No recursive past archive dependency.",
+  "source_artifact_delta": 0,
+  "partial_Dev_artifact_delta": 1,
+  "R144_existing_key_repair_extra_credit": 0,
+  "native_event_delta": 0,
+  "new_generation_calls": 0,
+  "accepted_removed": 0,
+  "complete_scenes": 0,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "mission_complete": false,
+  "files": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/FRAME_EVENTS.json",
+      "revision": "08a5668d2c36b97471d8e0ab08a7e9fa9be97505",
+      "bytes": 12253,
+      "sha256": "30950903e3e6214382c52fb64d2ad30560286c1cbb0b329410eaa4dfdd7f9395",
+      "role": "unchanged_canonical_candidate_provenance_and_ten_axis_context_no_new_art_credit"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/PAINTED_FIXTURE_PROVENANCE.json",
+      "revision": "08a5668d2c36b97471d8e0ab08a7e9fa9be97505",
+      "bytes": 2037,
+      "sha256": "981e8dae26299034d10a85d1cb57bbd6f52408b372d8524e87ffd13b8fcbcb62",
+      "role": "unchanged_canonical_candidate_provenance_and_ten_axis_context_no_new_art_credit"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/TEN_AXIS_POOL_COMPARISON.json",
+      "revision": "08a5668d2c36b97471d8e0ab08a7e9fa9be97505",
+      "bytes": 5774,
+      "sha256": "48643efed8293a58ea011513e2b740037d4c80673886a0216080b4c41c251f0e",
+      "role": "unchanged_canonical_candidate_provenance_and_ten_axis_context_no_new_art_credit"
+    },
+    {
+      "path": ".gitattributes",
+      "revision": "SELF",
+      "bytes": 15169,
+      "sha256": "2c2d9362a3623bd006857f58d15b97aa752e7e1f4ed4ace82240155ab2bafb11",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "revision": "SELF",
+      "bytes": 305823,
+      "sha256": "1b4a018aecd9267aa65809d268d76999e8e9fdfff5fa8acd895d9c03b3125bac",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "revision": "SELF",
+      "bytes": 337050,
+      "sha256": "140d09d5f7bf47d6c97116ce5c477b1b619c02f871081dc52fe605b8a24deec8",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "revision": "SELF",
+      "bytes": 373262,
+      "sha256": "84faff48c5b30b6c5ca1fc5db1bbb8fb5236cc8fcd1c7d9c204aa87ed59893b8",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "revision": "SELF",
+      "bytes": 284802,
+      "sha256": "22a1bc7660d2541f7127d82eebd624605c9214c6f67ab7a7164c32aa18b541f2",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-r145-dev-integration-20261106.json",
+      "revision": "SELF",
+      "bytes": 5328,
+      "sha256": "b8183ef7b58c32464502ed37083c7f1afe983597fce7b9c8095850d09e9841b5",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "revision": "SELF",
+      "bytes": 338658,
+      "sha256": "18c99afc298fa8afa4b95139ca2cde5e15486f62765b26833e0c448417d86398",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/PRODUCTION_RECORD.json",
+      "revision": "SELF",
+      "bytes": 27772,
+      "sha256": "afcf4d672bbdab2fd9f906bd655e14572638f4be9fc31d291efcfe183e1217d6",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/README.md",
+      "revision": "SELF",
+      "bytes": 2041,
+      "sha256": "7bc3c63e033e2a7103d08a3bc1bf070392990f2175b2b8a937e1e60c3b66a481",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/COMBINED_VALIDATION_CHAIN.json",
+      "revision": "SELF",
+      "bytes": 1227,
+      "sha256": "948e24a3d8706abc348caf4f240db7b3796ab6d71221bfced17e91e0f673a77a",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/COUNT_DELTA.json",
+      "revision": "SELF",
+      "bytes": 2660,
+      "sha256": "d1239386f39aa029c5da18aeec0ea297d487c4859ae356ee77a854a22d5c9757",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/DELIVERY_RECORD.json",
+      "revision": "SELF",
+      "bytes": 24769,
+      "sha256": "f76c749c2cb0f2ee651f6983542f399191b0dbe1b90920fc8cf6cb0d9a06eaf9",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/DEV_INTEGRATION.json",
+      "revision": "SELF",
+      "bytes": 11863,
+      "sha256": "675d219f980bc050bc8eea30a787900442c1b5005080bd13275dc5b89f78d1f9",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/FINAL_SOURCE_BINDING.json",
+      "revision": "SELF",
+      "bytes": 1671,
+      "sha256": "8ee784c98c341a2b40423795b527bc148bbf8ca7d00a7e79fa4dea69a9010715",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/GATES.json",
+      "revision": "SELF",
+      "bytes": 1844,
+      "sha256": "d131d0b68929c00a76f7031255751dc5285eadbd4901e9e0bd13ca8a5b348a4b",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/PARENT_PRESERVATION.json",
+      "revision": "SELF",
+      "bytes": 3360,
+      "sha256": "f882ae699ff3932df4a5719336d884d068a44d668fa326b726d55c46d7d85753",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/PRIOR_CANONICAL_CI_FAILURES.json",
+      "revision": "SELF",
+      "bytes": 1002,
+      "sha256": "2bfd9fb8514db92d0bb41e2f9779925dfe61bddfb50f1b1ffef311ce406b10d2",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/README.md",
+      "revision": "SELF",
+      "bytes": 1881,
+      "sha256": "74c7b289abfe5b9864e86707b64f4821dcc688d30bcef2e8ea313275c80c8e65",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/RUNTIME_UNCHANGED.json",
+      "revision": "SELF",
+      "bytes": 25285,
+      "sha256": "585ba7cad0ade74ea6bcce73c7f9913fb22fba7326985d6c1b705c7aa391450c",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/SOURCE_CI_COMPLETED.json",
+      "revision": "SELF",
+      "bytes": 9748,
+      "sha256": "908501e697f98872769fdd6696a79c0fa082fa653e8ac640c426e4f2da2e6374",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/SOURCE_REMOTE_VERIFICATION.json",
+      "revision": "SELF",
+      "bytes": 205771,
+      "sha256": "c8c197829d691b630887f9ba74dbbe20c4f318b4ff6bf2fe64bae7e6c359c99b",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/authority.log",
+      "revision": "SELF",
+      "bytes": 78,
+      "sha256": "72209add5bc1e184d3efe12a47999a2f5b1cb2092f2eba463428dcee3b571e50",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/coverage_auto.log",
+      "revision": "SELF",
+      "bytes": 80,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/coverage_base.log",
+      "revision": "SELF",
+      "bytes": 80,
+      "sha256": "5ff4f1666ca80b1fcea0887ed279d6898451556008c5c0c1bae8f9830502f5db",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+      "revision": "SELF",
+      "bytes": 578499,
+      "sha256": "1417b82d691f1919c49b35336b45bc256df633f38059565fc6b231dd2525bd0e",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+      "revision": "SELF",
+      "bytes": 367023,
+      "sha256": "be430e2e35edef0a583ef9dbccf0a0b918c794bea4c4ba1f41859eed3ceaec4a",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+      "revision": "SELF",
+      "bytes": 2478709,
+      "sha256": "04b42bcaa9daf1b54b66ba70d348f07d4b45ba7d34d4480113af7ac0a5e2fcea",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+      "revision": "SELF",
+      "bytes": 2184553,
+      "sha256": "ba5134d309cc0cc3b2c4af82e3949c48497c078dface2b5df420d0072815644f",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json",
+      "revision": "SELF",
+      "bytes": 837123,
+      "sha256": "f436dd6d03299e6f38371a16edb2e58f2ba6ab0c7fca0f2ec77df2fa75c8592a",
+      "role": "actual_changed_canonical_metadata_or_current_Dev_evidence"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/generation_job.json",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 1886,
+      "sha256": "8b45b0442a6a5adbe19e77314052e6d737de3054e09abe6926adc1f1846a6a23"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/pool_towel_cabinet_native.png",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 2024779,
+      "sha256": "b7db69a6e6e0bd8919918dcd32b5cea71baf40fde4f73ff92c670abf77db318b"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/runtime_exports.json",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 805,
+      "sha256": "8ddd03799946e66c9c5fa2309ef515577f881f447c19df6bbedfe6fab63a6795"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/source_inputs.json",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 15575,
+      "sha256": "ff10a510cd6bd0cd7b83de8005c8a138667b3a9e7456e6f1c52dc02b51939cf6"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/canal-gas.png",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 787745,
+      "sha256": "53991de00d2072a1c7639ee6231a6e579ac457ee862cf5d2e01e27febb6102db"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/captures.json",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 5624,
+      "sha256": "402aa2a5e3f22630ff3a5aaa7fdfe307fa9ddd81645010570946967d9dafb9d0"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/kitchen-solo-threshold-0.png",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 733236,
+      "sha256": "c33f8f1edd7e1a82747b53bcd7f152c7a2974aada5fa6b29817fd17bab8cdb73"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/kitchen-solo-zone-0.png",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 611380,
+      "sha256": "36d37bc33f8b037615c1740d8e335acb814e4569b167fdc578e24a64b625478f"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/kitchen-split-threshold-0.png",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 557819,
+      "sha256": "818eb221912e418ce4a48f7bfb1bf3608551b71300ac50439531b53847d31b66"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/kitchen-split-zone-0.png",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 434565,
+      "sha256": "dbca7684f1b5dc986b3e7357541eaf58d49a379baa946d61afd776214e36021a"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/mermaid_pool-solo-threshold-0.png",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 682729,
+      "sha256": "be7cfcfb399076452c41f24dda2e9ff2bf04ab5444bfba3b2b5c3677c3b1a296"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/mermaid_pool-solo-zone-0.png",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 647678,
+      "sha256": "dea40c3498c7dd9d397ca526d86ab3d3409729c8d8a0494dc964cfb6cae12b3c"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/mermaid_pool-split-threshold-0.png",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 551444,
+      "sha256": "7b3c4a53292f1ca3d50bdc4cf1a58004a56f6486e4c327ad50aa7550bdf64b3d"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/mermaid_pool-split-zone-0.png",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 517506,
+      "sha256": "66ba5ad1392094c02634b9e3624af16c6d017c238cd367c3a0aee9ed51746927"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/opera_hall-solo-threshold-0.png",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 612631,
+      "sha256": "75c7e2953eb1b6ba30b56295b8ecc287c329c24cf6900ecf3e5298e718b6deda"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/opera_hall-solo-zone-0.png",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 550882,
+      "sha256": "da793b2dd25461c9fb8010d89c6edb5f1db4a13fae0594d0f4078a174fb9e17b"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/opera_hall-split-threshold-0.png",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 532474,
+      "sha256": "e5f219762d9a2e3e320fd65879fe8d5e8cbd89ef1baf86c4a707149a4755a622"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/opera_hall-split-zone-0.png",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 382684,
+      "sha256": "f30538b956ff023db8e43f526a37426e88240dba324da1c623e2bce924c755af"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/playroom-solo-threshold-0.png",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 627948,
+      "sha256": "8f0a85a2c7bcecc24605d63ccdcd7e6ce7bb22d326db9f28c553c007c93ff3a9"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/playroom-solo-zone-0.png",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 673693,
+      "sha256": "ad605533be20d4e190dc4ae8480a60c9e972f0660989062d009f026fef7ca009"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/playroom-split-threshold-0.png",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 571036,
+      "sha256": "a6a963fe43a53a73870aa5f90866db837d034df3b4d255cd6d0252b4d8fba8ec"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/playroom-split-zone-0.png",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 653487,
+      "sha256": "a1b85c564419d1502bca7906a5f81025b376fda8e9ffcbce5761c08063cdc212"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/profile.json",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 556,
+      "sha256": "5b5c427e2241f1c4a5afd401a73187ee0de0b18945838fbd16bb81ea60cb8233"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/CURRENT_NATIVE_VISUAL_REVIEW.json",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 9448,
+      "sha256": "aa85173309401effe6b5905a53f23348bb3bc7a1aa091c38fb296bccf162f8b1"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/PAINTED_FIXTURE_PROVENANCE.json",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 2037,
+      "sha256": "981e8dae26299034d10a85d1cb57bbd6f52408b372d8524e87ffd13b8fcbcb62"
+    },
+    {
+      "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/TEN_AXIS_POOL_COMPARISON.json",
+      "role": "unchanged_direct_candidate_visual_or_derivation_evidence_original_provenance",
+      "bytes": 5774,
+      "sha256": "48643efed8293a58ea011513e2b740037d4c80673886a0216080b4c41c251f0e"
+    },
+    {
+      "revision": "e70081ea871bd2aab2440be2168abe33d20ee328",
+      "path": "assets/racer/zones_v1/pool_towel_cabinet.png",
+      "role": "actual_unchanged_Dev_candidate_runtime_output",
+      "bytes": 1058833,
+      "sha256": "3e2e3388b4ae10a6f0708aa71f4c2df1c5388e51f4bbb8b27109cae2263e006a"
+    },
+    {
+      "revision": "e70081ea871bd2aab2440be2168abe33d20ee328",
+      "path": "assets/racer/zones_v1/pool_towel_cabinet.png.import",
+      "role": "actual_unchanged_Dev_candidate_runtime_output",
+      "bytes": 979,
+      "sha256": "d0a50676052d6cfef53674926fb1d6cf41fafb6fdeb529d8a33e41ebb4dfbdf8"
+    },
+    {
+      "revision": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+      "path": "assets_src/imagegen/mermaid_pool_room_2026-08-02/room_mermaid_pool_fullframe_v3_native.png",
+      "role": "same_pool_approved_appearance_or_prior_scene_reference",
+      "bytes": 2361881,
+      "sha256": "2a4bd923c26d5f7980fc8a723576ecb573097e30bc94090f75437833fc3d55a5"
+    },
+    {
+      "revision": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/candidate/mermaid_pool-solo-grid.png",
+      "role": "same_pool_approved_appearance_or_prior_scene_reference",
+      "bytes": 716843,
+      "sha256": "659164d91fec9ca8a9a96921896c4f827863be29840e55e5cc6003103e872aed"
+    }
+  ],
+  "created_at_utc": "2026-11-06T18:49:20.709549+00:00"
+}

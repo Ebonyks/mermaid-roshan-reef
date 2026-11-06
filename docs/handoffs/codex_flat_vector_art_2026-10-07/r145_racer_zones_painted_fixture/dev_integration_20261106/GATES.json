@@ -1,0 +1,47 @@
+{
+  "state": "PASS_METADATA_AUTHORITY_AND_ACTUAL_DIFF_COVERAGE",
+  "baseline": "08a5668d2c36b97471d8e0ab08a7e9fa9be97505",
+  "results": [
+    {
+      "name": "authority",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/authority.log",
+      "sha256": "72209add5bc1e184d3efe12a47999a2f5b1cb2092f2eba463428dcee3b571e50"
+    },
+    {
+      "name": "coverage_auto",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/coverage_auto.log",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023"
+    },
+    {
+      "name": "coverage_base",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "08a5668d2c36b97471d8e0ab08a7e9fa9be97505"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/coverage_base.log",
+      "sha256": "5ff4f1666ca80b1fcea0887ed279d6898451556008c5c0c1bae8f9830502f5db"
+    }
+  ],
+  "runtime_engine_repeat": "NOT_APPLICABLE_metadata_only_old_checkout",
+  "actual_current_game_source": "e70081ea871bd2aab2440be2168abe33d20ee328",
+  "actual_current_game_CI": 42263918314,
+  "checked_at_utc": "2026-11-06T18:49:19.821964+00:00"
+}

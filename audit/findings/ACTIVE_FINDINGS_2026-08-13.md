@@ -538,7 +538,9 @@ R126source production2026-11-02: [painted Melody note token](../../docs/handoffs
 
 ## MA-VIS-008
 
-[R145 painted pool-cabinet/zone candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/README.md) registers one actual painted fixture,17 current native diagnostics and the full retained local validation chain. Source cafce6e8 is published and all452 required files are anonymously verified; hosted CI and Racer Dev integration remain pending. Visible roads, HUD/control shapes and full-speed contact remain open. No accepted removal, scene completion or lifecycle change.
+[R145 actual Dev integration](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/README.md) verifies exact green e700 source,305 anonymous required files and the retained90-gate combined validation chain. Samepainted cabinet and original17CAF diagnostic frames; one newpartialDev code artifact, no newpiece/frame/removal credit. Visible roads/HUD/control shapes and allformal/device/child/owner acceptance remain open. Finding lifecycle unchanged.
+
+Historical source intake before Dev integration: [R145 painted pool-cabinet/zone candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/README.md) registers one actual painted fixture,17 current native diagnostics and the full retained local validation chain. Source cafce6e8 is published and all452 required files are anonymously verified; hosted CI and Racer Dev integration remain pending. Visible roads, HUD/control shapes and full-speed contact remain open. No accepted removal, scene completion or lifecycle change.
 
 [R144 painted shared-shell candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md) is integrated on DevF1 after exact-head source CI passed; all33 current source-delivery files were anonymously byte-verified. The5557 runtime inputs and same-scene diagnostic evidence remain unchanged. Formal QA11, complete natural routes, device, child and owner acceptance remain open; finding lifecycle and accepted-removal credit are unchanged.
 
