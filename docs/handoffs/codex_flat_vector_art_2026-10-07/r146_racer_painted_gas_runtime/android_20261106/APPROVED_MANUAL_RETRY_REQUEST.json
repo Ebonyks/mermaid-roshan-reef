@@ -1,0 +1,324 @@
+{
+  "state": "DISPATCH_ACKNOWLEDGED_FIND_ACTUAL_NEW_HANDLE",
+  "source": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+  "Dev_CI": {
+    "conclusion": "success",
+    "databaseId": 42300176898,
+    "headBranch": "dev",
+    "headSha": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+    "jobs": [
+      {
+        "completedAt": "2026-11-06T22:45:44Z",
+        "conclusion": "success",
+        "databaseId": 128175607257,
+        "name": "probes",
+        "startedAt": "2026-11-06T21:51:55Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-11-06T21:51:57Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-11-06T21:51:56Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:00:26Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+            "number": 2,
+            "startedAt": "2026-11-06T21:51:57Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:00:28Z",
+            "conclusion": "success",
+            "name": "Download Godot (checksum-verified)",
+            "number": 3,
+            "startedAt": "2026-11-06T22:00:26Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:02:45Z",
+            "conclusion": "success",
+            "name": "Static gates (parse + Variant-inference lint)",
+            "number": 4,
+            "startedAt": "2026-11-06T22:00:28Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:06:08Z",
+            "conclusion": "success",
+            "name": "Import (deadlock-guarded)",
+            "number": 5,
+            "startedAt": "2026-11-06T22:02:45Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:17:31Z",
+            "conclusion": "success",
+            "name": "Compile-check every script (real analyzer, catches what parse-only cannot)",
+            "number": 6,
+            "startedAt": "2026-11-06T22:06:08Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:34:58Z",
+            "conclusion": "success",
+            "name": "Run trusted probes",
+            "number": 7,
+            "startedAt": "2026-11-06T22:17:31Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:35:11Z",
+            "conclusion": "success",
+            "name": "Boot gate (real viewport \u2014 the area the phone opens in)",
+            "number": 8,
+            "startedAt": "2026-11-06T22:34:58Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:40:17Z",
+            "conclusion": "success",
+            "name": "Dust boss balance playtest (advisory)",
+            "number": 9,
+            "startedAt": "2026-11-06T22:35:11Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:40:27Z",
+            "conclusion": "success",
+            "name": "Opera balance playtest (advisory)",
+            "number": 10,
+            "startedAt": "2026-11-06T22:40:17Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:40:30Z",
+            "conclusion": "success",
+            "name": "Publish opera art manifest (advisory)",
+            "number": 11,
+            "startedAt": "2026-11-06T22:40:27Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:40:31Z",
+            "conclusion": "success",
+            "name": "Upload opera art manifest",
+            "number": 12,
+            "startedAt": "2026-11-06T22:40:30Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:40:32Z",
+            "conclusion": "success",
+            "name": "Capture first-world visual review",
+            "number": 13,
+            "startedAt": "2026-11-06T22:40:31Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:41:47Z",
+            "conclusion": "success",
+            "name": "Capture legacy human-art diagnostic",
+            "number": 14,
+            "startedAt": "2026-11-06T22:40:32Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:41:50Z",
+            "conclusion": "success",
+            "name": "Upload legacy human-art diagnostic",
+            "number": 15,
+            "startedAt": "2026-11-06T22:41:47Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:42:05Z",
+            "conclusion": "success",
+            "name": "Capture Sky Lagoon visual review",
+            "number": 16,
+            "startedAt": "2026-11-06T22:41:50Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:42:08Z",
+            "conclusion": "success",
+            "name": "Upload Sky Lagoon visual review",
+            "number": 17,
+            "startedAt": "2026-11-06T22:42:05Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:43:01Z",
+            "conclusion": "success",
+            "name": "Capture northern-world visual review",
+            "number": 18,
+            "startedAt": "2026-11-06T22:42:08Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:43:04Z",
+            "conclusion": "success",
+            "name": "Upload northern-world visual review",
+            "number": 19,
+            "startedAt": "2026-11-06T22:43:01Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:45:22Z",
+            "conclusion": "success",
+            "name": "Capture dust-boss arena review",
+            "number": 20,
+            "startedAt": "2026-11-06T22:43:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:45:24Z",
+            "conclusion": "success",
+            "name": "Upload dust-boss arena review",
+            "number": 21,
+            "startedAt": "2026-11-06T22:45:22Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:45:38Z",
+            "conclusion": "success",
+            "name": "Capture pearl-castle visual review",
+            "number": 22,
+            "startedAt": "2026-11-06T22:45:24Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:45:40Z",
+            "conclusion": "success",
+            "name": "Upload pearl-castle visual review",
+            "number": 23,
+            "startedAt": "2026-11-06T22:45:38Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:45:42Z",
+            "conclusion": "success",
+            "name": "Upload advisory sensor receipts",
+            "number": 24,
+            "startedAt": "2026-11-06T22:45:40Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:45:42Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+            "number": 48,
+            "startedAt": "2026-11-06T22:45:42Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T22:45:42Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 49,
+            "startedAt": "2026-11-06T22:45:42Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42300176898/job/128175607257"
+      },
+      {
+        "completedAt": "2026-11-06T21:53:47Z",
+        "conclusion": "success",
+        "databaseId": 128175607806,
+        "name": "area-music-provenance",
+        "startedAt": "2026-11-06T21:51:55Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-11-06T21:51:56Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-11-06T21:51:56Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T21:52:31Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+            "number": 2,
+            "startedAt": "2026-11-06T21:51:56Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T21:53:00Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+            "number": 3,
+            "startedAt": "2026-11-06T21:52:31Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T21:53:44Z",
+            "conclusion": "success",
+            "name": "Verify deterministic area-music delivery",
+            "number": 4,
+            "startedAt": "2026-11-06T21:53:00Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T21:53:44Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+            "number": 7,
+            "startedAt": "2026-11-06T21:53:44Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T21:53:46Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+            "number": 8,
+            "startedAt": "2026-11-06T21:53:44Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-06T21:53:46Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 9,
+            "startedAt": "2026-11-06T21:53:46Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42300176898/job/128175607806"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42300176898"
+  },
+  "prior_auto_failed_run": 42307127746,
+  "prior_auto_failed_job": 128199171403,
+  "failure": "Actual runnerIOException NoSpace; joblogs unavailable. Runtimecheckout source unverified in failedautomaticrun; workflowcodeff68 is not its source proof.",
+  "owner_authorization": {
+    "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+    "path": "audit/cycles/android-build-capacity-20261105/owner_request.json",
+    "sha256": "d163441b28ef42e3da4393903cd352ed1aa22bbe3450548c4a5460f48d2e1baf",
+    "record": {
+      "owner": "Peter Creed",
+      "date": "2026-11-05",
+      "question": "May I apply the prepared Android-build fix that unpacks only Android templates to avoid the runner\u2019s disk-space failure? This edits .github/workflows/android.yml, which AGENTS.md requires you to authorize explicitly.",
+      "answer": "Approve the build-only fix",
+      "source": "Direct owner reply to request_user_input_async, questionItemId call_faa24b5e0afe4a2d97d124e5ae498648/0",
+      "implementation_dependency": "Dev-only manual retry is the implementer-selected routing required to apply the approved capacity change without promoting master. It must independently require successful exact-current-head push CI and preserve all signing/version/publishing contracts. This routing is not presented as an additional owner quotation."
+    }
+  },
+  "no_healthy_Android_run_before_dispatch": true,
+  "before_Dev": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+  "master_before": "ff68f9550c28f7d979896d5c84d1214264c29165",
+  "request_time": "2026-11-06T23:06:30.102405+00:00",
+  "dispatch_count": 1,
+  "method": "Existing android.yml workflow_dispatch --ref dev, uses alreadyapproved capacityfix and two exactcurrentDev/sourceCI guards. No workflow edit or masterpromotion.",
+  "dispatch_stdout": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42309593636\n",
+  "dispatch_acknowledged_at": "2026-11-06T23:06:31.755942+00:00"
+}

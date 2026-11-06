@@ -1,6 +1,6 @@
 Current production continuation: [R101 painted pan source delivery](r101_geologist_pan_current_dev/README.md). Exact current source/local checks and54native checks pass; sourceCI/Dev/formal/physical acceptance remain separate.
 
-Current R146 production: [painted Racer gas candidate](r146_racer_painted_gas_runtime/README.md). 47 published bounded source artifacts,46 partial Dev artifacts;282 named roles and36 families remain lower bounds. Retained native events8085 bounded/4411 excluded/12496 total are unchanged. R146 source CI is green and code is on Dev atfd860; Dev CI is a separate exact snapshot; correctedAPK/formal/natural/fullspeed/device/child/owner lanes remain open. Accepted removals0, complete scenes0, whole-game denominators unknown. Previous dated entries remain historical.
+Current R146 production: [painted Racer gas candidate](r146_racer_painted_gas_runtime/README.md). 47 published bounded source artifacts,46 partial Dev artifacts;282 named roles and36 families remain lower bounds. Native events8085 bounded/4411 excluded/12496 total are unchanged. ExactFDsource/DevCI and matching931,048,177-byte Android2371 package are verified, including painted gas and review-prefix exclusions. Formal/natural/fullspeed/device/child/owner remain open; accepted0, complete0, whole totals unknown. Previous dated entries remain historical.
 
 # Current R94 production
 

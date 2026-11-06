@@ -1,0 +1,82 @@
+{
+  "id": "flat-vector-r146-verified-android-20261106",
+  "baseline": "04cf570bc19a09d4551dae3ded49611a8cec425a",
+  "scope": "Publish exact matching current Dev Android2371 integrity/source/PCK/gas/exclusion/publicJARsigner proof and priorNoSpace/approvedretry. Metadataonly with allcounters/acceptanceunchanged; no oldcanonical game merge.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-03",
+    "DL-ASSET-05",
+    "DL-VIS-07",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-008"
+  ],
+  "files": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_QUEUE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/PRODUCTION_RECORD.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/APK_VERIFIED.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/APPROVED_MANUAL_RETRY_REQUEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/AUTOMATIC_FAILED_ANNOTATIONS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/AUTOMATIC_FAILED_JOB.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/COUNT_AND_ACCEPTANCE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/DOWNLOAD_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/EXPORT_BOUNDARY_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/MANUAL_BUILD_HANDLE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/PACKAGE_CONTENT_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/PCK_VIRTUAL_FILE_INDEX.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/PRIOR_CANONICAL_DEV_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/PUBLIC_SIGNATURE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/RELEASE_AT_INTAKE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/RUNTIME_UNCHANGED.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/RUN_COMPLETED.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/SOURCE_AND_PUBLIC_SIGNER.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/SOURCE_DEV_CI_COMPLETED.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/SOURCE_DEV_INTEGRATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/VERIFY_FD_APK.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/authority.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/coverage_auto.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/coverage_base.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/jarsigner.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/public_certificate.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/roshan-reef.apk.sha256",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Exact successfulFDsource/DevCI/manualAndroid and completeanonymousAPK+sidecarbytes",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/APK_VERIFIED.json, DOWNLOAD_RESULT.json, SOURCE_DEV_CI_COMPLETED.json and SOURCE_AND_PUBLIC_SIGNER.json"
+    },
+    {
+      "command": "FullZIPCRC/sparsePCKcensus/eightnamedresources/exportprefixes/publicJARv1signer",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/PACKAGE_CONTENT_VERIFICATION.json, EXPORT_BOUNDARY_VERIFICATION.json and PUBLIC_SIGNATURE_VERIFICATION.json"
+    },
+    {
+      "command": "Canonicalmetadata authority/coverage/allnonmetadata rootobjects unchanged",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/GATES.json and RUNTIME_UNCHANGED.json"
+    }
+  ],
+  "acceptance_gaps": "No formalQA11, natural/fullspeed, physicaldevice/child/owner proof. PublicJARscopeisnotAndroidv2/v3orinstallation. Allaccepted/completecounters0, wholedenominatorsunknown; defaultoldautoNoSpace remains a historicalfailedrun, notclaimedfixed."
+}

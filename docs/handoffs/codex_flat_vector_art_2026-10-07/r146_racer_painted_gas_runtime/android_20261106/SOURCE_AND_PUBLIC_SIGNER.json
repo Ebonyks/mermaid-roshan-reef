@@ -1,0 +1,16 @@
+{
+  "state": "PASS_TWO_EXACT_SOURCE_CI_GUARDS_AND_PUBLIC_SIGNER_BINDING",
+  "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+  "run": 42309593636,
+  "workflow_log_sha256": "c45c2359a342a35169228c84e8c7e64ff0aa81159337ee788ea7d9cac58be2ca",
+  "workflow_log_bytes": 2218465,
+  "exact_source_guard_lines": [
+    "build\tVerify exact green dev source\t2026-11-06T23:19:23.6158839Z ANDROID_SOURCE|PASS|dev|fd860fc196fb516d54badba5248c0f73ecaa9cb6|probe_run=42300176898",
+    "build\tRecheck current green dev before publishing\t2026-11-06T23:22:44.6176829Z ANDROID_SOURCE|PASS|dev|fd860fc196fb516d54badba5248c0f73ecaa9cb6|probe_run=42300176898"
+  ],
+  "public_signer_lines": [
+    "build\tRestore stable signing identity + editor settings\t2026-11-06T23:19:42.9100764Z \t SHA256: D5:F2:60:43:2D:CF:31:5D:E8:F2:85:C3:31:1E:DA:ED:C6:FE:2B:C0:1A:2F:04:7E:BE:1C:A1:CA:8F:FD:33:14"
+  ],
+  "secret_or_keystore_read": false,
+  "time": "2026-11-06T23:30:27.536266+00:00"
+}

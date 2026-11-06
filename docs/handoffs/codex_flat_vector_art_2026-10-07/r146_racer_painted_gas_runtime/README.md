@@ -1,5 +1,7 @@
 # R146 painted Racer gas button
 
+Current matching Android delivery: [verifiedFDpackage, source guards and corrected export boundary](android_20261106/README.md). DevCI42300176898 and approved build42309593636 pass. Physical-device/child/owner/formal acceptance remain open; earlier pending snapshots below retain their historical scope.
+
 Current Dev event: the painted gas button and scoped source-only export correction are integrated at `fd860fc196fb516d54badba5248c0f73ecaa9cb6` after exact source CI passed; the separate Dev CI snapshot is recorded honestly. [Dev evidence and count delta](dev_integration_20261106/README.md). Earlier source-pending intake below is historical at canonical733; no new images or acceptance credit. CorrectedAPK verification and formal/device/child/owner remain open.
 
 The actual painted gold gas candidate is [published on its game work branch](https://github.com/Ebonyks/mermaid-roshan-reef/tree/9ba54f9144cd19210bc333f6a677dfadf3a1bf37). [Native generation](GENERATION_JOB.json), [same-scene ten-axis comparison](TEN_AXIS_COMPARISON.json), [25native events](FRAME_EVENTS.json) and [production record](PRODUCTION_RECORD.json) retain its exact evidence. All271 required source files were fetched anonymously and byte/SHA-verified. One built-in ImageGen call; model/version selector was not exposed. Native1254RGBA and uniform512runtime export are preserved at immutable source.

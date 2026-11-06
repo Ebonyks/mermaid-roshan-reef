@@ -29887,7 +29887,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-DEV-20261106-R146-RACER-PAINTED-GAS",
+  "revision": "FV-APK-20261106-R146-PAINTED-GAS",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -35839,7 +35839,22 @@
         "accepted_removed": 0,
         "Dev_revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
         "source_CI_run": 42291635235,
-        "Dev_CI_run": 42300176898
+        "Dev_CI_run": 42300176898,
+        "Android_package_verified": {
+          "state": "PASS_ANONYMOUS_SOURCE_PACKAGE_EXPORT_AND_PUBLIC_JAR_SIGNATURE",
+          "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+          "run": 42309593636,
+          "bytes": 931048177,
+          "sha256": "9ad17aa9841c784aed3b9db9646e576661995c59636029a0979c3f3a0c258212",
+          "version_code": 2371,
+          "download_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-dev/roshan-reef.apk",
+          "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/APK_VERIFIED.json",
+          "source_review_boundary": "PASS_namedprefixes_absent",
+          "gas_resource": "PASS_namedCTexandexportremap",
+          "physical_device": null,
+          "child": null,
+          "owner": null
+        }
       },
       "observed_weakness": "Existing3circle fills and2whitechevron polylines fail painted storybook material beside scene/candidate references. Whole painted gold/ivory/plum candidate improves material with same child cue; complete/fullspeed/device/owner acceptance open.",
       "functional_invisible_geometry": "Unchanged input center1175,625/radius80/margin16 retained separately, zero artwork removal credit.",
@@ -35855,6 +35870,12 @@
           "source_revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
           "status": "EXACT_SOURCE_CI_GREEN_CODE_ON_DEV",
           "scope": "Same native/512painted output and25original diagnostic events. No newart/frame/generation/acceptance credit."
+        },
+        {
+          "revision": "FV-APK-20261106-R146-PAINTED-GAS",
+          "source_revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+          "status": "EXACT_CURRENT_DEV_ANDROID_PACKAGE_VERIFIED",
+          "scope": "All ZIP CRC/PCK census, named gas resource, exclusion and public JAR/v1 signer; no new capture/art/removal or device/owner/child credit."
         }
       ],
       "current_runtime_source_revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6"
@@ -43770,7 +43791,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "47 published bounded source artifacts,46 partial Dev artifacts;282 named roles and36 families remain lower bounds. Retained native events8085 bounded/4411 excluded/12496 total are unchanged. R146 source CI is green and code is on Dev atfd860; Dev CI is a separate exact snapshot; correctedAPK/formal/natural/fullspeed/device/child/owner lanes remain open. Accepted removals0, complete scenes0, whole-game denominators unknown.",
+  "current_effective_summary": "47 published bounded source artifacts,46 partial Dev artifacts;282 named roles and36 families remain lower bounds. Native events8085 bounded/4411 excluded/12496 total are unchanged. ExactFDsource/DevCI and matching931,048,177-byte Android2371 package are verified, including painted gas and review-prefix exclusions. Formal/natural/fullspeed/device/child/owner remain open; accepted0, complete0, whole totals unknown.",
   "unresolved_care_glyph_scopes": [
     "neutral/title heart U+2665 versus cuddle U+2764 attribution",
     "disabled Change-palette pictogram",
@@ -52398,7 +52419,7 @@
     "stable_id": "FVR-34524393E2C8",
     "source_item": "gold_gas_button",
     "artifact_key": "r146_racer_painted_gas_control_runtime",
-    "state": "DEV_CODE_INTEGRATED_SOURCE_CI_GREEN_DEV_CI_SEPARATE_FORMAL_EXTERNAL_OPEN",
+    "state": "DEV_SOURCE_AND_CI_APK_VERIFIED_FORMAL_EXTERNAL_ACCEPTANCE_OPEN",
     "source_revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
     "current_source_revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
     "branch": "codex/flat-vector-racer-gas-painted-20261106",
@@ -52493,12 +52514,27 @@
     },
     "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/DEV_INTEGRATION.json",
     "Dev_CI": {
-      "run": 42300176898,
       "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
-      "status": "in_progress",
-      "conclusion": ""
+      "run": 42300176898,
+      "status": "completed",
+      "conclusion": "success"
     },
-    "matching_corrected_APK": "PENDING_ACTUAL_AUTOMATIC_ANDROID_JOB_AND_PACKAGE_VERIFICATION"
+    "matching_corrected_APK": {
+      "state": "PASS_ANONYMOUS_SOURCE_PACKAGE_EXPORT_AND_PUBLIC_JAR_SIGNATURE",
+      "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "run": 42309593636,
+      "bytes": 931048177,
+      "sha256": "9ad17aa9841c784aed3b9db9646e576661995c59636029a0979c3f3a0c258212",
+      "version_code": 2371,
+      "download_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-dev/roshan-reef.apk",
+      "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/APK_VERIFIED.json",
+      "source_review_boundary": "PASS_namedprefixes_absent",
+      "gas_resource": "PASS_namedCTexandexportremap",
+      "physical_device": null,
+      "child": null,
+      "owner": null
+    },
+    "prior_canonical_Dev_revision": "04cf570bc19a09d4551dae3ded49611a8cec425a"
   },
   "r146_current_effective_summary": {
     "known_roles": 282,
@@ -52511,7 +52547,7 @@
     "accepted_removed": 0,
     "complete_scene_coverage": 0,
     "whole_game_total": null,
-    "revision": "FV-DEV-20261106-R146-RACER-PAINTED-GAS"
+    "revision": "FV-APK-20261106-R146-PAINTED-GAS"
   },
   "r146_prior_to_Dev_canonical_revision": "73307e63cb814f8f95d43ad3e13db3947a502ea6",
   "r146_Dev_integration": {
@@ -52828,5 +52864,21 @@
     "master_before": "ff68f9550c28f7d979896d5c84d1214264c29165",
     "master_after": "ff68f9550c28f7d979896d5c84d1214264c29165",
     "time": "2026-11-06T21:51:53.502207+00:00"
+  },
+  "r146_prior_to_APK_canonical_revision": "04cf570bc19a09d4551dae3ded49611a8cec425a",
+  "r146_verified_Android": {
+    "state": "PASS_ANONYMOUS_SOURCE_PACKAGE_EXPORT_AND_PUBLIC_JAR_SIGNATURE",
+    "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+    "run": 42309593636,
+    "bytes": 931048177,
+    "sha256": "9ad17aa9841c784aed3b9db9646e576661995c59636029a0979c3f3a0c258212",
+    "version_code": 2371,
+    "download_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-dev/roshan-reef.apk",
+    "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/APK_VERIFIED.json",
+    "source_review_boundary": "PASS_namedprefixes_absent",
+    "gas_resource": "PASS_namedCTexandexportremap",
+    "physical_device": null,
+    "child": null,
+    "owner": null
   }
 }

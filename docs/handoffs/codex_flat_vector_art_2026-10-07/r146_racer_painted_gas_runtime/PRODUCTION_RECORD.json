@@ -2,7 +2,7 @@
   "stable_id": "FVR-34524393E2C8",
   "source_item": "gold_gas_button",
   "artifact_key": "r146_racer_painted_gas_control_runtime",
-  "state": "DEV_CODE_INTEGRATED_SOURCE_CI_GREEN_DEV_CI_SEPARATE_FORMAL_EXTERNAL_OPEN",
+  "state": "DEV_SOURCE_AND_CI_APK_VERIFIED_FORMAL_EXTERNAL_ACCEPTANCE_OPEN",
   "source_revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
   "current_source_revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
   "branch": "codex/flat-vector-racer-gas-painted-20261106",
@@ -97,10 +97,25 @@
   },
   "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/DEV_INTEGRATION.json",
   "Dev_CI": {
-    "run": 42300176898,
     "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
-    "status": "in_progress",
-    "conclusion": ""
+    "run": 42300176898,
+    "status": "completed",
+    "conclusion": "success"
   },
-  "matching_corrected_APK": "PENDING_ACTUAL_AUTOMATIC_ANDROID_JOB_AND_PACKAGE_VERIFICATION"
+  "matching_corrected_APK": {
+    "state": "PASS_ANONYMOUS_SOURCE_PACKAGE_EXPORT_AND_PUBLIC_JAR_SIGNATURE",
+    "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+    "run": 42309593636,
+    "bytes": 931048177,
+    "sha256": "9ad17aa9841c784aed3b9db9646e576661995c59636029a0979c3f3a0c258212",
+    "version_code": 2371,
+    "download_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-dev/roshan-reef.apk",
+    "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/APK_VERIFIED.json",
+    "source_review_boundary": "PASS_namedprefixes_absent",
+    "gas_resource": "PASS_namedCTexandexportremap",
+    "physical_device": null,
+    "child": null,
+    "owner": null
+  },
+  "prior_canonical_Dev_revision": "04cf570bc19a09d4551dae3ded49611a8cec425a"
 }

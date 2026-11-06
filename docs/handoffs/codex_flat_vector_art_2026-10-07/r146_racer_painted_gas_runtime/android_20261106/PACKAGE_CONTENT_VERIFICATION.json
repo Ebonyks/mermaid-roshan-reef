@@ -1,0 +1,138 @@
+{
+  "state": "PASS_COMPLETE_ZIP_CRC_ANDROID_MANIFEST_AND_SPARSE_PCK_INDEX",
+  "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+  "run_id": 42309593636,
+  "zip_entries": 8259,
+  "zip_all_crc_pass": true,
+  "manifest": {
+    "versionCode": 2371,
+    "versionName": "0.1.0",
+    "installLocation": 0,
+    "compileSdkVersion": 36,
+    "compileSdkVersionCodename": "16",
+    "package": "com.ebonyks.roshanreef",
+    "platformBuildVersionCode": 36,
+    "platformBuildVersionName": 16
+  },
+  "arm64_library_present": true,
+  "pck_header": [
+    1129333831,
+    4,
+    4,
+    7,
+    2,
+    6,
+    0,
+    104
+  ],
+  "pck_index_bytes": 929084,
+  "pck_virtual_entries": 8159,
+  "all_virtual_paths_unique_present_size_match": true,
+  "selected_actual_resource_hashes": [
+    {
+      "native_index_path": "scripts/racer/reef_kart_race.gdc",
+      "virtual_path": "res://scripts/racer/reef_kart_race.gdc",
+      "zip_member": "assets/scripts/racer/reef_kart_race.gdc",
+      "bytes": 46480,
+      "md5": "228034d33a96d81057941f3b191ab49c",
+      "flags": 0,
+      "sha256": "b9a4be26fe0513a2f929f45596bc3b908189fb2a3438507b9df39ed9a93466c6",
+      "pck_md5_match": true
+    },
+    {
+      "native_index_path": "scripts/racer/reef_kart_zones.gdc",
+      "virtual_path": "res://scripts/racer/reef_kart_zones.gdc",
+      "zip_member": "assets/scripts/racer/reef_kart_zones.gdc",
+      "bytes": 6094,
+      "md5": "85296ca54a4330e62ce82349bfef95e0",
+      "flags": 0,
+      "sha256": "41c2e71233fbef9031fcceac3700d7c40a2d6a24358f8344eced597204d7a26f",
+      "pck_md5_match": true
+    },
+    {
+      "native_index_path": "scripts/racer/reef_kart_race.gd.remap",
+      "virtual_path": "res://scripts/racer/reef_kart_race.gd.remap",
+      "zip_member": "assets/scripts/racer/reef_kart_race.gd.remap",
+      "bytes": 55,
+      "md5": "a51592610c8f9ecd4cb6b3b79f03d106",
+      "flags": 0,
+      "sha256": "8734ab8f719c03c2219182f90647560adf476814dec536144cfa12e17ed843cb",
+      "pck_md5_match": true
+    },
+    {
+      "native_index_path": "scripts/racer/reef_kart_zones.gd.remap",
+      "virtual_path": "res://scripts/racer/reef_kart_zones.gd.remap",
+      "zip_member": "assets/scripts/racer/reef_kart_zones.gd.remap",
+      "bytes": 56,
+      "md5": "f74007b9e9bb186447c613d264f1922f",
+      "flags": 0,
+      "sha256": "8cbaceca97f4a309a1cf1c851647a59d766325c3a061fc7723cccb36fa0c2cad",
+      "pck_md5_match": true
+    },
+    {
+      "native_index_path": "project.binary",
+      "virtual_path": "res://project.binary",
+      "zip_member": "assets/project.binary",
+      "bytes": 1745,
+      "md5": "e077cc1ff100b68d5b84d66091545fc3",
+      "flags": 0,
+      "sha256": "479e8fcebe607bdb49a70053ed7201cbbdd2401092b88b191e10c2a84f03ba0f",
+      "pck_md5_match": true
+    },
+    {
+      "native_index_path": ".godot/imported/gas_button_painted.png-7d21b55e80b176419bbbef4d31fe8c68.ctex",
+      "virtual_path": "res://.godot/imported/gas_button_painted.png-7d21b55e80b176419bbbef4d31fe8c68.ctex",
+      "zip_member": "assets/.godot/imported/gas_button_painted.png-7d21b55e80b176419bbbef4d31fe8c68.ctex",
+      "bytes": 233196,
+      "md5": "4b16a56893ccb5bd012c372827ba4cc1",
+      "flags": 0,
+      "sha256": "e09cda1854c038f1b772c980d57cd736611f3e178d6832a693360123430bc3ee",
+      "pck_md5_match": true
+    },
+    {
+      "native_index_path": "assets/racer/ui/gas_button_painted.png.import",
+      "virtual_path": "res://assets/racer/ui/gas_button_painted.png.import",
+      "zip_member": "assets/assets/racer/ui/gas_button_painted.png.import",
+      "bytes": 206,
+      "md5": "98f0ce323a1681b7d466f276d53f4968",
+      "flags": 0,
+      "sha256": "280a88868b1f9e76cbca89a3a5c6ecd554c2872738a851ad43804ec937555457",
+      "pck_md5_match": true
+    },
+    {
+      "native_index_path": ".godot/imported/pool_towel_cabinet.png-40ef64466567e744131ee57f0f0df9a6.ctex",
+      "virtual_path": "res://.godot/imported/pool_towel_cabinet.png-40ef64466567e744131ee57f0f0df9a6.ctex",
+      "zip_member": "assets/.godot/imported/pool_towel_cabinet.png-40ef64466567e744131ee57f0f0df9a6.ctex",
+      "bytes": 1054936,
+      "md5": "c53e4c0f6521d62dbb63fb149a861aec",
+      "flags": 0,
+      "sha256": "6e74f6bc25da56c55688e6ab4b094e91da1aee784e5b04602cb3982a94daf81f",
+      "pck_md5_match": true
+    }
+  ],
+  "targeted_export_census": {
+    "res://assets_src/imagegen/racer_steering_control_20261106/": [],
+    "res://assets_src/review/r147_racer_steering_20261106/": [],
+    "res://docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/": [],
+    "res://assets/racer/ui/steering_ring_painted.png": [],
+    "res://assets/racer/ui/steering_knob_painted.png": [],
+    "res://assets_src/imagegen/racer_gas_button_20261106/": [],
+    "res://assets_src/review/r146_racer_gas_20261106/": [],
+    "res://docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/": [],
+    "res://assets_src/review/recent_updates_dev_20261106/": [],
+    "res://docs/handoffs/codex_recent_updates_dev_2026-11-06/": [],
+    "res://assets_src/sky_lagoon/original_art_motion_20261105/": [],
+    "res://docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/": []
+  },
+  "source_only_export_boundary": "PASS_NAMED_SOURCE_REVIEW_PREFIXES_ABSENT",
+  "source_binding_guard_lines": [
+    "build\tVerify exact green dev source\t2026-11-06T23:19:23.6158839Z ANDROID_SOURCE|PASS|dev|fd860fc196fb516d54badba5248c0f73ecaa9cb6|probe_run=42300176898",
+    "build\tRecheck current green dev before publishing\t2026-11-06T23:22:44.6176829Z ANDROID_SOURCE|PASS|dev|fd860fc196fb516d54badba5248c0f73ecaa9cb6|probe_run=42300176898"
+  ],
+  "checked_at_utc": "2026-11-06T23:26:20.502501+00:00",
+  "limits": [
+    "Sparse-PCK full index and all ZIP CRCs verified; MD5/SHA resource decoding bounded to eight named selected resources.",
+    "No physical Android installation, playback, device performance, child or owner acceptance.",
+    "FD APK contains the named painted gas resource; R147 painted steering remains an unpublished local candidate and is not part of this build."
+  ]
+}

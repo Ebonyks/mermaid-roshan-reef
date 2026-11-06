@@ -2340,3 +2340,6 @@ R146 [painted Racer gas source intake](../docs/handoffs/codex_flat_vector_art_20
 
 
 R146 [actual Dev integration](../docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/README.md) records exact source CI green and code on Dev atfd860; Dev CI remains a separate snapshot, one new partialDev artifact45to46 and zero new art/role/frame/generation/accepted-removal credit. CorrectedAPK/formal/device/child/owner remain separate. [Impact](../design/audit_impacts/flat-vector-r146-dev-integration-20261106.json).
+
+
+R146 [verified matching Dev Android](../docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/README.md) binds sourceFD, greenDevCI42300176898 and approvedbuild42309593636 to completeanonymousAPKbytes, namedgasresource, publicJARsignature and absent230reviewJSONprefix. Prior automaticNoSpace is preserved. Zero newart/frame/role/acceptance credit; formal/device/child/owner remainopen. [Impact](../design/audit_impacts/flat-vector-r146-verified-android-20261106.json).

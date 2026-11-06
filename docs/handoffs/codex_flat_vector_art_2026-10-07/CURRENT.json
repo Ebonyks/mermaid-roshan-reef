@@ -1,17 +1,17 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-DEV-20261106-R146-RACER-PAINTED-GAS",
-  "current_entry": "r146_racer_painted_gas_runtime/README.md",
+  "revision": "FV-APK-20261106-R146-PAINTED-GAS",
+  "current_entry": "r146_racer_painted_gas_runtime/android_20261106/README.md",
   "current_per_piece": "r96_geologist_mineral_candidate/per_piece.json",
   "current_scene_coverage": "r96_geologist_mineral_candidate/scene_coverage.json",
   "current_tally": "r96_geologist_mineral_candidate/tally.json",
   "current_backlog": "r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/MANIFEST.json",
+  "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/SOURCE_CI_COMPLETED.json",
+  "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/SOURCE_DEV_CI_COMPLETED.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -6928,10 +6928,14 @@
   "r142_remote_verification": "r142_bubble_duel_source/REMOTE_VERIFICATION.json",
   "current_Dev_delivery_snapshot": {
     "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
-    "source_CI": 42291635235,
     "Dev_CI": 42300176898,
-    "APK": "PENDING_ACTUAL_CURRENT_BUILD_VERIFICATION",
-    "record": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/DEV_INTEGRATION.json"
+    "Android_run": 42309593636,
+    "APK_verified": true,
+    "APK_sha256": "9ad17aa9841c784aed3b9db9646e576661995c59636029a0979c3f3a0c258212",
+    "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/APK_VERIFIED.json",
+    "physical_device": null,
+    "child": null,
+    "owner": null
   },
   "r140_prior_carrier_context": {
     "revision": "cb7bdd22d26d74e86d712547cb195ec1b8ae1f6e",
@@ -7095,7 +7099,7 @@
   "immutable_r143_receipt_revision": "504c290443c280ae543cb5caa1fe671340821ad4",
   "immutable_r144_payload_revision": "4bd9101a5b88ce8f0388917f297a849403e01ef3",
   "current_payload_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9ba54f9144cd19210bc333f6a677dfadf3a1bf37/docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/MANIFEST.json",
-  "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/PRIOR_CANONICAL_SOURCE_REMOTE_VERIFICATION.json",
+  "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/DOWNLOAD_RESULT.json",
   "immutable_r144_receipt_revision": "d7c61f2636b4828a5158b3276dffdf695e5eeee3",
   "previous_receipt_manifest": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/d7c61f2636b4828a5158b3276dffdf695e5eeee3/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/RECEIPT_MANIFEST.json",
   "r144_prior_current_art_source_context": {
@@ -7596,7 +7600,7 @@
     "stable_id": "FVR-34524393E2C8",
     "source_item": "gold_gas_button",
     "artifact_key": "r146_racer_painted_gas_control_runtime",
-    "state": "DEV_CODE_INTEGRATED_SOURCE_CI_GREEN_DEV_CI_SEPARATE_FORMAL_EXTERNAL_OPEN",
+    "state": "DEV_SOURCE_AND_CI_APK_VERIFIED_FORMAL_EXTERNAL_ACCEPTANCE_OPEN",
     "source_revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
     "current_source_revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
     "branch": "codex/flat-vector-racer-gas-painted-20261106",
@@ -7691,17 +7695,53 @@
     },
     "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/DEV_INTEGRATION.json",
     "Dev_CI": {
-      "run": 42300176898,
       "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
-      "status": "in_progress",
-      "conclusion": ""
+      "run": 42300176898,
+      "status": "completed",
+      "conclusion": "success"
     },
-    "matching_corrected_APK": "PENDING_ACTUAL_AUTOMATIC_ANDROID_JOB_AND_PACKAGE_VERIFICATION"
+    "matching_corrected_APK": {
+      "state": "PASS_ANONYMOUS_SOURCE_PACKAGE_EXPORT_AND_PUBLIC_JAR_SIGNATURE",
+      "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "run": 42309593636,
+      "bytes": 931048177,
+      "sha256": "9ad17aa9841c784aed3b9db9646e576661995c59636029a0979c3f3a0c258212",
+      "version_code": 2371,
+      "download_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-dev/roshan-reef.apk",
+      "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/APK_VERIFIED.json",
+      "source_review_boundary": "PASS_namedprefixes_absent",
+      "gas_resource": "PASS_namedCTexandexportremap",
+      "physical_device": null,
+      "child": null,
+      "owner": null
+    },
+    "prior_canonical_Dev_revision": "04cf570bc19a09d4551dae3ded49611a8cec425a"
   },
   "r146_prior_source_navigation": {
     "revision": "FV-SOURCE-20261106-R146-RACER-PAINTED-GAS",
     "entry": "r146_racer_painted_gas_runtime/README.md",
     "manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/MANIFEST.json",
     "canonical_revision": "73307e63cb814f8f95d43ad3e13db3947a502ea6"
+  },
+  "r146_prior_APK_navigation": {
+    "revision": "FV-DEV-20261106-R146-RACER-PAINTED-GAS",
+    "entry": "r146_racer_painted_gas_runtime/README.md",
+    "manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/MANIFEST.json",
+    "canonical_revision": "04cf570bc19a09d4551dae3ded49611a8cec425a"
+  },
+  "r146_verified_Android": {
+    "state": "PASS_ANONYMOUS_SOURCE_PACKAGE_EXPORT_AND_PUBLIC_JAR_SIGNATURE",
+    "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+    "run": 42309593636,
+    "bytes": 931048177,
+    "sha256": "9ad17aa9841c784aed3b9db9646e576661995c59636029a0979c3f3a0c258212",
+    "version_code": 2371,
+    "download_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-dev/roshan-reef.apk",
+    "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/APK_VERIFIED.json",
+    "source_review_boundary": "PASS_namedprefixes_absent",
+    "gas_resource": "PASS_namedCTexandexportremap",
+    "physical_device": null,
+    "child": null,
+    "owner": null
   }
 }

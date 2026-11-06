@@ -1,0 +1,168 @@
+{
+  "conclusion": "success",
+  "createdAt": "2026-11-06T23:06:31Z",
+  "databaseId": 42309593636,
+  "event": "workflow_dispatch",
+  "headBranch": "dev",
+  "headSha": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+  "jobs": [
+    {
+      "completedAt": "2026-11-06T23:23:21Z",
+      "conclusion": "success",
+      "databaseId": 128207457413,
+      "name": "build",
+      "startedAt": "2026-11-06T23:06:36Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-11-06T23:06:38Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-11-06T23:06:37Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T23:19:22Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+          "number": 2,
+          "startedAt": "2026-11-06T23:06:38Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T23:19:22Z",
+          "conclusion": "success",
+          "name": "Test exact-source packaging guard",
+          "number": 3,
+          "startedAt": "2026-11-06T23:19:22Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T23:19:23Z",
+          "conclusion": "success",
+          "name": "Verify exact green dev source",
+          "number": 4,
+          "startedAt": "2026-11-06T23:19:22Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T23:19:23Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-java@c1e323688fd81a25caa38c78aa6df2d33d3e20d9",
+          "number": 5,
+          "startedAt": "2026-11-06T23:19:23Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T23:19:37Z",
+          "conclusion": "success",
+          "name": "Cache Godot + export templates",
+          "number": 6,
+          "startedAt": "2026-11-06T23:19:23Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T23:19:37Z",
+          "conclusion": "skipped",
+          "name": "Download Godot + export templates",
+          "number": 7,
+          "startedAt": "2026-11-06T23:19:37Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T23:19:42Z",
+          "conclusion": "success",
+          "name": "Install Godot + export templates",
+          "number": 8,
+          "startedAt": "2026-11-06T23:19:37Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T23:19:42Z",
+          "conclusion": "success",
+          "name": "Restore stable signing identity + editor settings",
+          "number": 9,
+          "startedAt": "2026-11-06T23:19:42Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T23:22:08Z",
+          "conclusion": "success",
+          "name": "Import project (first run generates .godot resources)",
+          "number": 10,
+          "startedAt": "2026-11-06T23:19:42Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T23:22:43Z",
+          "conclusion": "success",
+          "name": "Export debug APK",
+          "number": 11,
+          "startedAt": "2026-11-06T23:22:08Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T23:22:43Z",
+          "conclusion": "success",
+          "name": "Pick release tag by branch (dev gets its own pre-promotion channel)",
+          "number": 12,
+          "startedAt": "2026-11-06T23:22:43Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T23:22:44Z",
+          "conclusion": "success",
+          "name": "Recheck current green dev before publishing",
+          "number": 13,
+          "startedAt": "2026-11-06T23:22:43Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T23:23:18Z",
+          "conclusion": "success",
+          "name": "Publish APK to the prerelease (stable download URL)",
+          "number": 14,
+          "startedAt": "2026-11-06T23:22:44Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T23:23:18Z",
+          "conclusion": "success",
+          "name": "Post Cache Godot + export templates",
+          "number": 26,
+          "startedAt": "2026-11-06T23:23:18Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T23:23:18Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-java@c1e323688fd81a25caa38c78aa6df2d33d3e20d9",
+          "number": 27,
+          "startedAt": "2026-11-06T23:23:18Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T23:23:18Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+          "number": 28,
+          "startedAt": "2026-11-06T23:23:18Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-06T23:23:18Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 29,
+          "startedAt": "2026-11-06T23:23:18Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42309593636/job/128207457413"
+    }
+  ],
+  "status": "completed",
+  "updatedAt": "2026-11-06T23:23:22Z",
+  "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42309593636"
+}

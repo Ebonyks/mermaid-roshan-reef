@@ -240,3 +240,8 @@ docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/
 
 # R146 canonical candidate receipts preserve exact bytes
 docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/** -text
+
+# R146 actual APK evidence keeps raw bytes and native CRLF; real whitespace checks remain enabled
+docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/** -text
+docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/**/*.log -diff
+docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/** whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
