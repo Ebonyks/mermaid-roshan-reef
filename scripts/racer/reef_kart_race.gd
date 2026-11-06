@@ -79,6 +79,8 @@ const ART_ROOT := "res://assets/racer/"
 const CapsuleArt := preload("res://assets/racer/context_v2/item_capsule.png")
 const KelpArt := preload("res://assets/racer/context_v2/kelp_trap.png")
 const GasButtonArt := preload("res://assets/racer/ui/gas_button_painted.png")
+const SteeringRingArt := preload("res://assets/racer/ui/steering_ring_painted.png")
+const SteeringKnobArt := preload("res://assets/racer/ui/steering_knob_painted.png")
 const CONTEXT_ART := {
 	"item_bubble": [CapsuleArt, Rect2(8, 67, 1008, 890)],
 	"kelp": [KelpArt, Rect2(8, 194, 1008, 635)],
@@ -1588,17 +1590,12 @@ func _draw_controls() -> void:
 	var knob: Vector2 = controls.get("stick_knob", base)
 	var stick_r := float(controls.get("stick_radius", 104.0))
 	var stick_held := bool(controls.get("stick_held", false))
-	_controls.draw_circle(base, stick_r + 5.0, Color(INK, 0.55))
-	_controls.draw_circle(base, stick_r, Color(0.37, 0.81, 0.48, 0.38 if stick_held else 0.28))
-	_controls.draw_arc(base, stick_r - 4.0, 0.0, TAU, 48, Color("#2f6b46"), 5.0, true)
-	for side: float in [-1.0, 1.0]:
-		var tip := base + Vector2(side * (stick_r - 18.0), 0.0)
-		_controls.draw_colored_polygon(PackedVector2Array([tip,
-			tip + Vector2(-side * 22.0, -16.0), tip + Vector2(-side * 22.0, 16.0)]),
-			Color(1.0, 1.0, 1.0, 0.85))
-	_controls.draw_circle(knob, 52.0, INK)
-	_controls.draw_circle(knob, 47.0, Color("#5fcf7a") if not stick_held else Color("#7ee08f"))
-	_controls.draw_circle(knob - Vector2(14.0, 16.0), 13.0, Color(1.0, 1.0, 1.0, 0.5))
+	var stick_size := Vector2.ONE * (stick_r + 5.0) * 2.0
+	var stick_tint := Color(1.0, 1.0, 1.0, 0.95 if stick_held else 0.85)
+	_controls.draw_texture_rect(SteeringRingArt, Rect2(base - stick_size * 0.5, stick_size), false, stick_tint)
+	var knob_size := Vector2.ONE * 104.0
+	var knob_tint := Color.WHITE if stick_held else Color(0.90, 0.96, 0.92)
+	_controls.draw_texture_rect(SteeringKnobArt, Rect2(knob - knob_size * 0.5, knob_size), false, knob_tint)
 	var gas_at: Vector2 = controls.get("gas_center", Vector2(1175, 625))
 	var gas_r := float(controls.get("gas_radius", 80.0))
 	var gas_held := bool(controls.get("gas_held", false))

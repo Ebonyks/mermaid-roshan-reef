@@ -1,0 +1,17 @@
+{
+  "state": "SETUP_STOPPED_BEFORE_ANY_ENGINE_GATE",
+  "initial_driver": "R147_VALIDATE.py",
+  "initial_result": "AssertionError fixture raw bytes differ from staged blob",
+  "actual_fixture_sha256": "8bb9fde88dab6134a742beb88eba3f9f73c44654212feea6f7144f263ebbca35",
+  "initial_staged_LF_sha256": "f8f61fc2ce33a5ca46f5b684f283f7316cbeb3fe79096e815face045d81df2a7",
+  "difference": "CRLF/LF text-filter normalization only; code and native-capture fixture bytes unchanged.",
+  "correction": "Extend the same exact-byte review-folder attributes already used for R146, then stage the original raw fixture. Do not normalize/recreate captures.",
+  "original_empty_gate_output_directory": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-shell-20261106\\r147_validation",
+  "actual_engine_gate_commands_started": 0,
+  "new_generation_calls": 0,
+  "new_native_events": 0,
+  "time": "2026-11-06T22:38:34.820739+00:00",
+  "correction_completed": "Scoped V/** -text plus git add --renormalize for only the owned R147 review folder. Actual captured fixture bytes and native PNGs unchanged; index now retains the same raw CRLF fixture bytes. No engine check started before this correction.",
+  "corrected_staged_fixture_sha256": "8bb9fde88dab6134a742beb88eba3f9f73c44654212feea6f7144f263ebbca35",
+  "correction_completed_at_utc": "2026-11-06T22:40:28.175630+00:00"
+}

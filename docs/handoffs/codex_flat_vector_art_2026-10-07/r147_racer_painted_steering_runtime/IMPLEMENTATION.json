@@ -1,0 +1,110 @@
+{
+  "state": "LOCAL_PAINTED_STEERING_CANDIDATE_CONFIGURED_NATIVE32_AND_ALL88_MACHINE_PASS_SOURCE_CI_DEV_OPEN",
+  "stable_id": "FV-031CDD6A2011",
+  "baseline": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+  "native_output": {
+    "path": "assets_src/imagegen/racer_steering_control_20261106/steering_control_native.png",
+    "tool_original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-b26670d3-a3ef-4141-b5b9-14cb4468161d.png",
+    "tool_original_preserved": true,
+    "sha256": "0f6680bc4ada4424e3537c588ee3d6d07311a02b8e37ef1527fd13ca2dd9b2ae",
+    "bytes": 1173854,
+    "dimensions": [
+      1920,
+      819
+    ],
+    "mode": "RGBA"
+  },
+  "exports": [
+    {
+      "component": "ring",
+      "path": "assets/racer/ui/steering_ring_painted.png",
+      "bytes": 254294,
+      "sha256": "2d98806fd8f48345226f751442a0247b52b68e2e419777a3599759bf149dc1a1",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_native": "assets_src/imagegen/racer_steering_control_20261106/steering_control_native.png",
+      "native_crop_box": [
+        96,
+        12,
+        891,
+        807
+      ],
+      "method": "Exact square component crop with4-native-pixel minimum visible margin, then uniform whole-crop LANCZOS downscale. No painting, alpha-channel edits or reconstructed pixels. Original native preserved.",
+      "crop_visibility_threshold": 4,
+      "all_source_alpha_greater_equal4_preserved": true,
+      "source_alpha1to3_pixels_outside_crop": 35,
+      "modification_scope": "The declared crop omits only native alpha1..3 fringe outside its square; it does not claim every faint native pixel was exported.",
+      "decoded_RGBA_base_bytes": 1048576
+    },
+    {
+      "component": "knob",
+      "path": "assets/racer/ui/steering_knob_painted.png",
+      "bytes": 87637,
+      "sha256": "a40cea67ef6d50d326c2d36f1dc148b708e984384deddb592c30723807814314",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_native": "assets_src/imagegen/racer_steering_control_20261106/steering_control_native.png",
+      "native_crop_box": [
+        1162,
+        92,
+        1799,
+        729
+      ],
+      "method": "Exact square component crop with4-native-pixel minimum visible margin, then uniform whole-crop LANCZOS downscale. No painting, alpha-channel edits or reconstructed pixels. Original native preserved.",
+      "crop_visibility_threshold": 4,
+      "all_source_alpha_greater_equal4_preserved": true,
+      "source_alpha1to3_pixels_outside_crop": 176,
+      "modification_scope": "The declared crop omits only native alpha1..3 fringe outside its square; it does not claim every faint native pixel was exported.",
+      "decoded_RGBA_base_bytes": 262144
+    }
+  ],
+  "code_change": "Only two required texture preloads and visible steering circles/arc/arrows/knob replaced by two whole-texture draws. Existing base/knob/stick_radius/stick_held inputs and all gas/item/guide code preserved.",
+  "draw_mapping": {
+    "base_full_rect": "(stick_radius+5)*2, same center",
+    "knob_full_rect": "104x104, same center",
+    "ring_idle_held_alpha": [
+      0.85,
+      0.95
+    ],
+    "knob_idle_tint": [
+      0.9,
+      0.96,
+      0.92
+    ],
+    "knob_held_tint": "WHITE"
+  },
+  "functional_invisible_geometry": "Unchanged owner scripts/opera_racer_surface.gd; same steering rect, drag range, route ownership, focus cancellation and one-finger steer-and-go. Not artwork-removal credit.",
+  "actual_backend": "built-in image_gen.imagegen; only image_url/output_hint returned; no model selector/version/provider revision/request ID/seed/usage exposed",
+  "builtin_generation_calls": 1,
+  "paid_external_API_calls": 0,
+  "animation_calls": 0,
+  "candidate": true,
+  "source_work_branch_integrated": true,
+  "Dev": false,
+  "configured_runtime": "PASS32_SOURCE_CANDIDATE_CONFIGURED_NATIVE_STEERING_MOBILE_FRAMES",
+  "machine": "PASS_ACTUAL_R147_PAINTED_STEERING_STATIC_IMPORT_2FOCUSED_AND82_STRICT_COMMAND_EXITS",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "actual_runtime_inputs": 5586,
+  "capture_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/native/RESULT.json",
+  "same_scene_pair_comparison": "assets_src/review/r147_racer_steering_20261106/PAIR_PIXEL_COMPARISON.json",
+  "native_event_delta": {
+    "bounded": 24,
+    "excluded": 8,
+    "total": 32
+  },
+  "full_speed": null,
+  "initial_production_subrole_id": "FVR-AA4F097D3DAE",
+  "current_subrole_id": "FVR-AA4F097D3DAE",
+  "stable_id_binding": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/STABLE_ID_BINDING.json",
+  "full_machine_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/FINAL_RESULT.json",
+  "local_required_gate_commands": 88,
+  "source_CI": null
+}

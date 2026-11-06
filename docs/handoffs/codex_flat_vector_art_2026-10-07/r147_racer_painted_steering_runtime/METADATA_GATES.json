@@ -1,0 +1,41 @@
+{
+  "state": "PASS_CURRENT_AUTHORITY_AND_ACTUAL_DIFF_COVERAGE",
+  "baseline": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+  "results": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/authority.log",
+      "sha256": "7bf9de7c196fa3f5907a7e19ed9d6e9222fae343e79dbe28c915e48618cc4725"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/coverage_auto.log",
+      "sha256": "7b6d7fc9d2d28b6466420e54edaaa22ac35b3013a97c93895d46654d4c592576"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "fd860fc196fb516d54badba5248c0f73ecaa9cb6"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/coverage_base.log",
+      "sha256": "7b6d7fc9d2d28b6466420e54edaaa22ac35b3013a97c93895d46654d4c592576"
+    }
+  ],
+  "time": "2026-11-06T23:53:17.632385+00:00"
+}

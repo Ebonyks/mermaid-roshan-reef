@@ -422,6 +422,8 @@ R124 source candidate: [painted Melody stage apron](../../docs/handoffs/codex_fl
 
 ## MA-VIS-008
 
+[R147 painted Racer steering candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/README.md) replaces only visible pad/knob artwork with two authored RGBA components from one native output.32 configured native events and two-width input states retain source/provenance; all88current machine commands pass on5586inputs; sourceCI/Dev and formal/device/child/owner lanes remain separate. No lifecycle or acceptance credit.
+
 [R146 painted Racer gas control](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/README.md) supplies one actual painted output and replaces only the visible gas drawing on the work branch. Twenty corrected configured diagnostic frames and five excluded failed-setup frames retain exact provenance. Input geometry is unchanged; the exact5582-input changed candidate now passes88required local checks. Source CI/Dev and formal/device/child/owner acceptance remain separate. Lifecycle and accepted-removal credit are unchanged.
 
 [R144 shared shell candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md) replaces the procedural crest with byte-unchanged painted castle art. Thirty configured native before/candidate frames and identical caller geometry are diagnostic evidence; machine, Dev, formal QA11, device, child and owner evidence remain distinct. Hidden touch-pad and occluded Garden-header crests earn no visible-removal credit. Lifecycle remains open.

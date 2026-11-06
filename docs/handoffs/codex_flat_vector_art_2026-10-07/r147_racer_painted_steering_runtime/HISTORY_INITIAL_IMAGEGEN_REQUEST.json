@@ -1,0 +1,29 @@
+{
+  "state": "BUILTIN_IMAGEGEN_ATTEMPT1_RUNNING",
+  "stable_id": "FVR-AA4F097D3DAE",
+  "baseline": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+  "prompt": "assets_src/imagegen/racer_steering_control_20261106/PROMPT.txt",
+  "prompt_sha256": "50f510c5858ff3608c4248b174d89ad2c2e8a9ea65235cb5a5c04c600a9c4f7f",
+  "references": [
+    {
+      "path": "assets/racer/ui/gas_button_painted.png",
+      "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "sha256": "79f9dee0a1db33980e0d3fd24627bb25a85119d956b15a62a700de7f3741af29",
+      "role": "painted UI appearance; source candidates, not a new owner-acceptance claim",
+      "protected_original": false
+    },
+    {
+      "path": "assets/melody/timing_window_medallion_painted.png",
+      "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "sha256": "efc3dfd123a1c193c7fa9195689c66d5d16e0238341b6b636168d3592b8ab833",
+      "role": "painted UI appearance; source candidates, not a new owner-acceptance claim",
+      "protected_original": false
+    }
+  ],
+  "backend": "built-in image_gen.imagegen; model/version selector not exposed",
+  "calls_used": 1,
+  "max_takes": 2,
+  "native_output": null,
+  "exports": [],
+  "started_at_utc": "2026-11-06T22:18:19.544321+00:00"
+}

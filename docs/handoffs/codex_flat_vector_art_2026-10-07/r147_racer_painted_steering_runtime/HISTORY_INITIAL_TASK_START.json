@@ -1,0 +1,104 @@
+{
+  "state": "R147_DOCUMENTED_GREEN_STEERING_CONTROL_PRODUCTION_STARTED",
+  "stable_id": "FVR-AA4F097D3DAE",
+  "stable_id_seed": "opera_racer|reef_kart_controls|green_steering_pad",
+  "source_item": "green_steering_pad",
+  "family": "opera_racer",
+  "count_unit": "one named control-role state family; two technical sprite components do not create two role or artifact credits",
+  "baseline": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+  "branch": "codex/flat-vector-racer-steering-painted-20261106",
+  "worktree": "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+  "scope": "Replace only visible green steering base/rim/left-right arrows and draggable knob with painted RGBA components. Preserve all base/knob coordinates, drag range, input ownership/cancellation, one-finger steer-and-go, keyboard/gamepad, save keys, guidance hand and gas/item controls. No physics design variants.",
+  "existing_documented_gap": {
+    "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/README.md",
+    "observation": "Other flat steering/item frames remain visible; actual same-scene frame shows uniform circles, arc and triangle arrows beside painted gold gas and scene art."
+  },
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-UI-01",
+    "DL-UI-02",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-UI-06",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-READ-01",
+    "DL-MED-01",
+    "DL-PERF-02",
+    "DL-PERF-03",
+    "DL-QA-11",
+    "DL-QA-12",
+    "DL-QA-14",
+    "DL-QA-15",
+    "DL-VIS-07"
+  ],
+  "findings": [
+    "MA-VIS-008",
+    "MA-OPERA-014"
+  ],
+  "generation": {
+    "backend": "built-in image_gen.imagegen; model/version selector not exposed",
+    "calls_used": 0,
+    "maximum_generated_takes_for_this_static_brief": 2,
+    "paid_external_API_calls": 0,
+    "animation_calls": 0,
+    "other_funded_caps": "unchanged"
+  },
+  "source_style_references": [
+    {
+      "path": "assets/racer/ui/gas_button_painted.png",
+      "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "sha256": "79f9dee0a1db33980e0d3fd24627bb25a85119d956b15a62a700de7f3741af29",
+      "role": "painted UI appearance; source candidates, not a new owner-acceptance claim",
+      "protected_original": false
+    },
+    {
+      "path": "assets/melody/timing_window_medallion_painted.png",
+      "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "sha256": "efc3dfd123a1c193c7fa9195689c66d5d16e0238341b6b636168d3592b8ab833",
+      "role": "painted UI appearance; source candidates, not a new owner-acceptance claim",
+      "protected_original": false
+    }
+  ],
+  "observational_scene_reference": {
+    "path": "assets_src/review/r146_racer_gas_20261106/captures_v2/candidate_1280/opera-released.png",
+    "original_source_record": "R146 candidate diagnostic atE700+painted-gas code, preserved at9ba54f9144cd19210bc333f6a677dfadf3a1bf37; not relabelled as freshFD or QA11",
+    "sha256": "7e79b142db8d9d252b02b35860f680a71ed1d5173c80a9cbf3309b05fc8ca24a",
+    "passed_to_ImageGen": false,
+    "new_native_event_credit": 0
+  },
+  "required_evidence": [
+    "actual native output and exact tool/backend metadata",
+    "lossless non-destructive component crops/exports and import recipes",
+    "same-scene ten-axis comparison and independent candidate/integration/runtime/formalQA11/device/child/owner lanes",
+    "exactGodot4.7.2Mobile/OperaSpeedy and appropriate changed-source/full gates beforeCI andDev",
+    "anonymous immutable manifest verification and canonical update only from verified changes"
+  ],
+  "canonical_count_credit": "NONE_YET; current47source/46partialDev/282roles/36families/12496nativeevents/0accepted/0complete/unknownwhole stay unchanged until verified new production.",
+  "working_tree_note": "1429 existing .import stat/EOL markers; actual gitdiff0 and cached diff0. These are preserved untouched, not staged as edits or normalized. FormalcleanGit QA11 remains unclaimed.",
+  "running_R146_pipeline_first": {
+    "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+    "Dev_CI": 42300176898,
+    "observer_session": 62100,
+    "source_CI": 42291635235,
+    "source_CI_result": "SUCCESS",
+    "Dev_integrated": true,
+    "observer_after_Dev_push": "Read-only GH DevCI watch; branch switch does not change or restart it.",
+    "new_APK": "PENDING"
+  },
+  "publication": {
+    "repository": "https://github.com/Ebonyks/mermaid-roshan-reef",
+    "branch": "codex/flat-vector-racer-steering-painted-20261106",
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime",
+    "recipient_access": "public anonymous; actual required-file byte verification before delivery claim"
+  },
+  "protected_originals": "No book/voice/friend modification or ImageGen export. Scene is observational only; only two unprotected UI cutouts are generation inputs.",
+  "time": "2026-11-06T22:17:35.749452+00:00"
+}

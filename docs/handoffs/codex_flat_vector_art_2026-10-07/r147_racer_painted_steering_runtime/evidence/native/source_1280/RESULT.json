@@ -1,0 +1,232 @@
+{
+  "label": "source_1280",
+  "exit_code": 0,
+  "elapsed_seconds": 14.613,
+  "source_script_sha256": "eaaab0f6ad8ef10907c712ea8a9f0fa0673d1a3d46c53ab808340daf9869ecaa",
+  "records": {
+    "failures": 0,
+    "frame_cap": 30,
+    "limits": "Configured actual surface/PC scenes and production fit helper, not full natural routes or formalQA11/device/child/owner acceptance.",
+    "records": [
+      {
+        "file": "opera-idle-guided.png",
+        "formal_QA11": false,
+        "quality_context": "speedy",
+        "renderer": "mobile",
+        "sha256": "7e79b142db8d9d252b02b35860f680a71ed1d5173c80a9cbf3309b05fc8ca24a",
+        "size": [
+          1280,
+          720
+        ],
+        "target_state": {
+          "guide": true,
+          "held": false,
+          "owner": -1,
+          "steer": 0.0,
+          "stick_base": [
+            230.0,
+            560.0
+          ],
+          "stick_knob": [
+            230.0,
+            560.0
+          ],
+          "stick_radius": 104.0,
+          "suspended": false
+        },
+        "target_visible": true,
+        "variant": "source"
+      },
+      {
+        "file": "opera-held-center.png",
+        "formal_QA11": false,
+        "quality_context": "speedy",
+        "renderer": "mobile",
+        "sha256": "b94935c720c41f30fcb090d65bb9e9360ece65084f4d6362a2036bed5edce957",
+        "size": [
+          1280,
+          720
+        ],
+        "target_state": {
+          "guide": false,
+          "held": true,
+          "owner": 73,
+          "steer": 0.0,
+          "stick_base": [
+            230.0,
+            560.0
+          ],
+          "stick_knob": [
+            230.0,
+            560.0
+          ],
+          "stick_radius": 104.0,
+          "suspended": false
+        },
+        "target_visible": true,
+        "variant": "source"
+      },
+      {
+        "file": "opera-held-left.png",
+        "formal_QA11": false,
+        "quality_context": "speedy",
+        "renderer": "mobile",
+        "sha256": "3feec229aa760d291b073ef5c2d2342c2ba1367a40093ae2641cbfaed5f3f77b",
+        "size": [
+          1280,
+          720
+        ],
+        "target_state": {
+          "guide": false,
+          "held": true,
+          "owner": 73,
+          "steer": -1.0,
+          "stick_base": [
+            230.0,
+            560.0
+          ],
+          "stick_knob": [
+            134.0,
+            560.0
+          ],
+          "stick_radius": 104.0,
+          "suspended": false
+        },
+        "target_visible": true,
+        "variant": "source"
+      },
+      {
+        "file": "opera-held-right.png",
+        "formal_QA11": false,
+        "quality_context": "speedy",
+        "renderer": "mobile",
+        "sha256": "ab0ccdf3e5a4d5dd9cb1fbe36e0220e1478c74bc63a5e56ba3d2b60f74806641",
+        "size": [
+          1280,
+          720
+        ],
+        "target_state": {
+          "guide": false,
+          "held": true,
+          "owner": 73,
+          "steer": 1.0,
+          "stick_base": [
+            230.0,
+            560.0
+          ],
+          "stick_knob": [
+            326.0,
+            560.0
+          ],
+          "stick_radius": 104.0,
+          "suspended": false
+        },
+        "target_visible": true,
+        "variant": "source"
+      },
+      {
+        "file": "opera-released.png",
+        "formal_QA11": false,
+        "quality_context": "speedy",
+        "renderer": "mobile",
+        "sha256": "23847225d50619ddde8e766581b9e98ad9fc8c8562789f947ca0cc638825eaf1",
+        "size": [
+          1280,
+          720
+        ],
+        "target_state": {
+          "guide": false,
+          "held": false,
+          "owner": -1,
+          "steer": 0.0,
+          "stick_base": [
+            230.0,
+            560.0
+          ],
+          "stick_knob": [
+            230.0,
+            560.0
+          ],
+          "stick_radius": 104.0,
+          "suspended": false
+        },
+        "target_visible": true,
+        "variant": "source"
+      },
+      {
+        "file": "opera-focus-cancelled.png",
+        "formal_QA11": false,
+        "quality_context": "speedy",
+        "renderer": "mobile",
+        "sha256": "23847225d50619ddde8e766581b9e98ad9fc8c8562789f947ca0cc638825eaf1",
+        "size": [
+          1280,
+          720
+        ],
+        "target_state": {
+          "guide": false,
+          "held": false,
+          "owner": -1,
+          "steer": 0.0,
+          "stick_base": [
+            230.0,
+            560.0
+          ],
+          "stick_knob": [
+            230.0,
+            560.0
+          ],
+          "stick_radius": 104.0,
+          "suspended": true
+        },
+        "target_visible": true,
+        "variant": "source"
+      },
+      {
+        "file": "pc-1-no-touch-steering.png",
+        "formal_QA11": false,
+        "quality_context": "fixed_pc_no_quality_selector",
+        "renderer": "mobile",
+        "sha256": "ae1909b1aabc0fecf0ccbfccc3ca3c63c5208b9f0a90d727ada756003a912c97",
+        "size": [
+          1280,
+          720
+        ],
+        "target_state": {},
+        "target_visible": false,
+        "variant": "source"
+      },
+      {
+        "file": "pc-2-no-touch-steering.png",
+        "formal_QA11": false,
+        "quality_context": "fixed_pc_no_quality_selector",
+        "renderer": "mobile",
+        "sha256": "11cf79ab0ea0972d2b445b9c077bcd5543ddc1c8d9abb240a148f34d596392d8",
+        "size": [
+          1280,
+          720
+        ],
+        "target_state": {},
+        "target_visible": false,
+        "variant": "source"
+      }
+    ],
+    "renderer": "mobile",
+    "source_script_sha256": "eaaab0f6ad8ef10907c712ea8a9f0fa0673d1a3d46c53ab808340daf9869ecaa",
+    "variant": "source",
+    "version": {
+      "build": "official",
+      "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+      "hex": 263938,
+      "major": 4,
+      "minor": 7,
+      "patch": 2,
+      "status": "stable",
+      "string": "4.7.2-stable (official)",
+      "timestamp": 0
+    },
+    "width": 1280
+  },
+  "console_sha256": "83b9bdedaeb3a2d6728c7ec2580984df8a7a6989a8fa722c5d67900553f3b69f",
+  "native_log_sha256": "4d421287a710b5f473c83b2af5ad310c23a30f25f506e9c1cb4094180c59f707"
+}

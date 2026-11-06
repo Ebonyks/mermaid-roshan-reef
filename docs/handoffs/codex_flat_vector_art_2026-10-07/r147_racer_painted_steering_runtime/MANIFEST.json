@@ -1,0 +1,2057 @@
+{
+  "state": "SEALED_EXACT_STAGED_GIT_BYTES",
+  "id": "FV-R147-PAINTED-RACER-STEERING-20261106",
+  "baseline": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+  "stable_id": "FV-031CDD6A2011",
+  "current_subrole_id": "FVR-AA4F097D3DAE",
+  "artifact_key": "r147_racer_painted_steering_control_runtime",
+  "new_known_role_credit": 0,
+  "validated_staged_tree": "e1cb64c7f2fad2c0478070e6a94ae003c5a1d471",
+  "hash_contract": "SELF exact staged Git blobs, immutable current source references. Manifest fetched and bound separately. Priorarchives are citations, not recursive dependencies.",
+  "actual_runtime_inputs": 5586,
+  "local_required_gate_commands": 88,
+  "trusted_commands": 82,
+  "assertion_probes": 81,
+  "expected_headless_capture_skip": 1,
+  "new_generation_calls": 1,
+  "backend": "built-in image_gen.imagegen; only image_url/output_hint returned; no model selector/version/provider revision/request ID/seed/usage exposed",
+  "new_native_events": 32,
+  "bounded_native_events": 24,
+  "excluded_native_events": 8,
+  "source_CI": null,
+  "Dev_integrated": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "complete_scenes": 0,
+  "whole_game_total": null,
+  "mission_complete": false,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "revision": "SELF",
+      "bytes": 11922,
+      "sha256": "4c60a1901f09ef8520acd259c3c552248115e15933c809270dfa82768eeeaf1d",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "revision": "SELF",
+      "bytes": 8945551,
+      "sha256": "cc4ca06265700a438d85578959eb0f361b733ba223d88988bb4d44198e37ffdf",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets/racer/ui/steering_knob_painted.png",
+      "revision": "SELF",
+      "bytes": 87637,
+      "sha256": "a40cea67ef6d50d326c2d36f1dc148b708e984384deddb592c30723807814314",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets/racer/ui/steering_knob_painted.png.import",
+      "revision": "SELF",
+      "bytes": 983,
+      "sha256": "5c10ada1dd3bd9dab72b601fca798f6a5d83eeff86eba68a6ef05c04f7a12731",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets/racer/ui/steering_ring_painted.png",
+      "revision": "SELF",
+      "bytes": 254294,
+      "sha256": "2d98806fd8f48345226f751442a0247b52b68e2e419777a3599759bf149dc1a1",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets/racer/ui/steering_ring_painted.png.import",
+      "revision": "SELF",
+      "bytes": 982,
+      "sha256": "436003f64137fc2611cbfc0bfb2800386a503da7b9687ff054673cba48430268",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/imagegen/racer_steering_control_20261106/.gdignore",
+      "revision": "SELF",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/imagegen/racer_steering_control_20261106/GENERATION_JOB.json",
+      "revision": "SELF",
+      "bytes": 6121,
+      "sha256": "4e1715cd38a7ba9635f99d5072c8c90ce204f5ad3c3e70e6aef817d072360350",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/imagegen/racer_steering_control_20261106/PROMPT.txt",
+      "revision": "SELF",
+      "bytes": 1859,
+      "sha256": "50f510c5858ff3608c4248b174d89ad2c2e8a9ea65235cb5a5c04c600a9c4f7f",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/imagegen/racer_steering_control_20261106/PROMPT_SENT.txt",
+      "revision": "SELF",
+      "bytes": 1857,
+      "sha256": "3c0fe95bdf11d71d11a2df1dcdddafebdd850c5d4340539673ff696b209e4861",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/imagegen/racer_steering_control_20261106/steering_control_native.png",
+      "revision": "SELF",
+      "bytes": 1173854,
+      "sha256": "0f6680bc4ada4424e3537c588ee3d6d07311a02b8e37ef1527fd13ca2dd9b2ae",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/.gdignore",
+      "revision": "SELF",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/PAIR_PIXEL_COMPARISON.json",
+      "revision": "SELF",
+      "bytes": 15436,
+      "sha256": "1f856e1cb14d5d74926b0c232b145af214109ac8b6016206ddb1b9bf3d7f683c",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/capture_review.gd",
+      "revision": "SELF",
+      "bytes": 6921,
+      "sha256": "8bb9fde88dab6134a742beb88eba3f9f73c44654212feea6f7144f263ebbca35",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/candidate_1280/captures.json",
+      "revision": "SELF",
+      "bytes": 4575,
+      "sha256": "f00c5349a9e4c780740621f33aec6cc2c3e93a65fa8ba5fc9800b8aee4bc2b1b",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/candidate_1280/opera-focus-cancelled.png",
+      "revision": "SELF",
+      "bytes": 862064,
+      "sha256": "1dc0e086dc85d6c67495b89e6177e366db4936e7bd3fae637cff889e970fc6d6",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/candidate_1280/opera-held-center.png",
+      "revision": "SELF",
+      "bytes": 863671,
+      "sha256": "4532a55baf255809d574513e3e829021f8730c79fbcb6c6ac6a04951cf93eab0",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/candidate_1280/opera-held-left.png",
+      "revision": "SELF",
+      "bytes": 858617,
+      "sha256": "b1476e51b8e5141cde1f1dd6f1722c470028cb1156fe451ff253eb2ff8b63d9e",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/candidate_1280/opera-held-right.png",
+      "revision": "SELF",
+      "bytes": 858461,
+      "sha256": "245d734a7f4471ae658f2e544b70e8f343341d0da674b74afb791ce9fe76f282",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/candidate_1280/opera-idle-guided.png",
+      "revision": "SELF",
+      "bytes": 863107,
+      "sha256": "040d943db0c7c688e461e1db97393b405548f623fb40a2d5c1dc691cc4bb2c6c",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/candidate_1280/opera-released.png",
+      "revision": "SELF",
+      "bytes": 862064,
+      "sha256": "1dc0e086dc85d6c67495b89e6177e366db4936e7bd3fae637cff889e970fc6d6",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/candidate_1280/pc-1-no-touch-steering.png",
+      "revision": "SELF",
+      "bytes": 637926,
+      "sha256": "ae1909b1aabc0fecf0ccbfccc3ca3c63c5208b9f0a90d727ada756003a912c97",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/candidate_1280/pc-2-no-touch-steering.png",
+      "revision": "SELF",
+      "bytes": 523557,
+      "sha256": "11cf79ab0ea0972d2b445b9c077bcd5543ddc1c8d9abb240a148f34d596392d8",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/candidate_1600/captures.json",
+      "revision": "SELF",
+      "bytes": 4575,
+      "sha256": "e1a2aea4e65728cd2d8439939047078fa82e7599c825877fa21b45a408b83efe",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/candidate_1600/opera-focus-cancelled.png",
+      "revision": "SELF",
+      "bytes": 963572,
+      "sha256": "7878bcd6c33faaf7287879ae566dfbd13aa374cfdee2e3e2e446140274430247",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/candidate_1600/opera-held-center.png",
+      "revision": "SELF",
+      "bytes": 965213,
+      "sha256": "f4ed68f14c080c43447576380326b429ce084df4852007d034eb97b27f147f1f",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/candidate_1600/opera-held-left.png",
+      "revision": "SELF",
+      "bytes": 960317,
+      "sha256": "85c6886a12c56c91889d6893fdb2d211c347e29b30abbaace703341266598d31",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/candidate_1600/opera-held-right.png",
+      "revision": "SELF",
+      "bytes": 960381,
+      "sha256": "5a5c1dfb977fd2270ffe205a782335a05cd744a2181f60f24148da816f628ff9",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/candidate_1600/opera-idle-guided.png",
+      "revision": "SELF",
+      "bytes": 964327,
+      "sha256": "9a35a4783d8de48661ddc57bcaed02d02cf17f3d691632d6ed5aa0513d051f85",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/candidate_1600/opera-released.png",
+      "revision": "SELF",
+      "bytes": 963572,
+      "sha256": "7878bcd6c33faaf7287879ae566dfbd13aa374cfdee2e3e2e446140274430247",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/candidate_1600/pc-1-no-touch-steering.png",
+      "revision": "SELF",
+      "bytes": 650725,
+      "sha256": "3e92912b738206ac16465bd2431cce14374a755d49716a4eec45dad570054d40",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/candidate_1600/pc-2-no-touch-steering.png",
+      "revision": "SELF",
+      "bytes": 533492,
+      "sha256": "8d9d0372fb25bde91f46cb02dc454dfaa071c1e928e10e9e7f34244d7c2fc30a",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/source_1280/captures.json",
+      "revision": "SELF",
+      "bytes": 4548,
+      "sha256": "b210c3062793ed64557b4afec6824e855969507f472186424f7cde6570478c23",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/source_1280/opera-focus-cancelled.png",
+      "revision": "SELF",
+      "bytes": 819469,
+      "sha256": "23847225d50619ddde8e766581b9e98ad9fc8c8562789f947ca0cc638825eaf1",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/source_1280/opera-held-center.png",
+      "revision": "SELF",
+      "bytes": 818811,
+      "sha256": "b94935c720c41f30fcb090d65bb9e9360ece65084f4d6362a2036bed5edce957",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/source_1280/opera-held-left.png",
+      "revision": "SELF",
+      "bytes": 817076,
+      "sha256": "3feec229aa760d291b073ef5c2d2342c2ba1367a40093ae2641cbfaed5f3f77b",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/source_1280/opera-held-right.png",
+      "revision": "SELF",
+      "bytes": 817040,
+      "sha256": "ab0ccdf3e5a4d5dd9cb1fbe36e0220e1478c74bc63a5e56ba3d2b60f74806641",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/source_1280/opera-idle-guided.png",
+      "revision": "SELF",
+      "bytes": 825558,
+      "sha256": "7e79b142db8d9d252b02b35860f680a71ed1d5173c80a9cbf3309b05fc8ca24a",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/source_1280/opera-released.png",
+      "revision": "SELF",
+      "bytes": 819469,
+      "sha256": "23847225d50619ddde8e766581b9e98ad9fc8c8562789f947ca0cc638825eaf1",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/source_1280/pc-1-no-touch-steering.png",
+      "revision": "SELF",
+      "bytes": 637926,
+      "sha256": "ae1909b1aabc0fecf0ccbfccc3ca3c63c5208b9f0a90d727ada756003a912c97",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/source_1280/pc-2-no-touch-steering.png",
+      "revision": "SELF",
+      "bytes": 523557,
+      "sha256": "11cf79ab0ea0972d2b445b9c077bcd5543ddc1c8d9abb240a148f34d596392d8",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/source_1600/captures.json",
+      "revision": "SELF",
+      "bytes": 4548,
+      "sha256": "5fc310a624a2463033d33c52e71c96e85544dda5dcbe04819c8dc7dea5d9601b",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/source_1600/opera-focus-cancelled.png",
+      "revision": "SELF",
+      "bytes": 921018,
+      "sha256": "5c60154443602efb7f41e726451c4083ba840b527430a6eb22f571379c54b81a",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/source_1600/opera-held-center.png",
+      "revision": "SELF",
+      "bytes": 920263,
+      "sha256": "9190745ef275060315c7990f49df2475fd3d1869904f087ff0f318477bbfc1df",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/source_1600/opera-held-left.png",
+      "revision": "SELF",
+      "bytes": 918370,
+      "sha256": "095c8e4b681af1169410939764aa26a199055d9918402710b989d7df2cedad7f",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/source_1600/opera-held-right.png",
+      "revision": "SELF",
+      "bytes": 918499,
+      "sha256": "cba6db69ecb27ee4d7a14f6eb1128352d408c32b0818966c654e75a3b6c57c33",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/source_1600/opera-idle-guided.png",
+      "revision": "SELF",
+      "bytes": 926811,
+      "sha256": "cc037e497a09ce2cc07edc0584e1f090dfb64a4615bfe1efc1d9f86f341750f0",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/source_1600/opera-released.png",
+      "revision": "SELF",
+      "bytes": 921018,
+      "sha256": "5c60154443602efb7f41e726451c4083ba840b527430a6eb22f571379c54b81a",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/source_1600/pc-1-no-touch-steering.png",
+      "revision": "SELF",
+      "bytes": 650725,
+      "sha256": "3e92912b738206ac16465bd2431cce14374a755d49716a4eec45dad570054d40",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/source_1600/pc-2-no-touch-steering.png",
+      "revision": "SELF",
+      "bytes": 533492,
+      "sha256": "8d9d0372fb25bde91f46cb02dc454dfaa071c1e928e10e9e7f34244d7c2fc30a",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/steering_control_review_1280.png",
+      "revision": "SELF",
+      "bytes": 841344,
+      "sha256": "6504ae0978de430f240bfb197a6ca80944cbb0470522df0ff0906bf04a8f0c36",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/steering_control_review_1600.png",
+      "revision": "SELF",
+      "bytes": 840573,
+      "sha256": "43e0b05f99a622fbb00e63aaeb9442d1506b2186c03bf4c996be3b7a684892f5",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "revision": "SELF",
+      "bytes": 366970,
+      "sha256": "fdb1581c7f60c0f501364874f1916eef540e2d450233fc389fff2e56f57b8867",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "revision": "SELF",
+      "bytes": 272873,
+      "sha256": "f6d3a7828adf8c27ec7ebc919d1cf36714df6e4744ef0b1e73302f4d6ca72b76",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "revision": "SELF",
+      "bytes": 355144,
+      "sha256": "80bacd5700cf5aac1c5cea6710c92b78d9f4bbfb513226fab3a2c8693c736066",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "revision": "SELF",
+      "bytes": 306688,
+      "sha256": "3c63fddf9550e100c99167df87be6f13f7366244792a9c3363858003859c178b",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-r147-painted-racer-steering-20261106.json",
+      "revision": "SELF",
+      "bytes": 41406,
+      "sha256": "a0de36e4eb4d2ae7bfd1aa603b3e08f5764dec1e67c40235f6a8e31ee6a4a079",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/.gdignore",
+      "revision": "SELF",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/FRAME_EVENTS.json",
+      "revision": "SELF",
+      "bytes": 23750,
+      "sha256": "3394c918581aa65da059c244ad2f4e0f800373bc6cacd87f51aef4262188e77a",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/HISTORY_INITIAL_IMAGEGEN_REQUEST.json",
+      "revision": "SELF",
+      "bytes": 1268,
+      "sha256": "925a72430c332c18bfdc47b86931ed050221f326a73185b4f2ff94672f4b85e3",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/HISTORY_INITIAL_TASK_START.json",
+      "revision": "SELF",
+      "bytes": 5158,
+      "sha256": "266229e7f733bc2692e67c55f7894e11008a1d3dd61fc016179792721df806b4",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/IMPLEMENTATION.json",
+      "revision": "SELF",
+      "bytes": 4918,
+      "sha256": "bfbe2297f938251731e2bbe183efc6cc732eaeac66d02a41ab0b072860b6fc7a",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/INITIAL_FULL_SETUP_FAILURE.json",
+      "revision": "SELF",
+      "bytes": 1381,
+      "sha256": "eeb5a10ee6ff165aa179c68bc55ede7a3e8e715138449d0a19b0170d2f57714d",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/LOCAL_STATIC_ART_REVIEW.json",
+      "revision": "SELF",
+      "bytes": 2632,
+      "sha256": "c7b4f8d2a297eb568e59a3170a2147bdefef41a5710ae03508061465a7785025",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/METADATA_GATES.json",
+      "revision": "SELF",
+      "bytes": 1489,
+      "sha256": "a735834421ec4be85a96fe92e21d45f641e5b348098d116e4a82bc62ecf8b52e",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/PRIOR_R146_ANDROID_AUTO_FAILED_ANNOTATIONS.json",
+      "revision": "SELF",
+      "bytes": 3491,
+      "sha256": "cb509e2edc781a35c3dd28c54be07239979e38896145e56795f0bf6814bcb618",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/PRIOR_R146_ANDROID_AUTO_FAILED_JOB.json",
+      "revision": "SELF",
+      "bytes": 4349,
+      "sha256": "b8341eea024e8f17b965aa97e150d1fccfed3935cb134b5665224a47f524c642",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/PRIOR_R146_ANDROID_RETRY_HANDLE.json",
+      "revision": "SELF",
+      "bytes": 319,
+      "sha256": "5c851b3d3fa8f0e247ee83a74824a569293d9348106595c6a01153db20e456aa",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/PRIOR_R146_APK_EXPORT_BOUNDARY_VERIFIED.json",
+      "revision": "SELF",
+      "bytes": 1237,
+      "sha256": "815fdbd95053b674989543a8caef8cb4db9fdf480c10bf2658a12c728ba631df",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/PRIOR_R146_APK_VERIFIED.json",
+      "revision": "SELF",
+      "bytes": 708,
+      "sha256": "55da1b2c7801164f093a0df752bd960fb5561de8f67dd4ad7fe91e6eab08a52c",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/PRIOR_R146_APPROVED_ANDROID_RETRY_REQUEST.json",
+      "revision": "SELF",
+      "bytes": 12788,
+      "sha256": "40a2e04fa3ebd8907ecd1adfccf900f248ab3f1d000215e9c24a794175faf79d",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/PRIOR_R146_CANONICAL_REMOTE_VERIFICATION.json",
+      "revision": "SELF",
+      "bytes": 22193,
+      "sha256": "82b1ceb17dfbf2547a6c16a3b8f3b160029212f9629b0e2c9005ae159147ed03",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/PRIOR_R146_DEV_CI_COMPLETED.json",
+      "revision": "SELF",
+      "bytes": 10099,
+      "sha256": "95719ccae21675e1b63619867c886036f0c633ff62bfb37ba82dea5f1f05b4d9",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/PRIOR_R146_DEV_INTEGRATION.json",
+      "revision": "SELF",
+      "bytes": 11545,
+      "sha256": "e9eabfa8684b7f6d505bae9de87103e1e89eb03a8cd7c529c21129d58b43dcf5",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/PRIOR_R146_SOURCE_CI_COMPLETED.json",
+      "revision": "SELF",
+      "bytes": 10140,
+      "sha256": "d658b7e64557d71f036c82fb6ae5d33fd2b51afb3d1c4bbc4bcc81cc3f506447",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/PRIOR_R146_VERIFIED_APK_CANONICAL_REMOTE_VERIFICATION.json",
+      "revision": "SELF",
+      "bytes": 33093,
+      "sha256": "5d2689053df24cc54686522af9e7c86286bd41c095898f33da304ffb02d8ce4b",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/README.md",
+      "revision": "SELF",
+      "bytes": 5009,
+      "sha256": "039d3e93db506bacd98f14dddfccb47ef2a4b3dfe9c4252b16a230fa6729f441",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/REVIEW_EXPORT_BOUNDARY.json",
+      "revision": "SELF",
+      "bytes": 843,
+      "sha256": "814e672fa3fe8fc355c11eebb6fc35e71a6203d95de7fa811ffc0380fd5a3cd2",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/RUNTIME_STAGED_EQUALITY.json",
+      "revision": "SELF",
+      "bytes": 912,
+      "sha256": "a2eb159345888fbe201b394b8d1cb9ab081543ba176ccb6ae85b802f4e111239",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/STABLE_ID_BINDING.json",
+      "revision": "SELF",
+      "bytes": 6988,
+      "sha256": "cfb5357b09c312169c35b0024f357a9d74601caab0567f11677fdd7a65a6b0e3",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/TASK_START.json",
+      "revision": "SELF",
+      "bytes": 5397,
+      "sha256": "7a3e8e81f51316c4560b6b0800c9b21da916c60798cfa6336feaf0c2ab5d24ce",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/TEN_AXIS_COMPARISON.json",
+      "revision": "SELF",
+      "bytes": 4489,
+      "sha256": "fb13b85491c1f1e5f7e7c54bac90bb5fc609ab6fcad9908eadb1ef9b7235b4ba",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/authority.log",
+      "revision": "SELF",
+      "bytes": 78,
+      "sha256": "7bf9de7c196fa3f5907a7e19ed9d6e9222fae343e79dbe28c915e48618cc4725",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/coverage_auto.log",
+      "revision": "SELF",
+      "bytes": 80,
+      "sha256": "7b6d7fc9d2d28b6466420e54edaaa22ac35b3013a97c93895d46654d4c592576",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/coverage_base.log",
+      "revision": "SELF",
+      "bytes": 80,
+      "sha256": "7b6d7fc9d2d28b6466420e54edaaa22ac35b3013a97c93895d46654d4c592576",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/01_probe_reef_districts/RESULT.json",
+      "revision": "SELF",
+      "bytes": 558,
+      "sha256": "4a9de581d69c10199ef7eec2b1b57455e6cdf198069f2650de44e6ab6ad8c4a0",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/01_probe_reef_districts/engine.log",
+      "revision": "SELF",
+      "bytes": 1790,
+      "sha256": "97a6d8b58ab878973011b9bddb5709bdfdafcc6fd2f58069e7826b2cb095c0bd",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/02_probe_ocean_kingdoms/RESULT.json",
+      "revision": "SELF",
+      "bytes": 558,
+      "sha256": "b6054f48476ab8d56aa5a2311d367aa44ce7926b54efa4690c2ca8ca112dce44",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/02_probe_ocean_kingdoms/engine.log",
+      "revision": "SELF",
+      "bytes": 1115,
+      "sha256": "df234d3d43c3aa502846363ab085a2cdb54b8b65e295a3444595f275951f7b59",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/03_probe_audit/RESULT.json",
+      "revision": "SELF",
+      "bytes": 539,
+      "sha256": "b3c9fbfe4ba350c53583be4b73b7b85be995c916f86cb5ffc5605f39f6b9d6df",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/03_probe_audit/engine.log",
+      "revision": "SELF",
+      "bytes": 31191,
+      "sha256": "b6a0d0f020f3aac98da3e2710948551a8c641418775dfa447461147d9a9609ee",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/04_probe_passive/RESULT.json",
+      "revision": "SELF",
+      "bytes": 544,
+      "sha256": "026113065d6d0198f52e1b0b2401e00ec6624b0f039175cd783a584c14f99f89",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/04_probe_passive/engine.log",
+      "revision": "SELF",
+      "bytes": 1016,
+      "sha256": "5946d5388fd2fe27c4d0d930f2a17e9df27da03dc37b8d7fe0a2ffe76fe5395f",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/05_probe_living_world/RESULT.json",
+      "revision": "SELF",
+      "bytes": 555,
+      "sha256": "61b12b29cdb204f536f8038725359fd8d2fa0d8ec03718228fe5eae6c3777c01",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/05_probe_living_world/engine.log",
+      "revision": "SELF",
+      "bytes": 1542,
+      "sha256": "b18af2adbf40b63615f990dad8d30a8c0168ccd87eefe3c287993cb30d795f98",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/06_probe_load/RESULT.json",
+      "revision": "SELF",
+      "bytes": 538,
+      "sha256": "89809890c082f83e368e93079f9010e683034207196c0a438f1ae341355acdc9",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/06_probe_load/engine.log",
+      "revision": "SELF",
+      "bytes": 863,
+      "sha256": "d1b64a9cf36f331c655da3d789f62d551d78bca1fff25754445d3daa5c3ed1c8",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/07_probe_rank/RESULT.json",
+      "revision": "SELF",
+      "bytes": 539,
+      "sha256": "ca5a1f4901bcbcc1efb54ea8d9dfbe7cc5af6add76a64eab260df0c55223f084",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/07_probe_rank/engine.log",
+      "revision": "SELF",
+      "bytes": 624,
+      "sha256": "435e795685cc5cd4b9bbd6442e111d2b46ec44535660a0a13aae8d13f83c5c7d",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/08_probe_save_recovery/RESULT.json",
+      "revision": "SELF",
+      "bytes": 557,
+      "sha256": "2ee20611685673e6822d07694719c1b450b383e2115e830b99019fafa7fcd2f7",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/08_probe_save_recovery/engine.log",
+      "revision": "SELF",
+      "bytes": 6054,
+      "sha256": "113bce7f4f4618f7dadfe05c3dfbb527ddb58bc8cc0f915590c473f07c5de38f",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/09_probe_galaxy_state/RESULT.json",
+      "revision": "SELF",
+      "bytes": 555,
+      "sha256": "e6e6f52b133e5a4e0a440a03a76384574ee9da916933c68071c99050a4553b5e",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/09_probe_galaxy_state/engine.log",
+      "revision": "SELF",
+      "bytes": 1164,
+      "sha256": "ba19bfe5b44fcbcb181aad6d64ce2571dcd01f2543c6176776ff0c63c3b91d43",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/10_probe_collection/RESULT.json",
+      "revision": "SELF",
+      "bytes": 551,
+      "sha256": "0ad194fae1122d2d7e8ec510446110b528b137646a8cc46c9809990c05489ffd",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/10_probe_collection/engine.log",
+      "revision": "SELF",
+      "bytes": 739,
+      "sha256": "b109f82b958ac2652e4b94d374fb4016f9ca24ac49ed0eb0d2b129d1aadff690",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/11_probe_mg2d/RESULT.json",
+      "revision": "SELF",
+      "bytes": 539,
+      "sha256": "6726ddcae41254c121896956587e9f39a01da764febac8f12be21c9cafb17ec2",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/11_probe_mg2d/engine.log",
+      "revision": "SELF",
+      "bytes": 3533,
+      "sha256": "5c730a6c387087b0f0034d160424052fc5e69ff7cdbfa2cc932662c362344123",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/12_probe_fetch/RESULT.json",
+      "revision": "SELF",
+      "bytes": 541,
+      "sha256": "2801bed5f8ee710d095d92faba84337c51ffe21314a36c339f0fe0081016130c",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/12_probe_fetch/engine.log",
+      "revision": "SELF",
+      "bytes": 541,
+      "sha256": "6e5bc4722b176db595fd7c08f30dcb2443c41444f950b0b58b4437069f8979a5",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/13_probe_melody/RESULT.json",
+      "revision": "SELF",
+      "bytes": 543,
+      "sha256": "4d64b163ed50dbd1b0457aef76c33feaa41d396065a08caccc0da85c27f77e88",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/13_probe_melody/engine.log",
+      "revision": "SELF",
+      "bytes": 163834,
+      "sha256": "52e2d741b8ec57613932a8df90df61b92c106f89739c3121cdeba091e070bbd4",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/14_probe_dolls/RESULT.json",
+      "revision": "SELF",
+      "bytes": 541,
+      "sha256": "2e26520746df0deb5c8d343ced02244619180e5aee5f93fa4eb90efe04af94e2",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/14_probe_dolls/engine.log",
+      "revision": "SELF",
+      "bytes": 3891,
+      "sha256": "d6fe1bf694b8499806f1cb9c4d89e4e1242d6cdcd6da470ea49e401cd4249dbf",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/15_probe_seek/RESULT.json",
+      "revision": "SELF",
+      "bytes": 539,
+      "sha256": "b725e22b8b99b3197feb8f0d03234bd445f1b3cc71dcdf1ff402f1d39595f90f",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/15_probe_seek/engine.log",
+      "revision": "SELF",
+      "bytes": 3889,
+      "sha256": "ad3d7281a2cfef86bd440a62afc6afd83cadf88ddc2fe62645894b7646f00b14",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/16_probe_audio/RESULT.json",
+      "revision": "SELF",
+      "bytes": 541,
+      "sha256": "6df918accd7457ba9ac371d046a03154ff69e406ab04c980b9829551f3e6bf6a",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/16_probe_audio/engine.log",
+      "revision": "SELF",
+      "bytes": 1638,
+      "sha256": "d6e4cc0d68e8a0c02fdd6beb01ca228bc3516847bc8a46dba833793bc19ed33b",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/17_probe_dance/RESULT.json",
+      "revision": "SELF",
+      "bytes": 541,
+      "sha256": "94fb1409244f906f33a2b37005af348691222a0ab3b30f00d452c563f7bfd1bb",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/17_probe_dance/engine.log",
+      "revision": "SELF",
+      "bytes": 473,
+      "sha256": "e9d68243d211c408223d1196cf163535148aa1e6ee06258eef1fba2a6f60ad6e",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/18_probe_l2/RESULT.json",
+      "revision": "SELF",
+      "bytes": 535,
+      "sha256": "77671f08ed713b41669b06be8a3f80767322bb6577c6e5de8b8286e7058c6c49",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/18_probe_l2/engine.log",
+      "revision": "SELF",
+      "bytes": 5937,
+      "sha256": "d36a362af0c62dd58ccfcc83492066787c158497658fad33fbf2e7ce178bd873",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/19_probe_l2_living_cards/RESULT.json",
+      "revision": "SELF",
+      "bytes": 561,
+      "sha256": "a6fbb1e8279262d8988ebb34078093b8c5622b22c4eaff0670ab8da004bf756b",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/19_probe_l2_living_cards/engine.log",
+      "revision": "SELF",
+      "bytes": 808,
+      "sha256": "921b5cd605a190217e3358549c84c2a1c4c6445892701463b6dc6a7d9924eeb4",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/20_probe_sky_lagoon_animals/RESULT.json",
+      "revision": "SELF",
+      "bytes": 567,
+      "sha256": "48270c6c740a26bfb163bc41fc10717cd4ae94f5bb7b3ce7cf5a4ce17e437167",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/20_probe_sky_lagoon_animals/engine.log",
+      "revision": "SELF",
+      "bytes": 9843,
+      "sha256": "1f403e7dc1d681de9f8ee0f2ffbb4158afc26142f61693fb695760e89c42fc08",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/21_probe_l2_reenter/RESULT.json",
+      "revision": "SELF",
+      "bytes": 551,
+      "sha256": "1fb0e5c264b49d99156737cc81771d94beb4540aa87c4e9f1e39a91de8ac1915",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/21_probe_l2_reenter/engine.log",
+      "revision": "SELF",
+      "bytes": 154,
+      "sha256": "0836edebc4578a0f6ad00c902b5b9db5457646438bb895b91e769498e18b9b94",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/22_probe_crown/RESULT.json",
+      "revision": "SELF",
+      "bytes": 541,
+      "sha256": "b6290fd26779918dad3178204966f2ed0c0593fdacb11642666d35697e8ebff6",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/22_probe_crown/engine.log",
+      "revision": "SELF",
+      "bytes": 2260,
+      "sha256": "0e0040958111b7315767c4abeee129a854e12906f6dd4e785fe9a274181a847c",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/23_probe_throne/RESULT.json",
+      "revision": "SELF",
+      "bytes": 543,
+      "sha256": "5bc6fa0881534a7b17b77ca4328a89581619092427471873a297ab29c6be6feb",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/23_probe_throne/engine.log",
+      "revision": "SELF",
+      "bytes": 2825,
+      "sha256": "cbd95def26d01f333db2f4edac1fa2a5fb385b5080de544de2ece7c32f106962",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/24_probe_northern/RESULT.json",
+      "revision": "SELF",
+      "bytes": 547,
+      "sha256": "8e4f45834bb47151673fe7dbb57b0ad82bdb68314a3b8852efbac0b0a61d0a47",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/24_probe_northern/engine.log",
+      "revision": "SELF",
+      "bytes": 1247,
+      "sha256": "fba9e9483c9e24b53dd6437408ab313959bb7968d3a41347a011b6c0fa98013c",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/25_probe_human_art_audit/RESULT.json",
+      "revision": "SELF",
+      "bytes": 560,
+      "sha256": "92b55e4937a5611c3156273c0082ca7562126ae9b0e48280eacab6b8cc1c8d19",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/25_probe_human_art_audit/engine.log",
+      "revision": "SELF",
+      "bytes": 153,
+      "sha256": "5b5415d1b810a7a04bf84518731c22c3121478261795d5c89429aeca2c966dc5",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/26_probe_train/RESULT.json",
+      "revision": "SELF",
+      "bytes": 540,
+      "sha256": "534ea679dca37d3d38402284f770ef04a7adaec54ab7f8a8b9cc0698137d22d6",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/26_probe_train/engine.log",
+      "revision": "SELF",
+      "bytes": 290,
+      "sha256": "2617369a4b121d48b4e9cb8c9ced9a4fee3e787530afaa463169a19ab224ddb7",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/27_probe_verbs/RESULT.json",
+      "revision": "SELF",
+      "bytes": 541,
+      "sha256": "c6523ad46ec3f8b52d6b64b34380634f10d0d8d1ba3c45e4a5c3d1f8f9e2686e",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/27_probe_verbs/engine.log",
+      "revision": "SELF",
+      "bytes": 849,
+      "sha256": "e31b7b198d01970ea9aa65ff3358070067a759a4d63bf5a269a0fd5ae5466b40",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/28_probe_skins/RESULT.json",
+      "revision": "SELF",
+      "bytes": 540,
+      "sha256": "12043257cc198a3fecfd8600f48e2981d77cdb660ee5998d402138f13ca6ce12",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/28_probe_skins/engine.log",
+      "revision": "SELF",
+      "bytes": 157,
+      "sha256": "8925983b17113d743ea7d1c6b17a05e8946c83d9b570c1c7f96aa7d35594909d",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/29_probe_touch_router/RESULT.json",
+      "revision": "SELF",
+      "bytes": 553,
+      "sha256": "c79cc9ffbc4258654c8a3bd6d6f0ddcffd87630f4be4ae9dd4b1bbdc5443caca",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/29_probe_touch_router/engine.log",
+      "revision": "SELF",
+      "bytes": 158,
+      "sha256": "c2892f8084bd847bc1ef4669ea66e602741a48571030e21b659066cb38aea07e",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/30_probe_touch_stress/RESULT.json",
+      "revision": "SELF",
+      "bytes": 554,
+      "sha256": "575ebb324189015c0bbcd1f9fdf5fdcd4f72ceb9875097a77b59d9c8ad1687a1",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/30_probe_touch_stress/engine.log",
+      "revision": "SELF",
+      "bytes": 1389,
+      "sha256": "d21238baa4e4c2ca00129f128a93c6f45162e59d7a19d3fedc2b22f543222187",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/31_probe_interaction/RESULT.json",
+      "revision": "SELF",
+      "bytes": 552,
+      "sha256": "1164639ef18e829308a8e719c55c5a9d44b0104eacc683e53a5d9ca0367b2cef",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/31_probe_interaction/engine.log",
+      "revision": "SELF",
+      "bytes": 95,
+      "sha256": "75e9425089cda25286cf58484513493b928490e6fa9f0d6971cfab45fcf12a63",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/32_probe_touch_adversary/RESULT.json",
+      "revision": "SELF",
+      "bytes": 560,
+      "sha256": "7db200aa9e28bc959ef04706dc4881b026c83bc3acf1c92dc1a1b56a48f771e4",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/32_probe_touch_adversary/engine.log",
+      "revision": "SELF",
+      "bytes": 1644,
+      "sha256": "7dce7b16bedf0a78e23f3951656cebf93faf911ab4ab7ef1e163c81feb2a5643",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/33_probe_touch_look/RESULT.json",
+      "revision": "SELF",
+      "bytes": 551,
+      "sha256": "f5a2f0ed164c2271e0811caed50cbaab1adbeeb502ce804a183024c0663e56be",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/33_probe_touch_look/engine.log",
+      "revision": "SELF",
+      "bytes": 424,
+      "sha256": "60351641e3a32197e818e5df8416233946f40c138599c4ae85a723642cdc25fb",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/34_probe_ui_system/RESULT.json",
+      "revision": "SELF",
+      "bytes": 549,
+      "sha256": "9ba415e1924c7f61c08815c436e435c0b7126ba1acf092aad1ac7abcbd2a7ab3",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/34_probe_ui_system/engine.log",
+      "revision": "SELF",
+      "bytes": 31656,
+      "sha256": "fd6065e09969b8da7bbeb040707d99c214a6f3a76e5db6e1f245bdd218e6b33b",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/35_probe_voice/RESULT.json",
+      "revision": "SELF",
+      "bytes": 541,
+      "sha256": "a73c5d9955e6b20ecff28b1ba6b4299774c9f659301bb5ff1cef88d81206f32d",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/35_probe_voice/engine.log",
+      "revision": "SELF",
+      "bytes": 21361,
+      "sha256": "fca4a664995df55cd25767ff31874eec4a5c673727edb530f991e6bcc2d923e7",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/36_probe_day_one_voice/RESULT.json",
+      "revision": "SELF",
+      "bytes": 557,
+      "sha256": "2a13926c76673b24c858d1b949c55efb2073b6f169137f29dab1885d87a96e52",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/36_probe_day_one_voice/engine.log",
+      "revision": "SELF",
+      "bytes": 4919,
+      "sha256": "50a7a84c1ce20b02a158485dab22961bc3b440dc9b823a60f9ef124cdca2dbea",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/37_probe_day_one_d8_revisits/RESULT.json",
+      "revision": "SELF",
+      "bytes": 568,
+      "sha256": "d91e44319477e90d90cb5d63ed5a7c9d91b260e9ec411555c872caa8f888de4e",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/37_probe_day_one_d8_revisits/engine.log",
+      "revision": "SELF",
+      "bytes": 766,
+      "sha256": "8a62f8e03b7bbc051aa7e60d1919e69a59951770d17b526d811fe1d4aa1dc631",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/38_probe_day_one_handoffs/RESULT.json",
+      "revision": "SELF",
+      "bytes": 563,
+      "sha256": "e0041364a2d17546ec2fc2d55b6c5b2a5696c714938537dd3842b5d4fd576a8a",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/38_probe_day_one_handoffs/engine.log",
+      "revision": "SELF",
+      "bytes": 2013,
+      "sha256": "908a3ed2410a386f95ff5d4b1a9190b6b2e049faf6f08be47f7dd399298c1a82",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/39_probe_kart_feel/RESULT.json",
+      "revision": "SELF",
+      "bytes": 548,
+      "sha256": "b16da8e470de581bae831e1e31fe610cd29fe768037d4dcf4bec48caae5db269",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/39_probe_kart_feel/engine.log",
+      "revision": "SELF",
+      "bytes": 1141,
+      "sha256": "6e5e72dab47c4e18e31b3c14e3b098f077cde54de76b518b603595de643d96e5",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/40_probe_combat/RESULT.json",
+      "revision": "SELF",
+      "bytes": 542,
+      "sha256": "a934ced7ad876307235ee98c4e6bc3ac1168f2b2efe11ee604cd65c492af669e",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/40_probe_combat/engine.log",
+      "revision": "SELF",
+      "bytes": 1981,
+      "sha256": "67aec55ee70333770a4faecb2cfd06051dfd5f0c3522629f4a522650ae60e613",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/41_probe_dust_bunny/RESULT.json",
+      "revision": "SELF",
+      "bytes": 550,
+      "sha256": "49caeaa48085124a934016a0719dffa75ff5d5229e6c9c425907b12d010cc5cc",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/41_probe_dust_bunny/engine.log",
+      "revision": "SELF",
+      "bytes": 730,
+      "sha256": "4663fb2a0de3512c5d77b0e136a6a59139e23f411d0224912e38b45ebde441dc",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/42_probe_dust_bunny_boss/RESULT.json",
+      "revision": "SELF",
+      "bytes": 560,
+      "sha256": "726b732f8ef25c80832504bd2852e4b9be9312f815d05480e131bbdbe4c4d3df",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/42_probe_dust_bunny_boss/engine.log",
+      "revision": "SELF",
+      "bytes": 3858,
+      "sha256": "8fc65c5380675ca971e99523bbe8e17c34f09c503cd2d87029fe79d4b73aed3d",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/43_probe_dust_boss/RESULT.json",
+      "revision": "SELF",
+      "bytes": 549,
+      "sha256": "8b9005927c967550c2152d04dcd1de531e81a68385a2be63fd6054f0214892a8",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/43_probe_dust_boss/engine.log",
+      "revision": "SELF",
+      "bytes": 8698,
+      "sha256": "1d05616ae145a7dca0f3e940613bc73c3a1294489cac8053b80fab7a095c3316",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/44_probe_hit/RESULT.json",
+      "revision": "SELF",
+      "bytes": 536,
+      "sha256": "7436803dfd07fa630f3bdfad691f02a90a325c4dfa0353a634ee5e25a82e7cf5",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/44_probe_hit/engine.log",
+      "revision": "SELF",
+      "bytes": 2180,
+      "sha256": "785d740aaff6eb57e72a8ecc2fa239cfd66b6f84d956f2ff0bb0ab109e22aaf7",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/45_probe_partner/RESULT.json",
+      "revision": "SELF",
+      "bytes": 544,
+      "sha256": "3507a097d25b45d1a6be82e551008fe2ad26671066d6abdf4fbc159967de4611",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/45_probe_partner/engine.log",
+      "revision": "SELF",
+      "bytes": 850,
+      "sha256": "975f35172cb1329e2eb83c9d772ba96fdaf1c79126ba32f7b9a97a6e5a72ba5c",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/46_probe_combat_tutorial/RESULT.json",
+      "revision": "SELF",
+      "bytes": 561,
+      "sha256": "777c1aee56965f0cde4ddf9701acb24056c0e56ad3afa3dc73b46b2a0c236b10",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/46_probe_combat_tutorial/engine.log",
+      "revision": "SELF",
+      "bytes": 1836,
+      "sha256": "744b4d5752836b437e1eccd3dc9fa32b0328a8c7383acbaa1f367fb27cba925f",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/47_probe_imp_ai/RESULT.json",
+      "revision": "SELF",
+      "bytes": 542,
+      "sha256": "5de71127eea6cb0e798c63ed6e6c312eaa29a617d767704b00f36d2490025cb0",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/47_probe_imp_ai/engine.log",
+      "revision": "SELF",
+      "bytes": 1637,
+      "sha256": "9ae03f976731e38ad51ab9e60fa5e43461359f99af606bbb269f3c7c660ab874",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/48_probe_mic/RESULT.json",
+      "revision": "SELF",
+      "bytes": 536,
+      "sha256": "e750ae71c60738b0e7b3bf3e25ec101614473aef8266af4a073c93ad4f22ed88",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/48_probe_mic/engine.log",
+      "revision": "SELF",
+      "bytes": 1962,
+      "sha256": "4c186e6413f73aacf682d34e95d955e600da20b553d525b7b4d49cf7bdd8dd26",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/49_probe_stuffie/RESULT.json",
+      "revision": "SELF",
+      "bytes": 545,
+      "sha256": "5c85aca786de3a0b81f0e9a6f9951ddb656ad0528103fb69a9ed46004ce06adc",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/49_probe_stuffie/engine.log",
+      "revision": "SELF",
+      "bytes": 5021,
+      "sha256": "ce98c5879cc8f528799c7c4a8bcfdb583da7c27f90f837794b913fc5691b7455",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/50_probe_dungeon/RESULT.json",
+      "revision": "SELF",
+      "bytes": 544,
+      "sha256": "4d39367fb14bdea3307b405f19408102954ff5c0d1f4c878eb6deb33f01e3245",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/50_probe_dungeon/engine.log",
+      "revision": "SELF",
+      "bytes": 3979,
+      "sha256": "e375bfcd6815b9b8d614c8ce0b555d08c2bc3c1c9daced36bc7bde6c04a5b836",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/51_probe_ember/RESULT.json",
+      "revision": "SELF",
+      "bytes": 541,
+      "sha256": "bc04408929fe12473db992318c38bd392b794c10d67327c891467c7b7958c0bc",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/51_probe_ember/engine.log",
+      "revision": "SELF",
+      "bytes": 3301,
+      "sha256": "bfd3bbf78d4afc8f0be1f7b1b24e83c9e1369694a5ad2ddf6f93502c08621e70",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/52_probe_opera/RESULT.json",
+      "revision": "SELF",
+      "bytes": 541,
+      "sha256": "14b016479f4e670e9bdc10ca49d728eb2dff39f01cfd9a05dc768f60377d52d2",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/52_probe_opera/engine.log",
+      "revision": "SELF",
+      "bytes": 14976,
+      "sha256": "3dcec1cf5e80c0d7485b53285dbbcc7b306e29ed4c90677a146fabb912b0f5b2",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/53_probe_opera_2d/RESULT.json",
+      "revision": "SELF",
+      "bytes": 545,
+      "sha256": "f6efbb0198633b7fd751175960c3508f47e7a867db3ee0399ebfd4bb15eebd90",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/53_probe_opera_2d/engine.log",
+      "revision": "SELF",
+      "bytes": 104008,
+      "sha256": "3edb1f7927aedac83b8da41a9a08907f958c66e490b59127a38ac40ad1ee6c42",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/54_probe_opera_diegetic_paths/RESULT.json",
+      "revision": "SELF",
+      "bytes": 570,
+      "sha256": "e3fd12271ded0b25e29a62d6c1f83c8f9fedfca5466131e23175b702c4da6a92",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/54_probe_opera_diegetic_paths/engine.log",
+      "revision": "SELF",
+      "bytes": 190,
+      "sha256": "8b4fa69dca1eb815b72a9592ac787d7f7cf9650e94c21745b3a3293da39dfeb8",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/55_probe_opera_detective/RESULT.json",
+      "revision": "SELF",
+      "bytes": 561,
+      "sha256": "0e9d9cb3d983bdb7e62de3e641a92fcfa1c06d07267c33e9ca93188acca40780",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/55_probe_opera_detective/engine.log",
+      "revision": "SELF",
+      "bytes": 1138,
+      "sha256": "ada2802f1fd8ddfa452d4ca6d40b560d95e2fe6a0d784f3c5ebc5161755a2498",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/56_probe_opera_pipe/RESULT.json",
+      "revision": "SELF",
+      "bytes": 550,
+      "sha256": "e1b86242e76c3a1e6cac91957042989e1537f3217c38c186e3b0ff86e098ed75",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/56_probe_opera_pipe/engine.log",
+      "revision": "SELF",
+      "bytes": 96,
+      "sha256": "9e37f1451cf963674947e78580377efe684cb07070ef3ded7221671a9cf74efc",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/57_probe_opera_nursery/RESULT.json",
+      "revision": "SELF",
+      "bytes": 557,
+      "sha256": "8b8de22dc8d549be0b6b438e8d28a9c9e68f340631707683e6d341e7f7d84704",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/57_probe_opera_nursery/engine.log",
+      "revision": "SELF",
+      "bytes": 2172,
+      "sha256": "ea99b8b123e699dca13b66bab6a6a0fc607ad7af6509935a9623c08e23a24dac",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/58_probe_opera_gesture_quality/RESULT.json",
+      "revision": "SELF",
+      "bytes": 572,
+      "sha256": "a9d701a86f34ac030e325ffd7e2a93def3744d889b80e8ae6347c723c288f1a5",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/58_probe_opera_gesture_quality/engine.log",
+      "revision": "SELF",
+      "bytes": 120,
+      "sha256": "24092105cea880e323075053cccc45837478b6b5abc10532a055d8b64c5c5277",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/59_probe_kitchen_props/RESULT.json",
+      "revision": "SELF",
+      "bytes": 556,
+      "sha256": "fe1fd7d3778a2c5036d1513607bceefa2a3bdc6bcf7634b11f9e67cea867c87a",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/59_probe_kitchen_props/engine.log",
+      "revision": "SELF",
+      "bytes": 2283,
+      "sha256": "085ee788c6a4ea61b380dc094a318f0546223c723a4a06343e564902678217fd",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/60_probe_bathroom_props/RESULT.json",
+      "revision": "SELF",
+      "bytes": 558,
+      "sha256": "d030ac3ecd214cc883517132db9ed0cddddd047da1ac034099187924cfc879aa",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/60_probe_bathroom_props/engine.log",
+      "revision": "SELF",
+      "bytes": 909,
+      "sha256": "f1a9243fa397b4679dd72416d4e7b6fba6d21014c949cf112f3e3c29eefd494f",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/61_probe_castle_door_language/RESULT.json",
+      "revision": "SELF",
+      "bytes": 571,
+      "sha256": "6da88e936d243875b2812a0a0449b1b337dc341a051f5a3ec91184ebbe870df5",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/61_probe_castle_door_language/engine.log",
+      "revision": "SELF",
+      "bytes": 5234,
+      "sha256": "4abaa12c13b1268f31ba2dcbd5a0d01bef5d51f9d72bfae4a3e1289ea6b2240b",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/62_probe_bathroom_integration/RESULT.json",
+      "revision": "SELF",
+      "bytes": 571,
+      "sha256": "f24b15cfea125cb3de24fab5941680f07f953ad344ee657f91aa9a55df49b30a",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/62_probe_bathroom_integration/engine.log",
+      "revision": "SELF",
+      "bytes": 4006,
+      "sha256": "0b93b196a5572ccb0f9f76698bce1c3d2aa27084f08b0cca93da8ab561ace330",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/63_probe_day_one_bathroom_bunny/RESULT.json",
+      "revision": "SELF",
+      "bytes": 575,
+      "sha256": "6291a64b4ec9b7f964cb1cbf31b4874cddf9b3662eed0058e10fe98db99ece3a",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/63_probe_day_one_bathroom_bunny/engine.log",
+      "revision": "SELF",
+      "bytes": 1162,
+      "sha256": "b2317cefbc14362cdb2509477c136b7ddbf79e88550d370040f165ad452d500c",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/64_probe_day_one_bathroom_cleanup/RESULT.json",
+      "revision": "SELF",
+      "bytes": 579,
+      "sha256": "f09b97c3f02b580b4b5a869a6406a1604f9c2ffbdf20245ae4cadcb53991963e",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/64_probe_day_one_bathroom_cleanup/engine.log",
+      "revision": "SELF",
+      "bytes": 7951,
+      "sha256": "e3ac904c4ddad2ceec6937274324e0f46e845f5bc74095a74bd985a7a25a3d14",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/65_probe_day_one_bathroom_movie_handoff/RESULT.json",
+      "revision": "SELF",
+      "bytes": 590,
+      "sha256": "a30ae2eae5498351abc46af5c130bf6eb37c52172b0ac99983fc5d5b56a5964c",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/65_probe_day_one_bathroom_movie_handoff/engine.log",
+      "revision": "SELF",
+      "bytes": 1137,
+      "sha256": "3c38263a6313fdfe5cfb49b7378d9e9890d36373f6f014af0411e016529f5f86",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/66_probe_day_one_director/RESULT.json",
+      "revision": "SELF",
+      "bytes": 562,
+      "sha256": "eb4178d781be1f6af8ad61cf9ac59371d5f8565599b5097e725ba74d346ea5fd",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/66_probe_day_one_director/engine.log",
+      "revision": "SELF",
+      "bytes": 1237,
+      "sha256": "c55a83f10ed8b5e8f241a127a88fdfb1001bbdb65486d44989606a1ece6e1c0e",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/67_probe_day_one_integration/RESULT.json",
+      "revision": "SELF",
+      "bytes": 568,
+      "sha256": "07ac2b6fb849d02595d0a01e982b0f7ed4bc0b19d52cab718dffbf6355172572",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/67_probe_day_one_integration/engine.log",
+      "revision": "SELF",
+      "bytes": 2843,
+      "sha256": "5d2a85cd038e521120be433551a63bdcaa394be2c493b151f616650805b1ab46",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/68_probe_day_one_pool_cleanup/RESULT.json",
+      "revision": "SELF",
+      "bytes": 570,
+      "sha256": "98e68575152c2980cd459b95ca212099425f85d177da40885cf84f89005e36af",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/68_probe_day_one_pool_cleanup/engine.log",
+      "revision": "SELF",
+      "bytes": 10348,
+      "sha256": "5491f4684903a3057fdff6c9ba4e59d18ef2d563b0b50ff5d14a4283655b67a0",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/69_probe_day_one_art_attack_state/RESULT.json",
+      "revision": "SELF",
+      "bytes": 578,
+      "sha256": "0d40fc9224f35e40f54cfca98846922136c5582a3ad2e3da7cd88d0bde1bc900",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/69_probe_day_one_art_attack_state/engine.log",
+      "revision": "SELF",
+      "bytes": 3531,
+      "sha256": "f60c2a724f4c1d99e78da2e83ed099fad0afd2bd2bbd4ba7e730c3ee1f1b6114",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/70_probe_day_one_castle_dressing/RESULT.json",
+      "revision": "SELF",
+      "bytes": 576,
+      "sha256": "17a27ba33df105d547c21471dce7c1b9cddad49e6a6b48734ab70e4032110925",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/70_probe_day_one_castle_dressing/engine.log",
+      "revision": "SELF",
+      "bytes": 789,
+      "sha256": "17ea5dbf7d18d174c7029081bb94f79ae44f439fb81b7c77093083efceba80a0",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/71_probe_day_one_story_clips/RESULT.json",
+      "revision": "SELF",
+      "bytes": 569,
+      "sha256": "c38293b1bd76c45cf4880bd1894f4d17bad07a8e7112934bbee85eba2bc82c8b",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/71_probe_day_one_story_clips/engine.log",
+      "revision": "SELF",
+      "bytes": 6679,
+      "sha256": "811e20c6e97da8efb3aa06e7e0a74e02f822b74ca0ed33a9548abd5e4e8cf1a8",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/72_probe_chapter2/RESULT.json",
+      "revision": "SELF",
+      "bytes": 548,
+      "sha256": "0bf018e23c75386ce91019f77b49c835e0de32199ba4c3843de28a21f79f3cc5",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/72_probe_chapter2/engine.log",
+      "revision": "SELF",
+      "bytes": 49644,
+      "sha256": "7e40dd1f0bf84b6637ab401cc5fe3aaf82b7f5b5dfc1d3cba30ed3a0a6526c4c",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/73_probe_chapter2_farmer_resume/RESULT.json",
+      "revision": "SELF",
+      "bytes": 575,
+      "sha256": "0472ce6983bfa87e5d8949e9f2d1afdb22e5a4ff80d38e5534b75c1802ef4ab4",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/73_probe_chapter2_farmer_resume/engine.log",
+      "revision": "SELF",
+      "bytes": 10001,
+      "sha256": "2f43fc12adfc92b0ef5bfde77ceba276190604eb8b7471697746afcbe21d942d",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/74_probe_chapter2_lawn/RESULT.json",
+      "revision": "SELF",
+      "bytes": 556,
+      "sha256": "32e487fa42ea578960c2efe3e41fbbebd60d31669d35a28cce7f02ee78335133",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/74_probe_chapter2_lawn/engine.log",
+      "revision": "SELF",
+      "bytes": 4668,
+      "sha256": "b50aaf7aeae0823dcbfb26e58ab58b9b739c7780e04efb36fb554433be6d55e1",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/75_probe_alpha_milestone_save/RESULT.json",
+      "revision": "SELF",
+      "bytes": 570,
+      "sha256": "b2fb00cbe0adb9e58d337e44b99efd3018e8fb70563a3dba0105041702cef382",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/75_probe_alpha_milestone_save/engine.log",
+      "revision": "SELF",
+      "bytes": 16983,
+      "sha256": "c8fee9f0a438dd1b2493699c49a5d84994e818e7bd65fb0f6655fbfca08bc584",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/76_probe_dust_boss_balance/RESULT.json",
+      "revision": "SELF",
+      "bytes": 566,
+      "sha256": "f381660408158e95ef7e02ec934b60c897f003cb1a8cf4f6e42bf4646ff27e86",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/76_probe_dust_boss_balance/engine.log",
+      "revision": "SELF",
+      "bytes": 664,
+      "sha256": "cbdc79223b6bf8c111125fdbc3f578f14b5e502728517d24a939d9371dc9f41c",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/77_probe_start_menu_routing/RESULT.json",
+      "revision": "SELF",
+      "bytes": 566,
+      "sha256": "c909a5f0ad7c2ec5258ff7ea0b030b67235462487255fa06566f8e3508f5aee0",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/77_probe_start_menu_routing/engine.log",
+      "revision": "SELF",
+      "bytes": 2161,
+      "sha256": "c192b57ce2a0672867a9ce4420e32fde1eab6d258fc7e9e200127891e4d0c163",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/78_probe_start_menu_new_game/RESULT.json",
+      "revision": "SELF",
+      "bytes": 569,
+      "sha256": "ad061f40efb53cfcdf4569ab6965ec4a5588d3ffeeb3b7024c9455fa4b22b2e1",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/78_probe_start_menu_new_game/engine.log",
+      "revision": "SELF",
+      "bytes": 3884,
+      "sha256": "7c48b1ef54c5f034978a8da97facbf06624559c3401d33ea8e64ea7e03cc4d5e",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/79_probe_castle_pool_life_2d/RESULT.json",
+      "revision": "SELF",
+      "bytes": 568,
+      "sha256": "9d09fa0b518371c4f8da4568bcfea401fa5596d37c46c3b2acd9e5319ff88cf5",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/79_probe_castle_pool_life_2d/engine.log",
+      "revision": "SELF",
+      "bytes": 750,
+      "sha256": "3c743dae2d362340c1369418a95b8feacb00f3f8933ddb78daa109c17bf5b6b9",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/80_probe_castle_pearl_art/RESULT.json",
+      "revision": "SELF",
+      "bytes": 563,
+      "sha256": "fb7c1bef9f76bce26dd5ea629541657628ff7a76aad7b34564b8aaaac083f4d0",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/80_probe_castle_pearl_art/engine.log",
+      "revision": "SELF",
+      "bytes": 5407,
+      "sha256": "3ee0048f0ac4e6f57ecb861a040025321f3cb187829e8b568059027ed4a78183",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/81_probe_fairy_art/RESULT.json",
+      "revision": "SELF",
+      "bytes": 548,
+      "sha256": "8d3380c5fc40a3c1b2367738c2f01873f4a3e7d5c24c8f5728ee7a49822ec9cb",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/81_probe_fairy_art/engine.log",
+      "revision": "SELF",
+      "bytes": 1030,
+      "sha256": "97aa66835cca2cf482d202e46a6119b11319755d18c86c10f76174a009ff34c4",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/82_probe_props/RESULT.json",
+      "revision": "SELF",
+      "bytes": 541,
+      "sha256": "53423dec5b0e3a3af2ebf544298bd3833afded604100b216b848d6e5dda67138",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/82_probe_props/engine.log",
+      "revision": "SELF",
+      "bytes": 1228,
+      "sha256": "c2b732eb8c197eb5004fec74f7df0fb71d031b4dff532a6de5e16c2564a3125c",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/FINAL_RESULT.json",
+      "revision": "SELF",
+      "bytes": 55678,
+      "sha256": "e7f6e00e47b57537152e7b348bb40738dcb78d95e77185d6254d2aa1bafe8978",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/R147_VALIDATE_INITIAL_FIXTURE_BINDING_FAILURE.py",
+      "revision": "SELF",
+      "bytes": 6575,
+      "sha256": "1275ee2cabe0ed1cd61b61f0e31ea72e1401872b77006105af584f87c117e0a5",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/R147_VALIDATE_V2.py",
+      "revision": "SELF",
+      "bytes": 6578,
+      "sha256": "bde2e78e9462f3c86c143ef5a071146d55f91de7c9d85e7d875b9a83c1b1757d",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/SOURCE_PIN.json",
+      "revision": "SELF",
+      "bytes": 730658,
+      "sha256": "299536a3a5d870e7af71a592cbff271c9ae93b0e693a24d3fa8d23109be6cc61",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/changed_inference/RESULT.json",
+      "revision": "SELF",
+      "bytes": 472,
+      "sha256": "3fac81f60d5152130691c1a59fb4ca9fce44ec1e1520c1d5f136e22560883776",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/changed_inference/engine.log",
+      "revision": "SELF",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/changed_parser/RESULT.json",
+      "revision": "SELF",
+      "bytes": 473,
+      "sha256": "8098f5f5dcf9848d3bab4aefe0d9921a1b2d66bcd4da5684baac46aec3511d83",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/changed_parser/engine.log",
+      "revision": "SELF",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/ci_static_prefix.sh",
+      "revision": "SELF",
+      "bytes": 11152,
+      "sha256": "29e7e38ee6da7abcefd7aeb59c0d62fb4d473bb30f02ec449035fca863ae406c",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/focused_probe_racer_integration/RESULT.json",
+      "revision": "SELF",
+      "bytes": 570,
+      "sha256": "3919616bb5901dce0ba2d37554cd90bd46e7827c31a3e996aad2dcb552158c1b",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/focused_probe_racer_integration/engine.log",
+      "revision": "SELF",
+      "bytes": 4534,
+      "sha256": "6f6d2c94ea432c12f7a67d52ae305bed751fdbb1a678c36dfb5b8e6a0b0c44d1",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/focused_probe_reef_kart_pc/RESULT.json",
+      "revision": "SELF",
+      "bytes": 560,
+      "sha256": "dabdbbaa22f80f52341c997bd41eacc6a9d135d88332454491a63909d8a0fd86",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/focused_probe_reef_kart_pc/engine.log",
+      "revision": "SELF",
+      "bytes": 4572,
+      "sha256": "a2518de9919a58b1a6c966d8ebb39174cc7cd3e9d920088ae046fa728d650b9f",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/post_game2d/RESULT.json",
+      "revision": "SELF",
+      "bytes": 380,
+      "sha256": "be83a1bd4b57016b822f3ec645ffc84bf7a587978b20ef0075be014ef571dbe0",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/post_game2d/engine.log",
+      "revision": "SELF",
+      "bytes": 570,
+      "sha256": "4022b0d0dd00dd5e333ac2fdd5684e1ec48df71542d261cc30972ea71a23d6d5",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/static_import/RESULT.json",
+      "revision": "SELF",
+      "bytes": 397,
+      "sha256": "b13453418e7de2bd0bf10ff946105c1acdfb2947c19dc01989a71d3cc0cf71ed",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/static_import/engine.log",
+      "revision": "SELF",
+      "bytes": 58921,
+      "sha256": "c978794db3638a0ba55cb9dba5e3c08b7e67479ffbe55d93522f8a8b9b7fef64",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/initial_import/RESULT.json",
+      "revision": "SELF",
+      "bytes": 548,
+      "sha256": "6190512827200e31467b4d01ce5e5b5e8ccb2ec722e3fb62b5bfbdc0701fd8c7",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/initial_import/engine.log",
+      "revision": "SELF",
+      "bytes": 2295,
+      "sha256": "8bfd23a90d64e66ad33107d17b2f2210b538ac42f382713cd40e2a6922f49e5c",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/metadata_initial/R147_FINALIZE_AFTER_MACHINE_INITIAL.py",
+      "revision": "SELF",
+      "bytes": 16631,
+      "sha256": "d23bc6acb04fee78154fb13c5d872fc6a935727ded4a09a7bddc43d866e6a777",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/metadata_initial/RESULT.json",
+      "revision": "SELF",
+      "bytes": 841,
+      "sha256": "4e1805e8f2a09581ce3831d206b2d9c9d1cbec23823c2e8784c702303ae5cf0a",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/metadata_initial/coverage_auto.log",
+      "revision": "SELF",
+      "bytes": 49966,
+      "sha256": "e9b68113cb387e3a90a8e26d2032deab2f27c389d50fc354497a326a0ec7e8cb",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/native/R147_CAPTURE.py",
+      "revision": "SELF",
+      "bytes": 6181,
+      "sha256": "4009424ab8259a2db704bbb65431deac5c4ceb03bd27e51e38f0dcf65122b03d",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/native/RESULT.json",
+      "revision": "SELF",
+      "bytes": 29944,
+      "sha256": "5152d165b7afe2571b0d21ccc9ce02270c53b163fc9800f88db9382b537346f2",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/native/SOURCE_PIN.json",
+      "revision": "SELF",
+      "bytes": 730969,
+      "sha256": "a9655682e6ffe60f562f2b25ab5b06e583fb5268cf16fe1887ebbea5b54abad2",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/native/candidate_1280/RESULT.json",
+      "revision": "SELF",
+      "bytes": 6362,
+      "sha256": "da78ce73594dabc6ef9a0ecec800938a9e966b7b52d696b444ba41c118251cfb",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/native/candidate_1280/console.log",
+      "revision": "SELF",
+      "bytes": 1863,
+      "sha256": "83b9bdedaeb3a2d6728c7ec2580984df8a7a6989a8fa722c5d67900553f3b69f",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/native/candidate_1280/native_engine.log",
+      "revision": "SELF",
+      "bytes": 1831,
+      "sha256": "4d421287a710b5f473c83b2af5ad310c23a30f25f506e9c1cb4094180c59f707",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/native/candidate_1600/RESULT.json",
+      "revision": "SELF",
+      "bytes": 6362,
+      "sha256": "90dfe2626f019c957f8a6f1a56473434d7e5f948faae521e7dcd1a3f8ba03e3b",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/native/candidate_1600/console.log",
+      "revision": "SELF",
+      "bytes": 1863,
+      "sha256": "83b9bdedaeb3a2d6728c7ec2580984df8a7a6989a8fa722c5d67900553f3b69f",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/native/candidate_1600/native_engine.log",
+      "revision": "SELF",
+      "bytes": 1831,
+      "sha256": "4d421287a710b5f473c83b2af5ad310c23a30f25f506e9c1cb4094180c59f707",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/native/source_1280/RESULT.json",
+      "revision": "SELF",
+      "bytes": 6332,
+      "sha256": "f6cd6238fe275613833c86e0db2cf25b4f9def1a133e2951530904eb0ae2bbb7",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/native/source_1280/console.log",
+      "revision": "SELF",
+      "bytes": 1863,
+      "sha256": "83b9bdedaeb3a2d6728c7ec2580984df8a7a6989a8fa722c5d67900553f3b69f",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/native/source_1280/native_engine.log",
+      "revision": "SELF",
+      "bytes": 1831,
+      "sha256": "4d421287a710b5f473c83b2af5ad310c23a30f25f506e9c1cb4094180c59f707",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/native/source_1600/RESULT.json",
+      "revision": "SELF",
+      "bytes": 6332,
+      "sha256": "b6259db9239a6115523a8012109189976a0c70673e16394a1fdff2a2017d2535",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/native/source_1600/console.log",
+      "revision": "SELF",
+      "bytes": 1863,
+      "sha256": "83b9bdedaeb3a2d6728c7ec2580984df8a7a6989a8fa722c5d67900553f3b69f",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/native/source_1600/native_engine.log",
+      "revision": "SELF",
+      "bytes": 1831,
+      "sha256": "4d421287a710b5f473c83b2af5ad310c23a30f25f506e9c1cb4094180c59f707",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "revision": "SELF",
+      "bytes": 64827,
+      "sha256": "51ac5462cdec6918318dd1f997d317c0281aea75d1b3fc86b471e1da391ca64e",
+      "role": "actual_current_candidate_code_art_provenance_context_or_machine_evidence"
+    },
+    {
+      "path": "assets/melody/timing_window_medallion_painted.png",
+      "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "bytes": 110185,
+      "sha256": "efc3dfd123a1c193c7fa9195689c66d5d16e0238341b6b636168d3592b8ab833",
+      "role": "painted UI appearance; source candidates, not a new owner-acceptance claim"
+    },
+    {
+      "path": "assets/racer/ui/gas_button_painted.png",
+      "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "bytes": 308133,
+      "sha256": "79f9dee0a1db33980e0d3fd24627bb25a85119d956b15a62a700de7f3741af29",
+      "role": "painted UI appearance; source candidates, not a new owner-acceptance claim"
+    }
+  ],
+  "time": "2026-11-06T23:53:18.793135+00:00"
+}

@@ -1,0 +1,140 @@
+{
+  "id": 128199171403,
+  "run_id": 42307127746,
+  "workflow_name": "Android APK",
+  "head_branch": "master",
+  "run_url": "https://api.github.com/repos/Ebonyks/mermaid-roshan-reef/actions/runs/42307127746",
+  "run_attempt": 1,
+  "node_id": "CR_kwDOTFBnf88AAAAd2UQdSw",
+  "head_sha": "ff68f9550c28f7d979896d5c84d1214264c29165",
+  "url": "https://api.github.com/repos/Ebonyks/mermaid-roshan-reef/actions/jobs/128199171403",
+  "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42307127746/job/128199171403",
+  "status": "completed",
+  "conclusion": "failure",
+  "created_at": "2026-11-06T22:45:48Z",
+  "started_at": "2026-11-06T22:45:50Z",
+  "completed_at": "2026-11-06T23:03:07Z",
+  "name": "build",
+  "steps": [
+    {
+      "name": "Set up job",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 1,
+      "started_at": "2026-11-06T22:45:51Z",
+      "completed_at": "2026-11-06T22:45:52Z"
+    },
+    {
+      "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 2,
+      "started_at": "2026-11-06T22:45:52Z",
+      "completed_at": "2026-11-06T22:59:12Z"
+    },
+    {
+      "name": "Run actions/setup-java@c1e323688fd81a25caa38c78aa6df2d33d3e20d9",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 3,
+      "started_at": "2026-11-06T22:59:12Z",
+      "completed_at": "2026-11-06T22:59:13Z"
+    },
+    {
+      "name": "Cache Godot + export templates",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 4,
+      "started_at": "2026-11-06T22:59:13Z",
+      "completed_at": "2026-11-06T22:59:23Z"
+    },
+    {
+      "name": "Download Godot + export templates",
+      "status": "completed",
+      "conclusion": "skipped",
+      "number": 5,
+      "started_at": "2026-11-06T22:59:23Z",
+      "completed_at": "2026-11-06T22:59:23Z"
+    },
+    {
+      "name": "Install Godot + export templates",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 6,
+      "started_at": "2026-11-06T22:59:23Z",
+      "completed_at": "2026-11-06T22:59:42Z"
+    },
+    {
+      "name": "Restore stable signing identity + editor settings",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 7,
+      "started_at": "2026-11-06T22:59:42Z",
+      "completed_at": "2026-11-06T22:59:45Z"
+    },
+    {
+      "name": "Import project (first run generates .godot resources)",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 8,
+      "started_at": "2026-11-06T22:59:45Z",
+      "completed_at": "2026-11-06T23:02:33Z"
+    },
+    {
+      "name": "Export debug APK",
+      "status": "in_progress",
+      "conclusion": null,
+      "number": 9,
+      "started_at": "2026-11-06T23:02:33Z",
+      "completed_at": null
+    },
+    {
+      "name": "Pick release tag by branch (dev gets its own pre-promotion channel)",
+      "status": "pending",
+      "conclusion": null,
+      "number": 10,
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "name": "Publish APK to the prerelease (stable download URL)",
+      "status": "pending",
+      "conclusion": null,
+      "number": 11,
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "name": "Post Cache Godot + export templates",
+      "status": "pending",
+      "conclusion": null,
+      "number": 20,
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "name": "Post Run actions/setup-java@c1e323688fd81a25caa38c78aa6df2d33d3e20d9",
+      "status": "pending",
+      "conclusion": null,
+      "number": 21,
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+      "status": "pending",
+      "conclusion": null,
+      "number": 22,
+      "started_at": null,
+      "completed_at": null
+    }
+  ],
+  "check_run_url": "https://api.github.com/repos/Ebonyks/mermaid-roshan-reef/check-runs/128199171403",
+  "labels": [
+    "ubuntu-latest"
+  ],
+  "runner_id": 1000005740,
+  "runner_name": "GitHub Actions 1000005740",
+  "runner_group_id": 0,
+  "runner_group_name": "GitHub Actions"
+}

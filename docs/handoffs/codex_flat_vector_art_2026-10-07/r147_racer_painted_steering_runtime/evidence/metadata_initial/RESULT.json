@@ -1,0 +1,15 @@
+{
+  "state": "INITIAL_METADATA_COVERAGE_FAILED_UNSUPPORTED_RESULT_ENUM_CORRECTED",
+  "original_result_rows": [
+    {
+      "command": "Current subjective localAI object art review, every applicable static dimension4.5minimum; no owner score",
+      "result": "PASS_LOCAL_AI_STATIC_ONLY",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/LOCAL_STATIC_ART_REVIEW.json"
+    }
+  ],
+  "failure": "Checker accepts onlyPASS/FAIL/PENDING/NOT_APPLICABLE; unsupported localAI scoped enum invalidated coverage record.",
+  "correction": "Use schemaPASS with identical explicitlylocalAI evidence scope. Gate implementation and allruntime unchanged.",
+  "engine_commands_repeated": 0,
+  "current_full_machine_required_commands_passed": 88,
+  "time": "2026-11-06T23:52:48.947384+00:00"
+}

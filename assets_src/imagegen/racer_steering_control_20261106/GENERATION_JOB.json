@@ -1,0 +1,153 @@
+{
+  "state": "LOCAL_PAINTED_STEERING_MACHINE_AND_CONFIGURED_CONTEXT_PASS_SOURCE_CI_DEV_EXTERNAL_OPEN",
+  "stable_id": "FV-031CDD6A2011",
+  "baseline": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+  "prompt": "assets_src/imagegen/racer_steering_control_20261106/PROMPT.txt",
+  "prompt_sha256": "50f510c5858ff3608c4248b174d89ad2c2e8a9ea65235cb5a5c04c600a9c4f7f",
+  "references": [
+    {
+      "path": "assets/racer/ui/gas_button_painted.png",
+      "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "sha256": "79f9dee0a1db33980e0d3fd24627bb25a85119d956b15a62a700de7f3741af29",
+      "role": "painted UI appearance; source candidates, not a new owner-acceptance claim",
+      "protected_original": false
+    },
+    {
+      "path": "assets/melody/timing_window_medallion_painted.png",
+      "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "sha256": "efc3dfd123a1c193c7fa9195689c66d5d16e0238341b6b636168d3592b8ab833",
+      "role": "painted UI appearance; source candidates, not a new owner-acceptance claim",
+      "protected_original": false
+    }
+  ],
+  "backend": "built-in image_gen.imagegen; model/version selector not exposed",
+  "calls_used": 1,
+  "max_takes": 2,
+  "native_output": {
+    "path": "assets_src/imagegen/racer_steering_control_20261106/steering_control_native.png",
+    "tool_original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-b26670d3-a3ef-4141-b5b9-14cb4468161d.png",
+    "tool_original_preserved": true,
+    "sha256": "0f6680bc4ada4424e3537c588ee3d6d07311a02b8e37ef1527fd13ca2dd9b2ae",
+    "bytes": 1173854,
+    "dimensions": [
+      1920,
+      819
+    ],
+    "mode": "RGBA"
+  },
+  "exports": [
+    {
+      "component": "ring",
+      "path": "assets/racer/ui/steering_ring_painted.png",
+      "bytes": 254294,
+      "sha256": "2d98806fd8f48345226f751442a0247b52b68e2e419777a3599759bf149dc1a1",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_native": "assets_src/imagegen/racer_steering_control_20261106/steering_control_native.png",
+      "native_crop_box": [
+        96,
+        12,
+        891,
+        807
+      ],
+      "method": "Exact square component crop with4-native-pixel minimum visible margin, then uniform whole-crop LANCZOS downscale. No painting, alpha-channel edits or reconstructed pixels. Original native preserved.",
+      "crop_visibility_threshold": 4,
+      "all_source_alpha_greater_equal4_preserved": true,
+      "source_alpha1to3_pixels_outside_crop": 35,
+      "modification_scope": "The declared crop omits only native alpha1..3 fringe outside its square; it does not claim every faint native pixel was exported.",
+      "decoded_RGBA_base_bytes": 1048576
+    },
+    {
+      "component": "knob",
+      "path": "assets/racer/ui/steering_knob_painted.png",
+      "bytes": 87637,
+      "sha256": "a40cea67ef6d50d326c2d36f1dc148b708e984384deddb592c30723807814314",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_native": "assets_src/imagegen/racer_steering_control_20261106/steering_control_native.png",
+      "native_crop_box": [
+        1162,
+        92,
+        1799,
+        729
+      ],
+      "method": "Exact square component crop with4-native-pixel minimum visible margin, then uniform whole-crop LANCZOS downscale. No painting, alpha-channel edits or reconstructed pixels. Original native preserved.",
+      "crop_visibility_threshold": 4,
+      "all_source_alpha_greater_equal4_preserved": true,
+      "source_alpha1to3_pixels_outside_crop": 176,
+      "modification_scope": "The declared crop omits only native alpha1..3 fringe outside its square; it does not claim every faint native pixel was exported.",
+      "decoded_RGBA_base_bytes": 262144
+    }
+  ],
+  "started_at_utc": "2026-11-06T22:18:19.544321+00:00",
+  "actual_exposed_backend": "built-in image_gen.imagegen; only image_url/output_hint returned; no model selector/version/provider revision/request ID/seed/usage exposed",
+  "actual_output_filename": "exec-b26670d3-a3ef-4141-b5b9-14cb4468161d.png",
+  "tool_orchestration_elapsed_seconds": 31.6,
+  "candidate_calls": 1,
+  "paid_external_API_calls": 0,
+  "animation_calls": 0,
+  "export_component_regions": [
+    {
+      "name": "ring",
+      "cell_box": [
+        0,
+        0,
+        960,
+        819
+      ],
+      "alpha_bbox_in_cell": [
+        21,
+        14,
+        954,
+        819
+      ]
+    },
+    {
+      "name": "knob",
+      "cell_box": [
+        960,
+        0,
+        1920,
+        819
+      ],
+      "alpha_bbox_in_cell": [
+        1,
+        21,
+        861,
+        809
+      ]
+    }
+  ],
+  "received_at_utc": "2026-11-06T22:20:20.519367+00:00",
+  "other_funded_caps": "unchanged",
+  "actual_prompt_path": "assets_src/imagegen/racer_steering_control_20261106/PROMPT_SENT.txt",
+  "actual_prompt_utf8_sha256": "3c0fe95bdf11d71d11a2df1dcdddafebdd850c5d4340539673ff696b209e4861",
+  "prompt_preparation_file_sha256": "50f510c5858ff3608c4248b174d89ad2c2e8a9ea65235cb5a5c04c600a9c4f7f",
+  "prompt_mapping": "The tool argument was preparation text stripped only of terminal whitespace; PROMPT_SENT.txt preserves its exact UTF8 bytes.",
+  "technical_export_tool": {
+    "name": "Pillow",
+    "version": "12.3.0",
+    "operations": "RGBA crop then LANCZOS resize, PNG optimize=True; no colour transform or alpha painting."
+  },
+  "initial_production_subrole_id": "FVR-AA4F097D3DAE",
+  "current_subrole_id": "FVR-AA4F097D3DAE",
+  "stable_id_binding": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/STABLE_ID_BINDING.json",
+  "integration": true,
+  "runtime": {
+    "state": "PASS_ACTUAL_R147_PAINTED_STEERING_STATIC_IMPORT_2FOCUSED_AND82_STRICT_COMMAND_EXITS",
+    "full_machine": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/FINAL_RESULT.json",
+    "actual_runtime_inputs": 5586,
+    "required_gate_commands": 88,
+    "formal_QA11": null
+  },
+  "canonical_binding": {
+    "existing_id": "FV-031CDD6A2011",
+    "subrole_id": "FVR-AA4F097D3DAE",
+    "new_role_credit": 0,
+    "broader_historical_scope_retired": false
+  }
+}
