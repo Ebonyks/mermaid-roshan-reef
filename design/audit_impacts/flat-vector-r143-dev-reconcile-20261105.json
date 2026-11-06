@@ -1,0 +1,88 @@
+{
+  "id": "flat-vector-r143-dev-reconcile-20261105",
+  "baseline": "fa74d3c87f7c58f46ad33fb150fb5bce831f09f0",
+  "scope": "Publish verified required-painted Racer runtime integration and reconcile15already-published implementation artifacts on the established canonical branch; preserve stable IDs/provenance/history/unknown totals and separate evidence. No runtime/code/art edits in this canonical checkout.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-MED-01",
+    "DL-PERF-06",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/flat-vector-r143-dev-reconcile-20261105.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/.gitattributes",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/DEV_CI_GREEN_JOBS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/DEV_CI_GREEN_RUN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/EXACT_SOURCE_REFERENCES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/EXISTING15_ANONYMOUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/EXISTING15_CURRENT_DEV_MATCH.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/EXISTING15_PRODUCTION_MATCHES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/PRIOR_ARTIFACT_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/R143_DEV_INTEGRATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/RECENT_UPDATES_CURRENT_VERIFIED.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/RECENT_UPDATES_HISTORY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/SOURCE_CI_GREEN_JOBS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/SOURCE_CI_GREEN_RUN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Actual integrated runtime source, six focused suites, strict82command exits and exact source/Dev CI",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/R143_DEV_INTEGRATION.json and EXACT_SOURCE_REFERENCES.json;81assertion probes plus1headless capture SKIP, no evidence transfer"
+    },
+    {
+      "command": "Source and previous selected exports anonymous immutable byte verification",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/SOURCE_REMOTE_VERIFICATION.json and EXISTING15_ANONYMOUS.json; final67Gitblob comparison inEXISTING15_CURRENT_DEV_MATCH.json"
+    },
+    {
+      "command": "Canonical metadata authority and exact current change coverage",
+      "result": "PENDING",
+      "evidence": "Run on actual final staged canonical tree before commit; no healthy runtime-suite replay for metadata"
+    },
+    {
+      "command": "Canonical actual manifest anonymous delivery",
+      "result": "PENDING",
+      "evidence": "Run after publication at exact canonical revision; preserve source receipt timestamps for identical immutable references"
+    }
+  ],
+  "acceptance_gaps": "FormalQA11, complete native/action/route coverage, actual device, child and owner acceptance remain open; whole-game denominators unknown, zero accepted removals and complete coverage. No new generation/design/family/source credit. No runtime engine rerun for this metadata-only projection.",
+  "external_source_finding_references": [
+    {
+      "id": "MA-OPERA-014",
+      "revision": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/a7e1faefc09b3303494a5499cce5fe120cb2dcb2/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014",
+      "scope": "Current Racer rebuild finding at the actual integrated source. This older canonical-registry checkout has no local definition; retain the exact authoritative source instead of fabricating/importing an unrelated full finding archive. No lifecycle change or closure."
+    }
+  ]
+}

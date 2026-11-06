@@ -1,0 +1,2644 @@
+{
+  "state": "READ_ONLY_SOURCE_TO_DEV_MATCH_NOT_ART_ACCEPTANCE",
+  "Dev_revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+  "artifacts": [
+    {
+      "artifact_key": "r120_melody_curtains_runtime",
+      "stable_ids": [
+        "FV-4ED0A2885065",
+        "FV-FD33A7BF6E0A"
+      ],
+      "source_revision": "0e8095e656aaae795076b98b202cc453c3234e06",
+      "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/MANIFEST.json",
+      "consumer": "scripts/games/melody.gd",
+      "consumer_sha256": "195c64b3c17fe5fc75750c0fff4751ed9ceaea499796f90749c6b4c2b75955ed",
+      "PNG_count": 2,
+      "all_PNG_bytes_match": true,
+      "all_PNG_literal_consumers_found": false,
+      "files": [
+        {
+          "path": "assets/melody/curtain_left_painted.png",
+          "source_revision": "0e8095e656aaae795076b98b202cc453c3234e06",
+          "expected_sha256": "e9c0c4c107c16b51508109781ce2e39aa8b61289a1db545676648085bd9c43c8",
+          "Dev_sha256": "e9c0c4c107c16b51508109781ce2e39aa8b61289a1db545676648085bd9c43c8",
+          "bytes": 214701,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/curtain_right_painted.png",
+          "source_revision": "0e8095e656aaae795076b98b202cc453c3234e06",
+          "expected_sha256": "4dfe744ce24b4d536256ae783edb2cff508268c8e7dd0e4b1b16c2f7821f2d4e",
+          "Dev_sha256": "4dfe744ce24b4d536256ae783edb2cff508268c8e7dd0e4b1b16c2f7821f2d4e",
+          "bytes": 201838,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        }
+      ],
+      "selected_piece_exports": [
+        {
+          "path": "assets/melody/curtain_left_painted.png",
+          "source_revision": "0e8095e656aaae795076b98b202cc453c3234e06",
+          "expected_sha256": "e9c0c4c107c16b51508109781ce2e39aa8b61289a1db545676648085bd9c43c8",
+          "Dev_sha256": "e9c0c4c107c16b51508109781ce2e39aa8b61289a1db545676648085bd9c43c8",
+          "bytes": 214701,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/curtain_right_painted.png",
+          "source_revision": "0e8095e656aaae795076b98b202cc453c3234e06",
+          "expected_sha256": "4dfe744ce24b4d536256ae783edb2cff508268c8e7dd0e4b1b16c2f7821f2d4e",
+          "Dev_sha256": "4dfe744ce24b4d536256ae783edb2cff508268c8e7dd0e4b1b16c2f7821f2d4e",
+          "bytes": 201838,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        }
+      ],
+      "selected_piece_export_count": 2
+    },
+    {
+      "artifact_key": "r121_melody_header_runtime",
+      "stable_ids": [
+        "FV-0671240CDB11"
+      ],
+      "source_revision": "621a098f6795d8aa2e0bd0838c2ff5e65aeb142c",
+      "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/MANIFEST.json",
+      "consumer": "scripts/games/melody.gd",
+      "consumer_sha256": "195c64b3c17fe5fc75750c0fff4751ed9ceaea499796f90749c6b4c2b75955ed",
+      "PNG_count": 1,
+      "all_PNG_bytes_match": true,
+      "all_PNG_literal_consumers_found": true,
+      "files": [
+        {
+          "path": "assets/melody/crown_header_painted.png",
+          "source_revision": "621a098f6795d8aa2e0bd0838c2ff5e65aeb142c",
+          "expected_sha256": "3865d7d6801d5688d5c7aa41c4d6cd5e1e2f3310a3a80638d3e7a884aa91419e",
+          "Dev_sha256": "3865d7d6801d5688d5c7aa41c4d6cd5e1e2f3310a3a80638d3e7a884aa91419e",
+          "bytes": 166949,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 117,
+              "text": "const HEADER_PATH := \"res://assets/melody/crown_header_painted.png\""
+            }
+          ]
+        }
+      ],
+      "selected_piece_exports": [
+        {
+          "path": "assets/melody/crown_header_painted.png",
+          "source_revision": "621a098f6795d8aa2e0bd0838c2ff5e65aeb142c",
+          "expected_sha256": "3865d7d6801d5688d5c7aa41c4d6cd5e1e2f3310a3a80638d3e7a884aa91419e",
+          "Dev_sha256": "3865d7d6801d5688d5c7aa41c4d6cd5e1e2f3310a3a80638d3e7a884aa91419e",
+          "bytes": 166949,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 117,
+              "text": "const HEADER_PATH := \"res://assets/melody/crown_header_painted.png\""
+            }
+          ]
+        }
+      ],
+      "selected_piece_export_count": 1
+    },
+    {
+      "artifact_key": "r122_melody_star_runtime",
+      "stable_ids": [
+        "FV-8E1550C50601"
+      ],
+      "source_revision": "877fb264778f59b6f1d1602fd8af4f73970351be",
+      "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r122_melody_star_runtime/MANIFEST.json",
+      "consumer": "scripts/games/melody.gd",
+      "consumer_sha256": "195c64b3c17fe5fc75750c0fff4751ed9ceaea499796f90749c6b4c2b75955ed",
+      "PNG_count": 1,
+      "all_PNG_bytes_match": true,
+      "all_PNG_literal_consumers_found": false,
+      "files": [
+        {
+          "path": "assets/melody/star_painted.png",
+          "source_revision": "877fb264778f59b6f1d1602fd8af4f73970351be",
+          "expected_sha256": "44a7b3a8351778b5912ac3a9c54085b20a990967e2b036aeff88f2b388a93e8e",
+          "Dev_sha256": "44a7b3a8351778b5912ac3a9c54085b20a990967e2b036aeff88f2b388a93e8e",
+          "bytes": 56101,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        }
+      ],
+      "selected_piece_exports": [
+        {
+          "path": "assets/melody/star_painted.png",
+          "source_revision": "877fb264778f59b6f1d1602fd8af4f73970351be",
+          "expected_sha256": "44a7b3a8351778b5912ac3a9c54085b20a990967e2b036aeff88f2b388a93e8e",
+          "Dev_sha256": "44a7b3a8351778b5912ac3a9c54085b20a990967e2b036aeff88f2b388a93e8e",
+          "bytes": 56101,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        }
+      ],
+      "selected_piece_export_count": 1
+    },
+    {
+      "artifact_key": "r123_melody_footlights_runtime",
+      "stable_ids": [
+        "FV-864287E0D0F3"
+      ],
+      "source_revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/MANIFEST.json",
+      "consumer": "scripts/games/melody.gd",
+      "consumer_sha256": "195c64b3c17fe5fc75750c0fff4751ed9ceaea499796f90749c6b4c2b75955ed",
+      "PNG_count": 8,
+      "all_PNG_bytes_match": true,
+      "all_PNG_literal_consumers_found": false,
+      "files": [
+        {
+          "path": "assets/melody/footlight_green.png",
+          "source_revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "expected_sha256": "89573cd0da3fa3c12c0ef3637e179f1e8724f0bf2ade95c42f6a76d44666ffcd",
+          "Dev_sha256": "89573cd0da3fa3c12c0ef3637e179f1e8724f0bf2ade95c42f6a76d44666ffcd",
+          "bytes": 30705,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/footlight_orange.png",
+          "source_revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "expected_sha256": "4de72f443c95b9916b1f3bde03a1a121c02e3f5bd2eacd517d8e455c75228b16",
+          "Dev_sha256": "4de72f443c95b9916b1f3bde03a1a121c02e3f5bd2eacd517d8e455c75228b16",
+          "bytes": 30483,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/footlight_periwinkle.png",
+          "source_revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "expected_sha256": "55e40d08fc49dd481cf47618e257ffb48181bc07644f130b8380b819e6625eb3",
+          "Dev_sha256": "55e40d08fc49dd481cf47618e257ffb48181bc07644f130b8380b819e6625eb3",
+          "bytes": 29537,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/footlight_purple.png",
+          "source_revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "expected_sha256": "e0a23b4ca38a7d9f8c4c7184d378cd3efe5568fc79bb5dee03b10891beeb0ce7",
+          "Dev_sha256": "e0a23b4ca38a7d9f8c4c7184d378cd3efe5568fc79bb5dee03b10891beeb0ce7",
+          "bytes": 29226,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/footlight_rail_painted.png",
+          "source_revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "expected_sha256": "50018caeaa9ceb61fb7dedb53343b19cd7d16d413df2a595459e4abffd42b813",
+          "Dev_sha256": "50018caeaa9ceb61fb7dedb53343b19cd7d16d413df2a595459e4abffd42b813",
+          "bytes": 35846,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 119,
+              "text": "const FOOTLIGHT_RAIL_PATH := \"res://assets/melody/footlight_rail_painted.png\""
+            }
+          ]
+        },
+        {
+          "path": "assets/melody/footlight_red.png",
+          "source_revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "expected_sha256": "2038c40b6546a6f2a62af9a1e28d24252f8381381fa22a240814bb074387d61e",
+          "Dev_sha256": "2038c40b6546a6f2a62af9a1e28d24252f8381381fa22a240814bb074387d61e",
+          "bytes": 30293,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/footlight_sky_blue.png",
+          "source_revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "expected_sha256": "10da6826c6c18cef931664be8977c1e8080a99a875aa3de86c6da0990d6e9bd6",
+          "Dev_sha256": "10da6826c6c18cef931664be8977c1e8080a99a875aa3de86c6da0990d6e9bd6",
+          "bytes": 29879,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/footlight_yellow.png",
+          "source_revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "expected_sha256": "e2e950b8dfca5f6fac8ece0f439bb32ff0b64794b03e8c8678a9f5f1405b2a53",
+          "Dev_sha256": "e2e950b8dfca5f6fac8ece0f439bb32ff0b64794b03e8c8678a9f5f1405b2a53",
+          "bytes": 29763,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        }
+      ],
+      "selected_piece_exports": [
+        {
+          "path": "assets/melody/footlight_green.png",
+          "source_revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "expected_sha256": "89573cd0da3fa3c12c0ef3637e179f1e8724f0bf2ade95c42f6a76d44666ffcd",
+          "Dev_sha256": "89573cd0da3fa3c12c0ef3637e179f1e8724f0bf2ade95c42f6a76d44666ffcd",
+          "bytes": 30705,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/footlight_orange.png",
+          "source_revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "expected_sha256": "4de72f443c95b9916b1f3bde03a1a121c02e3f5bd2eacd517d8e455c75228b16",
+          "Dev_sha256": "4de72f443c95b9916b1f3bde03a1a121c02e3f5bd2eacd517d8e455c75228b16",
+          "bytes": 30483,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/footlight_periwinkle.png",
+          "source_revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "expected_sha256": "55e40d08fc49dd481cf47618e257ffb48181bc07644f130b8380b819e6625eb3",
+          "Dev_sha256": "55e40d08fc49dd481cf47618e257ffb48181bc07644f130b8380b819e6625eb3",
+          "bytes": 29537,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/footlight_purple.png",
+          "source_revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "expected_sha256": "e0a23b4ca38a7d9f8c4c7184d378cd3efe5568fc79bb5dee03b10891beeb0ce7",
+          "Dev_sha256": "e0a23b4ca38a7d9f8c4c7184d378cd3efe5568fc79bb5dee03b10891beeb0ce7",
+          "bytes": 29226,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/footlight_rail_painted.png",
+          "source_revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "expected_sha256": "50018caeaa9ceb61fb7dedb53343b19cd7d16d413df2a595459e4abffd42b813",
+          "Dev_sha256": "50018caeaa9ceb61fb7dedb53343b19cd7d16d413df2a595459e4abffd42b813",
+          "bytes": 35846,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 119,
+              "text": "const FOOTLIGHT_RAIL_PATH := \"res://assets/melody/footlight_rail_painted.png\""
+            }
+          ]
+        },
+        {
+          "path": "assets/melody/footlight_red.png",
+          "source_revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "expected_sha256": "2038c40b6546a6f2a62af9a1e28d24252f8381381fa22a240814bb074387d61e",
+          "Dev_sha256": "2038c40b6546a6f2a62af9a1e28d24252f8381381fa22a240814bb074387d61e",
+          "bytes": 30293,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/footlight_sky_blue.png",
+          "source_revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "expected_sha256": "10da6826c6c18cef931664be8977c1e8080a99a875aa3de86c6da0990d6e9bd6",
+          "Dev_sha256": "10da6826c6c18cef931664be8977c1e8080a99a875aa3de86c6da0990d6e9bd6",
+          "bytes": 29879,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/footlight_yellow.png",
+          "source_revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "expected_sha256": "e2e950b8dfca5f6fac8ece0f439bb32ff0b64794b03e8c8678a9f5f1405b2a53",
+          "Dev_sha256": "e2e950b8dfca5f6fac8ece0f439bb32ff0b64794b03e8c8678a9f5f1405b2a53",
+          "bytes": 29763,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        }
+      ],
+      "selected_piece_export_count": 8
+    },
+    {
+      "artifact_key": "r124_melody_apron_runtime",
+      "stable_ids": [
+        "FV-B946DA942C03"
+      ],
+      "source_revision": "f1fe4a15eda241001e42eb0aa9629bbff5d69dec",
+      "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r124_melody_apron_runtime/MANIFEST.json",
+      "consumer": "scripts/games/melody.gd",
+      "consumer_sha256": "195c64b3c17fe5fc75750c0fff4751ed9ceaea499796f90749c6b4c2b75955ed",
+      "PNG_count": 2,
+      "all_PNG_bytes_match": true,
+      "all_PNG_literal_consumers_found": true,
+      "files": [
+        {
+          "path": "assets/melody/stage_apron_painted.png",
+          "source_revision": "f1fe4a15eda241001e42eb0aa9629bbff5d69dec",
+          "expected_sha256": "1fd0435da5bc651a814a665e13a621b6c248371179f65935b906e5c79b5351ee",
+          "Dev_sha256": "1fd0435da5bc651a814a665e13a621b6c248371179f65935b906e5c79b5351ee",
+          "bytes": 95887,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 133,
+              "text": "const APRON_BODY_PATH := \"res://assets/melody/stage_apron_painted.png\""
+            }
+          ]
+        },
+        {
+          "path": "assets/melody/stage_apron_rainbow_painted.png",
+          "source_revision": "f1fe4a15eda241001e42eb0aa9629bbff5d69dec",
+          "expected_sha256": "b06b424cad29a673b76139a2258e7408e0df816e2aab2469ed8b05e074101d9c",
+          "Dev_sha256": "b06b424cad29a673b76139a2258e7408e0df816e2aab2469ed8b05e074101d9c",
+          "bytes": 54662,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 134,
+              "text": "const APRON_RAINBOW_PATH := \"res://assets/melody/stage_apron_rainbow_painted.png\""
+            }
+          ]
+        }
+      ],
+      "selected_piece_exports": [
+        {
+          "path": "assets/melody/stage_apron_painted.png",
+          "source_revision": "f1fe4a15eda241001e42eb0aa9629bbff5d69dec",
+          "expected_sha256": "1fd0435da5bc651a814a665e13a621b6c248371179f65935b906e5c79b5351ee",
+          "Dev_sha256": "1fd0435da5bc651a814a665e13a621b6c248371179f65935b906e5c79b5351ee",
+          "bytes": 95887,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 133,
+              "text": "const APRON_BODY_PATH := \"res://assets/melody/stage_apron_painted.png\""
+            }
+          ]
+        },
+        {
+          "path": "assets/melody/stage_apron_rainbow_painted.png",
+          "source_revision": "f1fe4a15eda241001e42eb0aa9629bbff5d69dec",
+          "expected_sha256": "b06b424cad29a673b76139a2258e7408e0df816e2aab2469ed8b05e074101d9c",
+          "Dev_sha256": "b06b424cad29a673b76139a2258e7408e0df816e2aab2469ed8b05e074101d9c",
+          "bytes": 54662,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 134,
+              "text": "const APRON_RAINBOW_PATH := \"res://assets/melody/stage_apron_rainbow_painted.png\""
+            }
+          ]
+        }
+      ],
+      "selected_piece_export_count": 2
+    },
+    {
+      "artifact_key": "r125_melody_bulbs_runtime",
+      "stable_ids": [
+        "FV-3C4F040EA786"
+      ],
+      "source_revision": "e4166d1b74e5f04ce3b7388b517d8127686dedaa",
+      "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r125_melody_bulbs_runtime/MANIFEST.json",
+      "consumer": "scripts/games/melody.gd",
+      "consumer_sha256": "195c64b3c17fe5fc75750c0fff4751ed9ceaea499796f90749c6b4c2b75955ed",
+      "PNG_count": 2,
+      "all_PNG_bytes_match": true,
+      "all_PNG_literal_consumers_found": true,
+      "files": [
+        {
+          "path": "assets/melody/theatre_bulb_cream_painted.png",
+          "source_revision": "e4166d1b74e5f04ce3b7388b517d8127686dedaa",
+          "expected_sha256": "6b77475880e6b86c45fd3e0ac481814a4a19a1cdd7bc6d67e16e4379fc56d24d",
+          "Dev_sha256": "6b77475880e6b86c45fd3e0ac481814a4a19a1cdd7bc6d67e16e4379fc56d24d",
+          "bytes": 25435,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 158,
+              "text": "const CREAM_BULB: Texture2D = preload(\"res://assets/melody/theatre_bulb_cream_painted.png\")"
+            }
+          ]
+        },
+        {
+          "path": "assets/melody/theatre_bulb_gold_painted.png",
+          "source_revision": "e4166d1b74e5f04ce3b7388b517d8127686dedaa",
+          "expected_sha256": "6bbb37224b78c39dda1a40d56cbb7904a2fbf4987b5d15e643196be42dc1ccc2",
+          "Dev_sha256": "6bbb37224b78c39dda1a40d56cbb7904a2fbf4987b5d15e643196be42dc1ccc2",
+          "bytes": 24936,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 159,
+              "text": "const GOLD_BULB: Texture2D = preload(\"res://assets/melody/theatre_bulb_gold_painted.png\")"
+            }
+          ]
+        }
+      ],
+      "selected_piece_exports": [
+        {
+          "path": "assets/melody/theatre_bulb_cream_painted.png",
+          "source_revision": "e4166d1b74e5f04ce3b7388b517d8127686dedaa",
+          "expected_sha256": "6b77475880e6b86c45fd3e0ac481814a4a19a1cdd7bc6d67e16e4379fc56d24d",
+          "Dev_sha256": "6b77475880e6b86c45fd3e0ac481814a4a19a1cdd7bc6d67e16e4379fc56d24d",
+          "bytes": 25435,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 158,
+              "text": "const CREAM_BULB: Texture2D = preload(\"res://assets/melody/theatre_bulb_cream_painted.png\")"
+            }
+          ]
+        },
+        {
+          "path": "assets/melody/theatre_bulb_gold_painted.png",
+          "source_revision": "e4166d1b74e5f04ce3b7388b517d8127686dedaa",
+          "expected_sha256": "6bbb37224b78c39dda1a40d56cbb7904a2fbf4987b5d15e643196be42dc1ccc2",
+          "Dev_sha256": "6bbb37224b78c39dda1a40d56cbb7904a2fbf4987b5d15e643196be42dc1ccc2",
+          "bytes": 24936,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 159,
+              "text": "const GOLD_BULB: Texture2D = preload(\"res://assets/melody/theatre_bulb_gold_painted.png\")"
+            }
+          ]
+        }
+      ],
+      "selected_piece_export_count": 2
+    },
+    {
+      "artifact_key": "r126_melody_note_runtime",
+      "stable_ids": [
+        "FV-A914479B2992"
+      ],
+      "source_revision": "7f21934d20f9d1abdb78b8c1b5869586efd0cd79",
+      "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r126_melody_note_runtime/MANIFEST.json",
+      "consumer": "scripts/games/melody.gd",
+      "consumer_sha256": "195c64b3c17fe5fc75750c0fff4751ed9ceaea499796f90749c6b4c2b75955ed",
+      "PNG_count": 7,
+      "all_PNG_bytes_match": true,
+      "all_PNG_literal_consumers_found": false,
+      "files": [
+        {
+          "path": "assets/melody/rainbow_note_blue_painted.png",
+          "source_revision": "7f21934d20f9d1abdb78b8c1b5869586efd0cd79",
+          "expected_sha256": "6fa514888498221dfd0727fd5c70c5362a8ed63bfcb5d15f728949ef7d8b70c1",
+          "Dev_sha256": "6fa514888498221dfd0727fd5c70c5362a8ed63bfcb5d15f728949ef7d8b70c1",
+          "bytes": 99008,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/rainbow_note_green_painted.png",
+          "source_revision": "7f21934d20f9d1abdb78b8c1b5869586efd0cd79",
+          "expected_sha256": "1ae079c7d022ebe03a06809094521f02ef524df546a007315e302cf843437429",
+          "Dev_sha256": "1ae079c7d022ebe03a06809094521f02ef524df546a007315e302cf843437429",
+          "bytes": 99773,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/rainbow_note_indigo_painted.png",
+          "source_revision": "7f21934d20f9d1abdb78b8c1b5869586efd0cd79",
+          "expected_sha256": "14d78588224523486f01611a18d6a10e87ff1d2c263d9865b29a7b7f94fae7e2",
+          "Dev_sha256": "14d78588224523486f01611a18d6a10e87ff1d2c263d9865b29a7b7f94fae7e2",
+          "bytes": 98719,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/rainbow_note_orange_painted.png",
+          "source_revision": "7f21934d20f9d1abdb78b8c1b5869586efd0cd79",
+          "expected_sha256": "83cf5aba818c6f7101dfd319f5d355d09119efd5d8e21e45b957300f2c134567",
+          "Dev_sha256": "83cf5aba818c6f7101dfd319f5d355d09119efd5d8e21e45b957300f2c134567",
+          "bytes": 96481,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/rainbow_note_red_painted.png",
+          "source_revision": "7f21934d20f9d1abdb78b8c1b5869586efd0cd79",
+          "expected_sha256": "8e31e25551ba1af58467581c924460edcbb4940e4724b4c122dabae404196aa6",
+          "Dev_sha256": "8e31e25551ba1af58467581c924460edcbb4940e4724b4c122dabae404196aa6",
+          "bytes": 97075,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/rainbow_note_violet_painted.png",
+          "source_revision": "7f21934d20f9d1abdb78b8c1b5869586efd0cd79",
+          "expected_sha256": "3dfa929249a8c829b9b5d118197420144a3d2ae5367ba81c12b0abc4e7c20593",
+          "Dev_sha256": "3dfa929249a8c829b9b5d118197420144a3d2ae5367ba81c12b0abc4e7c20593",
+          "bytes": 97450,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/rainbow_note_yellow_painted.png",
+          "source_revision": "7f21934d20f9d1abdb78b8c1b5869586efd0cd79",
+          "expected_sha256": "a7a5ee15af599870188d4c95b5f95795373d90c6741c3c13605926625dfe14ba",
+          "Dev_sha256": "a7a5ee15af599870188d4c95b5f95795373d90c6741c3c13605926625dfe14ba",
+          "bytes": 92122,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        }
+      ],
+      "selected_piece_exports": [
+        {
+          "path": "assets/melody/rainbow_note_blue_painted.png",
+          "source_revision": "7f21934d20f9d1abdb78b8c1b5869586efd0cd79",
+          "expected_sha256": "6fa514888498221dfd0727fd5c70c5362a8ed63bfcb5d15f728949ef7d8b70c1",
+          "Dev_sha256": "6fa514888498221dfd0727fd5c70c5362a8ed63bfcb5d15f728949ef7d8b70c1",
+          "bytes": 99008,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/rainbow_note_green_painted.png",
+          "source_revision": "7f21934d20f9d1abdb78b8c1b5869586efd0cd79",
+          "expected_sha256": "1ae079c7d022ebe03a06809094521f02ef524df546a007315e302cf843437429",
+          "Dev_sha256": "1ae079c7d022ebe03a06809094521f02ef524df546a007315e302cf843437429",
+          "bytes": 99773,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/rainbow_note_indigo_painted.png",
+          "source_revision": "7f21934d20f9d1abdb78b8c1b5869586efd0cd79",
+          "expected_sha256": "14d78588224523486f01611a18d6a10e87ff1d2c263d9865b29a7b7f94fae7e2",
+          "Dev_sha256": "14d78588224523486f01611a18d6a10e87ff1d2c263d9865b29a7b7f94fae7e2",
+          "bytes": 98719,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/rainbow_note_orange_painted.png",
+          "source_revision": "7f21934d20f9d1abdb78b8c1b5869586efd0cd79",
+          "expected_sha256": "83cf5aba818c6f7101dfd319f5d355d09119efd5d8e21e45b957300f2c134567",
+          "Dev_sha256": "83cf5aba818c6f7101dfd319f5d355d09119efd5d8e21e45b957300f2c134567",
+          "bytes": 96481,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/rainbow_note_red_painted.png",
+          "source_revision": "7f21934d20f9d1abdb78b8c1b5869586efd0cd79",
+          "expected_sha256": "8e31e25551ba1af58467581c924460edcbb4940e4724b4c122dabae404196aa6",
+          "Dev_sha256": "8e31e25551ba1af58467581c924460edcbb4940e4724b4c122dabae404196aa6",
+          "bytes": 97075,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/rainbow_note_violet_painted.png",
+          "source_revision": "7f21934d20f9d1abdb78b8c1b5869586efd0cd79",
+          "expected_sha256": "3dfa929249a8c829b9b5d118197420144a3d2ae5367ba81c12b0abc4e7c20593",
+          "Dev_sha256": "3dfa929249a8c829b9b5d118197420144a3d2ae5367ba81c12b0abc4e7c20593",
+          "bytes": 97450,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/rainbow_note_yellow_painted.png",
+          "source_revision": "7f21934d20f9d1abdb78b8c1b5869586efd0cd79",
+          "expected_sha256": "a7a5ee15af599870188d4c95b5f95795373d90c6741c3c13605926625dfe14ba",
+          "Dev_sha256": "a7a5ee15af599870188d4c95b5f95795373d90c6741c3c13605926625dfe14ba",
+          "bytes": 92122,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        }
+      ],
+      "selected_piece_export_count": 7
+    },
+    {
+      "artifact_key": "r127_melody_progress_pips_runtime",
+      "stable_ids": [
+        "FV-E6549378F626"
+      ],
+      "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+      "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/MANIFEST.json",
+      "consumer": "scripts/games/melody.gd",
+      "consumer_sha256": "195c64b3c17fe5fc75750c0fff4751ed9ceaea499796f90749c6b4c2b75955ed",
+      "PNG_count": 21,
+      "all_PNG_bytes_match": true,
+      "all_PNG_literal_consumers_found": false,
+      "files": [
+        {
+          "path": "assets/melody/progress_pip_current_blue_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "9315090d77bd38d3c37e5a51cf8422b8c408d04cd4413fa099b899fcd06f9b11",
+          "Dev_sha256": "9315090d77bd38d3c37e5a51cf8422b8c408d04cd4413fa099b899fcd06f9b11",
+          "bytes": 28726,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_current_green_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "83481cdaf3f8e3665228e432d90be009eae87be31f8edb728b60b00903fc5e28",
+          "Dev_sha256": "83481cdaf3f8e3665228e432d90be009eae87be31f8edb728b60b00903fc5e28",
+          "bytes": 29081,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_current_indigo_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "4a06f82e29d492f6130574e0d203fa3ca7797f1d8d1b81b73e88b112d11d9b77",
+          "Dev_sha256": "4a06f82e29d492f6130574e0d203fa3ca7797f1d8d1b81b73e88b112d11d9b77",
+          "bytes": 28590,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_current_orange_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "d7770b7601cd3891ce1d614bc22065808a660298617cc82082642bf0b4ad2a1b",
+          "Dev_sha256": "d7770b7601cd3891ce1d614bc22065808a660298617cc82082642bf0b4ad2a1b",
+          "bytes": 28454,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_current_red_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "e9a12bfd56934a9a7c5787398dbfe9568d3d2f1381acbf0f126e997ef4a9e494",
+          "Dev_sha256": "e9a12bfd56934a9a7c5787398dbfe9568d3d2f1381acbf0f126e997ef4a9e494",
+          "bytes": 28474,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_current_violet_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "1d9cfa232e530e9c4e14ab0f2690f1101cb609a8506074395e388128fb9a0cc2",
+          "Dev_sha256": "1d9cfa232e530e9c4e14ab0f2690f1101cb609a8506074395e388128fb9a0cc2",
+          "bytes": 28484,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_current_yellow_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "167b573580690da9d23a181a3490d6a26d27a140eb5efbcdcec27cbbc274a109",
+          "Dev_sha256": "167b573580690da9d23a181a3490d6a26d27a140eb5efbcdcec27cbbc274a109",
+          "bytes": 28084,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_filled_blue_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "f9961374ffe822af8eb2f8a087ee8637265c792caee539f9da0a1ac945de5421",
+          "Dev_sha256": "f9961374ffe822af8eb2f8a087ee8637265c792caee539f9da0a1ac945de5421",
+          "bytes": 28247,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_filled_green_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "8b8f065b358e28deb320ce23f0ce1a00f20e006ea4602d241efd4204371316a0",
+          "Dev_sha256": "8b8f065b358e28deb320ce23f0ce1a00f20e006ea4602d241efd4204371316a0",
+          "bytes": 28066,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_filled_indigo_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "ff5ca08c3237ffc32d31ef90ca92eb6b991ff87ce1a3ea2e11a5c48edfd5c78e",
+          "Dev_sha256": "ff5ca08c3237ffc32d31ef90ca92eb6b991ff87ce1a3ea2e11a5c48edfd5c78e",
+          "bytes": 27740,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_filled_orange_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "3ef0627f259720318e7d1f0ba9770b96464ef7d4adb5c497c412943b01f12508",
+          "Dev_sha256": "3ef0627f259720318e7d1f0ba9770b96464ef7d4adb5c497c412943b01f12508",
+          "bytes": 27782,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_filled_red_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "9b4ba704beabfcf5e3f33d5da6f856ab50c0c3283593be307000b942650fe92a",
+          "Dev_sha256": "9b4ba704beabfcf5e3f33d5da6f856ab50c0c3283593be307000b942650fe92a",
+          "bytes": 27504,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_filled_violet_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "3839641ac6b8c11d7619df92e566da9fe8022f19f10e2fe5335f21175106d5d5",
+          "Dev_sha256": "3839641ac6b8c11d7619df92e566da9fe8022f19f10e2fe5335f21175106d5d5",
+          "bytes": 27801,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_filled_yellow_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "2511f899af13ada340fb34cd0a51e180cfe2daac82283a9b2d3b8f00a771dfc8",
+          "Dev_sha256": "2511f899af13ada340fb34cd0a51e180cfe2daac82283a9b2d3b8f00a771dfc8",
+          "bytes": 27254,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_idle_blue_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "bf334cb5b7b4b61926b83cf6ecd20d7fa5005db0cc2e4755050b11a8b3671fe4",
+          "Dev_sha256": "bf334cb5b7b4b61926b83cf6ecd20d7fa5005db0cc2e4755050b11a8b3671fe4",
+          "bytes": 27053,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_idle_green_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "08e6b0b89b062ac98755c163c5d22c1d9c1855126b585c1d0b14590ea31a52fd",
+          "Dev_sha256": "08e6b0b89b062ac98755c163c5d22c1d9c1855126b585c1d0b14590ea31a52fd",
+          "bytes": 27295,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_idle_indigo_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "dc4afb1485f1492060d22d1014f6c65c33e99063d326aab9d0c37c5b49c6ddd0",
+          "Dev_sha256": "dc4afb1485f1492060d22d1014f6c65c33e99063d326aab9d0c37c5b49c6ddd0",
+          "bytes": 26450,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_idle_orange_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "17733b77a4fd8e497738ed541b845c39ed83135096749b3043dd835631179b1b",
+          "Dev_sha256": "17733b77a4fd8e497738ed541b845c39ed83135096749b3043dd835631179b1b",
+          "bytes": 27057,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_idle_red_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "d0917d181d9890eefb93f15ee14e92c2da766d4c202230512494684d3c332f3f",
+          "Dev_sha256": "d0917d181d9890eefb93f15ee14e92c2da766d4c202230512494684d3c332f3f",
+          "bytes": 26997,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_idle_violet_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "301798f5bd6ea2dcfd714345d2619a59d1a9b8c6779e159d48d20e2fe7d8a40e",
+          "Dev_sha256": "301798f5bd6ea2dcfd714345d2619a59d1a9b8c6779e159d48d20e2fe7d8a40e",
+          "bytes": 27032,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_idle_yellow_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "175d3bbaab4232f7193afd9810bcd1f86cbee7553604cd12ba029add6ee71da6",
+          "Dev_sha256": "175d3bbaab4232f7193afd9810bcd1f86cbee7553604cd12ba029add6ee71da6",
+          "bytes": 27026,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        }
+      ],
+      "selected_piece_exports": [
+        {
+          "path": "assets/melody/progress_pip_current_blue_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "9315090d77bd38d3c37e5a51cf8422b8c408d04cd4413fa099b899fcd06f9b11",
+          "Dev_sha256": "9315090d77bd38d3c37e5a51cf8422b8c408d04cd4413fa099b899fcd06f9b11",
+          "bytes": 28726,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_current_green_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "83481cdaf3f8e3665228e432d90be009eae87be31f8edb728b60b00903fc5e28",
+          "Dev_sha256": "83481cdaf3f8e3665228e432d90be009eae87be31f8edb728b60b00903fc5e28",
+          "bytes": 29081,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_current_indigo_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "4a06f82e29d492f6130574e0d203fa3ca7797f1d8d1b81b73e88b112d11d9b77",
+          "Dev_sha256": "4a06f82e29d492f6130574e0d203fa3ca7797f1d8d1b81b73e88b112d11d9b77",
+          "bytes": 28590,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_current_orange_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "d7770b7601cd3891ce1d614bc22065808a660298617cc82082642bf0b4ad2a1b",
+          "Dev_sha256": "d7770b7601cd3891ce1d614bc22065808a660298617cc82082642bf0b4ad2a1b",
+          "bytes": 28454,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_current_red_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "e9a12bfd56934a9a7c5787398dbfe9568d3d2f1381acbf0f126e997ef4a9e494",
+          "Dev_sha256": "e9a12bfd56934a9a7c5787398dbfe9568d3d2f1381acbf0f126e997ef4a9e494",
+          "bytes": 28474,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_current_violet_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "1d9cfa232e530e9c4e14ab0f2690f1101cb609a8506074395e388128fb9a0cc2",
+          "Dev_sha256": "1d9cfa232e530e9c4e14ab0f2690f1101cb609a8506074395e388128fb9a0cc2",
+          "bytes": 28484,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_current_yellow_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "167b573580690da9d23a181a3490d6a26d27a140eb5efbcdcec27cbbc274a109",
+          "Dev_sha256": "167b573580690da9d23a181a3490d6a26d27a140eb5efbcdcec27cbbc274a109",
+          "bytes": 28084,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_filled_blue_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "f9961374ffe822af8eb2f8a087ee8637265c792caee539f9da0a1ac945de5421",
+          "Dev_sha256": "f9961374ffe822af8eb2f8a087ee8637265c792caee539f9da0a1ac945de5421",
+          "bytes": 28247,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_filled_green_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "8b8f065b358e28deb320ce23f0ce1a00f20e006ea4602d241efd4204371316a0",
+          "Dev_sha256": "8b8f065b358e28deb320ce23f0ce1a00f20e006ea4602d241efd4204371316a0",
+          "bytes": 28066,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_filled_indigo_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "ff5ca08c3237ffc32d31ef90ca92eb6b991ff87ce1a3ea2e11a5c48edfd5c78e",
+          "Dev_sha256": "ff5ca08c3237ffc32d31ef90ca92eb6b991ff87ce1a3ea2e11a5c48edfd5c78e",
+          "bytes": 27740,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_filled_orange_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "3ef0627f259720318e7d1f0ba9770b96464ef7d4adb5c497c412943b01f12508",
+          "Dev_sha256": "3ef0627f259720318e7d1f0ba9770b96464ef7d4adb5c497c412943b01f12508",
+          "bytes": 27782,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_filled_red_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "9b4ba704beabfcf5e3f33d5da6f856ab50c0c3283593be307000b942650fe92a",
+          "Dev_sha256": "9b4ba704beabfcf5e3f33d5da6f856ab50c0c3283593be307000b942650fe92a",
+          "bytes": 27504,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_filled_violet_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "3839641ac6b8c11d7619df92e566da9fe8022f19f10e2fe5335f21175106d5d5",
+          "Dev_sha256": "3839641ac6b8c11d7619df92e566da9fe8022f19f10e2fe5335f21175106d5d5",
+          "bytes": 27801,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_filled_yellow_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "2511f899af13ada340fb34cd0a51e180cfe2daac82283a9b2d3b8f00a771dfc8",
+          "Dev_sha256": "2511f899af13ada340fb34cd0a51e180cfe2daac82283a9b2d3b8f00a771dfc8",
+          "bytes": 27254,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_idle_blue_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "bf334cb5b7b4b61926b83cf6ecd20d7fa5005db0cc2e4755050b11a8b3671fe4",
+          "Dev_sha256": "bf334cb5b7b4b61926b83cf6ecd20d7fa5005db0cc2e4755050b11a8b3671fe4",
+          "bytes": 27053,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_idle_green_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "08e6b0b89b062ac98755c163c5d22c1d9c1855126b585c1d0b14590ea31a52fd",
+          "Dev_sha256": "08e6b0b89b062ac98755c163c5d22c1d9c1855126b585c1d0b14590ea31a52fd",
+          "bytes": 27295,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_idle_indigo_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "dc4afb1485f1492060d22d1014f6c65c33e99063d326aab9d0c37c5b49c6ddd0",
+          "Dev_sha256": "dc4afb1485f1492060d22d1014f6c65c33e99063d326aab9d0c37c5b49c6ddd0",
+          "bytes": 26450,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_idle_orange_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "17733b77a4fd8e497738ed541b845c39ed83135096749b3043dd835631179b1b",
+          "Dev_sha256": "17733b77a4fd8e497738ed541b845c39ed83135096749b3043dd835631179b1b",
+          "bytes": 27057,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_idle_red_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "d0917d181d9890eefb93f15ee14e92c2da766d4c202230512494684d3c332f3f",
+          "Dev_sha256": "d0917d181d9890eefb93f15ee14e92c2da766d4c202230512494684d3c332f3f",
+          "bytes": 26997,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_idle_violet_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "301798f5bd6ea2dcfd714345d2619a59d1a9b8c6779e159d48d20e2fe7d8a40e",
+          "Dev_sha256": "301798f5bd6ea2dcfd714345d2619a59d1a9b8c6779e159d48d20e2fe7d8a40e",
+          "bytes": 27032,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_idle_yellow_painted.png",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "expected_sha256": "175d3bbaab4232f7193afd9810bcd1f86cbee7553604cd12ba029add6ee71da6",
+          "Dev_sha256": "175d3bbaab4232f7193afd9810bcd1f86cbee7553604cd12ba029add6ee71da6",
+          "bytes": 27026,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        }
+      ],
+      "selected_piece_export_count": 21
+    },
+    {
+      "artifact_key": "r128_melody_timing_window_runtime",
+      "stable_ids": [
+        "FV-B276AD0A51E5"
+      ],
+      "source_revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/MANIFEST.json",
+      "consumer": "scripts/games/melody.gd",
+      "consumer_sha256": "195c64b3c17fe5fc75750c0fff4751ed9ceaea499796f90749c6b4c2b75955ed",
+      "PNG_count": 2,
+      "all_PNG_bytes_match": true,
+      "all_PNG_literal_consumers_found": true,
+      "files": [
+        {
+          "path": "assets/melody/timing_window_aura_painted.png",
+          "source_revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+          "expected_sha256": "af8491e4b87e670983c3c035453acec2ce5bf8349b83fd02c8466ad8bdce213e",
+          "Dev_sha256": "af8491e4b87e670983c3c035453acec2ce5bf8349b83fd02c8466ad8bdce213e",
+          "bytes": 87641,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 392,
+              "text": "const AURA := preload(\"res://assets/melody/timing_window_aura_painted.png\")"
+            }
+          ]
+        },
+        {
+          "path": "assets/melody/timing_window_medallion_painted.png",
+          "source_revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+          "expected_sha256": "efc3dfd123a1c193c7fa9195689c66d5d16e0238341b6b636168d3592b8ab833",
+          "Dev_sha256": "efc3dfd123a1c193c7fa9195689c66d5d16e0238341b6b636168d3592b8ab833",
+          "bytes": 110185,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 391,
+              "text": "const BODY := preload(\"res://assets/melody/timing_window_medallion_painted.png\")"
+            }
+          ]
+        }
+      ],
+      "selected_piece_exports": [
+        {
+          "path": "assets/melody/timing_window_aura_painted.png",
+          "source_revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+          "expected_sha256": "af8491e4b87e670983c3c035453acec2ce5bf8349b83fd02c8466ad8bdce213e",
+          "Dev_sha256": "af8491e4b87e670983c3c035453acec2ce5bf8349b83fd02c8466ad8bdce213e",
+          "bytes": 87641,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 392,
+              "text": "const AURA := preload(\"res://assets/melody/timing_window_aura_painted.png\")"
+            }
+          ]
+        },
+        {
+          "path": "assets/melody/timing_window_medallion_painted.png",
+          "source_revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+          "expected_sha256": "efc3dfd123a1c193c7fa9195689c66d5d16e0238341b6b636168d3592b8ab833",
+          "Dev_sha256": "efc3dfd123a1c193c7fa9195689c66d5d16e0238341b6b636168d3592b8ab833",
+          "bytes": 110185,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 391,
+              "text": "const BODY := preload(\"res://assets/melody/timing_window_medallion_painted.png\")"
+            }
+          ]
+        }
+      ],
+      "selected_piece_export_count": 2
+    },
+    {
+      "artifact_key": "r129_melody_guide_runtime",
+      "stable_ids": [
+        "FV-0091F4E1BC9C"
+      ],
+      "source_revision": "75ea903d5d5679e90273fbb8faa80acba5ec5a65",
+      "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r129_melody_guide_runtime/MANIFEST.json",
+      "consumer": "scripts/games/melody.gd",
+      "consumer_sha256": "195c64b3c17fe5fc75750c0fff4751ed9ceaea499796f90749c6b4c2b75955ed",
+      "PNG_count": 3,
+      "all_PNG_bytes_match": true,
+      "all_PNG_literal_consumers_found": true,
+      "files": [
+        {
+          "path": "assets/melody/guide_arrow_head_painted.png",
+          "source_revision": "75ea903d5d5679e90273fbb8faa80acba5ec5a65",
+          "expected_sha256": "102ffb6caabc034f8ea534d0d181d0ec0dbd2d1210b62c3aaf2d81b6cdb88d87",
+          "Dev_sha256": "102ffb6caabc034f8ea534d0d181d0ec0dbd2d1210b62c3aaf2d81b6cdb88d87",
+          "bytes": 17563,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 7,
+              "text": "const GUIDE_HEAD_PATH := \"res://assets/melody/guide_arrow_head_painted.png\""
+            }
+          ]
+        },
+        {
+          "path": "assets/melody/guide_beam_painted.png",
+          "source_revision": "75ea903d5d5679e90273fbb8faa80acba5ec5a65",
+          "expected_sha256": "638cc29b254ecfc90995019d09656edccf479d599a51743a3954ec5872b6adb0",
+          "Dev_sha256": "638cc29b254ecfc90995019d09656edccf479d599a51743a3954ec5872b6adb0",
+          "bytes": 8716,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 8,
+              "text": "const GUIDE_BEAM_PATH := \"res://assets/melody/guide_beam_painted.png\""
+            }
+          ]
+        },
+        {
+          "path": "assets/melody/guide_double_ring_painted.png",
+          "source_revision": "75ea903d5d5679e90273fbb8faa80acba5ec5a65",
+          "expected_sha256": "2fd0371e2483e94b2b5d16ba782d8549c59e87436730541a64f2ff367cc57878",
+          "Dev_sha256": "2fd0371e2483e94b2b5d16ba782d8549c59e87436730541a64f2ff367cc57878",
+          "bytes": 101150,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 9,
+              "text": "const GUIDE_RING_PATH := \"res://assets/melody/guide_double_ring_painted.png\""
+            }
+          ]
+        }
+      ],
+      "selected_piece_exports": [
+        {
+          "path": "assets/melody/guide_arrow_head_painted.png",
+          "source_revision": "75ea903d5d5679e90273fbb8faa80acba5ec5a65",
+          "expected_sha256": "102ffb6caabc034f8ea534d0d181d0ec0dbd2d1210b62c3aaf2d81b6cdb88d87",
+          "Dev_sha256": "102ffb6caabc034f8ea534d0d181d0ec0dbd2d1210b62c3aaf2d81b6cdb88d87",
+          "bytes": 17563,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 7,
+              "text": "const GUIDE_HEAD_PATH := \"res://assets/melody/guide_arrow_head_painted.png\""
+            }
+          ]
+        },
+        {
+          "path": "assets/melody/guide_beam_painted.png",
+          "source_revision": "75ea903d5d5679e90273fbb8faa80acba5ec5a65",
+          "expected_sha256": "638cc29b254ecfc90995019d09656edccf479d599a51743a3954ec5872b6adb0",
+          "Dev_sha256": "638cc29b254ecfc90995019d09656edccf479d599a51743a3954ec5872b6adb0",
+          "bytes": 8716,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 8,
+              "text": "const GUIDE_BEAM_PATH := \"res://assets/melody/guide_beam_painted.png\""
+            }
+          ]
+        },
+        {
+          "path": "assets/melody/guide_double_ring_painted.png",
+          "source_revision": "75ea903d5d5679e90273fbb8faa80acba5ec5a65",
+          "expected_sha256": "2fd0371e2483e94b2b5d16ba782d8549c59e87436730541a64f2ff367cc57878",
+          "Dev_sha256": "2fd0371e2483e94b2b5d16ba782d8549c59e87436730541a64f2ff367cc57878",
+          "bytes": 101150,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 9,
+              "text": "const GUIDE_RING_PATH := \"res://assets/melody/guide_double_ring_painted.png\""
+            }
+          ]
+        }
+      ],
+      "selected_piece_export_count": 3
+    },
+    {
+      "artifact_key": "r130_trampoline_pad_runtime",
+      "stable_ids": [
+        "FV-C6F64FAA2F32"
+      ],
+      "source_revision": "285a0e6ee45aa1eccaca549fc5e94b1c2a2cce37",
+      "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/MANIFEST.json",
+      "consumer": "scripts/games/picture_games.gd",
+      "consumer_sha256": "dea49b27f0a17ee5c78ea2b1f7ce889e9b2949030e74fa4b8afa84fafe4b0ed3",
+      "PNG_count": 2,
+      "all_PNG_bytes_match": true,
+      "all_PNG_literal_consumers_found": true,
+      "files": [
+        {
+          "path": "assets/mg/trampoline_pad_painted.png",
+          "source_revision": "285a0e6ee45aa1eccaca549fc5e94b1c2a2cce37",
+          "expected_sha256": "5dbe87c969009046242a38564bdb2359a94cb16fd30a10a0f44404e8297acf04",
+          "Dev_sha256": "5dbe87c969009046242a38564bdb2359a94cb16fd30a10a0f44404e8297acf04",
+          "bytes": 116228,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 687,
+              "text": "var tramp := _mg_sprite(\"res://assets/mg/trampoline_pad_painted.png\","
+            }
+          ]
+        },
+        {
+          "path": "assets/mg/star.png",
+          "source_revision": "27c88288bf6e39582072811443df79919e7bbb89",
+          "expected_sha256": "3cc5d5cbc5d6e0df0540cdc00ef557b0c7ed6e566331035c4e75d5d971ef3b98",
+          "Dev_sha256": "3cc5d5cbc5d6e0df0540cdc00ef557b0c7ed6e566331035c4e75d5d971ef3b98",
+          "bytes": 868379,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 684,
+              "text": "m.mg[\"star\"] = _mg_sprite(\"res://assets/mg/star.png\", Vector2(640, 90), Vector2(140, 140))"
+            }
+          ]
+        }
+      ],
+      "selected_piece_exports": [
+        {
+          "path": "assets/mg/trampoline_pad_painted.png",
+          "source_revision": "285a0e6ee45aa1eccaca549fc5e94b1c2a2cce37",
+          "expected_sha256": "5dbe87c969009046242a38564bdb2359a94cb16fd30a10a0f44404e8297acf04",
+          "Dev_sha256": "5dbe87c969009046242a38564bdb2359a94cb16fd30a10a0f44404e8297acf04",
+          "bytes": 116228,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 687,
+              "text": "var tramp := _mg_sprite(\"res://assets/mg/trampoline_pad_painted.png\","
+            }
+          ]
+        }
+      ],
+      "selected_piece_export_count": 1
+    },
+    {
+      "artifact_key": "r131_snowball_runtime",
+      "stable_ids": [
+        "FV-C99F706798D3"
+      ],
+      "source_revision": "8864c00a19208e356aacb7845a9fb9e1909ffac4",
+      "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r131_snowball_runtime/MANIFEST.json",
+      "consumer": "scripts/games/picture_games.gd",
+      "consumer_sha256": "dea49b27f0a17ee5c78ea2b1f7ce889e9b2949030e74fa4b8afa84fafe4b0ed3",
+      "PNG_count": 2,
+      "all_PNG_bytes_match": true,
+      "all_PNG_literal_consumers_found": false,
+      "files": [
+        {
+          "path": "assets/mg/snowball_painted.png",
+          "source_revision": "8864c00a19208e356aacb7845a9fb9e1909ffac4",
+          "expected_sha256": "07eac348486145d2c32c6da7c645b4099679aabbbe938263dbf612def779be11",
+          "Dev_sha256": "07eac348486145d2c32c6da7c645b4099679aabbbe938263dbf612def779be11",
+          "bytes": 280574,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 378,
+              "text": "art.texture = load(\"res://assets/mg/snowball_painted.png\") as Texture2D"
+            }
+          ]
+        },
+        {
+          "path": "assets/mg/coal.png",
+          "source_revision": "27c88288bf6e39582072811443df79919e7bbb89",
+          "expected_sha256": "acd4349097fbd42f6be2d889eee95129a71fba349dd984c8a1b9a202362ab57e",
+          "Dev_sha256": "acd4349097fbd42f6be2d889eee95129a71fba349dd984c8a1b9a202362ab57e",
+          "bytes": 469424,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        }
+      ],
+      "selected_piece_exports": [
+        {
+          "path": "assets/mg/snowball_painted.png",
+          "source_revision": "8864c00a19208e356aacb7845a9fb9e1909ffac4",
+          "expected_sha256": "07eac348486145d2c32c6da7c645b4099679aabbbe938263dbf612def779be11",
+          "Dev_sha256": "07eac348486145d2c32c6da7c645b4099679aabbbe938263dbf612def779be11",
+          "bytes": 280574,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 378,
+              "text": "art.texture = load(\"res://assets/mg/snowball_painted.png\") as Texture2D"
+            }
+          ]
+        }
+      ],
+      "selected_piece_export_count": 1
+    },
+    {
+      "artifact_key": "r132_snowman_coal_runtime",
+      "stable_ids": [
+        "FV-0FCB49F07274"
+      ],
+      "source_revision": "8336662539411e251871b2c86718ef75c615c60e",
+      "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/MANIFEST.json",
+      "consumer": "scripts/games/picture_games.gd",
+      "consumer_sha256": "dea49b27f0a17ee5c78ea2b1f7ce889e9b2949030e74fa4b8afa84fafe4b0ed3",
+      "PNG_count": 2,
+      "all_PNG_bytes_match": true,
+      "all_PNG_literal_consumers_found": false,
+      "files": [
+        {
+          "path": "assets/mg/snowman_coal_painted.png",
+          "source_revision": "8336662539411e251871b2c86718ef75c615c60e",
+          "expected_sha256": "279dffbe48bf8e42c195bd118b50e6fc71ae1e9179c2f182ed81572853448612",
+          "Dev_sha256": "279dffbe48bf8e42c195bd118b50e6fc71ae1e9179c2f182ed81572853448612",
+          "bytes": 67966,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 437,
+              "text": "var coal := _mg_artbtn(\"res://assets/mg/snowman_coal_painted.png\","
+            },
+            {
+              "line": 458,
+              "text": "bit = _mg_sprite(\"res://assets/mg/snowman_coal_painted.png\", head + Vector2(-24, -18), Vector2(42, 42))"
+            },
+            {
+              "line": 460,
+              "text": "bit = _mg_sprite(\"res://assets/mg/snowman_coal_painted.png\", head + Vector2(24, -18), Vector2(42, 42))"
+            }
+          ]
+        },
+        {
+          "path": "assets/mg/coal.png",
+          "source_revision": "27c88288bf6e39582072811443df79919e7bbb89",
+          "expected_sha256": "acd4349097fbd42f6be2d889eee95129a71fba349dd984c8a1b9a202362ab57e",
+          "Dev_sha256": "acd4349097fbd42f6be2d889eee95129a71fba349dd984c8a1b9a202362ab57e",
+          "bytes": 469424,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        }
+      ],
+      "selected_piece_exports": [
+        {
+          "path": "assets/mg/snowman_coal_painted.png",
+          "source_revision": "8336662539411e251871b2c86718ef75c615c60e",
+          "expected_sha256": "279dffbe48bf8e42c195bd118b50e6fc71ae1e9179c2f182ed81572853448612",
+          "Dev_sha256": "279dffbe48bf8e42c195bd118b50e6fc71ae1e9179c2f182ed81572853448612",
+          "bytes": 67966,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 437,
+              "text": "var coal := _mg_artbtn(\"res://assets/mg/snowman_coal_painted.png\","
+            },
+            {
+              "line": 458,
+              "text": "bit = _mg_sprite(\"res://assets/mg/snowman_coal_painted.png\", head + Vector2(-24, -18), Vector2(42, 42))"
+            },
+            {
+              "line": 460,
+              "text": "bit = _mg_sprite(\"res://assets/mg/snowman_coal_painted.png\", head + Vector2(24, -18), Vector2(42, 42))"
+            }
+          ]
+        }
+      ],
+      "selected_piece_export_count": 1
+    },
+    {
+      "artifact_key": "r133_snowfield_runtime",
+      "stable_ids": [
+        "FV-55B5EF60A12C"
+      ],
+      "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+      "source_manifest": "docs/handoffs/codex_recent_updates_dev_2026-11-03/MANIFEST.json",
+      "consumer": "scripts/games/picture_games.gd",
+      "consumer_sha256": "dea49b27f0a17ee5c78ea2b1f7ce889e9b2949030e74fa4b8afa84fafe4b0ed3",
+      "PNG_count": 96,
+      "all_PNG_bytes_match": true,
+      "all_PNG_literal_consumers_found": false,
+      "files": [
+        {
+          "path": "assets/melody/crown_header_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "3865d7d6801d5688d5c7aa41c4d6cd5e1e2f3310a3a80638d3e7a884aa91419e",
+          "Dev_sha256": "3865d7d6801d5688d5c7aa41c4d6cd5e1e2f3310a3a80638d3e7a884aa91419e",
+          "bytes": 166949,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/curtain_left_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "e9c0c4c107c16b51508109781ce2e39aa8b61289a1db545676648085bd9c43c8",
+          "Dev_sha256": "e9c0c4c107c16b51508109781ce2e39aa8b61289a1db545676648085bd9c43c8",
+          "bytes": 214701,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/curtain_right_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "4dfe744ce24b4d536256ae783edb2cff508268c8e7dd0e4b1b16c2f7821f2d4e",
+          "Dev_sha256": "4dfe744ce24b4d536256ae783edb2cff508268c8e7dd0e4b1b16c2f7821f2d4e",
+          "bytes": 201838,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/footlight_green.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "89573cd0da3fa3c12c0ef3637e179f1e8724f0bf2ade95c42f6a76d44666ffcd",
+          "Dev_sha256": "89573cd0da3fa3c12c0ef3637e179f1e8724f0bf2ade95c42f6a76d44666ffcd",
+          "bytes": 30705,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/footlight_orange.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "4de72f443c95b9916b1f3bde03a1a121c02e3f5bd2eacd517d8e455c75228b16",
+          "Dev_sha256": "4de72f443c95b9916b1f3bde03a1a121c02e3f5bd2eacd517d8e455c75228b16",
+          "bytes": 30483,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/footlight_periwinkle.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "55e40d08fc49dd481cf47618e257ffb48181bc07644f130b8380b819e6625eb3",
+          "Dev_sha256": "55e40d08fc49dd481cf47618e257ffb48181bc07644f130b8380b819e6625eb3",
+          "bytes": 29537,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/footlight_purple.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "e0a23b4ca38a7d9f8c4c7184d378cd3efe5568fc79bb5dee03b10891beeb0ce7",
+          "Dev_sha256": "e0a23b4ca38a7d9f8c4c7184d378cd3efe5568fc79bb5dee03b10891beeb0ce7",
+          "bytes": 29226,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/footlight_rail_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "50018caeaa9ceb61fb7dedb53343b19cd7d16d413df2a595459e4abffd42b813",
+          "Dev_sha256": "50018caeaa9ceb61fb7dedb53343b19cd7d16d413df2a595459e4abffd42b813",
+          "bytes": 35846,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/footlight_red.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "2038c40b6546a6f2a62af9a1e28d24252f8381381fa22a240814bb074387d61e",
+          "Dev_sha256": "2038c40b6546a6f2a62af9a1e28d24252f8381381fa22a240814bb074387d61e",
+          "bytes": 30293,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/footlight_sky_blue.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "10da6826c6c18cef931664be8977c1e8080a99a875aa3de86c6da0990d6e9bd6",
+          "Dev_sha256": "10da6826c6c18cef931664be8977c1e8080a99a875aa3de86c6da0990d6e9bd6",
+          "bytes": 29879,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/footlight_yellow.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "e2e950b8dfca5f6fac8ece0f439bb32ff0b64794b03e8c8678a9f5f1405b2a53",
+          "Dev_sha256": "e2e950b8dfca5f6fac8ece0f439bb32ff0b64794b03e8c8678a9f5f1405b2a53",
+          "bytes": 29763,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/guide_arrow_head_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "102ffb6caabc034f8ea534d0d181d0ec0dbd2d1210b62c3aaf2d81b6cdb88d87",
+          "Dev_sha256": "102ffb6caabc034f8ea534d0d181d0ec0dbd2d1210b62c3aaf2d81b6cdb88d87",
+          "bytes": 17563,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/guide_beam_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "638cc29b254ecfc90995019d09656edccf479d599a51743a3954ec5872b6adb0",
+          "Dev_sha256": "638cc29b254ecfc90995019d09656edccf479d599a51743a3954ec5872b6adb0",
+          "bytes": 8716,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/guide_double_ring_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "2fd0371e2483e94b2b5d16ba782d8549c59e87436730541a64f2ff367cc57878",
+          "Dev_sha256": "2fd0371e2483e94b2b5d16ba782d8549c59e87436730541a64f2ff367cc57878",
+          "bytes": 101150,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/curtain_left_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "5adf76d1d59b3966b1586f4bd202a4a3f5a3ed62a930433d974cd7e3cff74f30",
+          "Dev_sha256": "5adf76d1d59b3966b1586f4bd202a4a3f5a3ed62a930433d974cd7e3cff74f30",
+          "bytes": 210048,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/curtain_right_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "0840554754b88d944dd1fe8529a38eac877165c70c708e017e5ab045cca0ff8f",
+          "Dev_sha256": "0840554754b88d944dd1fe8529a38eac877165c70c708e017e5ab045cca0ff8f",
+          "bytes": 191362,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/daddy.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "817b9ce280a31344436c2a8fc800d5dec893f2541ec5ad5581e656922e014887",
+          "Dev_sha256": "817b9ce280a31344436c2a8fc800d5dec893f2541ec5ad5581e656922e014887",
+          "bytes": 157602,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/footlight_green.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "0a9c33bb3c5f767504408c2333cdca6a9d5b3f5b0d6e3ef0683b7bd94b03def2",
+          "Dev_sha256": "0a9c33bb3c5f767504408c2333cdca6a9d5b3f5b0d6e3ef0683b7bd94b03def2",
+          "bytes": 8362,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/footlight_orange.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "bbfe599ea0f4dfd8bbefe1c05948e15c2b7c2b4dd2be7cab91a1fdf06430463a",
+          "Dev_sha256": "bbfe599ea0f4dfd8bbefe1c05948e15c2b7c2b4dd2be7cab91a1fdf06430463a",
+          "bytes": 8306,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/footlight_periwinkle.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "03cbca2fdb701edfdc2c9672f5147ff13539f25ea40abb859f90e7575e420c58",
+          "Dev_sha256": "03cbca2fdb701edfdc2c9672f5147ff13539f25ea40abb859f90e7575e420c58",
+          "bytes": 8153,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/footlight_purple.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "0574142f21ef6f81f624287806e4513d161a8215bbdd94859035eeb4b6347059",
+          "Dev_sha256": "0574142f21ef6f81f624287806e4513d161a8215bbdd94859035eeb4b6347059",
+          "bytes": 8109,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/footlight_red.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "7bd75dc8783c1ef80ea6fd8e7c3295906824e0e27426f335398095b16f4ea3a0",
+          "Dev_sha256": "7bd75dc8783c1ef80ea6fd8e7c3295906824e0e27426f335398095b16f4ea3a0",
+          "bytes": 8245,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/footlight_sky_blue.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "5e49ea7b473d4f7e50fe4e8210866e590f15eb5d8fd232131760cce1804ef00f",
+          "Dev_sha256": "5e49ea7b473d4f7e50fe4e8210866e590f15eb5d8fd232131760cce1804ef00f",
+          "bytes": 8242,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/footlight_yellow.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "e3fd6e28d52558031cf39e5cadfbf2a7b105a46ebc5fa83629cc1bd928e0f341",
+          "Dev_sha256": "e3fd6e28d52558031cf39e5cadfbf2a7b105a46ebc5fa83629cc1bd928e0f341",
+          "bytes": 8165,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/progress_pip_current_blue_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "f6ee7ab463b8523cb8c3dd6f3f160b65581937423cf8b3e0f05d2c79d0805fa4",
+          "Dev_sha256": "f6ee7ab463b8523cb8c3dd6f3f160b65581937423cf8b3e0f05d2c79d0805fa4",
+          "bytes": 8155,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/progress_pip_current_green_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "ff371611699d41819217d26d4bf7beb4af0901f59f68ec9fbd95aa1116f4ddec",
+          "Dev_sha256": "ff371611699d41819217d26d4bf7beb4af0901f59f68ec9fbd95aa1116f4ddec",
+          "bytes": 8298,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/progress_pip_current_indigo_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "31ceb443be056a459ed78994bb9875381231ad3fb6a34bfc35e116b68e44976a",
+          "Dev_sha256": "31ceb443be056a459ed78994bb9875381231ad3fb6a34bfc35e116b68e44976a",
+          "bytes": 8136,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/progress_pip_current_orange_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "f53c71fecf55f09ac4b9b39f585ddb1687519825c3d130e7d449a9b9d319cd77",
+          "Dev_sha256": "f53c71fecf55f09ac4b9b39f585ddb1687519825c3d130e7d449a9b9d319cd77",
+          "bytes": 7978,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/progress_pip_current_red_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "8c602d8644de697945e71fb7571cd9a73dfe3ff235a576d2546e4941b064952c",
+          "Dev_sha256": "8c602d8644de697945e71fb7571cd9a73dfe3ff235a576d2546e4941b064952c",
+          "bytes": 8051,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/progress_pip_current_violet_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "7a494556cd92daa74b38f4da00e9cb50b0f83e5e1dc91476ddf11bb95b0ebd81",
+          "Dev_sha256": "7a494556cd92daa74b38f4da00e9cb50b0f83e5e1dc91476ddf11bb95b0ebd81",
+          "bytes": 8084,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/progress_pip_current_yellow_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "87d6a9a62933e554f02629fe733e4c4852433b5d128473f0a226a24ece1c66ae",
+          "Dev_sha256": "87d6a9a62933e554f02629fe733e4c4852433b5d128473f0a226a24ece1c66ae",
+          "bytes": 7877,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/progress_pip_filled_blue_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "ee7cd4d27686fd4272a0ccc6de7928f61b6f47ec9f15d2067cad827f237f736a",
+          "Dev_sha256": "ee7cd4d27686fd4272a0ccc6de7928f61b6f47ec9f15d2067cad827f237f736a",
+          "bytes": 8143,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/progress_pip_filled_green_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "ce4ccbee30c0439c1124bd2c754b41f336eb012baeb3ca9f3e0094a8f60574cd",
+          "Dev_sha256": "ce4ccbee30c0439c1124bd2c754b41f336eb012baeb3ca9f3e0094a8f60574cd",
+          "bytes": 8089,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/progress_pip_filled_indigo_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "a57c2671f088b6602ca740109eeff34efb5bd340e961c9c21c9fb519383fe955",
+          "Dev_sha256": "a57c2671f088b6602ca740109eeff34efb5bd340e961c9c21c9fb519383fe955",
+          "bytes": 7959,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/progress_pip_filled_orange_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "d357e20ad1f81f522eff3bce33adde97bfc14f303e317d8d1a662be7b23e4fd9",
+          "Dev_sha256": "d357e20ad1f81f522eff3bce33adde97bfc14f303e317d8d1a662be7b23e4fd9",
+          "bytes": 7840,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/progress_pip_filled_red_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "c38df6fedfe896772679fd71269a02c36ef996a87e294512e9694d0c073b3ce8",
+          "Dev_sha256": "c38df6fedfe896772679fd71269a02c36ef996a87e294512e9694d0c073b3ce8",
+          "bytes": 7823,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/progress_pip_filled_violet_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "a89694f33d1e6d8ee84abdcd21ad0464ec50463ce5a76d39d2cd35539d3440ed",
+          "Dev_sha256": "a89694f33d1e6d8ee84abdcd21ad0464ec50463ce5a76d39d2cd35539d3440ed",
+          "bytes": 7986,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/progress_pip_filled_yellow_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "a63c267bc7460f4488980ec1e82574915312d252b0e202e7b4694a17985c88eb",
+          "Dev_sha256": "a63c267bc7460f4488980ec1e82574915312d252b0e202e7b4694a17985c88eb",
+          "bytes": 7838,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/progress_pip_idle_blue_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "d219aa00d0ea77cc8c0e0178797dda74de6468eb31c9821c0f53bbf096b10e07",
+          "Dev_sha256": "d219aa00d0ea77cc8c0e0178797dda74de6468eb31c9821c0f53bbf096b10e07",
+          "bytes": 7629,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/progress_pip_idle_green_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "823a5cb5a8d0d26578bfdf4ccf9c554776c609e717680a108d41c2ef580076e2",
+          "Dev_sha256": "823a5cb5a8d0d26578bfdf4ccf9c554776c609e717680a108d41c2ef580076e2",
+          "bytes": 7612,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/progress_pip_idle_indigo_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "1ab4e45121bda1b18d4308d719ebd845cca376078336cfec3cb399e773c6c49d",
+          "Dev_sha256": "1ab4e45121bda1b18d4308d719ebd845cca376078336cfec3cb399e773c6c49d",
+          "bytes": 7491,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/progress_pip_idle_orange_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "5742f6e0794a6b32140d602589843673ce946634ee52ff500975e2e2728f7f69",
+          "Dev_sha256": "5742f6e0794a6b32140d602589843673ce946634ee52ff500975e2e2728f7f69",
+          "bytes": 7498,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/progress_pip_idle_red_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "359dc047cf4ac1139fb3c7b30a5ae9839a99e697139ccd94dddb20095870b2d1",
+          "Dev_sha256": "359dc047cf4ac1139fb3c7b30a5ae9839a99e697139ccd94dddb20095870b2d1",
+          "bytes": 7576,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/progress_pip_idle_violet_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "e94bdf73ea6cf052c3e23604ba723ac64ba56eb19a5c9eee853eef8c8da3e3d2",
+          "Dev_sha256": "e94bdf73ea6cf052c3e23604ba723ac64ba56eb19a5c9eee853eef8c8da3e3d2",
+          "bytes": 7651,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/progress_pip_idle_yellow_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "e3abef716c5b3b0504178ac2c411a6f77b2dcbc2a6d659155e9715ff6c0ea699",
+          "Dev_sha256": "e3abef716c5b3b0504178ac2c411a6f77b2dcbc2a6d659155e9715ff6c0ea699",
+          "bytes": 7555,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/rainbow_note_blue_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "e7a362f1574b67d5b49b23539aa1dd9b2745d782e0a36bcc595d1415401e006a",
+          "Dev_sha256": "e7a362f1574b67d5b49b23539aa1dd9b2745d782e0a36bcc595d1415401e006a",
+          "bytes": 26414,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/rainbow_note_green_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "e5eefee584b30816d1ce367d3d1f511760725233a9f1e5be7424a9c9457b83a5",
+          "Dev_sha256": "e5eefee584b30816d1ce367d3d1f511760725233a9f1e5be7424a9c9457b83a5",
+          "bytes": 26502,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/rainbow_note_indigo_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "1c833f698b766f70da8c4f131e2a8f6bd1c7801ffd68d265cfa6c34b2d626fc5",
+          "Dev_sha256": "1c833f698b766f70da8c4f131e2a8f6bd1c7801ffd68d265cfa6c34b2d626fc5",
+          "bytes": 26063,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/rainbow_note_orange_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "1717e195d81072d4c935275d7bd980d087ee4a1b20634640df73a69947e0aade",
+          "Dev_sha256": "1717e195d81072d4c935275d7bd980d087ee4a1b20634640df73a69947e0aade",
+          "bytes": 25565,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/rainbow_note_red_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "8cc34e6ae22dad44ae602613788ceaea629a0b8199c8eed9795cb9932dec091b",
+          "Dev_sha256": "8cc34e6ae22dad44ae602613788ceaea629a0b8199c8eed9795cb9932dec091b",
+          "bytes": 25418,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/rainbow_note_violet_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "eed74ab7c8305feac0ef6b6e5df62ba44c31bee38c67b26da5c1f5e38683e8ba",
+          "Dev_sha256": "eed74ab7c8305feac0ef6b6e5df62ba44c31bee38c67b26da5c1f5e38683e8ba",
+          "bytes": 25969,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/rainbow_note_yellow_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "d61c552c051d0f5ce376bd91387591ba2a9804030d36703c471efaf499d098b4",
+          "Dev_sha256": "d61c552c051d0f5ce376bd91387591ba2a9804030d36703c471efaf499d098b4",
+          "bytes": 24764,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/roshan_popstar.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "a53faa148653ea1988e1ceea711d243323412ddc46e2c4037aa671136d2e0cd1",
+          "Dev_sha256": "a53faa148653ea1988e1ceea711d243323412ddc46e2c4037aa671136d2e0cd1",
+          "bytes": 82080,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/mobile/star_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "927f3d10440f93fcfac2123a4e1e51cd3caeb94713262400f6257934707ce103",
+          "Dev_sha256": "927f3d10440f93fcfac2123a4e1e51cd3caeb94713262400f6257934707ce103",
+          "bytes": 16359,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_current_blue_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "9315090d77bd38d3c37e5a51cf8422b8c408d04cd4413fa099b899fcd06f9b11",
+          "Dev_sha256": "9315090d77bd38d3c37e5a51cf8422b8c408d04cd4413fa099b899fcd06f9b11",
+          "bytes": 28726,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_current_green_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "83481cdaf3f8e3665228e432d90be009eae87be31f8edb728b60b00903fc5e28",
+          "Dev_sha256": "83481cdaf3f8e3665228e432d90be009eae87be31f8edb728b60b00903fc5e28",
+          "bytes": 29081,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_current_indigo_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "4a06f82e29d492f6130574e0d203fa3ca7797f1d8d1b81b73e88b112d11d9b77",
+          "Dev_sha256": "4a06f82e29d492f6130574e0d203fa3ca7797f1d8d1b81b73e88b112d11d9b77",
+          "bytes": 28590,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_current_orange_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "d7770b7601cd3891ce1d614bc22065808a660298617cc82082642bf0b4ad2a1b",
+          "Dev_sha256": "d7770b7601cd3891ce1d614bc22065808a660298617cc82082642bf0b4ad2a1b",
+          "bytes": 28454,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_current_red_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "e9a12bfd56934a9a7c5787398dbfe9568d3d2f1381acbf0f126e997ef4a9e494",
+          "Dev_sha256": "e9a12bfd56934a9a7c5787398dbfe9568d3d2f1381acbf0f126e997ef4a9e494",
+          "bytes": 28474,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_current_violet_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "1d9cfa232e530e9c4e14ab0f2690f1101cb609a8506074395e388128fb9a0cc2",
+          "Dev_sha256": "1d9cfa232e530e9c4e14ab0f2690f1101cb609a8506074395e388128fb9a0cc2",
+          "bytes": 28484,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_current_yellow_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "167b573580690da9d23a181a3490d6a26d27a140eb5efbcdcec27cbbc274a109",
+          "Dev_sha256": "167b573580690da9d23a181a3490d6a26d27a140eb5efbcdcec27cbbc274a109",
+          "bytes": 28084,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_filled_blue_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "f9961374ffe822af8eb2f8a087ee8637265c792caee539f9da0a1ac945de5421",
+          "Dev_sha256": "f9961374ffe822af8eb2f8a087ee8637265c792caee539f9da0a1ac945de5421",
+          "bytes": 28247,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_filled_green_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "8b8f065b358e28deb320ce23f0ce1a00f20e006ea4602d241efd4204371316a0",
+          "Dev_sha256": "8b8f065b358e28deb320ce23f0ce1a00f20e006ea4602d241efd4204371316a0",
+          "bytes": 28066,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_filled_indigo_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "ff5ca08c3237ffc32d31ef90ca92eb6b991ff87ce1a3ea2e11a5c48edfd5c78e",
+          "Dev_sha256": "ff5ca08c3237ffc32d31ef90ca92eb6b991ff87ce1a3ea2e11a5c48edfd5c78e",
+          "bytes": 27740,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_filled_orange_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "3ef0627f259720318e7d1f0ba9770b96464ef7d4adb5c497c412943b01f12508",
+          "Dev_sha256": "3ef0627f259720318e7d1f0ba9770b96464ef7d4adb5c497c412943b01f12508",
+          "bytes": 27782,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_filled_red_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "9b4ba704beabfcf5e3f33d5da6f856ab50c0c3283593be307000b942650fe92a",
+          "Dev_sha256": "9b4ba704beabfcf5e3f33d5da6f856ab50c0c3283593be307000b942650fe92a",
+          "bytes": 27504,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_filled_violet_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "3839641ac6b8c11d7619df92e566da9fe8022f19f10e2fe5335f21175106d5d5",
+          "Dev_sha256": "3839641ac6b8c11d7619df92e566da9fe8022f19f10e2fe5335f21175106d5d5",
+          "bytes": 27801,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_filled_yellow_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "2511f899af13ada340fb34cd0a51e180cfe2daac82283a9b2d3b8f00a771dfc8",
+          "Dev_sha256": "2511f899af13ada340fb34cd0a51e180cfe2daac82283a9b2d3b8f00a771dfc8",
+          "bytes": 27254,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_idle_blue_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "bf334cb5b7b4b61926b83cf6ecd20d7fa5005db0cc2e4755050b11a8b3671fe4",
+          "Dev_sha256": "bf334cb5b7b4b61926b83cf6ecd20d7fa5005db0cc2e4755050b11a8b3671fe4",
+          "bytes": 27053,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_idle_green_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "08e6b0b89b062ac98755c163c5d22c1d9c1855126b585c1d0b14590ea31a52fd",
+          "Dev_sha256": "08e6b0b89b062ac98755c163c5d22c1d9c1855126b585c1d0b14590ea31a52fd",
+          "bytes": 27295,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_idle_indigo_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "dc4afb1485f1492060d22d1014f6c65c33e99063d326aab9d0c37c5b49c6ddd0",
+          "Dev_sha256": "dc4afb1485f1492060d22d1014f6c65c33e99063d326aab9d0c37c5b49c6ddd0",
+          "bytes": 26450,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_idle_orange_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "17733b77a4fd8e497738ed541b845c39ed83135096749b3043dd835631179b1b",
+          "Dev_sha256": "17733b77a4fd8e497738ed541b845c39ed83135096749b3043dd835631179b1b",
+          "bytes": 27057,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_idle_red_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "d0917d181d9890eefb93f15ee14e92c2da766d4c202230512494684d3c332f3f",
+          "Dev_sha256": "d0917d181d9890eefb93f15ee14e92c2da766d4c202230512494684d3c332f3f",
+          "bytes": 26997,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_idle_violet_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "301798f5bd6ea2dcfd714345d2619a59d1a9b8c6779e159d48d20e2fe7d8a40e",
+          "Dev_sha256": "301798f5bd6ea2dcfd714345d2619a59d1a9b8c6779e159d48d20e2fe7d8a40e",
+          "bytes": 27032,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/progress_pip_idle_yellow_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "175d3bbaab4232f7193afd9810bcd1f86cbee7553604cd12ba029add6ee71da6",
+          "Dev_sha256": "175d3bbaab4232f7193afd9810bcd1f86cbee7553604cd12ba029add6ee71da6",
+          "bytes": 27026,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/rainbow_note_blue_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "6fa514888498221dfd0727fd5c70c5362a8ed63bfcb5d15f728949ef7d8b70c1",
+          "Dev_sha256": "6fa514888498221dfd0727fd5c70c5362a8ed63bfcb5d15f728949ef7d8b70c1",
+          "bytes": 99008,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/rainbow_note_green_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "1ae079c7d022ebe03a06809094521f02ef524df546a007315e302cf843437429",
+          "Dev_sha256": "1ae079c7d022ebe03a06809094521f02ef524df546a007315e302cf843437429",
+          "bytes": 99773,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/rainbow_note_indigo_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "14d78588224523486f01611a18d6a10e87ff1d2c263d9865b29a7b7f94fae7e2",
+          "Dev_sha256": "14d78588224523486f01611a18d6a10e87ff1d2c263d9865b29a7b7f94fae7e2",
+          "bytes": 98719,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/rainbow_note_orange_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "83cf5aba818c6f7101dfd319f5d355d09119efd5d8e21e45b957300f2c134567",
+          "Dev_sha256": "83cf5aba818c6f7101dfd319f5d355d09119efd5d8e21e45b957300f2c134567",
+          "bytes": 96481,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/rainbow_note_red_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "8e31e25551ba1af58467581c924460edcbb4940e4724b4c122dabae404196aa6",
+          "Dev_sha256": "8e31e25551ba1af58467581c924460edcbb4940e4724b4c122dabae404196aa6",
+          "bytes": 97075,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/rainbow_note_violet_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "3dfa929249a8c829b9b5d118197420144a3d2ae5367ba81c12b0abc4e7c20593",
+          "Dev_sha256": "3dfa929249a8c829b9b5d118197420144a3d2ae5367ba81c12b0abc4e7c20593",
+          "bytes": 97450,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/rainbow_note_yellow_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "a7a5ee15af599870188d4c95b5f95795373d90c6741c3c13605926625dfe14ba",
+          "Dev_sha256": "a7a5ee15af599870188d4c95b5f95795373d90c6741c3c13605926625dfe14ba",
+          "bytes": 92122,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/stage_apron_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "1fd0435da5bc651a814a665e13a621b6c248371179f65935b906e5c79b5351ee",
+          "Dev_sha256": "1fd0435da5bc651a814a665e13a621b6c248371179f65935b906e5c79b5351ee",
+          "bytes": 95887,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/stage_apron_rainbow_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "b06b424cad29a673b76139a2258e7408e0df816e2aab2469ed8b05e074101d9c",
+          "Dev_sha256": "b06b424cad29a673b76139a2258e7408e0df816e2aab2469ed8b05e074101d9c",
+          "bytes": 54662,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/star_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "44a7b3a8351778b5912ac3a9c54085b20a990967e2b036aeff88f2b388a93e8e",
+          "Dev_sha256": "44a7b3a8351778b5912ac3a9c54085b20a990967e2b036aeff88f2b388a93e8e",
+          "bytes": 56101,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/theatre_bulb_cream_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "6b77475880e6b86c45fd3e0ac481814a4a19a1cdd7bc6d67e16e4379fc56d24d",
+          "Dev_sha256": "6b77475880e6b86c45fd3e0ac481814a4a19a1cdd7bc6d67e16e4379fc56d24d",
+          "bytes": 25435,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/theatre_bulb_gold_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "6bbb37224b78c39dda1a40d56cbb7904a2fbf4987b5d15e643196be42dc1ccc2",
+          "Dev_sha256": "6bbb37224b78c39dda1a40d56cbb7904a2fbf4987b5d15e643196be42dc1ccc2",
+          "bytes": 24936,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/timing_window_aura_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "af8491e4b87e670983c3c035453acec2ce5bf8349b83fd02c8466ad8bdce213e",
+          "Dev_sha256": "af8491e4b87e670983c3c035453acec2ce5bf8349b83fd02c8466ad8bdce213e",
+          "bytes": 87641,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/melody/timing_window_medallion_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "efc3dfd123a1c193c7fa9195689c66d5d16e0238341b6b636168d3592b8ab833",
+          "Dev_sha256": "efc3dfd123a1c193c7fa9195689c66d5d16e0238341b6b636168d3592b8ab833",
+          "bytes": 110185,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/mg/snowball_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "07eac348486145d2c32c6da7c645b4099679aabbbe938263dbf612def779be11",
+          "Dev_sha256": "07eac348486145d2c32c6da7c645b4099679aabbbe938263dbf612def779be11",
+          "bytes": 280574,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 378,
+              "text": "art.texture = load(\"res://assets/mg/snowball_painted.png\") as Texture2D"
+            }
+          ]
+        },
+        {
+          "path": "assets/mg/snowfield_painted_00.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "833fc86408da6544c49a108e4c23ba77f17cec39e7442906ed45c2722fad1174",
+          "Dev_sha256": "833fc86408da6544c49a108e4c23ba77f17cec39e7442906ed45c2722fad1174",
+          "bytes": 867162,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 827,
+              "text": "\"res://assets/mg/snowfield_painted_00.png\","
+            }
+          ]
+        },
+        {
+          "path": "assets/mg/snowfield_painted_01.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "b1d92f665f29427d06b5f7c907f58872983af266ca92a530ccc031539a0958ef",
+          "Dev_sha256": "b1d92f665f29427d06b5f7c907f58872983af266ca92a530ccc031539a0958ef",
+          "bytes": 880882,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 828,
+              "text": "\"res://assets/mg/snowfield_painted_01.png\","
+            }
+          ]
+        },
+        {
+          "path": "assets/mg/snowfield_painted_10.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "c90415293b8e4d189512e859438e2dafb7e24069daa54a32f7e059d45c08151c",
+          "Dev_sha256": "c90415293b8e4d189512e859438e2dafb7e24069daa54a32f7e059d45c08151c",
+          "bytes": 787841,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 829,
+              "text": "\"res://assets/mg/snowfield_painted_10.png\","
+            }
+          ]
+        },
+        {
+          "path": "assets/mg/snowfield_painted_11.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "9492cca5957854c995e82e6050fa63c1feaa2cbba38fbb32269c7b46718adc61",
+          "Dev_sha256": "9492cca5957854c995e82e6050fa63c1feaa2cbba38fbb32269c7b46718adc61",
+          "bytes": 772637,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 830,
+              "text": "\"res://assets/mg/snowfield_painted_11.png\","
+            }
+          ]
+        },
+        {
+          "path": "assets/mg/snowman_coal_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "279dffbe48bf8e42c195bd118b50e6fc71ae1e9179c2f182ed81572853448612",
+          "Dev_sha256": "279dffbe48bf8e42c195bd118b50e6fc71ae1e9179c2f182ed81572853448612",
+          "bytes": 67966,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 437,
+              "text": "var coal := _mg_artbtn(\"res://assets/mg/snowman_coal_painted.png\","
+            },
+            {
+              "line": 458,
+              "text": "bit = _mg_sprite(\"res://assets/mg/snowman_coal_painted.png\", head + Vector2(-24, -18), Vector2(42, 42))"
+            },
+            {
+              "line": 460,
+              "text": "bit = _mg_sprite(\"res://assets/mg/snowman_coal_painted.png\", head + Vector2(24, -18), Vector2(42, 42))"
+            }
+          ]
+        },
+        {
+          "path": "assets/mg/trampoline_pad_painted.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "5dbe87c969009046242a38564bdb2359a94cb16fd30a10a0f44404e8297acf04",
+          "Dev_sha256": "5dbe87c969009046242a38564bdb2359a94cb16fd30a10a0f44404e8297acf04",
+          "bytes": 116228,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 687,
+              "text": "var tramp := _mg_sprite(\"res://assets/mg/trampoline_pad_painted.png\","
+            }
+          ]
+        }
+      ],
+      "selected_piece_exports": [
+        {
+          "path": "assets/mg/snowfield_painted_00.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "833fc86408da6544c49a108e4c23ba77f17cec39e7442906ed45c2722fad1174",
+          "Dev_sha256": "833fc86408da6544c49a108e4c23ba77f17cec39e7442906ed45c2722fad1174",
+          "bytes": 867162,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 827,
+              "text": "\"res://assets/mg/snowfield_painted_00.png\","
+            }
+          ]
+        },
+        {
+          "path": "assets/mg/snowfield_painted_01.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "b1d92f665f29427d06b5f7c907f58872983af266ca92a530ccc031539a0958ef",
+          "Dev_sha256": "b1d92f665f29427d06b5f7c907f58872983af266ca92a530ccc031539a0958ef",
+          "bytes": 880882,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 828,
+              "text": "\"res://assets/mg/snowfield_painted_01.png\","
+            }
+          ]
+        },
+        {
+          "path": "assets/mg/snowfield_painted_10.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "c90415293b8e4d189512e859438e2dafb7e24069daa54a32f7e059d45c08151c",
+          "Dev_sha256": "c90415293b8e4d189512e859438e2dafb7e24069daa54a32f7e059d45c08151c",
+          "bytes": 787841,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 829,
+              "text": "\"res://assets/mg/snowfield_painted_10.png\","
+            }
+          ]
+        },
+        {
+          "path": "assets/mg/snowfield_painted_11.png",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "expected_sha256": "9492cca5957854c995e82e6050fa63c1feaa2cbba38fbb32269c7b46718adc61",
+          "Dev_sha256": "9492cca5957854c995e82e6050fa63c1feaa2cbba38fbb32269c7b46718adc61",
+          "bytes": 772637,
+          "byte_match": true,
+          "literal_consumer_lines": [
+            {
+              "line": 830,
+              "text": "\"res://assets/mg/snowfield_painted_11.png\","
+            }
+          ]
+        }
+      ],
+      "selected_piece_export_count": 4
+    },
+    {
+      "artifact_key": "r134_picture_feedback_runtime",
+      "stable_ids": [
+        "FV-E96CD69662D1"
+      ],
+      "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+      "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/MANIFEST.json",
+      "consumer": "scripts/games/picture_games.gd",
+      "consumer_sha256": "dea49b27f0a17ee5c78ea2b1f7ce889e9b2949030e74fa4b8afa84fafe4b0ed3",
+      "PNG_count": 9,
+      "all_PNG_bytes_match": true,
+      "all_PNG_literal_consumers_found": false,
+      "files": [
+        {
+          "path": "assets/mg/picture_feedback/sparkle_amber_painted.png",
+          "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+          "expected_sha256": "b483e90100f3d32b430965356de4752a9aa1ed3aa024c08e787cc76693bd2833",
+          "Dev_sha256": "b483e90100f3d32b430965356de4752a9aa1ed3aa024c08e787cc76693bd2833",
+          "bytes": 16424,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/mg/picture_feedback/sparkle_coral_painted.png",
+          "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+          "expected_sha256": "9b2d2a82ec67bc9d2d435dbae609ef8a8704fe91eaf7a6b5dde9e7c5c4bde542",
+          "Dev_sha256": "9b2d2a82ec67bc9d2d435dbae609ef8a8704fe91eaf7a6b5dde9e7c5c4bde542",
+          "bytes": 16158,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/mg/picture_feedback/sparkle_ice_painted.png",
+          "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+          "expected_sha256": "844a2ab3229b84b6680e2a89cf6972743dd300dbdc49b8fbd9917c45e3741880",
+          "Dev_sha256": "844a2ab3229b84b6680e2a89cf6972743dd300dbdc49b8fbd9917c45e3741880",
+          "bytes": 16339,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/mg/picture_feedback/sparkle_leaf_painted.png",
+          "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+          "expected_sha256": "fe579d961845401339343e2d3879c9297a4c0dbba61db0911391a834f7519b61",
+          "Dev_sha256": "fe579d961845401339343e2d3879c9297a4c0dbba61db0911391a834f7519b61",
+          "bytes": 17120,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/mg/picture_feedback/sparkle_lemon_painted.png",
+          "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+          "expected_sha256": "9bb9f39e4a9d53760e807ec7908f4329c417bba933be4ed0d92307359ad24a8e",
+          "Dev_sha256": "9bb9f39e4a9d53760e807ec7908f4329c417bba933be4ed0d92307359ad24a8e",
+          "bytes": 16322,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/mg/picture_feedback/sparkle_mint_painted.png",
+          "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+          "expected_sha256": "7b88b1a3c3d30d0c0c631895921075fb39519c3a5af205a4d911eadce0e88b04",
+          "Dev_sha256": "7b88b1a3c3d30d0c0c631895921075fb39519c3a5af205a4d911eadce0e88b04",
+          "bytes": 16889,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/mg/picture_feedback/sparkle_rose_painted.png",
+          "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+          "expected_sha256": "1742cf9b993f79471bbebefe28e32668a6017874071d983aba1b9759dbc2174b",
+          "Dev_sha256": "1742cf9b993f79471bbebefe28e32668a6017874071d983aba1b9759dbc2174b",
+          "bytes": 16425,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/mg/picture_feedback/sparkle_sky_painted.png",
+          "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+          "expected_sha256": "0a314f76c00e4cb759aabb6e7d643ce5e5a6a61fc1c3bfd1648620d4e2e156f4",
+          "Dev_sha256": "0a314f76c00e4cb759aabb6e7d643ce5e5a6a61fc1c3bfd1648620d4e2e156f4",
+          "bytes": 16500,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/mg/picture_feedback/sparkle_violet_painted.png",
+          "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+          "expected_sha256": "d0fd497b49adc6b035553cd0c398eb6c2d88d44e3cc3717e10d1e6780d56c7aa",
+          "Dev_sha256": "d0fd497b49adc6b035553cd0c398eb6c2d88d44e3cc3717e10d1e6780d56c7aa",
+          "bytes": 16161,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        }
+      ],
+      "selected_piece_exports": [
+        {
+          "path": "assets/mg/picture_feedback/sparkle_amber_painted.png",
+          "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+          "expected_sha256": "b483e90100f3d32b430965356de4752a9aa1ed3aa024c08e787cc76693bd2833",
+          "Dev_sha256": "b483e90100f3d32b430965356de4752a9aa1ed3aa024c08e787cc76693bd2833",
+          "bytes": 16424,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/mg/picture_feedback/sparkle_coral_painted.png",
+          "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+          "expected_sha256": "9b2d2a82ec67bc9d2d435dbae609ef8a8704fe91eaf7a6b5dde9e7c5c4bde542",
+          "Dev_sha256": "9b2d2a82ec67bc9d2d435dbae609ef8a8704fe91eaf7a6b5dde9e7c5c4bde542",
+          "bytes": 16158,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/mg/picture_feedback/sparkle_ice_painted.png",
+          "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+          "expected_sha256": "844a2ab3229b84b6680e2a89cf6972743dd300dbdc49b8fbd9917c45e3741880",
+          "Dev_sha256": "844a2ab3229b84b6680e2a89cf6972743dd300dbdc49b8fbd9917c45e3741880",
+          "bytes": 16339,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/mg/picture_feedback/sparkle_leaf_painted.png",
+          "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+          "expected_sha256": "fe579d961845401339343e2d3879c9297a4c0dbba61db0911391a834f7519b61",
+          "Dev_sha256": "fe579d961845401339343e2d3879c9297a4c0dbba61db0911391a834f7519b61",
+          "bytes": 17120,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/mg/picture_feedback/sparkle_lemon_painted.png",
+          "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+          "expected_sha256": "9bb9f39e4a9d53760e807ec7908f4329c417bba933be4ed0d92307359ad24a8e",
+          "Dev_sha256": "9bb9f39e4a9d53760e807ec7908f4329c417bba933be4ed0d92307359ad24a8e",
+          "bytes": 16322,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/mg/picture_feedback/sparkle_mint_painted.png",
+          "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+          "expected_sha256": "7b88b1a3c3d30d0c0c631895921075fb39519c3a5af205a4d911eadce0e88b04",
+          "Dev_sha256": "7b88b1a3c3d30d0c0c631895921075fb39519c3a5af205a4d911eadce0e88b04",
+          "bytes": 16889,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/mg/picture_feedback/sparkle_rose_painted.png",
+          "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+          "expected_sha256": "1742cf9b993f79471bbebefe28e32668a6017874071d983aba1b9759dbc2174b",
+          "Dev_sha256": "1742cf9b993f79471bbebefe28e32668a6017874071d983aba1b9759dbc2174b",
+          "bytes": 16425,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/mg/picture_feedback/sparkle_sky_painted.png",
+          "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+          "expected_sha256": "0a314f76c00e4cb759aabb6e7d643ce5e5a6a61fc1c3bfd1648620d4e2e156f4",
+          "Dev_sha256": "0a314f76c00e4cb759aabb6e7d643ce5e5a6a61fc1c3bfd1648620d4e2e156f4",
+          "bytes": 16500,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        },
+        {
+          "path": "assets/mg/picture_feedback/sparkle_violet_painted.png",
+          "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+          "expected_sha256": "d0fd497b49adc6b035553cd0c398eb6c2d88d44e3cc3717e10d1e6780d56c7aa",
+          "Dev_sha256": "d0fd497b49adc6b035553cd0c398eb6c2d88d44e3cc3717e10d1e6780d56c7aa",
+          "bytes": 16161,
+          "byte_match": true,
+          "literal_consumer_lines": []
+        }
+      ],
+      "selected_piece_export_count": 9
+    }
+  ],
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "checked_at_utc": "2026-11-05T19:07:57.543701+00:00",
+  "consumer_comparison": [
+    {
+      "path": "scripts/games/melody.gd",
+      "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+      "Dev_revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "source_sha256": "195c64b3c17fe5fc75750c0fff4751ed9ceaea499796f90749c6b4c2b75955ed",
+      "Dev_sha256": "195c64b3c17fe5fc75750c0fff4751ed9ceaea499796f90749c6b4c2b75955ed",
+      "whole_file_equal": true,
+      "preamble_resource_arrays_equal": true,
+      "changed_functions": [],
+      "unchanged_functions": [
+        "_init",
+        "build",
+        "_tick_melody",
+        "handle_touch_press",
+        "handle_touch_drag",
+        "handle_touch_release",
+        "handle_action_press",
+        "handle_action_release",
+        "cancel_input",
+        "input_context_lost",
+        "input_context_blocks_input",
+        "_arm_input_context_restore_guard",
+        "on_input_context_lost",
+        "on_input_context_restored",
+        "handle_touch_cancel",
+        "arm_entry_sources",
+        "forget_sources_with_prefix",
+        "on_pause_changed",
+        "stage_close",
+        "active_layer",
+        "surface",
+        "stage_root",
+        "active_note_id",
+        "active_note_screen_point",
+        "active_note_hit_rect",
+        "timing_zone_screen_rect",
+        "progress_count",
+        "note_count",
+        "audit_snapshot",
+        "_build_backdrop_tiles",
+        "_actor_sprite",
+        "_layout_stage",
+        "_layout_backdrop_tiles",
+        "_place_actor",
+        "_update_note_point",
+        "_refresh_stage_state",
+        "_begin_press",
+        "_finish_press",
+        "_block_source",
+        "_source_kind",
+        "_score_current_note",
+        "_note_is_in_green",
+        "_opening_fade_clear",
+        "_reset_press_state",
+        "_capture_chime_state",
+        "_restore_chime_state"
+      ],
+      "later_changes": "Exact unchanged Melody consumer."
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+      "Dev_revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "source_sha256": "86de52ad21727ea9f21676ae7ba1e5505ddde5115664594fa861634e0733cdbf",
+      "Dev_sha256": "dea49b27f0a17ee5c78ea2b1f7ce889e9b2949030e74fa4b8afa84fafe4b0ed3",
+      "whole_file_equal": false,
+      "preamble_resource_arrays_equal": true,
+      "changed_functions": [
+        "_mg2d_open",
+        "_mg_build_garden"
+      ],
+      "unchanged_functions": [
+        "_mg2d_feedback_art_variant",
+        "_init",
+        "_mg_label",
+        "_mg_circle",
+        "_mg_sprite",
+        "_mg_artbtn",
+        "_mg2d_feedback_burst",
+        "_mg2d_win",
+        "_mg2d_finish_win",
+        "_mg2d_close",
+        "_mg_build_snowman",
+        "_mg_snow_new_ball",
+        "_mg_snow_ball_size",
+        "_mg_snow_ball_done",
+        "_mg_snow_face_phase",
+        "_mg_snow_face",
+        "_mg_snow_chase_phase",
+        "_mg_snow_runner_bits",
+        "_mg_tick_snow_chase",
+        "_mg_garden_tap",
+        "_mg_build_trampoline",
+        "_mg_trampoline_gui_input",
+        "_mg_tramp_tap",
+        "_mg_build_slide",
+        "_mg_slide_gui_input",
+        "_mg_slide_go",
+        "_mg_build_xmas",
+        "_mg_xmas_tap",
+        "_mg_xmas_flower",
+        "_mg_snow_ground"
+      ],
+      "later_changes": "Only separately catalogued R135 garden backdrop branch and mound retirement; inspected exact diff. Prior Snowman/Trampoline/shared feedback functions and resource arrays unchanged."
+    }
+  ],
+  "all15_asset_exports_unchanged": true,
+  "current_source_machine_context": "Exact Dev809 CI42055727050 success; actual new combined-source full check still running, not a relabel of source-local tests.",
+  "scope": "Fifteen already-published bounded implementations appear in actual Dev with unchanged exported PNG bytes and their consuming code, except the already-counted R135 garden branch. Partial implementation integration evidence; no new art, captures, accepted removal, formalQA11 or physical acceptance.",
+  "proposed_partial_Dev_artifact_delta_after_verified_publication": 15,
+  "selected_piece_export_count": 65
+}

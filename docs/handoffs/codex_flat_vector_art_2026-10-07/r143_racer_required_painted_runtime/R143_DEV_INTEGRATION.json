@@ -1,0 +1,43 @@
+{
+  "state": "VERIFIED_SOURCE_AND_DEV_INTEGRATION",
+  "source_revision": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+  "source_artifact_revision": "4b408d0d49ef05c9b852bc02c9d66270ce27bc6b",
+  "Dev_revision": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+  "source_CI": {
+    "run": "42142492897",
+    "head_sha": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+    "conclusion": "success",
+    "jobs": {
+      "probes": "success",
+      "area-music-provenance": "success"
+    },
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42142492897",
+    "updated_at": "2026-11-06T02:16:25Z"
+  },
+  "Dev_CI": {
+    "run": "42149410935",
+    "head_sha": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+    "conclusion": "success",
+    "jobs": {
+      "area-music-provenance": "success",
+      "probes": "success"
+    },
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42149410935",
+    "updated_at": "2026-11-06T03:14:39Z"
+  },
+  "source_remote_receipt": "SOURCE_REMOTE_VERIFICATION.json",
+  "source_CI_run_file": "SOURCE_CI_GREEN_RUN.json",
+  "source_CI_jobs_file": "SOURCE_CI_GREEN_JOBS.json",
+  "Dev_CI_run_file": "DEV_CI_GREEN_RUN.json",
+  "Dev_CI_jobs_file": "DEV_CI_GREEN_JOBS.json",
+  "recent_ready_updates_receipt": "RECENT_UPDATES_CURRENT_VERIFIED.json",
+  "master_promoted": false,
+  "accepted_removed": 0,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "APK": "Separate automatic packaging and physical device acceptance; inspect latest exact build before any availability claim",
+  "at_utc": "2026-11-06T03:16:41.735749+00:00",
+  "evidence_location_scope": "Relative files in this GitHub-hosted current packet; local continuation handles remain staging only."
+}

@@ -28504,7 +28504,7 @@
     }
   ],
   "coverage_note": "Craft80 guarded API fixture adds game.craft_studio partial alias;77/176partial,0complete,99without. Natural/full states/acceptance and distinct screen total remain unknown.",
-  "revision": "FV-INTEGRATION-20261105-R142-DEV-AND-DEV94-APK",
+  "revision": "FV-INTEGRATION-20261105-R143-RACER-AND-RECENT-DEV",
   "partial_entries": 78,
   "complete_entries": 0,
   "entries_without_current_slice": 98,
@@ -36419,7 +36419,7 @@
       "other need/growth/action variants"
     ]
   },
-  "current_effective_summary": "SUMMARY.json. 44 published bounded source artifacts, 27 partial Dev artifacts and zero accepted removals. The 280 known roles and 36 families remain lower bounds; whole-game totals remain unknown. Native register remains 7,868 bounded, 4,394 excluded and 12,262 retained; no new events in this delivery update.",
+  "current_effective_summary": "SUMMARY.json. 44 published bounded source artifacts,43partial Dev artifacts,280named roles and36families as lower bounds;8030bounded/4394excluded/12424retained native events;0accepted removals and0complete scene coverage;whole-game denominators remain unknown.",
   "intro_entry_ownership": {
     "revision": "FV-AUDIT-20261016-R77",
     "topic_baseline": "7fd93aa0d2036c06c9a65aea6c79a990cc9ae01b",
@@ -43358,5 +43358,116 @@
     "source_context_limit": "The same six source/art blobs are now exactly Dev. Existing45 Mobile/Speedy controlled review events and all source acceptance limits retain their original scope; no new capture, full-motion, device or owner acceptance.",
     "new_source_artifacts": 0,
     "current_matching_APK_verified": false
+  },
+  "current_owner_integration_authority_20261105": {
+    "instruction": "Insure all updates of last several days are pushed to dev, and continue",
+    "source": "Direct owner message in chat01a119cc-74b1-7d23-b956-126129405418 during the2026-11-05continuation",
+    "Dev_integration_authorized": true,
+    "prior_Dev_freeze_superseded": true,
+    "release_or_master_promotion": false,
+    "creative_acceptance": false,
+    "separate_caps_export_protected_boundaries_unchanged": true
+  },
+  "r143_required_painted_integration": {
+    "state": "PAINTED_RACER_REQUIRED_RESOURCES_ON_GREEN_DEV_EXTERNAL_ACCEPTANCE_OPEN",
+    "source_revision": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+    "Dev_revision": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+    "source_CI": {
+      "run": "42142492897",
+      "head_sha": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+      "conclusion": "success",
+      "jobs": {
+        "probes": "success",
+        "area-music-provenance": "success"
+      },
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42142492897",
+      "updated_at": "2026-11-06T02:16:25Z"
+    },
+    "Dev_CI": {
+      "run": "42149410935",
+      "head_sha": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+      "conclusion": "success",
+      "jobs": {
+        "area-music-provenance": "success",
+        "probes": "success"
+      },
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42149410935",
+      "updated_at": "2026-11-06T03:14:39Z"
+    },
+    "canonical_record": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/README.md",
+    "artifact_key": "r141_racer_context_source",
+    "selected_stable_ids": [
+      "FVR-D147419B7EE0",
+      "FVR-59E3B726D2F1"
+    ],
+    "new_source_artifacts": 0,
+    "new_designs": 0,
+    "new_families": 0,
+    "new_partial_Dev_artifacts": 1,
+    "other_recent_Dev_artifacts_verified": 15,
+    "new_generations": 0,
+    "new_native_frame_events": 162,
+    "new_bounded_frame_events": 162,
+    "new_excluded_frame_events": 0,
+    "unique_frame_content_hashes": 54,
+    "historical54sourceKEEP_still_excluded": true,
+    "retired_optional_source_bindings": 3,
+    "retired_procedural_missing_art_paths": 2,
+    "old_PNG_export_cleanup": "OPEN; preserve historical provenance and prove safe removal underDL-PERF-06",
+    "earlier_tent_observation": "Forward correction: the large translucent object is the intentional near-camera finish arch, not the tent; no tent defect is inferred/repaired.",
+    "same_scene_pixel_identical": true,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "mission_complete": false
+  },
+  "r143_existing15_Dev_integration": {
+    "state": "ALREADY_PUBLISHED_EXPORTS_AND_CONSUMERS_VERIFIED_ON_DEV",
+    "Dev_revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+    "artifact_keys": [
+      "r120_melody_curtains_runtime",
+      "r121_melody_header_runtime",
+      "r122_melody_star_runtime",
+      "r123_melody_footlights_runtime",
+      "r124_melody_apron_runtime",
+      "r125_melody_bulbs_runtime",
+      "r126_melody_note_runtime",
+      "r127_melody_progress_pips_runtime",
+      "r128_melody_timing_window_runtime",
+      "r129_melody_guide_runtime",
+      "r130_trampoline_pad_runtime",
+      "r131_snowball_runtime",
+      "r132_snowman_coal_runtime",
+      "r133_snowfield_runtime",
+      "r134_picture_feedback_runtime"
+    ],
+    "selected_exports": 65,
+    "anonymous_current_consumer_files": 2,
+    "new_partial_Dev_artifacts": 15,
+    "new_artifacts": 0,
+    "new_frame_events": 0,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "record": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/EXISTING15_PRODUCTION_MATCHES.json",
+    "anonymous_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/EXISTING15_ANONYMOUS.json"
+  },
+  "r143_prior_effective_summary": "SUMMARY.json. 44 published bounded source artifacts, 27 partial Dev artifacts and zero accepted removals. The 280 known roles and 36 families remain lower bounds; whole-game totals remain unknown. Native register remains 7,868 bounded, 4,394 excluded and 12,262 retained; no new events in this delivery update.",
+  "r143_current_effective_summary": {
+    "known_roles": 280,
+    "known_families": 36,
+    "published_bounded_source_artifacts": 44,
+    "partial_Dev_artifacts": 43,
+    "retained_bounded_native_events": 8030,
+    "retained_excluded_native_events": 4394,
+    "retained_native_events": 12424,
+    "accepted_removed": 0,
+    "complete_scene_coverage": 0,
+    "whole_game_total": null,
+    "revision": "FV-INTEGRATION-20261105-R143-RACER-AND-RECENT-DEV"
   }
 }

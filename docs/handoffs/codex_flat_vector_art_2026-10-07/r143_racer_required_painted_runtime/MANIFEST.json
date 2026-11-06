@@ -1,0 +1,879 @@
+{
+  "schema": "reef.flat_vector_delivery/1",
+  "id": "R143-CANONICAL-VERIFIED-DEV-20261105",
+  "repository": "https://github.com/Ebonyks/mermaid-roshan-reef",
+  "branch": "codex/flat-vector-r6-20261012",
+  "delivery_diff_base": "fa74d3c87f7c58f46ad33fb150fb5bce831f09f0",
+  "entry": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/README.md",
+  "files": [
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "revision": null,
+      "bytes": 304890,
+      "sha256": "dee4b41f16754f86c77dfa9671903549e8ed8869713e44e52ad78f05ecbbb597",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "revision": null,
+      "bytes": 334498,
+      "sha256": "0388225d5f505f0ec4ec9f565c5ae071c809494d223febea766963d67be855fa",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "revision": null,
+      "bytes": 370754,
+      "sha256": "aad4213f753db45bc79f8f216d345878fe7433d628bb80823f03ae500ae9283c",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "revision": null,
+      "bytes": 283464,
+      "sha256": "57c1ce0f8290bcd2fd3f0819f503e93faae1fb7722b6bd46424cef69593748a9",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-r143-dev-reconcile-20261105.json",
+      "revision": null,
+      "bytes": 5737,
+      "sha256": "0f9c0b30123d37df662e48320a829270487e6a2c9932abf719aebc5e7e71e792",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "revision": null,
+      "bytes": 316761,
+      "sha256": "1ec275915dfd9c27e4689434cb6c6b25d4ffb7c3cca2fa60ee90e8345768623e",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/.gdignore",
+      "revision": null,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/.gitattributes",
+      "revision": null,
+      "bytes": 9,
+      "sha256": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/DEV_CI_GREEN_JOBS.json",
+      "revision": null,
+      "bytes": 11241,
+      "sha256": "e54a3d470bb4393380f812e90ef996c3fec1e5c65098eb6361b6d2c6148ff229",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/DEV_CI_GREEN_RUN.json",
+      "revision": null,
+      "bytes": 14010,
+      "sha256": "b087f0fc89612a076ad6164cb7c1f61a5f253bc811ce38c1a1aef83373fe2842",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/EXACT_SOURCE_REFERENCES.json",
+      "revision": null,
+      "bytes": 9674,
+      "sha256": "c4b93b6e5dbc6693aff9e54f2d4c27a906fe6ebed62cd5c4a8fcded6df7596e3",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/EXISTING15_ANONYMOUS.json",
+      "revision": null,
+      "bytes": 26194,
+      "sha256": "2963e64ab4a8aba7409073175b857b5fb8450ce9e773b4997fa1b0c3e5b0df5d",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/EXISTING15_CURRENT_DEV_MATCH.json",
+      "revision": null,
+      "bytes": 23755,
+      "sha256": "3ee6d45b903943cac4955fa96e4b042b64335ac4c0ac19db7d6fa57eadc0cd84",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/EXISTING15_PRODUCTION_MATCHES.json",
+      "revision": null,
+      "bytes": 124748,
+      "sha256": "3ce9a86910b6a1873d6c5c06dc66857c2197845cccc1b6544768c5ce403e774a",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/PRIOR_ARTIFACT_REMOTE_VERIFICATION.json",
+      "revision": null,
+      "bytes": 556954,
+      "sha256": "78aab89d74f1d936af9bbac0aa920fd0a1fae7bd3ed317ae813e952b1b8482fa",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/R143_DEV_INTEGRATION.json",
+      "revision": null,
+      "bytes": 1732,
+      "sha256": "3a80178a3e3665e74b60129b9cbbf994ab5925d703f1fa1a5ebad9606e49f8fd",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/README.md",
+      "revision": null,
+      "bytes": 4409,
+      "sha256": "b9e8c966834d578ea52eff9f01e2d30fee4dcadec57a7f3fcfa882d66c1d1df3",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/RECENT_UPDATES_CURRENT_VERIFIED.json",
+      "revision": null,
+      "bytes": 11189,
+      "sha256": "2581820d65ac337d50fd612f9d678b02f33ce3aace866a1b0ba88800a5ca9ec8",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/RECENT_UPDATES_HISTORY.json",
+      "revision": null,
+      "bytes": 7043,
+      "sha256": "db7e205a5ee8c0c303dd8b48899dcfb410317b01fa8726c33bd517a72aaa1cea",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/SOURCE_CI_GREEN_JOBS.json",
+      "revision": null,
+      "bytes": 11331,
+      "sha256": "5f1d55f7705d9327f8cfa6c4ed7bf3cc9afc6b4ae40454745c560a85042d7992",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/SOURCE_CI_GREEN_RUN.json",
+      "revision": null,
+      "bytes": 14055,
+      "sha256": "fd2c489907d445a8ec1dd116f8b18d4dc5de122522d1e56e13c1f115ff06e512",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/SOURCE_REMOTE_VERIFICATION.json",
+      "revision": null,
+      "bytes": 1015096,
+      "sha256": "6bcd6a5c1934cdfe033653076b5bdb2d2ba24d673d284e3592ab224b8ea98cb3",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+      "revision": null,
+      "bytes": 526666,
+      "sha256": "6437b049f2eaa25a68585a8512d52b30d544d685576bf2f83a2f81c419bfe408",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+      "revision": null,
+      "bytes": 304465,
+      "sha256": "e9f4c587b1f7290f55fc332c9546e1ca5cb5d37b0367344e5e630dfc0d3cd3c2",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+      "revision": null,
+      "bytes": 2399199,
+      "sha256": "a70906fb78c5f9ec0d7db58c6993468e1d8eb6c01af8b5bb2c7caa304640684f",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+      "revision": null,
+      "bytes": 2108865,
+      "sha256": "65bd6fb8dd7539467e0ded7cb37f72a9167b01f02c9cb9336b31cdef05ce174a",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json",
+      "revision": null,
+      "bytes": 776344,
+      "sha256": "c4632df2fbf103107b6c71e43643967f2d2aeedcb0aaaee0412cdd6c9b816d50",
+      "role": "Current canonical registry or compact verified-production integration record"
+    },
+    {
+      "path": "assets/racer/context_v2/item_capsule.png",
+      "revision": "4b408d0d49ef05c9b852bc02c9d66270ce27bc6b",
+      "bytes": 952138,
+      "sha256": "5b356f6adb1822859b8b9db62d7b0780ce90d1b650c27470fc3e33cb128cd635",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "assets/racer/context_v2/kelp_trap.png",
+      "revision": "4b408d0d49ef05c9b852bc02c9d66270ce27bc6b",
+      "bytes": 720171,
+      "sha256": "7a9e0b17c5282f516666e3bfce12dcf75e244aec89bb37bf6b791b3200700795",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/item_capsule_native.png",
+      "revision": "4b408d0d49ef05c9b852bc02c9d66270ce27bc6b",
+      "bytes": 907767,
+      "sha256": "f4a366d0c8126f6069061afde3c6ddfe18558f6e3e2ad0fd5df8d5c631438f10",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/kelp_trap_native.png",
+      "revision": "4b408d0d49ef05c9b852bc02c9d66270ce27bc6b",
+      "bytes": 963517,
+      "sha256": "ba32f32252b5a634c74ab76994b068eacfc9a81441fce38a4816844477d04801",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/generation_jobs.json",
+      "revision": "4b408d0d49ef05c9b852bc02c9d66270ce27bc6b",
+      "bytes": 45809,
+      "sha256": "3422a3569005d3282e6c555914a3be32839f3014f6c0025ba8d4ad6c1f592a5e",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/runtime_exports.json",
+      "revision": "4b408d0d49ef05c9b852bc02c9d66270ce27bc6b",
+      "bytes": 5405,
+      "sha256": "6c10bf97ecabafd77663e3362e04d9413c6fab9126a8fab95af95e42fdafda14",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "revision": "4b408d0d49ef05c9b852bc02c9d66270ce27bc6b",
+      "bytes": 63401,
+      "sha256": "736c32c3158abcc958d6c58eb13c949f5bbabef9f5a3dbd714044242bc5bbbd5",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "revision": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+      "bytes": 8804260,
+      "sha256": "4621d7a234ea1851277637d74ccee62d94d60d812573784cc631020760d0d2b4",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/README.md",
+      "revision": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+      "bytes": 7818,
+      "sha256": "812b34a8c3c59cc0ea675bdeacdbb7139c53b3b2a2075ccbe2de37cf95cf0d5f",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/CANDIDATE_RECORDS.json",
+      "revision": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+      "bytes": 5007,
+      "sha256": "81c229f1b23266d4ecb5c0eebdef0a7e453a58a366642abd65787872e39bff14",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/TEN_AXIS_COMPARISON.json",
+      "revision": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+      "bytes": 4586,
+      "sha256": "3265e58b40767974e9e578a8d2afe006bfdaa8012f7a97befb095e5241728a6a",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/FRAME_EVENTS.json",
+      "revision": "4b408d0d49ef05c9b852bc02c9d66270ce27bc6b",
+      "bytes": 177129,
+      "sha256": "9973d8901711d41265a5ebfbd5252b7152cbb573cc786f0ab763e68a2ecffcef",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/SAME_SCENE_COMPARISON.json",
+      "revision": "4b408d0d49ef05c9b852bc02c9d66270ce27bc6b",
+      "bytes": 20541,
+      "sha256": "4d9e11d9bef9d42f22ab65198b0f3087b8b77a5a39aead0f9d6f302a12e18794",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/CAPTURE_INSTRUCTIONS.json",
+      "revision": "4b408d0d49ef05c9b852bc02c9d66270ce27bc6b",
+      "bytes": 1451,
+      "sha256": "3a86a9b2049cedcf9723e6e46d3be47eda53bf7ef25ff7c69a1cc73ab6ffe769",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/CURRENT_DEV32588_SCOPE.json",
+      "revision": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+      "bytes": 2492,
+      "sha256": "8d78c5fbe83f29b2738b43d0a8c9261b914e2ebfac431afa2e4d960f3e5ee988",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/CURRENT_DEV32588_MERGE_PROOF.json",
+      "revision": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+      "bytes": 656,
+      "sha256": "3f78922036e3b41cc1759b1dd83c79bfed904dce772887f411afc8a03a23f87a",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/current_dev_32588fbf/evidence/RECONCILED_RESULT.json",
+      "revision": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+      "bytes": 104735,
+      "sha256": "2486ddc2319dafea24601d9fccdffd915cac851895438c47e5b7d21cfbc3bd08",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/current_dev_32588fbf/evidence/CANONICAL_SOURCE_PIN_RECONCILIATION.json",
+      "revision": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+      "bytes": 729494,
+      "sha256": "ab8d1a6dcfdded2574f65103906c5627817ff3ee87bdf44a3de053b7ddcc1e59",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/current_dev_32588fbf/evidence/ORIGINAL_RUNNER_FINAL_GUARD_FAILURE.json",
+      "revision": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+      "bytes": 1433,
+      "sha256": "62b6729dd17e8c7eb8b7c2a7441d2f6d6a598603afe4d51f535f4658b9340a6a",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/current_dev_32588fbf/evidence/COMMIT_CONTROLLER_TEXT_IDENTITY.json",
+      "revision": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+      "bytes": 1069,
+      "sha256": "90dc1efef91ab47f4785e7fe84b8c66ff164bbab1de834aad21edcc4d9c48bb5",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/current_dev_32588fbf/evidence/SOURCE_PIN.json",
+      "revision": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+      "bytes": 721804,
+      "sha256": "9b2a37eae506e588ebe46303d8026518dba7c2b992f9cfc5e27bac5a73eabab3",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/current_dev_80975b0051/native/playroom-solo-bend.png",
+      "revision": "4b408d0d49ef05c9b852bc02c9d66270ce27bc6b",
+      "bytes": 650526,
+      "sha256": "94170c3910c4256475f7f5195c840ab82c7601d6917fff42e4bca6061f62457f",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/current_dev_80975b0051/native/mermaid_pool-split-kelp.png",
+      "revision": "4b408d0d49ef05c9b852bc02c9d66270ce27bc6b",
+      "bytes": 525905,
+      "sha256": "38c9ad9782f2d14b526920c0001fc4e0e8cb88243d39b20d04a7df37b9825b4d",
+      "role": "Selected actual candidate/provenance/same-scene/source-bound machine evidence"
+    },
+    {
+      "path": "assets/melody/curtain_left_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 214701,
+      "sha256": "e9c0c4c107c16b51508109781ce2e39aa8b61289a1db545676648085bd9c43c8",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/curtain_right_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 201838,
+      "sha256": "4dfe744ce24b4d536256ae783edb2cff508268c8e7dd0e4b1b16c2f7821f2d4e",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/crown_header_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 166949,
+      "sha256": "3865d7d6801d5688d5c7aa41c4d6cd5e1e2f3310a3a80638d3e7a884aa91419e",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/star_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 56101,
+      "sha256": "44a7b3a8351778b5912ac3a9c54085b20a990967e2b036aeff88f2b388a93e8e",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/footlight_green.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 30705,
+      "sha256": "89573cd0da3fa3c12c0ef3637e179f1e8724f0bf2ade95c42f6a76d44666ffcd",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/footlight_orange.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 30483,
+      "sha256": "4de72f443c95b9916b1f3bde03a1a121c02e3f5bd2eacd517d8e455c75228b16",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/footlight_periwinkle.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 29537,
+      "sha256": "55e40d08fc49dd481cf47618e257ffb48181bc07644f130b8380b819e6625eb3",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/footlight_purple.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 29226,
+      "sha256": "e0a23b4ca38a7d9f8c4c7184d378cd3efe5568fc79bb5dee03b10891beeb0ce7",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/footlight_rail_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 35846,
+      "sha256": "50018caeaa9ceb61fb7dedb53343b19cd7d16d413df2a595459e4abffd42b813",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/footlight_red.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 30293,
+      "sha256": "2038c40b6546a6f2a62af9a1e28d24252f8381381fa22a240814bb074387d61e",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/footlight_sky_blue.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 29879,
+      "sha256": "10da6826c6c18cef931664be8977c1e8080a99a875aa3de86c6da0990d6e9bd6",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/footlight_yellow.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 29763,
+      "sha256": "e2e950b8dfca5f6fac8ece0f439bb32ff0b64794b03e8c8678a9f5f1405b2a53",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/stage_apron_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 95887,
+      "sha256": "1fd0435da5bc651a814a665e13a621b6c248371179f65935b906e5c79b5351ee",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/stage_apron_rainbow_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 54662,
+      "sha256": "b06b424cad29a673b76139a2258e7408e0df816e2aab2469ed8b05e074101d9c",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/theatre_bulb_cream_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 25435,
+      "sha256": "6b77475880e6b86c45fd3e0ac481814a4a19a1cdd7bc6d67e16e4379fc56d24d",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/theatre_bulb_gold_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 24936,
+      "sha256": "6bbb37224b78c39dda1a40d56cbb7904a2fbf4987b5d15e643196be42dc1ccc2",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/rainbow_note_blue_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 99008,
+      "sha256": "6fa514888498221dfd0727fd5c70c5362a8ed63bfcb5d15f728949ef7d8b70c1",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/rainbow_note_green_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 99773,
+      "sha256": "1ae079c7d022ebe03a06809094521f02ef524df546a007315e302cf843437429",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/rainbow_note_indigo_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 98719,
+      "sha256": "14d78588224523486f01611a18d6a10e87ff1d2c263d9865b29a7b7f94fae7e2",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/rainbow_note_orange_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 96481,
+      "sha256": "83cf5aba818c6f7101dfd319f5d355d09119efd5d8e21e45b957300f2c134567",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/rainbow_note_red_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 97075,
+      "sha256": "8e31e25551ba1af58467581c924460edcbb4940e4724b4c122dabae404196aa6",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/rainbow_note_violet_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 97450,
+      "sha256": "3dfa929249a8c829b9b5d118197420144a3d2ae5367ba81c12b0abc4e7c20593",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/rainbow_note_yellow_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 92122,
+      "sha256": "a7a5ee15af599870188d4c95b5f95795373d90c6741c3c13605926625dfe14ba",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/progress_pip_current_blue_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 28726,
+      "sha256": "9315090d77bd38d3c37e5a51cf8422b8c408d04cd4413fa099b899fcd06f9b11",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/progress_pip_current_green_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 29081,
+      "sha256": "83481cdaf3f8e3665228e432d90be009eae87be31f8edb728b60b00903fc5e28",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/progress_pip_current_indigo_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 28590,
+      "sha256": "4a06f82e29d492f6130574e0d203fa3ca7797f1d8d1b81b73e88b112d11d9b77",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/progress_pip_current_orange_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 28454,
+      "sha256": "d7770b7601cd3891ce1d614bc22065808a660298617cc82082642bf0b4ad2a1b",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/progress_pip_current_red_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 28474,
+      "sha256": "e9a12bfd56934a9a7c5787398dbfe9568d3d2f1381acbf0f126e997ef4a9e494",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/progress_pip_current_violet_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 28484,
+      "sha256": "1d9cfa232e530e9c4e14ab0f2690f1101cb609a8506074395e388128fb9a0cc2",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/progress_pip_current_yellow_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 28084,
+      "sha256": "167b573580690da9d23a181a3490d6a26d27a140eb5efbcdcec27cbbc274a109",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/progress_pip_filled_blue_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 28247,
+      "sha256": "f9961374ffe822af8eb2f8a087ee8637265c792caee539f9da0a1ac945de5421",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/progress_pip_filled_green_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 28066,
+      "sha256": "8b8f065b358e28deb320ce23f0ce1a00f20e006ea4602d241efd4204371316a0",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/progress_pip_filled_indigo_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 27740,
+      "sha256": "ff5ca08c3237ffc32d31ef90ca92eb6b991ff87ce1a3ea2e11a5c48edfd5c78e",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/progress_pip_filled_orange_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 27782,
+      "sha256": "3ef0627f259720318e7d1f0ba9770b96464ef7d4adb5c497c412943b01f12508",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/progress_pip_filled_red_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 27504,
+      "sha256": "9b4ba704beabfcf5e3f33d5da6f856ab50c0c3283593be307000b942650fe92a",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/progress_pip_filled_violet_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 27801,
+      "sha256": "3839641ac6b8c11d7619df92e566da9fe8022f19f10e2fe5335f21175106d5d5",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/progress_pip_filled_yellow_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 27254,
+      "sha256": "2511f899af13ada340fb34cd0a51e180cfe2daac82283a9b2d3b8f00a771dfc8",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/progress_pip_idle_blue_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 27053,
+      "sha256": "bf334cb5b7b4b61926b83cf6ecd20d7fa5005db0cc2e4755050b11a8b3671fe4",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/progress_pip_idle_green_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 27295,
+      "sha256": "08e6b0b89b062ac98755c163c5d22c1d9c1855126b585c1d0b14590ea31a52fd",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/progress_pip_idle_indigo_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 26450,
+      "sha256": "dc4afb1485f1492060d22d1014f6c65c33e99063d326aab9d0c37c5b49c6ddd0",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/progress_pip_idle_orange_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 27057,
+      "sha256": "17733b77a4fd8e497738ed541b845c39ed83135096749b3043dd835631179b1b",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/progress_pip_idle_red_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 26997,
+      "sha256": "d0917d181d9890eefb93f15ee14e92c2da766d4c202230512494684d3c332f3f",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/progress_pip_idle_violet_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 27032,
+      "sha256": "301798f5bd6ea2dcfd714345d2619a59d1a9b8c6779e159d48d20e2fe7d8a40e",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/progress_pip_idle_yellow_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 27026,
+      "sha256": "175d3bbaab4232f7193afd9810bcd1f86cbee7553604cd12ba029add6ee71da6",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/timing_window_aura_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 87641,
+      "sha256": "af8491e4b87e670983c3c035453acec2ce5bf8349b83fd02c8466ad8bdce213e",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/timing_window_medallion_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 110185,
+      "sha256": "efc3dfd123a1c193c7fa9195689c66d5d16e0238341b6b636168d3592b8ab833",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/guide_arrow_head_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 17563,
+      "sha256": "102ffb6caabc034f8ea534d0d181d0ec0dbd2d1210b62c3aaf2d81b6cdb88d87",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/guide_beam_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 8716,
+      "sha256": "638cc29b254ecfc90995019d09656edccf479d599a51743a3954ec5872b6adb0",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/melody/guide_double_ring_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 101150,
+      "sha256": "2fd0371e2483e94b2b5d16ba782d8549c59e87436730541a64f2ff367cc57878",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/mg/trampoline_pad_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 116228,
+      "sha256": "5dbe87c969009046242a38564bdb2359a94cb16fd30a10a0f44404e8297acf04",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/mg/snowball_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 280574,
+      "sha256": "07eac348486145d2c32c6da7c645b4099679aabbbe938263dbf612def779be11",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/mg/snowman_coal_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 67966,
+      "sha256": "279dffbe48bf8e42c195bd118b50e6fc71ae1e9179c2f182ed81572853448612",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/mg/snowfield_painted_00.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 867162,
+      "sha256": "833fc86408da6544c49a108e4c23ba77f17cec39e7442906ed45c2722fad1174",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/mg/snowfield_painted_01.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 880882,
+      "sha256": "b1d92f665f29427d06b5f7c907f58872983af266ca92a530ccc031539a0958ef",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/mg/snowfield_painted_10.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 787841,
+      "sha256": "c90415293b8e4d189512e859438e2dafb7e24069daa54a32f7e059d45c08151c",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/mg/snowfield_painted_11.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 772637,
+      "sha256": "9492cca5957854c995e82e6050fa63c1feaa2cbba38fbb32269c7b46718adc61",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_amber_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 16424,
+      "sha256": "b483e90100f3d32b430965356de4752a9aa1ed3aa024c08e787cc76693bd2833",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_coral_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 16158,
+      "sha256": "9b2d2a82ec67bc9d2d435dbae609ef8a8704fe91eaf7a6b5dde9e7c5c4bde542",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_ice_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 16339,
+      "sha256": "844a2ab3229b84b6680e2a89cf6972743dd300dbdc49b8fbd9917c45e3741880",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_leaf_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 17120,
+      "sha256": "fe579d961845401339343e2d3879c9297a4c0dbba61db0911391a834f7519b61",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_lemon_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 16322,
+      "sha256": "9bb9f39e4a9d53760e807ec7908f4329c417bba933be4ed0d92307359ad24a8e",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_mint_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 16889,
+      "sha256": "7b88b1a3c3d30d0c0c631895921075fb39519c3a5af205a4d911eadce0e88b04",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_rose_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 16425,
+      "sha256": "1742cf9b993f79471bbebefe28e32668a6017874071d983aba1b9759dbc2174b",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_sky_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 16500,
+      "sha256": "0a314f76c00e4cb759aabb6e7d643ce5e5a6a61fc1c3bfd1648620d4e2e156f4",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "assets/mg/picture_feedback/sparkle_violet_painted.png",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 16161,
+      "sha256": "d0fd497b49adc6b035553cd0c398eb6c2d88d44e3cc3717e10d1e6780d56c7aa",
+      "role": "Actual selected exported PNG for existing bounded implementation"
+    },
+    {
+      "path": "scripts/games/melody.gd",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 48775,
+      "sha256": "195c64b3c17fe5fc75750c0fff4751ed9ceaea499796f90749c6b4c2b75955ed",
+      "role": "Actual current Dev consumer; source equality/function comparison recorded separately"
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "bytes": 34618,
+      "sha256": "dea49b27f0a17ee5c78ea2b1f7ce889e9b2949030e74fa4b8afa84fafe4b0ed3",
+      "role": "Actual current Dev consumer; source equality/function comparison recorded separately"
+    }
+  ],
+  "required_Git_files_excluding_manifest": 117,
+  "current_revision_files": 27,
+  "immutable_external_references": 90,
+  "prior_receipts": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/SOURCE_REMOTE_VERIFICATION.json",
+      "sha256": "6bcd6a5c1934cdfe033653076b5bdb2d2ba24d673d284e3592ab224b8ea98cb3",
+      "revision": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+      "checked_at_utc": "2026-11-06T01:15:26.459781+00:00"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/PRIOR_ARTIFACT_REMOTE_VERIFICATION.json",
+      "sha256": "78aab89d74f1d936af9bbac0aa920fd0a1fae7bd3ed317ae813e952b1b8482fa",
+      "revision": "4b408d0d49ef05c9b852bc02c9d66270ce27bc6b",
+      "checked_at_utc": "2026-11-05T22:45:37.390122+00:00"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/EXISTING15_ANONYMOUS.json",
+      "sha256": "2963e64ab4a8aba7409073175b857b5fb8450ce9e773b4997fa1b0c3e5b0df5d",
+      "revision": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+      "checked_at_utc": "2026-11-05T19:10:55.001005+00:00"
+    }
+  ],
+  "scope": "Current canonical delta plus selected exact immutable source/Dev evidence; no recursive whole-archive dependency. Identical immutable files retain original anonymous verification timestamps.",
+  "counts": {
+    "published_source_artifacts": 44,
+    "partial_Dev_artifacts": 43,
+    "known_roles_lower_bound": 280,
+    "known_families_lower_bound": 36,
+    "bounded_native_events": 8030,
+    "excluded_native_events": 4394,
+    "total_retained_native_events": 12424,
+    "new_source_artifacts": 0,
+    "new_designs": 0,
+    "new_families": 0,
+    "new_generation_calls": 0,
+    "new_captures_now": 0,
+    "accepted_removed": 0,
+    "complete_scene_coverage": 0,
+    "whole_game_total": null
+  },
+  "acceptance": {
+    "candidate": true,
+    "partial_Dev_integration": true,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "mission_complete": false
+  }
+}
