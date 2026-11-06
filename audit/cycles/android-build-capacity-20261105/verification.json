@@ -1,0 +1,20 @@
+{
+  "baseline": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+  "status": "LOCAL_CHECKS_PASSED_PENDING_EXACT_HEAD_CI_AND_APK",
+  "required_ci": "PENDING exact new head",
+  "apk": "PENDING; original two exports failed; no new APK claim",
+  "acceptance": "Separate art/motion/device/child/owner acceptance unchanged",
+  "local_unit_and_syntax": "PASS86 tests; actionlint1.7.7 and9 Bash run-block syntax checks; no signing/setup block executed locally",
+  "build_source_hashes_lf": {
+    ".github/workflows/android.yml": "0b39ce9d69c97b612d63d1254cf4d5b8f07472b5eb1a54f1c0b67e08263837b0",
+    "tools/verify_android_build_source.py": "bbdaf394c3301f11ccf7b667393aaf8637f2bfcca08214c4ff0b1babb295b8a4",
+    "tools/tests/test_verify_android_build_source.py": "d45a692d606107ff62f10c58a149a240cf45f556b6832a964df2dcfb2a0e8f7c"
+  },
+  "signing_and_pins": "Identical prior signing block and action pins; workflow-contract.json",
+  "local_audits": {
+    "document_authority": "PASS928/928;active75/records78",
+    "change_coverage": "PASS base a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+    "owner_register": "PASS126 append-only against currentorigin/dev"
+  },
+  "historical_snapshot_note": "Commit-time PENDING is retained; completion of exact-head CI and APK delivery is verified externally to avoid a receipt-only commit/build loop."
+}

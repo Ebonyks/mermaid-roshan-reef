@@ -1,0 +1,204 @@
+{
+  "source": "https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_export_templates.tpz",
+  "sha512": "ca4d71c4d7b81dfc15d1a98baa07534aa95b03fdda78a0075b06672e1648d2e5f40980c9adc28d23e1b92e732ee7bf3461997aa804af74ec2fcd7a93ccb84079",
+  "compressed_bytes": 1281349702,
+  "all_unpacked": 2072248588,
+  "android_unpacked": 232064058,
+  "avoided_unpacked_bytes": 1840184530,
+  "entries": [
+    {
+      "name": "templates/android_debug.apk",
+      "unpacked": 127260725,
+      "compressed": 125834876
+    },
+    {
+      "name": "templates/android_release.apk",
+      "unpacked": 104803333,
+      "compressed": 103949600
+    },
+    {
+      "name": "templates/android_source.zip",
+      "unpacked": 214418211,
+      "compressed": 214421853
+    },
+    {
+      "name": "templates/icudt_godot.dat",
+      "unpacked": 4797472,
+      "compressed": 2821420
+    },
+    {
+      "name": "templates/ios.zip",
+      "unpacked": 202976946,
+      "compressed": 198442872
+    },
+    {
+      "name": "templates/linux_debug.arm32",
+      "unpacked": 67185452,
+      "compressed": 25304372
+    },
+    {
+      "name": "templates/linux_debug.arm64",
+      "unpacked": 68160800,
+      "compressed": 26888836
+    },
+    {
+      "name": "templates/linux_debug.x86_32",
+      "unpacked": 75323448,
+      "compressed": 27639768
+    },
+    {
+      "name": "templates/linux_debug.x86_64",
+      "unpacked": 73703800,
+      "compressed": 27395601
+    },
+    {
+      "name": "templates/linux_release.arm32",
+      "unpacked": 65784612,
+      "compressed": 25954721
+    },
+    {
+      "name": "templates/linux_release.arm64",
+      "unpacked": 67079432,
+      "compressed": 27531394
+    },
+    {
+      "name": "templates/linux_release.x86_32",
+      "unpacked": 75679864,
+      "compressed": 28774265
+    },
+    {
+      "name": "templates/linux_release.x86_64",
+      "unpacked": 73519416,
+      "compressed": 28311148
+    },
+    {
+      "name": "templates/macos.zip",
+      "unpacked": 123597580,
+      "compressed": 122879307
+    },
+    {
+      "name": "templates/version.txt",
+      "unpacked": 13,
+      "compressed": 13
+    },
+    {
+      "name": "templates/web_debug.zip",
+      "unpacked": 10342534,
+      "compressed": 10319220
+    },
+    {
+      "name": "templates/web_dlink_debug.zip",
+      "unpacked": 12125435,
+      "compressed": 12014872
+    },
+    {
+      "name": "templates/web_dlink_nothreads_debug.zip",
+      "unpacked": 12014273,
+      "compressed": 11903704
+    },
+    {
+      "name": "templates/web_dlink_nothreads_release.zip",
+      "unpacked": 11549046,
+      "compressed": 11457146
+    },
+    {
+      "name": "templates/web_dlink_release.zip",
+      "unpacked": 11568406,
+      "compressed": 11476267
+    },
+    {
+      "name": "templates/web_nothreads_debug.zip",
+      "unpacked": 10232720,
+      "compressed": 10210682
+    },
+    {
+      "name": "templates/web_nothreads_release.zip",
+      "unpacked": 10245903,
+      "compressed": 10221796
+    },
+    {
+      "name": "templates/web_release.zip",
+      "unpacked": 10290815,
+      "compressed": 10264243
+    },
+    {
+      "name": "templates/windows_debug_arm64_console.exe",
+      "unpacked": 159744,
+      "compressed": 61044
+    },
+    {
+      "name": "templates/windows_debug_arm64.exe",
+      "unpacked": 98958848,
+      "compressed": 30674174
+    },
+    {
+      "name": "templates/windows_debug_x86_32_console.exe",
+      "unpacked": 192000,
+      "compressed": 77926
+    },
+    {
+      "name": "templates/windows_debug_x86_32.exe",
+      "unpacked": 113264640,
+      "compressed": 35642869
+    },
+    {
+      "name": "templates/windows_debug_x86_64_console.exe",
+      "unpacked": 188928,
+      "compressed": 76459
+    },
+    {
+      "name": "templates/windows_debug_x86_64.exe",
+      "unpacked": 103176704,
+      "compressed": 34252108
+    },
+    {
+      "name": "templates/windows_release_arm64_console.exe",
+      "unpacked": 159744,
+      "compressed": 61044
+    },
+    {
+      "name": "templates/windows_release_arm64.exe",
+      "unpacked": 91662336,
+      "compressed": 29035023
+    },
+    {
+      "name": "templates/windows_release_x86_32_console.exe",
+      "unpacked": 192000,
+      "compressed": 77927
+    },
+    {
+      "name": "templates/windows_release_x86_32.exe",
+      "unpacked": 122176000,
+      "compressed": 39399657
+    },
+    {
+      "name": "templates/windows_release_x86_64_console.exe",
+      "unpacked": 188928,
+      "compressed": 76459
+    },
+    {
+      "name": "templates/windows_release_x86_64.exe",
+      "unpacked": 109268480,
+      "compressed": 37890306
+    }
+  ],
+  "scope": "Exact official archive SHA512 matches existing pinned workflow; size proof only, not an applied workflow change.",
+  "actual_selection": {
+    "tool": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "command": "unzip -q ../../tmp/bubble-cast-android-templates.tpz \"templates/android_debug.apk\" \"templates/android_release.apk\" -d ../../tmp/bubble-cast-android-template-subset",
+    "exit": 0,
+    "files": [
+      {
+        "path": "templates\\android_debug.apk",
+        "bytes": 127260725,
+        "sha256": "59e0073f0fa59f552684a861d8f4266b0b34b488a140d6657eac7dd70d1a0a0d"
+      },
+      {
+        "path": "templates\\android_release.apk",
+        "bytes": 104803333,
+        "sha256": "6d1bb2cfa126a1b1c87e064a35b3cbd181bef0ec784dec1efd1d64dffa8be6cb"
+      }
+    ],
+    "total": 232064058
+  }
+}

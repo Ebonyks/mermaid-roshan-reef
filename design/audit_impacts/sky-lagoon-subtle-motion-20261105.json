@@ -175,8 +175,24 @@
       "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
       "result": "PASS",
       "evidence": "Local DOCAUTH928/928 ACTIVE75 RECORDS78 ALL OK; development coverage ALL OK againsta7e1faefc09b3303494a5499cce5fe120cb2dcb2. No GDScript or production/runtime/security/workflow delta. Frozen119-file payload fccc747b643bef0430d2ac5ab6c29d47306544ef76f8d2f000a065cad2ec4acc."
+    },
+    {
+      "command": "Reconciled Android workflow contract tests and audit coverage",
+      "result": "PASS",
+      "evidence": "python -m unittest tools.tests.test_verify_android_build_source:10tests OK. DOCAUTH928/928 ACTIVE75 RECORDS78 ALL OK; AUDITDEV base6dfd04aef441f30e0374e9ae9049cff845ce4ebd ALL OK. Frozen gentle payload unchanged from f135633e; both original topic runs42161634540/42162004642 passed."
     }
   ],
   "acceptance_gaps": "Owner acceptance of this new gentler intensity, human full-speed/frame-step review, device/child and production staging/performance remain pending. Existing swing/door-source gaps remain. No finding closure or runtime adoption.",
-  "packet_payload_sha256": "fccc747b643bef0430d2ac5ab6c29d47306544ef76f8d2f000a065cad2ec4acc"
+  "packet_payload_sha256": "fccc747b643bef0430d2ac5ab6c29d47306544ef76f8d2f000a065cad2ec4acc",
+  "integration_reconciliation": {
+    "upstream": "6dfd04aef441f30e0374e9ae9049cff845ce4ebd",
+    "original_topic_head": "f135633e7484bc0126bd801c0d00d19b3d4d3646",
+    "original_successful_runs": [
+      42161634540,
+      42162004642
+    ],
+    "upstream_scope": "Android build capacity/workflow verification records only; no game GDScript/scene/asset or gentle-motion payload changes. Upstream .github/workflows/android.yml is retained without local edits.",
+    "local_payload_invariants": "119 frozen payload files and23 bound sources match original topic exactly",
+    "combined_checks": "Local Android verifier tests10/10, DOCAUTH928/928 and development coverage ALL OK against6dfd04ae;119 payload files/23 originals unchanged and no own production/runtime/security/workflow delta. Exact combined-head CI is tracked in PR46 before integration."
+  }
 }

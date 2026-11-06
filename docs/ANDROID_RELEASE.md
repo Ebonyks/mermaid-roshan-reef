@@ -27,15 +27,44 @@ keytool -list -v -keystore roshan-reef-debug.keystore -storepass android `
 
 ## Publication contract
 
-The Android workflow is triggered only by a successful `Probe suite (graphics
-fork)` run on `master` (or the dedicated graphics test channel).  It checks out
-that probe run's exact SHA, restores the persistent keystore, assigns a
-monotonic Actions run number as Android `versionCode`, imports without ignored
-errors, and publishes both the APK and its SHA-256 file.
+A successful push of the exact commit through `Probe suite (graphics fork)`
+permits Android packaging for `master` or `dev`. The automatic workflow checks
+out that probe run's SHA, restores the persistent signing identity, assigns
+`git rev-list --count HEAD` as the monotonic Android `versionCode`, imports
+without ignored errors, and publishes the APK plus its SHA-256 file. The `dev`
+channel is `android-dev`; the promoted release channel is `android-test`.
+
+The pinned Godot archive is checksum-verified on cache hits and downloads.
+Only `android_debug.apk` and `android_release.apk` are unpacked for the current
+prebuilt, non-Gradle Android export. This saves 1,840,184,530 bytes versus the
+complete 4.7.2 template bundle, leaving room for the APK signing copy. The cache,
+engine/version pins and persistent signing setup stay in place.
 
 If the signing secret is missing, the build intentionally fails instead of
 silently rotating the signing identity.
 
 Before accepting a new release path, install build N, create identifiable game
 progress, then install build N+1 without uninstalling and verify that every save
-field remains intact.
+field remains intact. Packaging and checksum verification do not establish this
+physical-device acceptance.
+
+## Development retry
+
+GitHub loads an automatic `workflow_run` workflow from the default branch;
+changing the workflow on `dev` alone does not change that automatic definition.
+See [GitHub's workflow event reference](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#workflow_run).
+The existing Android workflow also supports a manually requested development
+retry using the workflow version on `dev`:
+
+```text
+gh workflow run android.yml --ref dev
+```
+
+Use this after the current `dev` commit has a successful push-probe run.
+`tools/verify_android_build_source.py` requires that exact current SHA, the
+canonical repository, the named probe workflow, completed success, and the
+`dev` push event. It checks again immediately before publication. A changed
+Dev head, unavailable API, missing credential, unrelated or incomplete result
+stops the manual build. Manual packaging is restricted to `refs/heads/dev` and
+publishes to `android-dev`. Existing master promotion/release authority and
+signing identity remain unchanged. [GitHub CLI reference](https://cli.github.com/manual/gh_workflow_run).

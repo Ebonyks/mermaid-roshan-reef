@@ -1,0 +1,20 @@
+{
+  "actionlint": {
+    "version": "1.7.7",
+    "source": "https://github.com/rhysd/actionlint/releases/download/v1.7.7/actionlint_1.7.7_windows_amd64.zip",
+    "archive_sha256": "7f12f1801bca3d480d67aaf7774f4c2a6359a3ca8eebe382c95c10c9704aa731",
+    "checksum_match": true,
+    "exit": 0,
+    "output": ""
+  },
+  "unchanged_signing_setup_sha256": "044c5d25c7a92ca9b5a6086db1b998ec5ab210a7136f9bc6207360c28d06a152",
+  "old_signing_block_equal": true,
+  "unchanged_action_pins": true,
+  "review": "Manual job entry restricted to dev; helper independently checks exact current head + successful same-repository named push workflow twice. Automatic master/dev conclusion/branch guard retained. Cache, all action pins, secret setup, commit-count export and release channels preserved; no new release authority.",
+  "bash_run_block_syntax": {
+    "result": "PASS",
+    "count": 9,
+    "method": "Each parsed YAML run block supplied to Git Bash -n; syntax only, no setup/signing block executed",
+    "workflow_source_lf_sha256": "0b39ce9d69c97b612d63d1254cf4d5b8f07472b5eb1a54f1c0b67e08263837b0"
+  }
+}
