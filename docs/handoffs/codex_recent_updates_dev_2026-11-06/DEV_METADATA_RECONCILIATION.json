@@ -1,0 +1,59 @@
+{
+  "state": "PASS_METADATA_ONLY_CURRENT_DEV_RECONCILIATION",
+  "tested_Racer_checkpoint": "7fd0cd1a30e62433f58aafebf7dd77d6e8e05d98",
+  "incoming_actual_Dev": "5b92d1c216a78852559725a9db0b8ec37f7f6c7e",
+  "runtime_input_count": 5571,
+  "runtime_roots": [
+    "scripts",
+    "assets",
+    "scenes",
+    "shaders",
+    "addons",
+    "project.godot",
+    "export_presets.cfg"
+  ],
+  "all_runtime_Git_tree_objects_equal": true,
+  "objects": {
+    "scripts": {
+      "tested": "b1fa4d0280e8b5567702e90f809d3f6ea20f49c2",
+      "merged_index": "b1fa4d0280e8b5567702e90f809d3f6ea20f49c2"
+    },
+    "assets": {
+      "tested": "c8169ca42d6adaad3fba74e0b4152074411ca3e6",
+      "merged_index": "c8169ca42d6adaad3fba74e0b4152074411ca3e6"
+    },
+    "scenes": {
+      "tested": "63d30e6133754dce7a5b07084c0de100ca96de8b",
+      "merged_index": "63d30e6133754dce7a5b07084c0de100ca96de8b"
+    },
+    "shaders": {
+      "tested": "9888a82057eececf56c4042ede9abf3f07704bee",
+      "merged_index": "9888a82057eececf56c4042ede9abf3f07704bee"
+    },
+    "addons": {
+      "tested": "2e9e993544fe2c312999d5e4f7c276ac7df45b1c",
+      "merged_index": "2e9e993544fe2c312999d5e4f7c276ac7df45b1c"
+    },
+    "project.godot": {
+      "tested": "84da90ba17c376d4b08a0268faabaab4b110db3b",
+      "merged_index": "84da90ba17c376d4b08a0268faabaab4b110db3b"
+    },
+    "export_presets.cfg": {
+      "tested": "acbd3880aeaec025992d2ce7aa80aa15e453064b",
+      "merged_index": "acbd3880aeaec025992d2ce7aa80aa15e453064b"
+    }
+  },
+  "conflicts": [
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "resolution": "Keep both independent additive task-index/ledger rows, unchanged text from both parents."
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "resolution": "Keep both independent additive task-index/ledger rows, unchanged text from both parents."
+    }
+  ],
+  "private_DKC_audio_exports": 0,
+  "extra_engine_suite": "NOT_APPLICABLE; no runtime or review-fixture change since passing full validation/native capture.",
+  "checked_at_utc": "2026-11-06T15:14:15.146840+00:00"
+}

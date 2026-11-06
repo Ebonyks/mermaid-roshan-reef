@@ -1,0 +1,24 @@
+{
+  "baseline": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+  "scope": "Only changed metadata checked locally. No repeat of healthy unchanged runtime engine suites.",
+  "checks": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "exit_code": 0,
+      "result": "PASS",
+      "log": "docs/handoffs/codex_recent_dkc_docs_dev_2026-11-06/authority.log"
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "exit_code": 0,
+      "result": "PASS",
+      "log": "docs/handoffs/codex_recent_dkc_docs_dev_2026-11-06/development_auto.log"
+    },
+    {
+      "command": "python -B tools/audit_development.py --base f1cced56d299695580509b0d3c96e75f7f5e75ce",
+      "exit_code": 0,
+      "result": "PASS",
+      "log": "docs/handoffs/codex_recent_dkc_docs_dev_2026-11-06/development_f1.log"
+    }
+  ]
+}

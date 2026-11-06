@@ -1,0 +1,3177 @@
+{
+  "state": "RECONCILED_RACER_LOCAL_GATES_PASS_EXACT_HOSTED_CI_AND_DEV_PENDING",
+  "baseline": "5b92d1c216a78852559725a9db0b8ec37f7f6c7e",
+  "tested_runtime_checkpoint": "7fd0cd1a30e62433f58aafebf7dd77d6e8e05d98",
+  "incoming_Racer": "8c9bc130766725965a76eca876ef683b92242334",
+  "entry": "docs/handoffs/codex_recent_updates_dev_2026-11-06/README.md",
+  "hash_contract": "SELF binds actual staged Git bytes. Fetch manifest separately. Direct current visual references are required; historical packets are immutable citations, not recursive payload dependencies.",
+  "runtime_inputs": 5571,
+  "current_native_diagnostics": 17,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_artwork_removals": 0,
+  "complete_scenes": 0,
+  "mission_complete": false,
+  "created_at_utc": "2026-11-06T15:19:05.201802+00:00",
+  "files": [
+    {
+      "revision": "SELF",
+      "path": ".gitattributes",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 9915,
+      "sha256": "bb24734f46ba43edbc7f76028331fd739ebf356c13be4ee81285c626beea5cd1"
+    },
+    {
+      "revision": "SELF",
+      "path": "ASSET_LICENSES.md",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 8849954,
+      "sha256": "4f333b2e46d2ff456ad5fb52719f24fba58d541a2173a822126c82d38baeb5b7"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets/audio/objective_guides/OBJECTIVE_GUIDE_MANIFEST.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 21744,
+      "sha256": "b8e611c76bf6fbf088df4ed43f32a93eaed79f7a0e7631c9783633c5223f0f4a"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets/audio/objective_guides/guide_kart_kelp.ogg",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 37784,
+      "sha256": "45950e29283515553a56f53244362cb6ac95e7073393f00eaa9b74fab792339c"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets/audio/objective_guides/guide_kart_kelp.ogg.import",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 431,
+      "sha256": "2fab28c2d70cbe517f3e3feb1133c297af592d55459ea1c8262379eab6c3cc9f"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets/audio/objective_guides/guide_kart_pearls.ogg",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 47135,
+      "sha256": "1f3afd11ffd3ed28d6bbadc8d9e84577ca367d7fa347ccc3cb942899cc92ac26"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets/audio/objective_guides/guide_kart_pearls.ogg.import",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 437,
+      "sha256": "6f56f034765f6af97ce1271e2af9d67008bee3edc9e28cdceb2b31e6f4b424d0"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets/audio/objective_guides/guide_kart_sparkle.ogg",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 36527,
+      "sha256": "75821eeba6a24c3241b92d4c5b11030e80a5e6be29b733f05d424a822e049de3"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets/audio/objective_guides/guide_kart_sparkle.ogg.import",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 440,
+      "sha256": "b8c82ae888ee5c392b60b5db88b7b1697c12a637880f2d4d839894d1a8a2a9f8"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets/audio/objective_guides/guide_kart_sparkle_duel.ogg",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 38851,
+      "sha256": "691b33c9de28570957e0ae911392a9b002f34c0686405c5d9d08738bab0dde21"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets/audio/objective_guides/guide_kart_sparkle_duel.ogg.import",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 454,
+      "sha256": "669087f0e0e0559628a12dc63e5b5c6b5d0817948f34ca22fdec20c8c7cea325"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets/audio/objective_guides/guide_kart_zoom.ogg",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 35111,
+      "sha256": "24b23726c79b33e32bcffc5dc174e45ff87b78083f8982dccf2a857b89bb20fb"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets/audio/objective_guides/guide_kart_zoom.ogg.import",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 430,
+      "sha256": "e81dd85556d0d88199312c7c9eda54b737b72e8ed75ed23d5dc0b8da7c0fed16"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets/racer/zones_v1/pool_towel_cabinet.png",
+      "role": "candidate_runtime_painted_fixture",
+      "bytes": 1058833,
+      "sha256": "3e2e3388b4ae10a6f0708aa71f4c2df1c5388e51f4bbb8b27109cae2263e006a"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets/racer/zones_v1/pool_towel_cabinet.png.import",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 979,
+      "sha256": "d0a50676052d6cfef53674926fb1d6cf41fafb6fdeb529d8a33e41ebb4dfbdf8"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/.gdignore",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/LICENSE_PROVENANCE.txt",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 533,
+      "sha256": "251526e50277c23eb7f468b8eb9404112727fc3680239408ad066f8ea322b426"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/derived/guide_kart_kelp_trim.wav",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 350132,
+      "sha256": "f5a4909ae5d3a9d2ee1d5c12a75eb202e227db0cd266e829e0209b74c37311e3"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/derived/guide_kart_pearls_trim.wav",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 415400,
+      "sha256": "39bb2421846daaf8fbc9cc022aa65637b90b7f45d86911fbe5acd3022b7c69d0"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/derived/guide_kart_sparkle_trim.wav",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 325028,
+      "sha256": "7f89065cbfe495ca81d2c092b57270bdc333fe706c1e41f5c63738ddd6566962"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/derived/guide_kart_zoom_trim.wav",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 308676,
+      "sha256": "4b3701c733bf82e3693a9af6d8fa0717a97cde785c98516d7141129b56ec109a"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/first_export_failure.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3428,
+      "sha256": "95688a53f40c5422c52902fa3b7f174412ed457a6422923c376ed3eca9bc12f6"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/generate_candidates_source.py",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 12534,
+      "sha256": "d519988d30cc69a3f95a624d9d42d82ccef447e6aef87940c246d18955a5e0c3"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/generation_manifest.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 21966,
+      "sha256": "175d220271ac3c7d13c0a9125beb6363282ec637fdfe5f4541e6abe8b49c91cf"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/native/guide_kart_kelp.wav",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 408080,
+      "sha256": "cd0e47210b840798d273a90a47b6d95958ba25c3b396f1945a210bfcd5796cbc"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/native/guide_kart_pearls.wav",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 472880,
+      "sha256": "0f8d41ca57bf9e6709be27a3b92386e3cfb115b25e8844380aca2de5d71891a8"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/native/guide_kart_sparkle.wav",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 379280,
+      "sha256": "f6cee237bbf21d155616115ab7daa90f376414af96fd6e54ae565c18b20cf040"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/native/guide_kart_zoom.wav",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 367280,
+      "sha256": "0005c2d0cb793c73064524d2482d35eab348ef23b85558e5fea3923f0381a615"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/review/guide_kart_kelp.ogg",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 37784,
+      "sha256": "45950e29283515553a56f53244362cb6ac95e7073393f00eaa9b74fab792339c"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/review/guide_kart_pearls.ogg",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 47135,
+      "sha256": "1f3afd11ffd3ed28d6bbadc8d9e84577ca367d7fa347ccc3cb942899cc92ac26"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/review/guide_kart_sparkle.ogg",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 36527,
+      "sha256": "75821eeba6a24c3241b92d4c5b11030e80a5e6be29b733f05d424a822e049de3"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/review/guide_kart_zoom.ogg",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 35111,
+      "sha256": "24b23726c79b33e32bcffc5dc174e45ff87b78083f8982dccf2a857b89bb20fb"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/duel/LICENSE_PROVENANCE.txt",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 533,
+      "sha256": "251526e50277c23eb7f468b8eb9404112727fc3680239408ad066f8ea322b426"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/duel/derived/guide_kart_sparkle_duel_trim.wav",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 350860,
+      "sha256": "dc3a7ffb6de6d05f3146ff67a20f39ebc4b9a53b30af7a3ca2e55f2df991a4ee"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/duel/generate_candidates_source.py",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 12268,
+      "sha256": "dc2a506ba943ebde7ccd799f0e426625b5a45bd8997106e6b0ae92ed102170f1"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/duel/generation_manifest.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 6879,
+      "sha256": "04b788fbe207a7b35090dbfde5fa9d91cce5e58e33d7da53a6c6f6e80450c4a8"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/duel/native/guide_kart_sparkle_duel.wav",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 408080,
+      "sha256": "ba84d18384d580b796777615b0b1d14040fc94a1a35c262e1c75a7e762bdee78"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/duel/review/guide_kart_sparkle_duel.ogg",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 38851,
+      "sha256": "691b33c9de28570957e0ae911392a9b002f34c0686405c5d9d08738bab0dde21"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/generate_candidates.py",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 12534,
+      "sha256": "d519988d30cc69a3f95a624d9d42d82ccef447e6aef87940c246d18955a5e0c3"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/generate_duel_candidate.py",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 12268,
+      "sha256": "dc2a506ba943ebde7ccd799f0e426625b5a45bd8997106e6b0ae92ed102170f1"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/audio/reef_kart_items_20261105/initial_generator_source.py",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 12006,
+      "sha256": "4c59a379510f9d360e725d1190c4ca754611852167c17528baa5d43797305a59"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/.gdignore",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/capture_review.gd",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3338,
+      "sha256": "df90f2373197cc1fd888e78568345e0c3c109d46a5099b8829164fc7baa868ae"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/generation_job.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 1886,
+      "sha256": "8b45b0442a6a5adbe19e77314052e6d737de3054e09abe6926adc1f1846a6a23"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/local_visual_review.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 2369,
+      "sha256": "95c437be178e66ec8f5dfd5911179973a82344fc4c1960ee7c0bfdc5b034d2a7"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/pool_towel_cabinet_native.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 2024779,
+      "sha256": "b7db69a6e6e0bd8919918dcd32b5cea71baf40fde4f73ff92c670abf77db318b"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/prepare_runtime.gd",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 2554,
+      "sha256": "f70c9f1ea4384a8957eabe66186c547301d618e94636cb5253c7e65b1a952b6b"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/canal-gas.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 787745,
+      "sha256": "53991de00d2072a1c7639ee6231a6e579ac457ee862cf5d2e01e27febb6102db"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/captures.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 18927,
+      "sha256": "a818e6be06d7692cbba8041edcc4f892cd5f9ca9a22eb575cd9ae5084386b77b"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-sections.jpg",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 163283,
+      "sha256": "1c19c3e0777423e8256933883f06d0b7342aae2beae8c32f1e12fad7198e853e"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-solo-threshold-0.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 733236,
+      "sha256": "c33f8f1edd7e1a82747b53bcd7f152c7a2974aada5fa6b29817fd17bab8cdb73"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-solo-threshold-1.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 626904,
+      "sha256": "6c32cf0896ba564ddbc13daf04e6a7e4094edd003e7c493d7f868070ad401089"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-solo-threshold-2.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 646210,
+      "sha256": "3432b39eb8f325a275c9e3c86b5177e5d0d48f46dcbb3eff9e6218b0eb91e209"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-solo-threshold-3.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 604976,
+      "sha256": "1f76d32ecf7448e763d8256b597b481f0bc5cac7a39a9c91838682eae8ac6370"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-solo-zone-0.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 611380,
+      "sha256": "36d37bc33f8b037615c1740d8e335acb814e4569b167fdc578e24a64b625478f"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-solo-zone-1.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 732076,
+      "sha256": "42d4cb5eb0ee96e9161a917dc437667da6ac382e50057a0735f4be2dedd8a34a"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-solo-zone-2.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 623158,
+      "sha256": "d76f32f670df667d560569c402c3a09ae58d861676e7b0f1fa0f3cd53d543630"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-solo-zone-3.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 650542,
+      "sha256": "27ddb34b587513eee476dae4af118cbc2ffda132bc45926beb1066c8bb74c6e2"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-split-threshold-0.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 557819,
+      "sha256": "818eb221912e418ce4a48f7bfb1bf3608551b71300ac50439531b53847d31b66"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-split-threshold-1.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 446510,
+      "sha256": "70d6c43641ca8f06a712cc61cb2742a8b6b2aba17faccd5510e5131d9d17863e"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-split-threshold-2.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 457185,
+      "sha256": "1cfd66679e3c4def82e53dd893abc0f4044058a7f836ad532513f50b967b7576"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-split-threshold-3.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 394957,
+      "sha256": "40ffe9765d1f8398468603175549f1ef391c62c5404951be03e6632d4672ce63"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-split-zone-0.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 434565,
+      "sha256": "dbca7684f1b5dc986b3e7357541eaf58d49a379baa946d61afd776214e36021a"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-split-zone-1.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 558803,
+      "sha256": "432a54bcdc57aa170134779c571c98ff3c4b4312cd95e1f2de01db7c0061d23b"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-split-zone-2.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 458839,
+      "sha256": "5f6f9cfacbb590d0b3625c7868294a503670b998209a2187d88ae951d2affca5"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-split-zone-3.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 459746,
+      "sha256": "0fa1f2c5fb9e6993414fe2fa7f37927e7f5bc26525aa4fb0bcec35146749d518"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-sections.jpg",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 165561,
+      "sha256": "ef74def561efeec21e0c2823a33e812ca6fb63413f5c4925ca15d5a1224a1d2f"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-solo-threshold-0.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 682729,
+      "sha256": "be7cfcfb399076452c41f24dda2e9ff2bf04ab5444bfba3b2b5c3677c3b1a296"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-solo-threshold-1.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 653792,
+      "sha256": "ae61c7e8ec36f24e81c76326ad3ee1ff8841fe4017cd225c8d9ea2ff05d7fbaa"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-solo-threshold-2.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 650261,
+      "sha256": "f003a9d28cfc931d2dbac475d9375c0547a4fe268a0cdefc8bebea4b1ca1c125"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-solo-threshold-3.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 696215,
+      "sha256": "7ca134ce3499ee008232c6bf6b8038b65ee5e9b9bb942316b20f7d3ccbf59f17"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-solo-zone-0.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 647678,
+      "sha256": "dea40c3498c7dd9d397ca526d86ab3d3409729c8d8a0494dc964cfb6cae12b3c"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-solo-zone-1.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 631739,
+      "sha256": "fad76b04bb9ff9a48fa23f76d447330bf4e2a816568cdbbd56e5ce799799e73a"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-solo-zone-2.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 679415,
+      "sha256": "5a603b382bcfd191a3508c1fcdc0c8a2236463ec162bde97cd079311dc496dd5"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-solo-zone-3.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 639844,
+      "sha256": "98f16e4ac6def61b96ede6b91e2a19e7f5fe2704a0f9ae566a615a756763c2b9"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-split-threshold-0.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 551444,
+      "sha256": "7b3c4a53292f1ca3d50bdc4cf1a58004a56f6486e4c327ad50aa7550bdf64b3d"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-split-threshold-1.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 453636,
+      "sha256": "f1c2640d0ad57b27b99669970b2828d8788f07b1257affacc15aa7edc0dba187"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-split-threshold-2.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 494323,
+      "sha256": "cbb1904b358e361afa8a6f18d83e226363e09372d676934bd149608722769a0e"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-split-threshold-3.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 535609,
+      "sha256": "5910de468221576a9f676e1388f59d2e58f56dcfadc50fd8faaa7002930757f0"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-split-zone-0.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 517506,
+      "sha256": "66ba5ad1392094c02634b9e3624af16c6d017c238cd367c3a0aee9ed51746927"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-split-zone-1.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 480195,
+      "sha256": "c416a6bf133a94a1102a2daed2449c6a3cf977f0368e86a9b232ad830b3b9f60"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-split-zone-2.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 456614,
+      "sha256": "3dde7b78b0ca688790465aef8162a43016638bf431cd6eda7ed2a031042191d3"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-split-zone-3.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 508553,
+      "sha256": "92f1536a426ecf7884a8ae37f156f563adeb47648b7e557233d44cb9c306d13e"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-sections.jpg",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 153826,
+      "sha256": "5517686bfbe2dee5b964501f924126c9b28251a2360e2f9df88059261359651a"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-solo-threshold-0.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 612631,
+      "sha256": "75c7e2953eb1b6ba30b56295b8ecc287c329c24cf6900ecf3e5298e718b6deda"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-solo-threshold-1.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 560076,
+      "sha256": "ff476f6219c0c140441f6f0d30cc485610e03c23fdca79892e3fec6e200690bf"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-solo-threshold-2.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 577686,
+      "sha256": "5f7b198a64551154e67a9c7db5307ec707ffba73e79134580b9be473e3ca5751"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-solo-threshold-3.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 555354,
+      "sha256": "1263fdb04ca0e795f70745ad109629239569ddab83f6f0a7886a19d118417026"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-solo-zone-0.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 550882,
+      "sha256": "da793b2dd25461c9fb8010d89c6edb5f1db4a13fae0594d0f4078a174fb9e17b"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-solo-zone-1.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 642304,
+      "sha256": "45eb49423a23a8099266089b4b313f69c93d0caeff83e482041be8f4419224fb"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-solo-zone-2.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 551567,
+      "sha256": "bbce456ea918f48b58c4451940a301182ec8b11d3406add6bf24889239c8b270"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-solo-zone-3.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 585017,
+      "sha256": "4c3c5bfacc546674eee568de1ab2859e0653a5d825d70cfbe8bcf896d1bab476"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-split-threshold-0.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 532474,
+      "sha256": "e5f219762d9a2e3e320fd65879fe8d5e8cbd89ef1baf86c4a707149a4755a622"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-split-threshold-1.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 402922,
+      "sha256": "2c2630d40e479140d4f04db241ae60a6d739304d50fa98c661c30171fcc33649"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-split-threshold-2.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 483856,
+      "sha256": "0548666294cc6feaa5cec0426e0e984445feac48f5fe76ec4a5484fc08407e2a"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-split-threshold-3.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 458526,
+      "sha256": "6e2442df5f06eba1862f329a15aa0ee7ad9888ea66c5a5dbd137f8d5f406cfc6"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-split-zone-0.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 382684,
+      "sha256": "f30538b956ff023db8e43f526a37426e88240dba324da1c623e2bce924c755af"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-split-zone-1.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 437306,
+      "sha256": "28a70786b88c13585684b75e9539d19a60b9bdc8f1940554aeff8ba3a33315bb"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-split-zone-2.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 374358,
+      "sha256": "e2fec3c811e0a5777a33ccf3556a625e231e84e5bd95ee01da7828c98800c8e2"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-split-zone-3.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 471032,
+      "sha256": "d25ee8cea09169adae1d5ca0c184b553dcc86017aeab2dece19ace795dfd15e3"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-sections.jpg",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 161097,
+      "sha256": "7fc62c529e17c27be9362d39aa062cf37d9470b6da5372fa36566c2f920ef088"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-solo-threshold-0.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 627948,
+      "sha256": "8f0a85a2c7bcecc24605d63ccdcd7e6ce7bb22d326db9f28c553c007c93ff3a9"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-solo-threshold-1.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 664405,
+      "sha256": "c7033e69b22552d76ea041b5494c3f8eef2077d9ca79c00b3a0ecc8ec05dee99"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-solo-threshold-2.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 623920,
+      "sha256": "00261ee247a7a0b1892ecb4f55f142fb8856bc276839470b3101eff724c2e371"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-solo-threshold-3.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 633210,
+      "sha256": "9948fe1879b7b00e9594bc350e84fbb6ab5495599c1f86ce405ba8d2d64c6966"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-solo-zone-0.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 673693,
+      "sha256": "ad605533be20d4e190dc4ae8480a60c9e972f0660989062d009f026fef7ca009"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-solo-zone-1.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 589955,
+      "sha256": "e2ddfa68467963aff3cb98df29266e86faf246460c0965a021ad4c652dbe8810"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-solo-zone-2.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 644443,
+      "sha256": "2ba9eb50c166af21eb105195a6e9a96a993a39e1e097295e1b00392086d5639e"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-solo-zone-3.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 603134,
+      "sha256": "b0717b82f0e6a344620edf9d5607f5af0c5c18aa169915cb4940a1e39ce204d3"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-split-threshold-0.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 571036,
+      "sha256": "a6a963fe43a53a73870aa5f90866db837d034df3b4d255cd6d0252b4d8fba8ec"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-split-threshold-1.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 579770,
+      "sha256": "eff25b7fd1d70e96a713715f908bcc87b82a1331ce669919f9d2301ddf65c371"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-split-threshold-2.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 537732,
+      "sha256": "e68e64e5e2b8efc55780d69e7cac14f02c8a28d3e7d61a5b205bd61277994af4"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-split-threshold-3.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 517538,
+      "sha256": "41334adbc32c1af8d28e343c0504ab7bbc77404342dc3cfb146b12acb940da72"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-split-zone-0.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 653487,
+      "sha256": "a1b85c564419d1502bca7906a5f81025b376fda8e9ffcbce5761c08063cdc212"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-split-zone-1.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 515694,
+      "sha256": "957f3725817582081fa2088578b03c2c419e52e20aeea4494e3c016ac69f2a6f"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-split-zone-2.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 558025,
+      "sha256": "e876d880391239f60d96386b73362532c58eb3d8b852c4b025bc32d3994564f7"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-split-zone-3.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 455554,
+      "sha256": "eac0c47e6a7aa34a2beb5e4e67bcd0145b024fa4c5b3a31e95b7d1703f341314"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/pool-towel-drive-0.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 649758,
+      "sha256": "7bc3a5ac0abb895f727b1cf12bba1c0d6aea1978685b06ee96cbca1f86375400"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/pool-towel-drive-120.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 663203,
+      "sha256": "7f960dbbf4d9405791792b3107387bfb64389eb048a21db357f9b5d24f6aa7e6"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/pool-towel-drive-150.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 687625,
+      "sha256": "7bf7cfa5a3748768fe5c9cee6b9ce18f8c59dbc46cc16e40c6e85ce08c98c15c"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/pool-towel-drive-180.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 708548,
+      "sha256": "6316a00d6352564ffdde4d1b5cd2ce88ca6030eb3a2f7ac7115bec5457999b53"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/pool-towel-drive-210.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 681341,
+      "sha256": "3df28977ffa05033a5fde09fd498abb7605fa161a230c3e4a97e9005502cd546"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/pool-towel-drive-30.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 629533,
+      "sha256": "7011a7b4733c72d466417519a474b1a9bed05d7e134e3e2ae1a584a8b3c42648"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/pool-towel-drive-60.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 647957,
+      "sha256": "f2bce9efb96fc0a49664ce8260e129bba8cb62852b39c8889372de2ac47336f3"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/pool-towel-drive-90.png",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 671700,
+      "sha256": "5111069cef001ab0bf0b3ca9247f856ceee1ce44251e69cfa571628c04421f7e"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/rejected/pool-before-unique-fixture.jpg",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 166643,
+      "sha256": "e4559004648545c85ee9ea0c9f3649ee34da49eaa14a863d4a4176928616dca8"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/runtime_exports.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 805,
+      "sha256": "8ddd03799946e66c9c5fa2309ef515577f881f447c19df6bbedfe6fab63a6795"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/runtime_verification.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 207,
+      "sha256": "074a569c3c7832d3171b986bc6bd90e29ec1484ef677352b404affb624ad289c"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/source_inputs.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 15575,
+      "sha256": "ff10a510cd6bd0cd7b83de8005c8a138667b3a9e7456e6f1c52dc02b51939cf6"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/verify_runtime.gd",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 762,
+      "sha256": "409ed756593208a127a88b24935fd86fcce6935048b0c438f2080e62af89234b"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/review/recent_updates_dev_20261106/.gdignore",
+      "role": "current_merged_native_diagnostic_not_formal_QA11",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/review/recent_updates_dev_20261106/capture_review.gd",
+      "role": "current_merged_native_diagnostic_not_formal_QA11",
+      "bytes": 4226,
+      "sha256": "e3dae8af6552e4ef08bc528b0ceb15f10327ccc664efc0fe7317da37501f610b"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/canal-gas.png",
+      "role": "current_merged_native_diagnostic_not_formal_QA11",
+      "bytes": 787745,
+      "sha256": "53991de00d2072a1c7639ee6231a6e579ac457ee862cf5d2e01e27febb6102db"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/captures.json",
+      "role": "current_merged_native_diagnostic_not_formal_QA11",
+      "bytes": 5624,
+      "sha256": "402aa2a5e3f22630ff3a5aaa7fdfe307fa9ddd81645010570946967d9dafb9d0"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/kitchen-solo-threshold-0.png",
+      "role": "current_merged_native_diagnostic_not_formal_QA11",
+      "bytes": 733236,
+      "sha256": "c33f8f1edd7e1a82747b53bcd7f152c7a2974aada5fa6b29817fd17bab8cdb73"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/kitchen-solo-zone-0.png",
+      "role": "current_merged_native_diagnostic_not_formal_QA11",
+      "bytes": 611380,
+      "sha256": "36d37bc33f8b037615c1740d8e335acb814e4569b167fdc578e24a64b625478f"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/kitchen-split-threshold-0.png",
+      "role": "current_merged_native_diagnostic_not_formal_QA11",
+      "bytes": 557819,
+      "sha256": "818eb221912e418ce4a48f7bfb1bf3608551b71300ac50439531b53847d31b66"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/kitchen-split-zone-0.png",
+      "role": "current_merged_native_diagnostic_not_formal_QA11",
+      "bytes": 434565,
+      "sha256": "dbca7684f1b5dc986b3e7357541eaf58d49a379baa946d61afd776214e36021a"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/mermaid_pool-solo-threshold-0.png",
+      "role": "current_merged_native_diagnostic_not_formal_QA11",
+      "bytes": 682729,
+      "sha256": "be7cfcfb399076452c41f24dda2e9ff2bf04ab5444bfba3b2b5c3677c3b1a296"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/mermaid_pool-solo-zone-0.png",
+      "role": "current_merged_native_diagnostic_not_formal_QA11",
+      "bytes": 647678,
+      "sha256": "dea40c3498c7dd9d397ca526d86ab3d3409729c8d8a0494dc964cfb6cae12b3c"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/mermaid_pool-split-threshold-0.png",
+      "role": "current_merged_native_diagnostic_not_formal_QA11",
+      "bytes": 551444,
+      "sha256": "7b3c4a53292f1ca3d50bdc4cf1a58004a56f6486e4c327ad50aa7550bdf64b3d"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/mermaid_pool-split-zone-0.png",
+      "role": "current_merged_native_diagnostic_not_formal_QA11",
+      "bytes": 517506,
+      "sha256": "66ba5ad1392094c02634b9e3624af16c6d017c238cd367c3a0aee9ed51746927"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/opera_hall-solo-threshold-0.png",
+      "role": "current_merged_native_diagnostic_not_formal_QA11",
+      "bytes": 612631,
+      "sha256": "75c7e2953eb1b6ba30b56295b8ecc287c329c24cf6900ecf3e5298e718b6deda"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/opera_hall-solo-zone-0.png",
+      "role": "current_merged_native_diagnostic_not_formal_QA11",
+      "bytes": 550882,
+      "sha256": "da793b2dd25461c9fb8010d89c6edb5f1db4a13fae0594d0f4078a174fb9e17b"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/opera_hall-split-threshold-0.png",
+      "role": "current_merged_native_diagnostic_not_formal_QA11",
+      "bytes": 532474,
+      "sha256": "e5f219762d9a2e3e320fd65879fe8d5e8cbd89ef1baf86c4a707149a4755a622"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/opera_hall-split-zone-0.png",
+      "role": "current_merged_native_diagnostic_not_formal_QA11",
+      "bytes": 382684,
+      "sha256": "f30538b956ff023db8e43f526a37426e88240dba324da1c623e2bce924c755af"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/playroom-solo-threshold-0.png",
+      "role": "current_merged_native_diagnostic_not_formal_QA11",
+      "bytes": 627948,
+      "sha256": "8f0a85a2c7bcecc24605d63ccdcd7e6ce7bb22d326db9f28c553c007c93ff3a9"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/playroom-solo-zone-0.png",
+      "role": "current_merged_native_diagnostic_not_formal_QA11",
+      "bytes": 673693,
+      "sha256": "ad605533be20d4e190dc4ae8480a60c9e972f0660989062d009f026fef7ca009"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/playroom-split-threshold-0.png",
+      "role": "current_merged_native_diagnostic_not_formal_QA11",
+      "bytes": 571036,
+      "sha256": "a6a963fe43a53a73870aa5f90866db837d034df3b4d255cd6d0252b4d8fba8ec"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/playroom-split-zone-0.png",
+      "role": "current_merged_native_diagnostic_not_formal_QA11",
+      "bytes": 653487,
+      "sha256": "a1b85c564419d1502bca7906a5f81025b376fda8e9ffcbce5761c08063cdc212"
+    },
+    {
+      "revision": "SELF",
+      "path": "assets_src/review/recent_updates_dev_20261106/captures/profile.json",
+      "role": "current_merged_native_diagnostic_not_formal_QA11",
+      "bytes": 556,
+      "sha256": "5b5c427e2241f1c4a5afd401a73187ee0de0b18945838fbd16bb81ea60cb8233"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 364849,
+      "sha256": "cb257b0eb31dee2f9797f8b2e0eccf3ed745a7192df3dc26446014cf4daa5a92"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/audio_quality_ledger_2026-08-24.csv",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 277579,
+      "sha256": "4593c0182547ab6af328fc2b2bca63af7e3a616e083b24147268ae72890e3c34"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/audio_quality_summary_2026-08-24.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 5705,
+      "sha256": "04fb6b7fc6f71c872331d975ca62b4d786802c138fd5139c351444829a1a55e6"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/DELIVERY_MANIFEST.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 77404,
+      "sha256": "a45cb38c9a43c653f1cf4514bfc3faa0f680ae192656d15412311166477da3de"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/REMOTE_VERIFICATION.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 111069,
+      "sha256": "f2c06a51e2adf43787a8dca12462eeff30501d23b86f993ff408c8b8209a0932"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/audio-quality-final.exit",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/audio-quality-final.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 130,
+      "sha256": "4479e9d87a47151067170144636f4171e98a6407710a604ec236a7758dc64ca5"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/audio-tests.exit",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/audio-tests.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 138,
+      "sha256": "aa72a8d95f372fc3765b7322bf4e271bba232c3600fc06ccc25a7b21e61c1816"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/authority-final.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 78,
+      "sha256": "b63c857da2d67fa92fbc14f6988cb8b7bf9229fa45ffaf1c98a7e586c3a94b83"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/canal-complete.exit",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/canal-complete.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 4534,
+      "sha256": "78090c6908da3e740ed57c220dfe5dba5f4d128bf0395bf900085de102bc0bbc"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/development-final.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 80,
+      "sha256": "e965f01a59f2a1d7a461846f9e5ba94535550888920777b4395800e50efc723c"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/development-task-baseline.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 80,
+      "sha256": "e965f01a59f2a1d7a461846f9e5ba94535550888920777b4395800e50efc723c"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/full-ci-clean.exit",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3,
+      "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/full-ci-clean.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 4246,
+      "sha256": "6fe852d181f0f3c0b638424c524f29fdd367031ef28fba9722cf2b1a9afe377b"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/full-ci-complete.exit",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3,
+      "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/full-ci-complete.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 524322,
+      "sha256": "9915ee3381e31f1d2f6078cbbb9c7b8710aee78446b77604774fb8fbe8c3508f"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/full-ci-final.exit",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3,
+      "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/full-ci-final.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 14695,
+      "sha256": "3321334b6293276a2d05dea219c0f9f9b5efa8413bea59b443a9e7f80827133e"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/full-ci-verified.exit",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/full-ci-verified.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 530808,
+      "sha256": "4de59e23cb82e1a90192dc36d2870e5b7143f07d16231149b0890cc243e7fb48"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/full-ci.exit",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3,
+      "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/full-ci.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 32901,
+      "sha256": "63b31411968d9beec79cca31babd3d97bbfd94db8773a6603d5d6b74688a7700"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/import-duel.exit",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/import-duel.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 2812,
+      "sha256": "04e88e14cb03522313caf8c45f7fa5bc49f6e4b29a947b70a3913d414d5979be"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/import.exit",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/import.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3731,
+      "sha256": "ce946ec7c23ce6abaa4769aa76d0de36e9905a24c022d3654cd087c296f0b380"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/melody-ci-repeat.exit",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/melody-ci-repeat.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 22818,
+      "sha256": "1bf98f1e56fd3b162ad7ba5414f07d81a5ce372f73949e5dc8c6562f784f83cd"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/melody-repeat.exit",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/melody-repeat.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 22814,
+      "sha256": "f6b6368cd091109aed5406e770c2a40adc6ac748af6cb8a46849e40def0b0df8"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/opera-contract-repeat.exit",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/opera-contract-repeat.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 98149,
+      "sha256": "27d8d27c5ffa68860c4e13e3ee9c675137aae485eb2945106179cb0fc35c8b23"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/opera-direct-repeat.exit",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3,
+      "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/opera-direct-repeat.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 98146,
+      "sha256": "bc26ec31773787cedb4130a6638e207dd5439aa27b2f07669493cc0245c02df8"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/opera-layout-check.exit",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/opera-layout-check.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/pc-complete.exit",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/pc-complete.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 72805,
+      "sha256": "fead433d3d95ca8a4f25f09f876f1ab374cd2b7cd11a225323790103b8745d76"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/pc-release.exit",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/pc-release.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 71779,
+      "sha256": "d2a726e8fa11d3ca15b6cbb7ddaa2c9f520a288dac47db57e12830027f598fe1"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/publication-authority.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 78,
+      "sha256": "b63c857da2d67fa92fbc14f6988cb8b7bf9229fa45ffaf1c98a7e586c3a94b83"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/publication-development.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 80,
+      "sha256": "e965f01a59f2a1d7a461846f9e5ba94535550888920777b4395800e50efc723c"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/render-exact.exit",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/render-exact.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3142,
+      "sha256": "05be6f45ddff99a51447505a16b8b48b0b0d12c813b2593630753848ec365048"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/runner-temp-check.exit",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/runner-temp-check.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 455,
+      "sha256": "b23435d3fd976f2a480a0fd758269e669a983486320b478305d400585af79df8"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/texture.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 279,
+      "sha256": "6107840d8eecd582de571acfbd86babf4779d9a3104b6a712789e8b1f695ba47"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/verification_summary.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3501,
+      "sha256": "12fe3b6c4bcaf279e11f57167b020fa89c80d665f8375dd36779d2980652a18a"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/voice-final.exit",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/voice-final.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 21361,
+      "sha256": "fca4a664995df55cd25767ff31874eec4a5c673727edb530f991e6bcc2d923e7"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/owner_request.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 932,
+      "sha256": "61546e841285ec9e9dc795d0fb3760e77cbfd116f4b6e7bf06579af0bc6fa938"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/reuse_inventory.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 13268,
+      "sha256": "455bf20f8db15873bf94844322bd821419a2243647f419275def770096576fe1"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/runtime_snapshot.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3548,
+      "sha256": "7e4a2b76aba657347779cd4cb3dc5086699b0234f70db2f74c009a5dd9dce04d"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/runtime_snapshot_preflight.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 3276,
+      "sha256": "038054f7a8c41f3557739b61a038105f17e07e8204831c95c25700987248f4f7"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/cycles/reef-kart-zones-20261105/verify_remote_packet.py",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 2662,
+      "sha256": "f1fa1cd03b3a0b41ebe5e3ae9818807632289b6b82415eca2f3ab6c53b1158b5"
+    },
+    {
+      "revision": "SELF",
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 354114,
+      "sha256": "4c5fe8e1450b4168a4f74d593386bbf0c15b901fd8fe4164b5a498aab52e646d"
+    },
+    {
+      "revision": "SELF",
+      "path": "design/05_DOC_LEDGER.md",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 304430,
+      "sha256": "d04a0c1167f115173378f6397ea2ff15a9087b375d781b622b9f1865682c9773"
+    },
+    {
+      "revision": "SELF",
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 111830,
+      "sha256": "3a1cc931942a2c46a585cd0cd7b8cadbbd7e67961de88f983d851573a7cfd7ab"
+    },
+    {
+      "revision": "SELF",
+      "path": "design/audit_impacts/recent-finished-updates-dev-20261106.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 47621,
+      "sha256": "5114f7cd5dddcf86c0bd9b3a9d1676dd6f26a2ff4198448b379c5b49725a3b22"
+    },
+    {
+      "revision": "SELF",
+      "path": "design/audit_impacts/reef-kart-zones-20261105.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 20708,
+      "sha256": "c11b021dba36922c1cad9301743a8ca53219f99ab590f383426ae51f3931e690"
+    },
+    {
+      "revision": "SELF",
+      "path": "design/audit_impacts/reef-kart-zones-publication-20261105.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 1876,
+      "sha256": "86187e56da2a14f704d72c9a3780c536f7625578f8872bb0dff2075c7328f0c9"
+    },
+    {
+      "revision": "SELF",
+      "path": "design/reference/OWNER_DECISIONS.md",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 70308,
+      "sha256": "196bf226b755e4ad614a5e0618de362de8346c2ff033150feb4c92d9181f1085"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/AUDIO_SUMMARY_RECONCILIATION.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 1331,
+      "sha256": "3f2254eef77d16b915b08e3798ade98b4f4dec2f79bc421ebad74931e2de416e"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/CAPTURE_METHOD.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 1128,
+      "sha256": "99e834d804bb888f1336cd5993a504b4693a0c05f0770975e11d75d344e37348"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/CURRENT_NATIVE_VISUAL_REVIEW.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 9448,
+      "sha256": "aa85173309401effe6b5905a53f23348bb3bc7a1aa091c38fb296bccf162f8b1"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/DEV_METADATA_RECONCILIATION.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 2136,
+      "sha256": "a7aea5451a4a2eef6110262f1cfb96d9112b9c88b2e60c348439a5ae98e10753"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/DKC_DEV_EVENT_AT_INTAKE.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 321,
+      "sha256": "1b9084748c52e3c6eac41f9eb1e5b9950f4533f0d49493d6e5af901b37176ff1"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/DKC_DEV_INTEGRATED.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 1296,
+      "sha256": "c861d48220e8f0c1cf5394e4394b7727c7685c88077f5c8f3ca369147dc320d7"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/DKC_SOURCE_CI.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 9782,
+      "sha256": "9f09372297b1fe7d88988f59a7ee2c3876d099dc25e27dbb095e29be10a045aa"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/DKC_SOURCE_REMOTE_VERIFICATION.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 13432,
+      "sha256": "f3c3b968d57f59df2ea184828b5bfeb818554dd875e7c699e68fc6c989c4d12f"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/DKC_WORK_CI_COMPLETED.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 10087,
+      "sha256": "ba69e6553a5a1ec3f77221b31bdbd4ab888cefca0417ebda136a108eb07275a2"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/OWNER_REQUEST.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 414,
+      "sha256": "c2ab1c4c38f8206a036ce515ba7590849aab055aec34c837ce90b88e32b594e2"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/PAINTED_FIXTURE_PROVENANCE.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 2037,
+      "sha256": "981e8dae26299034d10a85d1cb57bbd6f52408b372d8524e87ffd13b8fcbcb62"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/PARENT_SOURCE_COMPARISON.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 601,
+      "sha256": "a0590dbeb3552dadb13808b18a4d300bf4b04e0ef575ad62408bf0295108360d"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/PLAN.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 2113,
+      "sha256": "2fb75f0ac176ab1bd444d18b4e109540e5d67fec9e350d41ee80921f5c271e9d"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/R144_APK_REMOTE_VERIFICATION.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 20596,
+      "sha256": "74dc710470530491c9fafd230de89a70e314738e0a4cee901a768a83fb2720d4"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/R144_CANONICAL_CI_COMPLETED.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 10087,
+      "sha256": "40cf728c36fc23f6842d7ffd9195acc54d51a11bc0f1ba7e7ecf7744418d4760"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/RACER_CONFLICT_RESOLUTION.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 1510,
+      "sha256": "20fac07667680a528cd7c05e360622f003b0c860d4641cbdb4ff34ce5bbf4a41"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/RACER_SOURCE_CI.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 9782,
+      "sha256": "95c880a101f1b817f0a6c639b93a6a7329bbc3457414af7bccd1f161f9136290"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/README.md",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 4428,
+      "sha256": "d330e2e218445f861c3c1c1bc3a8621112344e24c5ecaff6be59ba16d85bbb40"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/RECONCILED_METADATA_GATES.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 1331,
+      "sha256": "7a6a058a3f92a367c2428474f6dbbbb0698e7a5eca695ed333b6098f2796c878"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/TEN_AXIS_POOL_COMPARISON.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 5774,
+      "sha256": "48643efed8293a58ea011513e2b740037d4c80673886a0216080b4c41c251f0e"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/VALIDATION_CHAIN.json",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 1137,
+      "sha256": "848b0b681d1c03ece35c85ade2ebc03e3393915147ec8d65736299a599a56a4a"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/audio_summary_before_correction.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 5870,
+      "sha256": "384e7d48758d23a2818d48028291ee7c926dbdc54444206e747b33b9737a2016"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/capture_preflight.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 973,
+      "sha256": "c5a4b18329fe0fdd57dacdef5689f51151e91d679ecdf90a2b46cc21b74a78f6"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/capture_recipe.py",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 4568,
+      "sha256": "2d07e6edd5bb79e0ec60d64edabbeb8ea774726d83babda169331cd9af62d5f4"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/first_failed_ci_static_prefix.sh",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 11154,
+      "sha256": "123dd331d25b7f7ccb70d433563673c2386cabbe748ea6442a17bf1ff46e47a6"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/first_static_import.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 33416,
+      "sha256": "2d2cfb3d40a15b88e961c013873e2b4779bdc0958f63e803b1bad7b180705003"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/first_static_import_result.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 405,
+      "sha256": "c982b7dd7d6ac29586b8ef208deae59382539082c118b5b98730998205e94c1c"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/native_RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 1538,
+      "sha256": "8aae63baf7f515b93c487a7b71be19c56162b1a85fad914f48632c58a5930f0e"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/native_SOURCE_PIN.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 728645,
+      "sha256": "fc4355f25c96f48f967646af114e42d4a77ed6f776b783ac56be5efdc08e9007"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/native_console.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 871,
+      "sha256": "bc698368f0317617b6e5d3669dd5619a2f6660da61e1435ec255cf122623fbb9"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/native_native_engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 850,
+      "sha256": "983a0177c3f57725652e38afa5233dabf400f7cf91268f5a7182edc9c7e3abaf"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_FINAL_RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 59644,
+      "sha256": "bebeaf71841e19d64612a0b2f7c43451e175cc4d645f3b6ea7b2eaa67642e95e"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_SOURCE_PIN.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 728882,
+      "sha256": "23fed3a09b5f71343ca2562fbef4c471289403e516a751f3ebbfc8fc2c07cba3"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_ci_static_prefix.sh",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 4936,
+      "sha256": "04330483494525d1790de2ea003c9ecd0bf7038fb58a7bf59eb49b2360da8f2c"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/01_probe_reef_districts/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 559,
+      "sha256": "51c2fcf5a72f471c46f905859f860aa374ce16db26d161363c8010b45270319c"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/01_probe_reef_districts/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 1790,
+      "sha256": "97a6d8b58ab878973011b9bddb5709bdfdafcc6fd2f58069e7826b2cb095c0bd"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/02_probe_ocean_kingdoms/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 559,
+      "sha256": "3fa39aa97a755f7829d81a945801865afdd159a974e328519876e410a77b6a55"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/02_probe_ocean_kingdoms/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 1115,
+      "sha256": "df234d3d43c3aa502846363ab085a2cdb54b8b65e295a3444595f275951f7b59"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/03_probe_audit/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 540,
+      "sha256": "cd0e0cfcdcbccb2ac78c774e544326a44423631f9f277250a9fc39d79e382c0f"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/03_probe_audit/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 31191,
+      "sha256": "b82681b3109b67e59313da963222c7e0bd9167a04c5000b83bb297de53b93430"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/04_probe_passive/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 544,
+      "sha256": "8767a858b81833510743066c6c62d4dae0585937770addb6ca89cc6789c04758"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/04_probe_passive/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 1016,
+      "sha256": "5946d5388fd2fe27c4d0d930f2a17e9df27da03dc37b8d7fe0a2ffe76fe5395f"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/05_probe_living_world/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 555,
+      "sha256": "510499a1c6ec8e6277e52ebdcb8750ac387f57d5f8696c41678d9944d800f9fc"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/05_probe_living_world/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 1542,
+      "sha256": "b18af2adbf40b63615f990dad8d30a8c0168ccd87eefe3c287993cb30d795f98"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/06_probe_load/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 539,
+      "sha256": "a90b98794e4d696dc4b708628393715686c83d93d0fd42b142647376c1789de1"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/06_probe_load/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 863,
+      "sha256": "d1b64a9cf36f331c655da3d789f62d551d78bca1fff25754445d3daa5c3ed1c8"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/07_probe_rank/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 539,
+      "sha256": "f8a8e2015c520ca945d7737e72094c2fe9c3d7a6a694d8d7839aabac74d61641"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/07_probe_rank/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 624,
+      "sha256": "435e795685cc5cd4b9bbd6442e111d2b46ec44535660a0a13aae8d13f83c5c7d"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/08_probe_save_recovery/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 556,
+      "sha256": "775726c3a539754140eba04fda340e3052f8b83b8e669d86e0fc7592c3bea753"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/08_probe_save_recovery/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 6054,
+      "sha256": "113bce7f4f4618f7dadfe05c3dfbb527ddb58bc8cc0f915590c473f07c5de38f"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/09_probe_galaxy_state/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 554,
+      "sha256": "2657bb70654487f292398d3c31909cd01041d4f1f194a69d6d8ca8cc0df1b310"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/09_probe_galaxy_state/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 1164,
+      "sha256": "ee6c5506720caba3d8d2a02cfebf66ecedf9bc67db076e80cf4c6a75a0099b8e"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/10_probe_collection/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 550,
+      "sha256": "2d7cf601445c2961ad56e9bac69e1126f7fd6d69f8e5d54b299a6115fe8a7760"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/10_probe_collection/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 739,
+      "sha256": "b109f82b958ac2652e4b94d374fb4016f9ca24ac49ed0eb0d2b129d1aadff690"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/11_probe_mg2d/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 539,
+      "sha256": "d2e353b70ef38add00e279b82f8b79362ed96a140b2909ac7d09da3fdd8af346"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/11_probe_mg2d/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 3533,
+      "sha256": "fd797e6fce8adf467f9c9d80eabdb6c3381efa7b53405e1b9025cfda99152793"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/12_probe_fetch/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 540,
+      "sha256": "0f47e3fff041029bcd592bbd23dd8682aa4b26cd8494c0064d3893f1232abb69"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/12_probe_fetch/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 541,
+      "sha256": "4ced18dc9e47493a7703060f0f8d838b1cf1d39552bd3561d0ce5f254dc2100a"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/13_probe_melody/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 543,
+      "sha256": "e158bf781343db998353dcb599126702beb967f08f6a9b475b5b65a7528f2bde"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/13_probe_melody/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 163850,
+      "sha256": "ee20f76574fcd55512ea98f5f06259d1fb76e325e6e0b14c36e2067986fd4c44"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/14_probe_dolls/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 541,
+      "sha256": "6eeaca7adb170ec356fb0c0452d18e1a8e28a1a2e9124133fed9411f16641eb7"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/14_probe_dolls/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 3891,
+      "sha256": "d6fe1bf694b8499806f1cb9c4d89e4e1242d6cdcd6da470ea49e401cd4249dbf"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/15_probe_seek/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 538,
+      "sha256": "3cf5a77a4579b6b72398a1cb60331e95b2db7a3a4c50efa9c7619a2995ece91d"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/15_probe_seek/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 3889,
+      "sha256": "ad3d7281a2cfef86bd440a62afc6afd83cadf88ddc2fe62645894b7646f00b14"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/16_probe_audio/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 540,
+      "sha256": "ba497cb9271dba2c87190b0708dc21254ce4b3b33663faf538ef471e51019b59"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/16_probe_audio/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 1638,
+      "sha256": "d6e4cc0d68e8a0c02fdd6beb01ca228bc3516847bc8a46dba833793bc19ed33b"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/17_probe_dance/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 539,
+      "sha256": "5c2c85daa76eccd116473c3d5da7420b65719a26dc33fb2844c0618a52c8f553"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/17_probe_dance/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 473,
+      "sha256": "e9d68243d211c408223d1196cf163535148aa1e6ee06258eef1fba2a6f60ad6e"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/18_probe_l2/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 535,
+      "sha256": "f2ce5057b1acf10eb12693da1c1c0cd5eea88e0f6c8f4ebfa5780d921cc55073"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/18_probe_l2/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 5935,
+      "sha256": "c28d8783f99fbd0ce67319e6d15d0eeb407cae265904d7129666e84aa33c28d8"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/19_probe_l2_living_cards/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 560,
+      "sha256": "8469d22eef657b23bb51d98b81974b9f29443c15098836760c0fc2ac9d39cfd7"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/19_probe_l2_living_cards/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 808,
+      "sha256": "921b5cd605a190217e3358549c84c2a1c4c6445892701463b6dc6a7d9924eeb4"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/20_probe_sky_lagoon_animals/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 567,
+      "sha256": "e24833fba5b3c1e198f9b245059921364beaf4f028877a7f1650cda103bf597b"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/20_probe_sky_lagoon_animals/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 9843,
+      "sha256": "1f403e7dc1d681de9f8ee0f2ffbb4158afc26142f61693fb695760e89c42fc08"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/21_probe_l2_reenter/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 550,
+      "sha256": "f41539b138b2942a88bbe7e00d0c3997a124e60c6d0414b820dfb7d9a7d18814"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/21_probe_l2_reenter/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 154,
+      "sha256": "0836edebc4578a0f6ad00c902b5b9db5457646438bb895b91e769498e18b9b94"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/22_probe_crown/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 541,
+      "sha256": "61eb8521d709f88ab484450d5e3c4e41cdf9779824c8eb67f52e13280681f0d6"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/22_probe_crown/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 2259,
+      "sha256": "6c4336efd78e53f281ad9dd87256c4ad1703d1bc20af6d70f5830ada9e1cf0a0"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/23_probe_throne/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 543,
+      "sha256": "bc3f60dc42f4749e6385b7e1a19dabe8e1827a6893c9919c565c33e44790da9a"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/23_probe_throne/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 2825,
+      "sha256": "50da020d3e8b83434dba3bc4dc1e200fc2e91a513cb0886adf9b36e9b2e6590d"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/24_probe_northern/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 546,
+      "sha256": "a302a6e04f964f7bf4ff684cacd3a1c4ff850046df4df8d348b2ebfcf981df1a"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/24_probe_northern/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 1247,
+      "sha256": "fba9e9483c9e24b53dd6437408ab313959bb7968d3a41347a011b6c0fa98013c"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/25_probe_human_art_audit/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 560,
+      "sha256": "3640ce73ec46775496d5d3e1bc7fef73d9d9508604a92c7edaed519310965242"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/25_probe_human_art_audit/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 153,
+      "sha256": "5b5415d1b810a7a04bf84518731c22c3121478261795d5c89429aeca2c966dc5"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/26_probe_train/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 540,
+      "sha256": "5e91a6e4d78d7dbeeb033dc413361593e915686cb3a8d14ea96702ea8111085a"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/26_probe_train/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 290,
+      "sha256": "2617369a4b121d48b4e9cb8c9ced9a4fee3e787530afaa463169a19ab224ddb7"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/27_probe_verbs/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 541,
+      "sha256": "c3fa14f479951ade4c0b1b3463e2881e4c464c9cebd761cb8277ee4057e8b7d2"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/27_probe_verbs/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 850,
+      "sha256": "4e663a29d65b3aad4e0f09445db1cb3842ea0c62ea1d266ec0f7800b362595ff"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/28_probe_skins/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 538,
+      "sha256": "cbc6c9e879c7d3abaa80eab0e18118561948fde89c9ed32c4b5121b90ee20e35"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/28_probe_skins/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 157,
+      "sha256": "8925983b17113d743ea7d1c6b17a05e8946c83d9b570c1c7f96aa7d35594909d"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/29_probe_touch_router/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 553,
+      "sha256": "1c4efb5182b64da808fd3683676864190bd68fabf256479b51b138678ad0ffa3"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/29_probe_touch_router/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 158,
+      "sha256": "c2892f8084bd847bc1ef4669ea66e602741a48571030e21b659066cb38aea07e"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/30_probe_touch_stress/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 554,
+      "sha256": "0930b07ccc4c6ca32cc35f571bdff342b106bed117ce9401f80817ff21cc09d2"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/30_probe_touch_stress/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 1389,
+      "sha256": "6eefda1ced35af86976d40099d3ef74fd1a1ae7942e55096a625c1a66ea627f5"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/31_probe_interaction/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 552,
+      "sha256": "03867796fd00c0abe32bbf967df0bf522f4b6687fc64d84c0250e8470f4d7584"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/31_probe_interaction/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 95,
+      "sha256": "75e9425089cda25286cf58484513493b928490e6fa9f0d6971cfab45fcf12a63"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/32_probe_touch_adversary/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 560,
+      "sha256": "fec833c56025a0973d3e3c1c4935d4f422ba2247f64166d18961237ed301d062"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/32_probe_touch_adversary/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 1644,
+      "sha256": "7dce7b16bedf0a78e23f3951656cebf93faf911ab4ab7ef1e163c81feb2a5643"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/33_probe_touch_look/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 551,
+      "sha256": "77b09337a77d41696ddd5f5dfc044c74a382233e211ac1f25ddfbb8b01df27e5"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/33_probe_touch_look/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 424,
+      "sha256": "60351641e3a32197e818e5df8416233946f40c138599c4ae85a723642cdc25fb"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/34_probe_ui_system/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 549,
+      "sha256": "609023a8d2da5006663232c710dd5c2ae1b124015c33dfc504da090123fdacb2"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/34_probe_ui_system/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 31656,
+      "sha256": "fd6065e09969b8da7bbeb040707d99c214a6f3a76e5db6e1f245bdd218e6b33b"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/35_probe_voice/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 540,
+      "sha256": "45413d7e53ef67023a9606a7f4074803d099b82f701c58317fc16767765c6557"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/35_probe_voice/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 21361,
+      "sha256": "fca4a664995df55cd25767ff31874eec4a5c673727edb530f991e6bcc2d923e7"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/36_probe_day_one_voice/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 556,
+      "sha256": "f9382ed21772382376c140abe1bbb5034dadf14caf81c7bad31d6271f93812ff"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/36_probe_day_one_voice/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 4919,
+      "sha256": "50a7a84c1ce20b02a158485dab22961bc3b440dc9b823a60f9ef124cdca2dbea"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/37_probe_day_one_d8_revisits/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 567,
+      "sha256": "2be1f3e766dc7633704a69a5058da135b9d51b0553fe7212ba49ef016621be4a"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/37_probe_day_one_d8_revisits/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 766,
+      "sha256": "8a62f8e03b7bbc051aa7e60d1919e69a59951770d17b526d811fe1d4aa1dc631"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/38_probe_day_one_handoffs/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 562,
+      "sha256": "aab5da31327c58b00c5ae15d01ba8fcc1018ff7ac17ca0acd8dfcf68bab37d3b"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/38_probe_day_one_handoffs/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 2013,
+      "sha256": "908a3ed2410a386f95ff5d4b1a9190b6b2e049faf6f08be47f7dd399298c1a82"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/39_probe_kart_feel/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 549,
+      "sha256": "ee937f87ecc16af95be61a10797f1a09cfbf400d07b7086425d09193652d84ff"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/39_probe_kart_feel/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 1141,
+      "sha256": "4d154b6587c19a8a75743a1ccf9ea3245c97a30eda9d0eff3db2f420faa4e7a1"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/40_probe_combat/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 542,
+      "sha256": "d0332f924e04495b003f3e81c569dbf86582525b775a940ac11a0efbfce855f5"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/40_probe_combat/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 1981,
+      "sha256": "67aec55ee70333770a4faecb2cfd06051dfd5f0c3522629f4a522650ae60e613"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/41_probe_dust_bunny/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 550,
+      "sha256": "10497ee30b5d01cb1d1f8a0b90670c3f9a7693d99a42dc5e42bb5f8472ae9d1c"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/41_probe_dust_bunny/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 730,
+      "sha256": "4663fb2a0de3512c5d77b0e136a6a59139e23f411d0224912e38b45ebde441dc"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/42_probe_dust_bunny_boss/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 559,
+      "sha256": "76b6d600170846a95691477ef8001c0099b8f22bf5eeeb387f79be1c25616f3c"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/42_probe_dust_bunny_boss/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 3858,
+      "sha256": "8fc65c5380675ca971e99523bbe8e17c34f09c503cd2d87029fe79d4b73aed3d"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/43_probe_dust_boss/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 549,
+      "sha256": "cc72d419052776539030c1ae579799d50951ec53e18515709ae5b8d1aed4916d"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/43_probe_dust_boss/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 8698,
+      "sha256": "1d05616ae145a7dca0f3e940613bc73c3a1294489cac8053b80fab7a095c3316"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/44_probe_hit/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 537,
+      "sha256": "838bda75af4abc4045fdc64e7d22e2535df07f29f537469e61e7574de7b94a5f"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/44_probe_hit/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 2180,
+      "sha256": "785d740aaff6eb57e72a8ecc2fa239cfd66b6f84d956f2ff0bb0ab109e22aaf7"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/45_probe_partner/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 545,
+      "sha256": "9a6b3074082563a9959f10c6eb2436a45acafba55c03e32045e8a4cd654b81a2"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/45_probe_partner/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 850,
+      "sha256": "975f35172cb1329e2eb83c9d772ba96fdaf1c79126ba32f7b9a97a6e5a72ba5c"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/46_probe_combat_tutorial/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 561,
+      "sha256": "1e42c854a214385e94bd22a05268858b34b4d70eb853c66c3f57aefcbc89f1a0"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/46_probe_combat_tutorial/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 1836,
+      "sha256": "744b4d5752836b437e1eccd3dc9fa32b0328a8c7383acbaa1f367fb27cba925f"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/47_probe_imp_ai/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 542,
+      "sha256": "0cb971cc97f89a088073c21aa2d56287f1bb636857081e451f6b9afb0d0163d2"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/47_probe_imp_ai/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 1637,
+      "sha256": "9ae03f976731e38ad51ab9e60fa5e43461359f99af606bbb269f3c7c660ab874"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/48_probe_mic/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 537,
+      "sha256": "d29babfecc34d97ef467ccd15ed6d2240dac69dafc3511c9fba438b0f6a1c20e"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/48_probe_mic/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 1962,
+      "sha256": "4c186e6413f73aacf682d34e95d955e600da20b553d525b7b4d49cf7bdd8dd26"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/49_probe_stuffie/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 545,
+      "sha256": "41e568e1f5ffbf9b55b09567ad8e5c89d6a6fca85b24284612ef5f44948c3d34"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/49_probe_stuffie/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 5021,
+      "sha256": "ce98c5879cc8f528799c7c4a8bcfdb583da7c27f90f837794b913fc5691b7455"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/50_probe_dungeon/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 545,
+      "sha256": "453535b89477a1419e9ad9c84101a9280b48eaad2f6b3f3386bf009184ad92c3"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/50_probe_dungeon/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 3979,
+      "sha256": "e375bfcd6815b9b8d614c8ce0b555d08c2bc3c1c9daced36bc7bde6c04a5b836"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/51_probe_ember/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 541,
+      "sha256": "963aae9637fd5416dcc3022f4b2b3a10ee74212a7c64152bcfe590efcdd20f44"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/51_probe_ember/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 3301,
+      "sha256": "bfd3bbf78d4afc8f0be1f7b1b24e83c9e1369694a5ad2ddf6f93502c08621e70"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/52_probe_opera/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 541,
+      "sha256": "04c2591db0c8ee04b16d5ab6ee3722aad5fba65cc7389f1b9c7ea7b2665118bd"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/52_probe_opera/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 15168,
+      "sha256": "c287725444784b5ad296ed1043b44d9ae227657f577d2f968ee788af92cca476"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/53_probe_opera_2d/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 547,
+      "sha256": "924ab86400695355729de5634f5f71c9b7ee56c722a41dcb2722ab4311bfccef"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/53_probe_opera_2d/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 104008,
+      "sha256": "3edb1f7927aedac83b8da41a9a08907f958c66e490b59127a38ac40ad1ee6c42"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/54_probe_opera_diegetic_paths/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 570,
+      "sha256": "6b62d36b60c318057b8ec34a7526ee2552fcb85d3b2ec8e2b321a21326f6b107"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/54_probe_opera_diegetic_paths/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 190,
+      "sha256": "8b4fa69dca1eb815b72a9592ac787d7f7cf9650e94c21745b3a3293da39dfeb8"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/55_probe_opera_detective/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 561,
+      "sha256": "2a1cc09ae72208a60411ff6b6d4ffbc735a6ecfd785cee746c5f09bc0c0780cc"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/55_probe_opera_detective/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 1138,
+      "sha256": "ada2802f1fd8ddfa452d4ca6d40b560d95e2fe6a0d784f3c5ebc5161755a2498"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/56_probe_opera_pipe/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 550,
+      "sha256": "5365e90173f4566774ac876f432cffdfe96bf02af9a54c4a0ed9de6cefd9edbc"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/56_probe_opera_pipe/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 96,
+      "sha256": "9e37f1451cf963674947e78580377efe684cb07070ef3ded7221671a9cf74efc"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/57_probe_opera_nursery/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 557,
+      "sha256": "a9fbbabcde3ad441f08d30673ff98b7623553cceda053a58d46957bb8c46969f"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/57_probe_opera_nursery/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 2172,
+      "sha256": "ea99b8b123e699dca13b66bab6a6a0fc607ad7af6509935a9623c08e23a24dac"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/58_probe_opera_gesture_quality/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 572,
+      "sha256": "87f91cedf85dbb8c7821c099cbdae76e9e0290ce4150d2d9a89d7da1e63e738d"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/58_probe_opera_gesture_quality/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 120,
+      "sha256": "24092105cea880e323075053cccc45837478b6b5abc10532a055d8b64c5c5277"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/59_probe_kitchen_props/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 556,
+      "sha256": "b4d1678c29441d93cfd6a6df054cb8d61bfb9632b41b8de002e251b363d12ad0"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/59_probe_kitchen_props/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 2283,
+      "sha256": "085ee788c6a4ea61b380dc094a318f0546223c723a4a06343e564902678217fd"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/60_probe_bathroom_props/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 558,
+      "sha256": "b9c705ababdb2cab3a4214a7eca8cd7f95d74bc2dba520b50cc8e08821be4289"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/60_probe_bathroom_props/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 909,
+      "sha256": "f1a9243fa397b4679dd72416d4e7b6fba6d21014c949cf112f3e3c29eefd494f"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/61_probe_castle_door_language/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 571,
+      "sha256": "77d8fd02ee7a2b672d6091edb01144e1455c9bc030456ce6878109ed4f432170"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/61_probe_castle_door_language/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 5234,
+      "sha256": "4abaa12c13b1268f31ba2dcbd5a0d01bef5d51f9d72bfae4a3e1289ea6b2240b"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/62_probe_bathroom_integration/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 571,
+      "sha256": "a3b42c54194641d3e8a7727b89413fa20a20ea64e2967590fdc1f5a03d6b120b"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/62_probe_bathroom_integration/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 4006,
+      "sha256": "0b93b196a5572ccb0f9f76698bce1c3d2aa27084f08b0cca93da8ab561ace330"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/63_probe_day_one_bathroom_bunny/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 575,
+      "sha256": "8e9c795bce2eba35342c83575782a9930839ed9e08ae2d9047f9b3960a650ac3"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/63_probe_day_one_bathroom_bunny/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 1162,
+      "sha256": "b2317cefbc14362cdb2509477c136b7ddbf79e88550d370040f165ad452d500c"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/64_probe_day_one_bathroom_cleanup/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 579,
+      "sha256": "df6fc365f7e69b4de330d0da0db38d13b4521e2188c8f58979a2f275db98f31b"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/64_probe_day_one_bathroom_cleanup/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 7951,
+      "sha256": "e3ac904c4ddad2ceec6937274324e0f46e845f5bc74095a74bd985a7a25a3d14"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/65_probe_day_one_bathroom_movie_handoff/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 591,
+      "sha256": "f59474fcdc308298ca73c843a0f759d75896939954128100bec0b301e1e313a5"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/65_probe_day_one_bathroom_movie_handoff/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 1137,
+      "sha256": "3c38263a6313fdfe5cfb49b7378d9e9890d36373f6f014af0411e016529f5f86"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/66_probe_day_one_director/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 562,
+      "sha256": "5361c49f99355c1feea02579a8b1b94126ea81dff30c11a5495143bf2800af51"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/66_probe_day_one_director/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 1237,
+      "sha256": "c55a83f10ed8b5e8f241a127a88fdfb1001bbdb65486d44989606a1ece6e1c0e"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/67_probe_day_one_integration/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 569,
+      "sha256": "0fad7c660294355cb7c2108eec21b2d653b9475fab25a13a1341c08882015a41"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/67_probe_day_one_integration/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 2843,
+      "sha256": "5d2a85cd038e521120be433551a63bdcaa394be2c493b151f616650805b1ab46"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/68_probe_day_one_pool_cleanup/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 571,
+      "sha256": "dfbf3e16764fd91d592bf9957648345be23c141402ea8d83a28c0d271cd1f497"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/68_probe_day_one_pool_cleanup/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 10368,
+      "sha256": "b2e7b1f5bf215e9626187d095c0c223ad170206b8ec734f30e0290c440bb2213"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/69_probe_day_one_art_attack_state/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 578,
+      "sha256": "c2a914c57f20a1a7b2d992580d3a5997a45792200d588eb081164d5c88b2d6d5"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/69_probe_day_one_art_attack_state/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 3531,
+      "sha256": "f60c2a724f4c1d99e78da2e83ed099fad0afd2bd2bbd4ba7e730c3ee1f1b6114"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/70_probe_day_one_castle_dressing/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 576,
+      "sha256": "1b2fa5356d926a5386b3e9d83ce29e8bb278719c342b7ed8731f51bef954f36a"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/70_probe_day_one_castle_dressing/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 789,
+      "sha256": "17ea5dbf7d18d174c7029081bb94f79ae44f439fb81b7c77093083efceba80a0"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/71_probe_day_one_story_clips/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 569,
+      "sha256": "4d8a5912ee22a0c2d5b2634aa5f63ee6b19a4c3832b1d2a41e8b027631fdf303"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/71_probe_day_one_story_clips/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 6679,
+      "sha256": "811e20c6e97da8efb3aa06e7e0a74e02f822b74ca0ed33a9548abd5e4e8cf1a8"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/72_probe_chapter2/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 548,
+      "sha256": "d689925d37f395ca945c28c8d89e8c35592b7189af46102267159917e865aa9c"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/72_probe_chapter2/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 49885,
+      "sha256": "b44f5d3ac6c7736ea604d7325027aef814cb9744eff0dd683d78569475d64a61"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/73_probe_chapter2_farmer_resume/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 574,
+      "sha256": "ebd891faaa7dfa88fd980a741f16e738d07cb8db7e5b7d336e8833806ef422c7"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/73_probe_chapter2_farmer_resume/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 10001,
+      "sha256": "2f43fc12adfc92b0ef5bfde77ceba276190604eb8b7471697746afcbe21d942d"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/74_probe_chapter2_lawn/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 556,
+      "sha256": "e70339dcefdfb25e5dfab7b50eb0633080c882f0aee168d233db398bb20de802"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/74_probe_chapter2_lawn/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 4668,
+      "sha256": "b50aaf7aeae0823dcbfb26e58ab58b9b739c7780e04efb36fb554433be6d55e1"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/75_probe_alpha_milestone_save/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 571,
+      "sha256": "3d3e071cb0fbd42bf8d0d64247e84c0a243a7f5f9e0d1290d9997e12bb96cfda"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/75_probe_alpha_milestone_save/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 16983,
+      "sha256": "c8fee9f0a438dd1b2493699c49a5d84994e818e7bd65fb0f6655fbfca08bc584"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/76_probe_dust_boss_balance/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 565,
+      "sha256": "24a64a1d7fc5547bb9c2611569bc3a28dd64e6ea36413bc4fec1dcc4bcd80ea8"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/76_probe_dust_boss_balance/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 663,
+      "sha256": "50cc0df3f46b2893f139191e06e84268a8241592b99ba9b724ee6aead25afc4f"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/77_probe_start_menu_routing/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 566,
+      "sha256": "7d1d07788c66f69ecdd422e4d8873fd1ab3b84386ff5242b883e38d4baa88a67"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/77_probe_start_menu_routing/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 2161,
+      "sha256": "c192b57ce2a0672867a9ce4420e32fde1eab6d258fc7e9e200127891e4d0c163"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/78_probe_start_menu_new_game/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 568,
+      "sha256": "cf6a75478b08762c7d2d776e73521e0cbf3cf0af471753c769c7250c41eae4d0"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/78_probe_start_menu_new_game/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 3924,
+      "sha256": "5a5892630038341fb271fef667823e4aca982c6f3ce614ec57235e4e4981a4ae"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/79_probe_castle_pool_life_2d/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 568,
+      "sha256": "d5b209d92891f4c39511d074597b7c20ae04c3c73fcaaa20afe061cb97f22f38"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/79_probe_castle_pool_life_2d/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 750,
+      "sha256": "3c743dae2d362340c1369418a95b8feacb00f3f8933ddb78daa109c17bf5b6b9"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/80_probe_castle_pearl_art/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 563,
+      "sha256": "a73d704cae8eb0e85436e772048a0b8dee16305585cac06fad4712632955802f"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/80_probe_castle_pearl_art/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 5407,
+      "sha256": "e6a34db53330e971bf023a6e348a0f908f74a27c9642a37c310ff02ec64c7cc1"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/81_probe_fairy_art/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 548,
+      "sha256": "07c276fd05bd52568cf27b45054d837448393e908eaa91056efc03f12d365e11"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/81_probe_fairy_art/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 1030,
+      "sha256": "97aa66835cca2cf482d202e46a6119b11319755d18c86c10f76174a009ff34c4"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/82_probe_props/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 541,
+      "sha256": "825127071f00b968b4ba1ba697b6db4e11de239ae3a901c1c481325aab80518f"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/82_probe_props/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 1228,
+      "sha256": "c2b732eb8c197eb5004fec74f7df0fb71d031b4dff532a6de5e16c2564a3125c"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/changed_inference/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 899,
+      "sha256": "eb036f6fd51b5883028c856fab8fe3ca397ee0181aa8027c18e2d0b37fbf78ca"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/changed_inference/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/changed_parser/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 900,
+      "sha256": "1c1312317890db581b93c2f687048089b7c051d8e7769abc11b5637ee69df827"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/changed_parser/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/focused_probe_racer_integration/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 570,
+      "sha256": "013edec542d50c88a083432e6a54ad7768248ab5cb517ca8232e2120719bf86d"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/focused_probe_racer_integration/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 4534,
+      "sha256": "6b6af6efff5737631682f40afb3af6339929cfb0f549a849ce42d4863247647d"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/focused_probe_reef_kart_pc/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 559,
+      "sha256": "e0870ccf8011eadb474ed191507dadd247d10eb9606cdf8d58c271754cf09846"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/focused_probe_reef_kart_pc/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 4572,
+      "sha256": "a2518de9919a58b1a6c966d8ebb39174cc7cd3e9d920088ae046fa728d650b9f"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/post_game2d/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 380,
+      "sha256": "f80f307da07cbeacce31a637b4400fcc5a7e976bfbbe0390621e98852369930a"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/post_game2d/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 570,
+      "sha256": "4022b0d0dd00dd5e333ac2fdd5684e1ec48df71542d261cc30972ea71a23d6d5"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/static_import/RESULT.json",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 417,
+      "sha256": "8ca75832c71599c232c6a9c74167fd73e75c4475dd4872b97745e64bd7341d8a"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/resumed_validation/static_import/engine.log",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 28751,
+      "sha256": "50dfcb4b7c5cb51fefa91ea39e7839691596fd67819fc8b589f92d5eaa371f6c"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/evidence/validation_recipe.py",
+      "role": "source_bound_raw_validation_evidence",
+      "bytes": 6805,
+      "sha256": "27b4a20d2dfb7c2533b88fd625c7a54d4543565bac296b8bffc4f036d305746d"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/reconciled_authority.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 78,
+      "sha256": "14d161cbf065b845535b862b26c884cd1f7706f24da44929edd2ce5c739f3566"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/reconciled_coverage_auto.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 80,
+      "sha256": "245b8d022e08c15244dadf30c410647f5e6f5d047cf4e2c925424dea9933c295"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/reconciled_coverage_dev.log",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 80,
+      "sha256": "245b8d022e08c15244dadf30c410647f5e6f5d047cf4e2c925424dea9933c295"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_reef_kart_art_2026-11-03/ENGINE.md",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 9001,
+      "sha256": "c8900810cb67ebc20574c2d4dffe827c4159ea6c6a7b98d01a9e994dfaffa612"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_reef_kart_art_2026-11-03/PC_HANDLING.md",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 7783,
+      "sha256": "f5d9d63fd473bf7a4835b54aed837cf35e4c5c62b51e3d9d220fdfeebc10c816"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_reef_kart_art_2026-11-03/README.md",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 7361,
+      "sha256": "0979c006af2a6c59de316044d280457628ce97e24ab459857d26b4169b9e6a3f"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_reef_kart_art_2026-11-03/VOICE.md",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 2993,
+      "sha256": "883b21915dd58365ef210783487c4f6470cd4bb20868e589f8d5519633c3d528"
+    },
+    {
+      "revision": "SELF",
+      "path": "docs/handoffs/codex_reef_kart_art_2026-11-03/ZONES.md",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 4552,
+      "sha256": "eff125c4230c74fa22a0787bc66a6df87c2da3fb36cdd1128f0e279b8d0e52b0"
+    },
+    {
+      "revision": "SELF",
+      "path": "scripts/audio_director.gd",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 33475,
+      "sha256": "97ae8252d1d86e2b02158355ccab91ef3d3ef612dd59fbe5bf610080dcd9e26f"
+    },
+    {
+      "revision": "SELF",
+      "path": "scripts/opera_racer_surface.gd",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 17582,
+      "sha256": "ef20bf6ac23d4498ba0b7ee263c8f8f8e4b0accb31bf7f8edf99a01629d8406a"
+    },
+    {
+      "revision": "SELF",
+      "path": "scripts/probe_opera_2d.gd",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 158862,
+      "sha256": "9a6d8cea9006b37114e3c5973fd9a55d010a14e8c7e7456ff61a40dd79ea735f"
+    },
+    {
+      "revision": "SELF",
+      "path": "scripts/probe_racer_integration.gd",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 20097,
+      "sha256": "17abeb0a539b1a5291f0e3beea98b75edb9eac0b7aedc6561ba7e28c24bf9a82"
+    },
+    {
+      "revision": "SELF",
+      "path": "scripts/probe_reef_kart_pc.gd",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 13887,
+      "sha256": "0613c828bbd140c96bc0fb281c37667e132a29f3d2a6aa03deba2c6322c51da8"
+    },
+    {
+      "revision": "SELF",
+      "path": "scripts/probe_voice.gd",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 25633,
+      "sha256": "9f7b36ed4f9ac26560417c41d924d784538d5253b3a5e2695c6eeab7ba12a895"
+    },
+    {
+      "revision": "SELF",
+      "path": "scripts/racer/reef_kart_courses.gd",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 7747,
+      "sha256": "1a60ed6c0635a58fbce8a6da30b09f52024ff509bdaa22d9decaeb2179d6e1ba"
+    },
+    {
+      "revision": "SELF",
+      "path": "scripts/racer/reef_kart_floor.gdshader",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 10261,
+      "sha256": "914a6e6b7de52525452293da5e34cc6813131681b8bcab2d494b29f26ba316ad"
+    },
+    {
+      "revision": "SELF",
+      "path": "scripts/racer/reef_kart_item_voice.gd",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 2203,
+      "sha256": "5f91472b7934d1362faf71a6599cb4a47d67aa514578fe87ae7822eb82c24696"
+    },
+    {
+      "revision": "SELF",
+      "path": "scripts/racer/reef_kart_pc.gd",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 23147,
+      "sha256": "379c491d786f9aa4d4dadcaf25be7fb9f4add0485d308961b12cbb6c9a302619"
+    },
+    {
+      "revision": "SELF",
+      "path": "scripts/racer/reef_kart_race.gd",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 65106,
+      "sha256": "14ce1ec8dce4e3a2824bfe572e5807a5b071a7c2257c674fe3a9edfed3d8bec1"
+    },
+    {
+      "revision": "SELF",
+      "path": "scripts/racer/reef_kart_track.gd",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 20894,
+      "sha256": "7ce398c5f25293a27eaddcfd7e7a7b85d50fe3f40749263c20891f62f1530452"
+    },
+    {
+      "revision": "SELF",
+      "path": "scripts/racer/reef_kart_zones.gd",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 11163,
+      "sha256": "257ae1908ae295736c72ec387821ca7b987c140dfed856473985bd93f8edb2ba"
+    },
+    {
+      "revision": "SELF",
+      "path": "tools/audit_audio_quality.py",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 72113,
+      "sha256": "6e51d192d7461b715910f4cda6a747d6c6a9bed9d3e1477abfc51accfbcd12ec"
+    },
+    {
+      "revision": "SELF",
+      "path": "tools/tests/test_audit_audio_quality.py",
+      "role": "current_delta_source_provenance_and_actual_validation",
+      "bytes": 32994,
+      "sha256": "56e504d9f1c6020da9ac7eb4160cf9f9f201dfdf32a332ad53bd6766a1035d4d"
+    },
+    {
+      "revision": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+      "path": "assets_src/imagegen/mermaid_pool_room_2026-08-02/room_mermaid_pool_fullframe_v3_native.png",
+      "role": "approved_same_room_appearance_source",
+      "bytes": 2361881,
+      "sha256": "2a4bd923c26d5f7980fc8a723576ecb573097e30bc94090f75437833fc3d55a5"
+    },
+    {
+      "revision": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/candidate/mermaid_pool-solo-grid.png",
+      "role": "same_pool_prior_runtime_comparison_and_painted_neighbors",
+      "bytes": 716843,
+      "sha256": "659164d91fec9ca8a9a96921896c4f827863be29840e55e5cc6003103e872aed"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "id": "dkc-acoustic-album-20261105",
+  "date": "2026-11-05",
+  "scope": "Analyze current private acoustic DKC references; codify sound identity; produce next three cue revisions; map all 30 review entries to a 1-2 week album production plan. No runtime integration. Scope extension: new direct Forest capture and acoustic pilot; capture additional driver references for album source readiness. Private audio and raw extracted material remain outside Git.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SND-05",
+    "DL-SND-09",
+    "DL-SND-18"
+  ],
+  "findings": [
+    "MA-AUDIO-001"
+  ],
+  "finding_scope": "Context only. No runtime assets or finding lifecycle change.",
+  "required_evidence": [
+    "exact current audio hashes",
+    "instrument state and acoustic provenance",
+    "source note interval and onset invariants",
+    "native render audibility",
+    "continuous full-form audio and printed sessions",
+    "actual listening excerpts and processing revisions",
+    "loudness/true peak/mono checks",
+    "album inventory and dated production priorities"
+  ],
+  "gemini_allowance": {
+    "authorized_total": 50,
+    "used_before_this_task": 22,
+    "used_this_task": 28,
+    "total_used": 50,
+    "remaining": 0,
+    "scope": "New DKC performances only; no family audio or raw library recordings sent.",
+    "accounting": "22 prior +28 bounded excerpts this task. Last3 cover repaired Mines, source-register-corrected Funky, and selected wood/piano Forest. Bass-led Forest alternate has local source/pitch checks, not another cloud review."
+  },
+  "baseline": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+  "files": [
+    "design/music/dkc/ACOUSTIC_SOUND_DESIGN_PROFILE_2026-11-05.md",
+    "design/music/dkc/ACOUSTIC_ALBUM_PLAN_2026-11-05.md",
+    "design/music/dkc/acoustic_album_board_v1.json",
+    "design/music/dkc/acoustic_album_reference_v1.json",
+    "design/music/dkc/acoustic_album_call_sheets_v1.json",
+    "design/music/dkc/acoustic_album_production_receipt_v1.json",
+    "design/music/dkc/README.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "no_findings_reason": "",
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "Final document authority recheck: inventory930, ledger930, active75, records78."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Final development recheck; exact baseline a7e1faefc09b3303494a5499cce5fe120cb2dcb2."
+    },
+    {
+      "command": "Private source, acoustic native-zone, full-form, mono and session checks",
+      "result": "PASS",
+      "evidence": "H:/DKC-Production/20261105-album-profile/acoustic_album_production_receipt_v1.json"
+    },
+    {
+      "command": "Complete trusted-probe coverage and isolated full probe_audit rerun",
+      "result": "PASS",
+      "evidence": "Aggregate82-probe coverage:81 initial pass plus unchanged full probe_audit rerun exit0. Initial full suite exit1 from two Slide assertions retained; this does not claim uninterrupted green full CI. H:/DKC-Production/20261105-album-profile/evidence/project-validation-receipt.json"
+    }
+  ],
+  "acceptance_gaps": "Private album owner listening remains open. No runtime assets, family recordings, routing or release changes. MA-AUDIO-001 remains FIXED_PENDING_VERIFICATION; device/child/runtime acceptance is not established by album drafts."
+}

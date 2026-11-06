@@ -1,0 +1,42 @@
+{
+  "state": "PASS_CURRENT_DEV_RECONCILED_METADATA",
+  "tested_runtime_checkpoint": "7fd0cd1a30e62433f58aafebf7dd77d6e8e05d98",
+  "incoming_Dev": "5b92d1c216a78852559725a9db0b8ec37f7f6c7e",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_recent_updates_dev_2026-11-06/reconciled_authority.log",
+      "sha256": "14d161cbf065b845535b862b26c884cd1f7706f24da44929edd2ce5c739f3566"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_recent_updates_dev_2026-11-06/reconciled_coverage_auto.log",
+      "sha256": "245b8d022e08c15244dadf30c410647f5e6f5d047cf4e2c925424dea9933c295"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "5b92d1c216a78852559725a9db0b8ec37f7f6c7e"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_recent_updates_dev_2026-11-06/reconciled_coverage_dev.log",
+      "sha256": "245b8d022e08c15244dadf30c410647f5e6f5d047cf4e2c925424dea9933c295"
+    }
+  ],
+  "engine_repeat": "NOT_APPLICABLE; all runtime trees and review fixture unchanged."
+}
