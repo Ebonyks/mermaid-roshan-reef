@@ -1,0 +1,65 @@
+{
+  "schema": "reef.receipt_delivery/1",
+  "id": "R143-CANONICAL-PUBLICATION-RECEIPT-20261105",
+  "repository": "https://github.com/Ebonyks/mermaid-roshan-reef",
+  "branch": "codex/flat-vector-r6-20261012",
+  "baseline": "99864a0116ffa7a69536b5633b177a5f598b5f14",
+  "payload_revision": "99864a0116ffa7a69536b5633b177a5f598b5f14",
+  "payload_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/MANIFEST.json",
+  "payload_manifest_sha256": "e77f4262c0dc3310b8c7d5ab9f1d0d59f2e8a85807214a62e4c243488793cfbb",
+  "entry": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/REMOTE_VERIFICATION.json",
+  "files": [
+    {
+      "path": "design/audit_impacts/flat-vector-r143-publication-receipt-20261105.json",
+      "bytes": 3684,
+      "sha256": "131372cbe733a295432be798cd3e2ca608911adca31d8ee34f39767129702881",
+      "role": "Exact payload publication receipt, metadata-gate evidence, matching APK status or scoped receipt impact"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/APK_BUILD_STATUS.json",
+      "bytes": 1757,
+      "sha256": "9a4aedf2cdc7019e32a725b172702116e1f699532cb63d365359e4d089df9d26",
+      "role": "Exact payload publication receipt, metadata-gate evidence, matching APK status or scoped receipt impact"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/METADATA_PAYLOAD_GATES.json",
+      "bytes": 2702,
+      "sha256": "3e4690dd1362d7bfa9aa7832d67bf717d73a264feef2f323961bbd9386bf41da",
+      "role": "Exact payload publication receipt, metadata-gate evidence, matching APK status or scoped receipt impact"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/REMOTE_VERIFICATION.json",
+      "bytes": 86304,
+      "sha256": "8c689d3132b61dc001b197a711e333a836ad74ba10116c946517547982297378",
+      "role": "Exact payload publication receipt, metadata-gate evidence, matching APK status or scoped receipt impact"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/metadata_payload_after_fetch_auto.log",
+      "bytes": 80,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "role": "Exact payload publication receipt, metadata-gate evidence, matching APK status or scoped receipt impact"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/metadata_payload_authority.log",
+      "bytes": 78,
+      "sha256": "9cb059b2b119427f3e5d30fb0b80f1d406edf65cb1f0b90c3f2e247ae2c985ab",
+      "role": "Exact payload publication receipt, metadata-gate evidence, matching APK status or scoped receipt impact"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/metadata_payload_coverage_auto.log",
+      "bytes": 80,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "role": "Exact payload publication receipt, metadata-gate evidence, matching APK status or scoped receipt impact"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/metadata_payload_coverage_base.log",
+      "bytes": 80,
+      "sha256": "b4f24010366c0122261898d7f7f2f060afde1c9511974addb21d241f56640d3a",
+      "role": "Exact payload publication receipt, metadata-gate evidence, matching APK status or scoped receipt impact"
+    }
+  ],
+  "required_files_excluding_manifest": 8,
+  "scope": "Only the eight new receipt/context files and this manifest. The unchanged original payload is cited at its already-verified immutable revision; no recursive archive delivery.",
+  "accepted_removed": 0,
+  "mission_complete": false
+}

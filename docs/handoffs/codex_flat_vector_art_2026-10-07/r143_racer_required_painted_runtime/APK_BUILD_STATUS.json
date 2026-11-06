@@ -1,0 +1,32 @@
+{
+  "state": "MATCHING_DEV_APK_EXPORT_FAILED_BUILD_WORKER_DISK_CAPACITY",
+  "source_revision": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+  "Dev_runtime_CI": 42149410935,
+  "Dev_runtime_CI_conclusion": "success",
+  "build_run": 42155338660,
+  "build_job": 127688037534,
+  "build_attempt": 1,
+  "build_conclusion": "failure",
+  "failed_step": "Export debug APK",
+  "error": "java.io.IOException: No space left on device",
+  "source_binding": "Actual checkout ref in the completed build log equals the current Dev source revision.",
+  "binding_excerpt": "build\tRun actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5\t2026-11-06T03:14:47.0154132Z   ref: a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+  "error_excerpt": "build\tExport debug APK\t2026-11-06T03:27:36.3327046Z ##[error]Exception in thread \"main\" java.io.IOException: No space left on device",
+  "build_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42155338660",
+  "raw_log_sha256": "dbd01693d1879c98b62fda653d90ba1b4732e808ba14fe01357d3be4e35d4e18",
+  "previous_source_build_failure": {
+    "source_revision": "32588fbfc6daaa0703d9ee95a526016fc995a38b",
+    "run": 42134817094,
+    "attempt": 2,
+    "error": "No space left on device during signing"
+  },
+  "owner_action": "Approve the prepared build-workflow capacity repair already requested in chat Add Reef arena art to jobs minigames. Workflow edits require explicit task authorization under AGENTS.md; no duplicate repair or chat resumption is performed here.",
+  "workflow_modified": false,
+  "retry_started_by_this_chat": false,
+  "APK_ready": false,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "at_utc": "2026-11-06T03:30:03.682014+00:00"
+}

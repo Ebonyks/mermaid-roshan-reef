@@ -1,0 +1,54 @@
+{
+  "id": "flat-vector-r143-publication-receipt-20261105",
+  "baseline": "99864a0116ffa7a69536b5633b177a5f598b5f14",
+  "scope": "Publish the completed exact-revision anonymous verification receipt and actual payload metadata-gate logs for R143. Receipt-only addition; original payload files, totals, runtime, art and histories remain unchanged. Record the newer matching Dev APK export failure from build-run42155338660, with exact checkout binding and the already-pending owner authorization for a workflow capacity repair. Source/Dev gameplay CI remains green; no workflow change or retry is performed.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-04",
+    "DL-QA-03",
+    "DL-QA-14"
+  ],
+  "findings": [],
+  "no_findings_reason": "Publication evidence only. No game change, defect repair, finding lifecycle or artistic acceptance is introduced.",
+  "files": [
+    "design/audit_impacts/flat-vector-r143-publication-receipt-20261105.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/APK_BUILD_STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/METADATA_PAYLOAD_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/RECEIPT_MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/metadata_payload_after_fetch_auto.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/metadata_payload_authority.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/metadata_payload_coverage_auto.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/metadata_payload_coverage_base.log"
+  ],
+  "validation": [
+    {
+      "command": "Anonymous current payload manifest plus all117required rows",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/REMOTE_VERIFICATION.json;118includingmanifest at immutable99864a0116ffa7a69536b5633b177a5f598b5f14; exact immutable older refs retain original timestamps"
+    },
+    {
+      "command": "Payload authority and AUTO/explicit-base coverage on actual staged tree",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/METADATA_PAYLOAD_GATES.json and four exact raw logs; no engine replay for metadata"
+    },
+    {
+      "command": "Receipt-only authority and change coverage",
+      "result": "PENDING",
+      "evidence": "Run on this actual final staged receipt tree before commit/push"
+    },
+    {
+      "command": "Actual receipt-manifest anonymous delivery",
+      "result": "PENDING",
+      "evidence": "Fetch exact receipt revision and all eight required files plus manifest after publication"
+    },
+    {
+      "command": "Matching Dev APK export at exact source a7e1fae",
+      "result": "FAIL",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/APK_BUILD_STATUS.json; build42155338660 failsNoSpaceLeftduringAPKsigning; ownerworkflowcapacityrepairapprovalpendingelsewhere; no readyAPK/deviceclaim"
+    }
+  ],
+  "acceptance_gaps": "FormalQA11, actual device, child, owner and full-game inventory/coverage remain open. Source and actual Dev both green at a7e1fae are separate runtime evidence. Zero accepted-removal or new-art credit. APK is a separate automatic build/device lane."
+}
