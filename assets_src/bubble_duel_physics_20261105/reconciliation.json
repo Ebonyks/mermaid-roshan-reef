@@ -1,7 +1,31 @@
 {
   "original_baseline": "6dfd04aef441f30e0374e9ae9049cff845ce4ebd",
-  "integration_baseline": "bc058d3bd6105fa0c706e2a58a279181497e3eb8",
+  "integration_baseline": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
   "safety_stash": "e56a7c484eb39d45abc82cbd0c3d899580939054",
   "incoming_scope": "Sky Lagoon source-only art study and shared audit/owner/license records; no runtime scripts or artwork changed",
-  "resolution": "Preserved incoming shared documents, appended only our own license/ledger additions and task-index row; re-intake exact three owner answers onto the new immutable prefix. Runtime source hashes unchanged."
+  "resolution": "Preserved incoming shared documents, appended only our own license/ledger additions and task-index row; re-intake exact three owner answers onto the new immutable prefix. Runtime source hashes unchanged.",
+  "previous_integration_baseline": "bc058d3bd6105fa0c706e2a58a279181497e3eb8",
+  "work_commit": "73463083dcc39ed21fda320b89ff6d77b70de208",
+  "latest_incoming_scope": "R144 shared ShellOrnament direct reuse of existing castle banner shell; one runtime script changed. Incoming source/audit/license/findings records retained.",
+  "latest_resolution": "Only append-only .gitattributes and ledger blocks conflicted; both tasks retained. Incoming licenses/master/findings preserved. Ten of11 own runtime sources are byte-identical to work73463083; only venue entry/return adds two native cursor refresh calls. Native capture test strengthens hover/Back verification. Fresh100UI and complete frozen-project82-probe regression pass. No physics variant or finding closure added.",
+  "incoming_runtime": {
+    "scripts/shell_ornament.gd": "55bfafeb968ced6994a71a5b251d381e5019af3b9562bca93a3d32f3080d8c4a"
+  },
+  "historical_log_whitespace": {
+    "explanation": "Unscoped cached diff against our old work parent flags terminal blank lines in four incoming byte-pinned Godot logs. All four remain byte-identical to current Dev. Check newly authored combined delta against origin/dev instead; preserve incoming artifacts and unchanged attribute rules. No runtime/test/audit gate relaxed.",
+    "unchanged_incoming_sha256": {
+      "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/analyzer.log": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/evidence/fixture_analyzer/engine.log": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/evidence/review_export_guard/ignored_fixture_analyzer.log": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/evidence/shell_analyzer/engine.log": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    }
+  },
+  "combined_verification": {
+    "receipt": "integration-ci.json",
+    "result": "PASS",
+    "trusted_probes": 82,
+    "seconds": 4386.62,
+    "task_artifacts_stable": 389,
+    "runtime_index_sha256": "c1fee9989dbc8b955f680d6d9ebc43d1a064c3a9720d30a7c2bd0fb5a2c41206"
+  }
 }

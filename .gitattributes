@@ -155,3 +155,6 @@ tools/godot_mcp/evidence/** -whitespace
 
 # Bubble Duel source studies and native review receipts bind literal bytes.
 assets_src/bubble_duel_physics_20261105/** -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol
+
+# R144 native capture/log and source pins bind literal Windows bytes.
+docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/** -text whitespace=-blank-at-eol,cr-at-eol

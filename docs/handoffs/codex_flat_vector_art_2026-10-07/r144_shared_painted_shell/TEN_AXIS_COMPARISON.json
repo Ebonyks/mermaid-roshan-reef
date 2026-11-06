@@ -1,0 +1,87 @@
+{
+  "state": "BOUNDED_AGENT_COMPARISON_NOT_ACCEPTANCE",
+  "stable_id": "FV-AB474EF3699E",
+  "baseline": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+  "axes": {
+    "contour": {
+      "before": "Straight ribs, polygon fan edge and six circular lobe dots.",
+      "candidate": "Painted scalloped lobes and antialiased plum contour; fan/rib/dot primitives retired.",
+      "numerical_score": null
+    },
+    "material": {
+      "before": "Uniform lavender fill and synthetic glint.",
+      "candidate": "Authored cream highlights, rose/lavender shade and broad brush marks from the unchanged castle motif.",
+      "numerical_score": null
+    },
+    "palette": {
+      "before": "Lavender fan and cyan pearl.",
+      "candidate": "Pastel pink/lavender shell and cream pearl match painted castle/launch neighbors. Warmer pearl is an explicit candidate change, not accepted identity redesign.",
+      "numerical_score": null
+    },
+    "identity": {
+      "before": "Fan shell with one hinge pearl.",
+      "candidate": "Fan shell and one central hinge pearl retained; no character or protected source changed.",
+      "numerical_score": null
+    },
+    "style": {
+      "before": "Diagram-like vector mark differs from painted splash and fish.",
+      "candidate": "Existing painted motif blends with those same-scene neighbors.",
+      "numerical_score": null
+    },
+    "integration": {
+      "before": "Common 116x82 box; 92x66 developer and 82x60 picture header.",
+      "candidate": "Identical Control boxes/names/order/input settings. Authored aspect makes the painted silhouette narrower than the old fan.",
+      "numerical_score": null
+    },
+    "geometry": {
+      "before": "Fan/hinge geometry tied to parent size.",
+      "candidate": "Aspect-preserving texture stays inside same box. One texture draw; no new CanvasItem or touch target.",
+      "numerical_score": null
+    },
+    "occlusion": {
+      "before": "Garden header covered by Back; touch-pad crest hidden.",
+      "candidate": "Same existing occlusion/visibility; neither earns visible-removal credit. Other crests stay above panel edges and clear of labels.",
+      "numerical_score": null
+    },
+    "readability": {
+      "before": "Recognizable but schematic shell mark.",
+      "candidate": "Fan and pearl remain distinct in captured launch/options/keep-game/pause/craft/logo/wardrobe/stickers/care/mic/parent panels and launch aspect edges. Phone comprehension open.",
+      "numerical_score": null
+    },
+    "action_state": {
+      "before": "Passive decoration ignores input; redraws on resize.",
+      "candidate": "Same input/resize lifecycle; buttons, saves, voice and gameplay logic unchanged. Input/save probes are separate evidence.",
+      "numerical_score": null
+    }
+  },
+  "directly_reviewed": [
+    "candidate_contact_sheet.png",
+    "crest_same_scene_comparison.png",
+    "context/baseline/start-menu.png",
+    "context/candidate/start-menu.png",
+    "context/candidate/craft.png",
+    "context/candidate/pause.png"
+  ],
+  "native_frames": {
+    "baseline": 15,
+    "candidate": 15
+  },
+  "claims": {
+    "candidate": true,
+    "local_integration": true,
+    "Dev_integration": false,
+    "runtime": "Exact4.7.2 changed candidate passes static/import,2analyzers,81assertion probes plus1headless-capture SKIP; strict actual-zero exits. Source CI and later actual Dev tracked separately.",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
+  },
+  "limitations": [
+    "Diagnostic fixture calls shipped builders; natural route traversal and formal fresh-runtime QA11 remain open.",
+    "Microphone sheet built unarmed; no capture or enrollment.",
+    "Keep-game sheet exposed with in-memory saved flag; reset action never pressed.",
+    "Legacy intro is a compatibility builder, not normal Day One launch.",
+    "Unrelated typography, flat panels and content weaknesses remain outside this single-crest repair."
+  ]
+}

@@ -53,6 +53,14 @@ func _setup_scene() -> bool:
 
 func _run() -> void:
 	if not await _setup_scene(): return
+	var portal: Button = venue.buttons[0]
+	var hover_event := InputEventMouseMotion.new()
+	hover_event.position = root.get_screen_transform() * (portal.get_screen_transform() * (portal.size * 0.5))
+	root.push_input(hover_event, false)
+	if root.gui_get_hovered_control() != portal:
+		printerr("BUBBLECAPTURE|native portal hover fixture did not bind")
+		quit(8)
+		return
 	await _capture("01-elevator", "Painted left elevator; detached launcher removed")
 	Shop.reward(main, 20000)
 	_tap(venue.bubble_duel_button)
@@ -63,6 +71,13 @@ func _run() -> void:
 	if game == null:
 		quit(3)
 		return
+	var modal_hover: Control = root.gui_get_hovered_control()
+	if modal_hover != null and modal_hover != game and not game.is_ancestor_of(modal_hover) \
+			and modal_hover != main.global_navigation_button:
+		printerr("BUBBLECAPTURE|inactive venue retained hover over arcade")
+		quit(9)
+		return
+	print("BUBBLECAPTURE|native modal hover refreshed")
 	game.set_process(false)
 	await _capture("02-hub", "Actual elevator arcade hub")
 	game._show_setup(true)
@@ -118,6 +133,15 @@ func _run() -> void:
 		"captures": records, "limits": "Native full-context candidate review. No physical device/child/owner or formal QA11 acceptance inferred."}, "\t") + "\n")
 	file.close()
 	await _motion_tour()
+	_back()
+	_back()
+	var return_hover: Control = root.gui_get_hovered_control()
+	if venue.bubble_duel != null or not venue.accepting_input or return_hover == game \
+			or (return_hover != null and game.is_ancestor_of(return_hover)):
+		printerr("BUBBLECAPTURE|native arcade return retained modal input or hover")
+		quit(10)
+		return
+	print("BUBBLECAPTURE|native venue hover restored")
 	venue.close()
 	main.queue_free()
 	await process_frame

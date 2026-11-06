@@ -1,0 +1,78 @@
+{
+  "id": "flat-vector-r144-dev-bc058-reconcile-20261106",
+  "scope": "Reconcile the finished painted shell candidate with current source-only Devbc058, preserve owner rejection/history and both licence additions. All5557 runtime inputs stay identical to greenB660.",
+  "baseline": "bc058d3bd6105fa0c706e2a58a279181497e3eb8",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-UI-06",
+    "DL-VIS-01",
+    "DL-VIS-05",
+    "DL-VIS-07",
+    "DL-QA-11",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-PERF-01",
+    "DL-PERF-02",
+    "DL-PERF-03",
+    "DL-PERF-04",
+    "DL-PERF-07"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010"
+  ],
+  "files": [
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md",
+    "design/05_DOC_LEDGER.md",
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/SOURCE_COMPARISON.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/CONFLICT_RESOLUTION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/PARENT_CI_B660.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/INTEGRATION_RECORD.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/parser.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/inference.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/authority.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/development_auto.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/development_bc058.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/PARENT_REMOTE_VERIFICATION.json"
+  ],
+  "validation": [
+    {
+      "command": "Staged runtime equality to greenB660 and exact incoming source-study preservation",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/SOURCE_COMPARISON.json"
+    },
+    {
+      "command": "Exact parent B660 CI both required jobs",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/PARENT_CI_B660.json"
+    },
+    {
+      "command": "Current parser/inference and metadata gates",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/GATES.json"
+    },
+    {
+      "command": "Current combined remote CI, anonymous publication and actual Dev integration",
+      "result": "PENDING",
+      "evidence": "Observe actual exact operations; no prediction or acceptance."
+    },
+    {
+      "command": "Prior B660 entire28-file delta anonymous remote verification",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/PARENT_REMOTE_VERIFICATION.json"
+    }
+  ],
+  "acceptance_gaps": "Current combined remote CI and actual Dev integration pending; formal fresh-runtime QA11, route coverage, device, child and owner review remain open. No finding closure or master promotion."
+}

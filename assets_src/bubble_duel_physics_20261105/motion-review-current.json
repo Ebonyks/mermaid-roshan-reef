@@ -1,0 +1,73 @@
+{
+  "status": "GAMEPLAY_REVIEW_ONLY",
+  "source_sha256": {
+    "scripts/bubble_duel_fighter.gd": "8a053ad03bcb3e74f9737782c7ff65274fa021b85a0caf5209493688e88697d8",
+    "scripts/bubble_duel_motion.gd": "189076ed6c90a44e2ddabf5ed1b2bee7471b8bc0cdd2bb806bd8bdd22dc934fc",
+    "scripts/bubble_duel_brain.gd": "87ff9924a00ba01523b7a94f7aeb97bbea4a9d7b616f6b72d57f725fe7e4f18c",
+    "scripts/bubble_duel_arena.gd": "e77789091e043043cf7994fbb7b3fedce33d0de3a02df48e34d7e8551695af4c",
+    "scripts/bubble_duel_geometry.gd": "f43d633815e76d0b861696dcdce75059fab2cc712412fe9ac2516992cf091472",
+    "scripts/bubble_duel_view.gd": "ce3c3b951c240eb103f38eb4df1ec82563e88a912d455c6090b7293d2e32754d",
+    "scripts/bubble_duel_cast.gd": "aa0fe3c78d8a5547805caf19513075fb539dba50dde49b87a8954e72c93784f0",
+    "scripts/bubble_duel_two_player.gd": "3202f851dc0eaf212649cfd8990f42f61688eeb84320626739d67e960813f9fe",
+    "scripts/bubble_duel_inventory.gd": "ecb8f6e873bdd8a6214b1a3bc5c6df68951b2f3d0a6f61e93c660ec5e62ba2f8",
+    "scripts/opera_bubble_duel.gd": "ff4991dde1e20d28a08ea795c84884ade2767ea11e3f8b26ba52a835cd32d4a3",
+    "scripts/opera_house_venue_2d.gd": "a7e8ec20945deb60d868f7641af06a89daf3f4de135a81e4c7d26332e1553c47",
+    "scripts/probe_bubble_duel_capture.gd": "9dce51c3a95f3b539b669b9bee4d0405ea35f7c2bd6a6c7d52d03cd2a839c940"
+  },
+  "native_capture_manifest": "integration-captures/1280/captures.json",
+  "motion_frame_manifest": "integration-captures/1280/motion-frames.json",
+  "motion_frames_scope": "480 diagnostic JPEG readbacks in ignored local review storage; not a final cinematic archive, generator reference or independent motion acceptance. Captured through actual production30Hz input paths.",
+  "frame_sha256_verified": 480,
+  "ffmpeg_command": [
+    "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\FFmpeg\\8.1.2\\bin\\ffmpeg.exe",
+    "-hide_banner",
+    "-loglevel",
+    "error",
+    "-y",
+    "-framerate",
+    "30",
+    "-start_number",
+    "0",
+    "-i",
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\bubble-physics-current-motion-frames\\frame-%04d.jpg",
+    "-frames:v",
+    "480",
+    "-vf",
+    "setsar=1",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "medium",
+    "-crf",
+    "19",
+    "-pix_fmt",
+    "yuv420p",
+    "-an",
+    "-map_metadata",
+    "-1",
+    "-metadata:s:v:0",
+    "rotate=0",
+    "-movflags",
+    "+faststart",
+    "assets_src\\bubble_duel_physics_20261105\\gameplay-review-current.mp4"
+  ],
+  "video_metadata": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "width": 1280,
+        "height": 720,
+        "sample_aspect_ratio": "1:1",
+        "display_aspect_ratio": "16:9",
+        "avg_frame_rate": "30/1",
+        "nb_frames": "480"
+      }
+    ],
+    "format": {
+      "duration": "16.000000"
+    }
+  },
+  "movie_sha256": "1d9d874c962335302a4f195ec9ce3e195be1d65e334c6af3832f1d47b421e726",
+  "holds": "Independent full-speed acting/style, actual device/twohuman/child/owner/fun acceptance remain open; static-source cast remains explicit."
+}

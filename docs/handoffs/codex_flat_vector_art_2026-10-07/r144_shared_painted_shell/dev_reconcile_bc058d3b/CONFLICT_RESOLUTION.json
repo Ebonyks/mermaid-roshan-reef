@@ -1,0 +1,21 @@
+{
+  "state": "RESOLVED_BOTH_ADDITIONS_AND_NEWER_OWNER_REJECTION_PRESERVED",
+  "records": [
+    {
+      "path": "ASSET_LICENSES.md",
+      "source_parent": "b6605862997a6f1ed8a8a06eee5012734b5beee3",
+      "incoming_parent": "bc058d3bd6105fa0c706e2a58a279181497e3eb8",
+      "ours_block_sha256": "d884ec02f9ab954bbad022b826198a49635adaf3cefb2d2da7ec3baf17fc1579",
+      "theirs_block_sha256": "0b7cb8d62b1711f454e2cd3c382e9ceb92c6981b282d693577c818486bca5589",
+      "decision": "Keep both nonoverlapping diagnostic/source-art licence additions in full."
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "source_parent": "b6605862997a6f1ed8a8a06eee5012734b5beee3",
+      "incoming_parent": "bc058d3bd6105fa0c706e2a58a279181497e3eb8",
+      "ours_block_sha256": "34b0956614a36188b51dbcb791c6d2e5fdbdf7082ba6fe2ee6a00def642f9e53",
+      "theirs_block_sha256": "51baf199c1e76e3184b2a348dbb7500ff0446b9ad5fd96a95d79f2f6a671f14c",
+      "decision": "Retain newer owner rejection of added-object item-motion composition and its original-art correction rows from incoming Dev. Retain the R144 row. Older candidate classification remains historical only at B660."
+    }
+  ]
+}

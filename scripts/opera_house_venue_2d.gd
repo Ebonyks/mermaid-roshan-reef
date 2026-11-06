@@ -833,6 +833,8 @@ func open_bubble_duel() -> void:
 	add_child(bubble_duel_layer)
 	bubble_duel_layer.add_child(bubble_duel)
 	m._navigation_push(BubbleDuel.ROUTE_ID, bubble_duel, bubble_duel.go_back)
+	# Recompute hover after replacing the interactive canvas, clearing old tooltips.
+	get_viewport().update_mouse_cursor_state()
 
 
 func _close_bubble_duel(restore_venue: bool = true) -> void:
@@ -849,3 +851,4 @@ func _close_bubble_duel(restore_venue: bool = true) -> void:
 	if restore_venue and visible:
 		accepting_input = true
 		refresh(m.opera_stars)
+		get_viewport().update_mouse_cursor_state()

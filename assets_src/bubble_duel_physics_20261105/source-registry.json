@@ -1,6 +1,6 @@
 {
   "baseline": "6dfd04aef441f30e0374e9ae9049cff845ce4ebd",
-  "candidate": "Uncommitted implementation plus canonical code hashes; final commit supplied by delivery/CI links",
+  "candidate": "Published physics work73463083 plus uncommitted integration of Devf1cced56 and bounded modal hover refresh; final commit supplied by delivery/CI links",
   "normalization": "Runtime UTF-8 code is canonically LF in Git. Local Windows literal hashes remain separately bound. assets_src evidence/reference bytes use -text and remain literal.",
   "runtime_sources": [
     {
@@ -72,9 +72,12 @@
     },
     {
       "path": "scripts/opera_house_venue_2d.gd",
-      "literal_sha256": "afa14faae10ff01cc89828a1a8988a95169fd192cc6383321d4c7c3ed5431068",
-      "canonical_utf8_lf_sha256": "8c38fd6e90805dbe3fde865de267631aaec7c3f4277736d9f148deb4406929a0",
-      "git_index_sha256": "8c38fd6e90805dbe3fde865de267631aaec7c3f4277736d9f148deb4406929a0"
+      "literal_sha256": "a7e8ec20945deb60d868f7641af06a89daf3f4de135a81e4c7d26332e1553c47",
+      "canonical_utf8_lf_sha256": "4465423544b60a3ba42d27f97889aeb0a8c7fd3914b2f4ca5c760e7650c6eaca",
+      "git_index_sha256": "4465423544b60a3ba42d27f97889aeb0a8c7fd3914b2f4ca5c760e7650c6eaca",
+      "pre_hover_refresh_literal_sha256": "afa14faae10ff01cc89828a1a8988a95169fd192cc6383321d4c7c3ed5431068",
+      "pre_hover_refresh_snapshot": "gate-cleanup/opera_house_venue_2d-before-hover-refresh.gd",
+      "hover_refresh_scope": "Two Viewport.update_mouse_cursor_state calls on modal entry/return; no simulation/purchase/save values changed. New native and UI regression evidence required."
     }
   ],
   "art_sources": [
@@ -232,9 +235,26 @@
       "path": "assets/opera/tree_book_test/patient.png",
       "sha256": "a1a77f01b2d0a57d896f1c831132ce6cf61efe6204fb3de09a58f271c7087d34",
       "operation": "Unmodified existing project-art reuse; no new acceptance inferred."
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_shell.png",
+      "sha256": "6460cd110e925cdea7006ed7adf85d34cc1ace442018cbe56d3d340cc44a2209",
+      "dimensions": [
+        256,
+        256
+      ],
+      "operation": "Unmodified existing shell motif reused by incoming shared ShellOrnament; no source pixel edits.",
+      "license": "Existing ASSET_LICENSES entry and incoming R144 provenance; no new artistic acceptance."
     }
   ],
   "protected_originals_changed": false,
   "new_paid_art_generation_calls": 0,
-  "integration_baseline": "bc058d3bd6105fa0c706e2a58a279181497e3eb8"
+  "integration_baseline": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+  "shared_incoming_runtime_sources": [
+    {
+      "path": "scripts/shell_ornament.gd",
+      "literal_sha256": "55bfafeb968ced6994a71a5b251d381e5019af3b9562bca93a3d32f3080d8c4a",
+      "git_index_sha256": "a51f513f205cf6395c5724e9e2ef2dc09f04ea24db534aa22c28806763f3c2c8"
+    }
+  ]
 }

@@ -1,0 +1,8 @@
+{
+  "baseline_raw_CRLF_sha256": "47ffb51bca717b0e362fdf7b90279f83c8d73fbab2dac55c869c117cd4c13638",
+  "baseline_canonical_LF_sha256": "b55765cfd7926b755563f9017891c955fc23ae5c050c3d7141b7b2f2b1cdbc08",
+  "reconstruction": "git show A7 source LF converted to CRLF reproduces baseline raw bytes exactly",
+  "preserved_before_source_sha256": "47ffb51bca717b0e362fdf7b90279f83c8d73fbab2dac55c869c117cd4c13638",
+  "candidate_raw_sha256": "a51f513f205cf6395c5724e9e2ef2dc09f04ea24db534aa22c28806763f3c2c8",
+  "original_failed_packet_assertion": "Initial metadata assembler compared LF Git source to raw Windows capture pin. Exact CRLF reconstruction verified; no candidate or tests changed."
+}

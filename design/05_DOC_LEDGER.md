@@ -1428,3 +1428,5 @@ The bounded 2026-11-01 [Chapter Two startup watchdog prerequisite](audit_impacts
 | `assets_src/bubble_duel_physics_20261105/reference/STUDY_NOTES.md` | 🔵 | `SUPPORTING_CURRENT / SOURCE_REFERENCE`; preserved owner-supplied mechanical notes on Mousekliks' Balloon Duel. Non-runtime research evidence only; grants no third-party art/audio/code reuse, game-rule exception or creative/device/child/owner acceptance. |
 
 | `assets_src/bubble_duel_physics_20261105/README.md` | 🔵 | `SUPPORTING_CURRENT / REVIEW_EVIDENCE`; source-bound Bubble Duel implementation, tuning and full-UI evidence. Records the two-pass75-unique-setting overrun and separate provisional visual/motion/device/child/owner gaps; no new game-wide authority or finding closure. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md` | 🔵 | `SUPPORTING_CURRENT`; R144 source/B660 combined CI green; latest reconciliation retains source-only Sky Lagoon update and newer rejection history on Devbc058 with5557 tested runtime inputs identical. Current combined CI and actual Dev integration pending; formal QA11/device/child/owner/global acceptance separate. |

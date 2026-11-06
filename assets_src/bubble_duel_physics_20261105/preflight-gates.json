@@ -1,6 +1,99 @@
 {
   "result": "PASS",
+  "scope": "Post-full metadata-only finalization; no runtime changes. All37changedGDScript/parser/inference and required authority/owner/coverage/scopedwhitespace gates.",
   "checks": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "assets_src/bubble_duel_physics_20261105/gate-cleanup/bubble_duel_view-before-field-rename.gd",
+        "assets_src/bubble_duel_physics_20261105/gate-cleanup/opera_bubble_duel-before-field-rename.gd",
+        "assets_src/bubble_duel_physics_20261105/gate-cleanup/opera_bubble_duel-before.gd",
+        "assets_src/bubble_duel_physics_20261105/gate-cleanup/opera_house_venue_2d-before-hover-refresh.gd",
+        "assets_src/bubble_duel_physics_20261105/hover-review/bubble-tooltip-cursor-probe.gd",
+        "assets_src/bubble_duel_physics_20261105/hover-review/bubble-tooltip-hover-probe.gd",
+        "assets_src/bubble_duel_physics_20261105/hover-review/negative_hidden_modal.gd",
+        "assets_src/bubble_duel_physics_20261105/hover-review/probe_opera-headless-unsupported.gd",
+        "assets_src/bubble_duel_physics_20261105/study-r1/bubble_duel_arena.gd",
+        "assets_src/bubble_duel_physics_20261105/study-r1/bubble_duel_brain.gd",
+        "assets_src/bubble_duel_physics_20261105/study-r1/bubble_duel_geometry.gd",
+        "assets_src/bubble_duel_physics_20261105/study-r1/bubble_duel_motion.gd",
+        "assets_src/bubble_duel_physics_20261105/study-r1/bubble_duel_test_policy.gd",
+        "assets_src/bubble_duel_physics_20261105/ui-before-final-source-selection/bubble_duel_inventory.gd",
+        "assets_src/bubble_duel_physics_20261105/ui-before-final-source-selection/bubble_duel_two_player.gd",
+        "assets_src/bubble_duel_physics_20261105/ui-before-final-source-selection/bubble_duel_view.gd",
+        "assets_src/bubble_duel_physics_20261105/ui-before-final-source-selection/opera_bubble_duel.gd",
+        "scripts/bubble_duel_arena.gd",
+        "scripts/bubble_duel_brain.gd",
+        "scripts/bubble_duel_cast.gd",
+        "scripts/bubble_duel_fighter.gd",
+        "scripts/bubble_duel_geometry.gd",
+        "scripts/bubble_duel_inventory.gd",
+        "scripts/bubble_duel_motion.gd",
+        "scripts/bubble_duel_test_policy.gd",
+        "scripts/bubble_duel_two_player.gd",
+        "scripts/bubble_duel_view.gd",
+        "scripts/opera_bubble_duel.gd",
+        "scripts/opera_house_venue_2d.gd",
+        "scripts/probe_bubble_duel_capture.gd",
+        "scripts/probe_bubble_duel_cast.gd",
+        "scripts/probe_bubble_duel_cast_capture.gd",
+        "scripts/probe_bubble_duel_dual_active.gd",
+        "scripts/probe_bubble_duel_physics.gd",
+        "scripts/probe_bubble_duel_stress.gd",
+        "scripts/probe_bubble_duel_study.gd",
+        "scripts/probe_opera.gd"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "assets_src/bubble_duel_physics_20261105/gate-cleanup/bubble_duel_view-before-field-rename.gd",
+        "assets_src/bubble_duel_physics_20261105/gate-cleanup/opera_bubble_duel-before-field-rename.gd",
+        "assets_src/bubble_duel_physics_20261105/gate-cleanup/opera_bubble_duel-before.gd",
+        "assets_src/bubble_duel_physics_20261105/gate-cleanup/opera_house_venue_2d-before-hover-refresh.gd",
+        "assets_src/bubble_duel_physics_20261105/hover-review/bubble-tooltip-cursor-probe.gd",
+        "assets_src/bubble_duel_physics_20261105/hover-review/bubble-tooltip-hover-probe.gd",
+        "assets_src/bubble_duel_physics_20261105/hover-review/negative_hidden_modal.gd",
+        "assets_src/bubble_duel_physics_20261105/hover-review/probe_opera-headless-unsupported.gd",
+        "assets_src/bubble_duel_physics_20261105/study-r1/bubble_duel_arena.gd",
+        "assets_src/bubble_duel_physics_20261105/study-r1/bubble_duel_brain.gd",
+        "assets_src/bubble_duel_physics_20261105/study-r1/bubble_duel_geometry.gd",
+        "assets_src/bubble_duel_physics_20261105/study-r1/bubble_duel_motion.gd",
+        "assets_src/bubble_duel_physics_20261105/study-r1/bubble_duel_test_policy.gd",
+        "assets_src/bubble_duel_physics_20261105/ui-before-final-source-selection/bubble_duel_inventory.gd",
+        "assets_src/bubble_duel_physics_20261105/ui-before-final-source-selection/bubble_duel_two_player.gd",
+        "assets_src/bubble_duel_physics_20261105/ui-before-final-source-selection/bubble_duel_view.gd",
+        "assets_src/bubble_duel_physics_20261105/ui-before-final-source-selection/opera_bubble_duel.gd",
+        "scripts/bubble_duel_arena.gd",
+        "scripts/bubble_duel_brain.gd",
+        "scripts/bubble_duel_cast.gd",
+        "scripts/bubble_duel_fighter.gd",
+        "scripts/bubble_duel_geometry.gd",
+        "scripts/bubble_duel_inventory.gd",
+        "scripts/bubble_duel_motion.gd",
+        "scripts/bubble_duel_test_policy.gd",
+        "scripts/bubble_duel_two_player.gd",
+        "scripts/bubble_duel_view.gd",
+        "scripts/opera_bubble_duel.gd",
+        "scripts/opera_house_venue_2d.gd",
+        "scripts/probe_bubble_duel_capture.gd",
+        "scripts/probe_bubble_duel_cast.gd",
+        "scripts/probe_bubble_duel_cast_capture.gd",
+        "scripts/probe_bubble_duel_dual_active.gd",
+        "scripts/probe_bubble_duel_physics.gd",
+        "scripts/probe_bubble_duel_stress.gd",
+        "scripts/probe_bubble_duel_study.gd",
+        "scripts/probe_opera.gd"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
     {
       "command": [
         "python",
@@ -8,7 +101,7 @@
         "tools/audit_document_authority.py"
       ],
       "exit_code": 0,
-      "output": "DOCAUTH|INVENTORY=933|LEDGER=933|ACTIVE=75|RECORDS=78\nDOCAUTH|RESULT|ALL OK\n"
+      "output": "DOCAUTH|INVENTORY=934|LEDGER=934|ACTIVE=75|RECORDS=78\nDOCAUTH|RESULT|ALL OK\n"
     },
     {
       "command": [
@@ -19,7 +112,7 @@
         "auto"
       ],
       "exit_code": 0,
-      "output": "AUDITDEV|BASE|bc058d3bd6105fa0c706e2a58a279181497e3eb8\nAUDITDEV|RESULT|ALL OK\n"
+      "output": "AUDITDEV|BASE|f1cced56d299695580509b0d3c96e75f7f5e75ce\nAUDITDEV|RESULT|ALL OK\n"
     },
     {
       "command": [
@@ -38,7 +131,8 @@
         "git",
         "diff",
         "--cached",
-        "--check"
+        "--check",
+        "origin/dev"
       ],
       "exit_code": 0,
       "output": ""

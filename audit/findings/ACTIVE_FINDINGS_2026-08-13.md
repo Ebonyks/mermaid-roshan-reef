@@ -338,6 +338,8 @@ un-earned once Chapter 2 starts. No existing finding is closed.
 
 ## MA-VIS-006
 
+[R144 shared shell candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md) replaces the procedural crest with byte-unchanged painted castle art. Thirty configured native before/candidate frames and identical caller geometry are diagnostic evidence; machine, Dev, formal QA11, device, child and owner evidence remain distinct. Hidden touch-pad and occluded Garden-header crests earn no visible-removal credit. Lifecycle remains open.
+
 [R143 Racer](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/README.md) binds the existing painted capsule/kelp as required resources and retires two procedural fallback drawing paths on an isolated current-Dev candidate. 54paired configured native scenes are identical; the later actual MCP combination passes81assertion-based probes plus1headless capture SKIP with strict-zero exits. FormalQA11/device/child/owner and integration remain separate. Finding lifecycle remains open.
 
 [Painted Dolls progress hearts](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/README.md) brings the archived progress states onto current source. The finding remains open.
@@ -420,6 +422,8 @@ R124 source candidate: [painted Melody stage apron](../../docs/handoffs/codex_fl
 
 ## MA-VIS-008
 
+[R144 shared shell candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md) replaces the procedural crest with byte-unchanged painted castle art. Thirty configured native before/candidate frames and identical caller geometry are diagnostic evidence; machine, Dev, formal QA11, device, child and owner evidence remain distinct. Hidden touch-pad and occluded Garden-header crests earn no visible-removal credit. Lifecycle remains open.
+
 [R143 Racer](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/README.md) binds the existing painted capsule/kelp as required resources and retires two procedural fallback drawing paths on an isolated current-Dev candidate. 54paired configured native scenes are identical; the later actual MCP combination passes81assertion-based probes plus1headless capture SKIP with strict-zero exits. FormalQA11/device/child/owner and integration remain separate. Finding lifecycle remains open.
 
 [Painted Dolls progress hearts](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/README.md) brings the archived progress states onto current source. The finding remains open.
@@ -490,6 +494,8 @@ R132 source production2026-11-03: [painted Snowman coal candidate](../../docs/ha
 | history | 2026-10-04: carved from `MA-VIS-008`, repaired by Claude on the candidate from `a52f545f`, re-measured with the corrected meter; `FIXED_PENDING_VERIFICATION`. 2026-10-05: owner answers QP-1 and QP-3 applied by Claude on `356afeb9`. The castle and its caption stop drawing under story clips, `probe_day_one_story_clips` checks it (shown to fail under two mutations), and the meter was re-run. Lifecycle unchanged. 2026-10-17: owner-requested bounded visual repair from `d5e63a1e` reuses source art for water-contact trash, clear pink-float/star silhouettes, stable missed-item hands, canonical mouth-local seahorse blockage, calm shore/swimming bunnies, a stationary registered Rumi greeting and continuous painted clean water. The [impact](../../design/audit_impacts/pool-visual-repair-20261017.json) separates native Mobile diagnostics, focused/full gates and outstanding device/child/owner acceptance. QP-2a and the selected clip remain unchanged; no lifecycle closure. |
 
 ## MA-VIS-010
+
+[R144 shared shell candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md) replaces the procedural crest with byte-unchanged painted castle art. Thirty configured native before/candidate frames and identical caller geometry are diagnostic evidence; machine, Dev, formal QA11, device, child and owner evidence remain distinct. Hidden touch-pad and occluded Garden-header crests earn no visible-removal credit. Lifecycle remains open.
 
 The later actual Dev32588/Racer combination retains all87Racer and11Bubble parent runtime paths exactly as staged Git blobs. Six focused suites,23analyzers and81assertion-based probes plus1headless capture SKIP have actual-zero exits. Eleven importer CRLF-to-LF sidecar differences match staged/parent Git settings exactly; the original raw-hash rejection and independent reconstruction are preserved in the [current result](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/current_dev_32588fbf/evidence/RECONCILED_RESULT.json). This adds no creative or finding acceptance.
 
