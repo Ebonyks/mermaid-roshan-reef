@@ -1,0 +1,9 @@
+# R146 export-boundary follow-up
+
+The E700 Dev APK is anonymously downloaded and matches its complete published digest. All8,487 ZIP entries pass CRC; all8,387 sparse-PCK entries are unique, present and size-matched; six selected actual resources match index MD5 and recorded SHA-256. Its manifest is com.ebonyks.roshanreef, version0.1.0/code2369, ARM64, exact Godot4.7.2. Two successful source guards bind E700 to green Dev probe run42273654426. Java17 JAR/v1 verification and the public signer match the stable debug identity; self-signed, timestamp and JarInputStream ordering warnings remain explicit. No private keystore was accessed.
+
+The separate source-only export boundary **fails**:230 public review JSON files (3,669,287bytes) from `docs/handoffs/codex_recent_updates_dev_2026-11-06/` are in that APK. No new image-generation input or protected-family export is involved. The exact prior failure is preserved in [SOURCE_ONLY_EXPORT_FAILURE.json](SOURCE_ONLY_EXPORT_FAILURE.json); integrity is not export acceptance.
+
+This follow-up adds `.gdignore` only at that packet root. R146 painted artwork, code, input, normal saves and its88 required validated checks remain unchanged. A fresh exact-engine import checks the corrected source boundary. Matching corrected APK package verification remains pending a new green Dev build; no prior APK claim is upgraded. Formal QA11, physical-device installation/performance, child and owner evidence remain open. No new art, physics design variants, frame events, generation calls or acceptance credit.
+
+[Plan](PLAN.json), [import](IMPORT_RESULT.json), [runtime equality](RUNTIME_EQUALITY.json), [prior painted source delivery](PAINTED_SOURCE_REMOTE_VERIFICATION.json) and [delivery manifest](MANIFEST.json) retain independent lanes. The parser’s first relative-path assumption failed before package claims; its scripts and diagnosis are preserved.

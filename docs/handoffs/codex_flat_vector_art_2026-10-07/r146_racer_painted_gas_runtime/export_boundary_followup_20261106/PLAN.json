@@ -1,0 +1,32 @@
+{
+  "baseline": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+  "scope": "One .gdignore export exclusion and exact public receipts. No new runtime art/code, input, physics or save changes.",
+  "source_only_packet": "docs/handoffs/codex_recent_updates_dev_2026-11-06",
+  "before_APK_failure": "SOURCE_ONLY_EXPORT_FAILURE.json",
+  "required": [
+    "exact4.7.2 import under isolated profile",
+    "all5582 runtime files still equal immutable validated source",
+    "normal saves unchanged",
+    "old packet absent from post-import cache",
+    "metadata authority and actual diff coverage",
+    "anonymous immutable manifest verification",
+    "new source CI; normal green Dev integration; actual corrected APK verification separate"
+  ],
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-MED-01",
+    "DL-PERF-03",
+    "DL-QA-11",
+    "DL-QA-12",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-008"
+  ],
+  "new_generation_calls": 0,
+  "time": "2026-11-06T20:45:18.543628+00:00"
+}

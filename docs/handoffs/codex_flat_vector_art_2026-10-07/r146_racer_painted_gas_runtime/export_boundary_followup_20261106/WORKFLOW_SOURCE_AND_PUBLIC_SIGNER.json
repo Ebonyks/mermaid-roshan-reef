@@ -1,0 +1,13 @@
+{
+  "run_id": 42285923870,
+  "revision": "e70081ea871bd2aab2440be2168abe33d20ee328",
+  "log_sha256": "669ac16cbdfbb7b340e26e939078aac1c88eb80c2551cf25ce3fe0d762449497",
+  "log_bytes": 2222094,
+  "selected_exact_lines": [
+    "build\tVerify exact green dev source\t2026-11-06T20:21:17.3341234Z ANDROID_SOURCE|PASS|dev|e70081ea871bd2aab2440be2168abe33d20ee328|probe_run=42273654426",
+    "build\tRestore stable signing identity + editor settings\t2026-11-06T20:21:36.9544491Z \t SHA256: D5:F2:60:43:2D:CF:31:5D:E8:F2:85:C3:31:1E:DA:ED:C6:FE:2B:C0:1A:2F:04:7E:BE:1C:A1:CA:8F:FD:33:14",
+    "build\tRecheck current green dev before publishing\t2026-11-06T20:24:37.2003777Z ANDROID_SOURCE|PASS|dev|e70081ea871bd2aab2440be2168abe33d20ee328|probe_run=42273654426"
+  ],
+  "scope": "Selected source guards and public certificate only. No private keystore or family export accessed.",
+  "time": "2026-11-06T20:45:18.511105+00:00"
+}

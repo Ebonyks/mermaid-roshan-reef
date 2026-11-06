@@ -1,0 +1,281 @@
+{
+  "state": "SEALED_ACTUAL_STAGED_BYTES_SCOPED_EXPORT_FIX",
+  "id": "FV-R146-EXPORT-BOUNDARY-20261106",
+  "baseline": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+  "prior_painted_required_files_anonymous_verified": 271,
+  "prior_E700_APK_integrity": "PASS",
+  "prior_E700_APK_export_boundary": "FAIL230_PUBLIC_JSON_RECORDS",
+  "new_source_import_boundary": "PASS",
+  "corrected_APK": "PENDING_ACTUAL_GREEN_DEV_BUILD",
+  "hash_contract": "SELF exact staged Git blob bytes; unchanged candidate evidence cited at immutable source, no recursive historical archive. Manifest independently fetched and hash-bound by receipt.",
+  "generation_calls": 0,
+  "new_artifacts": 0,
+  "new_native_events": 0,
+  "accepted_removed": 0,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "files": [
+    {
+      "path": "assets/racer/ui/gas_button_painted.png",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 308133,
+      "sha256": "79f9dee0a1db33980e0d3fd24627bb25a85119d956b15a62a700de7f3741af29",
+      "role": "unchanged_validated_painted_candidate_bounded_reference"
+    },
+    {
+      "path": "assets/racer/ui/gas_button_painted.png.import",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 973,
+      "sha256": "b07a21e67e3cde0f6bb16b4ad83b8c77bf694a823493513bd9ef177752ed8014",
+      "role": "unchanged_validated_painted_candidate_bounded_reference"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/FRAME_EVENTS.json",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 12236,
+      "sha256": "6fe9e7c3170d82e8f86660e63bf865f1fae932c5398a65f6b113f841ed737d7b",
+      "role": "unchanged_validated_painted_candidate_bounded_reference"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/TEN_AXIS_COMPARISON.json",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 3909,
+      "sha256": "530fab448415e0cfa1dd087d449e91c02577a3ebef1de00e66db2743c82a73a3",
+      "role": "unchanged_validated_painted_candidate_bounded_reference"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/evidence/full_machine/FINAL_RESULT.json",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 55646,
+      "sha256": "d004f5399ae9141f4128f9400171ff710e00c1a3793a803cb7ce9c00c40e944c",
+      "role": "unchanged_validated_painted_candidate_bounded_reference"
+    },
+    {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 64920,
+      "sha256": "eaaab0f6ad8ef10907c712ea8a9f0fa0673d1a3d46c53ab808340daf9869ecaa",
+      "role": "unchanged_validated_painted_candidate_bounded_reference"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "revision": "SELF",
+      "bytes": 366496,
+      "sha256": "5137282e68f44e563e75af863f66c77ead994f866a8827468fad614e70e3c7a0",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "revision": "SELF",
+      "bytes": 271609,
+      "sha256": "a64149b1ba800467db9911391cdc67f5a6322bb3c878fed06bb618d4b6f71eb8",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "revision": "SELF",
+      "bytes": 306277,
+      "sha256": "d72ba9b0f0e1a2762181a5b9d4dee930da60e6b8d9d6cbe0a4febd58a885f7fa",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-r146-export-boundary-20261106.json",
+      "revision": "SELF",
+      "bytes": 6692,
+      "sha256": "b0b4aa3ff030086625bebfb4e5e2f6553e89aacc1936af21405b43521900b5de",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/APK_VERIFIED.json",
+      "revision": "SELF",
+      "bytes": 682,
+      "sha256": "7a247c400c81ecf1826a2025b862f2e56d3735a9ac7ab7b3cf526a2ad9d8038b",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/DOWNLOAD_RESULT.json",
+      "revision": "SELF",
+      "bytes": 1125,
+      "sha256": "0ff09c9f22abfbd803b6af27030640ebee0ddcecac553e47d22c39c5bfb5d7ba",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/IMPORT_RESULT.json",
+      "revision": "SELF",
+      "bytes": 1035,
+      "sha256": "5e6d9f49db0429920fb455363f268a7f74754537520d1d966ff75f95693ed274",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/INITIAL_VERIFIER_PATH_ASSUMPTION.json",
+      "revision": "SELF",
+      "bytes": 494,
+      "sha256": "203e74fb4c72e978ddff2b5e68d7c48f3425aa13d136a364fe9ec429c8837277",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/METADATA_GATES.json",
+      "revision": "SELF",
+      "bytes": 1711,
+      "sha256": "b84c3f8fc67e24788eb33017ec45f8bfd924800ed492db88c2e23d74e10fae3c",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/PACKAGE_CONTENT_VERIFICATION.json",
+      "revision": "SELF",
+      "bytes": 34969,
+      "sha256": "e283207defb6abcc0fd8035759ebba4a10064b636961727202e18df706613323",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/PAINTED_SOURCE_REMOTE_VERIFICATION.json",
+      "revision": "SELF",
+      "bytes": 192706,
+      "sha256": "0efb79c446a0802ef92d9b85c67ab207c312fef8cf13bedd4bec1428f0579b22",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/PCK_VIRTUAL_FILE_INDEX.json",
+      "revision": "SELF",
+      "bytes": 3544567,
+      "sha256": "2f89ff4c8db39b353488ded1a46d7af2bf719dfb23c7622d0d2a86bcee60eb3d",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/PLAN.json",
+      "revision": "SELF",
+      "bytes": 1072,
+      "sha256": "21fcdb73408c13c16106ac21601a741387877e86cdd06c79a45be8d1c82e6ce6",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/PUBLIC_SIGNATURE_VERIFICATION.json",
+      "revision": "SELF",
+      "bytes": 1308069,
+      "sha256": "9b44f59ec9236a9830509c91329f69d6aa111cb13920da29f6f54303083aa1a5",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/README.md",
+      "revision": "SELF",
+      "bytes": 1909,
+      "sha256": "fdbf3a7a8df97d3dc02b4e61e53115f77d4347678acf7c1238bf2e1576e9c82a",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/RELEASE_AT_INTAKE.json",
+      "revision": "SELF",
+      "bytes": 8634,
+      "sha256": "8fe4d2d25c7f20a526f471ac8733b5236bbdc59c07ce234adc9e146c96f69e2e",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/RUNTIME_EQUALITY.json",
+      "revision": "SELF",
+      "bytes": 605,
+      "sha256": "3fda8ff9c81df77db66e4d320bc4871771fcbe11dd7e21b6fbbfdfe6e333cbe0",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/RUN_COMPLETED.json",
+      "revision": "SELF",
+      "bytes": 3858,
+      "sha256": "178caac2253a232dc5051fb141cc68ab86a29facd520c83d77c0a7d8f8cadf03",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/SOURCE_ONLY_EXPORT_FAILURE.json",
+      "revision": "SELF",
+      "bytes": 30717,
+      "sha256": "d594fd77e5e569851f6921fae0793140b2e3dc959e2e9fd61e4330ca6a942eba",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/VERIFY_E700_APK.py",
+      "revision": "SELF",
+      "bytes": 8591,
+      "sha256": "9e5c6f84e55013d1614a3ddd4694422f77f3a552514138e8f80251ba2dc56b87",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/VERIFY_E700_APK_INITIAL.py",
+      "revision": "SELF",
+      "bytes": 7720,
+      "sha256": "c8dda87556026625df6e1d1520a11da7b385ea248a426b406106006ecd8c18d8",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/VERIFY_E700_APK_RELATIVE_PATH_FIX.py",
+      "revision": "SELF",
+      "bytes": 7837,
+      "sha256": "bc340b08bbab8fe578f6afc794182d8bc18084ae6e279f8c4b97109f7096d836",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/WORKFLOW_SOURCE_AND_PUBLIC_SIGNER.json",
+      "revision": "SELF",
+      "bytes": 935,
+      "sha256": "bd02ee8e1bc7c95a419920bb3d5a32a9ee2d8e3039fd8fa23b555e0f25db2286",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/authority.log",
+      "revision": "SELF",
+      "bytes": 78,
+      "sha256": "943cf05dde64d72e7c4102de330fd872eaddb66423a4fce76cb3cbfdc221fdde",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/coverage_auto.log",
+      "revision": "SELF",
+      "bytes": 80,
+      "sha256": "4fdaf89f9fd10b7b07653640f482c52bd89e8fb30c22fd2dd048374a56e024fb",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/coverage_base.log",
+      "revision": "SELF",
+      "bytes": 80,
+      "sha256": "202c8dbfeba55a6d519ee1573573cdf0f6e21a44adbeb655097d593027dfd731",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/import.log",
+      "revision": "SELF",
+      "bytes": 1415,
+      "sha256": "a7fb8900154c64d581d48161bd1bbbd157cabf64f7dd4d4fae6592de30037519",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/jarsigner.log",
+      "revision": "SELF",
+      "bytes": 5753723,
+      "sha256": "173a02b9a0d9f10b9a6beef54ed253b6a886a65832c9af31cdfbc58d31ec6683",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/public_certificate.log",
+      "revision": "SELF",
+      "bytes": 829,
+      "sha256": "4f8ab8ce83167d1a02d5b904ae71d70f3939f769f7edc8b8b09b223b7e2d3543",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/roshan-reef.apk.sha256",
+      "revision": "SELF",
+      "bytes": 82,
+      "sha256": "609affccef53ff73fcd8c4703f89c5c384ba2e15b1e269b14f50654f473a0fa4",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/.gdignore",
+      "revision": "SELF",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "actual_scoped_export_fix_or_required_public_evidence"
+    }
+  ],
+  "time": "2026-11-06T20:48:49.988827+00:00"
+}

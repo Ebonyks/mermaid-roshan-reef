@@ -1,0 +1,91 @@
+{
+  "id": "flat-vector-r146-export-boundary-20261106",
+  "baseline": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+  "scope": "Exclude one exact public recent-updates review packet from future runtime export after actual E700 APK census found230JSON review records3,669,287bytes. Preserve the verified painted gas candidate/runtime unchanged; publish exact prior APK integrity and failed boundary separately.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-MED-01",
+    "DL-PERF-03",
+    "DL-QA-11",
+    "DL-QA-12",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-008"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/APK_VERIFIED.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/DOWNLOAD_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/IMPORT_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/INITIAL_VERIFIER_PATH_ASSUMPTION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/METADATA_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/PACKAGE_CONTENT_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/PAINTED_SOURCE_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/PCK_VIRTUAL_FILE_INDEX.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/PLAN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/PUBLIC_SIGNATURE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/RELEASE_AT_INTAKE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/RUNTIME_EQUALITY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/RUN_COMPLETED.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/SOURCE_ONLY_EXPORT_FAILURE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/VERIFY_E700_APK.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/VERIFY_E700_APK_INITIAL.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/VERIFY_E700_APK_RELATIVE_PATH_FIX.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/WORKFLOW_SOURCE_AND_PUBLIC_SIGNER.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/authority.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/coverage_auto.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/coverage_base.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/import.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/jarsigner.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/public_certificate.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/roshan-reef.apk.sha256",
+    "docs/handoffs/codex_recent_updates_dev_2026-11-06/.gdignore"
+  ],
+  "validation": [
+    {
+      "command": "Exact Godot4.7.2 --headless --import . under isolated profile",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/IMPORT_RESULT.json"
+    },
+    {
+      "command": "All5582 actual runtime file SHA256 and normal saves before/after import",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/RUNTIME_EQUALITY.json"
+    },
+    {
+      "command": "Document authority, automatic and exact-base development coverage",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/METADATA_GATES.json"
+    }
+  ],
+  "evidence": {
+    "actual_failed_APK": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/SOURCE_ONLY_EXPORT_FAILURE.json",
+    "candidate_runtime_unchanged_required": true,
+    "exact_import_cache_check": "PASS",
+    "previous_R146_88_checks": {
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/evidence/full_machine/FINAL_RESULT.json"
+    },
+    "matching_corrected_APK": "PENDING_FUTURE_DEV_BUILD",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null
+  },
+  "acceptance": {
+    "finding_lifecycle_changed": false,
+    "accepted_artwork_removal": 0,
+    "new_frame_events": 0,
+    "new_generation_calls": 0
+  },
+  "acceptance_gaps": "Actual E700 APK remains export-boundary FAIL despite integrity PASS. New .gdignore import cache and unchanged runtime/save proof pass; corrected matching APK export, formalQA11, natural/fullspeed visual/device/child/owner acceptance remain separate and pending. No finding closure or artwork acceptance credit."
+}

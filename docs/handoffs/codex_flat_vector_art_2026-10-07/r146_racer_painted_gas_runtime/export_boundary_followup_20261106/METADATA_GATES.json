@@ -1,0 +1,43 @@
+{
+  "state": "PASS_SCOPED_EXPORT_BOUNDARY_AUTHORITY_ACTUAL_DIFF_COVERAGE",
+  "baseline": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+  "results": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/authority.log",
+      "sha256": "943cf05dde64d72e7c4102de330fd872eaddb66423a4fce76cb3cbfdc221fdde"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/coverage_auto.log",
+      "sha256": "4fdaf89f9fd10b7b07653640f482c52bd89e8fb30c22fd2dd048374a56e024fb"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "9ba54f9144cd19210bc333f6a677dfadf3a1bf37"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/coverage_base.log",
+      "sha256": "202c8dbfeba55a6d519ee1573573cdf0f6e21a44adbeb655097d593027dfd731"
+    }
+  ],
+  "runtime_unchanged": true,
+  "healthy_engine_suite_repeated": false,
+  "checked_at_utc": "2026-11-06T20:48:49.089356+00:00"
+}
