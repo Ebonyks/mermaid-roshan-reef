@@ -1,0 +1,35 @@
+{
+  "id": "reef-kart-zones-publication-20261105",
+  "baseline": "d8d4529d3f135dc888d98c341768ae2237ccc344",
+  "scope": "Add a durable anonymous remote-verification receipt for the unchanged racer gas, item guidance and room-zone delivery packet. No game, artwork or acceptance-authority changes.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07"
+  ],
+  "findings": [],
+  "no_findings_reason": "Delivery evidence only; the original implementation impact and all finding lifecycles remain unchanged.",
+  "files": [
+    "audit/cycles/reef-kart-zones-20261105/REMOTE_VERIFICATION.json",
+    "audit/cycles/reef-kart-zones-20261105/evidence/publication-authority.log",
+    "audit/cycles/reef-kart-zones-20261105/evidence/publication-development.log"
+  ],
+  "validation": [
+    {
+      "command": "python -B audit/cycles/reef-kart-zones-20261105/verify_remote_packet.py --revision d8d4529d3f135dc888d98c341768ae2237ccc344 --out audit/cycles/reef-kart-zones-20261105/REMOTE_VERIFICATION.json",
+      "result": "PASS",
+      "evidence": "audit/cycles/reef-kart-zones-20261105/REMOTE_VERIFICATION.json; 315/315 anonymous HTTP 200 responses, byte counts and SHA-256 match at d8d4529d3f135dc888d98c341768ae2237ccc344; checked 2026-11-06T07:33:00.560952+00:00"
+    },
+    {
+      "command": "tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "audit/cycles/reef-kart-zones-20261105/evidence/publication-authority.log"
+    },
+    {
+      "command": "tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "audit/cycles/reef-kart-zones-20261105/evidence/publication-development.log"
+    }
+  ],
+  "acceptance_gaps": "The tested game payload is unchanged. Original full local CI passed all 82 probes; remote exact-head CI, human visual/audio, physical devices/controllers, child and owner acceptance remain separate."
+}
