@@ -1,0 +1,42 @@
+{
+  "id": "flat-vector-r144-candidate-receipt-20261106",
+  "baseline": "4bd9101a5b88ce8f0388917f297a849403e01ef3",
+  "scope": "Publish exact anonymous current-source-candidate payload verification and already-passing metadata gate logs; preserve all current counts, source/Dev pending states and external acceptance. No runtime, art pixel, source-code, workflow or engine changes.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-07",
+    "DL-QA-11"
+  ],
+  "findings": [],
+  "no_findings_reason": "Receipt-only provenance publication changes no finding lifecycle or gameplay behavior. R144 source comparison and machine evidence retain their original scopes.",
+  "files": [
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/canonical_payload_RESULTS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/canonical_payload_authority.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/canonical_payload_coverage_auto.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/canonical_payload_coverage_base.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/RECEIPT_MANIFEST.json"
+  ],
+  "validation": [
+    {
+      "command": "anonymous immutable payload manifest and all71required bytes",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/REMOTE_VERIFICATION.json; revision 4bd9101a5b88ce8f0388917f297a849403e01ef3"
+    },
+    {
+      "command": "actual payload authority/AUTO/exact-base gates",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/canonical_payload_RESULTS.json and three original logs"
+    },
+    {
+      "command": "receipt actual-staged-tree document authority and change coverage",
+      "result": "PENDING",
+      "evidence": "Required final metadata checks before receipt commit; do not replay unchanged engine suites or cancel healthy existing jobs."
+    }
+  ],
+  "acceptance_gaps": "SourceCI and Dev integration pending, another production owner active; formal QA11/device/child/owner and whole-game acceptance remain open. No accepted-removal credit."
+}

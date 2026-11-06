@@ -1,0 +1,58 @@
+{
+  "schema": "reef.flat_vector_delivery/1",
+  "id": "FV-R144-CANDIDATE-RECEIPT-20261106",
+  "payload_revision": "4bd9101a5b88ce8f0388917f297a849403e01ef3",
+  "files": [
+    {
+      "path": "design/audit_impacts/flat-vector-r144-candidate-receipt-20261106.json",
+      "revision": "SELF",
+      "sha256": "3f0c50a2d647321093d18b416824d0b3bd0fff3fd4403d444cf8d18fa7da0a7b",
+      "bytes": 2555
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "revision": "SELF",
+      "sha256": "d55300147d014388be5117512e9898d9b3f72e04ce2933f4f618cca296a9d2d1",
+      "bytes": 324319
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md",
+      "revision": "SELF",
+      "sha256": "7d4a955e79ab3453cef2796e726a0e3a2eb640daf0b92d340b00c9cc245e6988",
+      "bytes": 3846
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/REMOTE_VERIFICATION.json",
+      "revision": "SELF",
+      "sha256": "d7d259a8aca18de9885402bd87d061208b15a0b7147c151eb62bf6c3ff6b1fcd",
+      "bytes": 47690
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/canonical_payload_RESULTS.json",
+      "revision": "SELF",
+      "sha256": "d2f35fb5535a1877eeba31f11bd0781005931b1a123d9451ee92f27a6042ca80",
+      "bytes": 1115
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/canonical_payload_authority.log",
+      "revision": "SELF",
+      "sha256": "baf74c4295562cc8dbbf4b7311fbefc52ec724a215d16db5e6285a189916fe66",
+      "bytes": 78
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/canonical_payload_coverage_auto.log",
+      "revision": "SELF",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "bytes": 80
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/canonical_payload_coverage_base.log",
+      "revision": "SELF",
+      "sha256": "fd624aa0b414b0c39ed2d61dd1521dd21c9b322f5262e2da85c97d674e33d244",
+      "bytes": 80
+    }
+  ],
+  "scope": "Actual receipt-only delivery. Previously verified immutable source and canonical payload manifests retain their own exact revisions, without recursively republishing historical dependencies.",
+  "runtime_changed": false,
+  "accepted_removed": 0
+}
