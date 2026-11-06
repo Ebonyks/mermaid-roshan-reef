@@ -1,0 +1,33 @@
+{
+  "source_commit": "32588fbfc6daaa0703d9ee95a526016fc995a38b",
+  "run": 42134817094,
+  "attempts": [
+    {
+      "attempt": 1,
+      "job": 127620166679,
+      "error": "java.io.IOException: No space left on device during APK signing; export failed"
+    },
+    {
+      "attempt": 2,
+      "job": 127627862256,
+      "error": "java.io.IOException: No space left on device during APK signing; export failed"
+    }
+  ],
+  "required_dev_ci": {
+    "run": 42126410272,
+    "result": "SUCCESS"
+  },
+  "logs_scope": "Only failed export-step logs read; no signing setup logs or keystore bytes.",
+  "retry_error_receipt": {
+    "run": 42134817094,
+    "attempt": 2,
+    "captured_utc": "2026-11-06T00:45:10.592004+00:00",
+    "failed_step": "Export debug APK",
+    "errors": [
+      "build\tExport debug APK\t2026-11-06T00:43:54.5798139Z ##[error]Exception in thread \"main\" java.io.IOException: No space left on device",
+      "build\tExport debug APK\t2026-11-06T00:43:54.5811773Z ##[error]Exception in thread \"main\" java.io.IOException: No space left on device",
+      "build\tExport debug APK\t2026-11-06T00:43:54.6370607Z ERROR: Project export for preset \"Android\" failed."
+    ],
+    "scope": "Only failed export step error lines; not signing setup or key contents."
+  }
+}

@@ -4,6 +4,7 @@ name: Android APK
 # A single repository secret supplies the persistent debug signing identity;
 # replacing that identity would make Android reject in-place updates.
 on:
+  workflow_dispatch:
   workflow_run:
     # ⚠ This matches the probe workflow by its literal `name:` string. Renaming
     # the probe workflow silently stops ALL APK builds — no error, just no
@@ -13,13 +14,16 @@ on:
     types: [completed]
 
 concurrency:
-  group: android-${{ github.event.workflow_run.head_branch }}
+  group: android-${{ github.event_name == 'workflow_dispatch' && github.ref_name || github.event.workflow_run.head_branch }}
   cancel-in-progress: true
 
 permissions:
   contents: write
+  actions: read
 
 env:
+  ANDROID_SOURCE_SHA: ${{ github.event_name == 'workflow_dispatch' && github.sha || github.event.workflow_run.head_sha }}
+  ANDROID_SOURCE_BRANCH: ${{ github.event_name == 'workflow_dispatch' && github.ref_name || github.event.workflow_run.head_branch }}
   # Template dir uses full patch version (4.7.2.stable); editor settings
   # filename uses only major.minor (editor_settings-4.7.tres) — they diverged
   # when the pinned release gained a patch number.
@@ -34,20 +38,31 @@ env:
 jobs:
   build:
     if: >-
-      github.event.workflow_run.event == 'push' &&
+      (github.event_name == 'workflow_run' &&
+       github.event.workflow_run.event == 'push' &&
        github.event.workflow_run.conclusion == 'success' &&
        (github.event.workflow_run.head_branch == 'master' ||
-        github.event.workflow_run.head_branch == 'dev')
+        github.event.workflow_run.head_branch == 'dev')) ||
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/dev')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
-          ref: ${{ github.event.workflow_run.head_sha }}
+          ref: ${{ env.ANDROID_SOURCE_SHA }}
           # full history: version/code below derives from the commit count
           fetch-depth: 0
           # nothing in this job pushes; don't leave the write-capable token
           # in .git/config where build-time project code could read it
           persist-credentials: false
+
+      - name: Test exact-source packaging guard
+        run: python3 -B -m unittest tools.tests.test_verify_android_build_source
+
+      - name: Verify exact green dev source
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 -B tools/verify_android_build_source.py
 
       - uses: actions/setup-java@c1e323688fd81a25caa38c78aa6df2d33d3e20d9 # v4.8.0
         with:
@@ -79,7 +94,9 @@ jobs:
           unzip -q godot.zip
           sudo mv "Godot_v${GODOT_RELEASE}_linux.x86_64" /usr/local/bin/godot
           mkdir -p "$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
-          unzip -q templates.tpz -d /tmp/tpl
+          # Prebuilt APK export only needs Android; leave room for signing.
+          unzip -q templates.tpz \
+            "templates/android_debug.apk" "templates/android_release.apk" -d /tmp/tpl
           mv /tmp/tpl/templates/* "$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable/"
 
       - name: Restore stable signing identity + editor settings
@@ -179,7 +196,7 @@ jobs:
       - name: Pick release tag by branch (dev gets its own pre-promotion channel)
         id: tag
         env:
-          BUILD_BRANCH: ${{ github.event.workflow_run.head_branch }}
+          BUILD_BRANCH: ${{ env.ANDROID_SOURCE_BRANCH }}
         run: |
           if [ "$BUILD_BRANCH" = "dev" ]; then
             echo "tag=android-dev" >> "$GITHUB_OUTPUT"
@@ -189,6 +206,12 @@ jobs:
             echo "title=Android build (latest master)" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Recheck current green dev before publishing
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 -B tools/verify_android_build_source.py
+
       - name: Publish APK to the prerelease (stable download URL)
         uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2.6.2
         with:
@@ -197,7 +220,7 @@ jobs:
           prerelease: true
           body: |
             Debug APK of Mermaid Roshan Reef of Light, built only after the probe suite passed.
-            Commit: ${{ github.event.workflow_run.head_sha }}
+            Commit: ${{ env.ANDROID_SOURCE_SHA }}
             On the phone: download roshan-reef.apk, open it, and allow "install unknown apps" when prompted.
 
             Bookmarkable direct link (always the newest build on this channel):

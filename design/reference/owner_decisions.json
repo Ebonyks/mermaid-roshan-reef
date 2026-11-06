@@ -1577,6 +1577,21 @@
         "MA-OPERA-014"
       ],
       "cycle": "reef-kart-engine-20261103"
+    },
+    {
+      "id": "ODR-ANDROID-BUILD-CAPACITY-20261105",
+      "date": "2026-11-05",
+      "subject": "Android build-only capacity repair authorization",
+      "decision": "Approve the build-only fix",
+      "source": "audit/cycles/android-build-capacity-20261105/owner_request.json",
+      "question": "May I apply the prepared Android-build fix that unpacks only Android templates to avoid the runner’s disk-space failure? This edits .github/workflows/android.yml, which AGENTS.md requires you to authorize explicitly.",
+      "authority": "recorded_owner",
+      "checkable": true,
+      "checks": [
+        "tools/verify_android_build_source.py",
+        "tools/tests/test_verify_android_build_source.py"
+      ],
+      "cycle": "android-build-capacity-20261105"
     }
   ]
 }

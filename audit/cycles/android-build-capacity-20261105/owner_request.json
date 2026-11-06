@@ -1,0 +1,8 @@
+{
+  "owner": "Peter Creed",
+  "date": "2026-11-05",
+  "question": "May I apply the prepared Android-build fix that unpacks only Android templates to avoid the runner\u2019s disk-space failure? This edits .github/workflows/android.yml, which AGENTS.md requires you to authorize explicitly.",
+  "answer": "Approve the build-only fix",
+  "source": "Direct owner reply to request_user_input_async, questionItemId call_faa24b5e0afe4a2d97d124e5ae498648/0",
+  "implementation_dependency": "Dev-only manual retry is the implementer-selected routing required to apply the approved capacity change without promoting master. It must independently require successful exact-current-head push CI and preserve all signing/version/publishing contracts. This routing is not presented as an additional owner quotation."
+}

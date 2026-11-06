@@ -1,0 +1,74 @@
+{
+  "id": "android-build-capacity-20261105",
+  "baseline": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+  "scope": "Owner-approved Android build-only capacity repair: unpack only verified prebuilt Android templates, preserving checksums/cache/persistent signing/save/version behavior. Add a dev-only manual retry of the existing workflow with a fail-closed exact-current-commit successful push-probe prerequisite, because workflow_run executes release/default-branch workflow code; no master promotion or runtime/art changes.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-02",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-SAVE-03",
+    "DL-SAVE-04"
+  ],
+  "findings": [],
+  "no_findings_reason": "Specific build-runner capacity and safe dev packaging repair, not closure of any canonical game-wide art, gameplay, or probe-harness finding. Existing acceptance statuses remain unchanged.",
+  "files": [
+    ".github/workflows/android.yml",
+    "tools/verify_android_build_source.py",
+    "tools/tests/test_verify_android_build_source.py",
+    "docs/ANDROID_RELEASE.md",
+    "design/05_DOC_LEDGER.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/reference/owner_decisions.json",
+    "audit/cycles/android-build-capacity-20261105/owner_answers.json",
+    "audit/cycles/android-build-capacity-20261105/owner_request.json",
+    "audit/cycles/android-build-capacity-20261105/verification.json",
+    "audit/cycles/android-build-capacity-20261105/failed-attempts.json",
+    "audit/cycles/android-build-capacity-20261105/template-space.json",
+    "audit/cycles/android-build-capacity-20261105/tests.txt",
+    "audit/cycles/android-build-capacity-20261105/source-api-schema.json",
+    "audit/cycles/android-build-capacity-20261105/baseline-runtime.json",
+    "audit/cycles/android-build-capacity-20261105/workflow-contract.json"
+  ],
+  "validation": [
+    {
+      "command": "Official pinned template archive + actual selective unzip",
+      "result": "PASS",
+      "evidence": "audit/cycles/android-build-capacity-20261105/template-space.json; SHA512 matches existing4.7.2 pin; two required Android APK templates total232064058 bytes, avoiding1840184530 bytes of unrelated templates."
+    },
+    {
+      "command": "Build prerequisite fail-closed negative controls and workflow binding",
+      "result": "PASS",
+      "evidence": "audit/cycles/android-build-capacity-20261105/tests.txt:86unit tests; workflow-contract.json binds actionlint1.7.7,9Bash syntax blocks,unchanged signing/action pins. Actual API metadata accepted; latest red/pending blocks older green."
+    },
+    {
+      "command": "Document/coverage/owner-register checks and exact-head required CI, dev integration, APK export and byte/source verification",
+      "result": "PENDING",
+      "evidence": "audit/cycles/android-build-capacity-20261105/verification.json"
+    },
+    {
+      "command": "Exact unchanged game input tree bound to current successful Dev run",
+      "result": "PASS",
+      "evidence": "audit/cycles/android-build-capacity-20261105/baseline-runtime.json; parent run42149410935 successful. All task changes are build-only; new exact-head CI remains required."
+    },
+    {
+      "command": "Current source document authority, owner append-only and actual change coverage",
+      "result": "PASS",
+      "evidence": "audit/cycles/android-build-capacity-20261105/verification.json;928/928 docs,126 immutable decisions and exact a7e1 baseline coverage. New-head remote CI remains PENDING."
+    }
+  ],
+  "acceptance_gaps": "No visual/runtime behavior changes. Existing Bubble Duel art/motion/QA11/device/two-person touch/child/owner/master gates remain open; CI and APK packaging do not establish physical acceptance. No release/master promotion authorized.",
+  "references_used": [
+    {
+      "path": "docs/ANDROID_RELEASE.md",
+      "purpose": "Persistent signing identity, in-place save compatibility and exact-green source publishing."
+    },
+    {
+      "path": "AGENTS.md",
+      "purpose": "Explicit owner authorization for high-risk .github/workflows/android.yml repair; dev/master precedence."
+    }
+  ]
+}
