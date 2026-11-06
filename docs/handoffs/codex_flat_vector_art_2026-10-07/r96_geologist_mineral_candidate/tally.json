@@ -1,7 +1,7 @@
 {
   "schema": "reef.flat_vector_tally/1",
   "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
-  "revision": "FV-APK-20261106-R146-PAINTED-GAS",
+  "revision": "FV-PRODUCTION-20261106-R147-PAINTED-STEERING",
   "status_lanes": [
     "NEEDS_CONTEXT_REVIEW",
     "IDENTIFIED",
@@ -10375,7 +10375,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "47 published bounded source artifacts,46 partial Dev artifacts;282 named roles and36 families remain lower bounds. Native events8085 bounded/4411 excluded/12496 total are unchanged. ExactFDsource/DevCI and matching931,048,177-byte Android2371 package are verified, including painted gas and review-prefix exclusions. Formal/natural/fullspeed/device/child/owner remain open; accepted0, complete0, whole totals unknown.",
+  "current_effective_summary": "48 published bounded source artifacts,46 partial Dev artifacts;282 named roles and36 families remain lower bounds. R147 partial existingFV031 steering repair adds one artifact, zero roles/families and32nativeevents (24bounded/8excluded), totals8109/4419/12528. SourceCI/Dev/matchingR147APK and formal/natural/fullspeed/device/child/owner remain separate. Accepted0, complete0, whole unknown.",
   "intro_entry_ownership": {
     "revision": "FV-AUDIT-20261016-R77",
     "topic_baseline": "7fd93aa0d2036c06c9a65aea6c79a990cc9ae01b",
@@ -11246,8 +11246,8 @@
     "trusted_probe_count_limit": "81distinct actual remote probe headers; exact run/job/step success. Do not transpose local82probe count or fabricate remote per-process exit records.",
     "observed_unique_trusted_probe_headers": 81
   },
-  "retained_native_events_current_summary": 12496,
-  "bounded_implementation_artifacts_published_current_summary": 47,
+  "retained_native_events_current_summary": 12528,
+  "bounded_implementation_artifacts_published_current_summary": 48,
   "inherited_r93_reference_base": "../r93_painted_hand_candidate/",
   "r94_parent_snapshot": {
     "revision": "e3088008d9934e94aa4d81f1c669da493a5f7087",
@@ -17679,8 +17679,8 @@
     "r132_retained_bounded_current_summary": 7333,
     "r132_retained_excluded_current_summary": 4206
   },
-  "retained_bounded_current_summary": 8085,
-  "retained_excluded_current_summary": 4411,
+  "retained_bounded_current_summary": 8109,
+  "retained_excluded_current_summary": 4419,
   "current_known_named_design_records": 282,
   "current_known_family_count": 36,
   "r141_racer_context_source": {
@@ -20062,5 +20062,169 @@
     "physical_device": null,
     "child": null,
     "owner": null
+  },
+  "r147_prior_canonical_revision": "c45a9f5242ddb4c37751f6432a43036eabde8928",
+  "r147_racer_painted_steering_control_runtime": {
+    "stable_id": "FV-031CDD6A2011",
+    "current_subrole_id": "FVR-AA4F097D3DAE",
+    "source_item": "green_steering_pad",
+    "family": "opera_racer",
+    "artifact_key": "r147_racer_painted_steering_control_runtime",
+    "state": "PUBLISHED_SOURCE_CANDIDATE_LOCAL_MACHINE_AND_CONFIGURED_CONTEXT_PASS_CI_DEV_EXTERNAL_OPEN",
+    "source_revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+    "branch": "codex/flat-vector-racer-steering-painted-20261106",
+    "source_delivery": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/canonical_source_intake_20261106/SOURCE_REMOTE_VERIFICATION.json",
+    "source_required_files_verified": 290,
+    "source_CI_at_intake": {
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "run": 42314874421,
+      "status": "in_progress",
+      "conclusion": ""
+    },
+    "native_output": {
+      "path": "assets_src/imagegen/racer_steering_control_20261106/steering_control_native.png",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 1173854,
+      "sha256": "0f6680bc4ada4424e3537c588ee3d6d07311a02b8e37ef1527fd13ca2dd9b2ae"
+    },
+    "candidate_outputs": [
+      {
+        "path": "assets/racer/ui/steering_ring_painted.png",
+        "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+        "bytes": 254294,
+        "sha256": "2d98806fd8f48345226f751442a0247b52b68e2e419777a3599759bf149dc1a1",
+        "dimensions": [
+          512,
+          512
+        ]
+      },
+      {
+        "path": "assets/racer/ui/steering_knob_painted.png",
+        "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+        "bytes": 87637,
+        "sha256": "a40cea67ef6d50d326c2d36f1dc148b708e984384deddb592c30723807814314",
+        "dimensions": [
+          256,
+          256
+        ]
+      }
+    ],
+    "runtime_imports": [
+      {
+        "path": "assets/racer/ui/steering_ring_painted.png.import",
+        "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+        "bytes": 982,
+        "sha256": "436003f64137fc2611cbfc0bfb2800386a503da7b9687ff054673cba48430268"
+      },
+      {
+        "path": "assets/racer/ui/steering_knob_painted.png.import",
+        "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+        "bytes": 983,
+        "sha256": "5c10ada1dd3bd9dab72b601fca798f6a5d83eeff86eba68a6ef05c04f7a12731"
+      }
+    ],
+    "runtime_code": {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 64827,
+      "sha256": "51ac5462cdec6918318dd1f997d317c0281aea75d1b3fc86b471e1da391ca64e"
+    },
+    "generation_record": {
+      "path": "assets_src/imagegen/racer_steering_control_20261106/GENERATION_JOB.json",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 6121,
+      "sha256": "4e1715cd38a7ba9635f99d5072c8c90ce204f5ad3c3e70e6aef817d072360350"
+    },
+    "actual_backend": "built-in image_gen.imagegen; only image_url/output_hint returned; no model selector/version/provider revision/request ID/seed/usage exposed",
+    "candidate_calls": 1,
+    "paid_external_API_calls": 0,
+    "animation_calls": 0,
+    "other_funded_caps": "unchanged",
+    "derivation": "Two declared square native component crops preserve all alpha>=4, omit declared alpha1..3 outside bounds, uniform LANCZOS512ring/256knob, original native preserved. No alpha painting or new appearance pixels.",
+    "same_scene_review": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/TEN_AXIS_COMPARISON.json",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 4489,
+      "sha256": "fb13b85491c1f1e5f7e7c54bac90bb5fc609ab6fcad9908eadb1ef9b7235b4ba"
+    },
+    "local_static_art_review": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/LOCAL_STATIC_ART_REVIEW.json",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 2632,
+      "sha256": "c7b4f8d2a297eb568e59a3170a2147bdefef41a5710ae03508061465a7785025"
+    },
+    "native_events": {
+      "bounded": 24,
+      "excluded": 8,
+      "total": 32,
+      "PC_no_target_excluded": 8
+    },
+    "local_machine": {
+      "state": "PASS_ACTUAL_R147_PAINTED_STEERING_STATIC_IMPORT_2FOCUSED_AND82_STRICT_COMMAND_EXITS",
+      "runtime_inputs": 5586,
+      "required_commands": 88,
+      "evidence": {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/FINAL_RESULT.json",
+        "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+        "bytes": 55678,
+        "sha256": "e7f6e00e47b57537152e7b348bb40738dcb78d95e77185d6254d2aa1bafe8978"
+      }
+    },
+    "runtime": "Actual4.7.2Mobile/OperaSpeedy configured source/candidate guidedidle,heldcenter,left,right,release,focuscancel at1280/1600.12targetpairs bounded tosteering;4PCpairs identical.24targetcrops and1fullscene directly reviewed; no all32-full-scene/natural/fullspeed claim.",
+    "functional_invisible_geometry": "Unchanged steering rect(0,200,580,520),range96,radius104,home230,560, floating bounds112,330,356,290. Sameonefinger owner/cancellation/guidegasitems/saves;0artcredit.",
+    "existing_canonical_binding": {
+      "historical_id": "FV-031CDD6A2011",
+      "new_known_role_credit": 0,
+      "broader_historical_flags_turbo_countdown_training_retired": false,
+      "binding": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/canonical_source_intake_20261106/STABLE_ID_BINDING.json"
+    },
+    "candidate": true,
+    "source_work_branch_integrated": true,
+    "Dev_integration": false,
+    "Dev_revision": null,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "complete_scenes": 0,
+    "mission_complete": false,
+    "prior_canonical_revision": "c45a9f5242ddb4c37751f6432a43036eabde8928"
+  },
+  "r147_current_effective_summary": {
+    "known_roles": 282,
+    "known_families": 36,
+    "published_bounded_source_artifacts": 48,
+    "partial_Dev_artifacts": 46,
+    "retained_bounded_native_events": 8109,
+    "retained_excluded_native_events": 4419,
+    "retained_native_events": 12528,
+    "accepted_removed": 0,
+    "complete_scene_coverage": 0,
+    "whole_game_total": null,
+    "revision": "FV-PRODUCTION-20261106-R147-PAINTED-STEERING"
+  },
+  "r147_revision_delta": {
+    "bounded_source_artifacts": 1,
+    "partial_Dev_artifacts": 0,
+    "named_roles": 0,
+    "families": 0,
+    "native_bounded": 24,
+    "native_excluded": 8,
+    "native_total": 32,
+    "original_builtin_generation_calls": 1,
+    "new_calls_in_metadata_intake": 0,
+    "accepted_removed": 0,
+    "complete_scenes": 0
+  },
+  "r147_current_counter_units": {
+    "source_artifacts": 48,
+    "partialDev_artifacts": 46,
+    "named_roles_lower_bound": 282,
+    "families_lower_bound": 36,
+    "technical_runtime_components_this_artifact": 2,
+    "native_events": 12528,
+    "accepted_artwork_removals": 0,
+    "unresolved_scopes_and_whole_game_total": "Unknown denominators preserved; historical scope inventory unchanged."
   }
 }

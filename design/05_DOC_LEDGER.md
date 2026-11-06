@@ -1524,3 +1524,6 @@ R132 authority reconciliation2026-11-03: the existing docs/handoffs/codex_flat_v
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/README.md` | 🔵 | `SUPPORTING_CURRENT`; actual R146 source-green code integration on Dev and one partialDev artifact46. Same painted output/native diagnostics; correctedAPK/formal/device/child/owner remain separate. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/README.md` | 🔵 | `SUPPORTING_CURRENT`; exactFD Dev Android2371 completeanonymousbytes/PCK/exclusion/publicJARsigner verification; priorNoSpace/approvedretry retained. Countersunchanged, allformal/device/child/owner lanes separate. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/README.md` | 🔵 | `SUPPORTING_CURRENT`; verified R147 paintedsteering source/intake, existingFV031 partialbinding, all88localcommands/32configured events/localAI4.5floor; sourceCI/Dev/formal/device/child/owner remain separate. |
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/canonical_source_intake_20261106/README.md` | 🔵 | `SUPPORTING_EVIDENCE`; bounded anonymoussource proof and currentcanonical metadata only, no newruntime validation or acceptance. |

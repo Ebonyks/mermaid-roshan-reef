@@ -1,0 +1,65 @@
+{
+  "state": "ASSISTANT_SAME_SCENE_NATIVE_CONTROL_REVIEW_EXTERNAL_ACCEPTANCE_OPEN",
+  "stable_id": "FV-031CDD6A2011",
+  "baseline_code": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+  "axes": [
+    {
+      "axis": "medium",
+      "comparison": "Uniform circles/arc/polygon arrows become an actual painted jade ring and separate painted knob; native source and technical crops retain brush texture. No procedural art substitute."
+    },
+    {
+      "axis": "identity",
+      "comparison": "Green steering identity, two outward left/right cues and separate draggable round knob remain. All characters, vehicles, gas/item art and guidance hand are unchanged."
+    },
+    {
+      "axis": "style",
+      "comparison": "Plum contours, warm ivory arrows, jade brushwork and upper-left illustrated light fit the painted gold gas button and same-scene storybook decor. No new character or environment design."
+    },
+    {
+      "axis": "silhouette",
+      "comparison": "Round ring and knob remain at the old centres and full draw dimensions. Square crops retain every native alpha>=4 contour pixel and declare trimmed alpha1..3 fringe. Painted contour is deliberately authored rather than a perfect procedural circle."
+    },
+    {
+      "axis": "material",
+      "comparison": "Native-resolution target crops show soft gouache-like grain, shaped highlights and darker lower-right paint. Material remains readable at218/104-pixel control scale."
+    },
+    {
+      "axis": "palette_value",
+      "comparison": "Jade/emerald stays distinct from gold gas and blue item controls. Warm ivory arrows remain high-contrast; idle/held tints stay bounded and restore after release/cancellation."
+    },
+    {
+      "axis": "composition",
+      "comparison": "All12 source/candidate target pairs differ only inside the unchanged steering base/knob drawing bounds plus2pixelsAA; fourPC pairs are fullyRGBidentical. Full1280released frame was directly inspected; other full-world/aspect closure is unclaimed."
+    },
+    {
+      "axis": "scale_contact_occlusion",
+      "comparison": "Same floating base and96-pixel thumb endpoints,104-pixel knob draw, original tutorial hand and draw order. The clear ring centre reveals more track than the old translucent disk. At full left/right the thumb covers the near arrow as before; device/child judgement remains open."
+    },
+    {
+      "axis": "child_readability",
+      "comparison": "Large outward ivory arrows and the separate green thumb target retain non-reader cues. Real touch, same-finger left/right, release and focus cancellation pass in configured diagnostic fixtures; no physical-child session was performed."
+    },
+    {
+      "axis": "runtime_suitability",
+      "comparison": "512ring and256knob POT/lossless imports, no mipmaps or VRAM compression; decoded base1,310,720bytes. Exact4.7.2/Mobile/OperaSpeedy,30fps configured cap and two widths observed; actual device performance, fullspeed and formalQA11 remain open.",
+      "limit": "Exact5586-input changed candidate passes88required localcommands: fullstatic/import/all-scriptanalyzers, parser/inference,2focusedRacerprobes,82trusted exits and final2D/source/normal-save/fixture guards. SourceCI/Dev, natural/fullspeed/formalQA11/device/child/owner remain separate."
+    }
+  ],
+  "inspected_native_resolution_target_crops": 24,
+  "crop_review_artifacts": [
+    "assets_src/review/r147_racer_steering_20261106/steering_control_review_1280.png",
+    "assets_src/review/r147_racer_steering_20261106/steering_control_review_1600.png"
+  ],
+  "directly_inspected_full_native_frame": "assets_src/review/r147_racer_steering_20261106/captures/candidate_1280/opera-released.png",
+  "inspection_limit": "Both native-resolution control contact sheets show all24 target images without resizing their control pixels. This does not claim direct full-scene inspection of every32frame or natural-route/fullspeed closure.",
+  "decoded_comparison": "assets_src/review/r147_racer_steering_20261106/PAIR_PIXEL_COMPARISON.json",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "initial_production_subrole_id": "FVR-AA4F097D3DAE",
+  "current_subrole_id": "FVR-AA4F097D3DAE",
+  "stable_id_binding": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/STABLE_ID_BINDING.json",
+  "local_static_eligibility_review": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/LOCAL_STATIC_ART_REVIEW.json"
+}

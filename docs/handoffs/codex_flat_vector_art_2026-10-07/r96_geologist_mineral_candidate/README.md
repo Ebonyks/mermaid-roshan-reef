@@ -13,3 +13,7 @@ R95painted-pan integration remains first. Its original full CI finished FAIL: th
 Implementation, machine checks, formalQA11 and device/child/owner acceptance remain separate. Known263roles/35families and existing totals remain historical lower bounds; all unknown denominators stay unknown. Zero accepted removals; mission open.
 
 Delivery: [immutable payload](https://github.com/Ebonyks/mermaid-roshan-reef/tree/7f5292785b331ee42a460eeba5ec612a687e2b0e/docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate), [direct manifest](https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/7f5292785b331ee42a460eeba5ec612a687e2b0e/docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/MANIFEST.json), [anonymous exact-byte receipt](REMOTE_VERIFICATION.json). Publication does not accept either sample or the pan recovery.
+
+## R147 current registry
+
+48 published bounded source artifacts,46 partial Dev artifacts;282 named roles and36 families remain lower bounds. R147 partial existingFV031 steering repair adds one artifact, zero roles/families and32nativeevents (24bounded/8excluded), totals8109/4419/12528. SourceCI/Dev/matchingR147APK and formal/natural/fullspeed/device/child/owner remain separate. Accepted0, complete0, whole unknown. [Candidate](../r147_racer_painted_steering_runtime/README.md). Historical totals and operation handles below remain preserved; current operation is exact R147 sourceCI.

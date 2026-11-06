@@ -1,17 +1,17 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-APK-20261106-R146-PAINTED-GAS",
-  "current_entry": "r146_racer_painted_gas_runtime/android_20261106/README.md",
+  "revision": "FV-PRODUCTION-20261106-R147-PAINTED-STEERING",
+  "current_entry": "r147_racer_painted_steering_runtime/README.md",
   "current_per_piece": "r96_geologist_mineral_candidate/per_piece.json",
   "current_scene_coverage": "r96_geologist_mineral_candidate/scene_coverage.json",
   "current_tally": "r96_geologist_mineral_candidate/tally.json",
   "current_backlog": "r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/MANIFEST.json",
+  "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/canonical_source_intake_20261106/MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/SOURCE_DEV_CI_COMPLETED.json",
+  "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/canonical_source_intake_20261106/SOURCE_CI_AT_INTAKE.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -7098,8 +7098,8 @@
   "r143_partial_Dev_artifact_delta": 16,
   "immutable_r143_receipt_revision": "504c290443c280ae543cb5caa1fe671340821ad4",
   "immutable_r144_payload_revision": "4bd9101a5b88ce8f0388917f297a849403e01ef3",
-  "current_payload_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9ba54f9144cd19210bc333f6a677dfadf3a1bf37/docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/MANIFEST.json",
-  "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/DOWNLOAD_RESULT.json",
+  "current_payload_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3190412c191589e1b65bc4ebb6f48d18cc4dd400/docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/MANIFEST.json",
+  "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/canonical_source_intake_20261106/SOURCE_REMOTE_VERIFICATION.json",
   "immutable_r144_receipt_revision": "d7c61f2636b4828a5158b3276dffdf695e5eeee3",
   "previous_receipt_manifest": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/d7c61f2636b4828a5158b3276dffdf695e5eeee3/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/RECEIPT_MANIFEST.json",
   "r144_prior_current_art_source_context": {
@@ -7743,5 +7743,140 @@
     "physical_device": null,
     "child": null,
     "owner": null
+  },
+  "r147_prior_navigation": {
+    "revision": "FV-APK-20261106-R146-PAINTED-GAS",
+    "current_entry": "r146_racer_painted_gas_runtime/android_20261106/README.md",
+    "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/MANIFEST.json",
+    "current_payload_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9ba54f9144cd19210bc333f6a677dfadf3a1bf37/docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/MANIFEST.json",
+    "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/DOWNLOAD_RESULT.json",
+    "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/android_20261106/SOURCE_DEV_CI_COMPLETED.json"
+  },
+  "r147_current_production": {
+    "stable_id": "FV-031CDD6A2011",
+    "current_subrole_id": "FVR-AA4F097D3DAE",
+    "source_item": "green_steering_pad",
+    "family": "opera_racer",
+    "artifact_key": "r147_racer_painted_steering_control_runtime",
+    "state": "PUBLISHED_SOURCE_CANDIDATE_LOCAL_MACHINE_AND_CONFIGURED_CONTEXT_PASS_CI_DEV_EXTERNAL_OPEN",
+    "source_revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+    "branch": "codex/flat-vector-racer-steering-painted-20261106",
+    "source_delivery": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/canonical_source_intake_20261106/SOURCE_REMOTE_VERIFICATION.json",
+    "source_required_files_verified": 290,
+    "source_CI_at_intake": {
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "run": 42314874421,
+      "status": "in_progress",
+      "conclusion": ""
+    },
+    "native_output": {
+      "path": "assets_src/imagegen/racer_steering_control_20261106/steering_control_native.png",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 1173854,
+      "sha256": "0f6680bc4ada4424e3537c588ee3d6d07311a02b8e37ef1527fd13ca2dd9b2ae"
+    },
+    "candidate_outputs": [
+      {
+        "path": "assets/racer/ui/steering_ring_painted.png",
+        "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+        "bytes": 254294,
+        "sha256": "2d98806fd8f48345226f751442a0247b52b68e2e419777a3599759bf149dc1a1",
+        "dimensions": [
+          512,
+          512
+        ]
+      },
+      {
+        "path": "assets/racer/ui/steering_knob_painted.png",
+        "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+        "bytes": 87637,
+        "sha256": "a40cea67ef6d50d326c2d36f1dc148b708e984384deddb592c30723807814314",
+        "dimensions": [
+          256,
+          256
+        ]
+      }
+    ],
+    "runtime_imports": [
+      {
+        "path": "assets/racer/ui/steering_ring_painted.png.import",
+        "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+        "bytes": 982,
+        "sha256": "436003f64137fc2611cbfc0bfb2800386a503da7b9687ff054673cba48430268"
+      },
+      {
+        "path": "assets/racer/ui/steering_knob_painted.png.import",
+        "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+        "bytes": 983,
+        "sha256": "5c10ada1dd3bd9dab72b601fca798f6a5d83eeff86eba68a6ef05c04f7a12731"
+      }
+    ],
+    "runtime_code": {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 64827,
+      "sha256": "51ac5462cdec6918318dd1f997d317c0281aea75d1b3fc86b471e1da391ca64e"
+    },
+    "generation_record": {
+      "path": "assets_src/imagegen/racer_steering_control_20261106/GENERATION_JOB.json",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 6121,
+      "sha256": "4e1715cd38a7ba9635f99d5072c8c90ce204f5ad3c3e70e6aef817d072360350"
+    },
+    "actual_backend": "built-in image_gen.imagegen; only image_url/output_hint returned; no model selector/version/provider revision/request ID/seed/usage exposed",
+    "candidate_calls": 1,
+    "paid_external_API_calls": 0,
+    "animation_calls": 0,
+    "other_funded_caps": "unchanged",
+    "derivation": "Two declared square native component crops preserve all alpha>=4, omit declared alpha1..3 outside bounds, uniform LANCZOS512ring/256knob, original native preserved. No alpha painting or new appearance pixels.",
+    "same_scene_review": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/TEN_AXIS_COMPARISON.json",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 4489,
+      "sha256": "fb13b85491c1f1e5f7e7c54bac90bb5fc609ab6fcad9908eadb1ef9b7235b4ba"
+    },
+    "local_static_art_review": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/LOCAL_STATIC_ART_REVIEW.json",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 2632,
+      "sha256": "c7b4f8d2a297eb568e59a3170a2147bdefef41a5710ae03508061465a7785025"
+    },
+    "native_events": {
+      "bounded": 24,
+      "excluded": 8,
+      "total": 32,
+      "PC_no_target_excluded": 8
+    },
+    "local_machine": {
+      "state": "PASS_ACTUAL_R147_PAINTED_STEERING_STATIC_IMPORT_2FOCUSED_AND82_STRICT_COMMAND_EXITS",
+      "runtime_inputs": 5586,
+      "required_commands": 88,
+      "evidence": {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/evidence/full_machine/FINAL_RESULT.json",
+        "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+        "bytes": 55678,
+        "sha256": "e7f6e00e47b57537152e7b348bb40738dcb78d95e77185d6254d2aa1bafe8978"
+      }
+    },
+    "runtime": "Actual4.7.2Mobile/OperaSpeedy configured source/candidate guidedidle,heldcenter,left,right,release,focuscancel at1280/1600.12targetpairs bounded tosteering;4PCpairs identical.24targetcrops and1fullscene directly reviewed; no all32-full-scene/natural/fullspeed claim.",
+    "functional_invisible_geometry": "Unchanged steering rect(0,200,580,520),range96,radius104,home230,560, floating bounds112,330,356,290. Sameonefinger owner/cancellation/guidegasitems/saves;0artcredit.",
+    "existing_canonical_binding": {
+      "historical_id": "FV-031CDD6A2011",
+      "new_known_role_credit": 0,
+      "broader_historical_flags_turbo_countdown_training_retired": false,
+      "binding": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/canonical_source_intake_20261106/STABLE_ID_BINDING.json"
+    },
+    "candidate": true,
+    "source_work_branch_integrated": true,
+    "Dev_integration": false,
+    "Dev_revision": null,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "complete_scenes": 0,
+    "mission_complete": false,
+    "prior_canonical_revision": "c45a9f5242ddb4c37751f6432a43036eabde8928"
   }
 }
