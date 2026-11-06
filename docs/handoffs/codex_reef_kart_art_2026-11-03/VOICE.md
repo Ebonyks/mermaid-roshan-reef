@@ -41,3 +41,7 @@ a row of item bubbles stands under each pearl arch.
 4. "Swipe to steer" still describes the stick only loosely (she slides a
    finger sideways). A new line would need an owner decision; until then the
    existing recorded instruction stays exact and the probe pins it.
+
+## 2026-11-05 item-explanation extension
+
+The owner now requests spoken explanations for each awarded item. [ZONES.md](ZONES.md#spoken-item-explanations) owns this bounded five-clip contextual neutral Guide addition. The original reuse-only packet remains historical; protected recordings and no-cloning constraints remain. New speech is a provisional candidate pending listening/device/child/owner review.

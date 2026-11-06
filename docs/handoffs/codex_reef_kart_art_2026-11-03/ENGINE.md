@@ -1,5 +1,7 @@
 # Reef Grand Prix engine: what is built and how art binds
 
+Current 2026-11-05 input correction: the single touch pedal is **gas**. [ZONES.md](ZONES.md) owns the current mapping, exact item guidance and four room sections. Older brake measurements below retain their historical baseline and do not redefine the new owner direction.
+
 Status: `IMPLEMENTED_ON_BRANCH` (`claude/reef-kart-engine-20261103`). Machine
 checks pass locally. Device, child and owner acceptance are open. Nothing
 here is `DELIVERY_ACCEPTED`.

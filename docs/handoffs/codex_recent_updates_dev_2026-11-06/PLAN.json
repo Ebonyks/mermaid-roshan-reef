@@ -1,0 +1,77 @@
+{
+  "state": "STARTED_FROM_CLEAN_CURRENT_DEV",
+  "baseline": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+  "branch": "codex/recent-finished-updates-dev-20261106",
+  "owner_request": "Insure all updates of last several days are pushed to dev, and continue",
+  "scope": "Reconcile finished green Racer gas/item-guidance/room-zones8c9bc130 and DKC review-docse4c164a8, preserving current R144 shell, R143 painted mounts, Sky owner rejection history and existing MCP/Android policy. No music/audio from private DKC package exported. Active Bubble Duel checkout/source remains owned by its editor.",
+  "sources": [
+    {
+      "revision": "8c9bc130766725965a76eca876ef683b92242334",
+      "CI": 42181775177,
+      "conclusion": "success"
+    },
+    {
+      "revision": "e4c164a8c04a63e32e1df42fe0cc7578f89bce7d",
+      "CI": 42183590257,
+      "conclusion": "success"
+    }
+  ],
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-06",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-INT-04",
+    "DL-INT-10",
+    "DL-SND-01",
+    "DL-SND-02",
+    "DL-SND-03",
+    "DL-SND-04",
+    "DL-SND-05",
+    "DL-SND-09",
+    "DL-SND-10",
+    "DL-SND-11",
+    "DL-SND-12",
+    "DL-SND-13",
+    "DL-SND-14",
+    "DL-SND-15",
+    "DL-SND-16",
+    "DL-SND-18",
+    "DL-QA-02",
+    "DL-QA-04",
+    "DL-QA-06",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-OPERA-014",
+    "MA-VIS-008",
+    "MA-AUDIO-001"
+  ],
+  "required_evidence": [
+    "source branch exact-head CI",
+    "mechanical parent and protected asset preservation",
+    "actual merged script parser/lint/static gates",
+    "exact Godot4.7.2 import focused and full local or hosted CI",
+    "source-bound Mobile/Speedy changes review",
+    "public immutable required-file verification"
+  ],
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "master_promotion": false,
+  "created_at_utc": "2026-11-06T12:48:28.718689+00:00"
+}

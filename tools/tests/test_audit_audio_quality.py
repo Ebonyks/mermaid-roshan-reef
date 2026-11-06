@@ -49,7 +49,7 @@ class AudioQualityPolicyTests(unittest.TestCase):
                     "trigger": "actionable", "visual_pointer": "synchronized",
                     "historical_family_recording_gap": "retained"})
             manifest = {"schema": "reef.objective-guide-runtime.v1", "speaker": "guide",
-                "synthesis_calls": 7, "protected_original_changes": 0, "entries": entries}
+                "synthesis_calls": len(MODULE.OBJECTIVE_GUIDE_TEXT), "protected_original_changes": 0, "entries": entries}
             path = runtime / "OBJECTIVE_GUIDE_MANIFEST.json"
             def store():
                 path.write_text(json.dumps(manifest), encoding="utf-8")
@@ -72,7 +72,7 @@ class AudioQualityPolicyTests(unittest.TestCase):
                 manifest["synthesis_calls"] = 2
                 store()
                 self.assertTrue(MODULE.validate_objective_guides(root)["blocking"])
-                manifest["synthesis_calls"] = 7
+                manifest["synthesis_calls"] = len(MODULE.OBJECTIVE_GUIDE_TEXT)
                 care = next(e for e in entries if e["key"] == "guide_puff_clean")
                 actual_source = care["native_source_path"]
                 wrong_source = root / "assets_src/audio/objective_guides_20261014/native/guide_puff_clean.wav"

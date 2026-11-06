@@ -1,0 +1,47 @@
+{
+  "state": "PASS17_ACTUAL_MERGED_MOBILE_NATIVE_DIAGNOSTIC_FRAMES",
+  "exit_code": 0,
+  "frame_count": 17,
+  "profile": {
+    "PC_tier_limit": "fixed PC renderer has no separate quality selector; 30fps cap configured",
+    "canvas_size": [
+      1280,
+      720
+    ],
+    "device_performance": false,
+    "display": "Windows",
+    "formal_QA11": false,
+    "frame_cap": 30,
+    "renderer": "mobile",
+    "scale_aspect": 4,
+    "scale_mode": 1,
+    "version": {
+      "build": "official",
+      "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+      "hex": 263938,
+      "major": 4,
+      "minor": 7,
+      "patch": 2,
+      "status": "stable",
+      "string": "4.7.2-stable (official)",
+      "timestamp": 0
+    },
+    "window_size": [
+      1280,
+      720
+    ]
+  },
+  "fixture_sha256": "e3dae8af6552e4ef08bc528b0ceb15f10327ccc664efc0fe7317da37501f610b",
+  "runtime_input_count": 5571,
+  "runtime_drift": [],
+  "normal_save_unchanged": true,
+  "console_sha256": "bc698368f0317617b6e5d3669dd5619a2f6660da61e1435ec255cf122623fbb9",
+  "native_engine_log_sha256": "983a0177c3f57725652e38afa5233dabf400f7cf91268f5a7182edc9c7e3abaf",
+  "formal_QA11": null,
+  "natural_route_acceptance": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "limits": "Posed diagnostic views; PC fixed renderer has no quality selector, Opera explicitlySpeedy. 30fps cap is configured, not a physical device performance measurement. None is generation pixels or formalQA11."
+}

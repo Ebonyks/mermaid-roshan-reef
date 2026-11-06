@@ -1,0 +1,18 @@
+{
+  "state": "DERIVED_SUMMARY_REPAIRED_UNMODIFIED_FULL867_AUDIO_RECHECK_PASS",
+  "baseline": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+  "incoming": "8c9bc130766725965a76eca876ef683b92242334",
+  "observed_failure": "Complete867file audio check returned STALE; first prefix remains terminal failure.",
+  "cause": "CSV merged correctly retaining current Dev chime reference_count13 versus incoming12, while JSON inventory hash came from incoming12-reference CSV. Incoming5 item voices and every audio byte are unchanged.",
+  "changed_value_only": "audit/audio_quality_summary_2026-08-24.json:inventory_sha256",
+  "before": "a1a20baeaa5d750b51ceaee0fdfbbaf94bda2aac8bf4ad47bdb4a0b022673dad",
+  "after": "4593c0182547ab6af328fc2b2bca63af7e3a616e083b24147268ae72890e3c34",
+  "csv_rows": 867,
+  "all_runtime_reference_counts_match_current_sources": true,
+  "frozen_runtime_inputs_changed": [],
+  "full_decoder_recheck": "PASS in resumed_validation/static_import/engine.log; all remaining gates,82 trusted commands and final2D passed; original failed prefix retained.",
+  "first_prefix_elapsed_seconds": 1479.313,
+  "first_prefix_log_raw_sha256": "2d2cfb3d40a15b88e961c013873e2b4779bdc0958f63e803b1bad7b180705003",
+  "repair_checked_at_utc": "2026-11-06T13:32:05.411137+00:00",
+  "human_listening_acceptance": false
+}

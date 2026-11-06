@@ -1,0 +1,32 @@
+{
+	"exports": [
+		{
+			"content_rect": [
+				177,
+				8,
+				669,
+				1008
+			],
+			"crop": [
+				68,
+				82,
+				873,
+				1315
+			],
+			"id": "pool_towel_cabinet",
+			"operation": "Alpha threshold 0.06 only selects crop bounds, add eight source pixels, preserve all pixels inside crop, proportional Lanczos export centered on transparent 1024 square. Native preserved.",
+			"runtime": "res://assets/racer/zones_v1/pool_towel_cabinet.png",
+			"runtime_sha256": "3e2e3388b4ae10a6f0708aa71f4c2df1c5388e51f4bbb8b27109cae2263e006a",
+			"size": [
+				1024,
+				1024
+			],
+			"source": "res://assets_src/imagegen/reef_kart_zones_20261105/pool_towel_cabinet_native.png",
+			"source_sha256": "b7db69a6e6e0bd8919918dcd32b5cea71baf40fde4f73ff92c670abf77db318b",
+			"source_size": [
+				1024,
+				1536
+			]
+		}
+	]
+}

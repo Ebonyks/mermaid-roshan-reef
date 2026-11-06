@@ -1,0 +1,40 @@
+{
+  "source": "8c9bc130766725965a76eca876ef683b92242334",
+  "current_Dev": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+  "resolutions": [
+    {
+      "path": ".gitattributes",
+      "resolution": "Retain both additive blocks in full",
+      "blocks": 1
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "resolution": "Retain both additive blocks in full",
+      "blocks": 1
+    },
+    {
+      "path": "design/reference/OWNER_DECISIONS.md",
+      "resolution": "Retain both additive blocks in full",
+      "blocks": 1
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "resolution": "Preserve current index marker/heading and every existing planning row; add new Racer follow-up before index marker."
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "resolution": "Place new Racer follow-up at end of existing Racer record before MA-OPERA-015; preserve complete independent Boxer record and unchanged lifecycles."
+    },
+    {
+      "path": "audit/audio_quality_summary_2026-08-24.json",
+      "resolution": "Use incoming867 inventory/hash for existing862 plus five new item voice OGGs; verify against actual audio inventory with audit_audio_quality --check."
+    }
+  ],
+  "checked_at_utc": "2026-11-06T12:50:21.454084+00:00",
+  "runtime_resolution": "No runtime conflicts: two auto-merged scripts still require combined-source checks.",
+  "protected_original_paths": [
+    "assets/book/",
+    "assets/audio/voices/",
+    "assets/characters/friends/"
+  ]
+}

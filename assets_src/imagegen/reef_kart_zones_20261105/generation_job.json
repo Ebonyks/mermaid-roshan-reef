@@ -1,0 +1,14 @@
+{
+  "tool": "built-in image_gen",
+  "intent": "background-extraction",
+  "attempts": 1,
+  "prompt": "Use case: background-extraction. Asset type: one transparent RGBA cutout for a polished 2D storybook kart game. Input image is the approved Mermaid Roshan pool room, identity reference and extraction target. Isolate ONLY the shell-shaped peach towel cabinet on the right side: scalloped shell crown with pearl, warm peach arched sides, three curved shelves with pastel teal lavender blue pink and gold folded towels, the small shell and coral pieces on its lowest shelf, rounded pedestal base. Reconstruct the tiny occluded base if needed. Preserve the exact charming painted design, proportions, colors and hand-painted antialiased contours of this source cabinet. Show the whole cabinet front-on with subtly visible depth, both sides and its entire supporting base. Fully transparent background, no pool water, no scene, no floor slab, no added shadow outside the base, no characters, no new room, no text, no border. Large clean cutout centered with generous transparent padding. This is a reusable object from the existing room, not a redesigned towel rack.",
+  "source": "assets_src/imagegen/mermaid_pool_room_2026-08-02/room_mermaid_pool_fullframe_v3_native.png",
+  "native": "assets_src/imagegen/reef_kart_zones_20261105/pool_towel_cabinet_native.png",
+  "hidden_provider_revision": "not exposed",
+  "budget": "One named missing fixture; no paid API; no scene redraw; all other section props reuse existing assets",
+  "acceptance": "Candidate; exact owner/device review remains open",
+  "source_sha256": "2a4bd923c26d5f7980fc8a723576ecb573097e30bc94090f75437833fc3d55a5",
+  "native_sha256": "b7db69a6e6e0bd8919918dcd32b5cea71baf40fde4f73ff92c670abf77db318b",
+  "source_role": "Approved room identity reference and object extraction target; not a position guide"
+}

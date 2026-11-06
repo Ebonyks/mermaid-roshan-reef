@@ -653,11 +653,16 @@ Owner decisions 2026-11-03 (`ODR-RACER-ENGINE-20261103`, `ODR-RACER-TOUCH-202611
 `ODR-TRACK-FIDELITY-20261103`; target, implemented on a work branch and not yet
 landed) replace the RACE engine with the Reef Grand Prix: a true-2D perspective
 kart race on the Pearl Canal Circuit, the Racer's own in-game world painting laid
-out flat. Its controls are a green steering stick on the left, and a red brake and
-an item/boost bubble on the right. Pearls raise top speed and are never lost. Gem
+out flat. The 2026-11-05 owner correction (`ODR-RACER-ZONES-GAS-20261105`)
+changes the single right pedal to gas, with an item/boost bubble beside it and
+a green steering stick on the left. The stick retains one-finger steer-and-go;
+PC retains separate hardware brake/reverse controls. Pearls raise top speed and are never lost. Gem
 buoys and arch bubbles deal original items. The imp contest follows `DL-INT-14`.
 The exact `op_racer_steer` cue stays. A race track must resemble its in-game
-setting closely, and its art may only reorganize existing assets. The October 18
+setting closely. The bounded 2026-11-05 object-art and zone directions allow
+new named-gap fixture derivatives, four themed room sections and artistic route
+liberties; inventory-first reuse and protected-source rules remain. Exact item
+explanations use the required speech lane. [Current scope](../docs/handoffs/codex_reef_kart_art_2026-11-03/ZONES.md). The October 18
 side-scroll candidate is superseded. The 2026-10-22 castle-room racer remains the
 shipping race until this lands. The
 [engine handoff](../docs/handoffs/codex_reef_kart_art_2026-11-03/README.md) and

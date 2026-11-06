@@ -1,0 +1,36 @@
+{
+  "results": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "assets_src\\review\\recent_updates_dev_20261106\\capture_review.gd"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "assets_src\\review\\recent_updates_dev_20261106\\capture_review.gd"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "--check-only",
+        "--script",
+        "res://assets_src/review/recent_updates_dev_20261106/capture_review.gd"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "fixture_sha256": "e3dae8af6552e4ef08bc528b0ceb15f10327ccc664efc0fe7317da37501f610b"
+}

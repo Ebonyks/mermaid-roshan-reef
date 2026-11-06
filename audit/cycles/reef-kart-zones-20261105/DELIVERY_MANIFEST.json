@@ -1,0 +1,1914 @@
+{
+  "schema": "reef.kart.zones.delivery.v1",
+  "status": "PLAYABLE_TOPIC_CANDIDATE",
+  "created_utc": "2026-11-06T07:30:00.362849+00:00",
+  "repository": "Ebonyks/mermaid-roshan-reef",
+  "branch": "codex/reef-kart-art-20261104",
+  "baseline": "16ae50c7b19c41c518d427ce5c1a24ac410ee0c9",
+  "revision_binding": "Immutable Git tree containing this manifest; its own bytes are checked separately. A later additive verification receipt does not change this payload.",
+  "usage": "Clone this repository tree and run res://scenes/racer/reef_grand_prix_pc.tscn with the approved Godot 4.7.2-stable. The manifest binds the change packet and core PC dependencies, not a standalone export.",
+  "byte_policy": "Canonical staged Git blobs. Native/provenance/evidence folders preserve literal bytes through .gitattributes; Windows runtime snapshots separately retain the exact tested disk hashes.",
+  "payload_sha256": "0ce4bb250bd68c23c43cf546d830c61bbbb0b7c28a36505e8d8310b6388e1364",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 7873,
+      "sha256": "c0aaa17b368328c001e9b4ad5e01b1725350475a822470fea16992a453623072",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "bytes": 6245134,
+      "sha256": "7c9c823f586a4606994711bb44ea36fda6c6429662e89fc50e825bd0d45af104",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "assets/audio/objective_guides/OBJECTIVE_GUIDE_MANIFEST.json",
+      "bytes": 21744,
+      "sha256": "b8e611c76bf6fbf088df4ed43f32a93eaed79f7a0e7631c9783633c5223f0f4a",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/audio/objective_guides/guide_dolls_catch_three.ogg",
+      "bytes": 29975,
+      "sha256": "4a37bcb6189a5df94fc31d2e659af4b50c7391aeb6d73ed8cd90a7aa36832a02",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/audio/objective_guides/guide_kart_kelp.ogg",
+      "bytes": 37784,
+      "sha256": "45950e29283515553a56f53244362cb6ac95e7073393f00eaa9b74fab792339c",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/audio/objective_guides/guide_kart_kelp.ogg.import",
+      "bytes": 431,
+      "sha256": "2fab28c2d70cbe517f3e3feb1133c297af592d55459ea1c8262379eab6c3cc9f",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/audio/objective_guides/guide_kart_pearls.ogg",
+      "bytes": 47135,
+      "sha256": "1f3afd11ffd3ed28d6bbadc8d9e84577ca367d7fa347ccc3cb942899cc92ac26",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/audio/objective_guides/guide_kart_pearls.ogg.import",
+      "bytes": 437,
+      "sha256": "6f56f034765f6af97ce1271e2af9d67008bee3edc9e28cdceb2b31e6f4b424d0",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/audio/objective_guides/guide_kart_sparkle.ogg",
+      "bytes": 36527,
+      "sha256": "75821eeba6a24c3241b92d4c5b11030e80a5e6be29b733f05d424a822e049de3",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/audio/objective_guides/guide_kart_sparkle.ogg.import",
+      "bytes": 440,
+      "sha256": "b8c82ae888ee5c392b60b5db88b7b1697c12a637880f2d4d839894d1a8a2a9f8",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/audio/objective_guides/guide_kart_sparkle_duel.ogg",
+      "bytes": 38851,
+      "sha256": "691b33c9de28570957e0ae911392a9b002f34c0686405c5d9d08738bab0dde21",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/audio/objective_guides/guide_kart_sparkle_duel.ogg.import",
+      "bytes": 454,
+      "sha256": "669087f0e0e0559628a12dc63e5b5c6b5d0817948f34ca22fdec20c8c7cea325",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/audio/objective_guides/guide_kart_zoom.ogg",
+      "bytes": 35111,
+      "sha256": "24b23726c79b33e32bcffc5dc174e45ff87b78083f8982dccf2a857b89bb20fb",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/audio/objective_guides/guide_kart_zoom.ogg.import",
+      "bytes": 430,
+      "sha256": "e81dd85556d0d88199312c7c9eda54b737b72e8ed75ed23d5dc0b8da7c0fed16",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/audio/objective_guides/guide_puff_almost.ogg",
+      "bytes": 24807,
+      "sha256": "de8564abae36d2db37dee7362b60ad9dd32651e53fdaee3814a9107d1181f6ac",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/audio/objective_guides/guide_puff_clean.ogg",
+      "bytes": 17316,
+      "sha256": "b01bd5bd7766e869a37b92440719caf1683a67bff2560e90695ba2e7cae4745f",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/audio/objective_guides/guide_puff_cold_intro.ogg",
+      "bytes": 23456,
+      "sha256": "ab483ed60d45ace54e663cf3ebd4434a92957e04e2ce866b1e95b20e7c9f92bf",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/audio/objective_guides/guide_puff_healthy.ogg",
+      "bytes": 18778,
+      "sha256": "954365261e0c6be510fe5932f9f7ee6073e20d30d5c07be9500184b1d41c5bd5",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/audio/objective_guides/guide_puff_relief.ogg",
+      "bytes": 17294,
+      "sha256": "4a530b44b35010778e16066c6dc4559fc20c438765e610e1b31205e860bec477",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/audio/objective_guides/guide_seek_tap_wiggly_tree.ogg",
+      "bytes": 16114,
+      "sha256": "897f6b3ed74298bad03088284aa4780a6cb7cdfc64ddedf56e2505158cb321ac",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/characters/friends/mama_baby.png",
+      "bytes": 158706,
+      "sha256": "57c479d7a709b1bd268cfa1efeaf9340721056c9b9d4765929ed0add581334a2",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/characters/rumi/rumi_eight_pose_runtime.png",
+      "bytes": 597242,
+      "sha256": "44120bbb2b1e60a9ec94e0cf3db7e46e33f564671af986bb42357b8bd59c14d5",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_kitchen_background.png",
+      "bytes": 942606,
+      "sha256": "b58bd03a394717ebff381d76e4cb7d03410a463b7b30d2a58065be5a4df8c065",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_kitchen_item_fridge.png",
+      "bytes": 62156,
+      "sha256": "5e0dd8203510685e128d693758a0b26c06d8b7a2d47e52a1d500fd7fdf4d9c8e",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_kitchen_item_sink.png",
+      "bytes": 54954,
+      "sha256": "bba1e6e2244451e45011be505d12e0db189b358f6de3ac0e3bf0e26b61e7b89e",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_main_hall_item_fountain_left_v2.png",
+      "bytes": 55737,
+      "sha256": "8e56d9ae12fb0345c24cd35ee694652fad91d2a4c46514854d456965e182c639",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_mermaid_pool_background.png",
+      "bytes": 1006969,
+      "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_mermaid_pool_item_bubble_fountain.png",
+      "bytes": 47173,
+      "sha256": "5a861d1dc68762e525cd144d40029cca5779110f4bf60155fac11bae70f35c52",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_mermaid_pool_item_flower_float.png",
+      "bytes": 19045,
+      "sha256": "8fe5eed4c464d9e3e71338e57662f16c3999450e6c8346763f75d67624a61513",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_mermaid_pool_item_star_float.png",
+      "bytes": 13743,
+      "sha256": "d1f3067ce56cd2e6a844c597a48bf01b0661ae34507d99af3272a7a56db88fc5",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_mermaid_pool_item_waterfall.png",
+      "bytes": 65646,
+      "sha256": "6ead36f8efc3b115a3c7116ec3d88a80e905730548d2949c063c65c671042cba",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_opera_hall_background.png",
+      "bytes": 791795,
+      "sha256": "ebd074ac85a1b7d479eada4f49e0000690a9e96576a8ae1370525fe68e08116f",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_opera_hall_item_chandelier.png",
+      "bytes": 48754,
+      "sha256": "3ce68ccc0154509bbddce7b1c42abc70d39bc00e3cc7a735e31e1f1a39dbacaa",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_opera_hall_item_curtains.png",
+      "bytes": 72791,
+      "sha256": "daa15d58a9a366bbcc37cd5ad9fed74f9e673aa2573367252569a23edce4318e",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_opera_hall_item_footlights.png",
+      "bytes": 14720,
+      "sha256": "ce753b9fcc76345d34b21c6916af3c729d880336b4b2055b526186bc6797815c",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_playroom_background.png",
+      "bytes": 794043,
+      "sha256": "bd0baef94bad5c9257c0ab20d239513bd42ef465584fec6f012d990993ce797b",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_playroom_item_stacking_toy.png",
+      "bytes": 42231,
+      "sha256": "afc488f0e44d9a33ac065e968ead7a8dfcae5ac594ba12f17063c6f467282b87",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_playroom_item_stuffie_nook.png",
+      "bytes": 93109,
+      "sha256": "7ed4dafff1e3dac12264d4a1c617095bf43d2f36fd8066476aa78725fe3ded67",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/kart/chase/empty_kart.png",
+      "bytes": 807691,
+      "sha256": "35457c5cf602bffa666d6663f9fcbefb9be26bd2d0eca1c96cb5c2a6fbf9ac88",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/kart/chase/empty_moto.png",
+      "bytes": 731469,
+      "sha256": "dfec5d6132bf3d81a086f451b4b1030aef435b9b44804ebe22ea7fce7d611bda",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/kart/chase/empty_truck.png",
+      "bytes": 749428,
+      "sha256": "8fc3380295df50ac0c981a2b28f12d4b82236be7c79c7de9907ceb640eeda1fd",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/kart/chase/kart_boost.png",
+      "bytes": 372921,
+      "sha256": "17ab19589d2296d1177e91535659a7fe04f34ffbbcd48402da019fd1137e1dd8",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/kart/chase/kart_left.png",
+      "bytes": 383454,
+      "sha256": "733fd9c4e1fe1aef84bbf57161e0c225d3a5d4f3f6ebdc71af5e9f49a8df9ffc",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/kart/chase/kart_right.png",
+      "bytes": 385145,
+      "sha256": "66fabc27fd8bda5d775d787a84b866d40dc1d9b9a9d121cb25e38eb66fd688e2",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/kart/chase/kart_straight.png",
+      "bytes": 356016,
+      "sha256": "6a3107b79afd615b96b3777cd002b9d2e5814743dbfef718567d7e535693deee",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/kart/chase/moto_boost.png",
+      "bytes": 303054,
+      "sha256": "254ba22c05114fa4772b9995614d6d355e37c2febedafc500d7d3616c0757b9f",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/kart/chase/moto_left.png",
+      "bytes": 345507,
+      "sha256": "fc47ae7501bae43f23d6ee61cbb7102d6171201449e15ff2a7b3c33f2ee7dfb9",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/kart/chase/moto_right.png",
+      "bytes": 340830,
+      "sha256": "ee6a448954e1fcbc6eec2f19557819a01fa1b9a52521019c267baa1f74b900e0",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/kart/chase/moto_straight.png",
+      "bytes": 318905,
+      "sha256": "dd2abb4e3076a8e87e0a0c412c1dbf2ce1b34c573a7281bcfb513568808df6a0",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/kart/chase/truck_boost.png",
+      "bytes": 357511,
+      "sha256": "9de77bf01dd9f1d67a251483984e30d50a3cb7c8a22cdd4322092635559ec9cb",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/kart/chase/truck_left.png",
+      "bytes": 391513,
+      "sha256": "6253a929fe0effe1b4dd813e19e87127235b3ae5be2aaa1a21e3103e476920ff",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/kart/chase/truck_right.png",
+      "bytes": 372586,
+      "sha256": "e9a95f5bf71804ebd3fef40ca59f5f672e9f29f314e5a2c36257156c3912922a",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/kart/chase/truck_straight.png",
+      "bytes": 357877,
+      "sha256": "3e9d73e98848e690c7785c8b26f7a7959a766eb974f237af3df0975bfbfab247",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_racer.png",
+      "bytes": 229542,
+      "sha256": "da75600112937ed4f6bb5f9433b4792316419047e8de10f9bfdb7076c65f360f",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/opera/worlds/actors/roshan_racer.png",
+      "bytes": 240395,
+      "sha256": "b3e92a0f3204e2277e1fdd06988c9393288223fcfc98a9f4c8e033c8c517c6bc",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_racer_c0r0.png",
+      "bytes": 876297,
+      "sha256": "920b4df91bad73d288ff2cd39fe8cdccc2dfe8743bb64d65a691343b7630bf66",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_racer_c1r0.png",
+      "bytes": 897990,
+      "sha256": "07e7ad658427ed5cac40f1668521b4c59c54fba8bb428edb5acd36db25fbf3b7",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/bowl_empty.png",
+      "bytes": 264502,
+      "sha256": "32e3024d3835b53a1a5b1f8a1f33177d7dcd3c48ab5fc07d9db93407cc53d70e",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/bowl_stirred.png",
+      "bytes": 320039,
+      "sha256": "a7e1020447c213295994ea091eb6f02884b9f8e789d0762a7ebfcba9067e4bab",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/cake_frosted.png",
+      "bytes": 267909,
+      "sha256": "4841085d46cb6da574a43eac388bd54730454ffed41b5f3897bf37b1705a2ea7",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/oven_cool.png",
+      "bytes": 326458,
+      "sha256": "19c4d2625cc80ca3cf3322656dabc2f624434be8d172f6736668df02526d2256",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/piping_bag.png",
+      "bytes": 182692,
+      "sha256": "9ab076f96ba6441b8b68a4b663b2aa45554a85aca3bb1107b26534f9a8fe09c5",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/pitcher_empty.png",
+      "bytes": 57893,
+      "sha256": "b6b8cee0d896334488a6b818bb8ee924ac9e521c12b3f06417a0c4d7471616b0",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/pillows.png",
+      "bytes": 149634,
+      "sha256": "fd0ed069f23a993823595beea9a4f840cfdd5560c2c6ba3d6dc78dc788f449e4",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_ballerina.png",
+      "bytes": 291121,
+      "sha256": "4891a0863557a0105912afe7497d2b0f976aadf32507ad1c079f03f3162c257e",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_magician.png",
+      "bytes": 209488,
+      "sha256": "843e7c371c5d08d0f41f0629922778f416e3638c220fe558f5db8407d6495f8a",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_popstar.png",
+      "bytes": 119818,
+      "sha256": "0a81e7c108234c4770730761704dcf16ca9b5c1d97b3ffee0c306c1c85e8c95a",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_racer.png",
+      "bytes": 274893,
+      "sha256": "2fcce78018d2f43cecb15fdf7ea37ebd66004ba695cce2e42fdf4fa7602ebeb9",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_guide_hand.png",
+      "bytes": 149378,
+      "sha256": "5b18d1aed74aa7804560abe702d14a3d4fc01cbc974a65583eacb9452610a383",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/context_v2/item_capsule.png",
+      "bytes": 952138,
+      "sha256": "5b356f6adb1822859b8b9db62d7b0780ce90d1b650c27470fc3e33cb128cd635",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/context_v2/item_capsule.png.import",
+      "bytes": 963,
+      "sha256": "22a567215901ecc7492ccd8c504805926d3e7332b78f8802116ea8df9f1202bf",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/context_v2/kelp_trap.png",
+      "bytes": 720171,
+      "sha256": "7a9e0b17c5282f516666e3bfce12dcf75e244aec89bb37bf6b791b3200700795",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/context_v2/kelp_trap.png.import",
+      "bytes": 954,
+      "sha256": "da132688290da61f7a37d44b851933c55024c4346545003cde3e99ff7b012370",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/context_v2/kitchen_teapot.png",
+      "bytes": 845115,
+      "sha256": "35337c962c41f16ff643cb9ec89dcb54f71bc10c4e470e871b3af2de85ad5a72",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/context_v2/kitchen_teapot.png.import",
+      "bytes": 968,
+      "sha256": "355f242e32082741c7fe061933748edcf84e3448bccafb81bdb0130e6889c3e7",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/context_v2/play_blocks.png",
+      "bytes": 1151489,
+      "sha256": "72b10a0da025dfb4d8c5ad99c064f446045032c9ea58599dc6c8efd83fe1ef4d",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/context_v2/play_blocks.png.import",
+      "bytes": 960,
+      "sha256": "c88d21174613611ef219037356dfaf7a54460e58da1dfa40877fb64bbb7d8401",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/context_v2/play_tent.png",
+      "bytes": 897170,
+      "sha256": "87ac91e89d3fc933e7bf9467ba28b15310e5ee59c0dc2b2bf375f27b83b5b47d",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/context_v2/play_tent.png.import",
+      "bytes": 953,
+      "sha256": "927cc1a660b477be0c2e3bcc44b11a529ecbaec74bd9885a3a6ce397e143bef0",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/context_v2/pool_seahorse.png",
+      "bytes": 717924,
+      "sha256": "47d8c2749df2455a1995a553909360a99aaf388cb027e165e32e439582015078",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/context_v2/pool_seahorse.png.import",
+      "bytes": 966,
+      "sha256": "5177a4e3d553b718ee29dfeaa09d2097b525c7c9f7503b36cb36f53a240c3645",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/context_v2/turn_marker.png",
+      "bytes": 896635,
+      "sha256": "b9cb0744d19319fac2314c8b4adf720c240607f26c2a950b8de338ec4df568c7",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/context_v2/turn_marker.png.import",
+      "bytes": 960,
+      "sha256": "38e6d3dcfb93e52b3241d33cf90f9d3b3f688f36b0eaf42537bbc6091373711f",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/icons/kelp.png",
+      "bytes": 12570,
+      "sha256": "a0d49bb449a09c0f2e3f8e60fc5a79a139b5d7eab02fb55b78ee02acbfcfaa12",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/icons/pearls.png",
+      "bytes": 9259,
+      "sha256": "f5c6241d9de329faa5aa997e48a3d0be1019558147447806de02d55190cd1f9b",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/icons/sparkle.png",
+      "bytes": 17362,
+      "sha256": "2e308142a5216406a580250c1fafc39bdb2fac68223371bb9a361f67e9d6d099",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/icons/zoom.png",
+      "bytes": 22117,
+      "sha256": "7cac7fac83e1e453230447de07ca2ac3d2ab0a12ecb93bdfd454dd300ae3dcd7",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/karts/imp_kart_straight.png",
+      "bytes": 317407,
+      "sha256": "25bf06001690aa86b6f96ab5d2a3d919f02b257c345b1fe45cc3eb12e8900ba2",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/pickups/dizzy_stars.png",
+      "bytes": 27273,
+      "sha256": "83b454f022a4e12c4e006d34f0c979a1f4fc124b0d0fcc21265e8df73b6c80c8",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/pickups/gem_buoy_lavender.png",
+      "bytes": 47986,
+      "sha256": "96df1054e2f21dcca396a9208155a4576d41cbaae70f906c864822da8d2def27",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/pickups/gem_buoy_pink.png",
+      "bytes": 49865,
+      "sha256": "7d62153edf5fd353e02338d84226e6650d12602f2fcde33b810a10988bd9b3ba",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/pickups/gem_buoy_teal.png",
+      "bytes": 49379,
+      "sha256": "b2fdc12e65fc1af631ad0e5f3790a871571bc7e19eb1bafc7353fb10f0850b44",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/pickups/item_bubble.png",
+      "bytes": 92031,
+      "sha256": "87c02419fc7cb5c7202e6f1f6e44691ed49d0925c870674126f65e9796f48026",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/pickups/kelp_patch.png",
+      "bytes": 22962,
+      "sha256": "e9afc8f7ed757fe0a6a763a6948f9dd0ae04909d70a5776c0ffd489715e49905",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/pickups/pearl.png",
+      "bytes": 21340,
+      "sha256": "4f71a7beff48024df5eb89a5cbd760148576ada6bf05fe784bd8d2828dba4037",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/pickups/sparkle.png",
+      "bytes": 17362,
+      "sha256": "2e308142a5216406a580250c1fafc39bdb2fac68223371bb9a361f67e9d6d099",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/coral_cluster.png",
+      "bytes": 43266,
+      "sha256": "a16fdfd0fa16f16bbe36ede9460adb9e6e9cd050c89c021e9c105f446380a9a8",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/pavilion.png",
+      "bytes": 167619,
+      "sha256": "466c90e19b89644fe90f76fcb99bdd34dc8a2892892f3d139f88da172d0dac3e",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/pearl_arch.png",
+      "bytes": 252556,
+      "sha256": "674f6b1cb180bb32ad6bfc5cd4ff72fb8b57e178ae04c38812dd9bd5acf8d62f",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/pearl_arch.png.import",
+      "bytes": 976,
+      "sha256": "fbc584eb362f3ecbea89c61b6ca15db301bad9052f5c0537a896b96e8eb15d56",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/pearl_clam.png",
+      "bytes": 33830,
+      "sha256": "f9546755a81e3986b6969d615144987d1e2afe843224506511b3255519f1eb12",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/pearl_start_arch.png",
+      "bytes": 304059,
+      "sha256": "6bf16e5ba07e78dbcd846c8880ea55519a03d778764464a238e384a5af980952",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/pearl_start_arch.png.import",
+      "bytes": 994,
+      "sha256": "8b7ae42a2515f95aaf0368c1754318d10389e9bef3c950a2813fa69b0c256a09",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/pennant.png",
+      "bytes": 22211,
+      "sha256": "cfc2b4ea8fbef70717dafa81995eeec006222b82de24c2b8bc0150bb19d63df8",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/reef_blue_shelf.png",
+      "bytes": 70377,
+      "sha256": "66d0574233b368b84a03d59b47cd0a843f73a9badf1c07747ed31c9dd9342eca",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/reef_coral_ledge.png",
+      "bytes": 67508,
+      "sha256": "eff3626c56654778eb96efbd8bac82694dd272b9af2eea7e188efcfe65ec7cd7",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/reef_fan.png",
+      "bytes": 158544,
+      "sha256": "b6070d9783e0efd0f0d5a2917c38b9252970bfa194164a00de2473321033512a",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/reef_pearl_garden.png",
+      "bytes": 86926,
+      "sha256": "00b9d208d67d8fab64a37648503c71b1db096370c68a9ae71bf21ff6d7cab0d4",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/reef_shell_terrace.png",
+      "bytes": 81984,
+      "sha256": "7f9e81dff440ddd7f599de0fa4cebcb9bac6301f6027a340ee139a11954052b4",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/ribbon_arch.png",
+      "bytes": 317965,
+      "sha256": "791f5e258dd022bfd927ceb57abd0d1f2c3f4445d711e502e212a350eeab7105",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/ribbon_arch.png.import",
+      "bytes": 979,
+      "sha256": "263ed61ae2d2d092eb400308dd10e329a908e22aa03a98eaa13f4f5bc6eaac36",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/floor.png",
+      "bytes": 3776348,
+      "sha256": "76f72a1b39610c47d04fde018eeedeae1fd33f677dea566e3752bbd76f6ceefb",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/floor.png.import",
+      "bytes": 1177,
+      "sha256": "62819c8ffa1462d031c1d114421ea267f14fa9e5cc828cd2770c2beb76387395",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/skyline.png",
+      "bytes": 596042,
+      "sha256": "6b5346b9c4a89b8bc7e203845d5ab61067048888f6b5b9f0f205f56c5e5c1ab8",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/zones_v1/pool_towel_cabinet.png",
+      "bytes": 1058833,
+      "sha256": "3e2e3388b4ae10a6f0708aa71f4c2df1c5388e51f4bbb8b27109cae2263e006a",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets/racer/zones_v1/pool_towel_cabinet.png.import",
+      "bytes": 979,
+      "sha256": "d0a50676052d6cfef53674926fb1d6cf41fafb6fdeb529d8a33e41ebb4dfbdf8",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/LICENSE_PROVENANCE.txt",
+      "bytes": 533,
+      "sha256": "251526e50277c23eb7f468b8eb9404112727fc3680239408ad066f8ea322b426",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/derived/guide_kart_kelp_trim.wav",
+      "bytes": 350132,
+      "sha256": "f5a4909ae5d3a9d2ee1d5c12a75eb202e227db0cd266e829e0209b74c37311e3",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/derived/guide_kart_pearls_trim.wav",
+      "bytes": 415400,
+      "sha256": "39bb2421846daaf8fbc9cc022aa65637b90b7f45d86911fbe5acd3022b7c69d0",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/derived/guide_kart_sparkle_trim.wav",
+      "bytes": 325028,
+      "sha256": "7f89065cbfe495ca81d2c092b57270bdc333fe706c1e41f5c63738ddd6566962",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/derived/guide_kart_zoom_trim.wav",
+      "bytes": 308676,
+      "sha256": "4b3701c733bf82e3693a9af6d8fa0717a97cde785c98516d7141129b56ec109a",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/first_export_failure.json",
+      "bytes": 3428,
+      "sha256": "95688a53f40c5422c52902fa3b7f174412ed457a6422923c376ed3eca9bc12f6",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/generate_candidates_source.py",
+      "bytes": 12534,
+      "sha256": "d519988d30cc69a3f95a624d9d42d82ccef447e6aef87940c246d18955a5e0c3",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/generation_manifest.json",
+      "bytes": 21966,
+      "sha256": "175d220271ac3c7d13c0a9125beb6363282ec637fdfe5f4541e6abe8b49c91cf",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/native/guide_kart_kelp.wav",
+      "bytes": 408080,
+      "sha256": "cd0e47210b840798d273a90a47b6d95958ba25c3b396f1945a210bfcd5796cbc",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/native/guide_kart_pearls.wav",
+      "bytes": 472880,
+      "sha256": "0f8d41ca57bf9e6709be27a3b92386e3cfb115b25e8844380aca2de5d71891a8",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/native/guide_kart_sparkle.wav",
+      "bytes": 379280,
+      "sha256": "f6cee237bbf21d155616115ab7daa90f376414af96fd6e54ae565c18b20cf040",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/native/guide_kart_zoom.wav",
+      "bytes": 367280,
+      "sha256": "0005c2d0cb793c73064524d2482d35eab348ef23b85558e5fea3923f0381a615",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/review/guide_kart_kelp.ogg",
+      "bytes": 37784,
+      "sha256": "45950e29283515553a56f53244362cb6ac95e7073393f00eaa9b74fab792339c",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/review/guide_kart_pearls.ogg",
+      "bytes": 47135,
+      "sha256": "1f3afd11ffd3ed28d6bbadc8d9e84577ca367d7fa347ccc3cb942899cc92ac26",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/review/guide_kart_sparkle.ogg",
+      "bytes": 36527,
+      "sha256": "75821eeba6a24c3241b92d4c5b11030e80a5e6be29b733f05d424a822e049de3",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/candidates/review/guide_kart_zoom.ogg",
+      "bytes": 35111,
+      "sha256": "24b23726c79b33e32bcffc5dc174e45ff87b78083f8982dccf2a857b89bb20fb",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/duel/LICENSE_PROVENANCE.txt",
+      "bytes": 533,
+      "sha256": "251526e50277c23eb7f468b8eb9404112727fc3680239408ad066f8ea322b426",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/duel/derived/guide_kart_sparkle_duel_trim.wav",
+      "bytes": 350860,
+      "sha256": "dc3a7ffb6de6d05f3146ff67a20f39ebc4b9a53b30af7a3ca2e55f2df991a4ee",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/duel/generate_candidates_source.py",
+      "bytes": 12268,
+      "sha256": "dc2a506ba943ebde7ccd799f0e426625b5a45bd8997106e6b0ae92ed102170f1",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/duel/generation_manifest.json",
+      "bytes": 6879,
+      "sha256": "04b788fbe207a7b35090dbfde5fa9d91cce5e58e33d7da53a6c6f6e80450c4a8",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/duel/native/guide_kart_sparkle_duel.wav",
+      "bytes": 408080,
+      "sha256": "ba84d18384d580b796777615b0b1d14040fc94a1a35c262e1c75a7e762bdee78",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/duel/review/guide_kart_sparkle_duel.ogg",
+      "bytes": 38851,
+      "sha256": "691b33c9de28570957e0ae911392a9b002f34c0686405c5d9d08738bab0dde21",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/generate_candidates.py",
+      "bytes": 12534,
+      "sha256": "d519988d30cc69a3f95a624d9d42d82ccef447e6aef87940c246d18955a5e0c3",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/generate_duel_candidate.py",
+      "bytes": 12268,
+      "sha256": "dc2a506ba943ebde7ccd799f0e426625b5a45bd8997106e6b0ae92ed102170f1",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/audio/reef_kart_items_20261105/initial_generator_source.py",
+      "bytes": 12006,
+      "sha256": "4c59a379510f9d360e725d1190c4ca754611852167c17528baa5d43797305a59",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/imagegen/mermaid_pool_room_2026-08-02/room_mermaid_pool_fullframe_v3_native.png",
+      "bytes": 2361881,
+      "sha256": "2a4bd923c26d5f7980fc8a723576ecb573097e30bc94090f75437833fc3d55a5",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/capture_review.gd",
+      "bytes": 3338,
+      "sha256": "df90f2373197cc1fd888e78568345e0c3c109d46a5099b8829164fc7baa868ae",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/generation_job.json",
+      "bytes": 1886,
+      "sha256": "8b45b0442a6a5adbe19e77314052e6d737de3054e09abe6926adc1f1846a6a23",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/local_visual_review.json",
+      "bytes": 2369,
+      "sha256": "95c437be178e66ec8f5dfd5911179973a82344fc4c1960ee7c0bfdc5b034d2a7",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/pool_towel_cabinet_native.png",
+      "bytes": 2024779,
+      "sha256": "b7db69a6e6e0bd8919918dcd32b5cea71baf40fde4f73ff92c670abf77db318b",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/prepare_runtime.gd",
+      "bytes": 2554,
+      "sha256": "f70c9f1ea4384a8957eabe66186c547301d618e94636cb5253c7e65b1a952b6b",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/canal-gas.png",
+      "bytes": 787745,
+      "sha256": "53991de00d2072a1c7639ee6231a6e579ac457ee862cf5d2e01e27febb6102db",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/captures.json",
+      "bytes": 18927,
+      "sha256": "a818e6be06d7692cbba8041edcc4f892cd5f9ca9a22eb575cd9ae5084386b77b",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-sections.jpg",
+      "bytes": 163283,
+      "sha256": "1c19c3e0777423e8256933883f06d0b7342aae2beae8c32f1e12fad7198e853e",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-solo-threshold-0.png",
+      "bytes": 733236,
+      "sha256": "c33f8f1edd7e1a82747b53bcd7f152c7a2974aada5fa6b29817fd17bab8cdb73",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-solo-threshold-1.png",
+      "bytes": 626904,
+      "sha256": "6c32cf0896ba564ddbc13daf04e6a7e4094edd003e7c493d7f868070ad401089",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-solo-threshold-2.png",
+      "bytes": 646210,
+      "sha256": "3432b39eb8f325a275c9e3c86b5177e5d0d48f46dcbb3eff9e6218b0eb91e209",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-solo-threshold-3.png",
+      "bytes": 604976,
+      "sha256": "1f76d32ecf7448e763d8256b597b481f0bc5cac7a39a9c91838682eae8ac6370",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-solo-zone-0.png",
+      "bytes": 611380,
+      "sha256": "36d37bc33f8b037615c1740d8e335acb814e4569b167fdc578e24a64b625478f",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-solo-zone-1.png",
+      "bytes": 732076,
+      "sha256": "42d4cb5eb0ee96e9161a917dc437667da6ac382e50057a0735f4be2dedd8a34a",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-solo-zone-2.png",
+      "bytes": 623158,
+      "sha256": "d76f32f670df667d560569c402c3a09ae58d861676e7b0f1fa0f3cd53d543630",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-solo-zone-3.png",
+      "bytes": 650542,
+      "sha256": "27ddb34b587513eee476dae4af118cbc2ffda132bc45926beb1066c8bb74c6e2",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-split-threshold-0.png",
+      "bytes": 557819,
+      "sha256": "818eb221912e418ce4a48f7bfb1bf3608551b71300ac50439531b53847d31b66",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-split-threshold-1.png",
+      "bytes": 446510,
+      "sha256": "70d6c43641ca8f06a712cc61cb2742a8b6b2aba17faccd5510e5131d9d17863e",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-split-threshold-2.png",
+      "bytes": 457185,
+      "sha256": "1cfd66679e3c4def82e53dd893abc0f4044058a7f836ad532513f50b967b7576",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-split-threshold-3.png",
+      "bytes": 394957,
+      "sha256": "40ffe9765d1f8398468603175549f1ef391c62c5404951be03e6632d4672ce63",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-split-zone-0.png",
+      "bytes": 434565,
+      "sha256": "dbca7684f1b5dc986b3e7357541eaf58d49a379baa946d61afd776214e36021a",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-split-zone-1.png",
+      "bytes": 558803,
+      "sha256": "432a54bcdc57aa170134779c571c98ff3c4b4312cd95e1f2de01db7c0061d23b",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-split-zone-2.png",
+      "bytes": 458839,
+      "sha256": "5f6f9cfacbb590d0b3625c7868294a503670b998209a2187d88ae951d2affca5",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/kitchen-split-zone-3.png",
+      "bytes": 459746,
+      "sha256": "0fa1f2c5fb9e6993414fe2fa7f37927e7f5bc26525aa4fb0bcec35146749d518",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-sections.jpg",
+      "bytes": 165561,
+      "sha256": "ef74def561efeec21e0c2823a33e812ca6fb63413f5c4925ca15d5a1224a1d2f",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-solo-threshold-0.png",
+      "bytes": 682729,
+      "sha256": "be7cfcfb399076452c41f24dda2e9ff2bf04ab5444bfba3b2b5c3677c3b1a296",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-solo-threshold-1.png",
+      "bytes": 653792,
+      "sha256": "ae61c7e8ec36f24e81c76326ad3ee1ff8841fe4017cd225c8d9ea2ff05d7fbaa",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-solo-threshold-2.png",
+      "bytes": 650261,
+      "sha256": "f003a9d28cfc931d2dbac475d9375c0547a4fe268a0cdefc8bebea4b1ca1c125",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-solo-threshold-3.png",
+      "bytes": 696215,
+      "sha256": "7ca134ce3499ee008232c6bf6b8038b65ee5e9b9bb942316b20f7d3ccbf59f17",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-solo-zone-0.png",
+      "bytes": 647678,
+      "sha256": "dea40c3498c7dd9d397ca526d86ab3d3409729c8d8a0494dc964cfb6cae12b3c",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-solo-zone-1.png",
+      "bytes": 631739,
+      "sha256": "fad76b04bb9ff9a48fa23f76d447330bf4e2a816568cdbbd56e5ce799799e73a",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-solo-zone-2.png",
+      "bytes": 679415,
+      "sha256": "5a603b382bcfd191a3508c1fcdc0c8a2236463ec162bde97cd079311dc496dd5",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-solo-zone-3.png",
+      "bytes": 639844,
+      "sha256": "98f16e4ac6def61b96ede6b91e2a19e7f5fe2704a0f9ae566a615a756763c2b9",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-split-threshold-0.png",
+      "bytes": 551444,
+      "sha256": "7b3c4a53292f1ca3d50bdc4cf1a58004a56f6486e4c327ad50aa7550bdf64b3d",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-split-threshold-1.png",
+      "bytes": 453636,
+      "sha256": "f1c2640d0ad57b27b99669970b2828d8788f07b1257affacc15aa7edc0dba187",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-split-threshold-2.png",
+      "bytes": 494323,
+      "sha256": "cbb1904b358e361afa8a6f18d83e226363e09372d676934bd149608722769a0e",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-split-threshold-3.png",
+      "bytes": 535609,
+      "sha256": "5910de468221576a9f676e1388f59d2e58f56dcfadc50fd8faaa7002930757f0",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-split-zone-0.png",
+      "bytes": 517506,
+      "sha256": "66ba5ad1392094c02634b9e3624af16c6d017c238cd367c3a0aee9ed51746927",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-split-zone-1.png",
+      "bytes": 480195,
+      "sha256": "c416a6bf133a94a1102a2daed2449c6a3cf977f0368e86a9b232ad830b3b9f60",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-split-zone-2.png",
+      "bytes": 456614,
+      "sha256": "3dde7b78b0ca688790465aef8162a43016638bf431cd6eda7ed2a031042191d3",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/mermaid_pool-split-zone-3.png",
+      "bytes": 508553,
+      "sha256": "92f1536a426ecf7884a8ae37f156f563adeb47648b7e557233d44cb9c306d13e",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-sections.jpg",
+      "bytes": 153826,
+      "sha256": "5517686bfbe2dee5b964501f924126c9b28251a2360e2f9df88059261359651a",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-solo-threshold-0.png",
+      "bytes": 612631,
+      "sha256": "75c7e2953eb1b6ba30b56295b8ecc287c329c24cf6900ecf3e5298e718b6deda",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-solo-threshold-1.png",
+      "bytes": 560076,
+      "sha256": "ff476f6219c0c140441f6f0d30cc485610e03c23fdca79892e3fec6e200690bf",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-solo-threshold-2.png",
+      "bytes": 577686,
+      "sha256": "5f7b198a64551154e67a9c7db5307ec707ffba73e79134580b9be473e3ca5751",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-solo-threshold-3.png",
+      "bytes": 555354,
+      "sha256": "1263fdb04ca0e795f70745ad109629239569ddab83f6f0a7886a19d118417026",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-solo-zone-0.png",
+      "bytes": 550882,
+      "sha256": "da793b2dd25461c9fb8010d89c6edb5f1db4a13fae0594d0f4078a174fb9e17b",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-solo-zone-1.png",
+      "bytes": 642304,
+      "sha256": "45eb49423a23a8099266089b4b313f69c93d0caeff83e482041be8f4419224fb",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-solo-zone-2.png",
+      "bytes": 551567,
+      "sha256": "bbce456ea918f48b58c4451940a301182ec8b11d3406add6bf24889239c8b270",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-solo-zone-3.png",
+      "bytes": 585017,
+      "sha256": "4c3c5bfacc546674eee568de1ab2859e0653a5d825d70cfbe8bcf896d1bab476",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-split-threshold-0.png",
+      "bytes": 532474,
+      "sha256": "e5f219762d9a2e3e320fd65879fe8d5e8cbd89ef1baf86c4a707149a4755a622",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-split-threshold-1.png",
+      "bytes": 402922,
+      "sha256": "2c2630d40e479140d4f04db241ae60a6d739304d50fa98c661c30171fcc33649",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-split-threshold-2.png",
+      "bytes": 483856,
+      "sha256": "0548666294cc6feaa5cec0426e0e984445feac48f5fe76ec4a5484fc08407e2a",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-split-threshold-3.png",
+      "bytes": 458526,
+      "sha256": "6e2442df5f06eba1862f329a15aa0ee7ad9888ea66c5a5dbd137f8d5f406cfc6",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-split-zone-0.png",
+      "bytes": 382684,
+      "sha256": "f30538b956ff023db8e43f526a37426e88240dba324da1c623e2bce924c755af",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-split-zone-1.png",
+      "bytes": 437306,
+      "sha256": "28a70786b88c13585684b75e9539d19a60b9bdc8f1940554aeff8ba3a33315bb",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-split-zone-2.png",
+      "bytes": 374358,
+      "sha256": "e2fec3c811e0a5777a33ccf3556a625e231e84e5bd95ee01da7828c98800c8e2",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/opera_hall-split-zone-3.png",
+      "bytes": 471032,
+      "sha256": "d25ee8cea09169adae1d5ca0c184b553dcc86017aeab2dece19ace795dfd15e3",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-sections.jpg",
+      "bytes": 161097,
+      "sha256": "7fc62c529e17c27be9362d39aa062cf37d9470b6da5372fa36566c2f920ef088",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-solo-threshold-0.png",
+      "bytes": 627948,
+      "sha256": "8f0a85a2c7bcecc24605d63ccdcd7e6ce7bb22d326db9f28c553c007c93ff3a9",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-solo-threshold-1.png",
+      "bytes": 664405,
+      "sha256": "c7033e69b22552d76ea041b5494c3f8eef2077d9ca79c00b3a0ecc8ec05dee99",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-solo-threshold-2.png",
+      "bytes": 623920,
+      "sha256": "00261ee247a7a0b1892ecb4f55f142fb8856bc276839470b3101eff724c2e371",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-solo-threshold-3.png",
+      "bytes": 633210,
+      "sha256": "9948fe1879b7b00e9594bc350e84fbb6ab5495599c1f86ce405ba8d2d64c6966",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-solo-zone-0.png",
+      "bytes": 673693,
+      "sha256": "ad605533be20d4e190dc4ae8480a60c9e972f0660989062d009f026fef7ca009",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-solo-zone-1.png",
+      "bytes": 589955,
+      "sha256": "e2ddfa68467963aff3cb98df29266e86faf246460c0965a021ad4c652dbe8810",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-solo-zone-2.png",
+      "bytes": 644443,
+      "sha256": "2ba9eb50c166af21eb105195a6e9a96a993a39e1e097295e1b00392086d5639e",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-solo-zone-3.png",
+      "bytes": 603134,
+      "sha256": "b0717b82f0e6a344620edf9d5607f5af0c5c18aa169915cb4940a1e39ce204d3",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-split-threshold-0.png",
+      "bytes": 571036,
+      "sha256": "a6a963fe43a53a73870aa5f90866db837d034df3b4d255cd6d0252b4d8fba8ec",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-split-threshold-1.png",
+      "bytes": 579770,
+      "sha256": "eff25b7fd1d70e96a713715f908bcc87b82a1331ce669919f9d2301ddf65c371",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-split-threshold-2.png",
+      "bytes": 537732,
+      "sha256": "e68e64e5e2b8efc55780d69e7cac14f02c8a28d3e7d61a5b205bd61277994af4",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-split-threshold-3.png",
+      "bytes": 517538,
+      "sha256": "41334adbc32c1af8d28e343c0504ab7bbc77404342dc3cfb146b12acb940da72",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-split-zone-0.png",
+      "bytes": 653487,
+      "sha256": "a1b85c564419d1502bca7906a5f81025b376fda8e9ffcbce5761c08063cdc212",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-split-zone-1.png",
+      "bytes": 515694,
+      "sha256": "957f3725817582081fa2088578b03c2c419e52e20aeea4494e3c016ac69f2a6f",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-split-zone-2.png",
+      "bytes": 558025,
+      "sha256": "e876d880391239f60d96386b73362532c58eb3d8b852c4b025bc32d3994564f7",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/playroom-split-zone-3.png",
+      "bytes": 455554,
+      "sha256": "eac0c47e6a7aa34a2beb5e4e67bcd0145b024fa4c5b3a31e95b7d1703f341314",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/pool-towel-drive-0.png",
+      "bytes": 649758,
+      "sha256": "7bc3a5ac0abb895f727b1cf12bba1c0d6aea1978685b06ee96cbca1f86375400",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/pool-towel-drive-120.png",
+      "bytes": 663203,
+      "sha256": "7f960dbbf4d9405791792b3107387bfb64389eb048a21db357f9b5d24f6aa7e6",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/pool-towel-drive-150.png",
+      "bytes": 687625,
+      "sha256": "7bf7cfa5a3748768fe5c9cee6b9ce18f8c59dbc46cc16e40c6e85ce08c98c15c",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/pool-towel-drive-180.png",
+      "bytes": 708548,
+      "sha256": "6316a00d6352564ffdde4d1b5cd2ce88ca6030eb3a2f7ac7115bec5457999b53",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/pool-towel-drive-210.png",
+      "bytes": 681341,
+      "sha256": "3df28977ffa05033a5fde09fd498abb7605fa161a230c3e4a97e9005502cd546",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/pool-towel-drive-30.png",
+      "bytes": 629533,
+      "sha256": "7011a7b4733c72d466417519a474b1a9bed05d7e134e3e2ae1a584a8b3c42648",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/pool-towel-drive-60.png",
+      "bytes": 647957,
+      "sha256": "f2bce9efb96fc0a49664ce8260e129bba8cb62852b39c8889372de2ac47336f3",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/pool-towel-drive-90.png",
+      "bytes": 671700,
+      "sha256": "5111069cef001ab0bf0b3ca9247f856ceee1ce44251e69cfa571628c04421f7e",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/review/rejected/pool-before-unique-fixture.jpg",
+      "bytes": 166643,
+      "sha256": "e4559004648545c85ee9ea0c9f3649ee34da49eaa14a863d4a4176928616dca8",
+      "role": "review_capture_not_generation_pixels"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/runtime_exports.json",
+      "bytes": 805,
+      "sha256": "8ddd03799946e66c9c5fa2309ef515577f881f447c19df6bbedfe6fab63a6795",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/runtime_verification.json",
+      "bytes": 207,
+      "sha256": "074a569c3c7832d3171b986bc6bd90e29ec1484ef677352b404affb624ad289c",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/source_inputs.json",
+      "bytes": 15575,
+      "sha256": "ff10a510cd6bd0cd7b83de8005c8a138667b3a9e7456e6f1c52dc02b51939cf6",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_zones_20261105/verify_runtime.gd",
+      "bytes": 762,
+      "sha256": "409ed756593208a127a88b24935fd86fcce6935048b0c438f2080e62af89234b",
+      "role": "generation_provenance"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 340871,
+      "sha256": "6811df009678c6fb9ad3d3fc3197cf55e7121fb454407d097114cde3d576f7c5",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/audio_quality_ledger_2026-08-24.csv",
+      "bytes": 277579,
+      "sha256": "a1a20baeaa5d750b51ceaee0fdfbbaf94bda2aac8bf4ad47bdb4a0b022673dad",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/audio_quality_summary_2026-08-24.json",
+      "bytes": 5705,
+      "sha256": "a9ee057775c47ddf26e0a63d211a930f4a58c1fe4df290a6d261c8f7ca0bbb88",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/audio-quality-final.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/audio-quality-final.log",
+      "bytes": 130,
+      "sha256": "4479e9d87a47151067170144636f4171e98a6407710a604ec236a7758dc64ca5",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/audio-tests.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/audio-tests.log",
+      "bytes": 138,
+      "sha256": "aa72a8d95f372fc3765b7322bf4e271bba232c3600fc06ccc25a7b21e61c1816",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/authority-final.log",
+      "bytes": 78,
+      "sha256": "b63c857da2d67fa92fbc14f6988cb8b7bf9229fa45ffaf1c98a7e586c3a94b83",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/canal-complete.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/canal-complete.log",
+      "bytes": 4534,
+      "sha256": "78090c6908da3e740ed57c220dfe5dba5f4d128bf0395bf900085de102bc0bbc",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/development-final.log",
+      "bytes": 80,
+      "sha256": "e965f01a59f2a1d7a461846f9e5ba94535550888920777b4395800e50efc723c",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/development-task-baseline.log",
+      "bytes": 80,
+      "sha256": "e965f01a59f2a1d7a461846f9e5ba94535550888920777b4395800e50efc723c",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/full-ci-clean.exit",
+      "bytes": 3,
+      "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/full-ci-clean.log",
+      "bytes": 4246,
+      "sha256": "6fe852d181f0f3c0b638424c524f29fdd367031ef28fba9722cf2b1a9afe377b",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/full-ci-complete.exit",
+      "bytes": 3,
+      "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/full-ci-complete.log",
+      "bytes": 524322,
+      "sha256": "9915ee3381e31f1d2f6078cbbb9c7b8710aee78446b77604774fb8fbe8c3508f",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/full-ci-final.exit",
+      "bytes": 3,
+      "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/full-ci-final.log",
+      "bytes": 14695,
+      "sha256": "3321334b6293276a2d05dea219c0f9f9b5efa8413bea59b443a9e7f80827133e",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/full-ci-verified.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/full-ci-verified.log",
+      "bytes": 530808,
+      "sha256": "4de59e23cb82e1a90192dc36d2870e5b7143f07d16231149b0890cc243e7fb48",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/full-ci.exit",
+      "bytes": 3,
+      "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/full-ci.log",
+      "bytes": 32901,
+      "sha256": "63b31411968d9beec79cca31babd3d97bbfd94db8773a6603d5d6b74688a7700",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/import-duel.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/import-duel.log",
+      "bytes": 2812,
+      "sha256": "04e88e14cb03522313caf8c45f7fa5bc49f6e4b29a947b70a3913d414d5979be",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/import.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/import.log",
+      "bytes": 3731,
+      "sha256": "ce946ec7c23ce6abaa4769aa76d0de36e9905a24c022d3654cd087c296f0b380",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/melody-ci-repeat.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/melody-ci-repeat.log",
+      "bytes": 22818,
+      "sha256": "1bf98f1e56fd3b162ad7ba5414f07d81a5ce372f73949e5dc8c6562f784f83cd",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/melody-repeat.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/melody-repeat.log",
+      "bytes": 22814,
+      "sha256": "f6b6368cd091109aed5406e770c2a40adc6ac748af6cb8a46849e40def0b0df8",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/opera-contract-repeat.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/opera-contract-repeat.log",
+      "bytes": 98149,
+      "sha256": "27d8d27c5ffa68860c4e13e3ee9c675137aae485eb2945106179cb0fc35c8b23",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/opera-direct-repeat.exit",
+      "bytes": 3,
+      "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/opera-direct-repeat.log",
+      "bytes": 98146,
+      "sha256": "bc26ec31773787cedb4130a6638e207dd5439aa27b2f07669493cc0245c02df8",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/opera-layout-check.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/opera-layout-check.log",
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/pc-complete.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/pc-complete.log",
+      "bytes": 72805,
+      "sha256": "fead433d3d95ca8a4f25f09f876f1ab374cd2b7cd11a225323790103b8745d76",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/pc-release.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/pc-release.log",
+      "bytes": 71779,
+      "sha256": "d2a726e8fa11d3ca15b6cbb7ddaa2c9f520a288dac47db57e12830027f598fe1",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/render-exact.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/render-exact.log",
+      "bytes": 3142,
+      "sha256": "05be6f45ddff99a51447505a16b8b48b0b0d12c813b2593630753848ec365048",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/runner-temp-check.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/runner-temp-check.log",
+      "bytes": 455,
+      "sha256": "b23435d3fd976f2a480a0fd758269e669a983486320b478305d400585af79df8",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/texture.log",
+      "bytes": 279,
+      "sha256": "6107840d8eecd582de571acfbd86babf4779d9a3104b6a712789e8b1f695ba47",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/verification_summary.json",
+      "bytes": 3501,
+      "sha256": "12fe3b6c4bcaf279e11f57167b020fa89c80d665f8375dd36779d2980652a18a",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/voice-final.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/evidence/voice-final.log",
+      "bytes": 21361,
+      "sha256": "fca4a664995df55cd25767ff31874eec4a5c673727edb530f991e6bcc2d923e7",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/owner_request.json",
+      "bytes": 932,
+      "sha256": "61546e841285ec9e9dc795d0fb3760e77cbfd116f4b6e7bf06579af0bc6fa938",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/reuse_inventory.json",
+      "bytes": 13268,
+      "sha256": "455bf20f8db15873bf94844322bd821419a2243647f419275def770096576fe1",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/runtime_snapshot.json",
+      "bytes": 3548,
+      "sha256": "7e4a2b76aba657347779cd4cb3dc5086699b0234f70db2f74c009a5dd9dce04d",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/runtime_snapshot_preflight.json",
+      "bytes": 3276,
+      "sha256": "038054f7a8c41f3557739b61a038105f17e07e8204831c95c25700987248f4f7",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/cycles/reef-kart-zones-20261105/verify_remote_packet.py",
+      "bytes": 2662,
+      "sha256": "f1fa1cd03b3a0b41ebe5e3ae9818807632289b6b82415eca2f3ab6c53b1158b5",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 323126,
+      "sha256": "03f47ac2624ff56d32286a8a3206405bfa4a8050fdb5c3c9aaef8dbc52ed2025",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "default_bus_layout.tres",
+      "bytes": 824,
+      "sha256": "78c7062a5e8f6761c84cc8617e04c756e787408471587ba4522998eeb397d8fb",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 245755,
+      "sha256": "e1656b5469774602021a0a2065bbe77dea210eff256af4963a3ef220a20feb0e",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "bytes": 109251,
+      "sha256": "45c9e7cc97ef99c48b8bb4e450c043ff5115a85f7c69fe4270362874d5e584dc",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "design/audit_impacts/reef-kart-zones-20261105.json",
+      "bytes": 20708,
+      "sha256": "c11b021dba36922c1cad9301743a8ca53219f99ab590f383426ae51f3931e690",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "design/reference/OWNER_DECISIONS.md",
+      "bytes": 40546,
+      "sha256": "1041b122ff2ffcbb31511b6cffddb0823f0a467ea2217eefe455f0a24624dfad",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "docs/handoffs/codex_reef_kart_art_2026-11-03/ENGINE.md",
+      "bytes": 9001,
+      "sha256": "c8900810cb67ebc20574c2d4dffe827c4159ea6c6a7b98d01a9e994dfaffa612",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "docs/handoffs/codex_reef_kart_art_2026-11-03/PC_HANDLING.md",
+      "bytes": 7783,
+      "sha256": "f5d9d63fd473bf7a4835b54aed837cf35e4c5c62b51e3d9d220fdfeebc10c816",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "docs/handoffs/codex_reef_kart_art_2026-11-03/README.md",
+      "bytes": 7361,
+      "sha256": "0979c006af2a6c59de316044d280457628ce97e24ab459857d26b4169b9e6a3f",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "docs/handoffs/codex_reef_kart_art_2026-11-03/VOICE.md",
+      "bytes": 2993,
+      "sha256": "883b21915dd58365ef210783487c4f6470cd4bb20868e589f8d5519633c3d528",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "docs/handoffs/codex_reef_kart_art_2026-11-03/ZONES.md",
+      "bytes": 4552,
+      "sha256": "eff125c4230c74fa22a0787bc66a6df87c2da3fb36cdd1128f0e279b8d0e52b0",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "project.godot",
+      "bytes": 1762,
+      "sha256": "ef6e56681ebd8b9c9abfc7654be1a2bcf90d55e1d697522eb3871b0e6750d207",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "scenes/racer/reef_grand_prix_pc.tscn",
+      "bytes": 298,
+      "sha256": "07ac48f6737c51be48e324792eb85380990e171b1b055d10335586f7e9c9b2d9",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "bytes": 33475,
+      "sha256": "97ae8252d1d86e2b02158355ccab91ef3d3ef612dd59fbe5bf610080dcd9e26f",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "bytes": 17582,
+      "sha256": "ef20bf6ac23d4498ba0b7ee263c8f8f8e4b0accb31bf7f8edf99a01629d8406a",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "scripts/probe_opera_2d.gd",
+      "bytes": 157947,
+      "sha256": "666391373ebd5adf77aa86c8d97930b4fd5146e7111ff5c63707a1610a43a199",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "scripts/probe_racer_integration.gd",
+      "bytes": 20097,
+      "sha256": "17abeb0a539b1a5291f0e3beea98b75edb9eac0b7aedc6561ba7e28c24bf9a82",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "scripts/probe_reef_kart_pc.gd",
+      "bytes": 13887,
+      "sha256": "0613c828bbd140c96bc0fb281c37667e132a29f3d2a6aa03deba2c6322c51da8",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "scripts/probe_voice.gd",
+      "bytes": 25633,
+      "sha256": "9f7b36ed4f9ac26560417c41d924d784538d5253b3a5e2695c6eeab7ba12a895",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "scripts/racer/reef_kart_catalog.gd",
+      "bytes": 2933,
+      "sha256": "7401bcb0b7fa3ce4e386359c6d5a2952610bc9072167ef7961f99fbb8e9af167",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "scripts/racer/reef_kart_courses.gd",
+      "bytes": 7747,
+      "sha256": "1a60ed6c0635a58fbce8a6da30b09f52024ff509bdaa22d9decaeb2179d6e1ba",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "scripts/racer/reef_kart_drive.gd",
+      "bytes": 4108,
+      "sha256": "8cd05532b4d48890675fa49054d8c17b586ad74900af5ee05f2b9e2138b4826c",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "scripts/racer/reef_kart_floor.gdshader",
+      "bytes": 10261,
+      "sha256": "914a6e6b7de52525452293da5e34cc6813131681b8bcab2d494b29f26ba316ad",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "scripts/racer/reef_kart_item_voice.gd",
+      "bytes": 2203,
+      "sha256": "5f91472b7934d1362faf71a6599cb4a47d67aa514578fe87ae7822eb82c24696",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "scripts/racer/reef_kart_pc.gd",
+      "bytes": 23147,
+      "sha256": "379c491d786f9aa4d4dadcaf25be7fb9f4add0485d308961b12cbb6c9a302619",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "bytes": 65858,
+      "sha256": "f309843aa2a3f38da8bdc21fed6f3d01b65dfff7a1da9cabb9ff138a95bf67a0",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "scripts/racer/reef_kart_track.gd",
+      "bytes": 20894,
+      "sha256": "7ce398c5f25293a27eaddcfd7e7a7b85d50fe3f40749263c20891f62f1530452",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "scripts/racer/reef_kart_zones.gd",
+      "bytes": 11163,
+      "sha256": "257ae1908ae295736c72ec387821ca7b987c140dfed856473985bd93f8edb2ba",
+      "role": "runtime_or_core_dependency"
+    },
+    {
+      "path": "tools/audit_audio_quality.py",
+      "bytes": 72113,
+      "sha256": "6e51d192d7461b715910f4cda6a747d6c6a9bed9d3e1477abfc51accfbcd12ec",
+      "role": "audit_or_instruction"
+    },
+    {
+      "path": "tools/tests/test_audit_audio_quality.py",
+      "bytes": 32994,
+      "sha256": "56e504d9f1c6020da9ac7eb4160cf9f9f201dfdf32a332ad53bd6766a1035d4d",
+      "role": "audit_or_instruction"
+    }
+  ],
+  "acceptance": {
+    "local_regressions": "PASS; see committed evidence",
+    "canonical_master_audit": "UNSATISFIED; no finding closure",
+    "human_visual_audio": "OPEN",
+    "physical_controller_tablet": "OPEN",
+    "child_owner": "OPEN",
+    "integration_release": "Topic only during demo freeze"
+  },
+  "source_art_and_prompt": "assets_src/imagegen/reef_kart_zones_20261105/generation_job.json",
+  "local_review": "assets_src/imagegen/reef_kart_zones_20261105/local_visual_review.json"
+}

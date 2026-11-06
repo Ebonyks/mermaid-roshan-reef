@@ -1,0 +1,95 @@
+{
+  "state": "SAME_POOL_SCENE_CANDIDATE_COMPARISON_NOT_OWNER_ACCEPTANCE",
+  "stable_source_item_id": "pool_towel_cabinet",
+  "baseline": {
+    "revision": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/candidate/mermaid_pool-solo-grid.png",
+    "sha256": "659164d91fec9ca8a9a96921896c4f827863be29840e55e5cc6003103e872aed",
+    "scope": "Retained same-course Mobile/Speedy diagnostic; no unchanged old frames regenerated. Different grid/zone pose, so no pixel-diff quality claim."
+  },
+  "current_pool_views": [
+    {
+      "file": "assets_src/review/recent_updates_dev_20261106/captures/mermaid_pool-solo-zone-0.png",
+      "sha256": "dea40c3498c7dd9d397ca526d86ab3d3409729c8d8a0494dc964cfb6cae12b3c",
+      "kind": "posed actual Mobile view",
+      "review": "Inspected actual native image in this chat. Bounded candidate context only; no full-speed, formalQA11, physical input or artistic acceptance.",
+      "quality_context": "fixed_pc_no_quality_selector"
+    },
+    {
+      "file": "assets_src/review/recent_updates_dev_20261106/captures/mermaid_pool-solo-threshold-0.png",
+      "sha256": "be7cfcfb399076452c41f24dda2e9ff2bf04ab5444bfba3b2b5c3677c3b1a296",
+      "kind": "posed section threshold",
+      "review": "Inspected actual native image in this chat. Bounded candidate context only; no full-speed, formalQA11, physical input or artistic acceptance.",
+      "quality_context": "fixed_pc_no_quality_selector"
+    },
+    {
+      "file": "assets_src/review/recent_updates_dev_20261106/captures/mermaid_pool-split-zone-0.png",
+      "sha256": "66ba5ad1392094c02634b9e3624af16c6d017c238cd367c3a0aee9ed51746927",
+      "kind": "posed actual Mobile view",
+      "review": "Inspected actual native image in this chat. Bounded candidate context only; no full-speed, formalQA11, physical input or artistic acceptance.",
+      "quality_context": "fixed_pc_no_quality_selector"
+    },
+    {
+      "file": "assets_src/review/recent_updates_dev_20261106/captures/mermaid_pool-split-threshold-0.png",
+      "sha256": "7b3c4a53292f1ca3d50bdc4cf1a58004a56f6486e4c327ad50aa7550bdf64b3d",
+      "kind": "posed section threshold",
+      "review": "Inspected actual native image in this chat. Bounded candidate context only; no full-speed, formalQA11, physical input or artistic acceptance.",
+      "quality_context": "fixed_pc_no_quality_selector"
+    }
+  ],
+  "approved_appearance_reference": "assets_src/imagegen/mermaid_pool_room_2026-08-02/room_mermaid_pool_fullframe_v3_native.png",
+  "candidate": "assets/racer/zones_v1/pool_towel_cabinet.png",
+  "axes": [
+    {
+      "axis": "medium",
+      "observation": "Same true-Canvas 2D room/course. The world cabinet is a painted RGBA card; no 3D prop/model is added.",
+      "acceptance": "candidate_only; owner/formal/device/child open"
+    },
+    {
+      "axis": "identity",
+      "observation": "Same peach shell crown, curved shelves, pastel towel groups and shell/coral lower shelf as the room reference. Generative detail differences remain owner-review items.",
+      "acceptance": "candidate_only; owner/formal/device/child open"
+    },
+    {
+      "axis": "style",
+      "observation": "Painted soft modeling and authored contours sit with the purple masonry, pearl/shell forms and turquoise/gold kart family. Flat floor/HUD remains separate unresolved scope.",
+      "acceptance": "candidate_only; owner/formal/device/child open"
+    },
+    {
+      "axis": "shape_and_silhouette",
+      "observation": "Whole upright cabinet and supporting pedestal read at its world station in solo/split views; no approved source overwrite or bitmap-by-extension acceptance.",
+      "acceptance": "candidate_only; owner/formal/device/child open"
+    },
+    {
+      "axis": "material",
+      "observation": "Towel folds, shell trim and warm painted cabinet relief are visible. They are source-authored pixels, not vertex-color or procedural substitutes.",
+      "acceptance": "candidate_only; owner/formal/device/child open"
+    },
+    {
+      "axis": "palette_and_values",
+      "observation": "Peach/pastel fixture contrasts with the violet wall and turquoise vehicle palette. No automatic palette score or5/5 owner grade is inferred.",
+      "acceptance": "candidate_only; owner/formal/device/child open"
+    },
+    {
+      "axis": "composition",
+      "observation": "Former pool wall includes a painted cabinet near the right edge; new scene uses one separated station and crops the wall copy. Camera/layout/phase differ intentionally; this is not a pixel-aligned before/after.",
+      "acceptance": "candidate_only; owner/formal/device/child open"
+    },
+    {
+      "axis": "scale_contact_and_occlusion",
+      "observation": "Cabinet is readable at its station in both views. Other large props and close camera passes retain contact/edge/occlusion review limits; no complete motion/contact acceptance.",
+      "acceptance": "candidate_only; owner/formal/device/child open"
+    },
+    {
+      "axis": "child_readability",
+      "observation": "Towels and shell silhouette remain pictorial at the sampled view sizes. Child comprehension and actual phone squint/input remain open; adult HUD text is not proof.",
+      "acceptance": "candidate_only; owner/formal/device/child open"
+    },
+    {
+      "axis": "runtime_suitability",
+      "observation": "1024x1024 runtime PNG, mipmaps and actual Mobile diagnostic frames; exact5571 runtime inputs, strict82 process exits and preserved saves. Target-device timing/overdraw remains open.",
+      "acceptance": "candidate_only; owner/formal/device/child open"
+    }
+  ],
+  "accepted_removed": 0
+}

@@ -1,0 +1,27 @@
+{
+  "state": "PASS_REPAIRED_MERGE_STATIC_IMPORT_FOCUSED82_POST2D_NATIVE_CONTEXT",
+  "runtime_inputs": 5571,
+  "source_parents": [
+    "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+    "8c9bc130766725965a76eca876ef683b92242334"
+  ],
+  "first_failure": "evidence/first_static_import_result.json",
+  "repair": "AUDIO_SUMMARY_RECONCILIATION.json",
+  "resumed_result": "evidence/resumed_FINAL_RESULT.json",
+  "native_result": "evidence/native_RESULT.json",
+  "current_native_frame_events": 17,
+  "trusted_command_exits": 82,
+  "assertion_probes": 81,
+  "expected_headless_capture_skip": 1,
+  "normal_save_unchanged": true,
+  "canonical_import_text_normalizations": 6,
+  "working_runtime_canonical_Git_diff_empty": true,
+  "hash_contract": "Actual raw working-byte maps retained; Git-staged text normalization is distinct from image/audio binary hashes. No runtime source changes after the frozen full run; only review fixture/profile and metadata changed.",
+  "formal_QA11": null,
+  "natural_routes": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "complete_scene_coverage": 0
+}

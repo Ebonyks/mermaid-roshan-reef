@@ -16,6 +16,12 @@ const FILLER_VOICE_DIR := "res://assets/audio/voices/filler_v1/"
 const LEGACY_VOICE_DIR := "res://assets/audio/voices/"
 const OBJECTIVE_GUIDE_DIR := "res://assets/audio/objective_guides/"
 const OBJECTIVE_GUIDES := {
+	"kart_sparkle_duel": {"mode": "opera", "file": "guide_kart_sparkle_duel.ogg"},
+	"kart_zoom": {"mode": "opera", "file": "guide_kart_zoom.ogg"},
+	"kart_sparkle": {"mode": "opera", "file": "guide_kart_sparkle.ogg"},
+	"kart_kelp": {"mode": "opera", "file": "guide_kart_kelp.ogg"},
+	"kart_pearls": {"mode": "opera", "file": "guide_kart_pearls.ogg"},
+
 	"seek_tap_wiggly_tree": {"mode": "seek", "file": "guide_seek_tap_wiggly_tree.ogg"},
 	"dolls_catch_three": {"mode": "dolls", "file": "guide_dolls_catch_three.ogg"},
 	"puff_cold_intro": {"mode": "dustboss", "file": "guide_puff_cold_intro.ogg"},
@@ -261,7 +267,7 @@ func _voice_path(speaker: String, event: String = "", allow_generic: bool = true
 
 
 func _is_required_day_one_event(event: String) -> bool:
-	return bool(DAY_ONE_REQUIRED_EVENTS.get(event, false)) or event.begins_with("chapter2_")
+	return bool(DAY_ONE_REQUIRED_EVENTS.get(event, false)) or event.begins_with("chapter2_") or event.begins_with("kart_")
 
 func objective_guide(event: String, greeting_speaker: String = "", min_gap: float = 0.0) -> void:
 	var guide: Dictionary = OBJECTIVE_GUIDES.get(event, {})
@@ -379,6 +385,13 @@ func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 		ap.stream = stream
 		ap.pitch_scale = 1.0
 		ap.play()
+		if speaker == "guide" and event_suffix.begins_with("kart_"):
+			# Pickup guidance is time-sensitive; reach the speech mix immediately.
+			# minf preserves music-off and any quieter owner-selected volume.
+			if m.music != null and m.music_on:
+				m.music.volume_db = minf(m.music.volume_db, -14.0)
+			if m.ambience != null:
+				m.ambience.volume_db = minf(m.ambience.volume_db, -16.0)
 		_active_speaker = speaker
 		_active_required_key = key if required else ""
 		if speaker == "guide":
@@ -491,6 +504,15 @@ func _stop_active_speech() -> void:
 	_active_required_key = ""
 	m.audio_active_guide_mode = ""
 	_required_voice_queue.clear()
+
+
+func clear_kart_guidance() -> void:
+	if _active_required_key.begins_with("guide_kart_"):
+		_stop_active_speech()
+	else:
+		for index in range(_required_voice_queue.size() - 1, -1, -1):
+			if String(_required_voice_queue[index].get("event", "")).begins_with("kart_"):
+				_required_voice_queue.remove_at(index)
 
 
 func _has_active_speech() -> bool:

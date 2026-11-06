@@ -16,6 +16,11 @@ uniform float focal = 560.0;
 uniform float world_size = 2048.0;
 uniform bool use_painted = false;
 uniform int room_pattern = 0;
+uniform vec4 zone_roads[4] : source_color;
+uniform vec4 zone_grounds[4] : source_color;
+uniform int zone_surfaces[4];
+uniform float course_length = 1.0;
+uniform float camera_phase = 0.0;
 uniform vec2 finish_pos;
 uniform vec2 finish_forward;
 uniform vec4 boundary_ink : source_color = vec4(0.17, 0.12, 0.28, 1.0);
@@ -69,17 +74,41 @@ bool on_bridge(vec2 world, vec4 limits) {
 	return all(greaterThan(world, limits.xy)) && all(lessThan(world, limits.zw));
 }
 
-vec4 room_floor(vec2 world, float d, float detail) {
-	float tile = soft_checker(world, 52.0);
-	float waves = 0.5 + 0.5 * sin(world.x * 0.032 + sin(world.y * 0.028) * 2.2 + time);
-	float floor_pattern = mix(tile, waves, float(room_pattern == 3));
-	vec4 ground = mix(sand_a, sand_b, mix(0.5, floor_pattern, detail * 0.64));
-	float road_pattern = mix(tile, waves, float(room_pattern == 3));
-	if (room_pattern == 4) {
-		vec2 stitch = abs(fract((world + vec2(world.y, -world.x)) / 78.0) - 0.5);
-		road_pattern = smoothstep(0.39, 0.48, max(stitch.x, stitch.y));
+float section_pattern(vec2 world, int surface) {
+	if (surface == 1) { // Soft woven rug / towel mat / rehearsal carpet.
+		return 0.5 + 0.25 * sin(world.x * 0.09) * sin(world.y * 0.09)
+			+ 0.2 * soft_checker(world, 150.0);
 	}
-	vec4 road = mix(water_a, water_b, mix(0.5, road_pattern, detail * 0.38));
+	if (surface == 2) { // Timber tent deck, bakery boards, bridges, stage.
+		float seam = smoothstep(0.91, 0.98, fract(world.x / 38.0));
+		float joint = smoothstep(0.96, 0.99, fract((world.y + floor(world.x / 38.0) * 71.0) / 190.0));
+		return 0.25 + 0.55 * max(seam, joint) + 0.12 * sin(world.y * 0.045);
+	}
+	if (surface == 3) { // Broad shell diamonds; no distant glitter.
+		vec2 diamond = abs(fract((world + vec2(world.y, -world.x)) / 150.0) - 0.5);
+		return smoothstep(0.30, 0.41, max(diamond.x, diamond.y));
+	}
+	return soft_checker(world, 68.0);
+}
+
+vec4 room_floor(vec2 world, float d, float detail, vec2 phase_vector) {
+	float phase = mod(atan(phase_vector.y, phase_vector.x) / 6.2831853 + 1.0, 1.0);
+	if (d > 0.9) { phase = camera_phase; }
+	float section = phase * 4.0;
+	int zone = int(floor(section));
+	int next_zone = (zone + 1) % 4;
+	float transition = smoothstep(0.88, 1.0, fract(section));
+	float pattern_a = section_pattern(world, zone_surfaces[zone]);
+	float pattern_b = section_pattern(world, zone_surfaces[next_zone]);
+	float motif = mix(pattern_a, pattern_b, transition);
+	vec4 road_tint = mix(zone_roads[zone], zone_roads[next_zone], transition);
+	vec4 ground_tint = mix(zone_grounds[zone], zone_grounds[next_zone], transition);
+	float tile = soft_checker(world, 52.0);
+	vec4 ground = mix(ground_tint * vec4(vec3(0.91), 1.0), ground_tint, mix(0.5, tile, detail * 0.6));
+	vec4 road = mix(road_tint, road_tint * vec4(vec3(0.74), 1.0), motif * detail * 0.45);
+	// A flush gold threshold marks entry to each part of the room.
+	float threshold = min(fract(section), 1.0 - fract(section)) * course_length * 0.25;
+	road = mix(road, curb_a, (1.0 - smoothstep(5.0, 9.0, threshold)) * 0.65);
 	bool bridge = on_bridge(world, bridge_a) || on_bridge(world, bridge_b);
 	if (bridge) {
 		float seam = smoothstep(0.86, 0.97, fract(world.x / 28.0));
@@ -149,7 +178,8 @@ void fragment() {
 		color = inside ? texture(painted_floor, uv) : mix(sand_a, sand_b, 0.5);
 	} else if (room_pattern > 0) {
 		float d = inside ? texture(field, uv).r : 1.0;
-		color = room_floor(world, d, detail);
+		vec2 phase_vector = texture(field, uv).gb * 2.0 - 1.0;
+		color = room_floor(world, d, detail, phase_vector);
 	} else {
 		float d = inside ? texture(field, uv).r : 1.0;
 		if (d < road_edge - 0.05) {

@@ -108,6 +108,29 @@ func _run() -> void:
 	race._place_grid()
 	for i in range(96):
 		pc._physics_process(STEP)
+	check("both starting items enter one shared spoken-guidance lane",
+		race.item_voice != null and race.item_voice.playing and race.item_voice.pending.size() == 1
+		and race.item_voice.active["slot"] == 0 and race.item_voice.pending[0]["slot"] == 1)
+	for kind: String in ReefKartRace.ITEM_KINDS:
+		b["item"] = ""
+		b["pending"] = kind
+		b["roulette_t"] = STEP * 0.5
+		race._contact_features(b, STEP)
+		var pending: Array = race.item_voice.pending
+		check("P2 receives exact spoken explanation for " + kind,
+			not pending.is_empty() and pending[-1]["kind"] == kind and pending[-1]["slot"] == 1)
+	race.item_voice.award(1, "sparkle")
+	race.item_voice.skip()
+	check("two-human sparkle guidance names a racer rather than an absent imp",
+		race.item_voice.playing and race.item_voice.stream.resource_path.ends_with("guide_kart_sparkle_duel.ogg"))
+	var skip_touch := InputEventScreenTouch.new()
+	skip_touch.pressed = true
+	skip_touch.position = pc._item_icons[1].get_global_rect().get_center()
+	pc._input(skip_touch)
+	check("touching P2's actual item icon skips the shared explanation",
+		not race.item_voice.playing and race.item_voice.pending.is_empty())
+	race.item_voice.award(0, "zoom")
+	b["item"] = "zoom"
 	check("PC countdown ends with both unpowered karts stationary",
 		is_zero_approx(float(a["speed"])) and is_zero_approx(float(b["speed"])))
 	axis(6, 0.18)
@@ -137,6 +160,8 @@ func _run() -> void:
 	axis(11, 0.0)
 	pc._controller_connection(11, false)
 	button(11, JOY_BUTTON_RIGHT_SHOULDER, false)
+	check("disconnect clears playing and queued item explanations",
+		not race.item_voice.playing and race.item_voice.pending.is_empty())
 	check("disconnect clears an active drift", float(b["drift_dir"]) == 0.0 and float(b["drift_charge"]) == 0.0)
 	var before := race.race_time
 	for i in range(15):
@@ -207,6 +232,28 @@ func _run() -> void:
 			var road_pos := track.project(item["pos"], item["s"], 50.0)
 			course_ok = course_ok and absf(road_pos.y - float(item["lat"])) < 4.0
 		check("%s uses its own art, landmarks and road-aligned item rows" % track.id, course_ok)
+		var zone_counts := [0, 0, 0, 0]
+		var distinct: Dictionary = {}
+		var towel_count := 0
+		for landmark: Dictionary in track.landmarks:
+			if landmark.has("zone"):
+				zone_counts[int(landmark["zone"])] += 1
+				distinct[String(landmark["id"])] = true
+				towel_count += int(String(landmark["id"]) == "pool_towel_cabinet")
+		check("%s has four authored sections with room fixtures" % track.id,
+			track.room["zones"].size() == 4 and zone_counts.min() >= 2 and distinct.size() >= 5)
+		var phase_field := track.floor_field().get_image()
+		var phase_matches := true
+		for sample in range(0, ReefKartTrack.SAMPLES, 17):
+			var pixel: Vector2i = Vector2i(track.center[sample] / track.world_size * float(phase_field.get_width()))
+			var encoded := phase_field.get_pixelv(pixel)
+			var decoded := atan2(encoded.b * 2.0 - 1.0, encoded.g * 2.0 - 1.0)
+			var expected := TAU * float(sample) / float(ReefKartTrack.SAMPLES)
+			phase_matches = phase_matches and absf(wrapf(decoded - expected, -PI, PI)) < 0.035
+		check("%s floor sections follow the driven route, including the lap seam" % track.id, phase_matches)
+		if track.id == "mermaid_pool":
+			check("pool towel cabinet is a world fixture in the changing alcove",
+				distinct.has("pool_towel_cabinet") and towel_count == 1 and zone_counts[0] >= 2)
 		var field := track.floor_field().get_image()
 		var field_ok := field.get_width() == 512
 		var outside_count := 0
@@ -256,8 +303,12 @@ func _run() -> void:
 			break
 	check("the Imp can win against an idle driver without moving their kart",
 		idle_race.imp_wins == 1 and is_zero_approx(float(idle_race.karts[0]["speed"])))
+	pc._show_mode()
+	await create_timer(0.3).timeout
 	pc.queue_free()
 	await process_frame
+	# Allow the audio server to retire stopped Ogg playback after scene teardown.
+	await create_timer(0.1).timeout
 	print("REEF_KART_PC|DONE|failures=", failures)
 	quit(0 if failures == 0 else 1)
 

@@ -73,6 +73,17 @@ func _notification(what: int) -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if _screen == Screen.RACE and is_instance_valid(_race) and _race.item_voice != null:
+		var at := Vector2(-1000.0, -1000.0)
+		if event is InputEventScreenTouch and event.pressed:
+			at = event.position
+		elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			at = event.position
+		for slot in range(_count):
+			if at.distance_to(_item_icons[slot].get_global_rect().get_center()) < 48.0:
+				_race.item_voice.skip()
+				get_viewport().set_input_as_handled()
+				return
 	if event is InputEventJoypadButton:
 		var button := event as InputEventJoypadButton
 		get_viewport().set_input_as_handled()
@@ -546,6 +557,8 @@ func _update_race_ui() -> void:
 
 
 func _show_result() -> void:
+	if is_instance_valid(_race):
+		_race.cancel_pc_input()
 	_screen = Screen.RESULT
 	_pause_button.hide()
 	_garage_button.hide()
@@ -566,6 +579,8 @@ func _leave() -> void:
 
 
 func _reset_content() -> void:
+	if is_instance_valid(_race):
+		_race.cancel_pc_input()
 	if is_instance_valid(_content):
 		_stage.remove_child(_content)
 		_content.queue_free()

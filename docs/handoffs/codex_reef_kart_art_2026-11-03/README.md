@@ -98,3 +98,7 @@ up without code changes. Run the probes after each batch and report
 | `ART_REQUESTS.md` | Every art request with sources, hashes and operations; gaps |
 | `VOICE.md` | Existing clips wired to race moments; voice gaps |
 | `MANIFEST.json` | Hashes of every packet file |
+
+## 2026-11-05 gas, item explanations and room journeys
+
+The latest owner-directed [four-zone course candidate](ZONES.md) changes the touch pedal to gas, adds exact neutral Guide explanations for awarded items, and replaces cyclic scenery with authored room sections. The pool shell towel cabinet is a world fixture. Evidence and remaining human/device/child/owner acceptance are tracked in the [scoped impact](../../../design/audit_impacts/reef-kart-zones-20261105.json). Topic branch only during the demo freeze; no release promotion.

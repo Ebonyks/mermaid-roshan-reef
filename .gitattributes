@@ -155,3 +155,12 @@ tools/godot_mcp/evidence/** -whitespace
 
 # R144 native capture/log and source pins bind literal Windows bytes.
 docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/** -text whitespace=-blank-at-eol,cr-at-eol
+
+# Racer room-zone and speech provenance binds literal native/evidence bytes.
+assets_src/audio/reef_kart_items_20261105/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+assets_src/imagegen/reef_kart_zones_20261105/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+audit/cycles/reef-kart-zones-20261105/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+
+# This reconciliation preserves literal native failure/capture/source evidence.
+docs/handoffs/codex_recent_updates_dev_2026-11-06/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+assets_src/review/recent_updates_dev_20261106/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
