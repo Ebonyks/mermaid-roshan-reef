@@ -1,0 +1,28 @@
+{
+  "result": "PASS",
+  "sway_gain": 0.08,
+  "secondary_shape_gain": 0.04,
+  "mechanical_rotation_gain": 0.05,
+  "light_gain": 0.12,
+  "seesaw_max_degrees": 0.5,
+  "gate_max_open_fraction": 0.041,
+  "canopy_centroids": {
+    "fir": {
+      "canopy_centroid_x_max_px": 0.6796,
+      "canopy_centroid_y_max_px": 0.0024
+    },
+    "huckleberry": {
+      "canopy_centroid_x_max_px": 0.8095,
+      "canopy_centroid_y_max_px": 0.0095
+    },
+    "hydrangea": {
+      "canopy_centroid_x_max_px": 0.9408,
+      "canopy_centroid_y_max_px": 0.0215
+    },
+    "bellflower": {
+      "canopy_centroid_x_max_px": 1.1584,
+      "canopy_centroid_y_max_px": 0.0046
+    }
+  },
+  "measurement_scope": "Alpha-weighted upper-canopy centroid in the exported 256px cels; not a device or human-motion acceptance claim."
+}

@@ -20938,6 +20938,9 @@ Derived from the project-owned approved v5 panorama, SHA-256 `017532ae864e534d9b
 
 ## Sky Lagoon stationary item-motion correction - 2026-11-05
 
+Revision4 reuses the same source artwork and layout with owner-requested gentle amplitudes:8% sway,4% secondary deformation,5% rotation and12% glint intensity. Native masters and exports are rebaked non-destructively; no new art/design or license is introduced.
+
+
 Revision3 changes only overview compositing to uniform source-card scaling with preserved root anchors; all nine animation masters and atlases remain byte-identical to revision2. Revision2 preserves all identity sources and the flower GIF. Only the existing window light timing is refined with a cyclic fade; the original revision remains at immutable commit76eb6da3 with its manifest preserved in the packet. No new item art or license is introduced.
 
 

@@ -8,6 +8,10 @@ P=Path(__file__).resolve().parent
 R=P.parents[2]
 D=P/'demo_project'
 N=40; S=256
+SWAY_GAIN=0.08
+SHAPE_GAIN=0.04
+ROTATION_GAIN=0.05
+LIGHT_GAIN=0.12
 Y,X=np.mgrid[:S,:S].astype(float)
 FONT=ImageFont.truetype('C:/Windows/Fonts/segoeui.ttf',16)
 SOURCES={
@@ -21,7 +25,7 @@ SOURCES={
 'gate':'assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png',
 'glass':'assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png',
 'swing':'assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png'}
-TITLES={'fir':'Fir branches bend','huckleberry':'Leaves flutter','hydrangea':'Flower head nods','bellflower':'Bells nod in the breeze','cloud':'Cloud billows','smoke':'Smoke curls','seesaw':'Seesaw rocks on its axle','gate':'Doors open and close','glass':'Window catches the light'}
+TITLES={'fir':'Fir sways lightly','huckleberry':'Leaves stir gently','hydrangea':'A very light flower sway','bellflower':'Tiny bellflower nod','cloud':'Soft cloud movement','smoke':'Faint smoke curl','seesaw':'Seesaw barely rocks','gate':'Subtle gate movement','glass':'Faint window glint'}
 def sha(p):return sha256(p.read_bytes()).hexdigest()
 def visible_sha(im):
  a=np.asarray(im).copy();a[a[:,:,3]==0]=0;return sha256(a.tobytes()).hexdigest()
@@ -42,20 +46,20 @@ def frame(im,k,i):
  if k in ['fir','huckleberry','hydrangea','bellflower']:
   amp={'fir':16,'huckleberry':20,'hydrangea':28,'bellflower':28}[k]
   if k=='huckleberry':h=np.clip((228-Y)/90,0,1)
-  dx=amp*s*h**1.5+5*math.sin(2*t)*np.sin((Y-32)/24)*h
-  dy=3*math.sin(2*t)*np.sin((X-128)/50)*h
+  dx=amp*SWAY_GAIN*s*h**1.5+5*SHAPE_GAIN*math.sin(2*t)*np.sin((Y-32)/24)*h
+  dy=3*SHAPE_GAIN*math.sin(2*t)*np.sin((X-128)/50)*h
   a=np.asarray(warp(im,X-dx,Y-dy)).copy();a[Y>=228]=np.asarray(im)[Y>=228];return Image.fromarray(a)
- if k=='cloud':return warp(im,X-8*s*np.sin((X-128)/55),Y-6*s*np.cos((X-128)/45)*np.clip((234-Y)/65,0,1))
- if k=='smoke':return warp(im,X-17*h*(np.sin(t+(Y-234)/27)-np.sin((Y-234)/27)),Y-3*s*h)
+ if k=='cloud':return warp(im,X-8*SHAPE_GAIN*s*np.sin((X-128)/55),Y-6*SHAPE_GAIN*s*np.cos((X-128)/45)*np.clip((234-Y)/65,0,1))
+ if k=='smoke':return warp(im,X-17*SWAY_GAIN*h*(np.sin(t+(Y-234)/27)-np.sin((Y-234)/27)),Y-3*SHAPE_GAIN*s*h)
  if k=='seesaw':
   a=np.asarray(im).copy();fixed=(Y>=199)|((X-128)**2+(Y-193)**2<=49)
   beam=a.copy();beam[fixed]=0;base=a.copy();base[~fixed]=0
-  th=math.radians(10)*s;cx=128;cy=193
+  th=math.radians(10)*ROTATION_GAIN*s;cx=128;cy=193
   out=warp(Image.fromarray(beam),cx+(X-cx)*math.cos(th)+(Y-cy)*math.sin(th),cy-(X-cx)*math.sin(th)+(Y-cy)*math.cos(th));out.alpha_composite(Image.fromarray(base));return out
  if k=='gate':
   a=np.asarray(im).copy();rgb=a[:,:,:3].astype(float)
   mask=(rgb[:,:,0]>rgb[:,:,1]*1.22)&(rgb[:,:,0]>rgb[:,:,2]*1.08)&(X>=94)&(X<=160)&(Y>=125)&(Y<=227)
-  mask=binary_fill_holes(mask);u=(1-math.cos(t))/2;sc=1-.82*u
+  mask=binary_fill_holes(mask);u=(1-math.cos(t))/2;sc=1-.82*ROTATION_GAIN*u
   base=a.copy();base[mask,:3]=[51,29,63];out=Image.fromarray(base)
   for left,hinge in [(True,104),(False,151)]:
    leaf=a.copy();leaf[~(mask&((X<127) if left else (X>=127)))]=0;out.alpha_composite(warp(Image.fromarray(leaf),hinge+(X-hinge)/sc,Y))
@@ -63,8 +67,8 @@ def frame(im,k,i):
  if k=='glass':
   a=np.asarray(im).copy();rgb=a[:,:,:3].astype(float)
   mask=(((X-128)/24)**2+((Y-112)/36)**2<1)&(Y<153)
-  light=np.exp(-((X-(108+40*(1-math.cos(t))/2))/9)**2)*mask*math.sin(t/2)**2
-  rgb+=light[:,:,None]*np.array([32,38,20]);a[:,:,:3]=np.uint8(np.clip(np.rint(rgb),0,255));return Image.fromarray(a)
+  light=np.exp(-((X-(128+20*SWAY_GAIN*math.sin(t)))/9)**2)*mask*math.sin(t/2)**2
+  rgb+=light[:,:,None]*np.array([32,38,20])*LIGHT_GAIN;a[:,:,:3]=np.uint8(np.clip(np.rint(rgb),0,255));return Image.fromarray(a)
  raise ValueError(k)
 
 def gif(path,frames):
@@ -85,7 +89,7 @@ def main():
  for k,rel in SOURCES.items():
   src=R/rel;target=P/'sources'/f'{k}.png';shutil.copyfile(src,target)
   sources[k]={'path':rel,'sha256':sha(src),'dimensions':Image.open(src).size,'role':'identity_still_only','copy':str(target.relative_to(P)).replace('\\','/'),'license':'Project art; inherits exact source terms in ASSET_LICENSES.md','acceptance_scope':'Identity still only. Garden separated art remains review-only. No prior animation frames reused.'}
-  write(P/'jobs'/f'{k}.json',{'id':k,'revision':1,'date':'2026-11-05','lane':'isolated reference demo','source':sources[k],'intention':TITLES.get(k,'Static swing; changing fore/aft surfaces missing'),'fixed':'Camera/background, plant root bands, seesaw pedestal, gate masonry, swing frame','entry_exit':'Exact normalized source at t=0 and t=4 seconds','method':'Local keyed 2D deformation/layer articulation; premultiplied RGBA sampling; Aseprite master','geometry':'256 padded canvas; plant root y>=228; seesaw axle (128,193); gate hinges x104/x151','tolerances':'Plant crown 32-56px peak-to-peak, fixed support, no edge clipping, periodic endpoint exact','limits':{'generated_take_cap':2,'generated_calls':0,'money_cap':0,'local_trial_minutes':90,'cleanup_minutes_cap':30,'aggregate_task_minutes':180},'stop_fallback':'Stop on drift/contact failure; no rejected-frame reuse. Swing remains missing-view gap.','human_review':'PENDING','device_review':'PENDING','owner_review':'PENDING'})
+  write(P/'jobs'/f'{k}.json',{'id':k,'revision':1,'date':'2026-11-05','lane':'isolated reference demo','source':sources[k],'intention':TITLES.get(k,'Static swing; changing fore/aft surfaces missing'),'fixed':'Camera/background, plant root bands, seesaw pedestal, gate masonry, swing frame','entry_exit':'Exact normalized source at t=0 and t=4 seconds','method':'Local keyed 2D deformation/layer articulation; premultiplied RGBA sampling; Aseprite master','geometry':'256 padded canvas; plant root y>=228; seesaw axle (128,193); gate hinges x104/x151','tolerances':'Plant displacement <=3px from rest; vertical deformation <=0.12px; seesaw <=0.5deg; fixed support; no clipping; periodic endpoint exact','limits':{'generated_take_cap':2,'generated_calls':0,'money_cap':0,'local_trial_minutes':90,'cleanup_minutes_cap':30,'aggregate_task_minutes':180},'stop_fallback':'Stop on drift/contact failure; no rejected-frame reuse. Swing remains missing-view gap.','human_review':'PENDING','device_review':'PENDING','owner_review':'PENDING'})
   im=norm(target,206 if k=='smoke' else 196);im.save(P/'stills'/f'{k}.png')
   frames=[frame(im,k,i) for i in range(N if k!='swing' else 1)];loops[k]=frames
   if k=='swing':im.save(D/'items/swing.png');continue

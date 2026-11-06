@@ -10,7 +10,7 @@ def main():
  parser=argparse.ArgumentParser();parser.add_argument('--production-base',default='5003d421b0de8771a59eafdcb2aadffd818a7246');args=parser.parse_args()
  d=json.loads((P/'derivation.json').read_text());entries=json.loads((P/'demo_project/items.json').read_text())
  for e in d['source_files'].values():assert sha(R/e['path'])==e['sha256'],e['path']
- cels=0
+ cels=0;centroid_max={};window_max=0;yy,xx=np.mgrid[:256,:256]
  for e in entries:
   atlas=Image.open(P/'demo_project'/e['atlas']).convert('RGBA');assert sha(P/'demo_project'/e['atlas'])==e['atlas_sha256']
   for i in range(40):
@@ -19,6 +19,14 @@ def main():
    a=np.asarray(cel);assert not a[[0,-1],:,3].any();assert not a[:,[0,-1],3].any()
    if e['id'] in ['fir','huckleberry','hydrangea','bellflower']:
     rest=Image.open(P/'stills'/f'{e["id"]}.png').convert('RGBA');assert cel.crop((0,228,256,256)).tobytes()==rest.crop((0,228,256,256)).tobytes()
+    rest_array=np.asarray(rest);top=int(np.where(rest_array[:,:,3]>32)[0].min());roi=yy<=top+(228-top)*.55
+    def canopy_center(pixels):
+     weights=pixels[:,:,3].astype(float)*roi
+     return np.array([(weights*xx).sum()/weights.sum(),(weights*yy).sum()/weights.sum()])
+    shift=np.abs(canopy_center(a)-canopy_center(rest_array));assert shift[0]<=3 and shift[1]<=.25,(e["id"],i,shift)
+    prior=centroid_max.get(e["id"],np.zeros(2));centroid_max[e["id"]]=np.maximum(prior,shift)
+   if e["id"]=="glass":
+    rest_array=np.asarray(Image.open(P/'stills/glass.png').convert('RGBA'));visible=rest_array[:,:,3]>0;delta=np.abs(a[:,:,:3].astype(int)-rest_array[:,:,:3].astype(int));window_max=max(window_max,int(delta[visible].max()));assert window_max<=5
    cels+=1
  for file in P.glob('*.gif'):
   with Image.open(file) as im:
@@ -39,6 +47,6 @@ def main():
  assert max(changed)>1000
  runtime_diff=subprocess.check_output(['git','diff',args.production_base,'--name-only','--','scripts','scenes','assets','project.godot'],cwd=R,text=True).strip();assert not runtime_diff
  glass=Image.open(P/'demo_project/items/glass.png').convert('RGBA');g0=np.asarray(glass.crop((0,0,256,256))).astype(int);g39=np.asarray(glass.crop((1792,1024,2048,1280))).astype(int);seam_jump=int(np.abs(g0-g39).max());assert seam_jump<=2,('window glint seam',seam_jump)
- receipt={'result':'PASS','production_baseline':subprocess.check_output(['git','rev-parse',args.production_base],cwd=R,text=True).strip(),'window_glint_seam_max_channel_jump':seam_jump,'source_files_unchanged':len(d['source_files']),'master_and_atlas_cels_exact_rgba':cels,'master_frame_ms':100,'all_gif_loops_ms':4000,'root_band_pixels':'exact in all plant frames','clipped_border_pixels':0,'engine_frames_checked':40,'background_pixels_checked_per_frame':int((~mask).sum()),'changed_background_pixels':0,'max_changed_item_pixels':max(changed),'camera_translation_pixels':0,'atlas_base_rgba_mib':144,'native_background_base_rgba_mib':48,'device_memory_timing':'PENDING; these are base texture estimates, not GPU/device measurements','historical_topic_ci':'https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41998350733','human_device_child_owner_acceptance':'PENDING'}
+ receipt={'result':'PASS','canopy_centroid_max_from_rest_px':{k:[round(float(v[0]),4),round(float(v[1]),4)] for k,v in centroid_max.items()},'faint_glint_max_rgb_delta':window_max,'production_baseline':subprocess.check_output(['git','rev-parse',args.production_base],cwd=R,text=True).strip(),'window_glint_seam_max_channel_jump':seam_jump,'source_files_unchanged':len(d['source_files']),'master_and_atlas_cels_exact_rgba':cels,'master_frame_ms':100,'all_gif_loops_ms':4000,'root_band_pixels':'exact in all plant frames','clipped_border_pixels':0,'engine_frames_checked':40,'background_pixels_checked_per_frame':int((~mask).sum()),'changed_background_pixels':0,'max_changed_item_pixels':max(changed),'camera_translation_pixels':0,'atlas_base_rgba_mib':144,'native_background_base_rgba_mib':48,'device_memory_timing':'PENDING; these are base texture estimates, not GPU/device measurements','historical_topic_ci':'https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41998350733','human_device_child_owner_acceptance':'PENDING'}
  (P/'evidence/machine-verification.json').write_text(json.dumps(receipt,indent=2)+'\n');print('ITEM_PACKET_VERIFY PASS',json.dumps(receipt))
 if __name__=='__main__':main()

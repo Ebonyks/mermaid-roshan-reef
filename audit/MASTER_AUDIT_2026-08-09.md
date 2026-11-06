@@ -178,6 +178,8 @@ Owner-commissioned [Sky Lagoon continuous-overlay demo](../assets_src/sky_lagoon
 
 Owner correction 2026-11-05 rejects the scrolling preview above as insufficient item animation. The [stationary moving-item revision](../assets_src/sky_lagoon/item_motion_demo_20261105/README.md) uses existing separated identity stills for nine new local 2D loops, fixed background/camera and a close-up item board. The swing remains an explicit missing fore/aft-view gap. Revision3 enforces uniform source-card scaling and stable root anchors in the overview. Revision2 corrects a window-glint reset with a cyclic fade and adds a measured seam-step gate; the flower trial is unchanged. Its [bounded impact](../design/audit_impacts/sky-lagoon-item-motion-correction-20261105.json) records exact source/master/import evidence; production staging, device, child and owner acceptance remain open. No rejected performance or finding closure is claimed.
 
+Owner follow-up 2026-11-05 requests far subtler Sky Lagoon movement, rotation and distortion. The [gentle revision4](../assets_src/sky_lagoon/item_motion_demo_20261105/README.md) keeps the existing source art/layout, fixed camera and anchors, reducing sway to8%, secondary deformation4% and rotation5%. The [subtle-motion impact](../design/audit_impacts/sky-lagoon-subtle-motion-20261105.json) records measured small excursions and preserved source/engine/export checks; new motion, device/child and production acceptance remain pending.
+
 <!-- AUDIT_TASK_INDEX_START -->
 ### Development task index
 

@@ -1,6 +1,6 @@
 {
   "id": "gate",
-  "revision": 1,
+  "revision": 4,
   "date": "2026-11-05",
   "lane": "isolated reference demo",
   "source": {
@@ -15,12 +15,12 @@
     "license": "Project art; inherits exact source terms in ASSET_LICENSES.md",
     "acceptance_scope": "Identity still only. Garden separated art remains review-only. No prior animation frames reused."
   },
-  "intention": "Doors open and close",
+  "intention": "Subtle gate movement",
   "fixed": "Camera/background, plant root bands, seesaw pedestal, gate masonry, swing frame",
   "entry_exit": "Exact normalized source at t=0 and t=4 seconds",
   "method": "Local keyed 2D deformation/layer articulation; premultiplied RGBA sampling; Aseprite master",
   "geometry": "256 padded canvas; plant root y>=228; seesaw axle (128,193); gate hinges x104/x151",
-  "tolerances": "Plant crown 32-56px peak-to-peak, fixed support, no edge clipping, periodic endpoint exact",
+  "tolerances": "Plant displacement <=3px from rest; vertical deformation <=0.12px; seesaw <=0.5deg; fixed support; no clipping; periodic endpoint exact",
   "limits": {
     "generated_take_cap": 2,
     "generated_calls": 0,
@@ -33,10 +33,21 @@
   "human_review": "PENDING",
   "device_review": "PENDING",
   "owner_review": "PENDING",
-  "source_commit": "5003d421b0de8771a59eafdcb2aadffd818a7246",
-  "workflow_sha256": "91935f3290b5dd5e7e2990b4ab2632169b25297b3932d37956226fbe490459be",
-  "cleanup_time": "Not instrumented; acceptance/efficiency gap retained",
-  "layout_revision": 3,
-  "current_compositing_workflow_sha256": "de81b93bfcce84c1260fac3023362472bac73b5502be562a9385fd3d52561ac3",
-  "source_proportions": "Uniform fit, original root anchor(128,234) preserved"
+  "source_commit": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+  "workflow_sha256": "45104162ecc286223531ab1a0992d315e326782cae861ba87efb291d1ca201cf",
+  "owner_direction": "Far, far more subtle: much less movement, rotation and distortion",
+  "motion_profile": {
+    "relative_to_revision3": {
+      "sway": 0.08,
+      "secondary_warp": 0.04,
+      "mechanical_rotation": 0.05,
+      "window_brightness": 0.12
+    },
+    "seesaw_max_degrees": 0.5,
+    "gate_max_open_fraction": 0.041,
+    "plant_max_configured_displacement_px": 2.44,
+    "plant_max_vertical_deformation_px": 0.12,
+    "period_seconds": 4
+  },
+  "cleanup_time": "Not instrumented; no efficiency/acceptance claim"
 }

@@ -1,6 +1,25 @@
 {
   "result": "PASS",
-  "production_baseline": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+  "canopy_centroid_max_from_rest_px": {
+    "fir": [
+      0.6796,
+      0.0024
+    ],
+    "huckleberry": [
+      0.8095,
+      0.0095
+    ],
+    "hydrangea": [
+      0.9408,
+      0.0215
+    ],
+    "bellflower": [
+      1.1584,
+      0.0046
+    ]
+  },
+  "faint_glint_max_rgb_delta": 5,
+  "production_baseline": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
   "window_glint_seam_max_channel_jump": 0,
   "source_files_unchanged": 23,
   "master_and_atlas_cels_exact_rgba": 360,
@@ -11,7 +30,7 @@
   "engine_frames_checked": 40,
   "background_pixels_checked_per_frame": 626104,
   "changed_background_pixels": 0,
-  "max_changed_item_pixels": 38447,
+  "max_changed_item_pixels": 30597,
   "camera_translation_pixels": 0,
   "atlas_base_rgba_mib": 144,
   "native_background_base_rgba_mib": 48,
