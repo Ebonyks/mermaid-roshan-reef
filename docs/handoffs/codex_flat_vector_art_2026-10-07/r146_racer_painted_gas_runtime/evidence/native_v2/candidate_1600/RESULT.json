@@ -1,0 +1,127 @@
+{
+  "label": "candidate_1600",
+  "exit_code": 0,
+  "elapsed_seconds": 12.981,
+  "source_script_sha256": "eaaab0f6ad8ef10907c712ea8a9f0fa0673d1a3d46c53ab808340daf9869ecaa",
+  "records": {
+    "failures": 0,
+    "frame_cap": 30,
+    "limits": "Configured actual surface/PC scenes and production fit helper, not full natural routes or formalQA11/device/child/owner acceptance.",
+    "records": [
+      {
+        "file": "opera-released.png",
+        "formal_QA11": false,
+        "quality_context": "speedy",
+        "renderer": "mobile",
+        "sha256": "cc037e497a09ce2cc07edc0584e1f090dfb64a4615bfe1efc1d9f86f341750f0",
+        "size": [
+          1600,
+          720
+        ],
+        "target_state": {
+          "gas_center": [
+            1175.0,
+            625.0
+          ],
+          "gas_radius": 80.0,
+          "held": false,
+          "owner": -1,
+          "suspended": false
+        },
+        "target_visible": true,
+        "variant": "candidate"
+      },
+      {
+        "file": "opera-held.png",
+        "formal_QA11": false,
+        "quality_context": "speedy",
+        "renderer": "mobile",
+        "sha256": "1f5c485b76bf7e1b8d9afaa10aa74abb77677046821ebe886f35502efe4eae48",
+        "size": [
+          1600,
+          720
+        ],
+        "target_state": {
+          "gas_center": [
+            1175.0,
+            625.0
+          ],
+          "gas_radius": 80.0,
+          "held": true,
+          "owner": 73,
+          "suspended": false
+        },
+        "target_visible": true,
+        "variant": "candidate"
+      },
+      {
+        "file": "opera-focus-cancelled.png",
+        "formal_QA11": false,
+        "quality_context": "speedy",
+        "renderer": "mobile",
+        "sha256": "5c60154443602efb7f41e726451c4083ba840b527430a6eb22f571379c54b81a",
+        "size": [
+          1600,
+          720
+        ],
+        "target_state": {
+          "gas_center": [
+            1175.0,
+            625.0
+          ],
+          "gas_radius": 80.0,
+          "held": false,
+          "owner": -1,
+          "suspended": true
+        },
+        "target_visible": true,
+        "variant": "candidate"
+      },
+      {
+        "file": "pc-1-no-touch-gas.png",
+        "formal_QA11": false,
+        "quality_context": "fixed_pc_no_quality_selector",
+        "renderer": "mobile",
+        "sha256": "3e92912b738206ac16465bd2431cce14374a755d49716a4eec45dad570054d40",
+        "size": [
+          1600,
+          720
+        ],
+        "target_state": {},
+        "target_visible": false,
+        "variant": "candidate"
+      },
+      {
+        "file": "pc-2-no-touch-gas.png",
+        "formal_QA11": false,
+        "quality_context": "fixed_pc_no_quality_selector",
+        "renderer": "mobile",
+        "sha256": "8d9d0372fb25bde91f46cb02dc454dfaa071c1e928e10e9e7f34244d7c2fc30a",
+        "size": [
+          1600,
+          720
+        ],
+        "target_state": {},
+        "target_visible": false,
+        "variant": "candidate"
+      }
+    ],
+    "renderer": "mobile",
+    "source_script_sha256": "eaaab0f6ad8ef10907c712ea8a9f0fa0673d1a3d46c53ab808340daf9869ecaa",
+    "variant": "candidate",
+    "version": {
+      "build": "official",
+      "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+      "hex": 263938,
+      "major": 4,
+      "minor": 7,
+      "patch": 2,
+      "status": "stable",
+      "string": "4.7.2-stable (official)",
+      "timestamp": 0
+    },
+    "width": 1600
+  },
+  "console_sha256": "94db687f5cc0246486c28340c9df55d972ccb3f4dae20d79a2ba2534fd22b1e6",
+  "native_log_sha256": "922470b40c092bcae69fbebdb8b7eaf79dace68af5a2e80190425294f6a27029"
+}

@@ -422,6 +422,8 @@ R124 source candidate: [painted Melody stage apron](../../docs/handoffs/codex_fl
 
 ## MA-VIS-008
 
+[R146 painted Racer gas control](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/README.md) supplies one actual painted output and replaces only the visible gas drawing on the work branch. Twenty corrected configured diagnostic frames and five excluded failed-setup frames retain exact provenance. Input geometry is unchanged; the exact5582-input changed candidate now passes88required local checks. Source CI/Dev and formal/device/child/owner acceptance remain separate. Lifecycle and accepted-removal credit are unchanged.
+
 [R144 shared shell candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md) replaces the procedural crest with byte-unchanged painted castle art. Thirty configured native before/candidate frames and identical caller geometry are diagnostic evidence; machine, Dev, formal QA11, device, child and owner evidence remain distinct. Hidden touch-pad and occluded Garden-header crests earn no visible-removal credit. Lifecycle remains open.
 
 [R143 Racer](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/README.md) binds the existing painted capsule/kelp as required resources and retires two procedural fallback drawing paths on an isolated current-Dev candidate. 54paired configured native scenes are identical; the later actual MCP combination passes81assertion-based probes plus1headless capture SKIP with strict-zero exits. FormalQA11/device/child/owner and integration remain separate. Finding lifecycle remains open.

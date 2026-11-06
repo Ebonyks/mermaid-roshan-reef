@@ -1,0 +1,95 @@
+{
+  "stable_id": "FVR-34524393E2C8",
+  "artifact_key": "r146_racer_painted_gas_control_runtime",
+  "baseline": "e70081ea871bd2aab2440be2168abe33d20ee328",
+  "candidate_output": {
+    "original_tool_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-6764b27b-8d9d-431d-85bd-0c01512e3e3d.png",
+    "preserved_path": "assets_src/imagegen/racer_gas_button_20261106/gas_button_native.png",
+    "sha256": "26c4632422c45c9ef2ab406ba5faa93cac9b3f6fb75dc175e3d2291eadce38fa",
+    "bytes": 1774970,
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "provider_request_id": null,
+    "tool_output_basename": "exec-6764b27b-8d9d-431d-85bd-0c01512e3e3d.png",
+    "observed_combined_promptread_and_generation_tool_wall_seconds": 27.9,
+    "alpha_bbox_at1": [
+      0,
+      38,
+      1218,
+      1254
+    ],
+    "alpha_bbox_at4": [
+      35,
+      38,
+      1201,
+      1213
+    ],
+    "alpha_limit": "Native alpha1 fringe reaches left/bottom edges; visible alpha>=4 silhouette is fully inset and was inspected. Entire originalcanvas preserved, no alpha cleanup performed."
+  },
+  "runtime_export": {
+    "path": "assets/racer/ui/gas_button_painted.png",
+    "sha256": "79f9dee0a1db33980e0d3fd24627bb25a85119d956b15a62a700de7f3741af29",
+    "bytes": 308133,
+    "size": [
+      512,
+      512
+    ],
+    "method": "Uniform whole-canvas LANCZOS downscale1254x1254 to512RGBA PNG. No crop, padding, alpha removal or painting; native and reference originals preserved.",
+    "runtime_alpha_bbox": [
+      0,
+      14,
+      493,
+      497
+    ],
+    "decoded_RGBA_base_bytes": 1048576,
+    "mipmapped_RGBA_upper_bound_bytes": 1398100
+  },
+  "changed_runtime_paths": [
+    "scripts/racer/reef_kart_race.gd",
+    "assets/racer/ui/gas_button_painted.png",
+    "assets/racer/ui/gas_button_painted.png.import"
+  ],
+  "source_code_change": "Only required GasButtonArt preload and visible_draw_controls gas circle/highlight/chevrons block replaced by wholetexture draw; center/radius/0.92pressshrink retained, pressed paint tint explicit. No invisibleinput geometry/controller/voice/save code changed.",
+  "functional_invisible_geometry": {
+    "owner": "scripts/opera_racer_surface.gd unchanged",
+    "gas_center": [
+      1175,
+      625
+    ],
+    "gas_radius": 80,
+    "hit_margin": 16,
+    "disposition": "Retained functional input geometry; never counted as artwork removal."
+  },
+  "candidate": true,
+  "source_work_branch_integrated": true,
+  "configured_runtime": "PASS20_SOURCE_CANDIDATE_CONFIGURED_NATIVE_MOBILE_FRAMES_V2",
+  "actual_runtime_inputs": 5582,
+  "full_static_trusted": "PASS_ACTUAL_R146_PAINTED_GAS_STATIC_IMPORT_2FOCUSED_AND82_STRICT_COMMAND_EXITS",
+  "source_CI": null,
+  "Dev": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "new_generation_calls": 1,
+  "backend": "built-in image_gen.imagegen, no exposed model selector/version",
+  "animation_calls": 0,
+  "other_funded_caps": "unchanged",
+  "candidate_count_delta_pending_publication": {
+    "source_artifacts": 1,
+    "roles": 1,
+    "families": 0,
+    "partial_Dev": 0,
+    "native_bounded": 12,
+    "native_excluded": 13,
+    "native_total": 25,
+    "accepted_removed": 0,
+    "complete_scenes": 0
+  },
+  "full_machine_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/evidence/full_machine/FINAL_RESULT.json",
+  "diagnostic_runtime_inputs": 5581,
+  "source_pin_import_recipe_limit": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/IMPORT_RECIPE_PIN_LIMIT.json"
+}

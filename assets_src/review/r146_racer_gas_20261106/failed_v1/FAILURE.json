@@ -1,0 +1,13 @@
+{
+  "state": "FIRST_CONFIGURED_NATIVE_ATTEMPT_FAILED_HARNESS_SETUP",
+  "retained_failed_native_events": 5,
+  "retained_folder": "assets_src/review/r146_racer_gas_20261106/captures/source_1280",
+  "all_five_frames": "EXCLUDED_failedfixture",
+  "failure_log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-shell-20261106\\r146_native_capture\\source_1280\\console.log",
+  "failure_log_sha256": "514becb7f40d59f527da53155cdb70302e298464ab8077f17d3a4106a54b1e37",
+  "source_pin": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-shell-20261106\\r146_native_capture\\SOURCE_PIN.json",
+  "candidate_restored_sha256": "eaaab0f6ad8ef10907c712ea8a9f0fa0673d1a3d46c53ab808340daf9869ecaa",
+  "first_fixture": "assets_src\\review\\r146_racer_gas_20261106\\failed_v1\\capture_review.gd",
+  "cause": "Host_process disabled beforeenterTree was autoenabled on treeattachment, then operated with no world.surface; frozen actualtouch surface also had not published controls after input. No product/runtime shader/input code fix inferred.",
+  "repair": "Disable hostprocess after attachment and explicitly invoke existing published controls step after real_gui_input. Recheck actual focus state immediatelybefore simulatedtouch. No newgeneration or assetexport/import rerun."
+}

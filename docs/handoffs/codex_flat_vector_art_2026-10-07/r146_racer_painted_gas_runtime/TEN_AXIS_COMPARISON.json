@@ -1,0 +1,66 @@
+{
+  "state": "ASSISTANT_SAME_SCENE_NATIVE_CANDIDATE_REVIEW_EXTERNAL_ACCEPTANCE_OPEN",
+  "stable_id": "FVR-34524393E2C8",
+  "baseline_code": "e70081ea871bd2aab2440be2168abe33d20ee328",
+  "same_scene_source": "CAF canal-gas cited inTASK_START; additionalE700-code/currentcandidate paired diagnostics inassets_src/review/r146_racer_gas_20261106/captures_v2",
+  "axes": [
+    {
+      "axis": "medium",
+      "comparison": "Source uses three circle fills and two white polylines; candidate is one whole painted RGBA illustration, without new3D content.",
+      "limit": "Assistant viable-candidate judgement, not formal acceptance."
+    },
+    {
+      "axis": "identity",
+      "comparison": "Gold circular accelerator and exactlytwo upward ivory chevrons remain; no character/prop identity is redesigned.",
+      "limit": "Owner design/new-use acceptance open."
+    },
+    {
+      "axis": "style",
+      "comparison": "Warm soft paint and plum contour now relate to the existing painted kart, arches and shell UI reference.",
+      "limit": "Other flat road/HUD/steering/item-circle art remains visible; whole scene is not accepted."
+    },
+    {
+      "axis": "silhouette",
+      "comparison": "Complete rounded medallion is visible; fullnativecanvas preserved and uniformly downscaled. Visiblebutton is slightly smaller within the same nominal170-square drawing boundary.",
+      "limit": "Native alpha1 fringe remains; visible alpha>=4 outline is inset. No alpha cleanup or crop was concealed."
+    },
+    {
+      "axis": "material",
+      "comparison": "Painted gold rim, broad soft highlight and shaded ivory chevrons replace uniform yellow fill and code highlight.",
+      "limit": "Native and in-scene finish inspected; no fabricated score or5/5 claim."
+    },
+    {
+      "axis": "palette_value",
+      "comparison": "Honey gold, ivory and plum retain source gold/white/violet hierarchy on the aqua course. Pressed tint darkens and shrink remains.",
+      "limit": "Pressed contrast at physical phone size remains a device/child/owner question."
+    },
+    {
+      "axis": "composition",
+      "comparison": "Actual same-scene source/candidate pairs show changes confined to original gas drawing bounds; no other decoded RGBpixel changes.",
+      "limit": "This bounded diagnostic comparison is not formalQA11 or whole-scene acceptance."
+    },
+    {
+      "axis": "scale_contact_occlusion",
+      "comparison": "At1280 and1600 widths, button stays clear of neighboring item control/karts and frame edge; center/radius/hitmargin unchanged.",
+      "limit": "Contact/occlusion at fullspeed, all natural routes/modes and actual device reach remain open."
+    },
+    {
+      "axis": "child_readability",
+      "comparison": "Two large upward chevrons retain the existing non-reading cue; visual button is well over110basepixels and input region remains160diameter+16margin.",
+      "limit": "Actual child comprehension and one-finger play still require observation."
+    },
+    {
+      "axis": "runtime_suitability",
+      "comparison": "512RGBA lossless import with no mipmaps; one required texture draw replaces circle/polyline art. Existing input, pause/focus, keyboard/gamepad, save and motion ownership untouched.",
+      "limit": "Actual changed5582-input candidate now passes all88required localgatecommands including82trusted exits,2focusedRacerprobes, fullstatic/import/all-scriptanalyzers, parser/inference and final2D/source/normal-saveguards. SourceCI/Dev, actualdeviceperformance, allnaturalroutes/fullspeed, formalQA11/child/owner remainopen."
+    }
+  ],
+  "inspected_target_native_images": 12,
+  "PC_negative_pairs": "4decodedRGBidentical pairs;2representative candidatePC images directly inspected. All8no-target nativeevents excluded from visible-art context count.",
+  "full_speed": null,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0
+}

@@ -1,0 +1,530 @@
+{
+  "state": "PASS20_SOURCE_CANDIDATE_CONFIGURED_NATIVE_MOBILE_FRAMES_V2",
+  "baseline_code": "e70081ea871bd2aab2440be2168abe33d20ee328",
+  "results": [
+    {
+      "label": "source_1280",
+      "exit_code": 0,
+      "elapsed_seconds": 13.468,
+      "source_script_sha256": "14ce1ec8dce4e3a2824bfe572e5807a5b071a7c2257c674fe3a9edfed3d8bec1",
+      "records": {
+        "failures": 0,
+        "frame_cap": 30,
+        "limits": "Configured actual surface/PC scenes and production fit helper, not full natural routes or formalQA11/device/child/owner acceptance.",
+        "records": [
+          {
+            "file": "opera-released.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "53991de00d2072a1c7639ee6231a6e579ac457ee862cf5d2e01e27febb6102db",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "gas_center": [
+                1175.0,
+                625.0
+              ],
+              "gas_radius": 80.0,
+              "held": false,
+              "owner": -1,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "source"
+          },
+          {
+            "file": "opera-held.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "7d160f27ccee7031688185aaf190b7f24a349f70a8fc8c137081c30a5bcb898b",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "gas_center": [
+                1175.0,
+                625.0
+              ],
+              "gas_radius": 80.0,
+              "held": true,
+              "owner": 73,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "source"
+          },
+          {
+            "file": "opera-focus-cancelled.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "0549707656b2fa008d0c9f0805136195ca638e45eb7109f4ed1cc6f00e56c193",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "gas_center": [
+                1175.0,
+                625.0
+              ],
+              "gas_radius": 80.0,
+              "held": false,
+              "owner": -1,
+              "suspended": true
+            },
+            "target_visible": true,
+            "variant": "source"
+          },
+          {
+            "file": "pc-1-no-touch-gas.png",
+            "formal_QA11": false,
+            "quality_context": "fixed_pc_no_quality_selector",
+            "renderer": "mobile",
+            "sha256": "ae1909b1aabc0fecf0ccbfccc3ca3c63c5208b9f0a90d727ada756003a912c97",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {},
+            "target_visible": false,
+            "variant": "source"
+          },
+          {
+            "file": "pc-2-no-touch-gas.png",
+            "formal_QA11": false,
+            "quality_context": "fixed_pc_no_quality_selector",
+            "renderer": "mobile",
+            "sha256": "11cf79ab0ea0972d2b445b9c077bcd5543ddc1c8d9abb240a148f34d596392d8",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {},
+            "target_visible": false,
+            "variant": "source"
+          }
+        ],
+        "renderer": "mobile",
+        "source_script_sha256": "14ce1ec8dce4e3a2824bfe572e5807a5b071a7c2257c674fe3a9edfed3d8bec1",
+        "variant": "source",
+        "version": {
+          "build": "official",
+          "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+          "hex": 263938,
+          "major": 4,
+          "minor": 7,
+          "patch": 2,
+          "status": "stable",
+          "string": "4.7.2-stable (official)",
+          "timestamp": 0
+        },
+        "width": 1280
+      },
+      "console_sha256": "94db687f5cc0246486c28340c9df55d972ccb3f4dae20d79a2ba2534fd22b1e6",
+      "native_log_sha256": "922470b40c092bcae69fbebdb8b7eaf79dace68af5a2e80190425294f6a27029"
+    },
+    {
+      "label": "source_1600",
+      "exit_code": 0,
+      "elapsed_seconds": 13.495,
+      "source_script_sha256": "14ce1ec8dce4e3a2824bfe572e5807a5b071a7c2257c674fe3a9edfed3d8bec1",
+      "records": {
+        "failures": 0,
+        "frame_cap": 30,
+        "limits": "Configured actual surface/PC scenes and production fit helper, not full natural routes or formalQA11/device/child/owner acceptance.",
+        "records": [
+          {
+            "file": "opera-released.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "ccb4c96fa8b7ecc3f51788103fd2e16ce4bbd48115dc58df10867ea0bc314ef7",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "gas_center": [
+                1175.0,
+                625.0
+              ],
+              "gas_radius": 80.0,
+              "held": false,
+              "owner": -1,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "source"
+          },
+          {
+            "file": "opera-held.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "c55bb4748be47bd9a6cc9ed1de7771db7d9f9f384dac2cf1a325a532077764dc",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "gas_center": [
+                1175.0,
+                625.0
+              ],
+              "gas_radius": 80.0,
+              "held": true,
+              "owner": 73,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "source"
+          },
+          {
+            "file": "opera-focus-cancelled.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "73b12df0f477cc5ace6a12ac0a92c520a01a73b60e321038bb28e243214a5f26",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "gas_center": [
+                1175.0,
+                625.0
+              ],
+              "gas_radius": 80.0,
+              "held": false,
+              "owner": -1,
+              "suspended": true
+            },
+            "target_visible": true,
+            "variant": "source"
+          },
+          {
+            "file": "pc-1-no-touch-gas.png",
+            "formal_QA11": false,
+            "quality_context": "fixed_pc_no_quality_selector",
+            "renderer": "mobile",
+            "sha256": "3e92912b738206ac16465bd2431cce14374a755d49716a4eec45dad570054d40",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {},
+            "target_visible": false,
+            "variant": "source"
+          },
+          {
+            "file": "pc-2-no-touch-gas.png",
+            "formal_QA11": false,
+            "quality_context": "fixed_pc_no_quality_selector",
+            "renderer": "mobile",
+            "sha256": "8d9d0372fb25bde91f46cb02dc454dfaa071c1e928e10e9e7f34244d7c2fc30a",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {},
+            "target_visible": false,
+            "variant": "source"
+          }
+        ],
+        "renderer": "mobile",
+        "source_script_sha256": "14ce1ec8dce4e3a2824bfe572e5807a5b071a7c2257c674fe3a9edfed3d8bec1",
+        "variant": "source",
+        "version": {
+          "build": "official",
+          "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+          "hex": 263938,
+          "major": 4,
+          "minor": 7,
+          "patch": 2,
+          "status": "stable",
+          "string": "4.7.2-stable (official)",
+          "timestamp": 0
+        },
+        "width": 1600
+      },
+      "console_sha256": "94db687f5cc0246486c28340c9df55d972ccb3f4dae20d79a2ba2534fd22b1e6",
+      "native_log_sha256": "922470b40c092bcae69fbebdb8b7eaf79dace68af5a2e80190425294f6a27029"
+    },
+    {
+      "label": "candidate_1280",
+      "exit_code": 0,
+      "elapsed_seconds": 13.172,
+      "source_script_sha256": "eaaab0f6ad8ef10907c712ea8a9f0fa0673d1a3d46c53ab808340daf9869ecaa",
+      "records": {
+        "failures": 0,
+        "frame_cap": 30,
+        "limits": "Configured actual surface/PC scenes and production fit helper, not full natural routes or formalQA11/device/child/owner acceptance.",
+        "records": [
+          {
+            "file": "opera-released.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "7e79b142db8d9d252b02b35860f680a71ed1d5173c80a9cbf3309b05fc8ca24a",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "gas_center": [
+                1175.0,
+                625.0
+              ],
+              "gas_radius": 80.0,
+              "held": false,
+              "owner": -1,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-held.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "eea0933a8d559af63eaaf2b5f04368881a1df726caf68d9a9c15b6b977a14607",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "gas_center": [
+                1175.0,
+                625.0
+              ],
+              "gas_radius": 80.0,
+              "held": true,
+              "owner": 73,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-focus-cancelled.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "23847225d50619ddde8e766581b9e98ad9fc8c8562789f947ca0cc638825eaf1",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "gas_center": [
+                1175.0,
+                625.0
+              ],
+              "gas_radius": 80.0,
+              "held": false,
+              "owner": -1,
+              "suspended": true
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "pc-1-no-touch-gas.png",
+            "formal_QA11": false,
+            "quality_context": "fixed_pc_no_quality_selector",
+            "renderer": "mobile",
+            "sha256": "ae1909b1aabc0fecf0ccbfccc3ca3c63c5208b9f0a90d727ada756003a912c97",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {},
+            "target_visible": false,
+            "variant": "candidate"
+          },
+          {
+            "file": "pc-2-no-touch-gas.png",
+            "formal_QA11": false,
+            "quality_context": "fixed_pc_no_quality_selector",
+            "renderer": "mobile",
+            "sha256": "11cf79ab0ea0972d2b445b9c077bcd5543ddc1c8d9abb240a148f34d596392d8",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {},
+            "target_visible": false,
+            "variant": "candidate"
+          }
+        ],
+        "renderer": "mobile",
+        "source_script_sha256": "eaaab0f6ad8ef10907c712ea8a9f0fa0673d1a3d46c53ab808340daf9869ecaa",
+        "variant": "candidate",
+        "version": {
+          "build": "official",
+          "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+          "hex": 263938,
+          "major": 4,
+          "minor": 7,
+          "patch": 2,
+          "status": "stable",
+          "string": "4.7.2-stable (official)",
+          "timestamp": 0
+        },
+        "width": 1280
+      },
+      "console_sha256": "94db687f5cc0246486c28340c9df55d972ccb3f4dae20d79a2ba2534fd22b1e6",
+      "native_log_sha256": "922470b40c092bcae69fbebdb8b7eaf79dace68af5a2e80190425294f6a27029"
+    },
+    {
+      "label": "candidate_1600",
+      "exit_code": 0,
+      "elapsed_seconds": 12.981,
+      "source_script_sha256": "eaaab0f6ad8ef10907c712ea8a9f0fa0673d1a3d46c53ab808340daf9869ecaa",
+      "records": {
+        "failures": 0,
+        "frame_cap": 30,
+        "limits": "Configured actual surface/PC scenes and production fit helper, not full natural routes or formalQA11/device/child/owner acceptance.",
+        "records": [
+          {
+            "file": "opera-released.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "cc037e497a09ce2cc07edc0584e1f090dfb64a4615bfe1efc1d9f86f341750f0",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "gas_center": [
+                1175.0,
+                625.0
+              ],
+              "gas_radius": 80.0,
+              "held": false,
+              "owner": -1,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-held.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "1f5c485b76bf7e1b8d9afaa10aa74abb77677046821ebe886f35502efe4eae48",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "gas_center": [
+                1175.0,
+                625.0
+              ],
+              "gas_radius": 80.0,
+              "held": true,
+              "owner": 73,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-focus-cancelled.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "5c60154443602efb7f41e726451c4083ba840b527430a6eb22f571379c54b81a",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "gas_center": [
+                1175.0,
+                625.0
+              ],
+              "gas_radius": 80.0,
+              "held": false,
+              "owner": -1,
+              "suspended": true
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "pc-1-no-touch-gas.png",
+            "formal_QA11": false,
+            "quality_context": "fixed_pc_no_quality_selector",
+            "renderer": "mobile",
+            "sha256": "3e92912b738206ac16465bd2431cce14374a755d49716a4eec45dad570054d40",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {},
+            "target_visible": false,
+            "variant": "candidate"
+          },
+          {
+            "file": "pc-2-no-touch-gas.png",
+            "formal_QA11": false,
+            "quality_context": "fixed_pc_no_quality_selector",
+            "renderer": "mobile",
+            "sha256": "8d9d0372fb25bde91f46cb02dc454dfaa071c1e928e10e9e7f34244d7c2fc30a",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {},
+            "target_visible": false,
+            "variant": "candidate"
+          }
+        ],
+        "renderer": "mobile",
+        "source_script_sha256": "eaaab0f6ad8ef10907c712ea8a9f0fa0673d1a3d46c53ab808340daf9869ecaa",
+        "variant": "candidate",
+        "version": {
+          "build": "official",
+          "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+          "hex": 263938,
+          "major": 4,
+          "minor": 7,
+          "patch": 2,
+          "status": "stable",
+          "string": "4.7.2-stable (official)",
+          "timestamp": 0
+        },
+        "width": 1600
+      },
+      "console_sha256": "94db687f5cc0246486c28340c9df55d972ccb3f4dae20d79a2ba2534fd22b1e6",
+      "native_log_sha256": "922470b40c092bcae69fbebdb8b7eaf79dace68af5a2e80190425294f6a27029"
+    }
+  ],
+  "actual_runtime_inputs": 5581,
+  "normal_save_unchanged": true,
+  "candidate_restored_raw_sha256": "eaaab0f6ad8ef10907c712ea8a9f0fa0673d1a3d46c53ab808340daf9869ecaa",
+  "runtime_drift": [],
+  "native_events": 20,
+  "previous_failed_events": 5,
+  "previous_failed_evidence": "R146_CAPTURE_FIRST_FAILURE.json",
+  "target_visible_configured_events": 12,
+  "no_touch_target_PC_negative_events": 8,
+  "source_variant_limit": "Unreferenced candidatePNG/import present with unchangedE700 baselinecode. No cleanGit/fresh-runtime/sourcecommit/fullrouteclaim.",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "finished_at_utc": "2026-11-06T19:11:10.128751+00:00"
+}

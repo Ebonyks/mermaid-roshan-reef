@@ -170,3 +170,16 @@ assets_src/review/recent_updates_dev_20261106/** -text whitespace=-blank-at-eol,
 
 # R145 combined-source raw command evidence and recipes
 docs/handoffs/codex_recent_updates_dev_2026-11-06/dev_reconcile_58b29d10/** -text
+
+# R146 exact native, prompt, capture and delivery evidence bytes
+assets_src/imagegen/racer_gas_button_20261106/** -text
+assets_src/review/r146_racer_gas_20261106/** -text
+docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/** -text
+
+# R146 immutable raw command logs retain native bytes, including CRLF
+docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/**/*.log -diff
+
+# Permit native CRLF evidence while keeping real whitespace checks enabled
+assets_src/imagegen/racer_gas_button_20261106/** whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+assets_src/review/r146_racer_gas_20261106/** whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/** whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

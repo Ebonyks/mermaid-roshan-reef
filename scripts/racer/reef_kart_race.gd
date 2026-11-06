@@ -78,6 +78,7 @@ const TEXTURES := {
 const ART_ROOT := "res://assets/racer/"
 const CapsuleArt := preload("res://assets/racer/context_v2/item_capsule.png")
 const KelpArt := preload("res://assets/racer/context_v2/kelp_trap.png")
+const GasButtonArt := preload("res://assets/racer/ui/gas_button_painted.png")
 const CONTEXT_ART := {
 	"item_bubble": [CapsuleArt, Rect2(8, 67, 1008, 890)],
 	"kelp": [KelpArt, Rect2(8, 194, 1008, 635)],
@@ -1602,14 +1603,9 @@ func _draw_controls() -> void:
 	var gas_r := float(controls.get("gas_radius", 80.0))
 	var gas_held := bool(controls.get("gas_held", false))
 	var gas_draw := gas_r * (0.92 if gas_held else 1.0)
-	_controls.draw_circle(gas_at, gas_draw + 5.0, INK)
-	_controls.draw_circle(gas_at, gas_draw, Color("#d89827") if gas_held else Color("#f5c65a"))
-	_controls.draw_circle(gas_at - Vector2(gas_draw * 0.3, gas_draw * 0.32),
-		gas_draw * 0.22, Color(1.0, 1.0, 1.0, 0.35))
-	for shift: float in [-14.0, 20.0]:
-		var tip := gas_at + Vector2(0.0, shift - gas_draw * 0.30)
-		_controls.draw_polyline(PackedVector2Array([tip + Vector2(-29, 24), tip,
-			tip + Vector2(29, 24)]), Color.WHITE, 12.0, true)
+	var gas_size := Vector2.ONE * (gas_draw + 5.0) * 2.0
+	var gas_tint := Color(0.88, 0.84, 0.78) if gas_held else Color.WHITE
+	_controls.draw_texture_rect(GasButtonArt, Rect2(gas_at - gas_size * 0.5, gas_size), false, gas_tint)
 	_draw_item_bubble()
 	if bool(controls.get("guide", false)):
 		var hand := _tex.get("guide_hand") as Texture2D

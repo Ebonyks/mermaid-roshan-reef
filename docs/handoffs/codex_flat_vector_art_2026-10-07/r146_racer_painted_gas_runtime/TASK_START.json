@@ -1,0 +1,77 @@
+{
+  "state": "R146_SELECTED_DOCUMENTED_FLAT_GAS_CONTROL_PRODUCTION_STARTED",
+  "stable_id": "FVR-34524393E2C8",
+  "source_item": "gold_gas_button",
+  "family": "opera_racer",
+  "baseline": "e70081ea871bd2aab2440be2168abe33d20ee328",
+  "branch": "codex/flat-vector-racer-gas-painted-20261106",
+  "worktree": "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+  "existing_documented_gap": {
+    "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+    "file": "docs/handoffs/codex_recent_updates_dev_2026-11-06/CURRENT_NATIVE_VISUAL_REVIEW.json",
+    "same_scene": "assets_src/review/recent_updates_dev_20261106/captures/canal-gas.png",
+    "same_scene_sha256": "53991de00d2072a1c7639ee6231a6e579ac457ee862cf5d2e01e27febb6102db",
+    "binding": "reef_kart_race.gd exact same Git blob1a0ecb883893bbec47db3ffebbdad0cc6ea6687b atCAF andcurrentE700; diagnostic scene reused, zero new frame credit."
+  },
+  "scope": "Replace only gold gas button visible circle/highlight/two chevrons with one whole painted RGBA UI asset. Preserve gold identity, ivory upward chevrons, center/radius, press shrink0.92, existing controls,input,cancellation,keyboard/gamepad,steer-and-go,save state and trueCanvas2D. No other controls/road or Bubble physics changes.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-UI-01",
+    "DL-UI-02",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-UI-06",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-MED-01",
+    "DL-PERF-02",
+    "DL-PERF-03",
+    "DL-QA-11",
+    "DL-QA-12",
+    "DL-QA-14",
+    "DL-VIS-07"
+  ],
+  "findings": [
+    "MA-VIS-008",
+    "MA-OPERA-014"
+  ],
+  "generation": {
+    "backend": "built-in image_gen.imagegen",
+    "exposed_model_selector": false,
+    "model_version": null,
+    "candidate_calls": 0,
+    "bounded_static_attempt_limit": 2,
+    "animation_calls": 0,
+    "other_funded_caps": "unchanged; no R133/animation/task budget reset",
+    "reference_export_scope": "Only unprotected existing painted UI reference PNGs; actual scene capture is observational reference only, not sent as generation pixels."
+  },
+  "required_evidence": [
+    "native output/prompt/backend/hash/provenance preserved",
+    "10-axis same-source scene comparison",
+    "candidate and pressed/released integration captures at bothaspects and actualOpera/PC/split contexts",
+    "unchanged invisible input geometry, holding/cancellation/passive/savefocused probes",
+    "exact4.7.2Mobile import/parser/lint/analyzer/fulltrusted/sourceguard/normal-saveguard/2Dno-regression on changed candidate",
+    "audit authority/actualdiffcoverage/CHG/sourceCI/Dev/anonymous requiredmanifest delivery",
+    "formalQA11/device/child/owner independently open until observed"
+  ],
+  "canonical_count_credit": "NONE_YET: nextpublished actual output/integration counts only after verified. Existing46source/45Dev/281roles/36families/12471events unchanged at taskstart.",
+  "protected_originals": "No modification, substitution or ImageGen export of protected book/voice/friend originals. Full dependency hashing may read protected files solely for source-preservation proof; original scene pixels are observational diagnostics only.",
+  "continuing_CI_handles": {
+    "Dev_source_e700": 42273654426,
+    "canonical_metadata_d33": 42274388508,
+    "canonical63file_receipt": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-shell-20261106\\remote_r145_canonical_dev_d33bd917664ab1e82effc09f6cb5acd565f6caed\\REMOTE_VERIFICATION.json"
+  },
+  "time": "2026-11-06T18:55:27.555954+00:00",
+  "protected_boundary_wording_correction": {
+    "prior_wording": "No reads/exports/edits under protected book/voice/friend paths; no character or gameplay screenshot sent to ImageGen.",
+    "reason": "Initial no-reads wording was too broad for full source-preservation hashing. Export/edit boundary unchanged."
+  }
+}

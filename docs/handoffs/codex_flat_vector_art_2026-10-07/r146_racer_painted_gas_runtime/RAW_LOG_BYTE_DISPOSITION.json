@@ -1,0 +1,18 @@
+{
+  "state": "RAW_LOG_BYTES_PRESERVED_DIFF_PRESENTATION_DISPOSITION_ONLY",
+  "initial_precommit_check": "Gitdiff--check treated intentionallypreserved nativeCRLF loglines as trailingwhitespace; stoppedbeforecommit/push.",
+  "raw_log_bytes_modified": false,
+  "attribute": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/**/*.log -diff",
+  "reason": "Preserve native machine evidence bytes. Raw command logs have binary-diff presentation; JSON/text retain actual whitespace checks with explicit native CRLF recognition. Runtime/probe/QA floors unchanged.",
+  "initial_check_log_sha256": "a98c555e4659467332088a3f5e5a763f8bbe20a4d73a289f06703aae24c9d669",
+  "runtime_changed": false,
+  "time": "2026-11-06T20:31:57.855764+00:00",
+  "native_JSON_receipts_also_use_CRLF": true,
+  "native_line_endings_rule": {
+    "assets_src/imagegen/racer_gas_button_20261106": "whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol",
+    "assets_src/review/r146_racer_gas_20261106": "whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime": "whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol"
+  },
+  "real_trailing_space_blank_at_eof_and_space_before_tab_checks": "remain explicitlyenabled for text/JSON/prose; only nativeCR-at-EOL is recognised",
+  "raw_JSON_bytes_modified": false
+}
