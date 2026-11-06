@@ -1,0 +1,85 @@
+{
+  "state": "SHARED_SCRIPT_REFERENCE_CLOSURE_INSPECTED",
+  "baseline": "a7e1faefc09b3303494a5499cce5fe120cb2dcb2",
+  "direct_class_or_script_references": [
+    "scripts\\shell_ornament.gd:1:class_name ShellOrnament",
+    "scripts\\storybook_ui.gd:24:const SHELL_ORNAMENT_SCRIPT := preload(\"res://scripts/shell_ornament.gd\")"
+  ],
+  "unchanged_callers_and_style_dependency": [
+    {
+      "path": "scripts/storybook_ui.gd",
+      "sha256": "9ec09a6bdc926fee8a841bb0db97b39d40b9db0916d62a543c7aa5785c7f056c",
+      "hash_mode": "LF canonical",
+      "unchanged_from_baseline": true
+    },
+    {
+      "path": "scripts/start_menu.gd",
+      "sha256": "f555706f036f59c28485fe380ed9908195cb24349808eb8a8964505b0d6f8d90",
+      "hash_mode": "LF canonical",
+      "unchanged_from_baseline": true
+    },
+    {
+      "path": "scripts/intro_overlay.gd",
+      "sha256": "d39288491fd4e37024905faa11c66eee0e3a98d7de1cb340ca703c8a907ff2eb",
+      "hash_mode": "LF canonical",
+      "unchanged_from_baseline": true
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "sha256": "38e8206f75450a101e22e9b1b7daeda2f920be6f2b6cebf565c26e947ecd9cb4",
+      "hash_mode": "LF canonical",
+      "unchanged_from_baseline": true
+    },
+    {
+      "path": "scripts/craft_studio.gd",
+      "sha256": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57",
+      "hash_mode": "LF canonical",
+      "unchanged_from_baseline": true
+    },
+    {
+      "path": "scripts/castle_logo_studio.gd",
+      "sha256": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a",
+      "hash_mode": "LF canonical",
+      "unchanged_from_baseline": true
+    },
+    {
+      "path": "scripts/wardrobe_ui.gd",
+      "sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "hash_mode": "LF canonical",
+      "unchanged_from_baseline": true
+    },
+    {
+      "path": "scripts/companion.gd",
+      "sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "hash_mode": "LF canonical",
+      "unchanged_from_baseline": true
+    },
+    {
+      "path": "scripts/mic_input.gd",
+      "sha256": "02d0af4179486e1a1b43d197917b1eb015caa7ca355cdea9783b281c22810532",
+      "hash_mode": "LF canonical",
+      "unchanged_from_baseline": true
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "sha256": "dea49b27f0a17ee5c78ea2b1f7ce889e9b2949030e74fa4b8afa84fafe4b0ed3",
+      "hash_mode": "LF canonical",
+      "unchanged_from_baseline": true
+    },
+    {
+      "path": "scripts/dev_mode.gd",
+      "sha256": "ff65b0693736fad7123a0ee54c48b4ca2e9c96a7c83c157c7da88ae29e016a5c",
+      "hash_mode": "LF canonical",
+      "unchanged_from_baseline": true
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "hash_mode": "LF canonical",
+      "unchanged_from_baseline": true
+    }
+  ],
+  "callers": "Production StorybookUI factory and panel decoration plus direct developer, picture-header and hidden touch-hint callers. Actual names and rectangles in paired capture records.",
+  "limits": "Static reference closure and configured diagnostic builders do not establish all natural routes, formal QA11 or full-scene/whole-game coverage.",
+  "functional_geometry": "Control boxes/input/resize math remain; these are not artwork-removal credits."
+}

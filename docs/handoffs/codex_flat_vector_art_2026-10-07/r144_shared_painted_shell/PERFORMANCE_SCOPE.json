@@ -1,0 +1,42 @@
+{
+  "state": "BOUNDED_STRUCTURAL_BUDGET_NOTE_TARGET_DEVICE_OPEN",
+  "shared_asset": {
+    "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_shell.png",
+    "sha256": "6460cd110e925cdea7006ed7adf85d34cc1ace442018cbe56d3d340cc44a2209",
+    "file_bytes": 77599,
+    "dimensions": [
+      256,
+      256
+    ],
+    "mode": "RGBA",
+    "power_of_two": true,
+    "import": "Existing unchanged lossless compress/mode0, mipmaps enabled, no VRAM compression",
+    "rgba8_full_mip_chain_bytes_calculated": 349524,
+    "actual_runtime_GPU_allocation": null,
+    "incremental_memory_vs_previous_load_timing": null
+  },
+  "drawing": {
+    "one_texture_quad_per_visible_instance": true,
+    "observed_largest_Control_box_base_pixels": [
+      116,
+      82
+    ],
+    "calculated_largest_texture_quad_pixels": [
+      73.8,
+      73.8
+    ],
+    "calculated_quad_area_base_pixels": 5446.44,
+    "source": "Runtime draw_texture_rect after aspect fit; actual unchanged Control bounds in paired native records",
+    "lights_particles_dynamic_materials_added": 0,
+    "concurrent_instance_upper_bound_not_claimed": true
+  },
+  "tier_decision": "No extra tier-specific garnish path for one fixed-size passive texture; bounds/resource are shared and bounded. This is a scoped design judgment, not measured device FPS or a global budget pass.",
+  "configured_capture_profile": "Exact4.7.2 Mobile/Speedy, base1280x720/canvas_items/expand, engine cap30fps; actual physical-device P95/P99/thermal session absent",
+  "APK_size": null,
+  "disk_memory_GPU_units": "File byte size, calculated decodedRGBA size and actual GPU/APK metrics are separate. No reduction is claimed from these structural values.",
+  "review_material_export_guard": "PASS: isolated exact4.7.2import excludes this folder from resource filesystem cache and creates no sidecars; reviewed CLI fixture still loads. See evidence/review_export_guard/RESULT.json.",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null
+}
