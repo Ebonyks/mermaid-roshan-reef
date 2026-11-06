@@ -330,7 +330,7 @@ poses as broken motion.
 
 ## MA-VIS-006
 
-[R144 painted shared-shell candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md) is published and anonymously byte-verified on its work branch. Actual local runtime checks and same-scene comparison pass within their diagnostic scope. Source CI/Dev, formal QA11, natural-route, device, child and owner evidence remain separate and pending. Finding lifecycle remains open.
+[R144 painted shared-shell candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md) is published and anonymously byte-verified on its work branch. Actual local runtime checks and same-scene comparison pass within their diagnostic scope. Exact-head source CI passes; Dev, formal QA11, natural-route, device, child and owner evidence remain separate and pending. Finding lifecycle remains open.
 
 [R143 Dev integration](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/README.md) publishes the exact required-painted Racer repair and verifies15existing implementations on Dev. Technical/source integration is evidenced; no visual/device/child/owner closure or accepted-removal credit is claimed.
 
@@ -538,7 +538,7 @@ R126source production2026-11-02: [painted Melody note token](../../docs/handoffs
 
 ## MA-VIS-008
 
-[R144 painted shared-shell candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md) is published and anonymously byte-verified on its work branch. Actual local runtime checks and same-scene comparison pass within their diagnostic scope. Source CI/Dev, formal QA11, natural-route, device, child and owner evidence remain separate and pending. Finding lifecycle remains open.
+[R144 painted shared-shell candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md) is published and anonymously byte-verified on its work branch. Actual local runtime checks and same-scene comparison pass within their diagnostic scope. Exact-head source CI passes; Dev, formal QA11, natural-route, device, child and owner evidence remain separate and pending. Finding lifecycle remains open.
 
 [R143 Dev integration](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/README.md) publishes the exact required-painted Racer repair and verifies15existing implementations on Dev. Technical/source integration is evidenced; no visual/device/child/owner closure or accepted-removal credit is claimed.
 
@@ -2045,7 +2045,7 @@ R73 supporting source evidence (MA-VIS-006,MA-VIS-008,MA-DOC-007,MA-2D-002): [sh
 
 ## MA-VIS-010
 
-[R144 painted shared-shell candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md) is published and anonymously byte-verified on its work branch. Actual local runtime checks and same-scene comparison pass within their diagnostic scope. Source CI/Dev, formal QA11, natural-route, device, child and owner evidence remain separate and pending. Finding lifecycle remains open.
+[R144 painted shared-shell candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md) is published and anonymously byte-verified on its work branch. Actual local runtime checks and same-scene comparison pass within their diagnostic scope. Exact-head source CI passes; Dev, formal QA11, natural-route, device, child and owner evidence remain separate and pending. Finding lifecycle remains open.
 
 [R143 Dev integration](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/README.md) publishes the exact required-painted Racer repair and verifies15existing implementations on Dev. Technical/source integration is evidenced; no visual/device/child/owner closure or accepted-removal credit is claimed.
 

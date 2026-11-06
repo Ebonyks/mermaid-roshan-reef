@@ -1,0 +1,47 @@
+{
+  "id": "flat-vector-r144-source-ci-completion-20261106",
+  "baseline": "d7c61f2636b4828a5158b3276dffdf695e5eeee3",
+  "scope": "Reconcile genuinely new exact-head painted-source CI success and completed current-Dev APK signing failure while preserving other active production and every artwork/integration/count acceptance boundary. Metadata only; no runtime, image, workflow, CI restart or retry.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-07",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/CI_STATUS_MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/DEV_APK_6DF_FAILURE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/PRODUCTION_RECORD.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/SOURCE_CANDIDATE_DELIVERY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/SOURCE_CI_COMPLETED.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "exact-head source run42171300891 jobs and completed runtime6dfAPK42174265988 checkout/signing log",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/SOURCE_CI_COMPLETED.json and DEV_APK_6DF_FAILURE.json; APK failure is explicit, not a pass"
+    },
+    {
+      "command": "actual metadata document authority/AUTO/exact-base coverage",
+      "result": "PENDING",
+      "evidence": "Final staged-tree checks required before publication; unchanged engine suites not repeated."
+    }
+  ],
+  "acceptance_gaps": "Dev integration remains absent; APKnotready. FormalQA11/natural-route/device/child/owner and whole-game acceptance remain open. Current45published artifacts/43partialDev and all events/counts unchanged."
+}

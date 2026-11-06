@@ -1511,4 +1511,4 @@ R132 authority reconciliation2026-11-03: the existing docs/handoffs/codex_flat_v
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/README.md` | 🟣 | SUPPORTING_CURRENT; R143 exact green source/Dev integration, required painted capsule/kelp and15existing implementation reconciliations;44source/43partialDev, unknown denominators, zero accepted removals. Machine, native still, formalQA11/device/child/owner remain separate. |
 
-| `docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md` | 🔵 | `SUPPORTING_CURRENT`; published R144 painted shared-shell candidate, actual local machine checks and native comparison,255source bytes anonymously verified. Source CI running and Dev integration pending; all formal/device/child/owner acceptance open. |
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md` | 🔵 | `SUPPORTING_CURRENT`; published R144 painted shared-shell candidate, actual local machine checks and native comparison,255source bytes anonymously verified. Exact-head source CI passes and Dev integration remains pending; all formal/device/child/owner acceptance open. |

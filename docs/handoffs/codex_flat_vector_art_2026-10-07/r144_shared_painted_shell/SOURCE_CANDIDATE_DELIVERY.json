@@ -3,21 +3,27 @@
   "source_CI": {
     "run": 42171300891,
     "head_sha": "10256d79c971e1b39e7f422d63e014ae5183cc7c",
-    "status": "in_progress",
-    "conclusion": null,
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42171300891",
+    "updated_at": "2026-11-06T06:53:32Z",
     "jobs": {
       "area-music-provenance": "success",
-      "probes": "in_progress_checkout"
+      "probes": "success"
     },
-    "checked_at_utc": "2026-11-06T06:04:31.176010+00:00"
+    "checked_at_utc": "2026-11-06T06:55:24.185327+00:00"
   },
   "source_receipt_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-shell-20261106\\remote_source_10256d79c971e1b39e7f422d63e014ae5183cc7c\\REMOTE_VERIFICATION.json",
   "current_Dev": "6dfd04aef441f30e0374e9ae9049cff845ce4ebd",
   "current_Dev_CI": {
     "run": 42167559177,
     "head_sha": "6dfd04aef441f30e0374e9ae9049cff845ce4ebd",
-    "status": "in_progress",
-    "active_step": "Run trusted probes"
+    "status": "completed",
+    "conclusion": "success",
+    "jobs": {
+      "probes": "success",
+      "area-music-provenance": "success"
+    }
   },
   "Dev_integration": false,
   "coordination": {
@@ -27,9 +33,33 @@
     "scope": "Bubble Duel elevator entry and tap/momentum/contact behavior; separate owner-authorized workflow capacity fix already onDev",
     "rule": "Do not touch that dirty checkout, message/pause/resume that chat, duplicate its work, cancel/restart its healthy CI or start its APK retry. Reconcile only genuinely new verified production; defer Dev mutation while the active production/build owns its source."
   },
-  "APK": "Capacity workflow fix is now owner-approved and committed on currentDev; prior permission-pending status is superseded. No matching R144DevAPK exists, and no build retry is started here.",
+  "APK": {
+    "run": 42174265988,
+    "conclusion": "failure",
+    "failed_step": "Export debug APK",
+    "error": "No space left on device during APK signing",
+    "workflow_head": "ff68f9550c28f7d979896d5c84d1214264c29165",
+    "runtime_head": "6dfd04aef441f30e0374e9ae9049cff845ce4ebd",
+    "log_sha256": "a7a7e4715c7034c834ebd7352cadf451fd8f782641a7856d02d18cfb585cc890",
+    "ready": false,
+    "capacity_fix_location": "Owner-approved workflow change exists on Dev6df; this automatic run uses the default-branch workflow revision above",
+    "retry_started_here": false,
+    "other_owner_active": true,
+    "checked_at_utc": "2026-11-06T06:41:23.583518+00:00"
+  },
   "formal_QA11": null,
   "device": null,
   "child": null,
-  "owner": null
+  "owner": null,
+  "source_CI_at_candidate_publication": {
+    "run": 42171300891,
+    "head_sha": "10256d79c971e1b39e7f422d63e014ae5183cc7c",
+    "status": "in_progress",
+    "conclusion": null,
+    "jobs": {
+      "area-music-provenance": "success",
+      "probes": "in_progress_checkout"
+    },
+    "checked_at_utc": "2026-11-06T06:04:31.176010+00:00"
+  }
 }

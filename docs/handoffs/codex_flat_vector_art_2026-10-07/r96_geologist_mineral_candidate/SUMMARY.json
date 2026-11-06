@@ -20,7 +20,7 @@
   "dev_integrated": 43,
   "runtime_verified_replacements_formal": 0,
   "accepted_removed": 0,
-  "revision": "FV-SOURCE-20261106-R144-PAINTED-SHARED-SHELL",
+  "revision": "FV-SOURCE-CI-20261106-R144-GREEN-DEV-PENDING",
   "inherited_summary": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/898ab3421a20e4ec876e5eb3a5a6a3ba3b706cda/docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/SUMMARY.json",
   "new_roles": 0,
   "new_families": 0,
@@ -6985,7 +6985,7 @@
     "r144_shared_painted_shell_runtime": null
   },
   "r144_shared_painted_shell_runtime": {
-    "state": "PAINTED_SHARED_SHELL_PUBLISHED_WORK_CANDIDATE_SOURCE_CI_RUNNING_DEV_PENDING",
+    "state": "PAINTED_SHARED_SHELL_PUBLISHED_SOURCE_CI_GREEN_DEV_PENDING",
     "artifact_key": "r144_shared_painted_shell_runtime",
     "stable_ids": [
       "FV-AB474EF3699E"
@@ -6994,13 +6994,15 @@
     "source_CI": {
       "run": 42171300891,
       "head_sha": "10256d79c971e1b39e7f422d63e014ae5183cc7c",
-      "status": "in_progress",
-      "conclusion": null,
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42171300891",
+      "updated_at": "2026-11-06T06:53:32Z",
       "jobs": {
         "area-music-provenance": "success",
-        "probes": "in_progress_checkout"
+        "probes": "success"
       },
-      "checked_at_utc": "2026-11-06T06:04:31.176010+00:00"
+      "checked_at_utc": "2026-11-06T06:55:24.185327+00:00"
     },
     "current_Dev_observed": "6dfd04aef441f30e0374e9ae9049cff845ce4ebd",
     "Dev_integration": false,
@@ -7021,7 +7023,7 @@
     "unique_frame_content_hashes": 30,
     "candidate": true,
     "local_integration": true,
-    "runtime": "Exact local current-candidate static/import/analyzers and81assertion probes plus1headless capture SKIP pass;5557runtime files and normal save hashes unchanged. Source CI remains running.",
+    "runtime": "Actual local static/import/analyzers,81assertion probes plus1expectedheadlesscaptureSKIP and exact-head sourceCI pass. Formal QA11 and Dev/device/child/owner remain separate.",
     "formal_QA11": null,
     "device": null,
     "child": null,
@@ -7034,6 +7036,17 @@
       "status": "active/inProgress",
       "scope": "Bubble Duel elevator entry and tap/momentum/contact behavior; separate owner-authorized workflow capacity fix already onDev",
       "rule": "Do not touch that dirty checkout, message/pause/resume that chat, duplicate its work, cancel/restart its healthy CI or start its APK retry. Reconcile only genuinely new verified production; defer Dev mutation while the active production/build owns its source."
+    },
+    "source_CI_at_candidate_publication": {
+      "run": 42171300891,
+      "head_sha": "10256d79c971e1b39e7f422d63e014ae5183cc7c",
+      "status": "in_progress",
+      "conclusion": null,
+      "jobs": {
+        "area-music-provenance": "success",
+        "probes": "in_progress_checkout"
+      },
+      "checked_at_utc": "2026-11-06T06:04:31.176010+00:00"
     }
   },
   "r144_partial_counter_scope": "Earlier partial-role/catalogue aggregate fields retain their historical/lower-bound scopes. This changes one existing stable ID, credits no new named role or family, and has not reached Dev."
