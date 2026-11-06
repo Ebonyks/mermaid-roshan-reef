@@ -1,0 +1,80 @@
+{
+  "state": "PASS_COMPLETE_SPARSE_RESOURCE_INDEX_AND_SELECTED_RESOURCE_BYTES",
+  "checked_at_utc": "2026-11-06T12:39:57.283369+00:00",
+  "run": 42214449707,
+  "source": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+  "index": "assets/assets.sparsepck",
+  "index_bytes": 925044,
+  "index_sha256": "a07c4d54c24029864bd3feccf99de01b14c25f7a6ed34341bb43b9c7d95e3dab",
+  "format_version": 4,
+  "exporter_engine": [
+    4,
+    7,
+    2
+  ],
+  "pack_flags": 6,
+  "file_base": 0,
+  "directory_offset": 104,
+  "virtual_entries": 8116,
+  "parsed_end": 925044,
+  "unique_paths": true,
+  "all_nonremoved_entries_present_in_APK": true,
+  "excluded_review_folders": [
+    "r144_shared_painted_shell",
+    "assets_src/sky_lagoon/original_art_motion_20261105/"
+  ],
+  "excluded_review_virtual_entries": [],
+  "selected_resource_bytes_verified": [
+    {
+      "path": ".godot/imported/castle_banner_motif_shell.png-2ded8f0554ad78cbf31ed04692a2e95a.ctex",
+      "zip_entry": "assets/.godot/imported/castle_banner_motif_shell.png-2ded8f0554ad78cbf31ed04692a2e95a.ctex",
+      "offset": 0,
+      "bytes": 91432,
+      "md5": "a7fdb49b8d9b7f5f9df5dc62dec7fe69",
+      "flags": 0,
+      "sha256": "bc8ed529c729f954a3a993ed8b77198ec3fda68452424bf144dd5cf588572e7a"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_shell.png.import",
+      "zip_entry": "assets/assets/flats/castle/logo_studio_v2/castle_banner_motif_shell.png.import",
+      "offset": 0,
+      "bytes": 214,
+      "md5": "1f50136b832b0b6ccd0e4ac12c78da34",
+      "flags": 0,
+      "sha256": "96d01d072e83a7f80c5c10e7065bffc248b9ae5a58191aab1e8c1b4f32a2c8fb"
+    },
+    {
+      "path": "scripts/shell_ornament.gdc",
+      "zip_entry": "assets/scripts/shell_ornament.gdc",
+      "offset": 0,
+      "bytes": 907,
+      "md5": "652348cda103bb75108a2fec5a6d39a4",
+      "flags": 0,
+      "sha256": "0ffb642b4b92b193cf104e2d58aaefc538adfe51694ae5055dce5a1a575caf7b"
+    },
+    {
+      "path": "scripts/shell_ornament.gd.remap",
+      "zip_entry": "assets/scripts/shell_ornament.gd.remap",
+      "offset": 0,
+      "bytes": 49,
+      "md5": "5b92e758e87eaee55dd0eb0b5d2f47c3",
+      "flags": 0,
+      "sha256": "5a9f1ac6b99d9eb56d8c7d5522abdb4e59a156a88475fef8e60227b07248c268"
+    },
+    {
+      "path": "project.binary",
+      "zip_entry": "assets/project.binary",
+      "offset": 0,
+      "bytes": 1745,
+      "md5": "e077cc1ff100b68d5b84d66091545fc3",
+      "flags": 0,
+      "sha256": "479e8fcebe607bdb49a70053ed7201cbbdd2401092b88b191e10c2a84f03ba0f"
+    }
+  ],
+  "format_sources": [
+    "https://raw.githubusercontent.com/godotengine/godot/4.7.2-stable/core/io/file_access_pack.cpp",
+    "https://raw.githubusercontent.com/godotengine/godot/4.7.2-stable/core/io/file_access_pack.h",
+    "https://raw.githubusercontent.com/godotengine/godot/4.7.2-stable/core/io/pck_packer.cpp"
+  ],
+  "limits": "Complete virtual-path census and actual selected bytes. No Android installation, performance, creative, formal QA11, child or owner acceptance."
+}

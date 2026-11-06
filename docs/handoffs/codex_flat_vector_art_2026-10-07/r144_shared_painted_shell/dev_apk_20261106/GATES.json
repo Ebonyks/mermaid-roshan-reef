@@ -1,0 +1,27 @@
+{
+  "scope": "Metadata only; exact current runtimeF1 already passed source and Dev full CI. No engine rerun for unchanged art/source.",
+  "baseline": "1ebb1aba62cd7d706b5e19417f5e39324da19ec0",
+  "checks": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "exit_code": 0,
+      "result": "PASS",
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/authority.log",
+      "checked_at_utc": "2026-11-06T12:43:37.004922+00:00"
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "exit_code": 0,
+      "result": "PASS",
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/development_auto.log",
+      "checked_at_utc": "2026-11-06T12:44:24.595255+00:00"
+    },
+    {
+      "command": "python -B tools/audit_development.py --base 1ebb1aba62cd7d706b5e19417f5e39324da19ec0",
+      "exit_code": 0,
+      "result": "PASS",
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/development_1ebb.log",
+      "checked_at_utc": "2026-11-06T12:44:28.688902+00:00"
+    }
+  ]
+}

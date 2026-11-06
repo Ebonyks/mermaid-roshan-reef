@@ -1,0 +1,80 @@
+{
+  "id": "flat-vector-r144-dev-apk-evidence-20261106",
+  "scope": "Publish newly completed exact-Dev CI and actual matching APK byte/package/sparse/signing evidence, preserving failed auto build and cancelled canonical CI; metadata only, counters unchanged.",
+  "baseline": "1ebb1aba62cd7d706b5e19417f5e39324da19ec0",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-11",
+    "DL-VIS-07",
+    "DL-ASSET-03",
+    "DL-ASSET-05",
+    "DL-PERF-01",
+    "DL-PERF-07"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010"
+  ],
+  "files": [
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/PRODUCTION_RECORD.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/APPROVED_DEV_ONLY_RETRY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/AUTOMATIC_BUILD_FAILURE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/DELIVERY_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/DEV_CI.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/DOWNLOAD_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/PACKAGE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/PACKAGE_VERIFICATION_CORRECTION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/PACKAGE_VERIFICATION_INITIAL_ZIP_ONLY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/PRIOR_CANONICAL_CI.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/PRIOR_CANONICAL_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/PRIOR_CANONICAL_TIMEOUT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/RELEASE_AT_INTAKE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/RUN_COMPLETED.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/SIGNING_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/SPARSE_PACK_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/authority.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/development_1ebb.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/development_auto.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Exact Dev CI42202164628 and actual approved APK42214449707",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/DEV_CI.json and RUN_COMPLETED.json"
+    },
+    {
+      "command": "Anonymous complete APK/sidecar bytes, actual package/version/ZIP CRC/sparse index and scoped v1 certificate",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/DELIVERY_RESULT.json and linked distinct verification files; original incomplete boundary claim retained with correction"
+    },
+    {
+      "command": "Prior canonical CI42204080950",
+      "result": "FAIL",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/PRIOR_CANONICAL_CI.json and PRIOR_CANONICAL_TIMEOUT.json;55m timeout retained, not a new runtime failure or full pass"
+    },
+    {
+      "command": "Metadata authority and actual changed-file coverage",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_apk_20261106/GATES.json after execution"
+    },
+    {
+      "command": "Immutable manifest and all required file anonymous byte verification",
+      "result": "PENDING",
+      "evidence": "Run against actual published revision after staged-byte seal; no unobserved success claimed"
+    }
+  ],
+  "acceptance_gaps": "Formal QA11, complete natural routes, physical device, child and owner acceptance remain open. No game code/assets, acceptance scores, counters or release authority changed. Exact runtime sourceF1 full CI stays authoritative; old canonical game is never a runtime merge source."
+}

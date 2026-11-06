@@ -1,0 +1,33 @@
+{
+  "state": "DISPATCHED_ONCE_EXACT_F1_HANDLE_VERIFIED",
+  "source": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+  "ref": "dev",
+  "workflow": "android.yml",
+  "source_CI": {
+    "conclusion": "success",
+    "event": "push",
+    "headBranch": "dev",
+    "headSha": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+    "status": "completed"
+  },
+  "failed_auto_run": 42210636152,
+  "failed_auto_runtime_checkout_verified": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+  "failed_auto_log_sha256": "f9b4e4764f5745fcd19606744b46e1e142379234aff4666bfccf13e8e6b9ac35",
+  "failure": "No space left on device during debug APK export under older default-branch workflow.",
+  "authorised_existing_method": "ODR-ANDROID-BUILD-CAPACITY-20261105; existing Dev-only dispatch documented in docs/ANDROID_RELEASE.md, with exact-current-green source guard, Android-only templates and unchanged signing/version/channel contracts. No workflow edit, master promotion or paid generation.",
+  "requested_at_utc": "2026-11-06T12:00:58.737775+00:00",
+  "attempt": 1,
+  "dispatch_exit": 0,
+  "dispatch_stdout": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42214449707\n",
+  "dispatch_stderr": "",
+  "run": 42214449707,
+  "run_metadata": {
+    "conclusion": "",
+    "createdAt": "2026-11-06T12:01:00Z",
+    "event": "workflow_dispatch",
+    "headBranch": "dev",
+    "headSha": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+    "status": "in_progress",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42214449707"
+  }
+}

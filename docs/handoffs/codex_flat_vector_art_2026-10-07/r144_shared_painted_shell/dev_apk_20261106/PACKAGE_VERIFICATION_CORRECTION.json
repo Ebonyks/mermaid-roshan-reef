@@ -1,0 +1,9 @@
+{
+  "state": "CORRECTED_BEFORE_DELIVERY",
+  "checked_at_utc": "2026-11-06T12:39:57.283369+00:00",
+  "initial_result": "PACKAGE_VERIFICATION_INITIAL_ZIP_ONLY.json",
+  "gap": "Initial filename-only pack detection matched .pck and missed actual .sparsepck, so its resource-boundary assertion was incomplete. ZIP CRC/package/version facts remain valid.",
+  "repair": "Parsed full Godot4.7.2 sparse index, verified every virtual path maps to APK, excluded both review trees and checked selected runtime resource sizes/MD5/SHA256. No APK/source bytes changed.",
+  "corrected_result": "PACKAGE_VERIFICATION.json",
+  "sparse_index_result": "SPARSE_PACK_VERIFICATION.json"
+}
