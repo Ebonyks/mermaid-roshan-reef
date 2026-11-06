@@ -1,0 +1,221 @@
+{
+  "identity": "arrival_bells",
+  "revision": 1,
+  "author": "Codex",
+  "date": "2026-11-05",
+  "source_commit": "6dfd04aef441f30e0374e9ae9049cff845ce4ebd",
+  "output_lane": "REFERENCE_ONLY / standalone Canvas study",
+  "intention": "Existing painted flower spikes respond quietly to a passing breeze.",
+  "required_action": "Small horizontal bend above rooted support; no vertical translation, rigid rotation, scale pulse or relighting.",
+  "fixed": "Camera, all scenery outside the bounded contour collar, lower stem/root support and non-target flowers.",
+  "entry_exit": "Source pose at phase0 and analytic phase2pi;60 samples exclude duplicated endpoint.",
+  "source": {
+    "path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+    "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+    "size": [
+      6144,
+      2048
+    ],
+    "acceptance_scope": "Existing approved v5 identity/composition only; animation unaccepted"
+  },
+  "reuse_gap": "No missing appearance art. Complete original context replacement window; no new decorative asset.",
+  "method": "Hand-bounded per-flower hue selections plus authored stem paths; rooted grayscale displacement field; original-image bilinear resampling. Nearby contour collar participates. Not a true depth split or isolated foreground alpha matte.",
+  "settings": {
+    "id": "arrival_bells",
+    "label": "Original cream and pink arrival flowers",
+    "xy": [
+      1520,
+      1000
+    ],
+    "amplitude": 2.0,
+    "root": 1470,
+    "top": 1135,
+    "heads": [
+      [
+        "cream",
+        [
+          [
+            1672,
+            1143
+          ],
+          [
+            1693,
+            1165
+          ],
+          [
+            1708,
+            1220
+          ],
+          [
+            1714,
+            1280
+          ],
+          [
+            1700,
+            1335
+          ],
+          [
+            1660,
+            1335
+          ],
+          [
+            1643,
+            1293
+          ],
+          [
+            1646,
+            1225
+          ]
+        ]
+      ],
+      [
+        "cream",
+        [
+          [
+            1754,
+            1128
+          ],
+          [
+            1775,
+            1150
+          ],
+          [
+            1794,
+            1210
+          ],
+          [
+            1807,
+            1270
+          ],
+          [
+            1807,
+            1348
+          ],
+          [
+            1775,
+            1364
+          ],
+          [
+            1735,
+            1344
+          ],
+          [
+            1721,
+            1280
+          ],
+          [
+            1733,
+            1210
+          ]
+        ]
+      ],
+      [
+        "pink",
+        [
+          [
+            1883,
+            1250
+          ],
+          [
+            1903,
+            1272
+          ],
+          [
+            1925,
+            1320
+          ],
+          [
+            1938,
+            1404
+          ],
+          [
+            1914,
+            1430
+          ],
+          [
+            1870,
+            1420
+          ],
+          [
+            1850,
+            1374
+          ],
+          [
+            1861,
+            1310
+          ]
+        ]
+      ]
+    ],
+    "stems": [
+      [
+        [
+          [
+            1676,
+            1280
+          ],
+          [
+            1665,
+            1460
+          ]
+        ],
+        9
+      ],
+      [
+        [
+          [
+            1769,
+            1300
+          ],
+          [
+            1765,
+            1470
+          ]
+        ],
+        10
+      ],
+      [
+        [
+          [
+            1894,
+            1370
+          ],
+          [
+            1884,
+            1465
+          ]
+        ],
+        8
+      ]
+    ]
+  },
+  "frames": 60,
+  "fps": 30,
+  "duration_seconds": 2,
+  "limits": {
+    "local_attempts": 2,
+    "wall_hours": 8,
+    "cleanup_minutes": 120,
+    "paid_budget_usd": 0,
+    "generated_calls": 0
+  },
+  "provenance": {
+    "source_crop": "sources/arrival_bells.png",
+    "field": "fields/arrival_bells.png",
+    "aseprite": "arrival_bells.aseprite",
+    "frame_mapping": "frame i = analytic phase2pi*i/60, no retiming or repeated padding",
+    "background_edit": "Erase only the context-window interior, preserve a1-native-pixel boundary underlap for bilinear filtering. No moving flower remains exposed beneath its replacement. Original master unchanged."
+  },
+  "review": {
+    "machine": "See evidence/machine-verification.json and Mobile evidence",
+    "human": "PENDING normal-speed and frame-step",
+    "device": "PENDING",
+    "child_owner": "PENDING"
+  },
+  "status": {
+    "archive_complete": "PENDING_REMOTE_VERIFICATION",
+    "generation_ready": "NOT_APPLICABLE_LOCAL",
+    "delivery_accepted": false,
+    "runtime_integrated": false
+  }
+}

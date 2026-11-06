@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "positive_baseline": "PASS before all mutations",
+  "cases": [
+    {
+      "case": "non-original appearance pixel",
+      "result": "REJECTED_AS_REQUIRED",
+      "exit_code": 1,
+      "last_message": "AssertionError: Runtime appearance differs from exact source crop"
+    },
+    {
+      "case": "wrong original placement",
+      "result": "REJECTED_AS_REQUIRED",
+      "exit_code": 1,
+      "last_message": "AssertionError: Unexpected target/placement"
+    },
+    {
+      "case": "excessive sway",
+      "result": "REJECTED_AS_REQUIRED",
+      "exit_code": 1,
+      "last_message": "AssertionError: Excessive motion requested"
+    },
+    {
+      "case": "root support motion",
+      "result": "REJECTED_AS_REQUIRED",
+      "exit_code": 1,
+      "last_message": "AssertionError: Root support field must be zero"
+    },
+    {
+      "case": "incorrect GIF duration",
+      "result": "REJECTED_AS_REQUIRED",
+      "exit_code": 1,
+      "last_message": "AssertionError: GIF timing differs from60frames/2000ms30fps schedule"
+    },
+    {
+      "case": "stale native playback evidence",
+      "result": "REJECTED_AS_REQUIRED",
+      "exit_code": 1,
+      "last_message": "AssertionError: ('Stale native evidence', 'res://breeze.gdshader')"
+    }
+  ],
+  "restoration": "Every mutated derivative restored byte-for-byte in finally; protected master never modified."
+}

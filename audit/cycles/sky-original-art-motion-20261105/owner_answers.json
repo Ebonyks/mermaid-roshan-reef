@@ -1,0 +1,16 @@
+[
+  {
+    "id": "ODR-SKY-ORIGINAL-ART-MOTION-20261105",
+    "subject": "Sky Lagoon original painted features only",
+    "question": "Which items and movement should the corrected Sky Lagoon animation demo use?",
+    "decision": "Remove the added animated hydrangea and other non-original foreground plants. Animate existing items such as the foxtail-like flowers already painted into the original Sky Lagoon art. Analyze existing layers and characters, produce peaceful subtle1-3second loops preferably24-30fps, and document actual tool limits.",
+    "source": "assets_src/sky_lagoon/original_art_motion_20261105/owner_request.json",
+    "authority": "recorded_owner",
+    "checkable": true,
+    "checks": [
+      "assets_src/sky_lagoon/original_art_motion_20261105/verify_original.py"
+    ],
+    "date": "2026-11-05",
+    "cycle": "sky-original-art-motion-20261105"
+  }
+]

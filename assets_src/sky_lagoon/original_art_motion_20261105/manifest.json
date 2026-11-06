@@ -1,0 +1,1196 @@
+{
+  "schema": "sky_lagoon_original_art_motion/1",
+  "date": "2026-11-05",
+  "scope": "SOURCE_ONLY_REVIEW",
+  "appearance_inputs": [
+    {
+      "path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+      "dimensions": [
+        6144,
+        2048
+      ],
+      "role": "sole appearance authority",
+      "rights": "project-original existing source attribution in ASSET_LICENSES.md",
+      "acceptance": "Approved static source identity/composition; animation candidate unaccepted"
+    }
+  ],
+  "position_guides": [],
+  "files": [
+    {
+      "path": ".gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": ".gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 120,
+      "sha256": "0a1d0098365a15b24d50bc1b1db476598d1540a15298d868a643f397de980bfb",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "arrival_bells.aseprite",
+      "bytes": 44970527,
+      "sha256": "de63b456eb2eed26d4a3bb810967011ed50aa171310537b9a92b5dd6ac1ba012",
+      "role": "editable_complete_frame_master",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "60whole-context source-derived RGBA frames,33/33/34ms timing; no separately moving sprite pieces",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ],
+      "frames": 60
+    },
+    {
+      "path": "arrival_bells.gif",
+      "bytes": 3434211,
+      "sha256": "75db6a74101839386ded78cee691c57fcebd59bc9f4c97ce5af5f3aa4aaf3496",
+      "role": "review_animation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Original source-pixel deformation; fixed palette256 colours,60timed frames/2000ms, no dithering",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "build_masters.lua",
+      "bytes": 1140,
+      "sha256": "4a9c510208c167e79c6220a9eef72b9e405a69edbe18a4b9a57e8484fedb8c35",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "build_original.py",
+      "bytes": 13670,
+      "sha256": "d8e4ea4b06eeaa0bcb751ff948df46da0ff4bbdab08a31170e05d1fa0ef96cea",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/background/0_0.png",
+      "bytes": 1639818,
+      "sha256": "45f6d91da385bf14283c360bf00be95b7988031807de96a2ce3044d94d09d0d4",
+      "role": "static_original_tile_derivative",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Native1024-square v5 tile; clears replacement-window interiors, with1px boundary sampling underlap",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "demo_project/background/0_0.png.import",
+      "bytes": 925,
+      "sha256": "a23ad47dcc37b92733ec5a603b24c895fa35339567b8bc97d7c727fdfd07b55b",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/background/0_1.png",
+      "bytes": 1349623,
+      "sha256": "cfe625f5dfa5666e9471736e1bf49b30e51641c55dd89dc10c14023daf90a799",
+      "role": "static_original_tile_derivative",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Native1024-square v5 tile; clears replacement-window interiors, with1px boundary sampling underlap",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "demo_project/background/0_1.png.import",
+      "bytes": 925,
+      "sha256": "d53e9422fe113d00d58eb6d1c62d8d69ee56c3db8446363b40e71c4b329b083d",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/background/0_2.png",
+      "bytes": 1283417,
+      "sha256": "11e2abf69955fd08241c655f3f2fd9399e18c069227e4ba1100fc3c8eaeedbf5",
+      "role": "static_original_tile_derivative",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Native1024-square v5 tile; clears replacement-window interiors, with1px boundary sampling underlap",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "demo_project/background/0_2.png.import",
+      "bytes": 925,
+      "sha256": "07396c09b29484788dcdf350bba505e32cd637642b1b859aaf27438af7b5a253",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/background/0_3.png",
+      "bytes": 1522732,
+      "sha256": "0be446e5c48253d18c6734ae41b3dfae7cbafd287f609885ecef139a6bdc01f7",
+      "role": "static_original_tile_derivative",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Native1024-square v5 tile; clears replacement-window interiors, with1px boundary sampling underlap",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "demo_project/background/0_3.png.import",
+      "bytes": 924,
+      "sha256": "659af0b9b55713947033e070df37205342225f4051010a848bbdd046b6d4d6bb",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/background/0_4.png",
+      "bytes": 1883119,
+      "sha256": "14ced7c38a5c6b2bd75926e8ff60b4905f997a464431b09a7215068279a2ec52",
+      "role": "static_original_tile_derivative",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Native1024-square v5 tile; clears replacement-window interiors, with1px boundary sampling underlap",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "demo_project/background/0_4.png.import",
+      "bytes": 924,
+      "sha256": "94e08e99cfaa1c532ec8a5afc56e5d3d3a04c2bc105bf05a272f36e921214a56",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/background/0_5.png",
+      "bytes": 1817067,
+      "sha256": "899fb0f0e8a0a6a9593f87bfdb457f91641e03046982a7b8a4758252fb907839",
+      "role": "static_original_tile_derivative",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Native1024-square v5 tile; clears replacement-window interiors, with1px boundary sampling underlap",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "demo_project/background/0_5.png.import",
+      "bytes": 925,
+      "sha256": "09cf9771fa1d0b518ed507b716d49eb1f9d7f6951dc57faea9119d1ecc10144a",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/background/1_0.png",
+      "bytes": 1870086,
+      "sha256": "390c2fc15203bf70d3eb9fa389cfcdf1a6c5be6d60931a3c489359a81a7613e0",
+      "role": "static_original_tile_derivative",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Native1024-square v5 tile; clears replacement-window interiors, with1px boundary sampling underlap",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "demo_project/background/1_0.png.import",
+      "bytes": 924,
+      "sha256": "c82324758b43270068d8a23cfd2e91c6ed077efcdff0ebb94651f6f31fe94858",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/background/1_1.png",
+      "bytes": 1493980,
+      "sha256": "50961de6f90eda1f250d71f64494e9b0e9105e0577fe06c91bd777da1b7f3b78",
+      "role": "static_original_tile_derivative",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Native1024-square v5 tile; clears replacement-window interiors, with1px boundary sampling underlap",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "demo_project/background/1_1.png.import",
+      "bytes": 925,
+      "sha256": "9e3b8d30882f04eb46fc106838a353511c1bc60cfe7b377a58e936699296072e",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/background/1_2.png",
+      "bytes": 1702757,
+      "sha256": "70bb0ca103ab893e7854ac5af8cc713a48ca3a5bd1e9233d540193a4b8e6aa7d",
+      "role": "static_original_tile_derivative",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Native1024-square v5 tile; clears replacement-window interiors, with1px boundary sampling underlap",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "demo_project/background/1_2.png.import",
+      "bytes": 925,
+      "sha256": "85af2a09fecf6081a03f6451ae3164229d77028b7cda861a5024f44182ae6ae5",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/background/1_3.png",
+      "bytes": 1941662,
+      "sha256": "30cc6212aa147ab225dca9998effd7cfc18884075dac20239a408a7cc6dcd89b",
+      "role": "static_original_tile_derivative",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Native1024-square v5 tile; clears replacement-window interiors, with1px boundary sampling underlap",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "demo_project/background/1_3.png.import",
+      "bytes": 925,
+      "sha256": "573c3a660e654af5fee09b9e244713158f170b7ea142cd874b6481720008ddfd",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/background/1_4.png",
+      "bytes": 2043779,
+      "sha256": "70085f3e14cf55d1b44c7d501132c1b5074d71477ee40293c49036f54ca3ee11",
+      "role": "static_original_tile_derivative",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Native1024-square v5 tile; clears replacement-window interiors, with1px boundary sampling underlap",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "demo_project/background/1_4.png.import",
+      "bytes": 925,
+      "sha256": "6ff4bc60fe574a9de1fc6d41e5e0af9c55a6089e7fddca802f3a95e2fc5f670b",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/background/1_5.png",
+      "bytes": 1516391,
+      "sha256": "dec23393ebbcb74efc7ff20030923f73ec46c51929dce879da7f9cce77044470",
+      "role": "static_original_tile_derivative",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Native1024-square v5 tile; clears replacement-window interiors, with1px boundary sampling underlap",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "demo_project/background/1_5.png.import",
+      "bytes": 925,
+      "sha256": "d0d962693df0ac33fc90cf8a71a33266b9a2d1d0eac80eaf5d7ca6d111ccce65",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/breeze.gdshader",
+      "bytes": 319,
+      "sha256": "a2dfd74ffdffd28bb36a96b327275a2bb972f4dd7c8a0d3f07cc6443601efc16",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/lagoon.gd",
+      "bytes": 7949,
+      "sha256": "562e3e97e16d0df7d7871da9467cc99dc9c0fdd16ccb45429702f407c81ce628",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/lagoon.tscn",
+      "bytes": 169,
+      "sha256": "fdeb18afcaa9afaaceae8fc704e6c9c78ae0ee2b1a67dced8a12f8b3368f8ac2",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/patches/arrival_bells.png",
+      "bytes": 459099,
+      "sha256": "2a88ce6bb4218e4f95c26a6d0b6c9e8063887737d95eacd90d80f4948798dd07",
+      "role": "exact_original_appearance_crop",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Lossless512-square crop at job-card native coordinates; no repaint",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "demo_project/patches/arrival_bells.png.import",
+      "bytes": 952,
+      "sha256": "a0c1adc2d30d2c81341c61f4a6efa666d22e36338fd3887311d6acfe50b9ad97",
+      "role": "exact_original_appearance_crop",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Lossless512-square crop at job-card native coordinates; no repaint",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/patches/arrival_bells_field.png",
+      "bytes": 14979,
+      "sha256": "96ef05a244c8bdd90b6a093abfe7de70e17fa0148a8bb217cac421d0c5197feb",
+      "role": "data_motion_field",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Hand-bounded original flower selections and authored stems, rooted grayscale field; data only, not appearance pixels",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "demo_project/patches/arrival_bells_field.png.import",
+      "bytes": 970,
+      "sha256": "13a4a9a383a485e3efc82f545c8b06587440e6fc802f3eea40e5a3aab98efcb2",
+      "role": "exact_original_appearance_crop",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Lossless512-square crop at job-card native coordinates; no repaint",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/patches/lake_foxtails.png",
+      "bytes": 439714,
+      "sha256": "3a4bd88ef071ec4f15896125432716cd7b19d01138e2c0d29a01275b324ce57f",
+      "role": "exact_original_appearance_crop",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Lossless512-square crop at job-card native coordinates; no repaint",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "demo_project/patches/lake_foxtails.png.import",
+      "bytes": 952,
+      "sha256": "8c2dedd4612b3efae904001d787c3a5413afb3b988fcffaa799ac53bcb341760",
+      "role": "exact_original_appearance_crop",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Lossless512-square crop at job-card native coordinates; no repaint",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/patches/lake_foxtails_field.png",
+      "bytes": 15178,
+      "sha256": "dc11d08669dec4511802bcd558e02e95917e30388d18899288c250cc01a769e4",
+      "role": "data_motion_field",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Hand-bounded original flower selections and authored stems, rooted grayscale field; data only, not appearance pixels",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "demo_project/patches/lake_foxtails_field.png.import",
+      "bytes": 969,
+      "sha256": "0b5b64481e5e4125a4084531c5aef6f80fc2330f1cf66012ebcba2b7e4e7ff64",
+      "role": "exact_original_appearance_crop",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Lossless512-square crop at job-card native coordinates; no repaint",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/patches/meadow_spikes.png",
+      "bytes": 457497,
+      "sha256": "c3928605fa6251d2a9ae3a1f04a36c4151f21ec14eebcea6218c7cf6b68418af",
+      "role": "exact_original_appearance_crop",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Lossless512-square crop at job-card native coordinates; no repaint",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "demo_project/patches/meadow_spikes.png.import",
+      "bytes": 952,
+      "sha256": "e6fd0c8c2c9c11f41dfff856193592f9079c3daea82ddde444aabf925532c56e",
+      "role": "exact_original_appearance_crop",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Lossless512-square crop at job-card native coordinates; no repaint",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/patches/meadow_spikes_field.png",
+      "bytes": 15562,
+      "sha256": "c50e04b49972490dc80c4a44e8dfc17d49265b11cca8986c6a0c1506d6b475a9",
+      "role": "data_motion_field",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Hand-bounded original flower selections and authored stems, rooted grayscale field; data only, not appearance pixels",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "demo_project/patches/meadow_spikes_field.png.import",
+      "bytes": 969,
+      "sha256": "745f673dd357fb4074d62a6035a401c878ac3118a356816b1526ece32345ca83",
+      "role": "exact_original_appearance_crop",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Lossless512-square crop at job-card native coordinates; no repaint",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/project.godot",
+      "bytes": 709,
+      "sha256": "0e1112ad9d157b62c9630a3b4057773b655d16da1916b90e2aa990a86baed6a8",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "demo_project/targets.json",
+      "bytes": 577,
+      "sha256": "6861c9e84a4f33ae6b9b4ff17dcd5f0f7ca7ba9198230293ac6d600f733a8583",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "derivation.json",
+      "bytes": 3509,
+      "sha256": "a2d1a036c228f7cfa168762119df0f359f84cb44b048de07ea6aba8f9e702a19",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "evidence/arrival_bells_field_review.png",
+      "bytes": 456853,
+      "sha256": "2ec30b9ed47e280451cc9718af769e4913d11270165b9de6c2d3102e8cf9a70d",
+      "role": "source_or_motion_review_image",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Source downsample, target annotation, mask overlay, frame-step sheet or rejected numerical difference; not generation pixels",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "evidence/arrival_bells_selection.png",
+      "bytes": 3338,
+      "sha256": "ca25c06e466c80ee4a8d2cf5b12067691905df4c020e5076b60c8b4f089771c0",
+      "role": "source_or_motion_review_image",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Source downsample, target annotation, mask overlay, frame-step sheet or rejected numerical difference; not generation pixels",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "evidence/aseprite-build.txt",
+      "bytes": 190,
+      "sha256": "20f9fae5088e31738bdf1ce16b6169f7499b85cca99c324bd6a46393dab5eddd",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "evidence/aseprite-roundtrip-receipt.json",
+      "bytes": 566,
+      "sha256": "8df3955679c0d222dd765fdc022b9357deb1202b662553849d21f5a7849c9c05",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "evidence/first-render-seam-difference.png",
+      "bytes": 6594,
+      "sha256": "70ed0bd320ccd273e6df9485a0553822904156849b71b7f6cfb1dde29db74ae2",
+      "role": "source_or_motion_review_image",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Source downsample, target annotation, mask overlay, frame-step sheet or rejected numerical difference; not generation pixels",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1600,
+        640
+      ]
+    },
+    {
+      "path": "evidence/frame-step.png",
+      "bytes": 4083488,
+      "sha256": "f2269f8c4cb56c195b25d2d88c1a2cfd65f64e909a5163fdda08f8e10c15323a",
+      "role": "source_or_motion_review_image",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Source downsample, target annotation, mask overlay, frame-step sheet or rejected numerical difference; not generation pixels",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1536,
+        1536
+      ]
+    },
+    {
+      "path": "evidence/import.log",
+      "bytes": 3075,
+      "sha256": "42a8e22681b12462312c382bfb3f9d5b92d6b28fe7cbdc4255c0bd02a0a56dea",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "evidence/independent-verification.json",
+      "bytes": 1734,
+      "sha256": "956082e6cb9ec710ab6f2ce5edfe4c7d8018a895fdcc85800be6005d1e8c998a",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "evidence/lake_foxtails_field_review.png",
+      "bytes": 438497,
+      "sha256": "47b8a4f8e9289d6535eac990068cb360948ec0f94f7848d1731165731ea23dea",
+      "role": "source_or_motion_review_image",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Source downsample, target annotation, mask overlay, frame-step sheet or rejected numerical difference; not generation pixels",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "evidence/lake_foxtails_selection.png",
+      "bytes": 3643,
+      "sha256": "2a78415915e4b16f48fc849b0be6fb58dbed0cdb6f229cfc3e278c09f776253b",
+      "role": "source_or_motion_review_image",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Source downsample, target annotation, mask overlay, frame-step sheet or rejected numerical difference; not generation pixels",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "evidence/local-ci-attempt1-coverage.log",
+      "bytes": 14638,
+      "sha256": "1f999d8d65c8e3739056dde920ea80d72ab58b98e69eb21d668e1719ba9e267b",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "evidence/local-ci-attempt2.log",
+      "bytes": 763662,
+      "sha256": "0dec16701bf271dac1b68071c15959ba86cc039c9efd3208475316512351c48b",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "evidence/local-ci-completion.json",
+      "bytes": 2981,
+      "sha256": "947b7f059bb832981b28c3d2447d0ce8d608c1bba1bec1cbe0a343b0a734534b",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "evidence/machine-verification.json",
+      "bytes": 2823,
+      "sha256": "bb9c920cc14936a58f6dd8381d62d63ee6d922dbf87efc3176c3bc65fa4d2fe9",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "evidence/meadow_spikes_field_review.png",
+      "bytes": 454436,
+      "sha256": "6fc11730706895188f43e932c193445f8490a4f66c522202f0ce0fb077648b4c",
+      "role": "source_or_motion_review_image",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Source downsample, target annotation, mask overlay, frame-step sheet or rejected numerical difference; not generation pixels",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "evidence/meadow_spikes_selection.png",
+      "bytes": 3492,
+      "sha256": "8761cebcbd6466962f85e6aa7b44cc37816cb4f11866ee82bfef6aa2cf9b5a14",
+      "role": "source_or_motion_review_image",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Source downsample, target annotation, mask overlay, frame-step sheet or rejected numerical difference; not generation pixels",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "evidence/mobile-00.png",
+      "bytes": 1060974,
+      "sha256": "2b356bdd2f397a8253a1b79d6958781c8d745e4b6bbe06133f126f7ce645bd9e",
+      "role": "actual_desktop_mobile_capture",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Exact native-engine screenshot; not generation reference or device-performance evidence",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "evidence/mobile-15.png",
+      "bytes": 1061005,
+      "sha256": "883d7edb3674b65ea27738afe30f7af536617a79229844602d354baa040d9fb2",
+      "role": "actual_desktop_mobile_capture",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Exact native-engine screenshot; not generation reference or device-performance evidence",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "evidence/mobile-45.png",
+      "bytes": 1060954,
+      "sha256": "a395af2b8a9a54cf0df557f40f2681bd97f89fe5ff4787f0d92b2c4deb91b351",
+      "role": "actual_desktop_mobile_capture",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Exact native-engine screenshot; not generation reference or device-performance evidence",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "evidence/mobile-fixed-scenery.json",
+      "bytes": 705,
+      "sha256": "37da0f24fb43a7864eb8f72ac17a839f886fea5b21806c84576f88bc0394cee5",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "evidence/mobile-pristine-control.png",
+      "bytes": 1060971,
+      "sha256": "afa3517d12cb3a177ea92fb94b8ee61dbddb892d838a09a69831ecde0c7b0a75",
+      "role": "actual_desktop_mobile_capture",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Exact native-engine screenshot; not generation reference or device-performance evidence",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "evidence/mobile-verification.json",
+      "bytes": 2767,
+      "sha256": "8840bbfefd7bec3825ac085b44c66f5c4e81cefe814e15309950944f0a63e8c1",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "evidence/mobile-verify.log",
+      "bytes": 5049,
+      "sha256": "a1f98ee9ba4fd50fa8f481483e9c569a35b3f40653b4922ead55d46e4d165f02",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "evidence/negative-controls.json",
+      "bytes": 1425,
+      "sha256": "bcbd71816ce941e2565a9ae3b2c695d3cff28c90565db685d5fda2debfe4d80a",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "evidence/rejected-render-seam.json",
+      "bytes": 331,
+      "sha256": "45110b1c25036a764309877bf4df9fbcd65d39832c82354ecdf617717621c9a9",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "fields/arrival_bells.png",
+      "bytes": 14979,
+      "sha256": "96ef05a244c8bdd90b6a093abfe7de70e17fa0148a8bb217cac421d0c5197feb",
+      "role": "data_motion_field",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Hand-bounded original flower selections and authored stems, rooted grayscale field; data only, not appearance pixels",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "fields/lake_foxtails.png",
+      "bytes": 15178,
+      "sha256": "dc11d08669dec4511802bcd558e02e95917e30388d18899288c250cc01a769e4",
+      "role": "data_motion_field",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Hand-bounded original flower selections and authored stems, rooted grayscale field; data only, not appearance pixels",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "fields/meadow_spikes.png",
+      "bytes": 15562,
+      "sha256": "c50e04b49972490dc80c4a44e8dfc17d49265b11cca8986c6a0c1506d6b475a9",
+      "role": "data_motion_field",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Hand-bounded original flower selections and authored stems, rooted grayscale field; data only, not appearance pixels",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "finalize_manifest.py",
+      "bytes": 3424,
+      "sha256": "1394cf39f4d906465c95cffb540ca896ec2edee95ffb2e323589dace0e678b93",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "GIF_OUTPUT_SPEC.md",
+      "bytes": 5739,
+      "sha256": "2592457d26758229a0b9269bb21c844c1d149df0b94989d9d41b9f5bbcf60581",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "jobs/arrival_bells.json",
+      "bytes": 4804,
+      "sha256": "44946765ec90e708ca428f5a5d16dc593ee427f29ef3dac2804fb202c185bbe9",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "jobs/lake_foxtails.json",
+      "bytes": 4167,
+      "sha256": "a3f55d5b96679aa7bfee2c417181f8a463695655e677203319d577440eb6c6f7",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "jobs/meadow_spikes.json",
+      "bytes": 5086,
+      "sha256": "1f1e84082ab56665a2822dd3725a4bb53f8ec4074125f92636cfb6ca3b510670",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "lake_foxtails.aseprite",
+      "bytes": 42561390,
+      "sha256": "6980dab29da3789d999e114fe18ec0708f805e8cdb933c2edd807967d757aff9",
+      "role": "editable_complete_frame_master",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "60whole-context source-derived RGBA frames,33/33/34ms timing; no separately moving sprite pieces",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ],
+      "frames": 60
+    },
+    {
+      "path": "lake_foxtails.gif",
+      "bytes": 2132797,
+      "sha256": "52601b65b9247ff5863cb910afb9dfa3f2d1e30ae1b8b858631a35e8d62d3e2f",
+      "role": "review_animation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Original source-pixel deformation; fixed palette256 colours,60timed frames/2000ms, no dithering",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "meadow_spikes.aseprite",
+      "bytes": 41698234,
+      "sha256": "b504b6923ca19a51865653f43010b866956a4fa38cfee7097b054be06a5e23e9",
+      "role": "editable_complete_frame_master",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "60whole-context source-derived RGBA frames,33/33/34ms timing; no separately moving sprite pieces",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ],
+      "frames": 60
+    },
+    {
+      "path": "meadow_spikes.gif",
+      "bytes": 3209868,
+      "sha256": "e3e80796bcc20b2b960e32303ececf3cbcc71c22cdf978c13b567ad0cde4fe06",
+      "role": "review_animation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Original source-pixel deformation; fixed palette256 colours,60timed frames/2000ms, no dithering",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "original-flowers-closeup.gif",
+      "bytes": 19902375,
+      "sha256": "e680c6bce5e4d1aa1eef30fc11098466dd9471440f5fbeb5df22b47d4f65ae3a",
+      "role": "review_animation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Original source-pixel deformation; fixed palette256 colours,60timed frames/2000ms, no dithering",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1536,
+        550
+      ]
+    },
+    {
+      "path": "original-lagoon-fixed.gif",
+      "bytes": 11078762,
+      "sha256": "cf53a320d80ba1045121d6f061b80dd1bc50fb78c796c58e79785299f4591564",
+      "role": "review_animation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Original source-pixel deformation; fixed palette256 colours,60timed frames/2000ms, no dithering",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1800,
+        600
+      ]
+    },
+    {
+      "path": "original-rest.png",
+      "bytes": 2162956,
+      "sha256": "a00397a3ed2921e42c749598ae58a87b5e8a2f25d1c94e6bf6e541a0b6c2bfcd",
+      "role": "source_or_motion_review_image",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Source downsample, target annotation, mask overlay, frame-step sheet or rejected numerical difference; not generation pixels",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1800,
+        600
+      ]
+    },
+    {
+      "path": "original-target-map.png",
+      "bytes": 1889988,
+      "sha256": "ac1e9a44f40615bfdc5a01f7129da38a2a6427fdfe0a4f32b1073c6be4e89983",
+      "role": "source_or_motion_review_image",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Source downsample, target annotation, mask overlay, frame-step sheet or rejected numerical difference; not generation pixels",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        1800,
+        600
+      ]
+    },
+    {
+      "path": "owner_request.json",
+      "bytes": 648,
+      "sha256": "beb3fcd7df0bb7e2a0eb672957d7bcea545d0cff25b5d627783e088cf5f91f31",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "README.md",
+      "bytes": 4652,
+      "sha256": "a57f1c48e9b11f88cbe9d2445085b86f6331871e1bad46ddb222ba4a7bc9fe42",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "SOURCE_LAYER_SURVEY.md",
+      "bytes": 5287,
+      "sha256": "64018731941af3783fc8fae039b236f348c67764aa4aba1b8621bee5178edf2f",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "sources/arrival_bells.png",
+      "bytes": 459099,
+      "sha256": "2a88ce6bb4218e4f95c26a6d0b6c9e8063887737d95eacd90d80f4948798dd07",
+      "role": "exact_original_appearance_crop",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Lossless512-square crop at job-card native coordinates; no repaint",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "sources/lake_foxtails.png",
+      "bytes": 439714,
+      "sha256": "3a4bd88ef071ec4f15896125432716cd7b19d01138e2c0d29a01275b324ce57f",
+      "role": "exact_original_appearance_crop",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Lossless512-square crop at job-card native coordinates; no repaint",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "sources/meadow_spikes.png",
+      "bytes": 457497,
+      "sha256": "c3928605fa6251d2a9ae3a1f04a36c4151f21ec14eebcea6218c7cf6b68418af",
+      "role": "exact_original_appearance_crop",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Lossless512-square crop at job-card native coordinates; no repaint",
+      "used_as_generation_pixels": false,
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "verify_controls.py",
+      "bytes": 3077,
+      "sha256": "60d85391845678ac4bcffaad6236dd51880771648950adf0b36607f02d28c400",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    },
+    {
+      "path": "verify_original.py",
+      "bytes": 6518,
+      "sha256": "a3153a9362888d16e2e1cca732fd599403b112ccc096fe79f7a26c416ef8b58b",
+      "role": "workflow_or_documentation",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "rights": "Project-original derivative, inherits existing v5 provenance and ASSET_LICENSES.md attribution",
+      "modifications": "Workflow, settings or evidence; no appearance input",
+      "used_as_generation_pixels": false
+    }
+  ],
+  "packet_payload_sha256": "86ef1899b7fecbcb6a84c42d7d4f3d416110caea4c1e71ce2bb16543e850c94c",
+  "payload_hash_method": "Sorted relative-path NUL SHA256 NUL byte-count LF, UTF8. Excludes manifest itself and ignored reproducible frames/caches.",
+  "claims": {
+    "generation_ready": "NOT_APPLICABLE_LOCAL",
+    "delivery_accepted": false,
+    "runtime_integrated": false,
+    "archive_complete": "See exact anonymous remote-verification receipt"
+  }
+}

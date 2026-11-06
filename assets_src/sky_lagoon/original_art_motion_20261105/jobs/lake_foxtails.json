@@ -1,0 +1,175 @@
+{
+  "identity": "lake_foxtails",
+  "revision": 1,
+  "author": "Codex",
+  "date": "2026-11-05",
+  "source_commit": "6dfd04aef441f30e0374e9ae9049cff845ce4ebd",
+  "output_lane": "REFERENCE_ONLY / standalone Canvas study",
+  "intention": "Existing painted flower spikes respond quietly to a passing breeze.",
+  "required_action": "Small horizontal bend above rooted support; no vertical translation, rigid rotation, scale pulse or relighting.",
+  "fixed": "Camera, all scenery outside the bounded contour collar, lower stem/root support and non-target flowers.",
+  "entry_exit": "Source pose at phase0 and analytic phase2pi;60 samples exclude duplicated endpoint.",
+  "source": {
+    "path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+    "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+    "size": [
+      6144,
+      2048
+    ],
+    "acceptance_scope": "Existing approved v5 identity/composition only; animation unaccepted"
+  },
+  "reuse_gap": "No missing appearance art. Complete original context replacement window; no new decorative asset.",
+  "method": "Hand-bounded per-flower hue selections plus authored stem paths; rooted grayscale displacement field; original-image bilinear resampling. Nearby contour collar participates. Not a true depth split or isolated foreground alpha matte.",
+  "settings": {
+    "id": "lake_foxtails",
+    "label": "Original lakeside purple flower spikes",
+    "xy": [
+      5632,
+      1344
+    ],
+    "amplitude": 2.25,
+    "root": 1782,
+    "top": 1405,
+    "heads": [
+      [
+        "purple",
+        [
+          [
+            5830,
+            1404
+          ],
+          [
+            5861,
+            1450
+          ],
+          [
+            5876,
+            1510
+          ],
+          [
+            5897,
+            1580
+          ],
+          [
+            5900,
+            1666
+          ],
+          [
+            5865,
+            1713
+          ],
+          [
+            5798,
+            1705
+          ],
+          [
+            5783,
+            1640
+          ],
+          [
+            5800,
+            1530
+          ],
+          [
+            5818,
+            1460
+          ]
+        ]
+      ],
+      [
+        "purple",
+        [
+          [
+            5740,
+            1468
+          ],
+          [
+            5775,
+            1515
+          ],
+          [
+            5792,
+            1590
+          ],
+          [
+            5796,
+            1695
+          ],
+          [
+            5754,
+            1730
+          ],
+          [
+            5710,
+            1703
+          ],
+          [
+            5699,
+            1635
+          ],
+          [
+            5714,
+            1550
+          ]
+        ]
+      ]
+    ],
+    "stems": [
+      [
+        [
+          [
+            5836,
+            1630
+          ],
+          [
+            5824,
+            1782
+          ]
+        ],
+        11
+      ],
+      [
+        [
+          [
+            5754,
+            1660
+          ],
+          [
+            5737,
+            1764
+          ]
+        ],
+        9
+      ]
+    ]
+  },
+  "frames": 60,
+  "fps": 30,
+  "duration_seconds": 2,
+  "limits": {
+    "local_attempts": 2,
+    "wall_hours": 8,
+    "cleanup_minutes": 120,
+    "paid_budget_usd": 0,
+    "generated_calls": 0
+  },
+  "provenance": {
+    "source_crop": "sources/lake_foxtails.png",
+    "field": "fields/lake_foxtails.png",
+    "aseprite": "lake_foxtails.aseprite",
+    "frame_mapping": "frame i = analytic phase2pi*i/60, no retiming or repeated padding",
+    "background_edit": "Erase only the context-window interior, preserve a1-native-pixel boundary underlap for bilinear filtering. No moving flower remains exposed beneath its replacement. Original master unchanged."
+  },
+  "review": {
+    "machine": "See evidence/machine-verification.json and Mobile evidence",
+    "human": "PENDING normal-speed and frame-step",
+    "device": "PENDING",
+    "child_owner": "PENDING"
+  },
+  "status": {
+    "archive_complete": "PENDING_REMOTE_VERIFICATION",
+    "generation_ready": "NOT_APPLICABLE_LOCAL",
+    "delivery_accepted": false,
+    "runtime_integrated": false
+  }
+}
