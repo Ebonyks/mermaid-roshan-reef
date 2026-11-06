@@ -1,0 +1,229 @@
+{
+  "variants": [
+    {
+      "id": "26-refine-gravity--1-0.5",
+      "params": {
+        "gravity": 0.24375,
+        "strength_scale": 1.02
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "27-refine-gravity--1-1.0",
+      "params": {
+        "gravity": 0.2375,
+        "strength_scale": 1.02
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "28-refine-gravity-1-0.5",
+      "params": {
+        "gravity": 0.25625,
+        "strength_scale": 0.98
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "29-refine-gravity-1-1.0",
+      "params": {
+        "gravity": 0.2625,
+        "strength_scale": 0.98
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "30-refine-strength_scale--1-0.5",
+      "params": {
+        "strength_scale": 0.98,
+        "lateral": 0.77
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "31-refine-strength_scale--1-1.0",
+      "params": {
+        "strength_scale": 0.96,
+        "lateral": 0.77
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "32-refine-strength_scale-1-0.5",
+      "params": {
+        "strength_scale": 1.02,
+        "lateral": 0.73
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "33-refine-strength_scale-1-1.0",
+      "params": {
+        "strength_scale": 1.04,
+        "lateral": 0.73
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "34-refine-lateral--1-0.5",
+      "params": {
+        "lateral": 0.73,
+        "ceiling_bounce": 0.82
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "35-refine-lateral--1-1.0",
+      "params": {
+        "lateral": 0.71,
+        "ceiling_bounce": 0.82
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "36-refine-lateral-1-0.5",
+      "params": {
+        "lateral": 0.77,
+        "ceiling_bounce": 0.78
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "37-refine-lateral-1-1.0",
+      "params": {
+        "lateral": 0.79,
+        "ceiling_bounce": 0.78
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "38-refine-ceiling_bounce--1-0.5",
+      "params": {
+        "ceiling_bounce": 0.78,
+        "pop_hop": 2.1
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "39-refine-ceiling_bounce--1-1.0",
+      "params": {
+        "ceiling_bounce": 0.76,
+        "pop_hop": 2.1
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "40-refine-ceiling_bounce-1-0.5",
+      "params": {
+        "ceiling_bounce": 0.82,
+        "pop_hop": 1.9
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "41-refine-ceiling_bounce-1-1.0",
+      "params": {
+        "ceiling_bounce": 0.84,
+        "pop_hop": 1.9
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "42-refine-pop_hop--1-0.5",
+      "params": {
+        "pop_hop": 1.9,
+        "gravity": 0.25625
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "43-refine-pop_hop--1-1.0",
+      "params": {
+        "pop_hop": 1.8,
+        "gravity": 0.25625
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "44-refine-pop_hop-1-0.5",
+      "params": {
+        "pop_hop": 2.1,
+        "gravity": 0.24375
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "45-refine-pop_hop-1-1.0",
+      "params": {
+        "pop_hop": 2.2,
+        "gravity": 0.24375
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "46-rebound-balance--2",
+      "params": {
+        "gravity": 0.24,
+        "ceiling_bounce": 0.805
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "47-rebound-balance--1",
+      "params": {
+        "gravity": 0.245,
+        "ceiling_bounce": 0.81
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "48-rebound-balance-0",
+      "params": {
+        "gravity": 0.25,
+        "ceiling_bounce": 0.815
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "49-rebound-balance-1",
+      "params": {
+        "gravity": 0.255,
+        "ceiling_bounce": 0.82
+      },
+      "bouts": 12,
+      "require_complete": false
+    },
+    {
+      "id": "50-rebound-balance-2",
+      "params": {
+        "gravity": 0.26,
+        "ceiling_bounce": 0.825
+      },
+      "bouts": 12,
+      "require_complete": false
+    }
+  ]
+}

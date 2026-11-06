@@ -1,0 +1,104 @@
+{
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "output": "DOCAUTH|INVENTORY=933|LEDGER=933|ACTIVE=75|RECORDS=78\nDOCAUTH|RESULT|ALL OK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "output": "AUDITDEV|BASE|bc058d3bd6105fa0c706e2a58a279181497e3eb8\nAUDITDEV|RESULT|ALL OK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/record_owner_decision.py",
+        "--check",
+        "--base",
+        "origin/dev"
+      ],
+      "exit_code": 0,
+      "output": "DECISIONS|COUNT|130\nDECISIONS|RESULT|ALL OK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/bubble_duel_arena.gd",
+        "scripts/bubble_duel_brain.gd",
+        "scripts/bubble_duel_cast.gd",
+        "scripts/bubble_duel_fighter.gd",
+        "scripts/bubble_duel_geometry.gd",
+        "scripts/bubble_duel_inventory.gd",
+        "scripts/bubble_duel_motion.gd",
+        "scripts/bubble_duel_test_policy.gd",
+        "scripts/bubble_duel_two_player.gd",
+        "scripts/bubble_duel_view.gd",
+        "scripts/opera_bubble_duel.gd",
+        "scripts/opera_house_venue_2d.gd",
+        "scripts/probe_bubble_duel_capture.gd",
+        "scripts/probe_bubble_duel_cast.gd",
+        "scripts/probe_bubble_duel_cast_capture.gd",
+        "scripts/probe_bubble_duel_dual_active.gd",
+        "scripts/probe_bubble_duel_physics.gd",
+        "scripts/probe_bubble_duel_stress.gd",
+        "scripts/probe_bubble_duel_study.gd",
+        "scripts/probe_opera.gd"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "python",
+        "tools/lint_inference.py",
+        "scripts/bubble_duel_arena.gd",
+        "scripts/bubble_duel_brain.gd",
+        "scripts/bubble_duel_cast.gd",
+        "scripts/bubble_duel_fighter.gd",
+        "scripts/bubble_duel_geometry.gd",
+        "scripts/bubble_duel_inventory.gd",
+        "scripts/bubble_duel_motion.gd",
+        "scripts/bubble_duel_test_policy.gd",
+        "scripts/bubble_duel_two_player.gd",
+        "scripts/bubble_duel_view.gd",
+        "scripts/opera_bubble_duel.gd",
+        "scripts/opera_house_venue_2d.gd",
+        "scripts/probe_bubble_duel_capture.gd",
+        "scripts/probe_bubble_duel_cast.gd",
+        "scripts/probe_bubble_duel_cast_capture.gd",
+        "scripts/probe_bubble_duel_dual_active.gd",
+        "scripts/probe_bubble_duel_physics.gd",
+        "scripts/probe_bubble_duel_stress.gd",
+        "scripts/probe_bubble_duel_study.gd",
+        "scripts/probe_opera.gd"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit_code": 2,
+      "output": "scripts/opera_bubble_duel.gd:890: new blank line at EOF.\n"
+    }
+  ],
+  "result": "FAIL"
+}

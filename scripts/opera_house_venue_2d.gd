@@ -74,7 +74,7 @@ var last_refresh_objective := ""
 var background_input: Control
 var elapsed := 0.0
 var practice_book: TextureButton
-var bubble_duel_button: TextureButton
+var bubble_duel_button: Button
 var bubble_duel: BubbleDuel
 var bubble_duel_layer: CanvasLayer
 var bubble_duel_living_was_visible := false
@@ -739,23 +739,10 @@ func _build_practice_book() -> void:
 
 
 func _build_playtest_elevator() -> void:
-	if not OperaJobPlaytestMenu.ENABLED:
-		return
+	if not OperaJobPlaytestMenu.ENABLED: return
 	job_playtest_menu = OperaJobPlaytestMenu.new()
 	job_playtest_menu.setup(m, self)
 	add_child(job_playtest_menu)
-	var elevator := Button.new()
-	elevator.name = "OperaLeftElevatorPlaytest"
-	# The accepted painting's left brass elevator gate at base-canvas scale.
-	elevator.position = Vector2(178.0, 390.0)
-	elevator.size = Vector2(136.0, 134.0)
-	elevator.text = ""
-	elevator.tooltip_text = "Open job playtesting"
-	elevator.z_index = 8
-	elevator.set_meta("painted_elevator_hit_region", true)
-	_style_portal_button(elevator)
-	elevator.pressed.connect(job_playtest_menu.open)
-	add_child(elevator)
 
 
 func open_tree_book() -> void:
@@ -795,20 +782,28 @@ func _close_tree_book(restore_venue: bool = true) -> void:
 
 
 func _build_bubble_duel_button() -> void:
-	bubble_duel_button = TextureButton.new()
-	bubble_duel_button.name = "BubbleDuelPractice"
+	bubble_duel_button = Button.new()
+	bubble_duel_button.name = "OperaLeftElevatorArcade"
 	bubble_duel_button.z_index = 8
-	bubble_duel_button.position = Vector2(178, 552)
-	bubble_duel_button.size = Vector2(138, 131)
-	var entry := AtlasTexture.new()
-	entry.atlas = BubbleDuel.ITEMS
-	entry.region = Rect2(256, 0, 256, 256)
-	bubble_duel_button.texture_normal = entry
-	bubble_duel_button.ignore_texture_size = true
-	bubble_duel_button.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
-	bubble_duel_button.tooltip_text = "Bubble Duel"
-	bubble_duel_button.pressed.connect(open_bubble_duel)
+	bubble_duel_button.position = Vector2(178, 390)
+	bubble_duel_button.size = Vector2(136, 134)
+	bubble_duel_button.tooltip_text = "Elevator to Bubble Duel"
+	bubble_duel_button.set_meta("painted_elevator_hit_region", true)
+	_style_portal_button(bubble_duel_button)
+	bubble_duel_button.pressed.connect(_approach_bubble_duel)
 	add_child(bubble_duel_button)
+
+
+func _approach_bubble_duel() -> void:
+	if not is_visible_in_tree() or not accepting_input or pending_act >= 0 or m.day_one_jobs_locked(): return
+	travel_to(Vector2(270, 526))
+	if motion != null and motion.is_valid():
+		motion.tween_callback(_arrive_bubble_duel)
+
+
+func _arrive_bubble_duel() -> void:
+	if feet.distance_to(Vector2(270, 526)) <= 44.0:
+		open_bubble_duel()
 
 
 func open_bubble_duel() -> void:

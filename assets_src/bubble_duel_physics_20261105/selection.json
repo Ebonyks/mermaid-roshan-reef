@@ -1,0 +1,692 @@
+{
+  "selection": "01-source",
+  "params": {},
+  "rule": "65% source trace fidelity 1/(1+RMS), 25% natural bout completion, 10% proximity to35-second bot bout; measured proxy only, not human fun.",
+  "iterations": 50,
+  "bouts": 600,
+  "completed": 600,
+  "ranked": [
+    {
+      "id": "01-source",
+      "params": {},
+      "score": 0.9900675178431648,
+      "source_rms_error": 2.43321153737771e-05,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 23.1,
+      "pops": 109,
+      "bump_contacts": 209
+    },
+    {
+      "id": "23-pop_hop-1.5",
+      "params": {
+        "pop_hop": 1.5
+      },
+      "score": 0.9867480733987203,
+      "source_rms_error": 2.43321153737771e-05,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 19.11666666666665,
+      "pops": 91,
+      "bump_contacts": 154
+    },
+    {
+      "id": "24-pop_hop-2.5",
+      "params": {
+        "pop_hop": 2.5
+      },
+      "score": 0.9851508511764981,
+      "source_rms_error": 2.43321153737771e-05,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 17.200000000000003,
+      "pops": 88,
+      "bump_contacts": 182
+    },
+    {
+      "id": "25-pop_hop-3.0",
+      "params": {
+        "pop_hop": 3.0
+      },
+      "score": 0.9829980733987203,
+      "source_rms_error": 2.43321153737771e-05,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 14.61666666666665,
+      "pops": 86,
+      "bump_contacts": 171
+    },
+    {
+      "id": "48-rebound-balance-0",
+      "params": {
+        "ceiling_bounce": 0.815,
+        "gravity": 0.25
+      },
+      "score": 0.7281448003427156,
+      "source_rms_error": 0.661552680614196,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 19.3333333333333,
+      "pops": 121,
+      "bump_contacts": 232
+    },
+    {
+      "id": "40-refine-ceiling_bounce-1-0.5",
+      "params": {
+        "ceiling_bounce": 0.82,
+        "pop_hop": 1.9
+      },
+      "score": 0.6866018786390988,
+      "source_rms_error": 0.849997223631374,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 17.3,
+      "pops": 89,
+      "bump_contacts": 182
+    },
+    {
+      "id": "38-refine-ceiling_bounce--1-0.5",
+      "params": {
+        "ceiling_bounce": 0.78,
+        "pop_hop": 2.1
+      },
+      "score": 0.6798881502718754,
+      "source_rms_error": 0.923239182981715,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 25.299999999999997,
+      "pops": 101,
+      "bump_contacts": 248
+    },
+    {
+      "id": "39-refine-ceiling_bounce--1-1.0",
+      "params": {
+        "ceiling_bounce": 0.76,
+        "pop_hop": 2.1
+      },
+      "score": 0.5682803615173903,
+      "source_rms_error": 1.85362616719868,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 23.6,
+      "pops": 110,
+      "bump_contacts": 211
+    },
+    {
+      "id": "15-ceiling_bounce-0.9",
+      "params": {
+        "ceiling_bounce": 0.9
+      },
+      "score": 0.5215218583357519,
+      "source_rms_error": 2.56854905947295,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 22.25,
+      "pops": 126,
+      "bump_contacts": 251
+    },
+    {
+      "id": "41-refine-ceiling_bounce-1-1.0",
+      "params": {
+        "ceiling_bounce": 0.84,
+        "pop_hop": 1.9
+      },
+      "score": 0.519143821598414,
+      "source_rms_error": 2.50736373693555,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 15.5833333333333,
+      "pops": 80,
+      "bump_contacts": 166
+    },
+    {
+      "id": "16-ceiling_bounce-1.0",
+      "params": {
+        "ceiling_bounce": 1.0
+      },
+      "score": 0.4455395234775499,
+      "source_rms_error": 4.96342000676016,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 18.85,
+      "pops": 106,
+      "bump_contacts": 205
+    },
+    {
+      "id": "14-ceiling_bounce-0.65",
+      "params": {
+        "ceiling_bounce": 0.65
+      },
+      "score": 0.43194495951930034,
+      "source_rms_error": 5.71831048648263,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 17.23333333333335,
+      "pops": 87,
+      "bump_contacts": 164
+    },
+    {
+      "id": "47-rebound-balance--1",
+      "params": {
+        "ceiling_bounce": 0.81,
+        "gravity": 0.245
+      },
+      "score": 0.41981681328631026,
+      "source_rms_error": 7.35146005154664,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 25.383333333333347,
+      "pops": 120,
+      "bump_contacts": 246
+    },
+    {
+      "id": "44-refine-pop_hop-1-0.5",
+      "params": {
+        "gravity": 0.24375,
+        "pop_hop": 2.1
+      },
+      "score": 0.4086705686121254,
+      "source_rms_error": 8.95897044607695,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 27.08333333333335,
+      "pops": 92,
+      "bump_contacts": 192
+    },
+    {
+      "id": "45-refine-pop_hop-1-1.0",
+      "params": {
+        "gravity": 0.24375,
+        "pop_hop": 2.2
+      },
+      "score": 0.40100390194545876,
+      "source_rms_error": 8.95897044607695,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 17.88333333333335,
+      "pops": 92,
+      "bump_contacts": 182
+    },
+    {
+      "id": "17-ceiling_drag-0.65",
+      "params": {
+        "ceiling_drag": 0.65
+      },
+      "score": 0.3961540563825505,
+      "source_rms_error": 10.4255244559162,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 22.11666666666665,
+      "pops": 113,
+      "bump_contacts": 234
+    },
+    {
+      "id": "49-rebound-balance-1",
+      "params": {
+        "ceiling_bounce": 0.82,
+        "gravity": 0.255
+      },
+      "score": 0.3915143145063935,
+      "source_rms_error": 10.3563824289709,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 16.1333333333333,
+      "pops": 101,
+      "bump_contacts": 235
+    },
+    {
+      "id": "35-refine-lateral--1-1.0",
+      "params": {
+        "ceiling_bounce": 0.82,
+        "lateral": 0.71
+      },
+      "score": 0.3892972348825364,
+      "source_rms_error": 12.7187041961706,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 25.299999999999997,
+      "pops": 116,
+      "bump_contacts": 220
+    },
+    {
+      "id": "46-rebound-balance--2",
+      "params": {
+        "ceiling_bounce": 0.805,
+        "gravity": 0.24
+      },
+      "score": 0.38847159914722534,
+      "source_rms_error": 11.7835491635918,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 20.15,
+      "pops": 117,
+      "bump_contacts": 228
+    },
+    {
+      "id": "30-refine-strength_scale--1-0.5",
+      "params": {
+        "lateral": 0.77,
+        "strength_scale": 0.98
+      },
+      "score": 0.38784955681519473,
+      "source_rms_error": 14.5628147774071,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 30.3,
+      "pops": 151,
+      "bump_contacts": 295
+    },
+    {
+      "id": "19-ceiling_drag-1.0",
+      "params": {
+        "ceiling_drag": 1.0
+      },
+      "score": 0.3860021228201004,
+      "source_rms_error": 12.8046873302426,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 21.7,
+      "pops": 94,
+      "bump_contacts": 198
+    },
+    {
+      "id": "18-ceiling_drag-0.9",
+      "params": {
+        "ceiling_drag": 0.9
+      },
+      "score": 0.3827808419168781,
+      "source_rms_error": 13.6698318403811,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 21.16666666666665,
+      "pops": 110,
+      "bump_contacts": 233
+    },
+    {
+      "id": "43-refine-pop_hop--1-1.0",
+      "params": {
+        "gravity": 0.25625,
+        "pop_hop": 1.8
+      },
+      "score": 0.3818493543438752,
+      "source_rms_error": 15.1817136585376,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 25.0166666666667,
+      "pops": 117,
+      "bump_contacts": 221
+    },
+    {
+      "id": "42-refine-pop_hop--1-0.5",
+      "params": {
+        "gravity": 0.25625,
+        "pop_hop": 1.9
+      },
+      "score": 0.3803076876772085,
+      "source_rms_error": 15.1817136585376,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 23.1666666666667,
+      "pops": 83,
+      "bump_contacts": 148
+    },
+    {
+      "id": "33-refine-strength_scale-1-1.0",
+      "params": {
+        "lateral": 0.73,
+        "strength_scale": 1.04
+      },
+      "score": 0.3753851070721016,
+      "source_rms_error": 17.6400141395954,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 23.6166666666667,
+      "pops": 106,
+      "bump_contacts": 185
+    },
+    {
+      "id": "34-refine-lateral--1-0.5",
+      "params": {
+        "ceiling_bounce": 0.82,
+        "lateral": 0.73
+      },
+      "score": 0.3738921665604344,
+      "source_rms_error": 16.4807152353043,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 19.049999999999997,
+      "pops": 93,
+      "bump_contacts": 146
+    },
+    {
+      "id": "50-rebound-balance-2",
+      "params": {
+        "ceiling_bounce": 0.825,
+        "gravity": 0.26
+      },
+      "score": 0.3732638308517964,
+      "source_rms_error": 18.0166921838658,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 21.9,
+      "pops": 109,
+      "bump_contacts": 193
+    },
+    {
+      "id": "32-refine-strength_scale-1-0.5",
+      "params": {
+        "lateral": 0.73,
+        "strength_scale": 1.02
+      },
+      "score": 0.3720993299456483,
+      "source_rms_error": 17.2232221632079,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 18.716666666666647,
+      "pops": 89,
+      "bump_contacts": 189
+    },
+    {
+      "id": "36-refine-lateral-1-0.5",
+      "params": {
+        "ceiling_bounce": 0.78,
+        "lateral": 0.77
+      },
+      "score": 0.3681125225994218,
+      "source_rms_error": 20.070625237385,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 19.716666666666647,
+      "pops": 79,
+      "bump_contacts": 171
+    },
+    {
+      "id": "26-refine-gravity--1-0.5",
+      "params": {
+        "gravity": 0.24375,
+        "strength_scale": 1.02
+      },
+      "score": 0.3677004714880739,
+      "source_rms_error": 18.8520938653449,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 16.95,
+      "pops": 104,
+      "bump_contacts": 191
+    },
+    {
+      "id": "12-softcap-0.88",
+      "params": {
+        "softcap": 0.88
+      },
+      "score": 0.36680034130289035,
+      "source_rms_error": 17.3844862598847,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 12.733333333333299,
+      "pops": 98,
+      "bump_contacts": 179
+    },
+    {
+      "id": "27-refine-gravity--1-1.0",
+      "params": {
+        "gravity": 0.2375,
+        "strength_scale": 1.02
+      },
+      "score": 0.3640903373944823,
+      "source_rms_error": 21.8906342598088,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 17.83333333333335,
+      "pops": 96,
+      "bump_contacts": 181
+    },
+    {
+      "id": "29-refine-gravity-1-1.0",
+      "params": {
+        "gravity": 0.2625,
+        "strength_scale": 0.98
+      },
+      "score": 0.363272145649007,
+      "source_rms_error": 24.0858374276546,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 19.83333333333335,
+      "pops": 99,
+      "bump_contacts": 176
+    },
+    {
+      "id": "04-gravity-0.275",
+      "params": {
+        "gravity": 0.275
+      },
+      "score": 0.36120927963513927,
+      "source_rms_error": 26.335360712566,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 19.91666666666665,
+      "pops": 82,
+      "bump_contacts": 180
+    },
+    {
+      "id": "03-gravity-0.225",
+      "params": {
+        "gravity": 0.225
+      },
+      "score": 0.36101607539204295,
+      "source_rms_error": 27.7265056090555,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 21.0666666666667,
+      "pops": 105,
+      "bump_contacts": 204
+    },
+    {
+      "id": "37-refine-lateral-1-1.0",
+      "params": {
+        "ceiling_bounce": 0.78,
+        "lateral": 0.79
+      },
+      "score": 0.3600817428835841,
+      "source_rms_error": 24.9872159122678,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 17.08333333333335,
+      "pops": 103,
+      "bump_contacts": 198
+    },
+    {
+      "id": "28-refine-gravity-1-0.5",
+      "params": {
+        "gravity": 0.25625,
+        "strength_scale": 0.98
+      },
+      "score": 0.35971886624223776,
+      "source_rms_error": 22.5796965114591,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 13.58333333333335,
+      "pops": 82,
+      "bump_contacts": 164
+    },
+    {
+      "id": "06-strength_scale-1.1",
+      "params": {
+        "strength_scale": 1.1
+      },
+      "score": 0.35953703370135387,
+      "source_rms_error": 31.5075303130173,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 22.450000000000003,
+      "pops": 99,
+      "bump_contacts": 200
+    },
+    {
+      "id": "02-gravity-0.2",
+      "params": {
+        "gravity": 0.2
+      },
+      "score": 0.3594219583282843,
+      "source_rms_error": 28.8016850756816,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 20.133333333333347,
+      "pops": 100,
+      "bump_contacts": 175
+    },
+    {
+      "id": "13-softcap-0.94",
+      "params": {
+        "softcap": 0.94
+      },
+      "score": 0.35736338911239,
+      "source_rms_error": 34.4501406109647,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 21.83333333333335,
+      "pops": 95,
+      "bump_contacts": 222
+    },
+    {
+      "id": "09-lateral-0.6",
+      "params": {
+        "lateral": 0.6
+      },
+      "score": 0.3569684475750222,
+      "source_rms_error": 35.0352528609504,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 21.716666666666647,
+      "pops": 116,
+      "bump_contacts": 238
+    },
+    {
+      "id": "31-refine-strength_scale--1-1.0",
+      "params": {
+        "lateral": 0.77,
+        "strength_scale": 0.96
+      },
+      "score": 0.356956715232705,
+      "source_rms_error": 22.530790051988,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 10.2,
+      "pops": 92,
+      "bump_contacts": 156
+    },
+    {
+      "id": "07-strength_scale-1.2",
+      "params": {
+        "strength_scale": 1.2
+      },
+      "score": 0.3562240221108346,
+      "source_rms_error": 41.8128561730972,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 24.25,
+      "pops": 87,
+      "bump_contacts": 163
+    },
+    {
+      "id": "10-lateral-0.9",
+      "params": {
+        "lateral": 0.9
+      },
+      "score": 0.35450536690585055,
+      "source_rms_error": 36.1609534294179,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 19.41666666666665,
+      "pops": 123,
+      "bump_contacts": 253
+    },
+    {
+      "id": "08-lateral-0.5",
+      "params": {
+        "lateral": 0.5
+      },
+      "score": 0.3537230703972923,
+      "source_rms_error": 44.7898274746683,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 22.43333333333335,
+      "pops": 98,
+      "bump_contacts": 186
+    },
+    {
+      "id": "11-softcap-0.84",
+      "params": {
+        "softcap": 0.84
+      },
+      "score": 0.3532296051364069,
+      "source_rms_error": 26.2960853120237,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 10.300000000000015,
+      "pops": 85,
+      "bump_contacts": 142
+    },
+    {
+      "id": "22-speed_scale-1.2",
+      "params": {
+        "speed_scale": 1.2
+      },
+      "score": 0.3529687201382137,
+      "source_rms_error": 46.7673923982808,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 22.2333333333333,
+      "pops": 124,
+      "bump_contacts": 208
+    },
+    {
+      "id": "21-speed_scale-1.1",
+      "params": {
+        "speed_scale": 1.1
+      },
+      "score": 0.3518355990552758,
+      "source_rms_error": 33.8172025303706,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 14.8,
+      "pops": 129,
+      "bump_contacts": 250
+    },
+    {
+      "id": "05-strength_scale-0.85",
+      "params": {
+        "strength_scale": 0.85
+      },
+      "score": 0.3516567815624323,
+      "source_rms_error": 40.999903575405,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 18.41666666666665,
+      "pops": 71,
+      "bump_contacts": 133
+    },
+    {
+      "id": "20-speed_scale-0.85",
+      "params": {
+        "speed_scale": 0.85
+      },
+      "score": 0.3457227362900034,
+      "source_rms_error": 46.3187549004972,
+      "completed": 12,
+      "bouts": 12,
+      "median_seconds": 13.38333333333335,
+      "pops": 79,
+      "bump_contacts": 152
+    }
+  ],
+  "wall_seconds": 213.61573969997698,
+  "source_sha256": {
+    "bubble_duel_motion.gd": "189076ed6c90a44e2ddabf5ed1b2bee7471b8bc0cdd2bb806bd8bdd22dc934fc",
+    "bubble_duel_arena.gd": "e77789091e043043cf7994fbb7b3fedce33d0de3a02df48e34d7e8551695af4c",
+    "bubble_duel_brain.gd": "87ff9924a00ba01523b7a94f7aeb97bbea4a9d7b616f6b72d57f725fe7e4f18c",
+    "bubble_duel_geometry.gd": "f43d633815e76d0b861696dcdce75059fab2cc712412fe9ac2516992cf091472",
+    "bubble_duel_test_policy.gd": "2fa1493c7cc9ae85fd5ff53eff694e96bc26d45a14cdebf3debcb484b3906986"
+  },
+  "limits": "Same paired seeds/policies across designs. Phase2 depends on measured phase1 winner. Exploratory timeouts retained and penalized. Independent complete UI bouts, physical touch, visual/child/owner review remain separate."
+}

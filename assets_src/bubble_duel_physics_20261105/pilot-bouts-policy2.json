@@ -1,0 +1,113 @@
+{
+	"checks": 7185,
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"failures": [
+		"bout completes without relocation or forced outcome reference-pilot/4"
+	],
+	"hashes": {
+		"arena": "df7a4cf164c1b7573378fdb5f0141b2e50d0447d497c888e6fa3c08a7b3c6d05",
+		"brain": "b7fa632c5e8f60ed25e56e7a50a450d0118eeb541802060659c8a64275aded32",
+		"fighter": "7e8b2ea54c64fba3543af78d21185801dfe2bc919f2baf8ddee6176c3fbf6ad8",
+		"motion": "189076ed6c90a44e2ddabf5ed1b2bee7471b8bc0cdd2bb806bd8bdd22dc934fc"
+	},
+	"result": "FAIL",
+	"scope": "Pilot reference-geometry bouts on the actual shared engine, input-only policies, capped5Hz player tapping. Not full UI, rendered geometry, human feel or final50-variant acceptance.",
+	"variants": [
+		{
+			"bouts": [
+				{
+					"bump_contacts": 20,
+					"complete": true,
+					"enemy_count": 1,
+					"exchanged_motion": 60.9303483963013,
+					"index": 0,
+					"input_policy": "observer-controlled maximum5Hz original-style impulses; no position/velocity edits to fighters",
+					"player_flaps": 44,
+					"player_pops": 2,
+					"player_rescues": 0,
+					"pops": 2,
+					"seconds": 18.7333333333333,
+					"stage": 0,
+					"ticks": 562,
+					"winner_team": 0
+				},
+				{
+					"bump_contacts": 3,
+					"complete": true,
+					"enemy_count": 1,
+					"exchanged_motion": 5.94876146316528,
+					"index": 1,
+					"input_policy": "observer-controlled maximum5Hz original-style impulses; no position/velocity edits to fighters",
+					"player_flaps": 13,
+					"player_pops": 2,
+					"player_rescues": 0,
+					"pops": 2,
+					"seconds": 6.4,
+					"stage": 1,
+					"ticks": 192,
+					"winner_team": 0
+				},
+				{
+					"bump_contacts": 31,
+					"complete": true,
+					"enemy_count": 1,
+					"exchanged_motion": 86.7778294086456,
+					"index": 2,
+					"input_policy": "observer-controlled maximum5Hz original-style impulses; no position/velocity edits to fighters",
+					"player_flaps": 57,
+					"player_pops": 2,
+					"player_rescues": 0,
+					"pops": 2,
+					"seconds": 19.3,
+					"stage": 2,
+					"ticks": 579,
+					"winner_team": 0
+				},
+				{
+					"bump_contacts": 372,
+					"complete": true,
+					"enemy_count": 3,
+					"exchanged_motion": 1018.68131482601,
+					"index": 3,
+					"input_policy": "observer-controlled maximum5Hz original-style impulses; no position/velocity edits to fighters",
+					"player_flaps": 735,
+					"player_pops": 6,
+					"player_rescues": 7,
+					"pops": 21,
+					"seconds": 186.333333333333,
+					"stage": 3,
+					"ticks": 5590,
+					"winner_team": 0
+				},
+				{
+					"bump_contacts": 787,
+					"complete": false,
+					"enemy_count": 3,
+					"exchanged_motion": 2474.86169147491,
+					"index": 4,
+					"input_policy": "observer-controlled maximum5Hz original-style impulses; no position/velocity edits to fighters",
+					"player_flaps": 658,
+					"player_pops": 3,
+					"player_rescues": 2,
+					"pops": 7,
+					"seconds": 240.0,
+					"stage": 0,
+					"ticks": 7200,
+					"winner_team": -2
+				}
+			],
+			"id": "reference-pilot",
+			"params": {}
+		}
+	]
+}

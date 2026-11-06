@@ -41,7 +41,8 @@ def main():
                                   "-s", probe, "--",
                                   "--touch", "--classic-touch-test"],
                                  cwd=ROOT, env=env, stdout=transcript,
-                                 stderr=subprocess.STDOUT, timeout=600)
+                                 stderr=subprocess.STDOUT, timeout=1800)
+        print("BUBBLE_RUNNER|engine_exit|", run.returncode, flush=True)
         text = log.read_text(encoding="utf-8", errors="replace")
         print(text[-6000:])
         if "SCRIPT ERROR" in text:

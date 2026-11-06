@@ -1,0 +1,26 @@
+{
+  "reason": "Unchanged strict model-reference detector interprets board.blend as a .blend path; rename interpolation property rather than weakening gate or manifest. No 3D content added.",
+  "changes": [
+    {
+      "path": "scripts/opera_bubble_duel.gd",
+      "before_sha256": "dc016dc0fb80ec83ec1b4f3742c2e3eb485bd94ce8c2b41361c8eca474c7786f",
+      "after_sha256": "ff4991dde1e20d28a08ea795c84884ade2767ea11e3f8b26ba52a835cd32d4a3",
+      "changes": "Pure property rename blend to interpolation; same float initializer, assignment expression and lerp argument",
+      "before_snapshot": "assets_src/bubble_duel_physics_20261105/gate-cleanup/opera_bubble_duel-before-field-rename.gd",
+      "byte_substitution_equivalence": "PASS"
+    },
+    {
+      "path": "scripts/bubble_duel_view.gd",
+      "before_sha256": "1f449ba989c62ad433428dc31529a7f8f12efbb94f9e06ec83770eb3a55b5096",
+      "after_sha256": "ce3c3b951c240eb103f38eb4df1ec82563e88a912d455c6090b7293d2e32754d",
+      "changes": "Pure property rename blend to interpolation; same float initializer, assignment expression and lerp argument",
+      "before_snapshot": "assets_src/bubble_duel_physics_20261105/gate-cleanup/bubble_duel_view-before-field-rename.gd",
+      "byte_substitution_equivalence": "PASS"
+    }
+  ],
+  "gate_unchanged": true,
+  "unchanged_gate_paths": {
+    "tools/audit_game_2d.py": "3eeb31c4d55f7ef81fb3cdceedf1b9034704ab57b1fa7582d3c3c2128fa5757a",
+    "tools/game_2d_migration_manifest.json": "b13147e534a419e4ad7537eb01c14b64ce6613253e3355a592be2141b1344ddf"
+  }
+}

@@ -1,0 +1,88 @@
+[
+  {
+    "id": "ODR-BUBBLE-DUEL-ORIGINAL-FEEL-20261105",
+    "date": "2026-11-05",
+    "subject": "Bubble Duel physics fidelity and measured iteration",
+    "decision": "The current physics are too loose, floaty and slow, with steering far too strong. Recreate the original game more precisely with bouncy, rewarding physics and extensive iterative design/stress testing among up to50 different iterations.",
+    "source": "audit/cycles/bubble-duel-physics-20261105/owner_request.json",
+    "question": "Owner gameplay critique of the current implementation",
+    "authority": "recorded_owner",
+    "checkable": true,
+    "checks": [
+      "tools/run_bubble_duel_stress.py",
+      "scripts/probe_bubble_duel_stress.gd"
+    ],
+    "cycle": "bubble-duel-physics-20261105"
+  },
+  {
+    "id": "ODR-BUBBLE-DUEL-MULTI-ENEMY-20261105",
+    "date": "2026-11-05",
+    "subject": "Bubble Duel depth and multiple opponents",
+    "decision": "Add multiple enemies and flesh out the game beyond its current demo-like scope.",
+    "source": "audit/cycles/bubble-duel-physics-20261105/owner_request.json",
+    "question": "Owner requests fuller gameplay and more opponents",
+    "authority": "recorded_owner",
+    "checkable": true,
+    "checks": [
+      "scripts/probe_bubble_duel_cast.gd"
+    ],
+    "cycle": "bubble-duel-physics-20261105"
+  },
+  {
+    "id": "ODR-BUBBLE-DUEL-ELEVATOR-20261105",
+    "date": "2026-11-05",
+    "subject": "Bubble Duel elevator placement",
+    "decision": "The current location in the Opera house does not make sense; Bubble Duel should be tied to the elevator.",
+    "source": "audit/cycles/bubble-duel-physics-20261105/owner_request.json",
+    "question": "Owner corrects the game entry location",
+    "authority": "recorded_owner",
+    "checkable": true,
+    "checks": [
+      "scripts/probe_opera.gd"
+    ],
+    "cycle": "bubble-duel-physics-20261105"
+  },
+  {
+    "id": "ODR-BUBBLE-DUEL-ORIGINAL-FEEL-20261105",
+    "date": "2026-11-05",
+    "subject": "Bubble Duel physics fidelity and measured iteration",
+    "decision": "The current physics are too loose, floaty and slow, with steering far too strong. Recreate the original game more precisely with bouncy, rewarding physics and extensive iterative design/stress testing among up to50 different iterations.",
+    "source": "audit/cycles/bubble-duel-physics-20261105/owner_request.json",
+    "question": "Owner gameplay critique of the current implementation",
+    "authority": "recorded_owner",
+    "checkable": true,
+    "checks": [
+      "tools/run_bubble_duel_stress.py",
+      "scripts/probe_bubble_duel_stress.gd"
+    ],
+    "cycle": "bubble-duel-physics-20261105"
+  },
+  {
+    "id": "ODR-BUBBLE-DUEL-MULTI-ENEMY-20261105",
+    "date": "2026-11-05",
+    "subject": "Bubble Duel depth and multiple opponents",
+    "decision": "Add multiple enemies and flesh out the game beyond its current demo-like scope.",
+    "source": "audit/cycles/bubble-duel-physics-20261105/owner_request.json",
+    "question": "Owner requests fuller gameplay and more opponents",
+    "authority": "recorded_owner",
+    "checkable": true,
+    "checks": [
+      "scripts/probe_bubble_duel_cast.gd"
+    ],
+    "cycle": "bubble-duel-physics-20261105"
+  },
+  {
+    "id": "ODR-BUBBLE-DUEL-ELEVATOR-20261105",
+    "date": "2026-11-05",
+    "subject": "Bubble Duel elevator placement",
+    "decision": "The current location in the Opera house does not make sense; Bubble Duel should be tied to the elevator.",
+    "source": "audit/cycles/bubble-duel-physics-20261105/owner_request.json",
+    "question": "Owner corrects the game entry location",
+    "authority": "recorded_owner",
+    "checkable": true,
+    "checks": [
+      "scripts/probe_opera.gd"
+    ],
+    "cycle": "bubble-duel-physics-20261105"
+  }
+]

@@ -1,0 +1,126 @@
+{
+	"cases": [
+		{
+			"id": "neutral",
+			"max_logical_error": 0.0000323486327999944,
+			"rms_error": 0.0000048430010850485,
+			"steps": 100.0
+		},
+		{
+			"id": "one-neutral-flap",
+			"max_logical_error": 0.0000787423126098474,
+			"rms_error": 0.00000928052122379591,
+			"steps": 100.0
+		},
+		{
+			"id": "right-flap",
+			"max_logical_error": 0.0000787423126098474,
+			"rms_error": 0.00000976077845439894,
+			"steps": 90.0
+		},
+		{
+			"id": "held-direction-no-flap",
+			"max_logical_error": 0.0000323486327999944,
+			"rms_error": 0.00000479287540650199,
+			"steps": 90.0
+		},
+		{
+			"id": "counter-steer",
+			"max_logical_error": 0.0000277662562666592,
+			"rms_error": 0.00000334833623773817,
+			"steps": 100.0
+		},
+		{
+			"id": "repeat-flaps",
+			"max_logical_error": 0.000239125066627821,
+			"rms_error": 0.0000263434580528089,
+			"steps": 120.0
+		},
+		{
+			"id": "one-bubble",
+			"max_logical_error": 0.000067138671624889,
+			"rms_error": 0.00000860332830234143,
+			"steps": 100.0
+		},
+		{
+			"id": "no-bubbles",
+			"max_logical_error": 0.0000493164062618234,
+			"rms_error": 0.00000559369341808609,
+			"steps": 100.0
+		},
+		{
+			"id": "wrap",
+			"max_logical_error": 0.0000323486327999944,
+			"rms_error": 0.00000510796681064954,
+			"steps": 70.0
+		},
+		{
+			"id": "ceiling-bounce",
+			"max_logical_error": 0.000299072265477207,
+			"rms_error": 0.0000554413367615299,
+			"steps": 50.0
+		},
+		{
+			"id": "respawn-launch",
+			"max_logical_error": 0.0000558718547267745,
+			"rms_error": 0.0000101101431882679,
+			"steps": 100.0
+		},
+		{
+			"id": "soft-cap",
+			"max_logical_error": 0.0000325779297298823,
+			"rms_error": 0.00000536181588626615,
+			"steps": 70.0
+		},
+		{
+			"id": "growing",
+			"max_logical_error": 0.000174957061858549,
+			"rms_error": 0.000018833000517986,
+			"steps": 150.0
+		},
+		{
+			"id": "shrinking",
+			"max_logical_error": 0.0000670027616820335,
+			"rms_error": 0.0000137761498219897,
+			"steps": 150.0
+		},
+		{
+			"id": "depth",
+			"max_logical_error": 0.000123965725038033,
+			"rms_error": 0.0000139649717582192,
+			"steps": 150.0
+		},
+		{
+			"id": "kind-gravity",
+			"max_logical_error": 0.0000368712740481669,
+			"rms_error": 0.00000494713181701836,
+			"steps": 100.0
+		},
+		{
+			"id": "control-muted",
+			"max_logical_error": 0.0000707485215798442,
+			"rms_error": 0.0000102237650287402,
+			"steps": 70.0
+		}
+	],
+	"checks": 18815,
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"failures": [],
+	"result": "PASS",
+	"scope": "Original-frame movement traces with strict0.001 logical-unit tolerance (0.0021 canvas pixels); not human feel, rendering, or whole-game acceptance.",
+	"source_hashes": {
+		"fighter": "8a053ad03bcb3e74f9737782c7ff65274fa021b85a0caf5209493688e88697d8",
+		"motion": "189076ed6c90a44e2ddabf5ed1b2bee7471b8bc0cdd2bb806bd8bdd22dc934fc",
+		"reference": "31f75a4ed0c5b1721f57acc71c0feb1783f41f375e3290a92f95afb1ffa79506"
+	}
+}

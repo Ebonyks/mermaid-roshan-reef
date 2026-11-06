@@ -47,95 +47,83 @@ func _setup_scene() -> bool:
 	root.size = Vector2i(width if width > 0 else 1280, 720)
 	for i: int in range(8):
 		await process_frame
+	await create_timer(0.3).timeout
 	return true
 
 
 func _run() -> void:
-	if not await _setup_scene():
-		return
-	var width := int(OS.get_environment("DUEL_CAPTURE_WIDTH"))
-	await _capture("01-jobs", "Illustrated shop launcher in Jobs")
-	# An explicit review fixture supplies pearls. Every acquisition below still
-	# calls the actual purchase button and the shared save transaction.
-	Shop.reward(main, 2000)
+	if not await _setup_scene(): return
+	await _capture("01-elevator", "Painted left elevator; detached launcher removed")
+	Shop.reward(main, 20000)
 	_tap(venue.bubble_duel_button)
+	for frame: int in range(500):
+		if venue.bubble_duel != null: break
+		await process_frame
 	game = venue.bubble_duel
 	if game == null:
 		quit(3)
 		return
 	game.set_process(false)
-	await _capture("02-hub", "Rebuilt hub")
-	if width != 1280:
-		_card(0)
-		await _capture("03-wide-duel", "Supported viewport, complete room and actors")
-		_back()
-		_card(3)
-		await _capture("04-wide-shop", "Supported viewport shop")
+	await _capture("02-hub", "Actual elevator arcade hub")
+	game._show_setup(true)
+	await _capture("03-two-player", "Independent cast, clothing and items; versus or cooperative")
+	game._open_picker(0, "character")
+	await _capture("04-six-friends", "All six reusable identities")
+	var width: int = int(OS.get_environment("DUEL_CAPTURE_WIDTH"))
+	if width == 1280 or width == 0:
+		for person: String in BubbleDuelCast.PEOPLE:
+			for entry: Dictionary in Shop.ITEMS:
+				for player: int in range(2):
+					Shop.choose_character(main, person, player)
+					Shop.choose_item(main, entry["id"], player)
+				game._show_setup(true)
+				await _capture("wear-" + person + "-" + String(entry["id"]), "Both facing directions; actual worn attachments and large setup previews")
+		for index: int in range(4):
+			var data: Dictionary = Shop.state(main)
+			data["campaign"] = {"stage": index * 4, "checkpoint": {}}
+			main.save_data[Shop.SAVE_KEY] = data
+			Shop.choose_character(main, "roshan", 0)
+			Shop.choose_character(main, "rumi", 1)
+			Shop.choose_item(main, ["rainbow", "kelp", "lullaby", "squid"][index], 0)
+			Shop.choose_item(main, "swiftconch", 1)
+			game._begin_coop()
+			var pilots: Array[BubbleDuelTestPolicy] = [BubbleDuelTestPolicy.new(91, 6), BubbleDuelTestPolicy.new(13, 8, false)]
+			for tick: int in range(105):
+				for player: int in range(2):
+					var action: Dictionary = pilots[player].observe(game.world.human(player), game.world, tick)
+					if tick == 0 or bool(action["flap"]):
+						_tap(game, game.Duo.PADS[player].get_center() + Vector2(float(action["axis"]) * 60, 0))
+					if bool(action["power"]): _tap(game.power_button if player == 0 else game.second_power_button)
+				game._process(1.0 / 30)
+			await _capture("arena-tier-" + str(index + 1), "Natural cooperative play: live opponents, source motion, visible tethers and control separation")
+		game._begin(Duel.Mode.CURRENT)
+		_tap(game, game.Duo.PADS[0].get_center())
+		for tick: int in range(150): game._process(1.0 / 30)
+		await _capture("05-current", "Real scrolling pearl and ink-current hazards")
 	else:
-		_card(3)
-		await _capture("03-shop-page-1", "Purchase prices, color ownership and first four outfits")
-		for item: Dictionary in Shop.ITEMS:
-			var page: int = Shop.ITEMS.find(item) / 4
-			if game.shop_page != page:
-				game._turn_shop_page()
-			var button := _gear_card(item["id"])
-			if button == null:
-				quit(4)
-				return
-			_tap(button)
-			if game.gear != item["id"]:
-				quit(5)
-				return
-			if item["id"] == "rainbow":
-				await _capture("04-shop-page-2", "Second four outfits")
-			_back()
-			_card(0)
-			await _capture("outfit-" + item["id"] + "-rest", "Purchased outfit on Roshan at rest")
-			_tap(game, game._target(0))
-			for i: int in range(20):
-				game._process(1.0 / 60.0)
-			await _capture("outfit-" + item["id"] + "-swim", "Same purchased outfit during an anchored swim")
-			if item["id"] not in ["classic", "tidewing"]:
-				_tap(game.power_button)
-				for i: int in range(8):
-					game._process(1.0 / 60.0)
-				await _capture("power-" + item["id"], "Player-activated power during the bout")
-			_back()
-			_card(3)
-		for color_index: int in range(5):
-			_card(color_index)
-			_back()
-			_card(0)
-			await _capture("bubble-color-" + str(color_index), "Purchased bubble color against the actual arena")
-			_back()
-			_card(3)
-		_back()
-		_card(1)
-		await _capture("05-practice", "Practice target and pearl payoff")
-		_hit(1)
-		await _capture("06-practice-pop", "Pop and earned pearl")
-		_back()
-		_card(2)
-		await _capture("07-current", "Current Ride collectible")
-		_hit(1)
-		await _capture("08-collected", "Collected pearl disappears before respawn")
-		_back()
-		_card(0)
-		_hit(1)
-		await _capture("09-first-contact", "Burst and correct surviving bubble")
-		_hit(2)
-		await _capture("10-replay", "Earned pearls and replay control")
-	var file := FileAccess.open(output.path_join("captures.json"), FileAccess.WRITE)
-	file.store_string(JSON.stringify({"engine": Engine.get_version_info().string,
+		game._begin_coop()
+		for player: int in range(2): _tap(game, game.Duo.PADS[player].get_center())
+		for tick: int in range(40): game._process(1.0 / 30)
+		await _capture("05-wide-arena", "Full arena at supported viewport, both independent pads")
+	game._show_shop()
+	await _capture("06-shop", "Shared owned items, pearl balance, purchase controls")
+	game._turn_shop_page()
+	await _capture("07-shop-second", "Remaining worn power items")
+	if width == 1280 or width == 0: await _fit_key_tour()
+	await _overlap_tour()
+	var file: FileAccess = FileAccess.open(output.path_join("captures.json"), FileAccess.WRITE)
+	file.store_string(JSON.stringify({"engine": Engine.get_version_info(),
 		"renderer": RenderingServer.get_current_rendering_method(), "quality": main.quality,
-		"fixture": "2000 review pearls credited through Shop.reward, followed by real purchase controls",
-		"captures": records}, "  "))
+		"source_hashes": _capture_source_hashes(),
+		"captures": records, "limits": "Native full-context candidate review. No physical device/child/owner or formal QA11 acceptance inferred."}, "\t") + "\n")
 	file.close()
+	await _motion_tour()
 	venue.close()
 	main.queue_free()
 	await process_frame
 	print("BUBBLECAPTURE|", records.size(), " captures")
 	quit(0)
+
 
 
 func _capture(key: String, role: String) -> void:
@@ -181,14 +169,97 @@ func _gear_card(id: String) -> Control:
 	return null
 
 
-func _hit(expected: int) -> void:
-	for attempt: int in range(5):
-		_tap(game, game._target(0))
-		for i: int in range(240):
-			game._process(1.0 / 60.0)
-			if game.score == expected:
-				return
-		printerr("BUBBLECAPTURE|retry contact")
-	printerr("BUBBLECAPTURE|contact failed")
-	quit(7)
 
+
+func _motion_tour() -> void:
+	var folder: String = OS.get_environment("DUEL_MOTION_FRAMES")
+	if folder.is_empty(): return
+	DirAccess.make_dir_recursive_absolute(folder)
+	var people: Array[Array] = [["roshan", "rumi"], ["daddy_mermaid", "baby_eagle"], ["rainbow_dust_bunny", "marlo"], ["roshan", "rumi"]]
+	var gear: Array[Array] = [["classic", "classic"], ["swiftconch", "rainbow"], ["kelp", "lullaby"], ["squid", "moonpearl"]]
+	var frames: Array[Dictionary] = []
+	for scene: int in range(4):
+		for player: int in range(2):
+			Shop.choose_character(main, people[scene][player], player)
+			Shop.choose_item(main, gear[scene][player], player)
+		if scene == 3: game._begin_coop()
+		else: game._begin_versus()
+		var policies: Array[BubbleDuelTestPolicy] = [BubbleDuelTestPolicy.new(57 + scene, 6), BubbleDuelTestPolicy.new(79 + scene, 8, false)]
+		for tick: int in range(120):
+			for player: int in range(2):
+				var fighter: BubbleDuelFighter = game.world.human(player)
+				var action: Dictionary = policies[player].observe(fighter, game.world, tick)
+				if (tick == 0 or bool(action["flap"])) and not (fighter.gear == "moonpearl" and tick >= 90 and tick < 116):
+					_tap(game, game.Duo.PADS[player].get_center() + Vector2(float(action["axis"]) * 60, 0))
+				if bool(action["power"]) and fighter.gear != "moonpearl":
+					_tap(game.power_button if player == 0 else game.second_power_button)
+				if fighter.gear == "moonpearl" and tick in [90, 116]:
+					var control: Control = game.power_button if player == 0 else game.second_power_button
+					var event := InputEventScreenTouch.new()
+					event.index = 301
+					event.pressed = tick == 90
+					event.position = root.get_screen_transform() * (control.get_screen_transform() * (control.size * 0.5))
+					root.push_input(event, false)
+			game._process(1.0 / 30)
+			await RenderingServer.frame_post_draw
+			var picture: Image = root.get_texture().get_image()
+			var name: String = "frame-%04d.jpg" % (scene * 120 + tick)
+			picture.save_jpg(folder.path_join(name), 0.93)
+			frames.append({"file": name, "scene": scene, "tick": tick, "sha256": FileAccess.get_sha256(folder.path_join(name))})
+	var file: FileAccess = FileAccess.open(output.path_join("motion-frames.json"), FileAccess.WRITE)
+	file.store_string(JSON.stringify({"fps": 30, "frames": frames,
+		"scope": "GAMEPLAY_REVIEW_ONLY; deterministic30Hz input-driven action at source cadence, all6 cast and powered attachments, JPEG review frames only; no cinematic or device acceptance."}, "\t") + "\n")
+	file.close()
+
+
+func _capture_source_hashes() -> Dictionary:
+	var result: Dictionary = {}
+	for path: String in ["opera_bubble_duel.gd", "bubble_duel_motion.gd", "bubble_duel_fighter.gd", "bubble_duel_arena.gd", "bubble_duel_brain.gd", "bubble_duel_two_player.gd", "bubble_duel_geometry.gd", "bubble_duel_view.gd", "bubble_duel_inventory.gd", "bubble_duel_cast.gd", "opera_house_venue_2d.gd", "probe_bubble_duel_capture.gd"]:
+		result[path] = FileAccess.get_sha256("res://scripts/" + path)
+	return result
+
+
+func _overlap_tour() -> void:
+	for player: int in range(2):
+		Shop.choose_character(main, "roshan", player)
+		Shop.choose_item(main, "classic", player)
+		Shop.choose_color(main, 0, player)
+	game._begin_versus()
+	var captured: bool = false
+	var turned: bool = false
+	for tick: int in range(50):
+		if tick in [0, 8]:
+			for player: int in range(2):
+				_tap(game, game.Duo.PADS[player].get_center() + Vector2(60 if player == 0 else -60, 0))
+		if not turned and tick > 8 and absf(BubbleDuelMotion.wrapped_dx(game.world.human(0).position.x - game.world.human(1).position.x)) < 55:
+			_tap(game, game.Duo.PADS[1].get_center() + Vector2(60, 0))
+			turned = true
+		game._process(1.0 / 30)
+		var first: BubbleDuelFighter = game.world.human(0)
+		var second: BubbleDuelFighter = game.world.human(1)
+		if first.facing > 0 and second.facing > 0 and absf(BubbleDuelMotion.wrapped_dx(first.position.x - second.position.x)) < 24 and absf(first.position.y - second.position.y) < 15:
+			await _capture("08-identical-overlap", "Identical same-facing and same-colour actors approach through actual flap inputs; fixed opposite-side1/2-dot human markers stay separate")
+			captured = true
+			break
+	if not captured:
+		printerr("BUBBLECAPTURE|FAIL|natural identical-player overlap fixture did not occur")
+		quit(7)
+
+
+func _fit_key_tour() -> void:
+	var cases: Array[Array] = [["rumi", "kelp"], ["marlo", "rainbow"], ["marlo", "swiftconch"], ["baby_eagle", "squid"], ["rainbow_dust_bunny", "squid"]]
+	for spec: Array in cases:
+		for player: int in range(2):
+			Shop.choose_character(main, String(spec[0]), player)
+			Shop.choose_item(main, String(spec[1]), player)
+		var keys: int = 4 if String(spec[0]) in ["rumi", "marlo"] else 1
+		var fps: float = 6.0 if String(spec[0]) == "rumi" else 5.0
+		for key: int in range(keys):
+			game._show_setup(true)
+			for child: Node in game.menu.find_children("*", "Control", true, false):
+				if child.get_script() == load("res://scripts/bubble_duel_preview.gd"):
+					child.set_process(false)
+					child.set("moving", true)
+					child.set("clock", (float(key) + 0.25) / fps)
+			await _capture("fit-" + String(spec[0]) + "-" + String(spec[1]) + "-key-" + str(key),
+				"Native source-key wardrobe review after socket repair; both directions, frozen authored source pose, not a completed gameplay bout")

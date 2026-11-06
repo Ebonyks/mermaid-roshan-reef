@@ -1,0 +1,88 @@
+{
+	"captures": [
+		{
+			"file": "01-elevator.png",
+			"h": 720,
+			"role": "Painted left elevator; detached launcher removed",
+			"sha256": "a239866135eab308ffb7cc85cb3148b228c643b62bf5d2c5855684acb2a5725b",
+			"w": 960
+		},
+		{
+			"file": "02-hub.png",
+			"h": 720,
+			"role": "Actual elevator arcade hub",
+			"sha256": "def4d5fb7b3e9001b867500abec099907fbd8c21479e76940b965ab0c80d0053",
+			"w": 960
+		},
+		{
+			"file": "03-two-player.png",
+			"h": 720,
+			"role": "Independent cast, clothing and items; versus or cooperative",
+			"sha256": "b71e1aeb0c8214400c0bccd04e46e1236ef95e8e67dd2bfce3a7bde686025908",
+			"w": 960
+		},
+		{
+			"file": "04-six-friends.png",
+			"h": 720,
+			"role": "All six reusable identities",
+			"sha256": "c629bc7f2566d864fd6760c2ea32826dbcaad703f0eb7a53700c9657f6c2e5cd",
+			"w": 960
+		},
+		{
+			"file": "05-wide-arena.png",
+			"h": 720,
+			"role": "Full arena at supported viewport, both independent pads",
+			"sha256": "27ad6efa8a4d08437ff19b2534e2e6a662468b5a52ac484af412b35dab5c119e",
+			"w": 960
+		},
+		{
+			"file": "06-shop.png",
+			"h": 720,
+			"role": "Shared owned items, pearl balance, purchase controls",
+			"sha256": "2dbe5bf11fdea8fb1c2386eebc97e807608d4caa1e8e3be470c86cc975ffc69a",
+			"w": 960
+		},
+		{
+			"file": "07-shop-second.png",
+			"h": 720,
+			"role": "Remaining worn power items",
+			"sha256": "7c48a2f8e3909c2780610cc0d9d33478d9d13ca8240dca1b4002170446e2cbb5",
+			"w": 960
+		},
+		{
+			"file": "08-identical-overlap.png",
+			"h": 720,
+			"role": "Identical same-facing and same-colour actors approach through actual flap inputs; fixed opposite-side1/2-dot human markers stay separate",
+			"sha256": "6ec7a10d53cd3a2c6998809e7148b39afdf0c3916c87c2637f3fd9c5a9ab911a",
+			"w": 960
+		}
+	],
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"limits": "Native full-context candidate review. No physical device/child/owner or formal QA11 acceptance inferred.",
+	"quality": "speedy",
+	"renderer": "mobile",
+	"source_hashes": {
+		"bubble_duel_arena.gd": "e77789091e043043cf7994fbb7b3fedce33d0de3a02df48e34d7e8551695af4c",
+		"bubble_duel_brain.gd": "87ff9924a00ba01523b7a94f7aeb97bbea4a9d7b616f6b72d57f725fe7e4f18c",
+		"bubble_duel_cast.gd": "aa0fe3c78d8a5547805caf19513075fb539dba50dde49b87a8954e72c93784f0",
+		"bubble_duel_fighter.gd": "8a053ad03bcb3e74f9737782c7ff65274fa021b85a0caf5209493688e88697d8",
+		"bubble_duel_geometry.gd": "f43d633815e76d0b861696dcdce75059fab2cc712412fe9ac2516992cf091472",
+		"bubble_duel_inventory.gd": "ecb8f6e873bdd8a6214b1a3bc5c6df68951b2f3d0a6f61e93c660ec5e62ba2f8",
+		"bubble_duel_motion.gd": "189076ed6c90a44e2ddabf5ed1b2bee7471b8bc0cdd2bb806bd8bdd22dc934fc",
+		"bubble_duel_two_player.gd": "3202f851dc0eaf212649cfd8990f42f61688eeb84320626739d67e960813f9fe",
+		"bubble_duel_view.gd": "1f449ba989c62ad433428dc31529a7f8f12efbb94f9e06ec83770eb3a55b5096",
+		"opera_bubble_duel.gd": "08ed331ec7645249d39688e136a2b1236f23dedfa4afc402f12a7942f1b84bab",
+		"opera_house_venue_2d.gd": "afa14faae10ff01cc89828a1a8988a95169fd192cc6383321d4c7c3ed5431068",
+		"probe_bubble_duel_capture.gd": "b1dcb6700c702ed4f4501282a4ba4d7674ae640320091404018b9096a94c040e"
+	}
+}
