@@ -1,0 +1,20 @@
+{
+  "request": "B7",
+  "status": "CANDIDATE",
+  "output": "assets/racer/pickups/dizzy_stars.png",
+  "dimensions": [
+    340,
+    170
+  ],
+  "sha256": "83b454f022a4e12c4e006d34f0c979a1f4fc124b0d0fcc21265e8df73b6c80c8",
+  "sources": [
+    {
+      "path": "assets/opera/worlds/props/fx_dizzy_stars.png",
+      "sha256": "81bd48fc49666a365c84792fabc6a0313cfa78d8e431bcec1024a4b14d81c7a2"
+    }
+  ],
+  "license": "Inherited from the source entries in ASSET_LICENSES.md",
+  "operations": [
+    "Crop around the whole ring; transparent side padding preserves all three stars at 2:1."
+  ]
+}

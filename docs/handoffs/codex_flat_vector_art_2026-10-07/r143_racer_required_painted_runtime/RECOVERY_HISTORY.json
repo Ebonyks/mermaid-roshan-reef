@@ -1,0 +1,51 @@
+{
+  "scope": "Historical failures remain separate from actual successful continuations. No validator or acceptance floor was weakened.",
+  "initial_source": {
+    "result": "evidence/FINAL_RESULT.json",
+    "disk_failure": "evidence/probe_stuffie/engine.log",
+    "successful_actual_retry": "evidence/recovery/probe_stuffie/engine.log",
+    "helper_location_correction": "evidence/CAPTURE_HELPER_LOCATION_CORRECTION.json",
+    "limit": "Initial source only; not new combined-source proof."
+  },
+  "combined_source": {
+    "first_static_failure": "current_dev_80975b0051/evidence/static/engine.log",
+    "owner_order_correction": "current_dev_80975b0051/evidence/OWNER_ORDER_CORRECTION.json",
+    "next_navigation_failure": "current_dev_80975b0051/evidence/static_resume_owner_order/engine.log",
+    "navigation_correction": "current_dev_80975b0051/evidence/NAVIGATION_CORRECTION.json",
+    "remaining_static_success": "current_dev_80975b0051/evidence/static_resume_navigation/engine.log",
+    "helper_precondition": "current_dev_80975b0051/evidence/HELPER_PRECONDITION_RECOVERY.json",
+    "native_exits": [
+      {
+        "probe": "probe_alpha_milestone_save",
+        "exit_code": 4294967295,
+        "elapsed_seconds": 8.885,
+        "failure_lines": [],
+        "output_nonempty": true,
+        "log_sha256": "edf4952b08448cb210e7205a68110e62cb57a6f3bc1841a8d616481cdf6470d0",
+        "passed": false
+      },
+      {
+        "exit_code": 4294967295,
+        "pid": 94436,
+        "started_at_utc": "2026-11-05T20:13:45.653438+00:00",
+        "elapsed_seconds": 177.77,
+        "log_path": "recovery_native_exit/probe_dust_boss_balance/engine.log",
+        "log_sha256": "5f8f27727d6adc1419c04c3ef739e9c2056120a7c3a1261a9583e0cb0b1a9849",
+        "probe": "probe_dust_boss_balance",
+        "failure_lines": [],
+        "output_nonempty": true,
+        "passed": false
+      }
+    ],
+    "native_exit_cause": "UNDETERMINED; no logged game assertion failure. Complete private engine logs are retained in the evidence area.",
+    "launcher_control": "current_dev_80975b0051/evidence/STANDARD_LAUNCHER_CONTROL.json",
+    "same_official_native_backend": true,
+    "latest_actual82": "current_dev_80975b0051/evidence/FINAL_RESULT.json"
+  },
+  "orchestration": "ORCHESTRATION_SCOPE.json",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0
+}

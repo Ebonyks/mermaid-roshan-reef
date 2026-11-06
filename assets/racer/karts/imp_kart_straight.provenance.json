@@ -1,0 +1,30 @@
+{
+  "request": "B3",
+  "status": "CANDIDATE",
+  "output": "assets/racer/karts/imp_kart_straight.png",
+  "dimensions": [
+    627,
+    627
+  ],
+  "sha256": "25bf06001690aa86b6f96ab5d2a3d919f02b257c345b1fe45cc3eb12e8900ba2",
+  "sources": [
+    {
+      "path": "assets/kart/chase/empty_kart.png",
+      "sha256": "35457c5cf602bffa666d6663f9fcbefb9be26bd2d0eca1c96cb5c2a6fbf9ac88"
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_racer_flee.png",
+      "sha256": "32b062cd2e5ce61974a88eb38f62fd710babb136ebf74c8328049096157f60b8"
+    },
+    {
+      "path": "assets/kart/chase/kart_straight.png",
+      "sha256": "6a3107b79afd615b96b3777cd002b9d2e5814743dbfef718567d7e535693deee",
+      "role": "Registration reference only"
+    }
+  ],
+  "license": "Inherited from the source entries in ASSET_LICENSES.md",
+  "operations": [
+    "Resize empty kart to 540\u00d7540 and place at (65,84); rear tire contact aligns to y546.",
+    "Crop the glancing-back rider\u2019s upper body x83\u2013402 y19\u2013321, resize to 219\u00d7207 and layer at (224,69). The source seat and rear chassis occlude the waist. No recolor."
+  ]
+}

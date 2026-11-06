@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-03",
+  "channel": "Direct owner messages to Claude in the Claude desktop app (Code tab), one session.",
+  "messages": [
+    {
+      "order": 1,
+      "verbatim": "So the racer game needs a far superior engine, and I have an engine to study: A rom of mario kart is loaded in SNES9. Use it, study the game, and use the engine in this game to replace/update the engine in the current version of our game. Do not copy art or other assets from Mario Kart, engine, and overall aesthetic as well, replaced with mermaid roshan IP, stripping all nintendo IP from the project.  Copy track design, system where you pick up items to go faster, and a basic item system as well. Provide a handoff for codex to produce all relevant artwork"
+    },
+    {
+      "order": 2,
+      "verbatim": "The biggest adjustment is that we will need to build a touchscreen interface. Left is control stick, Right is break (green and red respectively) as well as a bubble for the items/boost. Implement this once studying game"
+    },
+    {
+      "order": 3,
+      "verbatim": "continue, you can take over computer now"
+    },
+    {
+      "order": 4,
+      "verbatim": "Rule of thumb for this project, the tracks themselves must resemble the in game settings with high accuracy. It is okay to make new art requests from codex, but they must all be a reorganization of existing assets rather than genuinely new content requests"
+    }
+  ],
+  "interpretation": "The owner directs Claude to build a far better Racer engine and to hand all artwork to Codex. Claude studied the general play of a commercial kart racer the owner had running in an emulator: a chase camera over a perspective ground, a course map, speed-raising pickups, item boxes, laps and positions. The rebuilt engine is original code in that genre's manner. It copies no code, art, sound, track, character, item or name; 'copy track design' is read as following the genre's general principles, which the fourth message then binds to the game's own in-game setting (the Racer career's water-canal circuit painting). Touch layout: a green steering stick on the left, a red brake and an item/boost bubble on the right. New Codex art requests may only reorganize existing repository art.",
+  "study_note": "Observation only, through the owner's running emulator: no ROM bytes, screenshots, art, audio or level data were copied into the repository.",
+  "supersedes": [
+    "ODR-RACER-VIEW-20261018 (side-scrolling three-lane race)"
+  ],
+  "retained_decisions": [
+    "DL-INT-14 imp contests: the imp can win, which restarts only the race; nothing earned is lost; he slows radically after two wins",
+    "Claude writes; Codex builds images (2026-09-30)",
+    "True 2D game-wide (2026-08-09)",
+    "Demo freeze before the 2026-11-07 demo: no merge to dev until it lifts"
+  ],
+  "new_generation_or_paid_budget": false,
+  "acceptance_granted": "None. The engine is implemented on a work branch; art, device, child and owner acceptance remain separate."
+}

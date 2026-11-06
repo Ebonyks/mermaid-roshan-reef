@@ -1,0 +1,292 @@
+{
+  "id": "reef-kart-visual-context-20261105",
+  "baseline": "7ad71c329c336ddb75c53bef0e38ac73b25f585f",
+  "scope": "Owner-reported weak ground boundaries and start/finish representation in every Racer view. Inventory project object assets and every visible minigame role, adapt or replace context-inappropriate art, and validate each new asset in gameplay under the master art rules.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-06",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-VIS-09",
+    "DL-INT-04",
+    "DL-INT-10",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-07",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-OPERA-014",
+    "MA-VIS-008"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/VISUAL_REVIEW.md",
+    "scripts/racer/reef_kart_race.gd",
+    "scripts/racer/reef_kart_track.gd",
+    "scripts/racer/reef_kart_courses.gd",
+    "scripts/racer/reef_kart_floor.gdshader",
+    "scripts/racer/reef_kart_pc.gd",
+    "assets_src/imagegen/reef_kart_context_20261105/.gdignore",
+    "assets_src/imagegen/reef_kart_context_20261105/prepare_inventory.py",
+    "assets_src/imagegen/reef_kart_context_20261105/project_asset_inventory.json",
+    "assets_src/imagegen/reef_kart_context_20261105/generation_jobs.json",
+    "assets/OBJECT_GENERATION_AUDIT_LOG.md",
+    "assets_src/imagegen/reef_kart_context_20261105/prepare_runtime.gd",
+    "assets_src/imagegen/reef_kart_context_20261105/runtime_exports.json",
+    "assets_src/imagegen/reef_kart_context_20261105/item_capsule_native.png",
+    "assets/racer/context_v2/item_capsule.png",
+    "assets/racer/context_v2/item_capsule.png.import",
+    "assets_src/imagegen/reef_kart_context_20261105/kelp_trap_native.png",
+    "assets/racer/context_v2/kelp_trap.png",
+    "assets/racer/context_v2/kelp_trap.png.import",
+    "assets_src/imagegen/reef_kart_context_20261105/turn_marker_native.png",
+    "assets/racer/context_v2/turn_marker.png",
+    "assets/racer/context_v2/turn_marker.png.import",
+    "assets_src/imagegen/reef_kart_context_20261105/play_blocks_native.png",
+    "assets/racer/context_v2/play_blocks.png",
+    "assets/racer/context_v2/play_blocks.png.import",
+    "assets_src/imagegen/reef_kart_context_20261105/play_tent_native.png",
+    "assets/racer/context_v2/play_tent.png",
+    "assets/racer/context_v2/play_tent.png.import",
+    "assets_src/imagegen/reef_kart_context_20261105/kitchen_teapot_native.png",
+    "assets/racer/context_v2/kitchen_teapot.png",
+    "assets/racer/context_v2/kitchen_teapot.png.import",
+    "assets_src/imagegen/reef_kart_context_20261105/pool_seahorse_native.png",
+    "assets/racer/context_v2/pool_seahorse.png",
+    "assets/racer/context_v2/pool_seahorse.png.import",
+    "scripts/probe_reef_kart_pc.gd",
+    "assets_src/imagegen/reef_kart_context_20261105/capture_review.gd",
+    "assets_src/imagegen/reef_kart_context_20261105/evidence/canal.log",
+    "assets_src/imagegen/reef_kart_context_20261105/evidence/capture-fixture-first-fail.log",
+    "assets_src/imagegen/reef_kart_context_20261105/evidence/complete-render.log",
+    "assets_src/imagegen/reef_kart_context_20261105/evidence/complete-render.stderr.log",
+    "assets_src/imagegen/reef_kart_context_20261105/evidence/import-mips.log",
+    "assets_src/imagegen/reef_kart_context_20261105/evidence/import.log",
+    "assets_src/imagegen/reef_kart_context_20261105/evidence/pc.log",
+    "assets_src/imagegen/reef_kart_context_20261105/local_visual_review.json",
+    "assets_src/imagegen/reef_kart_context_20261105/owner_request.json",
+    "assets_src/imagegen/reef_kart_context_20261105/review/baseline/course-picker.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/baseline/kitchen-feature.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/baseline/kitchen-start.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/baseline/mermaid_pool-feature.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/baseline/mermaid_pool-start.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/baseline/opera_hall-feature.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/baseline/opera_hall-start.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/baseline/playroom-feature.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/baseline/playroom-start.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/baseline/pool-split.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/canal-touch-bend.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/canal-touch-finish-approach.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/canal-touch-grid.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/captures.json",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/course-picker.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/garage.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/kitchen-solo-1600x900.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/kitchen-solo-bend.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/kitchen-solo-finish-approach.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/kitchen-solo-grid.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/kitchen-split-bend.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/kitchen-split-finish-approach.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/kitchen-split-grid.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/mermaid_pool-solo-1600x900.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/mermaid_pool-solo-16x10.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/mermaid_pool-solo-bend.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/mermaid_pool-solo-finish-approach.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/mermaid_pool-solo-grid.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/mermaid_pool-solo-kelp.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/mermaid_pool-split-16x10.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/mermaid_pool-split-bend.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/mermaid_pool-split-finish-approach.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/mermaid_pool-split-grid.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/mermaid_pool-split-kelp.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/mode.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/opera_hall-solo-1600x900.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/opera_hall-solo-bend.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/opera_hall-solo-finish-approach.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/opera_hall-solo-grid.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/opera_hall-split-bend.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/opera_hall-split-finish-approach.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/opera_hall-split-grid.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/playroom-solo-1600x900.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/playroom-solo-bend.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/playroom-solo-finish-approach.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/playroom-solo-grid.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/playroom-solo-results.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/playroom-split-bend.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/playroom-split-finish-approach.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/playroom-split-grid.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/playroom-split-results.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/prop-kitchen_cake.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/prop-kitchen_oven.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/prop-kitchen_pitcher.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/prop-kitchen_teapot.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/prop-opera_cup.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/prop-opera_footlights.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/prop-opera_microphone.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/prop-opera_musicbox.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/prop-play_blocks.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/prop-play_tent.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/prop-pool_flower.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/prop-pool_fountain.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/prop-pool_seahorse.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/candidate/prop-pool_star.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/object_112_silhouettes.png",
+    "assets_src/imagegen/reef_kart_context_20261105/review/sheet_01.jpg",
+    "assets_src/imagegen/reef_kart_context_20261105/review/sheet_02.jpg",
+    "assets_src/imagegen/reef_kart_context_20261105/review/sheet_03.jpg",
+    "assets_src/imagegen/reef_kart_context_20261105/review/sheet_04.jpg",
+    "assets_src/imagegen/reef_kart_context_20261105/review/sheet_05.jpg",
+    "assets_src/imagegen/reef_kart_context_20261105/review/sheet_06.jpg",
+    "assets_src/imagegen/reef_kart_context_20261105/review/sheet_07.jpg",
+    "assets_src/imagegen/reef_kart_context_20261105/review/sheet_08.jpg",
+    "assets_src/imagegen/reef_kart_context_20261105/review/sheet_09.jpg",
+    "assets_src/imagegen/reef_kart_context_20261105/structural_validation.json",
+    "assets_src/imagegen/reef_kart_context_20261105/verify_art.py",
+    "assets_src/imagegen/reef_kart_context_20261105/visual_decisions.json",
+    "design/reference/OWNER_DECISIONS.md",
+    "assets_src/imagegen/reef_kart_context_20261105/evidence/draft-coverage-failure.log",
+    "assets_src/imagegen/reef_kart_context_20261105/evidence/pc.stderr.log",
+    "assets_src/imagegen/reef_kart_context_20261105/evidence/canal.stderr.log",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/README.md",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/ART_REQUESTS.md",
+    "assets_src/imagegen/reef_kart_context_20261105/verify_runtime.gd",
+    "assets_src/imagegen/reef_kart_context_20261105/evidence/runtime-textures.log",
+    "assets_src/imagegen/reef_kart_context_20261105/evidence/runtime-textures.stderr.log",
+    "assets_src/imagegen/reef_kart_context_20261105/verify_publish.py",
+    "assets_src/imagegen/reef_kart_context_20261105/measure_course_bounds.gd",
+    "assets_src/imagegen/reef_kart_context_20261105/evidence/course-bounds.log",
+    "assets_src/imagegen/reef_kart_context_20261105/evidence/course-bounds.stderr.log",
+    "assets_src/imagegen/reef_kart_context_20261105/validation_receipt.json",
+    "assets_src/imagegen/reef_kart_context_20261105/evidence/full-ci.log",
+    "assets_src/imagegen/reef_kart_context_20261105/evidence/full-ci.exit",
+    "assets_src/imagegen/reef_kart_context_20261105/evidence/authority-final.log",
+    "assets_src/imagegen/reef_kart_context_20261105/evidence/coverage-auto-final.log",
+    "assets_src/imagegen/reef_kart_context_20261105/evidence/coverage-baseline-final.log",
+    "assets_src/imagegen/reef_kart_context_20261105/remote-verification.json",
+    "assets_src/imagegen/reef_kart_context_20261105/remote_ci_summary.json",
+    "assets_src/imagegen/reef_kart_context_20261105/evidence/github-probes-b2bd2942.log"
+  ],
+  "validation": [
+    {
+      "command": "python -B assets_src/imagegen/reef_kart_context_20261105/verify_art.py",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/reef_kart_context_20261105/structural_validation.json; seven file-byte-bound RGBA exports, mipmaps and four rejected controls."
+    },
+    {
+      "command": "Godot 4.7.2 Mobile -s res://assets_src/imagegen/reef_kart_context_20261105/capture_review.gd",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/reef_kart_context_20261105/review/candidate/captures.json; 54 posed frames, empty renderer stderr. Not canonical QA11 certification."
+    },
+    {
+      "command": "Local AI visual review",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/reef_kart_context_20261105/local_visual_review.json and visual_decisions.json; applicable still-object dimensions 4.5/5, no owner acceptance."
+    },
+    {
+      "command": "Godot 4.7.2 --headless -s scripts/probe_reef_kart_pc.gd and scripts/probe_racer_integration.gd",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/reef_kart_context_20261105/evidence/pc.log and canal.log; both failures=0. Final full suite will recheck current sources."
+    },
+    {
+      "command": "scripts/ci.sh and document authority/development gates",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/reef_kart_context_20261105/validation_receipt.json and evidence/full-ci.log; all 82 original ordered probes exit zero, full suite exit zero. Document authority and development coverage pass both auto (27c88288) and exact task baseline (7ad71c32). Runtime source fingerprints equal the Git-staged bytes."
+    },
+    {
+      "command": "Godot 4.7.2 --headless -s res://assets_src/imagegen/reef_kart_context_20261105/verify_runtime.gd",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/reef_kart_context_20261105/evidence/runtime-textures.log; all seven loaded imported textures are 1024-square with 10 mip levels, zero failures and empty stderr."
+    },
+    {
+      "command": "Independent full-course bounds diagnostic (measure_course_bounds.gd)",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/reef_kart_context_20261105/evidence/course-bounds.log; all 720 centre samples per course leave the 148-unit outer curb inside the field: minimum margins playroom 245, kitchen 194.94, pool 258.60, Opera 227.61."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; --base 7ad71c329c336ddb75c53bef0e38ac73b25f585f",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/reef_kart_context_20261105/evidence/{authority-final,coverage-auto-final,coverage-baseline-final}.log; all three RESULT|ALL OK."
+    },
+    {
+      "command": "Anonymous public GitHub byte verification of exact published packet revision",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/reef_kart_context_20261105/remote-verification.json; revision 6f7bf08cf8095d761c239c8aeae962b76b6066b3, 233 files including source references, checked 2026-11-05T02:15:52-08:00. Sorted path/SHA-256 payload 13d5a1d089fed97a51e7745dd26687acbbf27b6e7dc35cef4fcca6e5f33cd77c. Supplemental receipt publication changes metadata only."
+    },
+    {
+      "command": "Documentation precision review against the row-major field serializer",
+      "result": "PASS",
+      "evidence": "The former 128*128 loop wrote 16,384 entries: the first 32 rows at width 512. Correct the earlier spatial shorthand in the master index and review; runtime source fingerprints and test results remain identical."
+    },
+    {
+      "command": "GitHub Probe suite (graphics fork), run 42009623320",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/reef_kart_context_20261105/remote_ci_summary.json; exact runtime revision b2bd2942266c6a8d953529de4eab086e08c1a06e. Required gates, trusted probes and boot succeed. Workflow success does not accept advisory visual/balance reports."
+    },
+    {
+      "command": "GitHub advisory balance and world-visual receipts",
+      "result": "FAIL",
+      "evidence": "assets_src/imagegen/reef_kart_context_20261105/remote_ci_summary.json and evidence/github-probes-b2bd2942.log; Chef capped and Sky Lagoon/dust-boss/castle visual receipts failed. Generic Racer balance is NOT_MEASURED (unsupported kart_race mode). No failure is waived or converted into acceptance."
+    },
+    {
+      "command": "Anonymous public verification of the final material packet (including CI reports)",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/reef_kart_context_20261105/remote-verification.json; immutable packet 96511087fcdbc572b090028db201a3f422d652fa, 236 exact byte matches at 2026-11-05T03:26:02-08:00, payload SHA-256 4534c47868016e86ade1da74bf6dbfe66a08d393885a0b46a3059fe8b1d250ef. This follow-up publishes only the verification receipt and audit metadata; the immutable packet is the handoff target."
+    }
+  ],
+  "acceptance_gaps": "Exact canonical fresh-runtime QA11 certification, physical PC controllers and tablet, child comprehension and owner visual acceptance remain open.",
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-RACER-ART-CONTEXT-20261105",
+      "evidence": "assets_src/imagegen/reef_kart_context_20261105/owner_request.json",
+      "write_back": "design/reference/OWNER_DECISIONS.md; shared race markings and scripts/probe_reef_kart_pc.gd"
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "A larger allocated road field can silently look like road if serialization keeps the old loop bound. Check semantic centre/shoulder coverage throughout the map, not only texture dimensions.",
+      "write_back": "scripts/probe_reef_kart_pc.gd"
+    }
+  ],
+  "references_used": [
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md#0-planning-entry",
+      "purpose": "Start/review/completion authority, task index and repair evidence lanes."
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "purpose": "Durable Canvas medium, asset, visual, interaction and QA rules named in this impact."
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "purpose": "Current authority of art contract and consolidated generation audit; historical 3D requirements superseded."
+    },
+    {
+      "path": "assets/ART_GENERATION_CONTRACT.md",
+      "purpose": "Surviving reuse, role, material, placement, provenance and context requirements."
+    },
+    {
+      "path": "assets/OBJECT_GENERATION_AUDIT_LOG.md",
+      "purpose": "R-GOV1-4, role packets, whole-object silhouette, support, composition and 4/5 runtime evidence."
+    }
+  ]
+}

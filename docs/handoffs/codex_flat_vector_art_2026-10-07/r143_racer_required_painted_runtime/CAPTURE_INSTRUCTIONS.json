@@ -1,0 +1,28 @@
+{
+  "scope": "Configured native review; no natural-route or formal QA11 certification",
+  "fixture_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/capture_context.gd",
+  "fixture_sha256": "e2209b46299a2e8e161465d5ea9bd62ad9a762263c137c458feefef3a2bbbf71",
+  "engine": "Resolve tools/resolve_godot.py; official4.7.2stable ed1daf0bf only; native Windows executable sibling godot.exe",
+  "command": [
+    "<resolved godot.exe>",
+    "--path",
+    "<checkout>",
+    "--rendering-method",
+    "mobile",
+    "--display-driver",
+    "windows",
+    "-s",
+    "res://docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/capture_context.gd"
+  ],
+  "environment": {
+    "R143_CAPTURE_OUT": "Fresh absolute output directory; fixture refuses existing output",
+    "R143_SOURCE_SHA256": "SHA256 of actual checked out scripts/racer/reef_kart_race.gd filesystem bytes",
+    "APPDATA": "private fresh directory",
+    "LOCALAPPDATA": "private fresh directory",
+    "XDG_DATA_HOME": "private fresh directory",
+    "XDG_CONFIG_HOME": "private fresh directory"
+  },
+  "profile": "ReefMain._apply_quality(speedy) on unattached profile owner; root0.8 scaling and30fps ceiling explicit; standalone Canvas race has no tier branches; CanvasItems/EXPAND; normal timescale",
+  "save_protection": "11 normal save-family hashes before/after equal; no normal content included",
+  "generation_pixels": false
+}

@@ -1,0 +1,22 @@
+{
+  "state": "TESTED_RAW_CONTROLLER_UNCHANGED_CANONICAL_GIT_CONTROLLER_EXACT",
+  "path": "scripts/racer/reef_kart_race.gd",
+  "tested_before_and_after_raw_sha256": "cb6e58a460f8a2508b8cd10fb4a30df49d1255315bd2d384f925f350188cf267",
+  "canonical_Git_sha256": "736c32c3158abcc958d6c58eb13c949f5bbabef9f5a3dbd714044242bc5bbbd5",
+  "parent_Git_sha256": "736c32c3158abcc958d6c58eb13c949f5bbabef9f5a3dbd714044242bc5bbbd5",
+  "original_runtime_pin_sha256": "9b2a37eae506e588ebe46303d8026518dba7c2b992f9cfc5e27bac5a73eabab3",
+  "physical_CRLF_to_LF_equals_staged_and_parent": true,
+  "original_precommit_guard": {
+    "session": 59064,
+    "tool_chunk": "176b5d",
+    "actual_exit_code": 1,
+    "before_git_commit": true,
+    "failed_assertion": "Physical controller bytes must equal canonical Git bytes",
+    "source": "COMMIT_GUARD_ATTEMPT1.source.py"
+  },
+  "no_project_or_runtime_change": true,
+  "no_engine_replay": true,
+  "binary_PNG_and_fixture_checks_remain_exact": true,
+  "accepted_removed": 0,
+  "at_utc": "2026-11-06T01:09:37.320188+00:00"
+}

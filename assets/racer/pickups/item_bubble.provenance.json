@@ -1,0 +1,20 @@
+{
+  "request": "B2",
+  "status": "CANDIDATE",
+  "output": "assets/racer/pickups/item_bubble.png",
+  "dimensions": [
+    244,
+    244
+  ],
+  "sha256": "87c02419fc7cb5c7202e6f1f6e44691ed49d0925c870674126f65e9796f48026",
+  "sources": [
+    {
+      "path": "assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png",
+      "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08"
+    }
+  ],
+  "license": "Inherited from the source entries in ASSET_LICENSES.md",
+  "operations": [
+    "Crop square x121\u2013365 y39\u2013283; retain the isolated top bubble via an elliptical neighbour exclusion."
+  ]
+}

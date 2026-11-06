@@ -1,0 +1,105 @@
+{
+  "schema": "reef.flat_vector_r143_required_resources/1",
+  "records": [
+    {
+      "id": "FVR-D147419B7EE0",
+      "existing_artifact": "r141_racer_context_source",
+      "status": "COMBINED_CURRENT_SOURCE_LOCAL_GATES_PASS_REMOTE_CI_DEV_PENDING",
+      "actual_candidate_output": {
+        "path": "assets/racer/context_v2/item_capsule.png",
+        "bytes": 952138,
+        "sha256": "5b356f6adb1822859b8b9db62d7b0780ce90d1b650c27470fc3e33cb128cd635"
+      },
+      "native_output": {
+        "path": "assets_src/imagegen/reef_kart_context_20261105/item_capsule_native.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 907767,
+        "sha256": "f4a366d0c8126f6069061afde3c6ddfe18558f6e3e2ad0fd5df8d5c631438f10"
+      },
+      "provenance": {
+        "source_revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "producer_final": "16ae50c7b19c41c518d427ce5c1a24ac410ee0c9",
+        "generation_record": "assets_src/imagegen/reef_kart_context_20261105/generation_jobs.json",
+        "export_record": "assets_src/imagegen/reef_kart_context_20261105/runtime_exports.json",
+        "new_generation_calls": 0,
+        "model_version_unexposed": true
+      },
+      "runtime_controller_sha256": "736c32c3158abcc958d6c58eb13c949f5bbabef9f5a3dbd714044242bc5bbbd5",
+      "evidence": {
+        "candidate": true,
+        "local_integration": true,
+        "native_same_scene_pairs": 54,
+        "Dev": false,
+        "formal_QA11": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "initial_source_full82": true,
+        "combined_source_full82": true,
+        "current_source_native_cases": 54,
+        "combined_machine_result": "current_dev_80975b0051/evidence/FINAL_RESULT.json"
+      },
+      "comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/TEN_AXIS_COMPARISON.json",
+      "accepted_removed": 0,
+      "current_source_context": {
+        "local_implementation": "8b8829ba3c114bb57a31e9da58a31b91a4c2ed5c",
+        "incoming_Dev": "80975b0051f6a5be29b0680e8b84e15f30d3c316"
+      }
+    },
+    {
+      "id": "FVR-59E3B726D2F1",
+      "existing_artifact": "r141_racer_context_source",
+      "status": "COMBINED_CURRENT_SOURCE_LOCAL_GATES_PASS_REMOTE_CI_DEV_PENDING",
+      "actual_candidate_output": {
+        "path": "assets/racer/context_v2/kelp_trap.png",
+        "bytes": 720171,
+        "sha256": "7a9e0b17c5282f516666e3bfce12dcf75e244aec89bb37bf6b791b3200700795"
+      },
+      "native_output": {
+        "path": "assets_src/imagegen/reef_kart_context_20261105/kelp_trap_native.png",
+        "revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "bytes": 963517,
+        "sha256": "ba32f32252b5a634c74ab76994b068eacfc9a81441fce38a4816844477d04801"
+      },
+      "provenance": {
+        "source_revision": "96511087fcdbc572b090028db201a3f422d652fa",
+        "producer_final": "16ae50c7b19c41c518d427ce5c1a24ac410ee0c9",
+        "generation_record": "assets_src/imagegen/reef_kart_context_20261105/generation_jobs.json",
+        "export_record": "assets_src/imagegen/reef_kart_context_20261105/runtime_exports.json",
+        "new_generation_calls": 0,
+        "model_version_unexposed": true
+      },
+      "runtime_controller_sha256": "736c32c3158abcc958d6c58eb13c949f5bbabef9f5a3dbd714044242bc5bbbd5",
+      "evidence": {
+        "candidate": true,
+        "local_integration": true,
+        "native_same_scene_pairs": 54,
+        "Dev": false,
+        "formal_QA11": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "initial_source_full82": true,
+        "combined_source_full82": true,
+        "current_source_native_cases": 54,
+        "combined_machine_result": "current_dev_80975b0051/evidence/FINAL_RESULT.json"
+      },
+      "comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/TEN_AXIS_COMPARISON.json",
+      "accepted_removed": 0,
+      "current_source_context": {
+        "local_implementation": "8b8829ba3c114bb57a31e9da58a31b91a4c2ed5c",
+        "incoming_Dev": "80975b0051f6a5be29b0680e8b84e15f30d3c316"
+      }
+    }
+  ],
+  "design_delta": 0,
+  "family_delta": 0,
+  "source_artifact_delta": 0,
+  "export_cleanup": "Old PNG files preserved pending separate reachable/reference/export disposition; only three superseded optional bindings and two primitive fallback draw paths retired.",
+  "current_MCP_combination_machine_result": "current_dev_bc02217f/evidence/FINAL_RESULT.json",
+  "current_MCP_combination_scope": "MCP_RECONCILIATION_SCOPE.json",
+  "command_count_clarification": "Canonical roster has81assertionprobes plus1headlesscaptureSKIP; historical82 totals count commands/exits, not82visual or assertion acceptances.",
+  "latest_combined_machine_result": "current_dev_32588fbf/evidence/RECONCILED_RESULT.json",
+  "latest_combined_scope": "CURRENT_DEV32588_SCOPE.json",
+  "unchanged_painted_artifact_revision": "4b408d0d49ef05c9b852bc02c9d66270ce27bc6b"
+}

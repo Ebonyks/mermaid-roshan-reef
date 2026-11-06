@@ -1,0 +1,17 @@
+{
+  "state": "TERMINAL_ENVIRONMENT_FAILURE_DISK_FULL_RECOVERY_ACTIVE",
+  "original_session": 15317,
+  "completed": 49,
+  "passed": 48,
+  "failed_probe": "probe_stuffie",
+  "cause": "C: ran out of space; private SaveState writes failed; failure-state JSON write also failed with Errno28",
+  "failed_log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-racer-mount-fit-20261105\\full_validation\\probe_stuffie\\engine.log",
+  "runtime_inputs": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-racer-mount-fit-20261105\\full_validation\\SOURCE_PIN.json",
+  "healthy_results_preserved": true,
+  "recovery_copy_session": 8338,
+  "source_project": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-racer-mount-fit-20261105\\project",
+  "target_project": "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+  "new_source_Dev": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+  "next": "Finish copy; verify every byte and Git metadata before completing move. Verify frozen runtime/normal saves. Retry only failed49 in fresh private storage then resume50..82; do not rerun healthy1..48 or markfailed49PASSwithoutactualretry. Then reconcile currentDev344runtimechanges and validate actual combined candidate.",
+  "at_utc": "2026-11-05T16:58:07.394295+00:00"
+}

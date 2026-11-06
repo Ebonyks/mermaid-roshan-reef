@@ -842,3 +842,15 @@ add a dated correction identifying the stronger evidence or owner decision.
   Claude Fable dungeon audit, and Zelda-type gameplay work order. Established
   evidence classes, stable rule IDs, Gate 0, three-family pilot queue, and the
   required generation packet.
+
+
+### Racer context review, 2026-11-05
+
+- Source and commit. Owner reports unreadable track bounds at `7ad71c32` and commissions context review.
+- Scope. Inventory 2,428 raster sources, 78 racer-family assets and 408 relevant object alternatives. Contact boards expose torn room cutouts, a rough item-bubble matte and weak ground cues.
+- Evidence class. Source review E2. New gameplay captures and acceptance remain separate.
+- Findings independently verified. Several room crops include counters, background fragments or unsupported hanging pieces when reused as roadside objects. The start flag and whole kitchen/music props have suitable reusable alternatives.
+- Generation work. Seven bounded object gaps and complete role packets are recorded in `assets_src/imagegen/reef_kart_context_20261105/generation_jobs.json`. Static sprites follow current true-2D authority.
+- Rules reinforced. R-ROLE1 through R-ROLE4, R-ID1 through R-ID4, R-GOV2 through R-GOV4, and DL-ASSET-01 through DL-ASSET-04.
+
+2026-11-05 Racer candidate review: seven first-attempt built-in ImageGen outputs retained with native/export/prompt/reference file-byte hashes. Whole-object RGBA exports pass independent size/alpha/import/hash checks after four negative controls. Local AI still appearance meets the 4.5 floor in each applicable scored dimension in configured Godot 4.7.2 Mobile solo/split/Canal views and 112px silhouettes; owner acceptance is not claimed. Runtime placements corrected for road clearance, density and visible-base padding. Existing partial room cutouts retired without altering their originals. See `assets_src/imagegen/reef_kart_context_20261105/local_visual_review.json` and the [contextual review](../docs/handoffs/codex_reef_kart_art_2026-11-03/VISUAL_REVIEW.md). Exact canonical QA11, native-background coverage, physical controllers/tablet, child and owner gates remain open.

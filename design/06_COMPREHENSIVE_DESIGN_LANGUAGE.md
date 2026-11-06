@@ -649,6 +649,19 @@ caller, single input/simulation path, implicit playfield steering and existing
 reward/save ownership remain binding; the October18 side-scroll handoff is a
 separate unimplemented candidate. Current scoped evidence is recorded in
 [the integration impact](audit_impacts/racer-castle-integration-20261022.json).
+Owner decisions 2026-11-03 (`ODR-RACER-ENGINE-20261103`, `ODR-RACER-TOUCH-20261103`,
+`ODR-TRACK-FIDELITY-20261103`; target, implemented on a work branch and not yet
+landed) replace the RACE engine with the Reef Grand Prix: a true-2D perspective
+kart race on the Pearl Canal Circuit, the Racer's own in-game world painting laid
+out flat. Its controls are a green steering stick on the left, and a red brake and
+an item/boost bubble on the right. Pearls raise top speed and are never lost. Gem
+buoys and arch bubbles deal original items. The imp contest follows `DL-INT-14`.
+The exact `op_racer_steer` cue stays. A race track must resemble its in-game
+setting closely, and its art may only reorganize existing assets. The October 18
+side-scroll candidate is superseded. The 2026-10-22 castle-room racer remains the
+shipping race until this lands. The
+[engine handoff](../docs/handoffs/codex_reef_kart_art_2026-11-03/README.md) and
+[impact](audit_impacts/reef-kart-engine-20261103.json) hold the evidence.
 
 `DL-INT-11` — Candymaker SYRUP uses one complete phone-legible mold and one
 generous pitcher grab region. The painted left spout, transformed stream origin,

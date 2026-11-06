@@ -1,0 +1,114 @@
+{
+  "schema": "reef.racer.visual.remote-ci.v1",
+  "runtime_revision": "b2bd2942266c6a8d953529de4eab086e08c1a06e",
+  "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42009623320",
+  "workflow_conclusion": "success",
+  "required_steps": "Static gates, import, full script analyzer, trusted probes and real-viewport boot all success.",
+  "advisory_results": [
+    {
+      "name": "Opera balance",
+      "state": "CAPPED",
+      "details": "Chef speedy/casual/dreamy reach the time cap. Racer personas are NOT_MEASURED because the generic tool does not support racer/kart_race; no balance score is inferred."
+    },
+    {
+      "name": "Sky Lagoon visual review",
+      "state": "FAILED",
+      "details": "Receipt reports rendering_method gl_compatibility, which does not meet the required Mobile profile."
+    },
+    {
+      "name": "Dust-boss arena visual review",
+      "state": "FAILED",
+      "details": "Advisory receipt reports process exit 1 or explicit failure; not treated as visual acceptance."
+    },
+    {
+      "name": "Pearl-castle visual review",
+      "state": "FAILED",
+      "details": "13 of 13 screenshots written, but receipt is FAIL; image count is not acceptance."
+    }
+  ],
+  "scope": "These global advisory reports remain open. Current Racer evidence is the source-bound 44 PC checks, 45 Canal checks and 54 configured actual Forward Mobile stills. Canonical QA11, physical devices/controllers, child and owner gates remain separate.",
+  "log": "assets_src/imagegen/reef_kart_context_20261105/evidence/github-probes-b2bd2942.log",
+  "log_sha256": "f47403f62e992e8b9da4632b84cd6e788bc9ca65d97abf785cc10d765476f8df",
+  "runtime_source_fingerprints": [
+    {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "sha256": "f93c912cd345846a7f0d47bbf42ac0f66af82e29df57de1eff459687fd45bc4a"
+    },
+    {
+      "path": "scripts/racer/reef_kart_track.gd",
+      "sha256": "aa7e8e8714a64f194041e510d8dbdf237cd731b10d404ff862d4007350d523bf"
+    },
+    {
+      "path": "scripts/racer/reef_kart_courses.gd",
+      "sha256": "1000c959d9ed473ef0aedbb86409d646580f2ee5b99e4c6d45e0d931f713bab6"
+    },
+    {
+      "path": "scripts/racer/reef_kart_floor.gdshader",
+      "sha256": "bc981d65bf9aa5aeaa9763cd81bf3e6ce556fa551d8d3a7f5c2f365c3667977e"
+    },
+    {
+      "path": "scripts/racer/reef_kart_pc.gd",
+      "sha256": "6dc0e3542bdd164082696e028e10afa9d537869c1e8e4332a47bb5355f2710d6"
+    },
+    {
+      "path": "assets/racer/context_v2/item_capsule.png",
+      "sha256": "5b356f6adb1822859b8b9db62d7b0780ce90d1b650c27470fc3e33cb128cd635"
+    },
+    {
+      "path": "assets/racer/context_v2/item_capsule.png.import",
+      "sha256": "22a567215901ecc7492ccd8c504805926d3e7332b78f8802116ea8df9f1202bf"
+    },
+    {
+      "path": "assets/racer/context_v2/kelp_trap.png",
+      "sha256": "7a9e0b17c5282f516666e3bfce12dcf75e244aec89bb37bf6b791b3200700795"
+    },
+    {
+      "path": "assets/racer/context_v2/kelp_trap.png.import",
+      "sha256": "da132688290da61f7a37d44b851933c55024c4346545003cde3e99ff7b012370"
+    },
+    {
+      "path": "assets/racer/context_v2/turn_marker.png",
+      "sha256": "b9cb0744d19319fac2314c8b4adf720c240607f26c2a950b8de338ec4df568c7"
+    },
+    {
+      "path": "assets/racer/context_v2/turn_marker.png.import",
+      "sha256": "38e6d3dcfb93e52b3241d33cf90f9d3b3f688f36b0eaf42537bbc6091373711f"
+    },
+    {
+      "path": "assets/racer/context_v2/play_blocks.png",
+      "sha256": "72b10a0da025dfb4d8c5ad99c064f446045032c9ea58599dc6c8efd83fe1ef4d"
+    },
+    {
+      "path": "assets/racer/context_v2/play_blocks.png.import",
+      "sha256": "c88d21174613611ef219037356dfaf7a54460e58da1dfa40877fb64bbb7d8401"
+    },
+    {
+      "path": "assets/racer/context_v2/play_tent.png",
+      "sha256": "87ac91e89d3fc933e7bf9467ba28b15310e5ee59c0dc2b2bf375f27b83b5b47d"
+    },
+    {
+      "path": "assets/racer/context_v2/play_tent.png.import",
+      "sha256": "927cc1a660b477be0c2e3bcc44b11a529ecbaec74bd9885a3a6ce397e143bef0"
+    },
+    {
+      "path": "assets/racer/context_v2/kitchen_teapot.png",
+      "sha256": "35337c962c41f16ff643cb9ec89dcb54f71bc10c4e470e871b3af2de85ad5a72"
+    },
+    {
+      "path": "assets/racer/context_v2/kitchen_teapot.png.import",
+      "sha256": "355f242e32082741c7fe061933748edcf84e3448bccafb81bdb0130e6889c3e7"
+    },
+    {
+      "path": "assets/racer/context_v2/pool_seahorse.png",
+      "sha256": "47d8c2749df2455a1995a553909360a99aaf388cb027e165e32e439582015078"
+    },
+    {
+      "path": "assets/racer/context_v2/pool_seahorse.png.import",
+      "sha256": "5177a4e3d553b718ee29dfeaa09d2097b525c7c9f7503b36cb36f53a240c3645"
+    },
+    {
+      "path": "scripts/probe_reef_kart_pc.gd",
+      "sha256": "3de3e3f1f1f29cdeeb3b4b10299d44da84d82595abacc908e7312ec19fca0730"
+    }
+  ]
+}

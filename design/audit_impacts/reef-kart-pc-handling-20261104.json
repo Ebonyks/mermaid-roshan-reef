@@ -1,0 +1,210 @@
+{
+  "id": "reef-kart-pc-handling-20261104",
+  "baseline": "c97103a2c3cbe0f8dfc4f12603c159d6f3ba10e2",
+  "scope": "Owner-reported input lag and automatic course following in the PC Reef Grand Prix. Run ten successive tuning profiles, select from evidence, and exercise the shipped controls and race loop. Keep the Opera touch career on its separately approved control contract.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-INT-10",
+    "DL-INT-14",
+    "DL-UI-02",
+    "DL-UI-05",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-07",
+    "DL-AGE-05"
+  ],
+  "findings": [
+    "MA-OPERA-014"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/PC_HANDLING.md",
+    "scripts/probe_reef_kart_handling.gd",
+    "scripts/probe_reef_kart_pc.gd",
+    "scripts/racer/reef_kart_pc.gd",
+    "scripts/racer/reef_kart_race.gd",
+    "scripts/racer/reef_kart_drive.gd"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2-stable --headless -s scripts/probe_reef_kart_handling.gd",
+      "result": "PASS",
+      "evidence": "Baseline and ten ordered variants, four earned two-lap finishes each, plus 9,600 selected-profile simulation ticks with hostile two-player input. SHA-256 b47834523ce664790e010a055b00fd000d3fd3bd6b72fde606c72bb6e432c8df"
+    },
+    {
+      "command": "Godot 4.7.2-stable --headless -s scripts/probe_reef_kart_pc.gd",
+      "result": "PASS",
+      "evidence": "40 checks through the real PC scene, with separate injected key and controller events, stationary countdown, partial-stick input, throttle, brake, item and drift ownership, device cancellation and reconnection, all solo courses, and a complete P2 win. Final SHA-256 0381230c347d4a9a168e57ec77a8035b70c274e58474c7ab186d21abd38aee96. Initial solo diagnostic (two long courses required two retries at the old Imp pace) SHA-256 d9dcb11eb70c17c5036663459190ced7234e869ef09ca5ccdf3c3a0fc9dd5ddb."
+    },
+    {
+      "command": "Godot 4.7.2-stable --headless -s scripts/probe_racer_integration.gd",
+      "result": "PASS",
+      "evidence": "45 original Canal/touch checks including held-stick 30.18 seconds, item and rail behavior, saved pearls and retries. SHA-256 c0393f5ef89742f4a4e1771871932453c55fdc2d90d00b11c210182d527fec1d"
+    },
+    {
+      "command": "Godot 4.7.2-stable Windows Forward Mobile, five 1280×720 captures",
+      "result": "PASS",
+      "evidence": "Real split-screen with no throttle, independent acceleration, drift, charged cue and boost release. Corner fixture prepositioned for repeatable view and uses actual gamepad events thereafter. Log SHA-256 2873d40f9fd6ee27d797753694ca8588415b366b7503a1ff99f3e9b8e525f9d7. Physical joypads detected: zero."
+    },
+    {
+      "command": "bash scripts/ci.sh plus standalone Opera 2D with --touch --classic-touch-test",
+      "result": "PASS",
+      "evidence": "All prerequisites and 81 trusted runtime probes passed in the full run. Opera 2D stopped with Windows exit 127 before verdict. Its same-settings isolated rerun returned zero with OPERA2D|result: ALL OK and passed the suite error filters. All 82 now have passing exact-source results. Full log SHA-256 05caf57212701d9a14bc4734ae942442c4edb961c67491ff7f9886ee27370342, Opera rerun SHA-256 0a73b38f410026dbceaadabf5a54e8ee34e064fdc6d121604b44334de6ba69f1."
+    },
+    {
+      "command": "First full-suite attempt",
+      "result": "FAIL",
+      "evidence": "Windows disk exhaustion interrupted two audio policy fixture writes. No game probe had started. Retained log SHA-256 efdf5ab1b03a0baffd35ed10e65e89f9934f39d28d2a03649eae2d3e2ea702de. Space was available before the complete rerun."
+    }
+  ],
+  "acceptance_gaps": "Windows physical USB/Bluetooth input-to-photon latency, hands-on game feel, tablet, observed child and owner acceptance remain open.",
+  "capture_sha256": {
+    "neutral-grid": "7363ad4def8742d7b94d6f013f3d12fd24b40f01b35910395ebdf891937db7d9",
+    "independent-throttle": "acda4191bb7885994c6aae02161afc54ea583cb22feeafe99948b6d514704ac0",
+    "drift": "7c9300e91341c7e182ab6e0a875296a5b86a1cf4000af8133bac4619b90e91e4",
+    "boost-ready": "89ee856113ad29d8df97ce6506eaae45313524778651af4a174ece53d5f38d2f",
+    "boost-release": "021c6d63ea8cc01e7aff42eda0d7ca3599e4380c054306f24fefb09c3e4d0202"
+  },
+  "study": {
+    "engine": "4.7.2-stable official ed1daf0bf on Windows, fixed 60 Hz",
+    "reference": "https://www.nintendo.com/jp/topics/article/65243d29-a9f1-4c40-a788-34485b9320e0",
+    "selection": 10,
+    "baseline": {
+      "camera_half_ms": 100,
+      "cancelled_drift_boost": false,
+      "coast_distance": 202.29,
+      "coast_speed": 300,
+      "drift_boost": false,
+      "drift_slip_deg": 0,
+      "idle_distance": 376.43,
+      "medium_drift_boost": false,
+      "normal_slip_deg": 0,
+      "rail_outward_speed": 0,
+      "rail_progress": 2.64,
+      "rail_speed": 118.62,
+      "rail_yaw_deg": 23.3,
+      "reverse_speed": 0,
+      "reverse_steer_ms": 83,
+      "short_drift_boost": false,
+      "small_stick_ms": -1,
+      "turn_10_deg": 2.55,
+      "wall_escape_ms": 667
+    },
+    "selected": {
+      "courses": [
+        {
+          "bumps": 0,
+          "finished": true,
+          "id": "playroom",
+          "max_lat": 36,
+          "max_progress_tick": 5.01,
+          "seconds": 27.12
+        },
+        {
+          "bumps": 0,
+          "finished": true,
+          "id": "kitchen",
+          "max_lat": 36,
+          "max_progress_tick": 5.02,
+          "seconds": 48.15
+        },
+        {
+          "bumps": 0,
+          "finished": true,
+          "id": "mermaid_pool",
+          "max_lat": 36,
+          "max_progress_tick": 5.16,
+          "seconds": 93.48
+        },
+        {
+          "bumps": 0,
+          "finished": true,
+          "id": "opera_hall",
+          "max_lat": 36,
+          "max_progress_tick": 5.23,
+          "seconds": 88.05
+        }
+      ],
+      "id": 10,
+      "measures": {
+        "camera_half_ms": 50,
+        "cancelled_drift_boost": false,
+        "coast_distance": 132.8,
+        "coast_speed": 136,
+        "drift_boost": true,
+        "drift_slip_deg": 9.89,
+        "idle_distance": 0,
+        "medium_drift_boost": true,
+        "normal_slip_deg": 4.66,
+        "rail_outward_speed": -18.1,
+        "rail_progress": 2.54,
+        "rail_speed": 153.56,
+        "rail_yaw_deg": 0,
+        "reverse_speed": 82,
+        "reverse_steer_ms": 33,
+        "short_drift_boost": false,
+        "small_stick_ms": 50,
+        "turn_10_deg": 17.45,
+        "wall_escape_ms": 2000
+      },
+      "tune": {
+        "camera": 18,
+        "charge": 0.68,
+        "coast": 112,
+        "crawl_grip": 0.24,
+        "deadzone": 0.1,
+        "drift_grip": 5.5,
+        "grip": 18,
+        "rail_rebound": 0.12,
+        "steer_rate": 22,
+        "turn": 3
+      },
+      "variant": "Crawl steering and earlier drift reward"
+    },
+    "stress": [
+      {
+        "bounded": true,
+        "course": "playroom",
+        "peak_progress_per_tick": 8.68,
+        "peak_speed": 301.13,
+        "rail_ticks": 3157,
+        "ticks": 2400
+      },
+      {
+        "bounded": true,
+        "course": "kitchen",
+        "peak_progress_per_tick": 8,
+        "peak_speed": 411.12,
+        "rail_ticks": 3667,
+        "ticks": 2400
+      },
+      {
+        "bounded": true,
+        "course": "mermaid_pool",
+        "peak_progress_per_tick": 12.95,
+        "peak_speed": 426.48,
+        "rail_ticks": 4162,
+        "ticks": 2400
+      },
+      {
+        "bounded": true,
+        "course": "opera_hall",
+        "peak_progress_per_tick": 5.66,
+        "peak_speed": 390.41,
+        "rail_ticks": 3629,
+        "ticks": 2400
+      }
+    ],
+    "initial_analyzer_log_sha256": "0044013fea6b9750f6780ec89ae74d4d39579a839ecea2247c4be6e2e5d1a518"
+  }
+}

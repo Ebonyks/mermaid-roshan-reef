@@ -1,0 +1,107 @@
+{
+  "id": "reef-kart-pc-courses-20261104",
+  "baseline": "e5abff241b286274dc84bf3ddc5d7a4c1721625f",
+  "scope": "Four selected room circuits in the standalone PC Reef Grand Prix. Hand-author the driving route from the specified Mario Kart references, reuse Mermaid Roshan scenery, and keep the existing Opera career route independent.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-INT-10",
+    "DL-UI-02",
+    "DL-UI-05",
+    "DL-UI-06",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-06",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-07"
+  ],
+  "findings": [
+    "MA-OPERA-014"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "scripts/probe_reef_kart_pc.gd",
+    "scripts/racer/reef_kart_courses.gd",
+    "scripts/racer/reef_kart_floor.gdshader",
+    "scripts/racer/reef_kart_pc.gd",
+    "scripts/racer/reef_kart_race.gd",
+    "scripts/racer/reef_kart_track.gd"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2-stable --headless --script res://scripts/probe_reef_kart_pc.gd",
+      "result": "PASS",
+      "evidence": "32 assertions cover the PC mode-to-race route, choice ownership, reconnection, all four two-lap solo races, item alignment and matching split-screen course bindings. SHA-256 1edb54f43280b99e3e28e2ee0212e226e4c9ac9bc5ddbe8c9e35e6e0733eacfb"
+    },
+    {
+      "command": "Godot 4.7.2-stable --headless --script res://tmp/reef_kart_course_capture/ride_matrix.gd",
+      "result": "PASS",
+      "evidence": "24 full race scenarios finish across every track, each of the three vehicle types, and both player modes. Five solo scenarios used the existing Imp restart. SHA-256 4842b5f761ffe534269531574939eec6ac6ac3c3c617b43d01c6866d3976cbbc"
+    },
+    {
+      "command": "Godot 4.7.2-stable desktop Forward Mobile, ten native 1280×720 frames",
+      "result": "PASS",
+      "evidence": "Picker, four starts, four route features and pool split-screen inspected. Iteration corrected text contrast, landmark height and ground contact, floor shimmer and missing PC minimaps. Local captures tmp/reef_kart_course_capture; exact hashes are listed in capture_sha256."
+    },
+    {
+      "command": "Godot 4.7.2-stable --headless --script res://scripts/probe_racer_integration.gd",
+      "result": "PASS",
+      "evidence": "45 Pearl Canal route and story control checks pass. Held-stick two-lap result 30.18 seconds. An initial check caught removal of the fallback cache reset hook, which was restored. Pass log SHA-256 0139d019470650dfbb379861875f285a300bc06fe2df9e5a4d8846071d1929e8, initial check SHA-256 426cec3523a66ce2a47fb755b527b61a67241237ad9ba9a272304c4442d8a3c4."
+    },
+    {
+      "command": "bash scripts/ci.sh plus standalone reruns on Godot 4.7.2-stable with --touch --classic-touch-test",
+      "result": "PASS",
+      "evidence": "All 82 trusted probes passed across the suite and two standalone reruns. The suite passed its prerequisite gates and 80 gameplay probes, including Opera 2D. Day One bathroom stopped mid-probe with exit 127, and the props probe reported one waterline splash assertion. Both standalone reruns returned zero and passed the same log error checks. Exact log SHA-256: suite 545fc3011352c882f2669633e09e8658e73494cd9a44997672195c4feac865c5, bathroom rerun cf33c197d03a97e4398d5bafb9923c8b9506d03b605a963a305f4c166af68f69, props rerun 8849b77a9413e01bb9343f1d942cc2a6bd3caf0e79491afc9d7865968dcd695c."
+    }
+  ],
+  "acceptance_gaps": "Physical controller and Windows device testing, human visual and performance review, child and owner acceptance are pending.",
+  "references": {
+    "playroom": {
+      "reference": "GCN Baby Park in Mario Kart 8 Deluxe",
+      "map": "https://game8.jp/mariokart8dx/143239",
+      "notes": "Retains two straightaways and two hairpins. Rotates the map horizontally and uses the Castle Playroom, with project race length and item rules.",
+      "local_map_sha256": "df63bdca759b85dd113a20215915f5c7d1cf6b407a6b1aae2b1ae7ce7266d395"
+    },
+    "kitchen": {
+      "reference": "SNES Mario Circuit 1",
+      "map": "https://www.snesmaps.com/maps/SuperMarioKart/SuperMarioKartMapMushroomCup1.html",
+      "notes": "Traced the east start straight, diagonal return, west straight and infield hook. Project-sized curb and soft rail.",
+      "local_map_sha256": "0fd2dc34304ccd00054d6c4743a0729afe6154ffb3fcd580cb9ab6545eb9fa3f"
+    },
+    "mermaid_pool": {
+      "reference": "SNES Donut Plains 3",
+      "map": "https://www.snesmaps.com/maps/SuperMarioKart/SuperMarioKartMapSpecialCup1.html",
+      "notes": "Traced both straight bridge crossings, the central S and lower hairpin. Bridge decks are continuous to suit the no-fail driving rules.",
+      "local_map_sha256": "01aa9294f52bf33731b47927304d2037622926f046239a34c0fe3b40ed09c98f"
+    },
+    "opera_hall": {
+      "reference": "SNES Rainbow Road",
+      "map": "https://www.snesmaps.com/maps/SuperMarioKart/SuperMarioKartMapSpecialCup5.html",
+      "notes": "Traced the main switchback route, following the inside of the short fork along the bottom straight. Rounded corners, soft rails and no fall-off hazard.",
+      "local_map_sha256": "fc72841dd1a75e629b7765331e43aa92498fa06da8b07db48707b806bdb7ea67"
+    }
+  },
+  "runtime_art": "Existing room backdrop PNGs and room item cutouts, loaded at original paths. Canvas atlas regions trim transparent padding for scenery footing. Ground is drawn from the physics centerline. Reference maps remain local review material and provide no runtime pixels.",
+  "capture_sha256": {
+    "course-picker": "2048d6ad8418071b4221d79da1c8b2591bb3081cfcda2c4bf2ecbcf0f60373ac",
+    "playroom-start": "07178754207ced4f5448b5b54f7ca2b39d516b6a79a39750da8bf481360e5f70",
+    "playroom-feature": "6a5eabb4d8dc536857a5dc3f2ed6988aef71ffcb740612e9405ba9948e334f21",
+    "kitchen-start": "fda4a1ac7034448bbe0195fb69e2b1f0adaa8bf4a87aa2891ad9858237a48749",
+    "kitchen-feature": "babd95e1c7e8628e17ed925b737a0bd80aacdec57e0d8500ec77ac5f5ec47c5d",
+    "mermaid_pool-start": "063a7416e97d89afaea5f879a98f5bdf9d2d2ac5347ad5885e3d4928b2a2443c",
+    "mermaid_pool-feature": "8aeefa08dbbbf950b36439f242a178f80ae006c729cb2547e97148bb221baee7",
+    "opera_hall-start": "56f931bcc055d1c280768f322b271a487dab63ee6942bf036dd0685aeca41a57",
+    "opera_hall-feature": "76d97eb576a2d2b53cde07600f17e4e77fb2c7fa989136e92693b3723df38072",
+    "pool-split": "fe0011dd29272a79a1c5374108b38e2b0637df3a0d32dc36dc6c0a7b77c2a511"
+  }
+}

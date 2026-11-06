@@ -1903,8 +1903,19 @@ func _exercise_racer_finale(act: OperaAct, world: OperaCareerWorld2D,
 	world._show_phase()
 	await process_frame
 	var racer_surface := world.surface as OperaRacerSurface
-	var owned_engine: RacerGame2D = racer_surface._engine
+	var owned_engine: ReefKartRace = racer_surface._engine
 	var owned_engine_id: int = owned_engine.get_instance_id()
+	# Owner layout 2026-11-03: green stick on the left, red brake and the item
+	# bubble on the right, each drawn by the engine's fixed control layer.
+	_check("racer touch layout puts the stick left and brake plus bubble right",
+		OperaRacerSurface.STEERING_RECT.end.x <= StorybookUI.CANVAS_SIZE.x * 0.5
+		and OperaRacerSurface.TURBO_CENTER.x > StorybookUI.CANVAS_SIZE.x * 0.5
+		and OperaRacerSurface.BRAKE_CENTER.x > StorybookUI.CANVAS_SIZE.x * 0.5
+		and OperaRacerSurface.TURBO_CENTER.distance_to(OperaRacerSurface.BRAKE_CENTER)
+			> OperaRacerSurface.TURBO_RADIUS + OperaRacerSurface.BRAKE_RADIUS
+			+ OperaRacerSurface.HIT_MARGIN * 2.0
+		and owned_engine.controls.has("stick_base") and owned_engine.controls.has("brake_center")
+		and owned_engine.controls.has("bubble_center"))
 	var owned_engine_bound: int = _subtree_node_count(owned_engine)
 	var open_finale_race_staged := world.task_open \
 		and racer_surface != null and racer_surface._rival_art != null \
@@ -2197,15 +2208,16 @@ func _exercise_racer_policy_comparison() -> void:
 	var inside_run := _run_standalone_racer_policy(true)
 	var center_seconds := float(center_run.get("seconds", 999.0))
 	var inside_seconds := float(inside_run.get("seconds", 999.0))
-	print("OPERA2D|racer policy measurements|center=", center_run, " inside=", inside_run)
-	_check("inside-line steering has causal pace and pearl payoff",
+	print("OPERA2D|racer policy measurements|held=", center_run, " purposeful=", inside_run)
+	_check("steering for pearls and using items beats a held stick",
 		bool(center_run.get("finished", false))
 		and bool(inside_run.get("finished", false))
 		and center_seconds <= 70.0 and inside_seconds <= 70.0
 		and center_seconds - inside_seconds >= 1.0
-		# The recovered full course includes centerline pearls. Actual hit/miss
-		# footprints are exercised with real steering in probe_racer_integration.
-		and int(inside_run.get("pearls", 0)) >= 1)
+		# No pearl row sits on the starting lane, so holding still collects
+		# none. Hit/miss footprints are measured in probe_racer_integration.
+		and int(inside_run.get("pearls", 0)) >= 1
+		and int(center_run.get("pearls", 0)) == 0)
 
 	var turbo := OperaRacerSurface.new()
 	get_root().add_child(turbo)
@@ -2230,11 +2242,11 @@ func _exercise_racer_policy_comparison() -> void:
 	var pause_froze := is_equal_approx(
 		float(turbo.kart.get("s", -1.0)), distance_at_pause)
 	turbo.free()
-	_check("held Turbo drives past three seconds and scene-tree pause cancels it",
+	_check("a held item bubble keeps the race live past three seconds and scene-tree pause cancels it",
 		turbo_continued and pause_cleared and pause_froze)
 
 
-func _run_standalone_racer_policy(follow_inside: bool) -> Dictionary:
+func _run_standalone_racer_policy(purposeful: bool) -> Dictionary:
 	var surface := OperaRacerSurface.new()
 	get_root().add_child(surface)
 	surface.size = StorybookUI.CANVAS_SIZE
@@ -2242,26 +2254,48 @@ func _run_standalone_racer_policy(follow_inside: bool) -> Dictionary:
 	var steering_center := OperaRacerSurface.STEERING_RECT.get_center()
 	_racer_touch(surface, 81, true, steering_center)
 	var frames := 0
+	var bubble_down := false
 	for frame in range(RACER_POLICY_MAX_FRAMES):
-		if follow_inside:
-			var curvature := surface.road_curvature(
-				float(surface.kart.get("s", 0.0)))
-			# Preserve a purposeful inside line on the recovered wider road.
-			var target_lat: float = -signf(curvature) * surface._engine._rhalf() * 0.4
-			var steer := clampf(
-				(target_lat - float(surface.kart.get("lat", 0.0))) * 0.38
-				- float(surface.kart.get("latv", 0.0)) * 0.08, -0.55, 0.55)
+		if purposeful:
+			var engine: ReefKartRace = surface._engine
+			var pl: Dictionary = engine._pl
+			# Slide the stick toward the lane of the next pearl ahead.
+			var target := _racer_next_pearl_lane(engine, float(pl["track_s"]),
+				float(pl["lat_goal"]))
+			var stick := clampf((target - float(pl["lat_goal"])) / 30.0, -1.0, 1.0)
 			_racer_drag(surface, 81,
-				steering_center + Vector2(steer * OperaRacerSurface.STEERING_RANGE, 0.0))
+				steering_center + Vector2(stick * OperaRacerSurface.STEERING_RANGE, 0.0))
+			# Tap the bubble as soon as an item is ready, then lift the finger.
+			if bubble_down:
+				_racer_touch(surface, 82, false, OperaRacerSurface.TURBO_CENTER)
+				bubble_down = false
+			elif engine.state == "race" and String(pl["item"]) != "" \
+					and float(pl["roulette_t"]) <= 0.0:
+				_racer_touch(surface, 82, true, OperaRacerSurface.TURBO_CENTER)
+				bubble_down = true
 		surface._process(RACER_TICK_SECONDS)
 		frames = frame + 1
 		if surface.race_finished:
 			break
 	var result := {"finished": surface.race_finished,
 		"seconds": float(frames) * RACER_TICK_SECONDS,
-		"pearls": surface.race_pearls, "turbos": surface.race_turbo_fires}
+		"pearls": surface.race_pearls, "turbos": surface.race_turbo_fires,
+		"attempts": surface.race_attempt}
 	surface.free()
 	return result
+
+
+func _racer_next_pearl_lane(engine: ReefKartRace, s: float, current: float) -> float:
+	var best_gap := 700.0
+	var lane := current
+	for pearl: Dictionary in engine.track.pearls:
+		if float(pearl["respawn_t"]) > 0.0:
+			continue
+		var gap := wrapf(float(pearl["s"]) - s, 0.0, engine.track.length)
+		if gap < best_gap:
+			best_gap = gap
+			lane = float(pearl["lat"])
+	return clampf(lane, -82.0, 82.0)
 
 
 func _career_config(costume: String) -> Dictionary:
