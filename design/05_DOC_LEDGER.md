@@ -1516,3 +1516,7 @@ R132 authority reconciliation2026-11-03: the existing docs/handoffs/codex_flat_v
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/README.md` | 🔵 | `SUPPORTING_CURRENT`; R145 samepainted cabinet integrated on exact green e700 with90local gates/305anonymous required files. PartialDev44->45 once; source46/roles281/families36/events12471 unchanged. Allformal/external acceptance and visiblefloor/HUD scopes open; noacceptedremoval. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/README.md` | 🔵 | `SUPPORTING_CURRENT`; exact current-game workCI/actualDev/305-file anonymous receipt and zero-new-art integration count delta. Oldcanonicalgame never a runtime merge source; separate oldmusic-download failures and allformal/external gates retained. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/README.md` | 🔵 | `SUPPORTING_CURRENT`; R146 actualpainted gas source output and verified intake;47source/45partialDev,282roles/36familiesLB,12,496events. Hosted/Dev/formal/device/child/owner separate. Metadata-only canonical checkout. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/README.md` | 🔵 | `SUPPORTING_CURRENT`; metadata-only R146 source intake, exact271/38file anonymous receipts, bounded count delta and source CI snapshot. Does not accept artwork or merge old runtime. |

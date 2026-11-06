@@ -1,0 +1,82 @@
+{
+  "id": "flat-vector-r146-source-intake-20261106",
+  "baseline": "d33bd917664ab1e82effc09f6cb5acd565f6caed",
+  "scope": "Publish actual verified R146 painted gas source/artwork/tenaxis/nativeevents into canonical metadata. Add source1,role1,event25;Dev0accepted0scene0. Preserve all history and separately failed E700 APK boundary; no oldgame merge, generation or engine repeat.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-UI-01",
+    "DL-VIS-07",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-008"
+  ],
+  "files": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_QUEUE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/FRAME_EVENTS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/GENERATION_JOB.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/IMPLEMENTATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/PRODUCTION_RECORD.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/TEN_AXIS_COMPARISON.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/CI_REVISION_TRANSITION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/COUNT_DELTA.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/CURRENT_SOURCE_CI_AT_INTAKE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/EXPORT_FOLLOWUP_DELIVERY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/EXPORT_FOLLOWUP_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/PRIOR_E700_EXPORT_FAILURE_REFERENCE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/RUNTIME_UNCHANGED.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/SOURCE_CI_AT_INTAKE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/SOURCE_DELIVERY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/SOURCE_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/authority.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/coverage_auto.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/coverage_base.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "ActualR146 exact5582-input candidate88required local checks, same-scene diagnostics and anonymous271file source verification",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/SOURCE_REMOTE_VERIFICATION.json and ../PRODUCTION_RECORD.json"
+    },
+    {
+      "command": "Exact scoped exportfollowup freshimport/allruntime+saves unchanged and38file anonymous verification",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/EXPORT_FOLLOWUP_REMOTE_VERIFICATION.json"
+    },
+    {
+      "command": "Canonicalmetadata authority/coverage/nonmetadata roots equality",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/GATES.json and RUNTIME_UNCHANGED.json"
+    }
+  ],
+  "acceptance_gaps": "HostedsourceCI, actualDev/correctedAPK and formalQA11/naturalfullspeed/device/child/owner remain separate pending. Whole denominators unknown,0acceptedremoval/0completescenes. No game merge from oldcanonical tree.",
+  "related_current_game_finding": {
+    "id": "MA-OPERA-014",
+    "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+    "path": "design/audit_impacts/flat-vector-r146-painted-racer-gas-20261106.json",
+    "reason": "Current game source owns Opera rebuild finding. This frozen older canonical metadata checkout predates that finding definition; preserve exact current game reference, do not fabricate or copy a changed finding lifecycle."
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "state": "PASS_METADATA_AUTHORITY_AND_ACTUAL_DIFF_COVERAGE_NON_RUNTIME_ROOTS_PRESERVED",
+  "baseline": "d33bd917664ab1e82effc09f6cb5acd565f6caed",
+  "results": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/authority.log",
+      "sha256": "1c9c561a0cb5a5dba55990d841b000b45889291b1d4bf823ae8ad04e18b26de5"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/coverage_auto.log",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "d33bd917664ab1e82effc09f6cb5acd565f6caed"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/coverage_base.log",
+      "sha256": "ffa0b9e5f8440ce8396e08395341c5c873a5ed2ecdfdc2d8593a09eb287f34c9"
+    }
+  ],
+  "engine_repeated": false,
+  "time": "2026-11-06T20:57:11.750723+00:00"
+}

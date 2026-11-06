@@ -1,5 +1,7 @@
 # Painted mineral source samples and pan recovery — R96
 
+Current R146 production: [painted Racer gas candidate](../r146_racer_painted_gas_runtime/README.md). 47 published bounded source artifacts,45 partial Dev artifacts;282 named roles and36 families remain lower bounds. Retained native events8085 bounded/4411 excluded/12496 total. R146 painted gas source is published and locally validated; exact hosted checks/Dev pending. Accepted removals0, complete scenes0, whole-game denominators unknown. Previous dated entries remain historical.
+
 Two actual built-in ImageGen outputs now exist for the mint specimen of `FV-66629DC58A20`. Both preserve painted mint/teal material and plum contours, but both retain diffuse outside pixels. Take01 is rejected for runtime halo; take02 is another sample needing alpha/context review and changes the framing. Neither is clean-alpha final, integrated or approved. No third call is scheduled for this brief.
 
 [Source/provenance and exact reference hashes](CONTEXT.json), [first prompt](PROMPT.txt), [targeted cleanup prompt](PROMPT_TAKE02.txt), [ten-axis partial comparison](CONGRUENCY_REVIEW.json), [current registry](per_piece.json), [scene coverage](scene_coverage.json), [tally](tally.json), [summary](SUMMARY.json), [delivery manifest](MANIFEST.json).

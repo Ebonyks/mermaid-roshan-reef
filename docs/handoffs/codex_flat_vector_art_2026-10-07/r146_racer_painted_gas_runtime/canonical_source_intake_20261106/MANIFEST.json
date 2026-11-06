@@ -1,0 +1,450 @@
+{
+  "state": "SEALED_ACTUAL_STAGED_BYTE_MANIFEST",
+  "id": "FV-R146-CANONICAL-SOURCE-20261106",
+  "baseline": "d33bd917664ab1e82effc09f6cb5acd565f6caed",
+  "painted_source": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+  "current_game_source": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+  "current_game_source_CI": 42291635235,
+  "prior_painted_delivery_required_files": 271,
+  "export_followup_required_files": 38,
+  "source_artifact_delta": 1,
+  "partial_Dev_artifact_delta": 0,
+  "role_delta": 1,
+  "family_delta": 0,
+  "native_event_delta": 25,
+  "bounded_event_delta": 12,
+  "excluded_event_delta": 13,
+  "new_generation_calls_in_original_production": 1,
+  "new_generation_calls_in_metadata_intake": 0,
+  "accepted_removed": 0,
+  "complete_scenes": 0,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "mission_complete": false,
+  "hash_contract": "SELF staged Git blob bytes; bounded actual candidate/native/reference rows at immutable revisions. No recursive prior archive dependencies. Manifest independently fetched and hash-bound by remote receipt.",
+  "files": [
+    {
+      "path": "assets/racer/ui/gas_button_painted.png",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 308133,
+      "sha256": "79f9dee0a1db33980e0d3fd24627bb25a85119d956b15a62a700de7f3741af29",
+      "role": "unchanged_actual_candidate_and_same_scene_target_evidence"
+    },
+    {
+      "path": "assets/racer/ui/gas_button_painted.png.import",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 973,
+      "sha256": "b07a21e67e3cde0f6bb16b4ad83b8c77bf694a823493513bd9ef177752ed8014",
+      "role": "unchanged_actual_candidate_and_same_scene_target_evidence"
+    },
+    {
+      "path": "assets_src/imagegen/racer_gas_button_20261106/GENERATION_JOB.json",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 8081,
+      "sha256": "3bc3d4220d7b15376be22f1c8cbaad06ba36e1bd275ff02c680025d74b48c3b7",
+      "role": "unchanged_actual_candidate_and_same_scene_target_evidence"
+    },
+    {
+      "path": "assets_src/imagegen/racer_gas_button_20261106/PROMPT.txt",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 1915,
+      "sha256": "f6d043489070333aa001f884d2b3808e8bd476716afd63882091c7e794b10ad3",
+      "role": "unchanged_actual_candidate_and_same_scene_target_evidence"
+    },
+    {
+      "path": "assets_src/imagegen/racer_gas_button_20261106/gas_button_native.png",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 1774970,
+      "sha256": "26c4632422c45c9ef2ab406ba5faa93cac9b3f6fb75dc175e3d2291eadce38fa",
+      "role": "unchanged_actual_candidate_and_same_scene_target_evidence"
+    },
+    {
+      "path": "assets_src/review/r146_racer_gas_20261106/captures_v2/candidate_1280/opera-focus-cancelled.png",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 819469,
+      "sha256": "23847225d50619ddde8e766581b9e98ad9fc8c8562789f947ca0cc638825eaf1",
+      "role": "unchanged_actual_candidate_and_same_scene_target_evidence"
+    },
+    {
+      "path": "assets_src/review/r146_racer_gas_20261106/captures_v2/candidate_1280/opera-held.png",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 814782,
+      "sha256": "eea0933a8d559af63eaaf2b5f04368881a1df726caf68d9a9c15b6b977a14607",
+      "role": "unchanged_actual_candidate_and_same_scene_target_evidence"
+    },
+    {
+      "path": "assets_src/review/r146_racer_gas_20261106/captures_v2/candidate_1280/opera-released.png",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 825558,
+      "sha256": "7e79b142db8d9d252b02b35860f680a71ed1d5173c80a9cbf3309b05fc8ca24a",
+      "role": "unchanged_actual_candidate_and_same_scene_target_evidence"
+    },
+    {
+      "path": "assets_src/review/r146_racer_gas_20261106/captures_v2/candidate_1600/opera-focus-cancelled.png",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 921018,
+      "sha256": "5c60154443602efb7f41e726451c4083ba840b527430a6eb22f571379c54b81a",
+      "role": "unchanged_actual_candidate_and_same_scene_target_evidence"
+    },
+    {
+      "path": "assets_src/review/r146_racer_gas_20261106/captures_v2/candidate_1600/opera-held.png",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 915923,
+      "sha256": "1f5c485b76bf7e1b8d9afaa10aa74abb77677046821ebe886f35502efe4eae48",
+      "role": "unchanged_actual_candidate_and_same_scene_target_evidence"
+    },
+    {
+      "path": "assets_src/review/r146_racer_gas_20261106/captures_v2/candidate_1600/opera-released.png",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 926811,
+      "sha256": "cc037e497a09ce2cc07edc0584e1f090dfb64a4615bfe1efc1d9f86f341750f0",
+      "role": "unchanged_actual_candidate_and_same_scene_target_evidence"
+    },
+    {
+      "path": "assets_src/review/r146_racer_gas_20261106/captures_v2/source_1280/opera-focus-cancelled.png",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 781712,
+      "sha256": "0549707656b2fa008d0c9f0805136195ca638e45eb7109f4ed1cc6f00e56c193",
+      "role": "unchanged_actual_candidate_and_same_scene_target_evidence"
+    },
+    {
+      "path": "assets_src/review/r146_racer_gas_20261106/captures_v2/source_1280/opera-held.png",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 784376,
+      "sha256": "7d160f27ccee7031688185aaf190b7f24a349f70a8fc8c137081c30a5bcb898b",
+      "role": "unchanged_actual_candidate_and_same_scene_target_evidence"
+    },
+    {
+      "path": "assets_src/review/r146_racer_gas_20261106/captures_v2/source_1280/opera-released.png",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 787745,
+      "sha256": "53991de00d2072a1c7639ee6231a6e579ac457ee862cf5d2e01e27febb6102db",
+      "role": "unchanged_actual_candidate_and_same_scene_target_evidence"
+    },
+    {
+      "path": "assets_src/review/r146_racer_gas_20261106/captures_v2/source_1600/opera-focus-cancelled.png",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 882858,
+      "sha256": "73b12df0f477cc5ace6a12ac0a92c520a01a73b60e321038bb28e243214a5f26",
+      "role": "unchanged_actual_candidate_and_same_scene_target_evidence"
+    },
+    {
+      "path": "assets_src/review/r146_racer_gas_20261106/captures_v2/source_1600/opera-held.png",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 885297,
+      "sha256": "c55bb4748be47bd9a6cc9ed1de7771db7d9f9f384dac2cf1a325a532077764dc",
+      "role": "unchanged_actual_candidate_and_same_scene_target_evidence"
+    },
+    {
+      "path": "assets_src/review/r146_racer_gas_20261106/captures_v2/source_1600/opera-released.png",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 888733,
+      "sha256": "ccb4c96fa8b7ecc3f51788103fd2e16ce4bbd48115dc58df10867ea0bc314ef7",
+      "role": "unchanged_actual_candidate_and_same_scene_target_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/FRAME_EVENTS.json",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 12236,
+      "sha256": "6fe9e7c3170d82e8f86660e63bf865f1fae932c5398a65f6b113f841ed737d7b",
+      "role": "unchanged_actual_candidate_and_same_scene_target_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/TEN_AXIS_COMPARISON.json",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 3909,
+      "sha256": "530fab448415e0cfa1dd087d449e91c02577a3ebef1de00e66db2743c82a73a3",
+      "role": "unchanged_actual_candidate_and_same_scene_target_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/evidence/full_machine/FINAL_RESULT.json",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 55646,
+      "sha256": "d004f5399ae9141f4128f9400171ff710e00c1a3793a803cb7ce9c00c40e944c",
+      "role": "unchanged_actual_candidate_and_same_scene_target_evidence"
+    },
+    {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 64920,
+      "sha256": "eaaab0f6ad8ef10907c712ea8a9f0fa0673d1a3d46c53ab808340daf9869ecaa",
+      "role": "unchanged_actual_candidate_and_same_scene_target_evidence"
+    },
+    {
+      "path": ".gitattributes",
+      "revision": "SELF",
+      "bytes": 15314,
+      "sha256": "800a78013f506a5e908e6484d1d1d54bb303d619dc8049531dc0f145ed55c2f2",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "revision": "SELF",
+      "bytes": 306315,
+      "sha256": "c682b99162f7132c2f451ed060a3f57f8f5e9765077bd7d52b21e800a67dd275",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "revision": "SELF",
+      "bytes": 337851,
+      "sha256": "f706784121e7e3309ae5f9265fe4c65d032874c03d3d0990cf961a5f10cade02",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "revision": "SELF",
+      "bytes": 373671,
+      "sha256": "c2379a626ba30db9fff14e9379283520b9f4c8eb9aa39c837bad3470cacddf81",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "revision": "SELF",
+      "bytes": 285443,
+      "sha256": "de54eccca132ba05ee92c74b57cba238e140d33ef017782fbf56515b0781f74d",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-r146-source-intake-20261106.json",
+      "revision": "SELF",
+      "bytes": 6232,
+      "sha256": "7ae4ff8b85a156e198a9b6c7832c28e3d7c0c0e81e5aea499c77ad3ba3214d17",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "revision": "SELF",
+      "bytes": 343060,
+      "sha256": "9d27e28b48f9456b4a1f0e9b4de7aba3138f22b4abce459aa46fa5503af4351c",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_QUEUE.json",
+      "revision": "SELF",
+      "bytes": 9212,
+      "sha256": "a2d8879f08889da21946159d3f63c019d339ef0afffac740c02ae639cd5e5600",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+      "revision": "SELF",
+      "bytes": 7092,
+      "sha256": "b2c5ade5416c5cca92ad496004a346325c3840f447b45e4a719ebbf457dda8b7",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/FRAME_EVENTS.json",
+      "revision": "SELF",
+      "bytes": 12236,
+      "sha256": "6fe9e7c3170d82e8f86660e63bf865f1fae932c5398a65f6b113f841ed737d7b",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/GENERATION_JOB.json",
+      "revision": "SELF",
+      "bytes": 8081,
+      "sha256": "3bc3d4220d7b15376be22f1c8cbaad06ba36e1bd275ff02c680025d74b48c3b7",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/IMPLEMENTATION.json",
+      "revision": "SELF",
+      "bytes": 3590,
+      "sha256": "d5fdbb2043494e34b198bdb224a87671d7a9c660de1b8684a2a213e2e81209b0",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/PRODUCTION_RECORD.json",
+      "revision": "SELF",
+      "bytes": 4014,
+      "sha256": "f6e7e05f3a4e4d9fa37161f6f71425f460ed5aa3e8e595dee5c29faaaab1ef4f",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/README.md",
+      "revision": "SELF",
+      "bytes": 2019,
+      "sha256": "88d23a51a67c47e6107c2821e802443c823fc2670de7ffa3e032dcef90423c1a",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/TEN_AXIS_COMPARISON.json",
+      "revision": "SELF",
+      "bytes": 3909,
+      "sha256": "530fab448415e0cfa1dd087d449e91c02577a3ebef1de00e66db2743c82a73a3",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/CI_REVISION_TRANSITION.json",
+      "revision": "SELF",
+      "bytes": 784,
+      "sha256": "833b1734782134085648555707973b5dfa1093f66cc3a4c42a27d66ad8e81af1",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/COUNT_DELTA.json",
+      "revision": "SELF",
+      "bytes": 1254,
+      "sha256": "7997dab9e88d516c32e45bbad79cde20fb0312595f7cc755ab73a154aa933e64",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/CURRENT_SOURCE_CI_AT_INTAKE.json",
+      "revision": "SELF",
+      "bytes": 9313,
+      "sha256": "eab55839ef5492697910a5be5f7316bd0cf51c2c0d36a3dee60b5670d7da3a23",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/EXPORT_FOLLOWUP_DELIVERY.json",
+      "revision": "SELF",
+      "bytes": 904,
+      "sha256": "c010f1b0d136668d41ea8945cad3485ce7aad9fbe7c3c8166d8d23105a78f590",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/EXPORT_FOLLOWUP_REMOTE_VERIFICATION.json",
+      "revision": "SELF",
+      "bytes": 26784,
+      "sha256": "c8ac8cf3235f1e62282bb5e89cea47dba3e652ad0bd953cfabb98320b5d62756",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/GATES.json",
+      "revision": "SELF",
+      "bytes": 1630,
+      "sha256": "2e38f02238f3a0db2c4c18549fa29e3cc8ff5993a925732e99e55c7f96217235",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/PRIOR_E700_EXPORT_FAILURE_REFERENCE.json",
+      "revision": "SELF",
+      "bytes": 660,
+      "sha256": "a2ba687193fb5b251cfb203e3fa22c66d1f81a68196c73d385dcf3a4d888fee4",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/README.md",
+      "revision": "SELF",
+      "bytes": 634,
+      "sha256": "33090d4ba6dd6bd1046a4415b9cd487dc139ff2a24e2488f459a84b6da656402",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/RUNTIME_UNCHANGED.json",
+      "revision": "SELF",
+      "bytes": 22061,
+      "sha256": "4270ca42cd2e0d102f701737c86c2f766850f5016c6537fb2199097104debe1d",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/SOURCE_CI_AT_INTAKE.json",
+      "revision": "SELF",
+      "bytes": 9847,
+      "sha256": "29eb5da827608a01a0bcb607769e28f93a80d6cc0b66122414cd4d3fe90a3a43",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/SOURCE_DELIVERY.json",
+      "revision": "SELF",
+      "bytes": 1111,
+      "sha256": "5e7e84f4c276b50f72ccf3b2dba9195617f0bedd99b5ee56ea3c5578d54779f6",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/SOURCE_REMOTE_VERIFICATION.json",
+      "revision": "SELF",
+      "bytes": 189985,
+      "sha256": "50714bfd85fee6ff98f6ace418ae74fa0d699aca342c2439c4b4133e373c13b8",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/authority.log",
+      "revision": "SELF",
+      "bytes": 78,
+      "sha256": "1c9c561a0cb5a5dba55990d841b000b45889291b1d4bf823ae8ad04e18b26de5",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/coverage_auto.log",
+      "revision": "SELF",
+      "bytes": 80,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/coverage_base.log",
+      "revision": "SELF",
+      "bytes": 80,
+      "sha256": "ffa0b9e5f8440ce8396e08395341c5c873a5ed2ecdfdc2d8593a09eb287f34c9",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+      "revision": "SELF",
+      "bytes": 582687,
+      "sha256": "dbfea3b6c7e77e493189547dfd8d30d4d73d2d3af7cb7d87d279df6651d66549",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/README.md",
+      "revision": "SELF",
+      "bytes": 3312,
+      "sha256": "a11d09eb2d5a76c29960c50c65f76ac0f57bd5f9908baf5797a7f31b09ccf4ac",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+      "revision": "SELF",
+      "bytes": 371648,
+      "sha256": "0ea9cb6aca53d5aa13556619d4f4b4bd343692302f1d84bd5cf243aea526c276",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+      "revision": "SELF",
+      "bytes": 2487981,
+      "sha256": "1940bb0eaa1cd0663cdd00781383acaedde4b5278e879d2071fa3a81db6fe8c5",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+      "revision": "SELF",
+      "bytes": 2189843,
+      "sha256": "bc96ef79cb6da92cf66cb0409131e616e048a9ae966b45c5cfdc10fe7c5dd953",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json",
+      "revision": "SELF",
+      "bytes": 841753,
+      "sha256": "5504710403ebdf3698325881bf33d0edf0edc229b673c89204b9a08ef8263504",
+      "role": "actual_current_canonical_metadata_or_verified_current_source_evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/IMPORT_RESULT.json",
+      "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "bytes": 1035,
+      "sha256": "5e6d9f49db0429920fb455363f268a7f74754537520d1d966ff75f95693ed274",
+      "role": "actual_scoped_export_failure_and_corrected_import_boundary"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/SOURCE_ONLY_EXPORT_FAILURE.json",
+      "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "bytes": 30717,
+      "sha256": "d594fd77e5e569851f6921fae0793140b2e3dc959e2e9fd61e4330ca6a942eba",
+      "role": "actual_scoped_export_failure_and_corrected_import_boundary"
+    },
+    {
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/.gdignore",
+      "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "actual_scoped_export_failure_and_corrected_import_boundary"
+    }
+  ],
+  "time": "2026-11-06T20:57:14.583458+00:00"
+}

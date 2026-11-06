@@ -1,0 +1,15 @@
+{
+  "state": "PRIOR_HEAD_SUPERSEDED_BY_REQUIRED_SCOPED_EXPORT_FIX",
+  "prior_revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+  "prior_run": 42290276254,
+  "prior_status": "completed",
+  "prior_conclusion": "cancelled",
+  "current_revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+  "current_run": 42291635235,
+  "current_status_at_intake": "in_progress",
+  "current_conclusion_at_intake": "",
+  "workflow_branch_concurrency_cancel_in_progress": true,
+  "manual_cancel_or_restart_called": false,
+  "reason": "Legitimate new source change fixes actual230JSON export-boundary failure; all runtime files unchanged. Current exact-head CI must earn green beforeDev. Old cancelled run is not a failed-game or green-source result.",
+  "time": "2026-11-06T20:56:36.048695+00:00"
+}

@@ -1,0 +1,174 @@
+{
+  "state": "LOCAL_PAINTED_CANDIDATE_INTEGRATED_AND_MACHINE_VERIFIED_SOURCE_CI_DEV_EXTERNAL_OPEN",
+  "stable_id": "FVR-34524393E2C8",
+  "source_item": "gold_gas_button",
+  "family": "opera_racer",
+  "baseline": "e70081ea871bd2aab2440be2168abe33d20ee328",
+  "branch": "codex/flat-vector-racer-gas-painted-20261106",
+  "worktree": "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+  "existing_documented_gap": {
+    "revision": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+    "file": "docs/handoffs/codex_recent_updates_dev_2026-11-06/CURRENT_NATIVE_VISUAL_REVIEW.json",
+    "same_scene": "assets_src/review/recent_updates_dev_20261106/captures/canal-gas.png",
+    "same_scene_sha256": "53991de00d2072a1c7639ee6231a6e579ac457ee862cf5d2e01e27febb6102db",
+    "binding": "reef_kart_race.gd exact same Git blob1a0ecb883893bbec47db3ffebbdad0cc6ea6687b atCAF andcurrentE700; diagnostic scene reused, zero new frame credit."
+  },
+  "scope": "Replace only gold gas button visible circle/highlight/two chevrons with one whole painted RGBA UI asset. Preserve gold identity, ivory upward chevrons, center/radius, press shrink0.92, existing controls,input,cancellation,keyboard/gamepad,steer-and-go,save state and trueCanvas2D. No other controls/road or Bubble physics changes.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-UI-01",
+    "DL-UI-02",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-UI-06",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-MED-01",
+    "DL-PERF-02",
+    "DL-PERF-03",
+    "DL-QA-11",
+    "DL-QA-12",
+    "DL-QA-14",
+    "DL-VIS-07"
+  ],
+  "findings": [
+    "MA-VIS-008",
+    "MA-OPERA-014"
+  ],
+  "generation": {
+    "backend": "built-in image_gen.imagegen",
+    "exposed_model_selector": false,
+    "model_version": null,
+    "candidate_calls": 1,
+    "bounded_static_attempt_limit": 2,
+    "animation_calls": 0,
+    "other_funded_caps": "unchanged; no R133/animation/task budget reset",
+    "reference_export_scope": "Only unprotected existing painted UI reference PNGs; actual scene capture is observational reference only, not sent as generation pixels.",
+    "money_budget": "Built-in tool only; no separately paid API call used or authorized by this item."
+  },
+  "required_evidence": [
+    "native output/prompt/backend/hash/provenance preserved",
+    "10-axis same-source scene comparison",
+    "candidate and pressed/released integration captures at bothaspects and actualOpera/PC/split contexts",
+    "unchanged invisible input geometry, holding/cancellation/passive/savefocused probes",
+    "exact4.7.2Mobile import/parser/lint/analyzer/fulltrusted/sourceguard/normal-saveguard/2Dno-regression on changed candidate",
+    "audit authority/actualdiffcoverage/CHG/sourceCI/Dev/anonymous requiredmanifest delivery",
+    "formalQA11/device/child/owner independently open until observed"
+  ],
+  "canonical_count_credit": "NONE_YET: nextpublished actual output/integration counts only after verified. Existing46source/45Dev/281roles/36families/12471events unchanged at taskstart.",
+  "protected_originals": "No modification, substitution or ImageGen export of protected book/voice/friend originals. Full dependency hashing may read protected files solely for source-preservation proof; original scene pixels are observational diagnostics only.",
+  "continuing_CI_handles": {
+    "Dev_source_e700": 42273654426,
+    "canonical_metadata_d33": 42274388508,
+    "canonical63file_receipt": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-shell-20261106\\remote_r145_canonical_dev_d33bd917664ab1e82effc09f6cb5acd565f6caed\\REMOTE_VERIFICATION.json"
+  },
+  "time": "2026-11-06T18:55:27.555954+00:00",
+  "prompt_path": "assets_src/imagegen/racer_gas_button_20261106/PROMPT.txt",
+  "prompt_sha256": "f6d043489070333aa001f884d2b3808e8bd476716afd63882091c7e794b10ad3",
+  "references": [
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_shell.png",
+      "revision": "e70081ea871bd2aab2440be2168abe33d20ee328",
+      "role": "painted contour/material/style only",
+      "bytes": 77599,
+      "sha256": "6460cd110e925cdea7006ed7adf85d34cc1ace442018cbe56d3d340cc44a2209",
+      "protected_path": false,
+      "original_modified": false
+    },
+    {
+      "path": "assets/melody/timing_window_medallion_painted.png",
+      "revision": "e70081ea871bd2aab2440be2168abe33d20ee328",
+      "role": "existing painted UI finish/hierarchy only",
+      "bytes": 110185,
+      "sha256": "efc3dfd123a1c193c7fa9195689c66d5d16e0238341b6b636168d3592b8ab833",
+      "protected_path": false,
+      "original_modified": false
+    }
+  ],
+  "generation_call": 1,
+  "exposed_backend": "built-in image_gen.imagegen; no model selector or version returned",
+  "requested_version": "Owner asks ImageGen2.5 when exposed; currenttool cannot select or attest thatversion.",
+  "native_output": {
+    "original_tool_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-6764b27b-8d9d-431d-85bd-0c01512e3e3d.png",
+    "preserved_path": "assets_src/imagegen/racer_gas_button_20261106/gas_button_native.png",
+    "sha256": "26c4632422c45c9ef2ab406ba5faa93cac9b3f6fb75dc175e3d2291eadce38fa",
+    "bytes": 1774970,
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "provider_request_id": null,
+    "tool_output_basename": "exec-6764b27b-8d9d-431d-85bd-0c01512e3e3d.png",
+    "observed_combined_promptread_and_generation_tool_wall_seconds": 27.9,
+    "alpha_bbox_at1": [
+      0,
+      38,
+      1218,
+      1254
+    ],
+    "alpha_bbox_at4": [
+      35,
+      38,
+      1201,
+      1213
+    ],
+    "alpha_limit": "Native alpha1 fringe reaches left/bottom edges; visible alpha>=4 silhouette is fully inset and was inspected. Entire originalcanvas preserved, no alpha cleanup performed."
+  },
+  "runtime_export": {
+    "path": "assets/racer/ui/gas_button_painted.png",
+    "sha256": "79f9dee0a1db33980e0d3fd24627bb25a85119d956b15a62a700de7f3741af29",
+    "bytes": 308133,
+    "size": [
+      512,
+      512
+    ],
+    "method": "Uniform whole-canvas LANCZOS downscale1254x1254 to512RGBA PNG. No crop, padding, alpha removal or painting; native and reference originals preserved.",
+    "runtime_alpha_bbox": [
+      0,
+      14,
+      493,
+      497
+    ],
+    "decoded_RGBA_base_bytes": 1048576,
+    "mipmapped_RGBA_upper_bound_bytes": 1398100
+  },
+  "integration": true,
+  "runtime": {
+    "state": "LOCAL_EXACT_CHANGED_CANDIDATE_MACHINE_PASS_CONFIGURED_CONTEXT_PARTIAL",
+    "full_machine": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/evidence/full_machine/FINAL_RESULT.json",
+    "actual_runtime_inputs": 5582,
+    "required_gate_commands": 88,
+    "formal_QA11": null
+  },
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "generation_calls_actual": 1,
+  "animation_calls": 0,
+  "initial_export_guard": {
+    "state": "INITIAL_TECHNICAL_CROP_PREPARATION_STOPPED_BEFORE_EXPORT_OR_CODE_EDIT",
+    "reason": "Proposed alpha-bounding square with2pixelmargin extends beyond originalnative canvas; strictpreservation guard stopped it.",
+    "native_preserved": true,
+    "runtime_asset_created": false,
+    "runtime_code_changed": false,
+    "generation_reject": false,
+    "next": "Preserve complete originalnative canvas and uniformly downscale to512POT; no alpha painting, no second generation."
+  },
+  "candidate_review": "Assistant native inspection: exactlytwo upwardchevrons, intact warmgold/plumrim visible silhouette, paintedmaterial. Same-scene review and externalacceptance pending.",
+  "completed_at_utc": "2026-11-06T19:00:31.813953+00:00",
+  "protected_boundary_wording_correction": {
+    "prior_wording": "No reads/exports/edits under protected book/voice/friend paths; no character or gameplay screenshot sent to ImageGen.",
+    "reason": "Initial no-reads wording was too broad for full source-preservation hashing. Export/edit boundary unchanged."
+  },
+  "generation_calls_at_task_start": 0
+}

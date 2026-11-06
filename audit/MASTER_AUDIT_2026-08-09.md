@@ -2334,3 +2334,6 @@ No later state is added without its required evidence.
 ## Farmer panorama reuse fit (2026-10-15 R52)
 
 [CHG-059](MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md#farmer-panorama-reuse-chg-059) records [two approved-source crop trials](../docs/handoffs/codex_flat_vector_art_2026-10-07/r52_farmer_panorama_reuse/README.md). Onecentered mapping loses thepath andisrejected;lower-preserving mapping retains460800exactlowerpixels whileclosingthesource-rowgap.81native/74bounded includes44nonruntimecandidate captures separatelyfrom30currentcontrols. Production/sourceart unchanged;0accepted/globalunknown/strictCanvasandallhumanacceptanceopen.
+
+
+R146 [painted Racer gas source intake](../docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/README.md) publishes actual1call/native+runtime artwork, same-scene ten-axis and25retained diagnostic events.47source/45partialDev,282roles/36familiesLB; noacceptedremoval/sceneclosure. Actuallocal88checks pass; exacthosted/Dev/correctedAPK and formal/device/child/owner lanes remain open. [Impact](../design/audit_impacts/flat-vector-r146-source-intake-20261106.json).

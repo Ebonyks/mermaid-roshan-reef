@@ -1,17 +1,17 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-DEV-20261106-R145-RACER-ZONES-PAINTED-FIXTURE",
-  "current_entry": "r145_racer_zones_painted_fixture/README.md",
+  "revision": "FV-SOURCE-20261106-R146-RACER-PAINTED-GAS",
+  "current_entry": "r146_racer_painted_gas_runtime/README.md",
   "current_per_piece": "r96_geologist_mineral_candidate/per_piece.json",
   "current_scene_coverage": "r96_geologist_mineral_candidate/scene_coverage.json",
   "current_tally": "r96_geologist_mineral_candidate/tally.json",
   "current_backlog": "r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/MANIFEST.json",
+  "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "r144_shared_painted_shell/dev_integration_20261106/SOURCE_F1_CI.json",
+  "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/SOURCE_CI_AT_INTAKE.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -6955,12 +6955,11 @@
     "scope": "Historical Dev96 inventory failure and prior exact source passes; preserved immutably."
   },
   "current_art_source_context": {
-    "revision": "FV-DEV-20261106-R144-PAINTED-SHARED-SHELL",
-    "source_revision": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
-    "current_entry": "r144_shared_painted_shell/README.md",
-    "current_manifest": "r144_shared_painted_shell/dev_integration_20261106/MANIFEST.json",
-    "current_ci_evidence": "r144_shared_painted_shell/dev_integration_20261106/SOURCE_F1_CI.json",
-    "prior_canonical_revision": "3ec5c9c3beb0d6422dc9816e0cf2eab4ab9f4353"
+    "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+    "candidate_revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+    "record": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/PRODUCTION_RECORD.json",
+    "Dev": false,
+    "acceptance": "candidate only"
   },
   "r140_dolls_progress_Dev_APK": {
     "state": "R140_DEV94_GREEN_MATCHING_APK_BYTE_VERIFIED",
@@ -7111,8 +7110,8 @@
   "r143_partial_Dev_artifact_delta": 16,
   "immutable_r143_receipt_revision": "504c290443c280ae543cb5caa1fe671340821ad4",
   "immutable_r144_payload_revision": "4bd9101a5b88ce8f0388917f297a849403e01ef3",
-  "current_payload_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/e70081ea871bd2aab2440be2168abe33d20ee328/docs/handoffs/codex_recent_updates_dev_2026-11-06/dev_reconcile_58b29d10/MANIFEST.json",
-  "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/SOURCE_REMOTE_VERIFICATION.json",
+  "current_payload_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9ba54f9144cd19210bc333f6a677dfadf3a1bf37/docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/MANIFEST.json",
+  "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/SOURCE_REMOTE_VERIFICATION.json",
   "immutable_r144_receipt_revision": "d7c61f2636b4828a5158b3276dffdf695e5eeee3",
   "previous_receipt_manifest": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/d7c61f2636b4828a5158b3276dffdf695e5eeee3/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/RECEIPT_MANIFEST.json",
   "r144_prior_current_art_source_context": {
@@ -7602,5 +7601,97 @@
     "complete_scenes": 0,
     "time": "2026-11-06T18:46:02.135775+00:00"
   },
-  "r145_current_runtime_source": "e70081ea871bd2aab2440be2168abe33d20ee328"
+  "r145_current_runtime_source": "e70081ea871bd2aab2440be2168abe33d20ee328",
+  "r146_prior_navigation": {
+    "revision": "FV-DEV-20261106-R145-RACER-ZONES-PAINTED-FIXTURE",
+    "entry": "r145_racer_zones_painted_fixture/README.md",
+    "manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r145_racer_zones_painted_fixture/dev_integration_20261106/MANIFEST.json",
+    "immutable_canonical_revision": "d33bd917664ab1e82effc09f6cb5acd565f6caed"
+  },
+  "r146_current_production": {
+    "stable_id": "FVR-34524393E2C8",
+    "source_item": "gold_gas_button",
+    "artifact_key": "r146_racer_painted_gas_control_runtime",
+    "state": "PUBLISHED_PAINTED_SOURCE_CANDIDATE_LOCAL88_PASS_DEV_PENDING",
+    "source_revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+    "current_source_revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+    "branch": "codex/flat-vector-racer-gas-painted-20261106",
+    "source_delivery": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/SOURCE_REMOTE_VERIFICATION.json",
+    "source_required_files_verified": 271,
+    "export_followup_delivery": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/EXPORT_FOLLOWUP_REMOTE_VERIFICATION.json",
+    "export_followup_required_files_verified": 38,
+    "source_CI_at_intake": {
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "run": 42290276254,
+      "status": "completed",
+      "conclusion": "cancelled"
+    },
+    "followup_source_CI": "PENDING_ACTUAL_EXACT_HEAD",
+    "native_output": {
+      "path": "assets_src/imagegen/racer_gas_button_20261106/gas_button_native.png",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 1774970,
+      "sha256": "26c4632422c45c9ef2ab406ba5faa93cac9b3f6fb75dc175e3d2291eadce38fa",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    "candidate_output": {
+      "path": "assets/racer/ui/gas_button_painted.png",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 308133,
+      "sha256": "79f9dee0a1db33980e0d3fd24627bb25a85119d956b15a62a700de7f3741af29",
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    "runtime_import": {
+      "path": "assets/racer/ui/gas_button_painted.png.import",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 973,
+      "sha256": "b07a21e67e3cde0f6bb16b4ad83b8c77bf694a823493513bd9ef177752ed8014"
+    },
+    "runtime_code": {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 64920,
+      "sha256": "eaaab0f6ad8ef10907c712ea8a9f0fa0673d1a3d46c53ab808340daf9869ecaa"
+    },
+    "generation_record": {
+      "path": "assets_src/imagegen/racer_gas_button_20261106/GENERATION_JOB.json",
+      "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+      "bytes": 8081,
+      "sha256": "3bc3d4220d7b15376be22f1c8cbaad06ba36e1bd275ff02c680025d74b48c3b7"
+    },
+    "actual_backend": "built-in image_gen.imagegen; model/version selector/provider revision unexposed",
+    "candidate_calls": 1,
+    "paid_external_API_calls": 0,
+    "animation_calls": 0,
+    "other_funded_caps": "unchanged",
+    "derivation": "Uniform whole-native-canvas LANCZOS512 export; no crop/painting/alpha replacement. Native preserved.",
+    "same_scene_review": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/TEN_AXIS_COMPARISON.json",
+    "native_events": {
+      "bounded": 12,
+      "excluded": 13,
+      "total": 25,
+      "initial_failed_fixture_frames_excluded": 5,
+      "PC_no_touch_targets_excluded": 8
+    },
+    "local_machine": "All88 required actual5582-input checks PASS: complete static/import/all-script analyzer prefix, changed parser/inference,2Racerfocused,82trusted exits and final2D/source/save guards.",
+    "runtime": "20 corrected configured source/candidate frames; all12 visible target images inspected;6Opera pairs only gas bounds differ;4PC pairs RGBidentical. Natural/fullspeed routes and formalQA11 remain open.",
+    "functional_invisible_geometry": "Unchanged input center1175,625/radius80/margin16 retained separately, zero artwork removal credit.",
+    "candidate": true,
+    "source_work_branch_integrated": true,
+    "Dev_integration": false,
+    "Dev_revision": null,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "complete_scenes": 0,
+    "mission_complete": false
+  }
 }
