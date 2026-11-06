@@ -1,0 +1,243 @@
+{
+  "identity": "meadow_spikes",
+  "revision": 1,
+  "author": "Codex",
+  "date": "2026-11-05",
+  "source_commit": "6dfd04aef441f30e0374e9ae9049cff845ce4ebd",
+  "output_lane": "REFERENCE_ONLY / standalone Canvas study",
+  "intention": "Existing painted flower spikes respond quietly to a passing breeze.",
+  "required_action": "Small horizontal bend above rooted support; no vertical translation, rigid rotation, scale pulse or relighting.",
+  "fixed": "Camera, all scenery outside the bounded contour collar, lower stem/root support and non-target flowers.",
+  "entry_exit": "Source pose at phase0 and analytic phase2pi;60 samples exclude duplicated endpoint.",
+  "source": {
+    "path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+    "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+    "size": [
+      6144,
+      2048
+    ],
+    "acceptance_scope": "Existing approved v5 identity/composition only; animation unaccepted"
+  },
+  "reuse_gap": "No missing appearance art. Complete original context replacement window; no new decorative asset.",
+  "method": "Hand-bounded per-flower hue selections plus authored stem paths; rooted grayscale displacement field; original-image bilinear resampling. Nearby contour collar participates. Not a true depth split or isolated foreground alpha matte.",
+  "settings": {
+    "id": "meadow_spikes",
+    "label": "Original meadow-border pink and yellow spikes",
+    "xy": [
+      2400,
+      900
+    ],
+    "amplitude": 1.5,
+    "root": 1305,
+    "top": 978,
+    "heads": [
+      [
+        "yellow",
+        [
+          [
+            2558,
+            980
+          ],
+          [
+            2583,
+            1000
+          ],
+          [
+            2601,
+            1070
+          ],
+          [
+            2600,
+            1134
+          ],
+          [
+            2545,
+            1146
+          ],
+          [
+            2535,
+            1060
+          ]
+        ]
+      ],
+      [
+        "pink",
+        [
+          [
+            2628,
+            1020
+          ],
+          [
+            2651,
+            1045
+          ],
+          [
+            2670,
+            1110
+          ],
+          [
+            2662,
+            1190
+          ],
+          [
+            2610,
+            1197
+          ],
+          [
+            2600,
+            1120
+          ]
+        ]
+      ],
+      [
+        "pink",
+        [
+          [
+            2675,
+            1085
+          ],
+          [
+            2697,
+            1110
+          ],
+          [
+            2703,
+            1185
+          ],
+          [
+            2694,
+            1238
+          ],
+          [
+            2646,
+            1234
+          ],
+          [
+            2640,
+            1180
+          ]
+        ]
+      ],
+      [
+        "purple",
+        [
+          [
+            2750,
+            969
+          ],
+          [
+            2776,
+            1000
+          ],
+          [
+            2791,
+            1060
+          ],
+          [
+            2805,
+            1135
+          ],
+          [
+            2780,
+            1180
+          ],
+          [
+            2730,
+            1180
+          ],
+          [
+            2716,
+            1135
+          ],
+          [
+            2730,
+            1050
+          ]
+        ]
+      ]
+    ],
+    "stems": [
+      [
+        [
+          [
+            2566,
+            1100
+          ],
+          [
+            2560,
+            1290
+          ]
+        ],
+        7
+      ],
+      [
+        [
+          [
+            2633,
+            1160
+          ],
+          [
+            2625,
+            1305
+          ]
+        ],
+        8
+      ],
+      [
+        [
+          [
+            2680,
+            1200
+          ],
+          [
+            2657,
+            1305
+          ]
+        ],
+        7
+      ],
+      [
+        [
+          [
+            2756,
+            1130
+          ],
+          [
+            2741,
+            1255
+          ]
+        ],
+        8
+      ]
+    ]
+  },
+  "frames": 60,
+  "fps": 30,
+  "duration_seconds": 2,
+  "limits": {
+    "local_attempts": 2,
+    "wall_hours": 8,
+    "cleanup_minutes": 120,
+    "paid_budget_usd": 0,
+    "generated_calls": 0
+  },
+  "provenance": {
+    "source_crop": "sources/meadow_spikes.png",
+    "field": "fields/meadow_spikes.png",
+    "aseprite": "meadow_spikes.aseprite",
+    "frame_mapping": "frame i = analytic phase2pi*i/60, no retiming or repeated padding",
+    "background_edit": "Erase only the context-window interior, preserve a1-native-pixel boundary underlap for bilinear filtering. No moving flower remains exposed beneath its replacement. Original master unchanged."
+  },
+  "review": {
+    "machine": "See evidence/machine-verification.json and Mobile evidence",
+    "human": "PENDING normal-speed and frame-step",
+    "device": "PENDING",
+    "child_owner": "PENDING"
+  },
+  "status": {
+    "archive_complete": "PENDING_REMOTE_VERIFICATION",
+    "generation_ready": "NOT_APPLICABLE_LOCAL",
+    "delivery_accepted": false,
+    "runtime_integrated": false
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "source_sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+  "native_rest_reconstruction_exact": true,
+  "only_original_appearance": true,
+  "new_items": 0,
+  "master_roundtrip_frames": 180,
+  "targets": [
+    {
+      "id": "lake_foxtails",
+      "gif_frames": 60,
+      "gif_duration_ms": 2000,
+      "gif_distinct_images": 58,
+      "aseprite_roundtrip_frames": 60,
+      "fixed_source_and_roots_exact": true
+    },
+    {
+      "id": "meadow_spikes",
+      "gif_frames": 60,
+      "gif_duration_ms": 2000,
+      "gif_distinct_images": 57,
+      "aseprite_roundtrip_frames": 60,
+      "fixed_source_and_roots_exact": true
+    },
+    {
+      "id": "arrival_bells",
+      "gif_frames": 60,
+      "gif_duration_ms": 2000,
+      "gif_distinct_images": 58,
+      "aseprite_roundtrip_frames": 60,
+      "fixed_source_and_roots_exact": true
+    }
+  ],
+  "native_mobile": {
+    "actual_mobile_frames": 60,
+    "capture_size": [
+      1280,
+      720
+    ],
+    "stage_transform_physical": {
+      "scale": 0.20833333333333334,
+      "top": 162.66666666666666
+    },
+    "changed_pixels_union": 3647,
+    "fixed_pixels_every_frame": 911440,
+    "fixed_pixels_unchanged": true,
+    "pristine_control_max_rgb_error": 2,
+    "pristine_control_mean_rgb_error": 0.0012565104166666666,
+    "tolerance_reason": "Independent tile-only source control vs local shader coordinates; at most2RGB codes allowed, no larger seam allowed.",
+    "allowed_mask": "Projected authored field, conservative4screen-pixel dilation for raster filtering and flower excursion",
+    "device_performance": "NOT_MEASURED"
+  },
+  "human_device_child_owner": "PENDING"
+}

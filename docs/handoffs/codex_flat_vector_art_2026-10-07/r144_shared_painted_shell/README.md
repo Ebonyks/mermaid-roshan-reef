@@ -19,3 +19,9 @@ Delivery: work branch `codex/flat-vector-painted-shell-20261106`, normal green i
 The [integration record](dev_reconcile_6dfd04ae/INTEGRATION_RECORD.json) reconciles this tested candidate with Dev `6dfd04aef441f30e0374e9ae9049cff845ce4ebd`. All 5,557 runtime Git inputs match the validated source revision `10256d79c971e1b39e7f422d63e014ae5183cc7c`; the existing Android build-capacity repair is preserved. Source and canonical publication CI both passed. The combined work branch still awaits its own CI and actual Dev integration.
 
 The original [source manifest](https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/10256d79c971e1b39e7f422d63e014ae5183cc7c/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/MANIFEST.json) resolves `SELF` at that immutable source revision. The [current delta manifest](dev_reconcile_6dfd04ae/MANIFEST.json) binds the merged documents and selected immutable evidence without rebuilding the historical packet. Formal QA11, device, child and owner acceptance remain open.
+
+## Latest source-only Dev update
+
+[Current reconciliation](dev_reconcile_bc058d3b/INTEGRATION_RECORD.json) preserves the original Sky Lagoon flower-animation study newly published on Dev `bc058d3bd6105fa0c706e2a58a279181497e3eb8`, including the newer owner rejection of the earlier added-object composition. All 5,557 tested runtime inputs match green work revision `b6605862997a6f1ed8a8a06eee5012734b5beee3`. The [parent CI receipt](dev_reconcile_bc058d3b/PARENT_CI_B660.json) records both required jobs passing. The incoming study remains source-only; no runtime artwork adoption or replacement credit is added.
+
+The [current delta manifest](dev_reconcile_bc058d3b/MANIFEST.json) binds this merged context. Earlier manifests resolve only at their immutable original revisions. Current combined CI, actual Dev integration and formal QA11/device/child/owner acceptance remain open.

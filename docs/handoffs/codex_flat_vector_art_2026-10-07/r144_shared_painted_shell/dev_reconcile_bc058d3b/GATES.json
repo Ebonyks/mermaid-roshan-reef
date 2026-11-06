@@ -1,0 +1,58 @@
+{
+  "state": "PASS_CURRENT_SOURCE_ONLY_DEV_RECONCILIATION_GATES",
+  "source": "b6605862997a6f1ed8a8a06eee5012734b5beee3",
+  "Dev": "bc058d3bd6105fa0c706e2a58a279181497e3eb8",
+  "results": [
+    {
+      "name": "parser",
+      "command": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe -B -m gdtoolkit.parser scripts/shell_ornament.gd",
+      "exit_code": 0,
+      "result": "PASS",
+      "started_at_utc": "2026-11-06T09:19:48.329429+00:00",
+      "completed_at_utc": "2026-11-06T09:19:50.094170+00:00",
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/parser.log"
+    },
+    {
+      "name": "inference",
+      "command": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe -B tools/lint_inference.py scripts/shell_ornament.gd",
+      "exit_code": 0,
+      "result": "PASS",
+      "started_at_utc": "2026-11-06T09:19:48.355368+00:00",
+      "completed_at_utc": "2026-11-06T09:19:48.611235+00:00",
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/inference.log"
+    },
+    {
+      "name": "authority",
+      "command": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe -B tools/audit_document_authority.py",
+      "exit_code": 0,
+      "result": "PASS",
+      "started_at_utc": "2026-11-06T09:19:50.094773+00:00",
+      "completed_at_utc": "2026-11-06T09:20:16.924135+00:00",
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/authority.log"
+    },
+    {
+      "name": "development_auto",
+      "command": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe -B tools/audit_development.py --base auto",
+      "exit_code": 0,
+      "result": "PASS",
+      "started_at_utc": "2026-11-06T09:20:16.924304+00:00",
+      "completed_at_utc": "2026-11-06T09:20:28.492997+00:00",
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/development_auto.log"
+    },
+    {
+      "name": "development_bc058",
+      "command": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe -B tools/audit_development.py --base bc058d3bd6105fa0c706e2a58a279181497e3eb8",
+      "exit_code": 0,
+      "result": "PASS",
+      "started_at_utc": "2026-11-06T09:20:28.493143+00:00",
+      "completed_at_utc": "2026-11-06T09:20:38.113869+00:00",
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/development_bc058.log"
+    }
+  ],
+  "engine_suite": "Reuse exact greenB660 engine evidence;5557 staged runtime inputs unchanged. No redundant local engine suite.",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "Dev_integrated": false
+}

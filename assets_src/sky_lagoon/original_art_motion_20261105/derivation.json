@@ -1,0 +1,96 @@
+{
+  "method": "Local original-painting rooted displacement; complete context windows, fixed coordinates and camera",
+  "versions": {
+    "PIL": "12.3.0",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "python": "3.13.14",
+    "aseprite": "1.3.18.4",
+    "godot": "4.7.2-stable official ed1daf0bf"
+  },
+  "source": {
+    "path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+    "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+    "dimensions": [
+      6144,
+      2048
+    ],
+    "role": "sole appearance authority",
+    "rights": "project-original existing source attribution in ASSET_LICENSES.md",
+    "acceptance": "Approved static source identity/composition; animation candidate unaccepted"
+  },
+  "generated_calls": 0,
+  "paid_cost_usd": 0,
+  "workflow": "build_original.py plus complete-frame Aseprite bridge and matching native Canvas shader",
+  "edits": [
+    "Exact512square crops at original coordinates",
+    "Hand-bounded flower hue masks and authored stem paths",
+    "Rooted horizontal displacement with small surrounding contour collar",
+    "Derivative static-base window removal with1px filtering underlap",
+    "Bilinear source resampling, no vertical motion/rotation/scale change",
+    "Fixed-palette GIF review exports; no synthesized appearance or new item"
+  ],
+  "timing": {
+    "samples": 60,
+    "seconds": 2,
+    "analytic_fps": 30,
+    "gif_delays_ms": [
+      30,
+      30,
+      40
+    ],
+    "aseprite_delays_ms": [
+      33,
+      33,
+      34
+    ],
+    "distinct_source_frames_per_action": 59,
+    "distinct_gif_images": [
+      58,
+      57,
+      58
+    ],
+    "endpoint_not_duplicated": true
+  },
+  "source_frame_mapping": "Original source crop to analytic phase2pi*i/60 for i0..59",
+  "runtime": "Three compact source/field pairs on Canvas; GIF palette is not runtime appearance",
+  "scope_record_creation_utc": "2026-11-06T05:41:01.898491+00:00",
+  "limits": {
+    "local_motion_revisions": 1,
+    "render_seam_repair_revisions": 1,
+    "generated_attempts": 0,
+    "wall_time_cap_hours": 8,
+    "cleanup_cap_minutes": 120,
+    "monetary_cap_usd": 0
+  },
+  "rejected_evidence": "evidence/rejected-render-seam.json",
+  "reviews": {
+    "machine": "evidence/independent-verification.json",
+    "agent_frame_step": "Source/mask/three phases inspected; no added artwork, restrained displacement. Full normal-speed human review remains pending.",
+    "human": "PENDING",
+    "device": "PENDING",
+    "child_owner": "PENDING"
+  },
+  "claims": {
+    "generation_ready": "NOT_APPLICABLE_LOCAL",
+    "delivery_accepted": false,
+    "runtime_integrated": false,
+    "archive_complete": "See exact anonymous remote-verification receipt"
+  },
+  "creative_freeze_utc": "2026-11-06T06:10:33.947905+00:00",
+  "wall_seconds_to_creative_freeze": 1772.0,
+  "cleanup_accounting": {
+    "upper_bound_minutes_including_analysis_and_waits": 29.53,
+    "separately_metered": false,
+    "interpretation": "Conservative full wall time through creative freeze; later project CI/publication time is separate. Under120minute cleanup cap."
+  },
+  "source_build_seconds": 56.721,
+  "runtime_canvas": {
+    "viewport": [
+      1280,
+      720
+    ],
+    "stretch": "canvas_items/expand",
+    "render_verification": "Re-captured after aligning the standalone viewport with the mandatory game baseline; artwork and motion frames unchanged."
+  }
+}

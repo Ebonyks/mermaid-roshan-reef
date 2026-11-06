@@ -1,0 +1,437 @@
+{
+  "state": "PASS_RUNTIME5557_EXACT_TO_GREEN_B660_INCOMING_SOURCE_STUDY_RETAINED",
+  "source_revision": "b6605862997a6f1ed8a8a06eee5012734b5beee3",
+  "Dev_baseline": "bc058d3bd6105fa0c706e2a58a279181497e3eb8",
+  "runtime_paths": [
+    "scripts",
+    "assets",
+    "scenes",
+    "shaders",
+    "addons",
+    "project.godot",
+    "export_presets.cfg"
+  ],
+  "runtime_input_count": 5557,
+  "runtime_diff": [],
+  "incoming_nonshared_files_retained_exact": [
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/.gdignore",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/.gitattributes",
+      "blob": "fa1385d99a319b43c06f5309d1aae9fdd3adea46"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/.gitignore",
+      "blob": "4254922794831ceba6414e90f9ad9345cf2dbca7"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/GIF_OUTPUT_SPEC.md",
+      "blob": "d17f578f5269a44b0b3fc1b6a034de20b8a8f9cb"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/README.md",
+      "blob": "ef6a7b3aff9214ab2a8ba4082cbdbb55fc29ac7c"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/SOURCE_LAYER_SURVEY.md",
+      "blob": "66c83a2eb8eed13d3aae7cdf875c919199e6e443"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/arrival_bells.aseprite",
+      "blob": "1f005c31bf433692da3ede4b0b4bc44095e3754f"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/arrival_bells.gif",
+      "blob": "d7906cd39547e8c6fd81af00e7d3902da8569608"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/build_masters.lua",
+      "blob": "da068dedcef25c83c1da890390fb83d69b2357e9"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/build_original.py",
+      "blob": "7782b646dbc2b4f86f390a527f98da34f9358953"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/0_0.png",
+      "blob": "a4779b003446aced933e337b14cff876ca28017e"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/0_0.png.import",
+      "blob": "c89c676919b1363b18f55a91aac8a1379eef179a"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/0_1.png",
+      "blob": "78a1c8c8a1823e9b2d7c358582af1eba81941e4f"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/0_1.png.import",
+      "blob": "62d4d5d1da96f451a8276bc511628a97addd222d"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/0_2.png",
+      "blob": "5d4f05397733bee9cbd36b2c8247d5e0058cbc7d"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/0_2.png.import",
+      "blob": "1581058f37f96f57f67fecdea01ad7ce7f75b538"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/0_3.png",
+      "blob": "852d8fba1c0387f08651f06601e87b2c007d694a"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/0_3.png.import",
+      "blob": "8d4b4d4e78f8d0c1480361c25979111b62870f2d"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/0_4.png",
+      "blob": "3b21c063499bff3a04db6ea3d3a7c4df00f78d2e"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/0_4.png.import",
+      "blob": "f1227b41980ae64d7d85b72ca93f81bce85b6dfd"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/0_5.png",
+      "blob": "bb14338f732fddfcfda9eabbcbf7e30f26821918"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/0_5.png.import",
+      "blob": "18dd971da9aee42356e328afe4f775070b8e15ab"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/1_0.png",
+      "blob": "b901af4c2b63e1ad55c0d9f48a7711f0aced7b22"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/1_0.png.import",
+      "blob": "40100cf1036097ac199af6771e3d0e7a4b43ac44"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/1_1.png",
+      "blob": "408e000e47fdea7edae6c662022a3adb7b3daf74"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/1_1.png.import",
+      "blob": "b46b75ea41fa4583463c23e287a9dc4fbb7f1f9d"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/1_2.png",
+      "blob": "194a6c606f52e2d955709e262449f71553aa8508"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/1_2.png.import",
+      "blob": "39c99352b6449e1d998ba84dc2a6c1256baf9c5c"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/1_3.png",
+      "blob": "8d942747e1b08108c41bab2834283f334271a476"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/1_3.png.import",
+      "blob": "f9b9629f0efb11f62b8219b0191ed84367447c36"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/1_4.png",
+      "blob": "b4c324292487dd495d28b3dc0ada102853112c51"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/1_4.png.import",
+      "blob": "62be77adaea6eee33892c682611c3fb777027af0"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/1_5.png",
+      "blob": "74d7f4193432e00e4fd3bf519d581ca2d8a879ed"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/background/1_5.png.import",
+      "blob": "5ee4088f63dbe01ad297c008dddcdaf6e265486f"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/breeze.gdshader",
+      "blob": "f046fc4e4c494b101c7fd202b56e7a63352c646f"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/lagoon.gd",
+      "blob": "5403962a268766a32e9e5f23f177f0f45ef2c53b"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/lagoon.tscn",
+      "blob": "f52869b46e86b7fea4e51875a76000d62d45f11a"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/patches/arrival_bells.png",
+      "blob": "f6ba56a02376212284e7b23158bae93c27e6a63f"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/patches/arrival_bells.png.import",
+      "blob": "3c91b3f36df1d452ce80e03bf2e1835570dac604"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/patches/arrival_bells_field.png",
+      "blob": "4cb9fa0e2e03c3fbf78d9ed80158354453a6d624"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/patches/arrival_bells_field.png.import",
+      "blob": "750f308f0aa355136f58738b0aab24e4919d4ee7"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/patches/lake_foxtails.png",
+      "blob": "b8fcf4cdfbf47ab7813fe6db675b3815e97c277b"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/patches/lake_foxtails.png.import",
+      "blob": "fe6464ff9406bccb811790930e3c565af5b339e5"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/patches/lake_foxtails_field.png",
+      "blob": "0cfde2fd79f98ac5daa3fef7b3c66c07e94bf9aa"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/patches/lake_foxtails_field.png.import",
+      "blob": "b72c16990553df06595b8bb05d0cabb5c46dd230"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/patches/meadow_spikes.png",
+      "blob": "6de2faa2f12bd0fc61b4752e2aefe58edf52c139"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/patches/meadow_spikes.png.import",
+      "blob": "ea80dae3a7744ef6b93352f2475161d1ebf44523"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/patches/meadow_spikes_field.png",
+      "blob": "c95bfdb4cff47769832162f08e96957f8441e181"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/patches/meadow_spikes_field.png.import",
+      "blob": "29b2f041c0c05fec5b375e91a05f23c4a19c3af1"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/project.godot",
+      "blob": "911e37796ed9adb088cbe4d4d5a68b14f8494e75"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/demo_project/targets.json",
+      "blob": "cfe0db50b1b2867da15d50761c8432e1fa6af145"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/derivation.json",
+      "blob": "e6a962220ef20a30498a049bba37efe8c6cf105c"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/arrival_bells_field_review.png",
+      "blob": "91d02d452f079d0cf6b5cb5eec517a76435a808a"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/arrival_bells_selection.png",
+      "blob": "6afdc375dfd3601bc3cbdcdb0ba51901b39511b0"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/aseprite-build.txt",
+      "blob": "2952bfa2b53f2427f777c584cb58bd98a392004a"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/aseprite-roundtrip-receipt.json",
+      "blob": "5d04a0d042b16e10a684ea06ed52b62b488e1367"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/first-render-seam-difference.png",
+      "blob": "879d0fc007e88f7c802328e095a22b6ec6d44b3f"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/frame-step.png",
+      "blob": "a5635b945066d2f1af4b422b80519f930485c6c2"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/import.log",
+      "blob": "9c11a7299708e15a245ec68f6ebd373b2b34ee43"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/independent-verification.json",
+      "blob": "da09cd5f8969ebced715f3cdb8314723f4172e69"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/lake_foxtails_field_review.png",
+      "blob": "6b998f6f00d626361e532675afd27f179d463a9c"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/lake_foxtails_selection.png",
+      "blob": "945008e576a73373781178576927ee413197d1c7"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/local-ci-attempt1-coverage.log",
+      "blob": "36428f75fc84a38b6bc7819a8d7164109096b33b"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/local-ci-attempt2.log",
+      "blob": "a129c760a0d7b293e0a9abcbd3134901776dbed5"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/local-ci-completion.json",
+      "blob": "2a64383a8a637717aab1dd180a235906d440c3ff"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/machine-verification.json",
+      "blob": "f9da0d6fed520a6a831957fbb6e169374082c150"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/meadow_spikes_field_review.png",
+      "blob": "e6f70d11c9dee94e31218117bf792283219a16e8"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/meadow_spikes_selection.png",
+      "blob": "215b82cb6a5c5d2a8855694098d370c54405d2ab"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/mobile-00.png",
+      "blob": "4e66852f47f6a5b724f174f31d7608a9d71a5c99"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/mobile-15.png",
+      "blob": "1bf48fc4f6792f10ca57221250abf73d10e7e642"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/mobile-45.png",
+      "blob": "a793a478c8053e5a6c81e3c2a5b78d37660ada93"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/mobile-fixed-scenery.json",
+      "blob": "79074488989f1a03b20e75fe427c5572b41846ca"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/mobile-pristine-control.png",
+      "blob": "fd7106e66191d0b00ac306a56baec1e16c42ca2a"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/mobile-verification.json",
+      "blob": "4533409330d865472ded6a73415a617fe2ee99f3"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/mobile-verify.log",
+      "blob": "b68d2d1ecbf023de52dd9ed3628b9f645ffdec13"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/negative-controls.json",
+      "blob": "b924e7be121c1c97a530079b44e7d723a96269f2"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/evidence/rejected-render-seam.json",
+      "blob": "9fc9c7cc11028fd68b5b79b631ea6d2e3c7b95ed"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/fields/arrival_bells.png",
+      "blob": "4cb9fa0e2e03c3fbf78d9ed80158354453a6d624"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/fields/lake_foxtails.png",
+      "blob": "0cfde2fd79f98ac5daa3fef7b3c66c07e94bf9aa"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/fields/meadow_spikes.png",
+      "blob": "c95bfdb4cff47769832162f08e96957f8441e181"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/finalize_manifest.py",
+      "blob": "66453026da6e7766b0d83b955e25e1f43100b66d"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/jobs/arrival_bells.json",
+      "blob": "104aaf9aafe0a3562a2fab365dd52e16a74c192f"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/jobs/lake_foxtails.json",
+      "blob": "bbe2df0fb6fef9f171bf35f0f317eda46864ed5c"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/jobs/meadow_spikes.json",
+      "blob": "e54ecac95847f0a92eb5a62ddbf0be0afc1e77d6"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/lake_foxtails.aseprite",
+      "blob": "c6fb2fb735b650679c1baf5160f89a1784c97818"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/lake_foxtails.gif",
+      "blob": "730e51fd621a83389b0f1b9bacb1075e52118182"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/manifest.json",
+      "blob": "07026ccf34e8697db5d3aa9c32216e8059429517"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/meadow_spikes.aseprite",
+      "blob": "140cd237674ce08381a98b86a342d991906163e9"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/meadow_spikes.gif",
+      "blob": "2913c1e6f9b5968f9546b193de9635fe43d6d0ae"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/original-flowers-closeup.gif",
+      "blob": "9ab72f3d1854b15310f39cfc9de12eecf738ab40"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/original-lagoon-fixed.gif",
+      "blob": "dde5fd08bd2fa9e53ae9056ddb623d328c0f4587"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/original-rest.png",
+      "blob": "9e83cf21f9c16bab8bb7ee9c7054c1c2281110b9"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/original-target-map.png",
+      "blob": "7eaec3f49e2eb3314cb6367455636e37d0e57105"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/owner_request.json",
+      "blob": "cea9ae27ab99a56873e74e6c50d8458a9884eab1"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/sources/arrival_bells.png",
+      "blob": "f6ba56a02376212284e7b23158bae93c27e6a63f"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/sources/lake_foxtails.png",
+      "blob": "b8fcf4cdfbf47ab7813fe6db675b3815e97c277b"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/sources/meadow_spikes.png",
+      "blob": "6de2faa2f12bd0fc61b4752e2aefe58edf52c139"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/verify_controls.py",
+      "blob": "d6f356e209f8aff19500af610bb0a83530e480b1"
+    },
+    {
+      "path": "assets_src/sky_lagoon/original_art_motion_20261105/verify_original.py",
+      "blob": "b19cab67e1941cacf9f61f9580f90f5edee56de1"
+    },
+    {
+      "path": "audit/cycles/sky-original-art-motion-20261105/owner_answers.json",
+      "blob": "b44ff071f28e401aabd61a2daaaa5b79e889ede1"
+    },
+    {
+      "path": "design/audit_impacts/sky-lagoon-original-art-motion-20261105.json",
+      "blob": "2af8f3a6d032b4cd30a90603dcb02d00dcfe6b9d"
+    },
+    {
+      "path": "design/reference/OWNER_DECISIONS.md",
+      "blob": "b1387d135ba82d7a9d1da389f8734deac9d0fcb6"
+    },
+    {
+      "path": "design/reference/owner_decisions.json",
+      "blob": "2beb9fde67b65b72d184e891284476c493928bb9"
+    }
+  ],
+  "shared_merged_documents": [
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "conflicts": "CONFLICT_RESOLUTION.json preserves both licence additions and newer owner rejection of the superseded added-object composition.",
+  "boundary": "Original-art motion source directory .gdignore and every nonshared source file remain exact to Devbc058. No production adoption or new art/event credit."
+}

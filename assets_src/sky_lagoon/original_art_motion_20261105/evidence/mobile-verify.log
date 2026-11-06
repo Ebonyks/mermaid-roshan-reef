@@ -1,0 +1,34 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward Mobile - Using Device #0: NVIDIA - NVIDIA GeForce RTX 3060 Ti
+
+WARNING: Loaded resource as image file, this will not work on export: 'res://patches/lake_foxtails.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _verify (res://lagoon.gd:113)
+       [1] _ready (res://lagoon.gd:62)
+WARNING: Loaded resource as image file, this will not work on export: 'res://patches/lake_foxtails_field.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _verify (res://lagoon.gd:120)
+       [1] _ready (res://lagoon.gd:62)
+WARNING: Loaded resource as image file, this will not work on export: 'res://patches/meadow_spikes.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _verify (res://lagoon.gd:113)
+       [1] _ready (res://lagoon.gd:62)
+WARNING: Loaded resource as image file, this will not work on export: 'res://patches/meadow_spikes_field.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _verify (res://lagoon.gd:120)
+       [1] _ready (res://lagoon.gd:62)
+WARNING: Loaded resource as image file, this will not work on export: 'res://patches/arrival_bells.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _verify (res://lagoon.gd:113)
+       [1] _ready (res://lagoon.gd:62)
+WARNING: Loaded resource as image file, this will not work on export: 'res://patches/arrival_bells_field.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _verify (res://lagoon.gd:120)
+       [1] _ready (res://lagoon.gd:62)
+ORIGINAL_ART_MOBILE|PASS|{"animation_fps":30.0,"device":"PENDING; desktop GPU is not target-device performance evidence","duration_s":2.0,"engine":{"build":"official","hash":"ed1daf0bf001b61586d9930840f2f1394092c079","hex":263938,"major":4,"minor":7,"patch":2,"status":"stable","string":"4.7.2-stable (official)","timestamp":0},"errors":[],"fixed_stage":true,"frames":60,"input_hashes":{"res://background/0_0.png":"45f6d91da385bf14283c360bf00be95b7988031807de96a2ce3044d94d09d0d4","res://background/0_1.png":"cfe625f5dfa5666e9471736e1bf49b30e51641c55dd89dc10c14023daf90a799","res://background/0_2.png":"11e2abf69955fd08241c655f3f2fd9399e18c069227e4ba1100fc3c8eaeedbf5","res://background/0_3.png":"0be446e5c48253d18c6734ae41b3dfae7cbafd287f609885ecef139a6bdc01f7","res://background/0_4.png":"14ced7c38a5c6b2bd75926e8ff60b4905f997a464431b09a7215068279a2ec52","res://background/0_5.png":"899fb0f0e8a0a6a9593f87bfdb457f91641e03046982a7b8a4758252fb907839","res://background/1_0.png":"390c2fc15203bf70d3eb9fa389cfcdf1a6c5be6d60931a3c489359a81a7613e0","res://background/1_1.png":"50961de6f90eda1f250d71f64494e9b0e9105e0577fe06c91bd777da1b7f3b78","res://background/1_2.png":"70bb0ca103ab893e7854ac5af8cc713a48ca3a5bd1e9233d540193a4b8e6aa7d","res://background/1_3.png":"30cc6212aa147ab225dca9998effd7cfc18884075dac20239a408a7cc6dcd89b","res://background/1_4.png":"70085f3e14cf55d1b44c7d501132c1b5074d71477ee40293c49036f54ca3ee11","res://background/1_5.png":"dec23393ebbcb74efc7ff20030923f73ec46c51929dce879da7f9cce77044470","res://breeze.gdshader":"a2dfd74ffdffd28bb36a96b327275a2bb972f4dd7c8a0d3f07cc6443601efc16","res://lagoon.gd":"562e3e97e16d0df7d7871da9467cc99dc9c0fdd16ccb45429702f407c81ce628","res://lagoon.tscn":"fdeb18afcaa9afaaceae8fc704e6c9c78ae0ee2b1a67dced8a12f8b3368f8ac2","res://patches/arrival_bells.png":"2a88ce6bb4218e4f95c26a6d0b6c9e8063887737d95eacd90d80f4948798dd07","res://patches/arrival_bells_field.png":"96ef05a244c8bdd90b6a093abfe7de70e17fa0148a8bb217cac421d0c5197feb","res://patches/lake_foxtails.png":"3a4bd88ef071ec4f15896125432716cd7b19d01138e2c0d29a01275b324ce57f","res://patches/lake_foxtails_field.png":"dc11d08669dec4511802bcd558e02e95917e30388d18899288c250cc01a769e4","res://patches/meadow_spikes.png":"c3928605fa6251d2a9ae3a1f04a36c4151f21ec14eebcea6218c7cf6b68418af","res://patches/meadow_spikes_field.png":"c50e04b49972490dc80c4a44e8dfc17d49265b11cca8986c6a0c1506d6b475a9","res://project.godot":"0e1112ad9d157b62c9630a3b4057773b655d16da1916b90e2aa990a86baed6a8","res://targets.json":"6861c9e84a4f33ae6b9b4ff17dcd5f0f7ca7ba9198230293ac6d600f733a8583"},"renderer":"mobile","source_imports_exact":true}
