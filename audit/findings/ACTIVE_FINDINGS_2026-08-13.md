@@ -2089,3 +2089,6 @@ This canonical mirror preserves the source finding and its open lifecycle. Numer
 
 
 MA-VIS-008 production history: R146 [painted gas candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/README.md) is independently source-published and locallyvalidated88checks with12bounded/13excluded diagnostic events. Native/storybookcomparison and actualoutput retained; source/Dev/formal/device/child/owner are distinct, no lifecycleclosure or acceptedremoval.
+
+
+MA-VIS-008 R146 history: [painted gas code and scoped export exclusion on Dev after exact source CI passed](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/README.md). PartialDev45to46 only; source47/roles282/families36/event12496 remain unchanged. No lifecycleclosure, acceptedremoval or formal/device/child/owner claim.

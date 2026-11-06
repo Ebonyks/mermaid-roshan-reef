@@ -1,0 +1,65 @@
+{
+  "id": "flat-vector-r146-dev-integration-20261106",
+  "baseline": "73307e63cb814f8f95d43ad3e13db3947a502ea6",
+  "scope": "Record verified exact-source/Dev integration for existing painted gas candidate and source-only export fix. Add one partialDev artifact only; preserve all source/event/history/acceptance lanes. No oldcanonical game merge.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-03",
+    "DL-ASSET-05",
+    "DL-VIS-07",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-008"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_QUEUE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/PRODUCTION_RECORD.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/COUNT_DELTA.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/DEV_CI_AT_INTAKE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/DEV_INTEGRATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/PRIOR_CANONICAL_SOURCE_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/RUNTIME_UNCHANGED.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/SOURCE_CI_COMPLETED.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/authority.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/coverage_auto.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/coverage_base.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Actual current source both CI jobs and exact normalgreen Dev integration",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/SOURCE_CI_COMPLETED.json and DEV_INTEGRATION.json; separate exact DevCI snapshot"
+    },
+    {
+      "command": "All61 prior canonical source required files anonymous verification",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/PRIOR_CANONICAL_SOURCE_REMOTE_VERIFICATION.json"
+    },
+    {
+      "command": "Canonical authority/coverage and nonmetadata roots unchanged",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/GATES.json and RUNTIME_UNCHANGED.json"
+    }
+  ],
+  "acceptance_gaps": "CorrectedactualAPK, formalQA11/natural/fullspeed/device/child/owner remain separate pending. Zeroacceptedremovals/completescenes and unknownwhole totals. No runtime engine repeat in oldcanonical checkout."
+}

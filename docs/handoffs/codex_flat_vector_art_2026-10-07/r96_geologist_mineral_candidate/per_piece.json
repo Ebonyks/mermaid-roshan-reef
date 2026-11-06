@@ -29887,7 +29887,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-SOURCE-20261106-R146-RACER-PAINTED-GAS",
+  "revision": "FV-DEV-20261106-R146-RACER-PAINTED-GAS",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -35810,10 +35810,10 @@
         "method": "Uniform whole-native-canvas LANCZOS512 export; no crop/painting/alpha replacement. Native preserved.",
         "protected_originals_modified_or_passed_to_ImageGen": false
       },
-      "status": "SOURCE_PUBLISHED_CANDIDATE_CONTEXT_PARTIAL_DEV_PENDING",
+      "status": "DEV_INTEGRATED_CANDIDATE_CONTEXT_PARTIAL",
       "evidence_level": "PUBLISHED_SOURCE_AND_REVIEWED_SAME_SCENE_NATIVE_DIAGNOSTICS",
       "source_revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
-      "integration_sha": null,
+      "integration_sha": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
       "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/TEN_AXIS_COMPARISON.json",
       "review_record": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/TEN_AXIS_COMPARISON.json",
       "screen_coverage": {
@@ -35826,7 +35826,7 @@
       "acceptance_evidence": {
         "candidate": true,
         "source_work_branch_integrated": true,
-        "Dev_integrated": false,
+        "Dev_integrated": true,
         "runtime_verified_replacement": false,
         "configured_Mobile": true,
         "Opera_Speedy": true,
@@ -35836,7 +35836,10 @@
         "device": null,
         "child": null,
         "owner": null,
-        "accepted_removed": 0
+        "accepted_removed": 0,
+        "Dev_revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+        "source_CI_run": 42291635235,
+        "Dev_CI_run": 42300176898
       },
       "observed_weakness": "Existing3circle fills and2whitechevron polylines fail painted storybook material beside scene/candidate references. Whole painted gold/ivory/plum candidate improves material with same child cue; complete/fullspeed/device/owner acceptance open.",
       "functional_invisible_geometry": "Unchanged input center1175,625/radius80/margin16 retained separately, zero artwork removal credit.",
@@ -35846,8 +35849,15 @@
           "source_revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
           "status": "PUBLISHED_LOCAL88_PASS_DIAGNOSTIC_VISUAL_CONTEXT_PARTIAL",
           "scope": "20 corrected configured source/candidate frames; all12 visible target images inspected;6Opera pairs only gas bounds differ;4PC pairs RGBidentical. Natural/fullspeed routes and formalQA11 remain open."
+        },
+        {
+          "revision": "FV-DEV-20261106-R146-RACER-PAINTED-GAS",
+          "source_revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+          "status": "EXACT_SOURCE_CI_GREEN_CODE_ON_DEV",
+          "scope": "Same native/512painted output and25original diagnostic events. No newart/frame/generation/acceptance credit."
         }
-      ]
+      ],
+      "current_runtime_source_revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6"
     }
   ],
   "known_named_design_records_including_supplemental": 240,
@@ -43760,7 +43770,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "47 published bounded source artifacts,45 partial Dev artifacts;282 named roles and36 families remain lower bounds. Retained native events8085 bounded/4411 excluded/12496 total. R146 painted gas source is published and locally validated; exact hosted checks/Dev pending. Accepted removals0, complete scenes0, whole-game denominators unknown.",
+  "current_effective_summary": "47 published bounded source artifacts,46 partial Dev artifacts;282 named roles and36 families remain lower bounds. Retained native events8085 bounded/4411 excluded/12496 total are unchanged. R146 source CI is green and code is on Dev atfd860; Dev CI is a separate exact snapshot; correctedAPK/formal/natural/fullspeed/device/child/owner lanes remain open. Accepted removals0, complete scenes0, whole-game denominators unknown.",
   "unresolved_care_glyph_scopes": [
     "neutral/title heart U+2665 versus cuddle U+2764 attribution",
     "disabled Change-palette pictogram",
@@ -51979,7 +51989,7 @@
   "retained_excluded_current_summary": 4411,
   "retained_native_events_current_summary": 12496,
   "bounded_implementation_artifacts_published_current_summary": 47,
-  "partial_dev_artifacts_current_summary": 45,
+  "partial_dev_artifacts_current_summary": 46,
   "r145_prior_to_Dev_integration": {
     "revision": "FV-SOURCE-20261106-R145-RACER-ZONES-PAINTED-FIXTURE",
     "current_effective_summary": "46 published bounded source artifacts,44 partial Dev artifacts;281 named roles and36 families remain lower bounds. Retained per-piece events8073 bounded/4398 excluded/12471 total. Accepted removals0, complete scenes0, whole-game totals unknown. R145 source cafce6e8 is published with exact hosted CI running; Dev pending. Formal and external acceptance remain open.",
@@ -52388,7 +52398,7 @@
     "stable_id": "FVR-34524393E2C8",
     "source_item": "gold_gas_button",
     "artifact_key": "r146_racer_painted_gas_control_runtime",
-    "state": "PUBLISHED_PAINTED_SOURCE_CANDIDATE_LOCAL88_PASS_DEV_PENDING",
+    "state": "DEV_CODE_INTEGRATED_SOURCE_CI_GREEN_DEV_CI_SEPARATE_FORMAL_EXTERNAL_OPEN",
     "source_revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
     "current_source_revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
     "branch": "codex/flat-vector-racer-gas-painted-20261106",
@@ -52402,7 +52412,12 @@
       "status": "completed",
       "conclusion": "cancelled"
     },
-    "followup_source_CI": "PENDING_ACTUAL_EXACT_HEAD",
+    "followup_source_CI": {
+      "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "run": 42291635235,
+      "status": "in_progress",
+      "conclusion": ""
+    },
     "native_output": {
       "path": "assets_src/imagegen/racer_gas_button_20261106/gas_button_native.png",
       "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
@@ -52460,27 +52475,358 @@
     "functional_invisible_geometry": "Unchanged input center1175,625/radius80/margin16 retained separately, zero artwork removal credit.",
     "candidate": true,
     "source_work_branch_integrated": true,
-    "Dev_integration": false,
-    "Dev_revision": null,
+    "Dev_integration": true,
+    "Dev_revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
     "formal_QA11": null,
     "device": null,
     "child": null,
     "owner": null,
     "accepted_removed": 0,
     "complete_scenes": 0,
-    "mission_complete": false
+    "mission_complete": false,
+    "prior_canonical_source_intake_revision": "73307e63cb814f8f95d43ad3e13db3947a502ea6",
+    "current_source_CI": {
+      "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "run": 42291635235,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/DEV_INTEGRATION.json",
+    "Dev_CI": {
+      "run": 42300176898,
+      "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "status": "in_progress",
+      "conclusion": ""
+    },
+    "matching_corrected_APK": "PENDING_ACTUAL_AUTOMATIC_ANDROID_JOB_AND_PACKAGE_VERIFICATION"
   },
   "r146_current_effective_summary": {
     "known_roles": 282,
     "known_families": 36,
     "published_bounded_source_artifacts": 47,
-    "partial_Dev_artifacts": 45,
+    "partial_Dev_artifacts": 46,
     "retained_bounded_native_events": 8085,
     "retained_excluded_native_events": 4411,
     "retained_native_events": 12496,
     "accepted_removed": 0,
     "complete_scene_coverage": 0,
     "whole_game_total": null,
-    "revision": "FV-SOURCE-20261106-R146-RACER-PAINTED-GAS"
+    "revision": "FV-DEV-20261106-R146-RACER-PAINTED-GAS"
+  },
+  "r146_prior_to_Dev_canonical_revision": "73307e63cb814f8f95d43ad3e13db3947a502ea6",
+  "r146_Dev_integration": {
+    "state": "ACTUAL_GREEN_PAINTED_GAS_AND_SCOPED_EXPORT_FIX_DEV_INTEGRATION_VERIFIED",
+    "source": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+    "painted_source": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
+    "before_Dev": "e70081ea871bd2aab2440be2168abe33d20ee328",
+    "after_Dev": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+    "source_CI": 42291635235,
+    "source_CI_details": {
+      "conclusion": "success",
+      "databaseId": 42291635235,
+      "headBranch": "codex/flat-vector-racer-gas-painted-20261106",
+      "headSha": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "jobs": [
+        {
+          "completedAt": "2026-11-06T21:50:46Z",
+          "conclusion": "success",
+          "databaseId": 128146420557,
+          "name": "probes",
+          "startedAt": "2026-11-06T20:50:11Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-11-06T20:50:12Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-11-06T20:50:11Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T20:57:13Z",
+              "conclusion": "success",
+              "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+              "number": 2,
+              "startedAt": "2026-11-06T20:50:12Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T20:57:15Z",
+              "conclusion": "success",
+              "name": "Download Godot (checksum-verified)",
+              "number": 3,
+              "startedAt": "2026-11-06T20:57:13Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T20:59:48Z",
+              "conclusion": "success",
+              "name": "Static gates (parse + Variant-inference lint)",
+              "number": 4,
+              "startedAt": "2026-11-06T20:57:15Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T21:04:14Z",
+              "conclusion": "success",
+              "name": "Import (deadlock-guarded)",
+              "number": 5,
+              "startedAt": "2026-11-06T20:59:48Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T21:18:51Z",
+              "conclusion": "success",
+              "name": "Compile-check every script (real analyzer, catches what parse-only cannot)",
+              "number": 6,
+              "startedAt": "2026-11-06T21:04:14Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T21:37:58Z",
+              "conclusion": "success",
+              "name": "Run trusted probes",
+              "number": 7,
+              "startedAt": "2026-11-06T21:18:51Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T21:38:13Z",
+              "conclusion": "success",
+              "name": "Boot gate (real viewport — the area the phone opens in)",
+              "number": 8,
+              "startedAt": "2026-11-06T21:37:58Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T21:43:21Z",
+              "conclusion": "success",
+              "name": "Dust boss balance playtest (advisory)",
+              "number": 9,
+              "startedAt": "2026-11-06T21:38:13Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T21:43:32Z",
+              "conclusion": "success",
+              "name": "Opera balance playtest (advisory)",
+              "number": 10,
+              "startedAt": "2026-11-06T21:43:21Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T21:43:37Z",
+              "conclusion": "success",
+              "name": "Publish opera art manifest (advisory)",
+              "number": 11,
+              "startedAt": "2026-11-06T21:43:32Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T21:43:38Z",
+              "conclusion": "success",
+              "name": "Upload opera art manifest",
+              "number": 12,
+              "startedAt": "2026-11-06T21:43:37Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T21:43:38Z",
+              "conclusion": "success",
+              "name": "Capture first-world visual review",
+              "number": 13,
+              "startedAt": "2026-11-06T21:43:38Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T21:45:22Z",
+              "conclusion": "success",
+              "name": "Capture legacy human-art diagnostic",
+              "number": 14,
+              "startedAt": "2026-11-06T21:43:38Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T21:45:24Z",
+              "conclusion": "success",
+              "name": "Upload legacy human-art diagnostic",
+              "number": 15,
+              "startedAt": "2026-11-06T21:45:22Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T21:45:41Z",
+              "conclusion": "success",
+              "name": "Capture Sky Lagoon visual review",
+              "number": 16,
+              "startedAt": "2026-11-06T21:45:24Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T21:45:43Z",
+              "conclusion": "success",
+              "name": "Upload Sky Lagoon visual review",
+              "number": 17,
+              "startedAt": "2026-11-06T21:45:41Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T21:46:54Z",
+              "conclusion": "success",
+              "name": "Capture northern-world visual review",
+              "number": 18,
+              "startedAt": "2026-11-06T21:45:43Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T21:46:57Z",
+              "conclusion": "success",
+              "name": "Upload northern-world visual review",
+              "number": 19,
+              "startedAt": "2026-11-06T21:46:54Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T21:50:22Z",
+              "conclusion": "success",
+              "name": "Capture dust-boss arena review",
+              "number": 20,
+              "startedAt": "2026-11-06T21:46:57Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T21:50:24Z",
+              "conclusion": "success",
+              "name": "Upload dust-boss arena review",
+              "number": 21,
+              "startedAt": "2026-11-06T21:50:22Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T21:50:39Z",
+              "conclusion": "success",
+              "name": "Capture pearl-castle visual review",
+              "number": 22,
+              "startedAt": "2026-11-06T21:50:24Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T21:50:42Z",
+              "conclusion": "success",
+              "name": "Upload pearl-castle visual review",
+              "number": 23,
+              "startedAt": "2026-11-06T21:50:39Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T21:50:43Z",
+              "conclusion": "success",
+              "name": "Upload advisory sensor receipts",
+              "number": 24,
+              "startedAt": "2026-11-06T21:50:42Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T21:50:43Z",
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+              "number": 48,
+              "startedAt": "2026-11-06T21:50:43Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T21:50:43Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 49,
+              "startedAt": "2026-11-06T21:50:43Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42291635235/job/128146420557"
+        },
+        {
+          "completedAt": "2026-11-06T20:53:16Z",
+          "conclusion": "success",
+          "databaseId": 128146420869,
+          "name": "area-music-provenance",
+          "startedAt": "2026-11-06T20:50:11Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-11-06T20:50:12Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-11-06T20:50:11Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T20:50:40Z",
+              "conclusion": "success",
+              "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+              "number": 2,
+              "startedAt": "2026-11-06T20:50:12Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T20:51:50Z",
+              "conclusion": "success",
+              "name": "Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+              "number": 3,
+              "startedAt": "2026-11-06T20:50:40Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T20:53:10Z",
+              "conclusion": "success",
+              "name": "Verify deterministic area-music delivery",
+              "number": 4,
+              "startedAt": "2026-11-06T20:51:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T20:53:10Z",
+              "conclusion": "success",
+              "name": "Post Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+              "number": 7,
+              "startedAt": "2026-11-06T20:53:10Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T20:53:14Z",
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+              "number": 8,
+              "startedAt": "2026-11-06T20:53:10Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-06T20:53:14Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 9,
+              "startedAt": "2026-11-06T20:53:14Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42291635235/job/128146420869"
+        }
+      ],
+      "status": "completed",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42291635235"
+    },
+    "painted_required_files_verified": 271,
+    "followup_required_files_verified": 38,
+    "new_partial_Dev_artifact_delta": 1,
+    "new_art_or_frame_credit_from_Dev_event": 0,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "master_before": "ff68f9550c28f7d979896d5c84d1214264c29165",
+    "master_after": "ff68f9550c28f7d979896d5c84d1214264c29165",
+    "time": "2026-11-06T21:51:53.502207+00:00"
   }
 }

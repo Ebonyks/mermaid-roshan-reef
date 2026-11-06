@@ -2337,3 +2337,6 @@ No later state is added without its required evidence.
 
 
 R146 [painted Racer gas source intake](../docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/README.md) publishes actual1call/native+runtime artwork, same-scene ten-axis and25retained diagnostic events.47source/45partialDev,282roles/36familiesLB; noacceptedremoval/sceneclosure. Actuallocal88checks pass; exacthosted/Dev/correctedAPK and formal/device/child/owner lanes remain open. [Impact](../design/audit_impacts/flat-vector-r146-source-intake-20261106.json).
+
+
+R146 [actual Dev integration](../docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/README.md) records exact source CI green and code on Dev atfd860; Dev CI remains a separate snapshot, one new partialDev artifact45to46 and zero new art/role/frame/generation/accepted-removal credit. CorrectedAPK/formal/device/child/owner remain separate. [Impact](../design/audit_impacts/flat-vector-r146-dev-integration-20261106.json).

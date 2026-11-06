@@ -1,17 +1,17 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-SOURCE-20261106-R146-RACER-PAINTED-GAS",
+  "revision": "FV-DEV-20261106-R146-RACER-PAINTED-GAS",
   "current_entry": "r146_racer_painted_gas_runtime/README.md",
   "current_per_piece": "r96_geologist_mineral_candidate/per_piece.json",
   "current_scene_coverage": "r96_geologist_mineral_candidate/scene_coverage.json",
   "current_tally": "r96_geologist_mineral_candidate/tally.json",
   "current_backlog": "r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/MANIFEST.json",
+  "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/SOURCE_CI_AT_INTAKE.json",
+  "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/SOURCE_CI_COMPLETED.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -6927,27 +6927,11 @@
   "immutable_r142_source_payload_revision": "5545a4ea5eb0498b514a7a59ae7b839fe8e2b410",
   "r142_remote_verification": "r142_bubble_duel_source/REMOTE_VERIFICATION.json",
   "current_Dev_delivery_snapshot": {
-    "Dev_revision": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
-    "exact_source_CI": {
-      "id": 42194686542,
-      "head_sha": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
-      "status": "completed",
-      "conclusion": "success",
-      "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42194686542"
-    },
-    "Dev_CI_at_snapshot": [
-      {
-        "id": 42202164628,
-        "head_sha": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
-        "head_branch": "dev",
-        "status": "in_progress",
-        "conclusion": null
-      }
-    ],
-    "R144_integrated": true,
-    "current_matching_APK_verified": false,
-    "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_integration_20261106/DEV_INTEGRATED.json",
-    "checked_at_utc": "2026-11-06T10:22:23.140340+00:00"
+    "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+    "source_CI": 42291635235,
+    "Dev_CI": 42300176898,
+    "APK": "PENDING_ACTUAL_CURRENT_BUILD_VERIFICATION",
+    "record": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/DEV_INTEGRATION.json"
   },
   "r140_prior_carrier_context": {
     "revision": "cb7bdd22d26d74e86d712547cb195ec1b8ae1f6e",
@@ -6958,7 +6942,7 @@
     "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
     "candidate_revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
     "record": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/PRODUCTION_RECORD.json",
-    "Dev": false,
+    "Dev": true,
     "acceptance": "candidate only"
   },
   "r140_dolls_progress_Dev_APK": {
@@ -7111,7 +7095,7 @@
   "immutable_r143_receipt_revision": "504c290443c280ae543cb5caa1fe671340821ad4",
   "immutable_r144_payload_revision": "4bd9101a5b88ce8f0388917f297a849403e01ef3",
   "current_payload_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9ba54f9144cd19210bc333f6a677dfadf3a1bf37/docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/MANIFEST.json",
-  "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/SOURCE_REMOTE_VERIFICATION.json",
+  "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/PRIOR_CANONICAL_SOURCE_REMOTE_VERIFICATION.json",
   "immutable_r144_receipt_revision": "d7c61f2636b4828a5158b3276dffdf695e5eeee3",
   "previous_receipt_manifest": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/d7c61f2636b4828a5158b3276dffdf695e5eeee3/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/RECEIPT_MANIFEST.json",
   "r144_prior_current_art_source_context": {
@@ -7612,7 +7596,7 @@
     "stable_id": "FVR-34524393E2C8",
     "source_item": "gold_gas_button",
     "artifact_key": "r146_racer_painted_gas_control_runtime",
-    "state": "PUBLISHED_PAINTED_SOURCE_CANDIDATE_LOCAL88_PASS_DEV_PENDING",
+    "state": "DEV_CODE_INTEGRATED_SOURCE_CI_GREEN_DEV_CI_SEPARATE_FORMAL_EXTERNAL_OPEN",
     "source_revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
     "current_source_revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
     "branch": "codex/flat-vector-racer-gas-painted-20261106",
@@ -7626,7 +7610,12 @@
       "status": "completed",
       "conclusion": "cancelled"
     },
-    "followup_source_CI": "PENDING_ACTUAL_EXACT_HEAD",
+    "followup_source_CI": {
+      "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "run": 42291635235,
+      "status": "in_progress",
+      "conclusion": ""
+    },
     "native_output": {
       "path": "assets_src/imagegen/racer_gas_button_20261106/gas_button_native.png",
       "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
@@ -7684,14 +7673,35 @@
     "functional_invisible_geometry": "Unchanged input center1175,625/radius80/margin16 retained separately, zero artwork removal credit.",
     "candidate": true,
     "source_work_branch_integrated": true,
-    "Dev_integration": false,
-    "Dev_revision": null,
+    "Dev_integration": true,
+    "Dev_revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
     "formal_QA11": null,
     "device": null,
     "child": null,
     "owner": null,
     "accepted_removed": 0,
     "complete_scenes": 0,
-    "mission_complete": false
+    "mission_complete": false,
+    "prior_canonical_source_intake_revision": "73307e63cb814f8f95d43ad3e13db3947a502ea6",
+    "current_source_CI": {
+      "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "run": 42291635235,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/DEV_INTEGRATION.json",
+    "Dev_CI": {
+      "run": 42300176898,
+      "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "status": "in_progress",
+      "conclusion": ""
+    },
+    "matching_corrected_APK": "PENDING_ACTUAL_AUTOMATIC_ANDROID_JOB_AND_PACKAGE_VERIFICATION"
+  },
+  "r146_prior_source_navigation": {
+    "revision": "FV-SOURCE-20261106-R146-RACER-PAINTED-GAS",
+    "entry": "r146_racer_painted_gas_runtime/README.md",
+    "manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/MANIFEST.json",
+    "canonical_revision": "73307e63cb814f8f95d43ad3e13db3947a502ea6"
   }
 }

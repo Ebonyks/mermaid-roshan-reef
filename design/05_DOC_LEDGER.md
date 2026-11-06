@@ -1520,3 +1520,5 @@ R132 authority reconciliation2026-11-03: the existing docs/handoffs/codex_flat_v
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/README.md` | 🔵 | `SUPPORTING_CURRENT`; R146 actualpainted gas source output and verified intake;47source/45partialDev,282roles/36familiesLB,12,496events. Hosted/Dev/formal/device/child/owner separate. Metadata-only canonical checkout. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/canonical_source_intake_20261106/README.md` | 🔵 | `SUPPORTING_CURRENT`; metadata-only R146 source intake, exact271/38file anonymous receipts, bounded count delta and source CI snapshot. Does not accept artwork or merge old runtime. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/README.md` | 🔵 | `SUPPORTING_CURRENT`; actual R146 source-green code integration on Dev and one partialDev artifact46. Same painted output/native diagnostics; correctedAPK/formal/device/child/owner remain separate. |

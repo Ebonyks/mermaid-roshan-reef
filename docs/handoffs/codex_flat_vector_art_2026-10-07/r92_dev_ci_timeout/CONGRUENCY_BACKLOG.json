@@ -9587,7 +9587,7 @@
       "repair": "Review title/decorative heart collision with global Back at1280; retain readable title and110touchminimum. No runtime change."
     }
   ],
-  "current_effective_summary": "47 published bounded source artifacts,45 partial Dev artifacts;282 named roles and36 families remain lower bounds. Retained native events8085 bounded/4411 excluded/12496 total. R146 painted gas source is published and locally validated; exact hosted checks/Dev pending. Accepted removals0, complete scenes0, whole-game denominators unknown.",
+  "current_effective_summary": "47 published bounded source artifacts,46 partial Dev artifacts;282 named roles and36 families remain lower bounds. Retained native events8085 bounded/4411 excluded/12496 total are unchanged. R146 source CI is green and code is on Dev atfd860; Dev CI is a separate exact snapshot; correctedAPK/formal/natural/fullspeed/device/child/owner lanes remain open. Accepted removals0, complete scenes0, whole-game denominators unknown.",
   "intro_entry_ownership": {
     "revision": "FV-AUDIT-20261016-R77",
     "topic_baseline": "7fd93aa0d2036c06c9a65aea6c79a990cc9ae01b",
@@ -12902,7 +12902,7 @@
     "stable_id": "FVR-34524393E2C8",
     "source_item": "gold_gas_button",
     "artifact_key": "r146_racer_painted_gas_control_runtime",
-    "state": "PUBLISHED_PAINTED_SOURCE_CANDIDATE_LOCAL88_PASS_DEV_PENDING",
+    "state": "DEV_CODE_INTEGRATED_SOURCE_CI_GREEN_DEV_CI_SEPARATE_FORMAL_EXTERNAL_OPEN",
     "source_revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
     "current_source_revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
     "branch": "codex/flat-vector-racer-gas-painted-20261106",
@@ -12916,7 +12916,12 @@
       "status": "completed",
       "conclusion": "cancelled"
     },
-    "followup_source_CI": "PENDING_ACTUAL_EXACT_HEAD",
+    "followup_source_CI": {
+      "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "run": 42291635235,
+      "status": "in_progress",
+      "conclusion": ""
+    },
     "native_output": {
       "path": "assets_src/imagegen/racer_gas_button_20261106/gas_button_native.png",
       "revision": "9ba54f9144cd19210bc333f6a677dfadf3a1bf37",
@@ -12974,15 +12979,31 @@
     "functional_invisible_geometry": "Unchanged input center1175,625/radius80/margin16 retained separately, zero artwork removal credit.",
     "candidate": true,
     "source_work_branch_integrated": true,
-    "Dev_integration": false,
-    "Dev_revision": null,
+    "Dev_integration": true,
+    "Dev_revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
     "formal_QA11": null,
     "device": null,
     "child": null,
     "owner": null,
     "accepted_removed": 0,
     "complete_scenes": 0,
-    "mission_complete": false
+    "mission_complete": false,
+    "prior_canonical_source_intake_revision": "73307e63cb814f8f95d43ad3e13db3947a502ea6",
+    "current_source_CI": {
+      "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "run": 42291635235,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/dev_integration_20261106/DEV_INTEGRATION.json",
+    "Dev_CI": {
+      "run": 42300176898,
+      "revision": "fd860fc196fb516d54badba5248c0f73ecaa9cb6",
+      "status": "in_progress",
+      "conclusion": ""
+    },
+    "matching_corrected_APK": "PENDING_ACTUAL_AUTOMATIC_ANDROID_JOB_AND_PACKAGE_VERIFICATION"
   },
-  "r146_prior_canonical_revision": "d33bd917664ab1e82effc09f6cb5acd565f6caed"
+  "r146_prior_canonical_revision": "d33bd917664ab1e82effc09f6cb5acd565f6caed",
+  "r146_prior_to_Dev_canonical_revision": "73307e63cb814f8f95d43ad3e13db3947a502ea6"
 }
