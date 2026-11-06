@@ -1,5 +1,5 @@
 {
-  "state": "PAINTED_SHARED_SHELL_PUBLISHED_SOURCE_CI_GREEN_DEV_PENDING",
+  "state": "PAINTED_SHARED_SHELL_DEV_PARTIAL_EXACT_SOURCE_CI_GREEN_FORMAL_EXTERNAL_OPEN",
   "artifact_key": "r144_shared_painted_shell_runtime",
   "stable_ids": [
     "FV-AB474EF3699E"
@@ -18,14 +18,14 @@
     },
     "checked_at_utc": "2026-11-06T06:55:24.185327+00:00"
   },
-  "current_Dev_observed": "6dfd04aef441f30e0374e9ae9049cff845ce4ebd",
-  "Dev_integration": false,
+  "current_Dev_observed": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+  "Dev_integration": true,
   "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/MANIFEST.json",
   "source_manifest_sha256": "cdfee00710c3228e122e808096e83a195ec82a49effa7d25973a52fa15e369d4",
   "source_required_anonymous_files": 255,
   "record": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md",
   "new_source_artifacts": 1,
-  "new_partial_Dev_artifacts": 0,
+  "new_partial_Dev_artifacts": 1,
   "updated_existing_named_roles": 1,
   "new_named_roles": 0,
   "new_families": 0,
@@ -37,20 +37,13 @@
   "unique_frame_content_hashes": 30,
   "candidate": true,
   "local_integration": true,
-  "runtime": "Actual local static/import/analyzers,81assertion probes plus1expectedheadlesscaptureSKIP and exact-head sourceCI pass. Formal QA11 and Dev/device/child/owner remain separate.",
+  "runtime": "Exact DevF1 retains all5557 validated runtime inputs from source10256; native30 diagnostics, strict local82 command exits and exact sourceC/B660/F1 CI pass. New Dev-event CI42202164628 is a separate running lane. Formal QA11, natural routes, device, child and owner acceptance remain open.",
   "formal_QA11": null,
   "device": null,
   "child": null,
   "owner": null,
   "accepted_removed": 0,
   "complete_scene_coverage": 0,
-  "coordination": {
-    "thread": "01a1a998-88ef-7e23-b52b-fbb454bd14ea",
-    "cursor": "7fb6fbaf-c11a-4fe5-918a-41d5427687d8:31",
-    "status": "active/inProgress",
-    "scope": "Bubble Duel elevator entry and tap/momentum/contact behavior; separate owner-authorized workflow capacity fix already onDev",
-    "rule": "Do not touch that dirty checkout, message/pause/resume that chat, duplicate its work, cancel/restart its healthy CI or start its APK retry. Reconcile only genuinely new verified production; defer Dev mutation while the active production/build owns its source."
-  },
   "source_CI_at_candidate_publication": {
     "run": 42171300891,
     "head_sha": "10256d79c971e1b39e7f422d63e014ae5183cc7c",
@@ -61,5 +54,36 @@
       "probes": "in_progress_checkout"
     },
     "checked_at_utc": "2026-11-06T06:04:31.176010+00:00"
-  }
+  },
+  "prior_source_publication_state": "PAINTED_SHARED_SHELL_PUBLISHED_SOURCE_CI_GREEN_DEV_PENDING",
+  "Dev_revision": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+  "coordination_at_candidate_publication": {
+    "thread": "01a1a998-88ef-7e23-b52b-fbb454bd14ea",
+    "cursor": "7fb6fbaf-c11a-4fe5-918a-41d5427687d8:31",
+    "status": "active/inProgress",
+    "scope": "Bubble Duel elevator entry and tap/momentum/contact behavior; separate owner-authorized workflow capacity fix already onDev",
+    "rule": "Do not touch that dirty checkout, message/pause/resume that chat, duplicate its work, cancel/restart its healthy CI or start its APK retry. Reconcile only genuinely new verified production; defer Dev mutation while the active production/build owns its source."
+  },
+  "coordination": {
+    "scope": "Reconciled a finished verified candidate in the owned worktree; foreign active Bubble Duel checkout and jobs untouched. Source-only Sky study and newer owner rejection history preserved.",
+    "latest_other_thread": "01a1a998-88ef-7e23-b52b-fbb454bd14ea",
+    "latest_read_only_cursor": "7fb6fbaf-c11a-4fe5-918a-41d5427687d8:69",
+    "no_other_chat_messages_or_goal_changes": true,
+    "no_competing_APK_retry_or_master_promotion": true
+  },
+  "current_integration_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_integration_20261106/DEV_INTEGRATED.json",
+  "current_source_CI": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_integration_20261106/SOURCE_F1_CI.json",
+  "current_source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f1cced56d299695580509b0d3c96e75f7f5e75ce/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/MANIFEST.json",
+  "current_source_required_files": 33,
+  "current_source_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_integration_20261106/SOURCE_REMOTE_VERIFICATION.json",
+  "this_update_deltas": {
+    "published_source_artifacts": 0,
+    "partial_Dev_artifacts": 1,
+    "named_roles": 0,
+    "families": 0,
+    "retained_per_piece_native_events": 0,
+    "generation_calls": 0,
+    "accepted_removed": 0
+  },
+  "retained_scope_notice": "Original source production fields retain their historical30-frame/1source-artifact scope. This update integrates that already-counted candidate; no source/image/native-frame recount."
 }

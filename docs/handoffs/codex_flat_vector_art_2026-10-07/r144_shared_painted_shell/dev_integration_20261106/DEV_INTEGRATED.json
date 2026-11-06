@@ -1,0 +1,41 @@
+{
+  "state": "DEV_INTEGRATED_EXACT_GREEN_SOURCE_F1",
+  "before": "bc058d3bd6105fa0c706e2a58a279181497e3eb8",
+  "Dev_revision": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+  "source_branch": "codex/flat-vector-shell-dev-reconcile-20261106",
+  "source_CI": {
+    "run": 42194686542,
+    "head": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+    "conclusion": "success",
+    "jobs": {
+      "probes": "success",
+      "area-music-provenance": "success"
+    }
+  },
+  "incoming_Dev_CI": {
+    "run": 42191349954,
+    "head": "bc058d3bd6105fa0c706e2a58a279181497e3eb8",
+    "conclusion": "success"
+  },
+  "integration_method": "Normal fast-forward of current Dev to exact green work commit; no force, local Dev edit or master promotion.",
+  "runtime_input_count": 5557,
+  "runtime_inputs_equal_validated_source10256": true,
+  "source_only_Sky_study_preserved": true,
+  "source_manifest_required_files": 33,
+  "source_manifest_remote_verification": "SOURCE_REMOTE_VERIFICATION.json",
+  "checked_at_utc": "2026-11-06T10:22:23.140340+00:00",
+  "Dev_event_CI": {
+    "run": 42202164628,
+    "head": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+    "status": "in_progress_at_intake",
+    "scope": "New automatic Dev event; exact same commit already passed source CI42194686542. No duplicate dispatch."
+  },
+  "new_artifact_or_native_frame_credit": 0,
+  "partial_Dev_increment_authorized_now": 1,
+  "accepted_removed": 0,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f1cced56d299695580509b0d3c96e75f7f5e75ce/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/MANIFEST.json"
+}

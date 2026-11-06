@@ -1,0 +1,48 @@
+{
+  "state": "PASS_CURRENT_CANONICAL_DEV_METADATA_GATES",
+  "baseline": "3ec5c9c3beb0d6422dc9816e0cf2eab4ab9f4353",
+  "actual_Dev_source": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+  "checks": [
+    {
+      "command": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe -B tools/audit_document_authority.py",
+      "exit_code": 0,
+      "result": "PASS",
+      "started_at_utc": "2026-11-06T10:33:03.334412+00:00",
+      "completed_at_utc": "2026-11-06T10:33:26.694620+00:00",
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_integration_20261106/authority.log"
+    },
+    {
+      "command": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe -B tools/audit_development.py --base auto",
+      "exit_code": 0,
+      "result": "PASS",
+      "started_at_utc": "2026-11-06T10:33:26.694738+00:00",
+      "completed_at_utc": "2026-11-06T10:33:57.447064+00:00",
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_integration_20261106/development_auto.log"
+    },
+    {
+      "command": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe -B tools/audit_development.py --base 3ec5c9c3beb0d6422dc9816e0cf2eab4ab9f4353",
+      "exit_code": 0,
+      "result": "PASS",
+      "started_at_utc": "2026-11-06T10:33:57.447312+00:00",
+      "completed_at_utc": "2026-11-06T10:34:00.288611+00:00",
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_integration_20261106/development_3ec.log"
+    }
+  ],
+  "engine_validation": "Exact green F1 source CI and unchanged runtime closure; canonical old game tree is not a runtime authority or merge source. No local engine suite replay.",
+  "counts": {
+    "published_source_artifacts": 45,
+    "partial_Dev_artifacts": 44,
+    "known_roles_lower_bound": 280,
+    "known_families_lower_bound": 36,
+    "retained_bounded_native": 8056,
+    "retained_excluded_native": 4398,
+    "retained_native": 12454,
+    "accepted_removed": 0,
+    "complete_scene_coverage": 0,
+    "whole_game_total": null
+  },
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null
+}

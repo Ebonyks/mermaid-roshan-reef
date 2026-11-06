@@ -1,7 +1,7 @@
 {
   "schema": "reef.flat_vector_tally/1",
   "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
-  "revision": "FV-SOURCE-CI-20261106-R144-GREEN-DEV-PENDING",
+  "revision": "FV-DEV-20261106-R144-PAINTED-SHARED-SHELL",
   "status_lanes": [
     "NEEDS_CONTEXT_REVIEW",
     "IDENTIFIED",
@@ -4383,7 +4383,7 @@
       {
         "id": "FVOBS-CATALOGUE-CRITTERS-BINDING",
         "status": "EXPLICIT_SAVED_BOOK_PARTIAL_BINDING_ONLY",
-        "facts": "games.json critters explicitlynames Critter Book collection/family system/modulecollection_system. Current Main preload/_collection_ref, original Pause MenuCritterBookButton\u2192open_book and navigationcritter_book/_draw_book bind4original R60saved cases140checks/80bookstates to that consumer. game remainslevel2/phasehall; no synthetic game=critters establishes mapping. Retain ui.collection as separate overlapping ID. Acquisition/spawn/catch/caller/native/resource/fullQA11/device/child/owner still open. One partial catalogue-ID credit, no new native/screen/art/removal credit.",
+        "facts": "games.json critters explicitlynames Critter Book collection/family system/modulecollection_system. Current Main preload/_collection_ref, original Pause MenuCritterBookButton→open_book and navigationcritter_book/_draw_book bind4original R60saved cases140checks/80bookstates to that consumer. game remainslevel2/phasehall; no synthetic game=critters establishes mapping. Retain ui.collection as separate overlapping ID. Acquisition/spawn/catch/caller/native/resource/fullQA11/device/child/owner still open. One partial catalogue-ID credit, no new native/screen/art/removal credit.",
         "evidence": "CRITTER_ALIAS_BINDING.json"
       },
       {
@@ -10375,7 +10375,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "SUMMARY.json. 45 published bounded source artifacts,43partial Dev artifacts,280named roles and36families as lower bounds;8056bounded/4398excluded/12454retained native events;0accepted removals and0complete scene coverage;whole-game denominators remain unknown. R144 is published on its work branch, not integrated into Dev.",
+  "current_effective_summary": "SUMMARY.json. 45 published bounded source artifacts,44 partial Dev artifacts;280 named roles and36 families remain lower bounds. Retained per-piece events8056 bounded/4398 excluded/12454 total are unchanged. Accepted removals0, complete scene coverage0, whole-game totals unknown. R144 is integrated on exact green sourceF1; formal and external acceptance remain open.",
   "intro_entry_ownership": {
     "revision": "FV-AUDIT-20261016-R77",
     "topic_baseline": "7fd93aa0d2036c06c9a65aea6c79a990cc9ae01b",
@@ -10943,14 +10943,16 @@
     "known_separate_artifact_keys": [
       "r83_touch_flash_runtime",
       "r86_navigation_runtime",
-      "r88_critter_book_runtime"
+      "r88_critter_book_runtime",
+      "r144_shared_painted_shell_runtime"
     ],
-    "known_implementation_count": 3,
+    "known_implementation_count": 4,
     "count_scope": "Bounded published implementation artifacts, not artwork pieces or completed families.",
-    "dev_integrated": 2,
+    "dev_integrated": 3,
     "dev_integrated_artifact_keys": [
       "r86_navigation_runtime",
-      "r88_critter_book_runtime"
+      "r88_critter_book_runtime",
+      "r144_shared_painted_shell_runtime"
     ],
     "whole_family_complete": false,
     "approved": 0,
@@ -11572,7 +11574,7 @@
     "mission_complete": false,
     "recorded_at_utc": "2026-10-29T06:35:35.079787+00:00"
   },
-  "partial_dev_artifacts_current_summary": 43,
+  "partial_dev_artifacts_current_summary": 44,
   "r102_mint_runtime": {
     "stable_id": "FV-66629DC58A20",
     "scope": "First mint PAN specimen only; blue/lavender and shared helper consumers remain open.",
@@ -14575,7 +14577,7 @@
     ],
     "owner_scope": {
       "authority": "Direct owner reply in current chat",
-      "question": "You resumed the art goal, but the owner-approved demo plan still says \u201cNo new art\u201d until demo promotion. Does this resume authorize new art candidates on the work branch while keeping Dev frozen?",
+      "question": "You resumed the art goal, but the owner-approved demo plan still says “No new art” until demo promotion. Does this resume authorize new art candidates on the work branch while keeping Dev frozen?",
       "answer": "Resume art candidates; keep Dev frozen",
       "scope": "Production of work-branch art candidates and established GitHub delivery. Dev/master frozen; no promotion/release, automation resume, messaging/interruption of other chats or paused-goal resumption."
     }
@@ -14637,7 +14639,7 @@
         },
         {
           "number": 8,
-          "name": "Boot gate (real viewport \u2014 the area the phone opens in)",
+          "name": "Boot gate (real viewport — the area the phone opens in)",
           "conclusion": "success"
         },
         {
@@ -14937,7 +14939,7 @@
         },
         {
           "number": 8,
-          "name": "Boot gate (real viewport \u2014 the area the phone opens in)",
+          "name": "Boot gate (real viewport — the area the phone opens in)",
           "conclusion": "success"
         },
         {
@@ -15173,7 +15175,7 @@
     "owner_scope": {
       "state": "OWNER_AUTHORIZED_SOURCE_ART_CANDIDATES_DEV_FROZEN",
       "owner_reply": "Resume art candidates; keep Dev frozen",
-      "question": "You resumed the art goal, but the owner-approved demo plan still says \u201cNo new art\u201d until demo promotion. Does this resume authorize new art candidates on the work branch while keeping Dev frozen?",
+      "question": "You resumed the art goal, but the owner-approved demo plan still says “No new art” until demo promotion. Does this resume authorize new art candidates on the work branch while keeping Dev frozen?",
       "source_chat": "01a119cc-74b1-7d23-b956-126129405418",
       "scope": "Source work branches, painted candidates and established public GitHub source/canonical delivery authorized. No Dev/master writes, integration, promotion, release, automation resume or other-chat messages.",
       "quality": "Polished painted2Dstory-book quality; reuse optional; no failed-reuse-proof gate; no generation-version claim absent exposed backend version.",
@@ -15238,7 +15240,7 @@
         },
         {
           "number": 8,
-          "name": "Boot gate (real viewport \u2014 the area the phone opens in)",
+          "name": "Boot gate (real viewport — the area the phone opens in)",
           "conclusion": "success"
         },
         {
@@ -15435,7 +15437,7 @@
     "owner_scope": {
       "state": "OWNER_AUTHORIZED_SOURCE_ART_CANDIDATES_DEV_FROZEN",
       "owner_reply": "Resume art candidates; keep Dev frozen",
-      "question": "You resumed the art goal, but the owner-approved demo plan still says \u201cNo new art\u201d until demo promotion. Does this resume authorize new art candidates on the work branch while keeping Dev frozen?",
+      "question": "You resumed the art goal, but the owner-approved demo plan still says “No new art” until demo promotion. Does this resume authorize new art candidates on the work branch while keeping Dev frozen?",
       "source_chat": "01a119cc-74b1-7d23-b956-126129405418",
       "scope": "Source work branches, painted candidates and established public GitHub source/canonical delivery authorized. No Dev/master writes, integration, promotion, release, automation resume or other-chat messages.",
       "quality": "Polished painted2Dstory-book quality; reuse optional; no failed-reuse-proof gate; no generation-version claim absent exposed backend version.",
@@ -15500,7 +15502,7 @@
         },
         {
           "number": 8,
-          "name": "Boot gate (real viewport \u2014 the area the phone opens in)",
+          "name": "Boot gate (real viewport — the area the phone opens in)",
           "conclusion": "success"
         },
         {
@@ -15770,7 +15772,7 @@
         },
         {
           "number": 8,
-          "name": "Boot gate (real viewport \u2014 the area the phone opens in)",
+          "name": "Boot gate (real viewport — the area the phone opens in)",
           "conclusion": "success"
         },
         {
@@ -16042,7 +16044,7 @@
         },
         {
           "number": 8,
-          "name": "Boot gate (real viewport \u2014 the area the phone opens in)",
+          "name": "Boot gate (real viewport — the area the phone opens in)",
           "conclusion": "success"
         },
         {
@@ -18188,7 +18190,7 @@
   "new_bounded_source_artifacts_this_revision": 0,
   "r144_prior_effective_summary": "SUMMARY.json. 44 published bounded source artifacts,43partial Dev artifacts,280named roles and36families as lower bounds;8030bounded/4394excluded/12424retained native events;0accepted removals and0complete scene coverage;whole-game denominators remain unknown.",
   "r144_shared_painted_shell_runtime": {
-    "state": "PAINTED_SHARED_SHELL_PUBLISHED_SOURCE_CI_GREEN_DEV_PENDING",
+    "state": "PAINTED_SHARED_SHELL_DEV_PARTIAL_EXACT_SOURCE_CI_GREEN_FORMAL_EXTERNAL_OPEN",
     "artifact_key": "r144_shared_painted_shell_runtime",
     "stable_ids": [
       "FV-AB474EF3699E"
@@ -18207,14 +18209,14 @@
       },
       "checked_at_utc": "2026-11-06T06:55:24.185327+00:00"
     },
-    "current_Dev_observed": "6dfd04aef441f30e0374e9ae9049cff845ce4ebd",
-    "Dev_integration": false,
+    "current_Dev_observed": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+    "Dev_integration": true,
     "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/MANIFEST.json",
     "source_manifest_sha256": "cdfee00710c3228e122e808096e83a195ec82a49effa7d25973a52fa15e369d4",
     "source_required_anonymous_files": 255,
     "record": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md",
     "new_source_artifacts": 1,
-    "new_partial_Dev_artifacts": 0,
+    "new_partial_Dev_artifacts": 1,
     "updated_existing_named_roles": 1,
     "new_named_roles": 0,
     "new_families": 0,
@@ -18226,20 +18228,13 @@
     "unique_frame_content_hashes": 30,
     "candidate": true,
     "local_integration": true,
-    "runtime": "Actual local static/import/analyzers,81assertion probes plus1expectedheadlesscaptureSKIP and exact-head sourceCI pass. Formal QA11 and Dev/device/child/owner remain separate.",
+    "runtime": "Exact DevF1 retains all5557 validated runtime inputs from source10256; native30 diagnostics, strict local82 command exits and exact sourceC/B660/F1 CI pass. New Dev-event CI42202164628 is a separate running lane. Formal QA11, natural routes, device, child and owner acceptance remain open.",
     "formal_QA11": null,
     "device": null,
     "child": null,
     "owner": null,
     "accepted_removed": 0,
     "complete_scene_coverage": 0,
-    "coordination": {
-      "thread": "01a1a998-88ef-7e23-b52b-fbb454bd14ea",
-      "cursor": "7fb6fbaf-c11a-4fe5-918a-41d5427687d8:31",
-      "status": "active/inProgress",
-      "scope": "Bubble Duel elevator entry and tap/momentum/contact behavior; separate owner-authorized workflow capacity fix already onDev",
-      "rule": "Do not touch that dirty checkout, message/pause/resume that chat, duplicate its work, cancel/restart its healthy CI or start its APK retry. Reconcile only genuinely new verified production; defer Dev mutation while the active production/build owns its source."
-    },
     "source_CI_at_candidate_publication": {
       "run": 42171300891,
       "head_sha": "10256d79c971e1b39e7f422d63e014ae5183cc7c",
@@ -18250,20 +18245,51 @@
         "probes": "in_progress_checkout"
       },
       "checked_at_utc": "2026-11-06T06:04:31.176010+00:00"
-    }
+    },
+    "prior_source_publication_state": "PAINTED_SHARED_SHELL_PUBLISHED_SOURCE_CI_GREEN_DEV_PENDING",
+    "Dev_revision": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+    "coordination_at_candidate_publication": {
+      "thread": "01a1a998-88ef-7e23-b52b-fbb454bd14ea",
+      "cursor": "7fb6fbaf-c11a-4fe5-918a-41d5427687d8:31",
+      "status": "active/inProgress",
+      "scope": "Bubble Duel elevator entry and tap/momentum/contact behavior; separate owner-authorized workflow capacity fix already onDev",
+      "rule": "Do not touch that dirty checkout, message/pause/resume that chat, duplicate its work, cancel/restart its healthy CI or start its APK retry. Reconcile only genuinely new verified production; defer Dev mutation while the active production/build owns its source."
+    },
+    "coordination": {
+      "scope": "Reconciled a finished verified candidate in the owned worktree; foreign active Bubble Duel checkout and jobs untouched. Source-only Sky study and newer owner rejection history preserved.",
+      "latest_other_thread": "01a1a998-88ef-7e23-b52b-fbb454bd14ea",
+      "latest_read_only_cursor": "7fb6fbaf-c11a-4fe5-918a-41d5427687d8:69",
+      "no_other_chat_messages_or_goal_changes": true,
+      "no_competing_APK_retry_or_master_promotion": true
+    },
+    "current_integration_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_integration_20261106/DEV_INTEGRATED.json",
+    "current_source_CI": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_integration_20261106/SOURCE_F1_CI.json",
+    "current_source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f1cced56d299695580509b0d3c96e75f7f5e75ce/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/MANIFEST.json",
+    "current_source_required_files": 33,
+    "current_source_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_integration_20261106/SOURCE_REMOTE_VERIFICATION.json",
+    "this_update_deltas": {
+      "published_source_artifacts": 0,
+      "partial_Dev_artifacts": 1,
+      "named_roles": 0,
+      "families": 0,
+      "retained_per_piece_native_events": 0,
+      "generation_calls": 0,
+      "accepted_removed": 0
+    },
+    "retained_scope_notice": "Original source production fields retain their historical30-frame/1source-artifact scope. This update integrates that already-counted candidate; no source/image/native-frame recount."
   },
   "r144_current_effective_summary": {
     "known_roles": 280,
     "known_families": 36,
     "published_bounded_source_artifacts": 45,
-    "partial_Dev_artifacts": 43,
+    "partial_Dev_artifacts": 44,
     "retained_bounded_native_events": 8056,
     "retained_excluded_native_events": 4398,
     "retained_native_events": 12454,
     "accepted_removed": 0,
     "complete_scene_coverage": 0,
     "whole_game_total": null,
-    "revision": "FV-SOURCE-20261106-R144-PAINTED-SHARED-SHELL"
+    "revision": "FV-DEV-20261106-R144-PAINTED-SHARED-SHELL"
   },
   "r144_prior_current_metric_fields": {
     "retained_bounded_current_summary": 8030,
@@ -18271,5 +18297,92 @@
     "retained_native_events_current_summary": 12424,
     "bounded_implementation_artifacts_published_current_summary": 44,
     "partial_dev_artifacts_current_summary": 43
+  },
+  "r144_prior_to_Dev_publication": {
+    "revision": "FV-SOURCE-CI-20261106-R144-GREEN-DEV-PENDING",
+    "current_effective_summary": "SUMMARY.json. 45 published bounded source artifacts,43partial Dev artifacts,280named roles and36families as lower bounds;8056bounded/4398excluded/12454retained native events;0accepted removals and0complete scene coverage;whole-game denominators remain unknown. R144 is published on its work branch, not integrated into Dev.",
+    "current_record": {
+      "state": "PAINTED_SHARED_SHELL_PUBLISHED_SOURCE_CI_GREEN_DEV_PENDING",
+      "artifact_key": "r144_shared_painted_shell_runtime",
+      "stable_ids": [
+        "FV-AB474EF3699E"
+      ],
+      "source_revision": "10256d79c971e1b39e7f422d63e014ae5183cc7c",
+      "source_CI": {
+        "run": 42171300891,
+        "head_sha": "10256d79c971e1b39e7f422d63e014ae5183cc7c",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42171300891",
+        "updated_at": "2026-11-06T06:53:32Z",
+        "jobs": {
+          "area-music-provenance": "success",
+          "probes": "success"
+        },
+        "checked_at_utc": "2026-11-06T06:55:24.185327+00:00"
+      },
+      "current_Dev_observed": "6dfd04aef441f30e0374e9ae9049cff845ce4ebd",
+      "Dev_integration": false,
+      "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/MANIFEST.json",
+      "source_manifest_sha256": "cdfee00710c3228e122e808096e83a195ec82a49effa7d25973a52fa15e369d4",
+      "source_required_anonymous_files": 255,
+      "record": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md",
+      "new_source_artifacts": 1,
+      "new_partial_Dev_artifacts": 0,
+      "updated_existing_named_roles": 1,
+      "new_named_roles": 0,
+      "new_families": 0,
+      "new_generation_calls": 0,
+      "new_runtime_PNG": 0,
+      "new_native_frame_events": 30,
+      "new_bounded_frame_events": 26,
+      "new_excluded_frame_events": 4,
+      "unique_frame_content_hashes": 30,
+      "candidate": true,
+      "local_integration": true,
+      "runtime": "Actual local static/import/analyzers,81assertion probes plus1expectedheadlesscaptureSKIP and exact-head sourceCI pass. Formal QA11 and Dev/device/child/owner remain separate.",
+      "formal_QA11": null,
+      "device": null,
+      "child": null,
+      "owner": null,
+      "accepted_removed": 0,
+      "complete_scene_coverage": 0,
+      "coordination": {
+        "thread": "01a1a998-88ef-7e23-b52b-fbb454bd14ea",
+        "cursor": "7fb6fbaf-c11a-4fe5-918a-41d5427687d8:31",
+        "status": "active/inProgress",
+        "scope": "Bubble Duel elevator entry and tap/momentum/contact behavior; separate owner-authorized workflow capacity fix already onDev",
+        "rule": "Do not touch that dirty checkout, message/pause/resume that chat, duplicate its work, cancel/restart its healthy CI or start its APK retry. Reconcile only genuinely new verified production; defer Dev mutation while the active production/build owns its source."
+      },
+      "source_CI_at_candidate_publication": {
+        "run": 42171300891,
+        "head_sha": "10256d79c971e1b39e7f422d63e014ae5183cc7c",
+        "status": "in_progress",
+        "conclusion": null,
+        "jobs": {
+          "area-music-provenance": "success",
+          "probes": "in_progress_checkout"
+        },
+        "checked_at_utc": "2026-11-06T06:04:31.176010+00:00"
+      }
+    }
+  },
+  "r144_prior_shared_family_evidence": {
+    "family": "shared_ui",
+    "known_separate_artifact_keys": [
+      "r83_touch_flash_runtime",
+      "r86_navigation_runtime",
+      "r88_critter_book_runtime"
+    ],
+    "known_implementation_count": 3,
+    "count_scope": "Bounded published implementation artifacts, not artwork pieces or completed families.",
+    "dev_integrated": 2,
+    "dev_integrated_artifact_keys": [
+      "r86_navigation_runtime",
+      "r88_critter_book_runtime"
+    ],
+    "whole_family_complete": false,
+    "approved": 0,
+    "accepted_removed": 0
   }
 }

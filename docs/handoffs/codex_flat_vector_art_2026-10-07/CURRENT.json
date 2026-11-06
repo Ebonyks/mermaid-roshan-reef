@@ -1,17 +1,17 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-SOURCE-CI-20261106-R144-GREEN-DEV-PENDING",
+  "revision": "FV-DEV-20261106-R144-PAINTED-SHARED-SHELL",
   "current_entry": "r144_shared_painted_shell/README.md",
   "current_per_piece": "r96_geologist_mineral_candidate/per_piece.json",
   "current_scene_coverage": "r96_geologist_mineral_candidate/scene_coverage.json",
   "current_tally": "r96_geologist_mineral_candidate/tally.json",
   "current_backlog": "r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "r144_shared_painted_shell/CI_STATUS_MANIFEST.json",
+  "current_manifest": "r144_shared_painted_shell/dev_integration_20261106/MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "r144_shared_painted_shell/SOURCE_CI_COMPLETED.json",
+  "current_ci_evidence": "r144_shared_painted_shell/dev_integration_20261106/SOURCE_F1_CI.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -4864,7 +4864,7 @@
     ],
     "owner_scope": {
       "authority": "Direct owner reply in current chat",
-      "question": "You resumed the art goal, but the owner-approved demo plan still says \u201cNo new art\u201d until demo promotion. Does this resume authorize new art candidates on the work branch while keeping Dev frozen?",
+      "question": "You resumed the art goal, but the owner-approved demo plan still says “No new art” until demo promotion. Does this resume authorize new art candidates on the work branch while keeping Dev frozen?",
       "answer": "Resume art candidates; keep Dev frozen",
       "scope": "Production of work-branch art candidates and established GitHub delivery. Dev/master frozen; no promotion/release, automation resume, messaging/interruption of other chats or paused-goal resumption."
     }
@@ -4919,7 +4919,7 @@
         },
         {
           "number": 8,
-          "name": "Boot gate (real viewport \u2014 the area the phone opens in)",
+          "name": "Boot gate (real viewport — the area the phone opens in)",
           "conclusion": "success"
         },
         {
@@ -5211,7 +5211,7 @@
         },
         {
           "number": 8,
-          "name": "Boot gate (real viewport \u2014 the area the phone opens in)",
+          "name": "Boot gate (real viewport — the area the phone opens in)",
           "conclusion": "success"
         },
         {
@@ -5446,7 +5446,7 @@
     "owner_scope": {
       "state": "OWNER_AUTHORIZED_SOURCE_ART_CANDIDATES_DEV_FROZEN",
       "owner_reply": "Resume art candidates; keep Dev frozen",
-      "question": "You resumed the art goal, but the owner-approved demo plan still says \u201cNo new art\u201d until demo promotion. Does this resume authorize new art candidates on the work branch while keeping Dev frozen?",
+      "question": "You resumed the art goal, but the owner-approved demo plan still says “No new art” until demo promotion. Does this resume authorize new art candidates on the work branch while keeping Dev frozen?",
       "source_chat": "01a119cc-74b1-7d23-b956-126129405418",
       "scope": "Source work branches, painted candidates and established public GitHub source/canonical delivery authorized. No Dev/master writes, integration, promotion, release, automation resume or other-chat messages.",
       "quality": "Polished painted2Dstory-book quality; reuse optional; no failed-reuse-proof gate; no generation-version claim absent exposed backend version.",
@@ -5504,7 +5504,7 @@
         },
         {
           "number": 8,
-          "name": "Boot gate (real viewport \u2014 the area the phone opens in)",
+          "name": "Boot gate (real viewport — the area the phone opens in)",
           "conclusion": "success"
         },
         {
@@ -5700,7 +5700,7 @@
     "owner_scope": {
       "state": "OWNER_AUTHORIZED_SOURCE_ART_CANDIDATES_DEV_FROZEN",
       "owner_reply": "Resume art candidates; keep Dev frozen",
-      "question": "You resumed the art goal, but the owner-approved demo plan still says \u201cNo new art\u201d until demo promotion. Does this resume authorize new art candidates on the work branch while keeping Dev frozen?",
+      "question": "You resumed the art goal, but the owner-approved demo plan still says “No new art” until demo promotion. Does this resume authorize new art candidates on the work branch while keeping Dev frozen?",
       "source_chat": "01a119cc-74b1-7d23-b956-126129405418",
       "scope": "Source work branches, painted candidates and established public GitHub source/canonical delivery authorized. No Dev/master writes, integration, promotion, release, automation resume or other-chat messages.",
       "quality": "Polished painted2Dstory-book quality; reuse optional; no failed-reuse-proof gate; no generation-version claim absent exposed backend version.",
@@ -5758,7 +5758,7 @@
         },
         {
           "number": 8,
-          "name": "Boot gate (real viewport \u2014 the area the phone opens in)",
+          "name": "Boot gate (real viewport — the area the phone opens in)",
           "conclusion": "success"
         },
         {
@@ -6020,7 +6020,7 @@
         },
         {
           "number": 8,
-          "name": "Boot gate (real viewport \u2014 the area the phone opens in)",
+          "name": "Boot gate (real viewport — the area the phone opens in)",
           "conclusion": "success"
         },
         {
@@ -6284,7 +6284,7 @@
         },
         {
           "number": 8,
-          "name": "Boot gate (real viewport \u2014 the area the phone opens in)",
+          "name": "Boot gate (real viewport — the area the phone opens in)",
           "conclusion": "success"
         },
         {
@@ -6927,30 +6927,27 @@
   "immutable_r142_source_payload_revision": "5545a4ea5eb0498b514a7a59ae7b839fe8e2b410",
   "r142_remote_verification": "r142_bubble_duel_source/REMOTE_VERIFICATION.json",
   "current_Dev_delivery_snapshot": {
-    "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+    "Dev_revision": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
     "exact_source_CI": {
-      "id": 42033167812,
-      "head_sha": "6892c5753c75161986b4463c186f8711a0c12870",
-      "head_branch": "codex/bubble-duel-jobs-20261104",
+      "id": 42194686542,
+      "head_sha": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
       "status": "completed",
       "conclusion": "success",
-      "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42033167812"
+      "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42194686542"
     },
     "Dev_CI_at_snapshot": [
       {
-        "id": 42042239702,
-        "head_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+        "id": 42202164628,
+        "head_sha": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
         "head_branch": "dev",
         "status": "in_progress",
-        "conclusion": null,
-        "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42042239702"
+        "conclusion": null
       }
     ],
-    "R142_integrated": true,
-    "preceding_verified_APK_revision": "94c2a91512d2216deb26651f670469432c8f4242",
+    "R144_integrated": true,
     "current_matching_APK_verified": false,
-    "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json",
-    "checked_at_utc": "2026-11-05T14:51:33.661174+00:00"
+    "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_integration_20261106/DEV_INTEGRATED.json",
+    "checked_at_utc": "2026-11-06T10:22:23.140340+00:00"
   },
   "r140_prior_carrier_context": {
     "revision": "cb7bdd22d26d74e86d712547cb195ec1b8ae1f6e",
@@ -6958,11 +6955,12 @@
     "scope": "Historical Dev96 inventory failure and prior exact source passes; preserved immutably."
   },
   "current_art_source_context": {
-    "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
-    "current_entry": "r142_bubble_duel_source/README.md",
-    "current_manifest": "r142_bubble_duel_source/MANIFEST.json",
-    "current_ci_evidence": "r142_bubble_duel_source/SOURCE_RUNTIME_EVIDENCE.json",
-    "canonical_revision": "cb7bdd22d26d74e86d712547cb195ec1b8ae1f6e"
+    "revision": "FV-DEV-20261106-R144-PAINTED-SHARED-SHELL",
+    "source_revision": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+    "current_entry": "r144_shared_painted_shell/README.md",
+    "current_manifest": "r144_shared_painted_shell/dev_integration_20261106/MANIFEST.json",
+    "current_ci_evidence": "r144_shared_painted_shell/dev_integration_20261106/SOURCE_F1_CI.json",
+    "prior_canonical_revision": "3ec5c9c3beb0d6422dc9816e0cf2eab4ab9f4353"
   },
   "r140_dolls_progress_Dev_APK": {
     "state": "R140_DEV94_GREEN_MATCHING_APK_BYTE_VERIFIED",
@@ -7113,8 +7111,55 @@
   "r143_partial_Dev_artifact_delta": 16,
   "immutable_r143_receipt_revision": "504c290443c280ae543cb5caa1fe671340821ad4",
   "immutable_r144_payload_revision": "4bd9101a5b88ce8f0388917f297a849403e01ef3",
-  "current_payload_manifest": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/4bd9101a5b88ce8f0388917f297a849403e01ef3/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/MANIFEST.json",
-  "current_remote_verification": "r144_shared_painted_shell/REMOTE_VERIFICATION.json",
+  "current_payload_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f1cced56d299695580509b0d3c96e75f7f5e75ce/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_bc058d3b/MANIFEST.json",
+  "current_remote_verification": "r144_shared_painted_shell/dev_integration_20261106/SOURCE_REMOTE_VERIFICATION.json",
   "immutable_r144_receipt_revision": "d7c61f2636b4828a5158b3276dffdf695e5eeee3",
-  "previous_receipt_manifest": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/d7c61f2636b4828a5158b3276dffdf695e5eeee3/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/RECEIPT_MANIFEST.json"
+  "previous_receipt_manifest": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/d7c61f2636b4828a5158b3276dffdf695e5eeee3/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/RECEIPT_MANIFEST.json",
+  "r144_prior_current_art_source_context": {
+    "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
+    "current_entry": "r142_bubble_duel_source/README.md",
+    "current_manifest": "r142_bubble_duel_source/MANIFEST.json",
+    "current_ci_evidence": "r142_bubble_duel_source/SOURCE_RUNTIME_EVIDENCE.json",
+    "canonical_revision": "cb7bdd22d26d74e86d712547cb195ec1b8ae1f6e"
+  },
+  "r144_prior_current_Dev_delivery_snapshot": {
+    "Dev_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+    "exact_source_CI": {
+      "id": 42033167812,
+      "head_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+      "head_branch": "codex/bubble-duel-jobs-20261104",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42033167812"
+    },
+    "Dev_CI_at_snapshot": [
+      {
+        "id": 42042239702,
+        "head_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+        "head_branch": "dev",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42042239702"
+      }
+    ],
+    "R142_integrated": true,
+    "preceding_verified_APK_revision": "94c2a91512d2216deb26651f670469432c8f4242",
+    "current_matching_APK_verified": false,
+    "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R142_DEV_INTEGRATION.json",
+    "checked_at_utc": "2026-11-05T14:51:33.661174+00:00"
+  },
+  "r144_prior_current_manifest": {
+    "revision": "3ec5c9c3beb0d6422dc9816e0cf2eab4ab9f4353",
+    "path": "r144_shared_painted_shell/CI_STATUS_MANIFEST.json"
+  },
+  "r144_dev_integration": {
+    "revision": "f1cced56d299695580509b0d3c96e75f7f5e75ce",
+    "record": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_integration_20261106/DEV_INTEGRATED.json",
+    "source_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_integration_20261106/SOURCE_REMOTE_VERIFICATION.json",
+    "source_required_files": 33,
+    "new_source_artifacts": 0,
+    "new_partial_Dev_artifacts": 1,
+    "new_retained_native_frames": 0,
+    "accepted_removed": 0
+  }
 }
