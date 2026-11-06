@@ -1,0 +1,67 @@
+{
+  "state": "PASS_ALL_CURRENT_MERGED_CANDIDATE_GATES",
+  "source_revision": "10256d79c971e1b39e7f422d63e014ae5183cc7c",
+  "Dev_baseline": "6dfd04aef441f30e0374e9ae9049cff845ce4ebd",
+  "results": [
+    {
+      "name": "parser",
+      "command": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe -B -m gdtoolkit.parser scripts/shell_ornament.gd",
+      "exit_code": 0,
+      "result": "PASS",
+      "started_at_utc": "2026-11-06T08:05:38.950894+00:00",
+      "completed_at_utc": "2026-11-06T08:05:39.669368+00:00",
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_6dfd04ae/parser.log"
+    },
+    {
+      "name": "inference",
+      "command": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe -B tools/lint_inference.py scripts/shell_ornament.gd",
+      "exit_code": 0,
+      "result": "PASS",
+      "started_at_utc": "2026-11-06T08:05:38.951420+00:00",
+      "completed_at_utc": "2026-11-06T08:05:39.119495+00:00",
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_6dfd04ae/inference.log"
+    },
+    {
+      "name": "android_source_tests",
+      "command": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe -B -m unittest tools.tests.test_verify_android_build_source",
+      "exit_code": 0,
+      "result": "PASS",
+      "started_at_utc": "2026-11-06T08:05:38.951636+00:00",
+      "completed_at_utc": "2026-11-06T08:05:39.553804+00:00",
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_6dfd04ae/android_source_tests.log"
+    },
+    {
+      "name": "authority",
+      "command": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe -B tools/audit_document_authority.py",
+      "exit_code": 0,
+      "result": "PASS",
+      "started_at_utc": "2026-11-06T08:05:39.669810+00:00",
+      "completed_at_utc": "2026-11-06T08:06:02.216142+00:00",
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_6dfd04ae/authority.log"
+    },
+    {
+      "name": "development_auto",
+      "command": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe -B tools/audit_development.py --base auto",
+      "exit_code": 0,
+      "result": "PASS",
+      "started_at_utc": "2026-11-06T08:06:02.216229+00:00",
+      "completed_at_utc": "2026-11-06T08:06:07.578823+00:00",
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_6dfd04ae/development_auto.log"
+    },
+    {
+      "name": "development_6df",
+      "command": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe -B tools/audit_development.py --base 6dfd04aef441f30e0374e9ae9049cff845ce4ebd",
+      "exit_code": 0,
+      "result": "PASS",
+      "started_at_utc": "2026-11-06T08:06:07.578902+00:00",
+      "completed_at_utc": "2026-11-06T08:06:11.748729+00:00",
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/dev_reconcile_6dfd04ae/development_6df.log"
+    }
+  ],
+  "runtime_engine_suite": "Reused exact sourceC evidence with5557 staged Git inputs identical; no redundant local engine run.",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "Dev_integrated": false
+}

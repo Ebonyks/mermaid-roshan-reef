@@ -1,0 +1,51 @@
+{
+  "state": "PREPARED_WORK_BRANCH_DEV_INTEGRATION_PENDING",
+  "stable_id": "FV-AB474EF3699E",
+  "source_revision": "10256d79c971e1b39e7f422d63e014ae5183cc7c",
+  "Dev_baseline": "6dfd04aef441f30e0374e9ae9049cff845ce4ebd",
+  "canonical_context_revision": "3ec5c9c3beb0d6422dc9816e0cf2eab4ab9f4353",
+  "branch": "codex/flat-vector-shell-dev-reconcile-20261106",
+  "scope": "Reconcile the finished R144 painted shell candidate into current Dev. All5557 runtime Git inputs match the exact validated candidate; retain the owner-approved Android capacity/manual retry fix and both parent audit additions.",
+  "source_CI": {
+    "run": 42171300891,
+    "head_sha": "10256d79c971e1b39e7f422d63e014ae5183cc7c",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42171300891",
+    "updated_at": "2026-11-06T06:53:32Z",
+    "jobs": {
+      "area-music-provenance": "success",
+      "probes": "success"
+    },
+    "checked_at_utc": "2026-11-06T06:55:24.185327+00:00"
+  },
+  "canonical_CI": {
+    "run": 42178419447,
+    "head": "3ec5c9c3beb0d6422dc9816e0cf2eab4ab9f4353",
+    "status": "completed",
+    "conclusion": "success",
+    "jobs": {
+      "probes": "success",
+      "area-music-provenance": "success"
+    },
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42178419447",
+    "verified_at_utc": "2026-11-06T07:59:06.196Z"
+  },
+  "runtime_evidence": "RUNTIME_GIT_CLOSURE.json; exact SourceC static/import/analyzers/82 trusted commands and30 configured native frames are reused because runtime inputs are identical. No fresh engine suite or native capture for bookkeeping.",
+  "source_manifest_SELF_resolution": "10256d79c971e1b39e7f422d63e014ae5183cc7c",
+  "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/10256d79c971e1b39e7f422d63e014ae5183cc7c/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/MANIFEST.json",
+  "integration_CI": null,
+  "Dev_integrated": false,
+  "candidate_artifact_already_counted": 45,
+  "partial_Dev_artifacts_before": 43,
+  "new_art_or_frame_credit": 0,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "complete_scene_coverage": 0,
+  "whole_game_total": null,
+  "other_active_editor": "Bubble Duel work remains in its separate checkout; its uncommitted candidate is not included. This is reconciliation of a newly verified finished art candidate, not another runtime production item.",
+  "authorization": "Owner requests all recent updates on Dev and continued art production. No master promotion. No workflow edits authored here; the inherited owner-approved workflow is exact to6df."
+}

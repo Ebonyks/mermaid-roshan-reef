@@ -1,0 +1,50 @@
+{
+  "state": "PASS_R144_REVIEW_RESOURCE_EXCLUSION_EXACT_ENGINE_IMPORT",
+  "source_sha256": "a51f513f205cf6395c5724e9e2ef2dc09f04ea24db534aa22c28806763f3c2c8",
+  "runtime_input_count": 5557,
+  "runtime_unchanged": true,
+  "normal_unchanged": true,
+  "guard": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/.gdignore",
+  "ignored_review_resources_in_editor_cache": 0,
+  "regenerated_review_import_sidecars": 0,
+  "explicit_ignored_fixture_still_loads": true,
+  "process_results": [
+    {
+      "label": "import",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "--import"
+      ],
+      "exit_code": 0,
+      "errors": [],
+      "log_sha256": "734c00d3b674810d5e90c5a89e6ca4c4a99cd0ad102bcb4346e5158cdd5a488c"
+    },
+    {
+      "label": "ignored_fixture_analyzer",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "--check-only",
+        "--script",
+        "res://docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/capture_context.gd"
+      ],
+      "exit_code": 0,
+      "errors": [],
+      "log_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    }
+  ],
+  "performance_metrics_not_claimed": [
+    "physicalFPS",
+    "GPUallocation",
+    "APKsize"
+  ],
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null
+}
