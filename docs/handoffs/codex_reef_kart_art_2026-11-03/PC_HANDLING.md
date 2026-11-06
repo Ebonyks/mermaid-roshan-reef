@@ -1,5 +1,7 @@
 # Reef Grand Prix PC handling study
 
+Current 2026-11-05 input correction: the single touch pedal is **gas**. [ZONES.md](ZONES.md) owns the current mapping, exact item guidance and four room sections. Older brake measurements below retain their historical baseline and do not redefine the new owner direction.
+
 The published PC race used the Opera child-assist setting of 0.75. At that setting the stick moved a target lane and the controller supplied the full steering command to follow that lane. The kart also accelerated with every input released. A 22% analog deadzone hid light steering and the chase camera eased toward the kart at 7.5/s. A rail contact rotated the body back toward the road.
 
 Nintendo exposes Smart Steering and Auto-Accelerate as distinct driver aids. The PC study uses that distinction to test agency, with manual steering and accelerator input as the default. The comparison uses observable behavior as a reference and makes no claim about Nintendo's internal tuning. [Nintendo driving techniques](https://www.nintendo.com/jp/topics/article/65243d29-a9f1-4c40-a788-34485b9320e0)

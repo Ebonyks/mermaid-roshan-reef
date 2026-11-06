@@ -1891,16 +1891,16 @@ func _exercise_racer_finale(act: OperaAct, world: OperaCareerWorld2D,
 	var racer_surface := world.surface as OperaRacerSurface
 	var owned_engine: ReefKartRace = racer_surface._engine
 	var owned_engine_id: int = owned_engine.get_instance_id()
-	# Owner layout 2026-11-03: green stick on the left, red brake and the item
+	# Owner layout 2026-11-05: green stick on the left, gas pedal and the item
 	# bubble on the right, each drawn by the engine's fixed control layer.
-	_check("racer touch layout puts the stick left and brake plus bubble right",
+	_check("racer touch layout puts the stick left and gas plus bubble right",
 		OperaRacerSurface.STEERING_RECT.end.x <= StorybookUI.CANVAS_SIZE.x * 0.5
 		and OperaRacerSurface.TURBO_CENTER.x > StorybookUI.CANVAS_SIZE.x * 0.5
-		and OperaRacerSurface.BRAKE_CENTER.x > StorybookUI.CANVAS_SIZE.x * 0.5
-		and OperaRacerSurface.TURBO_CENTER.distance_to(OperaRacerSurface.BRAKE_CENTER)
-			> OperaRacerSurface.TURBO_RADIUS + OperaRacerSurface.BRAKE_RADIUS
+		and OperaRacerSurface.GAS_CENTER.x > StorybookUI.CANVAS_SIZE.x * 0.5
+		and OperaRacerSurface.TURBO_CENTER.distance_to(OperaRacerSurface.GAS_CENTER)
+			> OperaRacerSurface.TURBO_RADIUS + OperaRacerSurface.GAS_RADIUS
 			+ OperaRacerSurface.HIT_MARGIN * 2.0
-		and owned_engine.controls.has("stick_base") and owned_engine.controls.has("brake_center")
+		and owned_engine.controls.has("stick_base") and owned_engine.controls.has("gas_center")
 		and owned_engine.controls.has("bubble_center"))
 	var owned_engine_bound: int = _subtree_node_count(owned_engine)
 	var open_finale_race_staged := world.task_open \
@@ -2211,24 +2211,32 @@ func _exercise_racer_policy_comparison() -> void:
 	turbo.configure("kart_race", Color.WHITE)
 	_racer_touch(turbo, 83, true, OperaRacerSurface.TURBO_CENTER)
 	var distance_at_three := 0.0
+	var time_at_three := 0.0
 	for frame in range(210):
 		turbo._process(RACER_TICK_SECONDS)
 		if frame == 179:
 			distance_at_three = float(turbo.kart.get("s", 0.0))
-	var turbo_continued := turbo.race_turbo_held \
-		and turbo.race_turbo_owner == 83 and turbo.race_touch_owner == -1 \
-		and float(turbo.kart.get("s", 0.0)) > distance_at_three
+			time_at_three = turbo._engine.race_time
+	var turbo_continued := (
+		turbo.race_turbo_held and turbo.race_turbo_owner == 83 and turbo.race_touch_owner == -1
+		and turbo._engine.race_time > time_at_three
+		and is_equal_approx(float(turbo.kart.get("s", 0.0)), distance_at_three)
+		and is_zero_approx(float(turbo.kart.get("speed", -1.0))))
 	paused = true
 	var distance_at_pause := float(turbo.kart.get("s", 0.0))
+	var time_at_pause := turbo._engine.race_time
+	var imp_at_pause := float(turbo._engine.imp()["race_s"])
 	var pause_cleared := not turbo.held and not turbo.race_turbo_held \
 		and turbo.race_touch_owner == -1 and turbo.race_turbo_owner == -1
 	paused = false
 	for _frame in range(60):
 		turbo._process(RACER_TICK_SECONDS)
-	var pause_froze := is_equal_approx(
-		float(turbo.kart.get("s", -1.0)), distance_at_pause)
+	var pause_froze := (
+		is_equal_approx(float(turbo.kart.get("s", -1.0)), distance_at_pause)
+		and is_equal_approx(turbo._engine.race_time, time_at_pause)
+		and is_equal_approx(float(turbo._engine.imp()["race_s"]), imp_at_pause))
 	turbo.free()
-	_check("a held item bubble keeps the race live past three seconds and scene-tree pause cancels it",
+	_check("the item bubble keeps the race clock live without supplying gas, and pause freezes both racers",
 		turbo_continued and pause_cleared and pause_froze)
 
 

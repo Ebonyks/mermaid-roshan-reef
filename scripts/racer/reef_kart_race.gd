@@ -19,10 +19,12 @@ extends Node2D
 ## docs/handoffs/codex_reef_kart_art_2026-11-03/VISUAL_REVIEW.md.
 
 signal race_event(kind: String, value: float)
+signal item_awarded(slot: int, kind: String)
 
 const TrackScript := preload("res://scripts/racer/reef_kart_track.gd")
 const RoomCourses := preload("res://scripts/racer/reef_kart_courses.gd")
 const PCDrive := preload("res://scripts/racer/reef_kart_drive.gd")
+const ItemVoice := preload("res://scripts/racer/reef_kart_item_voice.gd")
 const FloorShader := preload("res://scripts/racer/reef_kart_floor.gdshader")
 
 const VIEW := Vector2(1280.0, 720.0)
@@ -158,6 +160,7 @@ var _duel := false
 var pc_handling := false
 var _pc_tune: Dictionary
 var winner_slot := -1
+var item_voice: Node = null
 
 
 func setup(options: Dictionary = {}) -> void:
@@ -179,6 +182,11 @@ func setup(options: Dictionary = {}) -> void:
 		karts.append(_new_kart(roster[index] as Dictionary))
 	_pl = karts[0]
 	_place_grid()
+	if pc_handling:
+		item_voice = ItemVoice.new()
+		item_voice.duel = _duel
+		add_child(item_voice)
+		item_awarded.connect(item_voice.award)
 	_load_textures()
 	_build_view()
 	_build_minimap()
@@ -385,6 +393,17 @@ func _style_room_floor() -> void:
 	_floor_material.set_shader_parameter("haze_end", 1200.0)
 	_floor_material.set_shader_parameter("finish_pos", track.point_at(0.0))
 	_floor_material.set_shader_parameter("finish_forward", track.tangent_at(0.0))
+	var roads := PackedColorArray()
+	var grounds := PackedColorArray()
+	var surfaces := PackedInt32Array()
+	for zone: Dictionary in track.room["zones"]:
+		roads.append(zone["road"])
+		grounds.append(zone["ground"])
+		surfaces.append(int(zone["surface"]))
+	_floor_material.set_shader_parameter("zone_roads", roads)
+	_floor_material.set_shader_parameter("zone_grounds", grounds)
+	_floor_material.set_shader_parameter("zone_surfaces", surfaces)
+	_floor_material.set_shader_parameter("course_length", track.length)
 	var bridges: Array = track.room.get("bridges", [])
 	var scale := float(track.room["scale"])
 	var shift: Vector2 = track.room["shift"]
@@ -457,6 +476,9 @@ func step_race(delta: float, input: Dictionary) -> void:
 				state = "race"
 				go_t = GO_SHOW
 				race_event.emit("go", 0.0)
+				for slot in range(karts.size()):
+					if bool(karts[slot]["player"]):
+						item_awarded.emit(slot, String(karts[slot]["item"]))
 		"race":
 			race_time += delta
 			_step_racers(delta, input)
@@ -495,7 +517,7 @@ func _step_racers(delta: float, input: Dictionary) -> void:
 			var steer := clampf(float(controls_for_kart.get("steer", 0.0)), -1.0, 1.0)
 			if bool(k["player"]):
 				steer = _player_steer(k, steer, delta)
-			_drive(k, steer, bool(controls_for_kart.get("brake", false)), delta)
+			_drive(k, steer, bool(controls_for_kart.get("brake", false)), delta, float(controls_for_kart.get("throttle", 1.0)))
 	_separate_karts()
 	_tick_projectiles(delta)
 	_tick_traps(delta)
@@ -602,7 +624,7 @@ func _corner_speed(k: Dictionary, top: float) -> float:
 	return lerpf(top, minf(top, holdable), assist)
 
 
-func _drive(k: Dictionary, steer: float, braking: bool, delta: float) -> void:
+func _drive(k: Dictionary, steer: float, braking: bool, delta: float, throttle: float = 1.0) -> void:
 	for key: String in ["boost_t", "spin_t", "slow_t", "bump_t"]:
 		k[key] = maxf(0.0, float(k[key]) - delta)
 	var terrain := track.terrain_at_lat(float(k["lat"]))
@@ -616,6 +638,8 @@ func _drive(k: Dictionary, steer: float, braking: bool, delta: float) -> void:
 		k["spin_vis"] = float(k["spin_vis"]) + delta * 11.0
 	elif braking:
 		speed = move_toward(speed, 0.0, BRAKE * delta)
+	elif throttle <= 0.0:
+		speed = move_toward(speed, 0.0, 105.0 * delta)
 	elif speed < top:
 		speed = minf(top, speed + accel * delta * (1.0 - 0.55 * speed / maxf(1.0, top)))
 	else:
@@ -647,6 +671,8 @@ func _drive_pc(k: Dictionary, command: Dictionary, delta: float) -> void:
 
 
 func cancel_pc_input() -> void:
+	if item_voice != null:
+		item_voice.clear()
 	for kart: Dictionary in karts:
 		PCDrive.cancel_drift(kart)
 
@@ -780,6 +806,7 @@ func _contact_features(k: Dictionary, delta: float) -> void:
 			k["ai_item_t"] = 0.0
 			if bool(k["player"]):
 				race_event.emit("item_ready", float(ITEM_KINDS.find(String(k["item"]))))
+				item_awarded.emit(karts.find(k), String(k["item"]))
 
 
 ## Position-weighted draws keep the race close: whoever is behind is more
@@ -966,6 +993,8 @@ func _scale_kart_speed(kart: Dictionary, factor: float) -> void:
 
 
 func _restart_attempt() -> void:
+	if item_voice != null:
+		item_voice.clear()
 	attempt += 1
 	projectiles.clear()
 	traps.clear()
@@ -1037,8 +1066,14 @@ func _screen(world: Vector2, depth: float) -> Vector2:
 func _draw_sky() -> void:
 	if _room_art != null:
 		var source_size := _room_art.get_size()
-		var pan := 0.08 + 0.075 * sin(cam_heading)
-		var source := Rect2(source_size * Vector2(pan, 0.02), source_size * Vector2(0.84, float(track.room["wall_height"])))
+		var phase := track.wrap_s(float(_pl["track_s"])) / track.length
+		_floor_material.set_shader_parameter("camera_phase", phase)
+		var pan := 0.15 - 0.125 * cos(phase * TAU) + 0.025 * sin(cam_heading)
+		if track.id == "mermaid_pool":
+			# Exclude the painted towel fixture: the unique cabinet stands in-world.
+			pan = 0.01 + 0.01 * sin(cam_heading)
+		# Upper architecture only: the room's fixtures now stand in world space.
+		var source := Rect2(source_size * Vector2(clampf(pan, 0.0, 0.30), 0.0), source_size * Vector2(0.70, 0.27))
 		var wall := Rect2(0.0, 0.0, VIEW.x, HORIZON_Y + 2.0)
 		_sky.draw_texture_rect_region(_room_art, wall, source)
 		var palette: Array = track.room["palette"]
@@ -1156,12 +1191,12 @@ func _draw_landmark(landmark: Dictionary, screen: Vector2, scale: float) -> void
 	var aspect := float(texture.get_height()) / float(texture.get_width())
 	var world_size := Vector2(width, float(landmark.get("h", width * aspect)))
 	if not track.room.is_empty():
-		world_size *= minf(1.0, 176.0 / world_size.y)
+		world_size *= minf(1.0, float(landmark.get("max_h", 176.0)) / world_size.y)
 	var size := world_size * scale
 	if size.x < 3.0:
 		return
 	var bottom := screen.y - float(landmark.get("lift", 0.0)) * scale
-	if id.begins_with("reef_") or not track.room.is_empty():
+	if (id.begins_with("reef_") or not track.room.is_empty()) and float(landmark.get("lift", 0.0)) == 0.0:
 		_world.draw_set_transform(screen, 0.0, Vector2(1.0, 0.16))
 		_world.draw_circle(Vector2.ZERO, size.x * 0.32, Color(0.24, 0.14, 0.31, 0.17), true, -1.0, true)
 		_world.draw_set_transform(Vector2.ZERO)
@@ -1558,7 +1593,7 @@ func _draw_minimap() -> void:
 		_hud.draw_circle(at, 4.0 if _pc_hud else 6.0, color)
 
 
-## Green steering stick (left), red brake and the item bubble (right).
+## Green steering stick (left), gold gas pedal and the item bubble (right).
 func _draw_controls() -> void:
 	if controls.is_empty():
 		return
@@ -1577,16 +1612,18 @@ func _draw_controls() -> void:
 	_controls.draw_circle(knob, 52.0, INK)
 	_controls.draw_circle(knob, 47.0, Color("#5fcf7a") if not stick_held else Color("#7ee08f"))
 	_controls.draw_circle(knob - Vector2(14.0, 16.0), 13.0, Color(1.0, 1.0, 1.0, 0.5))
-	var brake_at: Vector2 = controls.get("brake_center", Vector2(1175, 625))
-	var brake_r := float(controls.get("brake_radius", 80.0))
-	var brake_held := bool(controls.get("brake_held", false))
-	var brake_draw := brake_r * (0.92 if brake_held else 1.0)
-	_controls.draw_circle(brake_at, brake_draw + 5.0, INK)
-	_controls.draw_circle(brake_at, brake_draw, Color("#c93a52") if brake_held else Color("#ef5a6f"))
-	_controls.draw_circle(brake_at - Vector2(brake_draw * 0.3, brake_draw * 0.32),
-		brake_draw * 0.22, Color(1.0, 1.0, 1.0, 0.35))
-	_controls.draw_rect(Rect2(brake_at - Vector2(brake_draw * 0.42, brake_draw * 0.13),
-		Vector2(brake_draw * 0.84, brake_draw * 0.26)), Color.WHITE)
+	var gas_at: Vector2 = controls.get("gas_center", Vector2(1175, 625))
+	var gas_r := float(controls.get("gas_radius", 80.0))
+	var gas_held := bool(controls.get("gas_held", false))
+	var gas_draw := gas_r * (0.92 if gas_held else 1.0)
+	_controls.draw_circle(gas_at, gas_draw + 5.0, INK)
+	_controls.draw_circle(gas_at, gas_draw, Color("#d89827") if gas_held else Color("#f5c65a"))
+	_controls.draw_circle(gas_at - Vector2(gas_draw * 0.3, gas_draw * 0.32),
+		gas_draw * 0.22, Color(1.0, 1.0, 1.0, 0.35))
+	for shift: float in [-14.0, 20.0]:
+		var tip := gas_at + Vector2(0.0, shift - gas_draw * 0.30)
+		_controls.draw_polyline(PackedVector2Array([tip + Vector2(-29, 24), tip,
+			tip + Vector2(29, 24)]), Color.WHITE, 12.0, true)
 	_draw_item_bubble()
 	if bool(controls.get("guide", false)):
 		var hand := _tex.get("guide_hand") as Texture2D

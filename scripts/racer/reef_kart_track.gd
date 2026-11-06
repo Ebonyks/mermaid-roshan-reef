@@ -157,7 +157,9 @@ static var _room_fields: Dictionary = {}
 
 
 func _init(course: Dictionary = {}) -> void:
-	room = course
+	room = course.duplicate(true)
+	if not room.is_empty():
+		room["zones"] = preload("res://scripts/racer/reef_kart_zones.gd").ZONES[String(room["id"])]
 	if not room.is_empty():
 		id = String(room["id"])
 		world_size = float(room["world_size"])
@@ -274,25 +276,32 @@ func _build_room_features() -> void:
 			var s := s_of(point, float(index) * 45.0)
 			pearls.append({"s": s, "lat": lat, "pos": point_at(s, lat), "respawn_t": 0.0})
 		row += 1
-	var props: Array = room["props"]
-	var prop_count := clampi(roundi(length / 640.0), 8, 18)
-	for index in range(prop_count):
-		var s := length * (float(index) + 0.36) / float(prop_count)
-		var side := -1.0 if index % 2 == 0 else 1.0
-		var prop: Dictionary = props[index % props.size()]
-		var clearance := RAIL + float(prop["w"]) * 0.5 + 24.0
-		var lateral := side * (clearance + 45.0 + 55.0 * float(index % 3))
-		var pos := point_at(s, lateral)
-		# The inside of a switchback can be next to a different road section.
-		# Place each prop on the side where it clears every part of the route.
-		if not _clear_of_road(pos, clearance):
-			pos = point_at(s, -lateral)
-		if not _clear_of_road(pos, clearance):
-			continue
-		var entry := prop.duplicate()
-		entry["s"] = s
-		entry["pos"] = pos
-		landmarks.append(entry)
+	for zone_index in range(room["zones"].size()):
+		var zone: Dictionary = room["zones"][zone_index]
+		for prop: Dictionary in zone["props"]:
+			var s := length * float(prop["at"])
+			var clearance := RAIL + float(prop["w"]) * 0.5 + 14.0
+			var lateral := float(prop["lat"])
+			var pos := point_at(s, lateral)
+			# A fixture may move outward or across the lane to clear an adjacent
+			# switchback. Its authored section and station never change.
+			var found := false
+			for side: float in [1.0, -1.0]:
+				for offset: float in [0.0, 70.0, 150.0, 240.0, 340.0, 460.0]:
+					pos = point_at(s, (lateral + signf(lateral) * offset) * side)
+					if _clear_of_road(pos, clearance):
+						found = true
+						break
+				if found:
+					break
+			if not _clear_of_road(pos, clearance):
+				push_warning("Room fixture has no clear placement: " + String(prop["id"]))
+				continue
+			var entry := prop.duplicate()
+			entry["s"] = s
+			entry["pos"] = pos
+			entry["zone"] = zone_index
+			landmarks.append(entry)
 	landmarks.append({"id": "course_finish_arch", "path": TRACK_ROOT + "billboards/pearl_start_arch.png",
 		"s": 0.0, "pos": point_at(0.0), "w": 330.0, "h": 250.0, "spans": true})
 	landmarks.append({"id": "course_finish_banner", "path": "res://assets/kart/finish_banner.png",
@@ -439,6 +448,8 @@ func floor_field() -> ImageTexture:
 	var distances := PackedFloat32Array()
 	distances.resize(resolution * resolution)
 	distances.fill(FIELD_FAR)
+	var phases := PackedFloat32Array()
+	phases.resize(resolution * resolution)
 	var reach := int(ceil(FIELD_REACH / cell))
 	var stride := 1 if is_room else 3
 	for sample in range(0, SAMPLES, stride):
@@ -453,11 +464,17 @@ func floor_field() -> ImageTexture:
 				var key := gy * resolution + gx
 				if d < distances[key]:
 					distances[key] = d
+					phases[key] = TAU * float(sample) / float(SAMPLES)
 	var bytes := PackedByteArray()
-	bytes.resize(resolution * resolution)
+	var channels := 3 if is_room else 1
+	bytes.resize(resolution * resolution * channels)
 	for key in range(resolution * resolution):
-		bytes[key] = clampi(int(round(distances[key] / FIELD_FAR * 255.0)), 0, 255)
-	var image := Image.create_from_data(resolution, resolution, false, Image.FORMAT_L8, bytes)
+		bytes[key * channels] = clampi(roundi(distances[key] / FIELD_FAR * 255.0), 0, 255)
+		if is_room:
+			bytes[key * channels + 1] = roundi((cos(phases[key]) * 0.5 + 0.5) * 255.0)
+			bytes[key * channels + 2] = roundi((sin(phases[key]) * 0.5 + 0.5) * 255.0)
+	var format := Image.FORMAT_RGB8 if is_room else Image.FORMAT_L8
+	var image := Image.create_from_data(resolution, resolution, false, format, bytes)
 	var texture := ImageTexture.create_from_image(image)
 	if is_room:
 		_room_fields[id] = texture

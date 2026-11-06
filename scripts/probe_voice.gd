@@ -100,6 +100,7 @@ func _init() -> void:
 	var brawl_audio := CountingAudioDirector.new(main)
 	main._audio_dir = brawl_audio
 	await _check_neutral_objective_guides(main, brawl_audio)
+	await _check_kart_item_guidance(main, brawl_audio)
 	await _check_melody_message_cue(main, brawl_audio)
 	await _check_brawl_message_cues(main, brawl_audio)
 	_check_quiet_roshan_reactions(main, brawl_audio)
@@ -499,5 +500,53 @@ func _check_neutral_objective_guides(main: ReefMain, audio: CountingAudioDirecto
 		and audio._active_required_key == "guide_dolls_catch_three")
 	audio.clear_objective_guide("dolls")
 	main.game = ""
+	main.clear_dialogue()
+	await process_frame
+
+
+func _check_kart_item_guidance(main: ReefMain, audio: CountingAudioDirector) -> void:
+	main.clear_dialogue()
+	main.game = "opera"
+	var music_on_before := main.music_on
+	var music_db_before := main.music.volume_db
+	var ambience_db_before := main.ambience.volume_db
+	main.music_on = true
+	main.music.volume_db = -8.0
+	main.ambience.volume_db = -10.0
+	for kind: String in ["zoom", "sparkle", "kelp", "pearls"]:
+		var path := audio._voice_path("guide", "kart_" + kind, false)
+		audio._say("guide", "kart_" + kind)
+		_check("Racer exact item explanation owns the shared required lane: " + kind,
+			path == "res://assets/audio/objective_guides/guide_kart_" + kind + ".ogg"
+			and audio._active_required_key == "guide_kart_" + kind
+			and _playing_pool_count(main) == 1)
+		_check("Racer item speech immediately ducks music and ambience: " + kind,
+			main.music.volume_db <= -14.0 and main.ambience.volume_db <= -16.0)
+		var before := main.voice_i
+		audio._say("roshan", "op_racer_work")
+		_check("Racer flavour cannot interrupt item guidance: " + kind, main.voice_i == before)
+		audio.clear_kart_guidance()
+		_check("Racer pause/skip clears the active item sentence: " + kind,
+			not audio._has_active_speech() and audio._required_voice_queue.is_empty())
+	audio._say("guide", "kart_zoom")
+	audio._say("guide", "kart_kelp")
+	_check("a new Racer award waits behind the current item explanation",
+		audio._required_voice_queue.size() == 1 and _playing_pool_count(main) == 1)
+	audio.clear_kart_guidance()
+	audio.tick_voice()
+	_check("canceled Racer guidance cannot drain after pause or Back",
+		not audio._has_active_speech() and audio._required_voice_queue.is_empty())
+	main.music_on = false
+	main.music.volume_db = -60.0
+	audio._say("guide", "kart_zoom")
+	_check("Racer speech cannot unmute music-off", main.music.volume_db <= -60.0)
+	audio.clear_kart_guidance()
+	main.music_on = music_on_before
+	main.music.volume_db = music_db_before
+	main.ambience.volume_db = ambience_db_before
+	main.game = ""
+	var before := main.voice_i
+	audio._say("guide", "kart_pearls")
+	_check("Racer item cue cannot play in a different activity", main.voice_i == before)
 	main.clear_dialogue()
 	await process_frame

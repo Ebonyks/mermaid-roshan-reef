@@ -1,0 +1,37 @@
+{
+  "date_utc": "2026-11-06T04:48:07.792699+00:00",
+  "status": "AGENT_REVIEWED_CANDIDATE_NOT_OWNER_ACCEPTED",
+  "renderer": "Godot 4.7.2-stable official.ed1daf0bf, Vulkan Forward Mobile, NVIDIA RTX 3060 Ti",
+  "capture_count": 73,
+  "capture_kinds": {
+    "posed_solo_sections": 16,
+    "posed_split_sections": 16,
+    "posed_threshold_views": 32,
+    "continuously_simulated_pool_towel_pass": 8,
+    "original_canal_touch_layout": 1
+  },
+  "review_method": "All captures inspected at contact-sheet scale; selected pool solo/split, fixture, source-art and touch-control images inspected at full size. Eight moving samples are at half-second simulation intervals, not full frame-by-frame motion acceptance.",
+  "corrections": [
+    "Replaced cyclic global prop scattering with section-owned fixed world stations.",
+    "Replaced a duplicate world towel cabinet with a unique landmark and excluded its painted copy from the pool wall crop.",
+    "Moved the waterfall to a road-clear position within the final pool section.",
+    "Smoothed wall pan continuously through section and lap seams.",
+    "Suspended the chandelier above its ground anchor and omitted a ground shadow for hanging art.",
+    "Corrected two-player sparkle speech to say racer ahead, since no imp exists in that roster.",
+    "Bound touch-to-skip to actual P1/P2 item icon rectangles and cleared speech before removing race views.",
+    "Kept the existing career steering instruction window before opening item guidance."
+  ],
+  "observations": [
+    "Distinct section colors/materials, fixed room fixtures and continuous curbs remain legible in the sampled solo and split views.",
+    "The gas pedal uses acceleration chevrons; no stop bar remains.",
+    "Close camera passes by another kart can occlude the lower player view in the constructed moving-pack fixture; full-speed camera/pack acceptance remains open."
+  ],
+  "remaining_acceptance": [
+    "Full-speed motion and all between-sample transitions",
+    "Human audio intelligibility, pronunciation, identity, mono and mix listening",
+    "Physical USB/Bluetooth controllers",
+    "Lenovo Tab M11 and older-phone timing, overdraw and performance",
+    "Child comprehension and owner visual approval"
+  ],
+  "finding_closure": "None. MA-OPERA-014, MA-VIS-008 and MA-AUDIO-001 retain their lifecycles."
+}

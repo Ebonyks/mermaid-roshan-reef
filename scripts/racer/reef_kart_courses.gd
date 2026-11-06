@@ -4,12 +4,12 @@ const ROOMS := "res://assets/flats/castle/rooms/"
 const COURSES := [
 	{
 		"id": "playroom", "pattern": 1, "wall_height": 0.47, "name": "Playroom Speedway", "room": "Castle Playroom",
-		"hint": "Two straights and two sweeping turns",
-		# GCN Baby Park, rotated to put its two straights across the room.
+		"hint": "Block slalom, stuffie nook, tent deck and toy parade",
+		# Broad oval inspiration, now with an authored block slalom and tent approach.
 		"points": [
-			Vector2(640, 830), Vector2(850, 830), Vector2(1040, 830), Vector2(1150, 807),
+			Vector2(640, 830), Vector2(850, 792), Vector2(1040, 844), Vector2(1150, 807),
 			Vector2(1230, 732), Vector2(1260, 630), Vector2(1230, 528), Vector2(1150, 453),
-			Vector2(1040, 430), Vector2(850, 430), Vector2(640, 430), Vector2(430, 430),
+			Vector2(1040, 430), Vector2(850, 468), Vector2(640, 412), Vector2(430, 430),
 			Vector2(240, 430), Vector2(130, 453), Vector2(50, 528), Vector2(20, 630),
 			Vector2(50, 732), Vector2(130, 807), Vector2(240, 830), Vector2(430, 830),
 		],
@@ -24,7 +24,7 @@ const COURSES := [
 	},
 	{
 		"id": "kitchen", "pattern": 2, "wall_height": 0.53, "name": "Copper Pan Circuit", "room": "Castle Kitchen",
-		"hint": "Long straights with a tight infield hook",
+		"hint": "Breakfast china, warm bakery, cool fridge corner and shell sink",
 		# SNES Mario Circuit 1. Start up the east straight, run the long
 		# diagonal, then follow the west straight into the return hook.
 		"points": [
@@ -50,7 +50,7 @@ const COURSES := [
 	},
 	{
 		"id": "mermaid_pool", "pattern": 3, "wall_height": 0.32, "name": "Seahorse Bridgeway", "room": "Mermaid Pool",
-		"hint": "Two bridges and a chain of S-bends",
+		"hint": "Towel alcove, fountain garden, float shallows and waterfall return",
 		# SNES Donut Plains 3. Two straight crossings followed by the
 		# central S and the southern hook. Bridge decks are continuous.
 		"points": [
@@ -84,7 +84,7 @@ const COURSES := [
 	},
 	{
 		"id": "opera_hall", "pattern": 4, "wall_height": 0.45, "name": "Footlight Finale", "room": "Opera Hall",
-		"hint": "Fast stage straights and sharp switchbacks",
+		"hint": "Pearl lobby, music rehearsal, footlight stage and backstage",
 		# SNES Rainbow Road. Follow the main loop and the inside line of
 		# the split on the bottom straight. Rounded corners suit kart scale.
 		"points": [

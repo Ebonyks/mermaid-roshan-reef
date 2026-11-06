@@ -4,10 +4,11 @@ extends OperaGestureSurface
 ## phase, rewards, saves, Back and the later curtain call; this surface owns
 ## the touch interface and clocks the engine only while the child is playing.
 ##
-## Owner layout (2026-11-03): the left of the screen is a green steering stick
+## Owner layout (2026-11-05): the left of the screen is a green steering stick
 ## (a touch anywhere in STEERING_RECT grabs it where the finger lands); the
-## right has a red brake button and a bubble button that uses the item she is
-## holding (zoom is the boost). The kart drives itself forward. Every control
+## right has a gold gas pedal button and a bubble button that uses the item she is
+## holding (zoom is the boost). The stick also supports one-finger steer-and-go; releasing all gas
+## sources coasts. Every control
 ## belongs to exactly one finger (DL-UI-04); pause and focus loss cancel all
 ## of them (DL-UI-05). After INPUT_GRACE seconds without a held control the
 ## whole race freezes, so nothing moves, wins or loses without her.
@@ -23,14 +24,15 @@ const STEERING_RANGE := 96.0
 const STICK_RADIUS := 104.0
 const STICK_HOME := Vector2(230, 560)
 const STICK_BASE_BOUNDS := Rect2(112, 330, 356, 290)
-## Right-hand item/boost bubble and red brake.
+## Right-hand item/boost bubble and gold gas pedal.
 const TURBO_CENTER := Vector2(1010, 505)
 const TURBO_RADIUS := 70.0
-const BRAKE_CENTER := Vector2(1175, 625)
-const BRAKE_RADIUS := 80.0
+const GAS_CENTER := Vector2(1175, 625)
+const GAS_RADIUS := 80.0
 const HIT_MARGIN := 16.0
 const MAX_STEP := 1.0 / 60.0
-## Existing recorded lines that fit race moments (no new recordings). None
+## Existing flavour lines fit race moments; exact neutral Guide item cues
+## own the required voice lane and suppress these reactions. None
 ## plays in the first VOICE_QUIET seconds so the RACE instruction is heard.
 const VOICE_QUIET := 4.0
 const RACE_VOICES := {
@@ -47,9 +49,9 @@ var race_clock := 0.0
 var race_input_t := 0.0
 var race_touch_owner := -1
 var race_turbo_owner := -1
-var race_brake_owner := -1
+var race_gas_owner := -1
 var race_turbo_held := false
-var race_brake_held := false
+var race_gas_held := false
 var race_steer := 0.0
 var race_countdown := 0.0
 var race_pearls := 0
@@ -71,6 +73,8 @@ var _career_active := true
 var _application_suspended := false
 var _keyboard_needs_release := false
 var _keyboard_brake := false
+var _keyboard_gas := false
+var _pending_item_voice := ""
 var _fire_previous := false
 
 
@@ -104,6 +108,7 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1,
 	_engine.setup({})
 	add_child(_engine)
 	_engine.race_event.connect(_on_engine_event)
+	_engine.item_awarded.connect(_on_item_awarded)
 	_rival_art = load("res://assets/opera/worlds/actors/rival_racer.png") as Texture2D
 	_sync_snapshot()
 	_publish_controls()
@@ -166,7 +171,7 @@ func _gui_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		var touch := event as InputEventScreenTouch
 		if touch.canceled:
-			if touch.index in [race_touch_owner, race_turbo_owner, race_brake_owner]:
+			if touch.index in [race_touch_owner, race_turbo_owner, race_gas_owner]:
 				cancel_race_touch()
 		elif touch.pressed:
 			_claim(touch.index, touch.position)
@@ -193,16 +198,18 @@ func _gui_input(event: InputEvent) -> void:
 
 ## Route a new finger to the first free control it lands on.
 func _claim(finger: int, at: Vector2) -> void:
-	if finger in [race_touch_owner, race_turbo_owner, race_brake_owner]:
+	if finger in [race_touch_owner, race_turbo_owner, race_gas_owner]:
 		return
 	if race_turbo_owner == -1 and at.distance_to(TURBO_CENTER) <= TURBO_RADIUS + HIT_MARGIN:
+		# The familiar item bubble also skips a queued opening explanation.
+		_clear_item_guidance()
 		race_turbo_owner = finger
 		race_turbo_held = true
 		_turbo_queued = true
 		_touch_race()
-	elif race_brake_owner == -1 and at.distance_to(BRAKE_CENTER) <= BRAKE_RADIUS + HIT_MARGIN:
-		race_brake_owner = finger
-		race_brake_held = true
+	elif race_gas_owner == -1 and at.distance_to(GAS_CENTER) <= GAS_RADIUS + HIT_MARGIN:
+		race_gas_owner = finger
+		race_gas_held = true
 		_touch_race()
 	elif race_touch_owner == -1 and STEERING_RECT.has_point(at):
 		race_touch_owner = finger
@@ -213,9 +220,9 @@ func _free_finger(finger: int) -> void:
 	if finger == race_turbo_owner:
 		race_turbo_owner = -1
 		race_turbo_held = false
-	if finger == race_brake_owner:
-		race_brake_owner = -1
-		race_brake_held = false
+	if finger == race_gas_owner:
+		race_gas_owner = -1
+		race_gas_held = false
 	if finger == race_touch_owner:
 		_release(_stick_finger)
 	_publish_controls()
@@ -281,19 +288,29 @@ func _touch_race() -> void:
 		race_event.emit("start", 0.0)
 
 
+func _clear_item_guidance() -> void:
+	_pending_item_voice = ""
+	if is_instance_valid(_owner_main) and _owner_main.has_method("_audio_ref"):
+		var audio: AudioDirector = _owner_main.call("_audio_ref") as AudioDirector
+		if audio != null:
+			audio.clear_kart_guidance()
+
+
 func cancel_race_touch() -> void:
+	_clear_item_guidance()
 	_epoch += 1
 	held = false
 	race_turbo_held = false
-	race_brake_held = false
+	race_gas_held = false
 	race_turbo_owner = -1
-	race_brake_owner = -1
+	race_gas_owner = -1
 	race_touch_owner = -1
 	race_input_t = 0.0
 	race_steer = 0.0
 	_turbo_queued = false
 	_keyboard_needs_release = true
 	_keyboard_brake = false
+	_keyboard_gas = false
 	_fire_previous = false
 	_stick_base = STICK_HOME
 	_stick_finger = STICK_HOME
@@ -313,23 +330,26 @@ func _notification(what: int) -> void:
 
 
 ## Desktop and controller fallback: arrows/A/D steer, Space/Enter uses the
-## item, Down/S brakes.
+## item, Up/W or controller A/RT is gas; Down/S or B brakes. The stick is
+## also a one-finger steer-and-go control for the original child touch mode.
 func _keyboard_input() -> void:
 	var left: bool = Input.is_physical_key_pressed(KEY_LEFT) or Input.is_physical_key_pressed(KEY_A)
 	var right: bool = Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_D)
 	var fire: bool = Input.is_physical_key_pressed(KEY_SPACE) or Input.is_physical_key_pressed(KEY_ENTER)
+	var gas: bool = Input.is_physical_key_pressed(KEY_UP) or Input.is_physical_key_pressed(KEY_W) or Input.is_joy_button_pressed(0, JOY_BUTTON_A) or Input.get_joy_axis(0, JOY_AXIS_TRIGGER_RIGHT) > 0.2
 	var brake: bool = Input.is_physical_key_pressed(KEY_DOWN) or Input.is_physical_key_pressed(KEY_S)
 	var axis: float = Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
 	left = left or Input.is_joy_button_pressed(0, JOY_BUTTON_DPAD_LEFT)
 	right = right or Input.is_joy_button_pressed(0, JOY_BUTTON_DPAD_RIGHT)
-	fire = fire or Input.is_joy_button_pressed(0, JOY_BUTTON_A)
+	fire = fire or Input.is_joy_button_pressed(0, JOY_BUTTON_X)
 	brake = brake or Input.is_joy_button_pressed(0, JOY_BUTTON_B)
 	if _keyboard_needs_release:
-		if not left and not right and not fire and not brake and absf(axis) < 0.2:
+		if not left and not right and not fire and not brake and not gas and absf(axis) < 0.2:
 			_keyboard_needs_release = false
 		return
+	_keyboard_gas = gas
 	_keyboard_brake = brake
-	if left or right or fire or brake or absf(axis) > 0.2:
+	if left or right or fire or brake or gas or absf(axis) > 0.2:
 		if race_touch_owner == -1:
 			race_steer = clampf(float(int(right) - int(left)) + (axis if absf(axis) > 0.2 else 0.0), -1.0, 1.0)
 		if fire and not _fire_previous:
@@ -353,8 +373,11 @@ func _process(delta: float) -> void:
 		return
 	_keyboard_input()
 	race_clock += delta
+	if _pending_item_voice != "" and race_clock >= VOICE_QUIET:
+		_say("guide", "kart_" + _pending_item_voice, 0.0)
+		_pending_item_voice = ""
 	demo_t += delta
-	if held or race_turbo_held or race_brake_held:
+	if held or race_turbo_held or race_gas_held:
 		race_input_t = INPUT_GRACE
 	else:
 		race_input_t = maxf(0.0, race_input_t - delta)
@@ -380,7 +403,8 @@ func _tick_driving(delta: float) -> void:
 	var before: float = float(kart.get("s", 0.0))
 	var was_racing: bool = engine.state in ["race", "imp_beat", "finished"]
 	engine.step_race(delta, {"steer": race_steer,
-		"brake": race_brake_held or _keyboard_brake, "item_pressed": _turbo_queued})
+		"throttle": 1.0 if race_gas_held or _keyboard_gas or held else 0.0,
+		"brake": _keyboard_brake, "item_pressed": _turbo_queued})
 	if _engine != engine or _epoch != epoch:
 		return
 	if was_racing:
@@ -409,6 +433,13 @@ func _tick_finish(delta: float) -> void:
 	_sync_snapshot()
 
 
+func _on_item_awarded(_slot: int, kind: String) -> void:
+	if race_clock < VOICE_QUIET:
+		_pending_item_voice = kind
+	else:
+		_say("guide", "kart_" + kind, 0.0)
+
+
 func _on_engine_event(kind: String, value: float) -> void:
 	match kind:
 		"turbo":
@@ -427,6 +458,7 @@ func _on_engine_event(kind: String, value: float) -> void:
 		"bump":
 			race_wall_bumps += 1
 		"restart":
+			_clear_item_guidance()
 			race_attempt = int(value)
 		"finish":
 			_finish_pending = true
@@ -468,9 +500,9 @@ func _publish_controls() -> void:
 	_controls_state["stick_knob"] = knob
 	_controls_state["stick_radius"] = STICK_RADIUS
 	_controls_state["stick_held"] = held
-	_controls_state["brake_center"] = BRAKE_CENTER
-	_controls_state["brake_radius"] = BRAKE_RADIUS
-	_controls_state["brake_held"] = race_brake_held or _keyboard_brake
+	_controls_state["gas_center"] = GAS_CENTER
+	_controls_state["gas_radius"] = GAS_RADIUS
+	_controls_state["gas_held"] = race_gas_held or _keyboard_gas
 	_controls_state["bubble_center"] = TURBO_CENTER
 	_controls_state["bubble_radius"] = TURBO_RADIUS
 	_controls_state["bubble_held"] = race_turbo_held

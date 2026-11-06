@@ -1,6 +1,6 @@
 extends SceneTree
 ## Focused probe for the Reef Grand Prix engine (scripts/racer/) and the owner's
-## touch layout: green stick left, red brake and item bubble right. The trusted
+## touch layout: green stick left, gold gas pedal and item bubble right. The trusted
 ## roster keeps the career-level Racer legs in probe_opera_2d.gd; this probe
 ## measures the engine itself. Every number printed is a measurement.
 
@@ -68,7 +68,8 @@ func drive_lane(s: OperaRacerSurface, lane: float, until_s: float, maximum := 24
 func _run() -> void:
 	_check_track()
 	_check_structure_and_idle()
-	_check_fingers_and_brake()
+	_check_fingers_and_gas()
+	_check_item_voice_timing()
 	_check_pearls()
 	_check_items()
 	_check_busy_pickups()
@@ -173,7 +174,7 @@ func _check_structure_and_idle() -> void:
 	s.free()
 
 
-func _check_fingers_and_brake() -> void:
+func _check_fingers_and_gas() -> void:
 	var s := surface()
 	var engine := s._engine
 	var origin := OperaRacerSurface.STEERING_RECT.get_center()
@@ -186,22 +187,27 @@ func _check_fingers_and_brake() -> void:
 	check("a foreign finger cannot steer", is_equal_approx(owned, s.race_steer)
 		and s.race_touch_owner == 71 and is_equal_approx(owned, 0.5))
 	touch(s, 72, true, OperaRacerSurface.TURBO_CENTER)
-	touch(s, 73, true, OperaRacerSurface.BRAKE_CENTER)
-	check("stick, bubble and brake each keep their own finger",
-		s.race_touch_owner == 71 and s.race_turbo_owner == 72 and s.race_brake_owner == 73
-		and s.held and s.race_turbo_held and s.race_brake_held)
-	touch(s, 73, false, OperaRacerSurface.BRAKE_CENTER)
+	touch(s, 73, true, OperaRacerSurface.GAS_CENTER)
+	check("stick, bubble and gas each keep their own finger",
+		s.race_touch_owner == 71 and s.race_turbo_owner == 72 and s.race_gas_owner == 73
+		and s.held and s.race_turbo_held and s.race_gas_held)
+	touch(s, 73, false, OperaRacerSurface.GAS_CENTER)
 	run_frames(s, 90 + 120)
 	check("the bubble pressed during the countdown fires the start zoom",
 		s.race_turbo_fires == 1 and "turbo" in events)
-	var cruising := float(engine._pl["speed"])
-	touch(s, 74, true, OperaRacerSurface.BRAKE_CENTER)
+	# Release steering: the gas pedal alone must propel a stationary kart.
+	touch(s, 71, false, origin)
+	engine._pl["speed"] = 0.0
+	engine._pl["heading"] = engine.track.heading_at(float(engine._pl["track_s"]))
+	touch(s, 74, true, OperaRacerSurface.GAS_CENTER)
 	run_frames(s, 60)
-	var braked := float(engine._pl["speed"])
-	print("RACER_INTEGRATION|MEASURE|brake|before=", snappedf(cruising, 0.1), "|after_1s=", snappedf(braked, 0.1))
-	check("holding the red brake stops the kart and keeps the race live",
-		cruising > 150.0 and braked < 5.0 and s.race_input_t > 0.0)
-	touch(s, 74, false, OperaRacerSurface.BRAKE_CENTER)
+	var accelerated := float(engine._pl["speed"])
+	check("holding gas alone accelerates from rest and keeps the race live",
+		accelerated > 100.0 and s.race_input_t > 0.0 and bool(engine.controls["gas_held"]))
+	touch(s, 74, false, OperaRacerSurface.GAS_CENTER)
+	run_frames(s, 60)
+	check("releasing gas coasts instead of accelerating or hard braking",
+		float(engine._pl["speed"]) < accelerated and float(engine._pl["speed"]) > 0.0)
 	touch(s, 72, false, OperaRacerSurface.TURBO_CENTER)
 	s.cancel_race_touch()
 	var stopped := float(s.kart["s"])
@@ -210,10 +216,10 @@ func _check_fingers_and_brake() -> void:
 	check("cancel freezes Roshan and the imp together",
 		is_equal_approx(stopped, float(s.kart["s"]))
 		and is_equal_approx(stopped_imp, float(engine.imp()["race_s"]))
-		and s.race_touch_owner == -1 and s.race_turbo_owner == -1 and s.race_brake_owner == -1)
+		and s.race_touch_owner == -1 and s.race_turbo_owner == -1 and s.race_gas_owner == -1)
 	touch(s, 75, true, Vector2(1240, 300))
 	check("a touch away from every control claims nothing",
-		s.race_touch_owner == -1 and s.race_turbo_owner == -1 and s.race_brake_owner == -1)
+		s.race_touch_owner == -1 and s.race_turbo_owner == -1 and s.race_gas_owner == -1)
 	s.free()
 
 
@@ -251,10 +257,11 @@ func _check_items() -> void:
 		imp_only = imp_only and engine._pick_item(engine.imp()) in ["zoom", "kelp"]
 	check("the imp is only ever dealt zoom or kelp, never anything aimed at Roshan", imp_only)
 	var origin := OperaRacerSurface.STEERING_RECT.get_center()
-	touch(s, 71, true, origin)
-	touch(s, 73, true, OperaRacerSurface.BRAKE_CENTER)
+	touch(s, 73, true, OperaRacerSurface.TURBO_CENTER)
+	s._turbo_queued = false
 	run_frames(s, 90 + 90)
-	touch(s, 73, false, OperaRacerSurface.BRAKE_CENTER)
+	touch(s, 73, false, OperaRacerSurface.TURBO_CENTER)
+	touch(s, 71, true, origin)
 	var pl: Dictionary = engine._pl
 	pl["roulette_t"] = 0.0
 	pl["pending"] = ""
@@ -366,8 +373,8 @@ func _check_imp_contest() -> void:
 	var s := surface()
 	var engine := s._engine
 	var origin := OperaRacerSurface.STEERING_RECT.get_center()
-	touch(s, 71, true, origin)
-	touch(s, 73, true, OperaRacerSurface.BRAKE_CENTER)
+	touch(s, 73, true, OperaRacerSurface.TURBO_CENTER)
+	s._turbo_queued = false
 	engine._pl["pearls"] = 4
 	var beat_frames: Array[int] = []
 	var restart_paces: Array[float] = []
@@ -392,7 +399,8 @@ func _check_imp_contest() -> void:
 	check("the imp slows after one win and drives at half pace after two",
 		restart_paces.size() == 2 and is_equal_approx(restart_paces[0], ReefKartRace.RETRY_PACE)
 		and is_equal_approx(restart_paces[1], ReefKartRace.MERCY_PACE))
-	touch(s, 73, false, OperaRacerSurface.BRAKE_CENTER)
+	touch(s, 73, false, OperaRacerSurface.TURBO_CENTER)
+	touch(s, 71, true, origin)
 	var finished := false
 	for _frame in range(4200):
 		s._process(STEP)
@@ -474,3 +482,24 @@ func _count(node: Node) -> int:
 	for child: Node in node.get_children():
 		total += _count(child)
 	return total
+
+
+func _check_item_voice_timing() -> void:
+	var s := surface()
+	s.race_clock = 1.5
+	s._on_item_awarded(0, "zoom")
+	check("the starting item waits until the career steering instruction finishes",
+		s._pending_item_voice == "zoom")
+	s.cancel_race_touch()
+	s.race_clock = 5.0
+	s._process(STEP)
+	check("cancel removes an item explanation waiting behind the introduction",
+		s._pending_item_voice.is_empty())
+	s._pending_item_voice = "kelp"
+	s._on_engine_event("restart", 2.0)
+	check("retry removes an obsolete pending item explanation", s._pending_item_voice.is_empty())
+	s._pending_item_voice = "zoom"
+	touch(s, 91, true, OperaRacerSurface.TURBO_CENTER)
+	check("the item bubble skips a pending opening explanation", s._pending_item_voice.is_empty())
+
+	s.free()

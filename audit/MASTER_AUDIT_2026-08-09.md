@@ -117,7 +117,9 @@ CHG-103 Astronaut reconciliation2026-10-19: GardenD4passed exact remoteCI3923377
 
 Doctor/Farmer/Magician/Painter P6 painted-art candidate (2026-10-19): [CHG-108 impact](../design/audit_impacts/job-art-support-careers-20261019.json) records59builtin ImageGen calls,56runtimeRGBA pictures and all six rejected sources. Current model revision is unexposed. All56cutouts and238source-bound configured MobileGUIstills at1280/1600 were inspected individually; localAIstatic appearance reaches4.5in each scored dimension without averaging. Whole-motion/transition/contact, canonicalQA11/natural-route, physicaldevice, child, owner and finalcampaign audit remain separate and pending. Four explicit trace/painting geometry helpers, Doctorvisual-history spacing and the evidenced authored-trace endpoint rounding repair are recorded separately from render/resource edits. One obsolete exactoldatlas binding assertion now pins both newpainted output and unchanged identity-source hashes; original274gesture checks/70phaseunits pass. Current full local82 passes with frozen sources and unchanged actualdesktop save; exactheadremoteCI and integration remain separately required. Roomnativecoverage/sharedHUD debt and finding lifecycles/masterUNSATISFIED remain unchanged.
 
-### Development task index
+#2026-11-05 Racer follow-up: [four room zones, gas and item guidance](../docs/handoffs/codex_reef_kart_art_2026-11-03/ZONES.md) and [impact](../design/audit_impacts/reef-kart-zones-20261105.json). Candidate machine and runtime evidence is separate from human/device/child/owner acceptance; no finding is closed.
+
+## Development task index
 
 | Geologist in-world painted station props | [R115 candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/README.md) | [Impact](../design/audit_impacts/flat-vector-geologist-station-props-20261030.json); whole fossil/three trays/gallery foreground candidate; originaltaskguard/input/save unchanged. Cavebackground/river/formal/external open. |
 

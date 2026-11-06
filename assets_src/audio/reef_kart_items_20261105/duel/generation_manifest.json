@@ -1,0 +1,169 @@
+{
+  "schema": "reef.objective-guide-candidates.v1",
+  "status": "CANDIDATE_MACHINE_PASS",
+  "started_utc": "2026-11-06T04:34:39.301915+00:00",
+  "owner_authorization_date": "2026-11-05",
+  "owner_scope": "One context-specific duel variant; two human racers have no imp; no cloning, protected-voice mutation or paid API",
+  "identity": "Neutral adult synthetic Guide; af_heart, unpitched, speed 1.0",
+  "model_reference": "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX",
+  "model_license": "Apache-2.0 (upstream ONNX model card)",
+  "model_source": "tools/kokoro/model.onnx",
+  "model_sha256": "8fbea51ea711f2af382e88c833d9e288c6dc82ce5e98421ea61c058ce21a34cb",
+  "voices_source": "tools/kokoro/voices.bin",
+  "voices_sha256": "b58979d4eb5b1fdbe783c93f9f43c21217cb8f07af9d3860547371a5b2c8b646",
+  "generator_source_sha256": "dc2a506ba943ebde7ccd799f0e426625b5a45bd8997106e6b0ae92ed102170f1",
+  "runtime_versions": {
+    "kokoro-onnx": "0.5.0",
+    "onnxruntime": "1.28.0",
+    "soundfile": "0.14.0",
+    "numpy": "2.5.1"
+  },
+  "ffmpeg_version": "ffmpeg version 8.1.2-essentials_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+  "ffprobe_version": "ffprobe version 8.1.2-essentials_build-www.gyan.dev Copyright (c) 2007-2026 the FFmpeg developers",
+  "onnx": {
+    "provider": "CPUExecutionProvider",
+    "intra_op_threads": 2,
+    "inter_op_threads": 1,
+    "execution_mode": "ORT_SEQUENTIAL"
+  },
+  "paid_api_calls": 0,
+  "synthesis_calls": 1,
+  "attempts": [
+    {
+      "key": "guide_kart_sparkle_duel",
+      "text": "Sparkle bubble! Use your item button to spin the racer ahead!",
+      "voice": "af_heart",
+      "speed": 1.0,
+      "pitch_change": false,
+      "language": "en-us",
+      "phonemes": "spˈɑːɹkəl bˈʌbəl! jˈuːs jʊɹ ˈaɪɾəm bˈʌʔn tə spˈɪn ðə ɹˈeɪsɚɹ ɐhˈɛd!",
+      "token_count": 67,
+      "status": "CANDIDATE_MACHINE_PASS",
+      "started_utc": "2026-11-06T04:34:44.739244+00:00",
+      "inference_seconds": 2.853738,
+      "native_stats": {
+        "finite": true,
+        "samples": 102000,
+        "sample_peak": 0.6058802604675293,
+        "dc_mean": -0.00043670975719578564,
+        "duration_seconds": 4.25
+      },
+      "native": {
+        "path": "native/guide_kart_sparkle_duel.wav",
+        "sha256": "ba84d18384d580b796777615b0b1d14040fc94a1a35c262e1c75a7e762bdee78",
+        "sample_rate_hz": 24000,
+        "format": "WAV float32 mono; unmodified model samples"
+      },
+      "native_to_review": {
+        "trim_threshold_dbfs": -60,
+        "retained_native_sample_range": [
+          5482,
+          93177
+        ],
+        "leading_pad_seconds": 0.04,
+        "trailing_pad_seconds": 0.1,
+        "derivative_path": "derived/guide_kart_sparkle_duel_trim.wav",
+        "derivative_sha256": "dc3a7ffb6de6d05f3146ff67a20f39ebc4b9a53b30af7a3ca2e55f2df991a4ee",
+        "resample_to_hz": 48000,
+        "pitch_change": false,
+        "retiming": false,
+        "loudness_target_lufs": -16,
+        "true_peak_target_dbtp": -2
+      },
+      "loudnorm_first_pass": {
+        "input_i": "-21.99",
+        "input_tp": "-4.34",
+        "input_lra": "0.90",
+        "input_thresh": "-32.49",
+        "output_i": "-16.42",
+        "output_tp": "-2.00",
+        "output_lra": "0.00",
+        "output_thresh": "-26.67",
+        "normalization_type": "dynamic",
+        "target_offset": "0.42"
+      },
+      "loudnorm_first_command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\FFmpeg\\8.1.2\\bin\\ffmpeg.EXE",
+        "-hide_banner",
+        "-nostats",
+        "-i",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\reef-kart-art\\assets_src\\audio\\reef_kart_items_20261105\\duel\\derived\\guide_kart_sparkle_duel_trim.wav",
+        "-af",
+        "loudnorm=I=-16:TP=-2:LRA=7:print_format=json",
+        "-f",
+        "null",
+        "-"
+      ],
+      "review": {
+        "path": "review/guide_kart_sparkle_duel.ogg",
+        "sha256": "691b33c9de28570957e0ae911392a9b002f34c0686405c5d9d08738bab0dde21",
+        "bytes": 38851,
+        "verification": {
+          "codec": "vorbis",
+          "sample_rate_hz": 48000,
+          "channels": 1,
+          "bitrate_kbps": 96.0,
+          "duration_seconds": 3.656625,
+          "integrated_lufs": -15.99,
+          "true_peak_dbtp": -1.89,
+          "decoded_finite": true,
+          "decoded_sample_peak": 0.8045536279678345,
+          "decoded_dc_mean": -0.0009410143829882145
+        },
+        "encoding_command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\FFmpeg\\8.1.2\\bin\\ffmpeg.EXE",
+          "-hide_banner",
+          "-nostats",
+          "-n",
+          "-i",
+          "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\reef-kart-art\\assets_src\\audio\\reef_kart_items_20261105\\duel\\derived\\guide_kart_sparkle_duel_trim.wav",
+          "-af",
+          "loudnorm=I=-16:TP=-2:LRA=7:measured_I=-21.99:measured_TP=-4.34:measured_LRA=0.90:measured_thresh=-32.49:offset=0.42:linear=true:print_format=json",
+          "-ar",
+          "48000",
+          "-ac",
+          "1",
+          "-c:a",
+          "libvorbis",
+          "-b:a",
+          "96k",
+          "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\reef-kart-art\\assets_src\\audio\\reef_kart_items_20261105\\duel\\review\\guide_kart_sparkle_duel.ogg"
+        ],
+        "measurement_command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\FFmpeg\\8.1.2\\bin\\ffmpeg.EXE",
+          "-hide_banner",
+          "-nostats",
+          "-i",
+          "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\reef-kart-art\\assets_src\\audio\\reef_kart_items_20261105\\duel\\review\\guide_kart_sparkle_duel.ogg",
+          "-af",
+          "loudnorm=I=-16:TP=-2:LRA=7:print_format=json",
+          "-f",
+          "null",
+          "-"
+        ],
+        "ffprobe_command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\FFmpeg\\8.1.2\\bin\\ffprobe.EXE",
+          "-v",
+          "error",
+          "-show_streams",
+          "-show_format",
+          "-of",
+          "json",
+          "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\reef-kart-art\\assets_src\\audio\\reef_kart_items_20261105\\duel\\review\\guide_kart_sparkle_duel.ogg"
+        ],
+        "machine_pass": true
+      },
+      "finished_utc": "2026-11-06T04:34:48.244247+00:00"
+    }
+  ],
+  "protected_original_changes": 0,
+  "acceptance": {
+    "machine": "PASS",
+    "human_listening": "NOT_MEASURED",
+    "device": "NOT_MEASURED",
+    "child": "NOT_MEASURED",
+    "owner": "NOT_MEASURED"
+  },
+  "finished_utc": "2026-11-06T04:34:48.246174+00:00",
+  "wall_seconds": 6.436562
+}

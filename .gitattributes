@@ -121,3 +121,8 @@ audit/opera_foyer_movement_20261017/** -text whitespace=-blank-at-eol,-blank-at-
 audit/remove_opera_anteroom_20261017/** -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol
 audit/opera_foyer_movement_20261017/**/*.log -diff
 audit/remove_opera_anteroom_20261017/**/*.log -diff
+
+# Racer room-zone and speech provenance binds literal native/evidence bytes.
+assets_src/audio/reef_kart_items_20261105/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+assets_src/imagegen/reef_kart_zones_20261105/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+audit/cycles/reef-kart-zones-20261105/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol

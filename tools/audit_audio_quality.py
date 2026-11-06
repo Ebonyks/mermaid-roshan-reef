@@ -25,6 +25,12 @@ FILLER_ROOT_REL = "assets/audio/voices/filler_v1/"
 OBJECTIVE_GUIDE_ROOT_REL = "assets/audio/objective_guides/"
 OBJECTIVE_GUIDE_MANIFEST_REL = OBJECTIVE_GUIDE_ROOT_REL + "OBJECTIVE_GUIDE_MANIFEST.json"
 OBJECTIVE_GUIDE_TEXT = {
+    'guide_kart_sparkle_duel': 'Sparkle bubble! Use your item button to spin the racer ahead!',
+    'guide_kart_zoom': 'Zoom boost! Use your item button for a burst of speed!',
+    'guide_kart_sparkle': 'Sparkle bubble! Use your item button to spin the imp ahead!',
+    'guide_kart_kelp': 'Kelp trap! Use your item button to leave slippery kelp behind!',
+    'guide_kart_pearls': 'Three pearls! Use your item button to collect them and raise your top speed!',
+
     "guide_seek_tap_wiggly_tree": "Tap the wiggly tree!",
     "guide_dolls_catch_three": "Move left and right. Catch three sleepy dolls!",
     "guide_puff_cold_intro": "Grand Puff has a cold. Let's help!",
@@ -40,6 +46,8 @@ OBJECTIVE_GUIDE_SOURCE_ROOTS = {
         else "assets_src/audio/objective_guides_20261014")
     for key in OBJECTIVE_GUIDE_TEXT
 }
+OBJECTIVE_GUIDE_SOURCE_ROOTS.update({key: "assets_src/audio/reef_kart_items_20261105"
+    for key in OBJECTIVE_GUIDE_TEXT if key.startswith("guide_kart_")})
 FILLER_MANIFEST_NAME = "FILLER_MANIFEST.json"
 TEACHER_ROOT_REL = "assets/audio/teacher/"
 TEACHER_MANIFEST_REL = "assets_src/teacher_learning_2026-09-05/audio_manifest.json"
