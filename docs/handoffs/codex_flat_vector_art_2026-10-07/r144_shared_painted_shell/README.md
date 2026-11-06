@@ -1,0 +1,17 @@
+# R144 — published painted shell candidate
+
+**FV-AB474EF3699E**, the shared UI shell ornament, now uses the existing project-owned painted castle motif instead of the flat procedural fan, ribs and dots on its published work branch. The PNG is byte-unchanged; Control bounds, names, input settings, order and resize behavior are preserved.
+
+![Painted launch-menu crest](https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/10256d79c971e1b39e7f422d63e014ae5183cc7c/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/context/candidate/start-menu.png)
+
+[Actual source and native comparison](https://github.com/Ebonyks/mermaid-roshan-reef/tree/10256d79c971e1b39e7f422d63e014ae5183cc7c/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/) · [source manifest](https://github.com/Ebonyks/mermaid-roshan-reef/blob/10256d79c971e1b39e7f422d63e014ae5183cc7c/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/MANIFEST.json) · [all 255 required source bytes verified anonymously](SOURCE_REMOTE_VERIFICATION.json) · [local machine results](SOURCE_MACHINE_RESULT.json)
+
+The exact local 4.7.2 Mobile/Speedy candidate passes static/import, two analyzers and 82 trusted command exits: 81 assertion probes plus 1 expected headless capture SKIP. All 5557 runtime inputs and normal save hashes are unchanged. The separate review-folder exclusion check passes; screenshots, boards, logs and old source text stay out of game resources.
+
+Thirty native before/candidate frames comprise 26 bounded context events and 4 excluded diagnostics: the compatibility intro builder and occluded Garden crest. Hidden touch-hint metadata and two presentation boards are not native frame events. [Ten-axis review](TEN_AXIS_COMPARISON.json) assigns no owner score.
+
+**Source CI is running; this candidate is not on Dev.** Current Dev 6dfd04ae contains the other chat’s owner-approved Android build-capacity fix and has its own healthy probe run. That chat is also actively changing Bubble Duel. Its checkout, production, CI and build retry are left untouched; no competing runtime item or Dev push is started here. Exact current CI/coordination evidence is in [delivery state](SOURCE_CANDIDATE_DELIVERY.json).
+
+Formal fresh-runtime QA11, natural-route coverage, target-device performance, child and owner acceptance remain open. Accepted removals and complete scene coverage remain 0; whole-game totals remain unknown. The current registry has 45 published bounded source artifacts and 43 partial Dev artifacts. This is one new implementation on an existing named role, with no new family.
+
+The canonical-only CI 42157252708 failure was a joined prose token in R142’s impact. A single word separator is corrected; the unchanged scanner returns NO_REGRESSION at 52 production API-debt files. [Original failure and correction](CORRECTION.json) retain the immutable504c2904 source. No scanner, runtime, debt baseline or acceptance rule is weakened.

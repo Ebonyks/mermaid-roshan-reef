@@ -1,0 +1,39 @@
+{
+  "staged_tree": "3bbd96dbff8484325812ae4534e5cba374f5d3da",
+  "results": [
+    {
+      "name": "authority",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log_sha256": "e1e108ed17586fffe38c6d4cc6f4e824054f7c2a64c47cbfa854bbcb8551cd90"
+    },
+    {
+      "name": "coverage_auto",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log_sha256": "80c31e39be550eaf94d57d9fb2dddf4db392fbda0435715fbf21ce18e94d1b0a"
+    },
+    {
+      "name": "coverage_exact_base",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "a7e1faefc09b3303494a5499cce5fe120cb2dcb2"
+      ],
+      "exit_code": 0,
+      "log_sha256": "80c31e39be550eaf94d57d9fb2dddf4db392fbda0435715fbf21ce18e94d1b0a"
+    }
+  ]
+}

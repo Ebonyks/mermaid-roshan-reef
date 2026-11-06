@@ -1,0 +1,52 @@
+{
+  "state": "PAINTED_SHARED_SHELL_PUBLISHED_WORK_CANDIDATE_SOURCE_CI_RUNNING_DEV_PENDING",
+  "artifact_key": "r144_shared_painted_shell_runtime",
+  "stable_ids": [
+    "FV-AB474EF3699E"
+  ],
+  "source_revision": "10256d79c971e1b39e7f422d63e014ae5183cc7c",
+  "source_CI": {
+    "run": 42171300891,
+    "head_sha": "10256d79c971e1b39e7f422d63e014ae5183cc7c",
+    "status": "in_progress",
+    "conclusion": null,
+    "jobs": {
+      "area-music-provenance": "success",
+      "probes": "in_progress_checkout"
+    },
+    "checked_at_utc": "2026-11-06T06:04:31.176010+00:00"
+  },
+  "current_Dev_observed": "6dfd04aef441f30e0374e9ae9049cff845ce4ebd",
+  "Dev_integration": false,
+  "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/MANIFEST.json",
+  "source_manifest_sha256": "cdfee00710c3228e122e808096e83a195ec82a49effa7d25973a52fa15e369d4",
+  "source_required_anonymous_files": 255,
+  "record": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md",
+  "new_source_artifacts": 1,
+  "new_partial_Dev_artifacts": 0,
+  "updated_existing_named_roles": 1,
+  "new_named_roles": 0,
+  "new_families": 0,
+  "new_generation_calls": 0,
+  "new_runtime_PNG": 0,
+  "new_native_frame_events": 30,
+  "new_bounded_frame_events": 26,
+  "new_excluded_frame_events": 4,
+  "unique_frame_content_hashes": 30,
+  "candidate": true,
+  "local_integration": true,
+  "runtime": "Exact local current-candidate static/import/analyzers and81assertion probes plus1headless capture SKIP pass;5557runtime files and normal save hashes unchanged. Source CI remains running.",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "complete_scene_coverage": 0,
+  "coordination": {
+    "thread": "01a1a998-88ef-7e23-b52b-fbb454bd14ea",
+    "cursor": "7fb6fbaf-c11a-4fe5-918a-41d5427687d8:31",
+    "status": "active/inProgress",
+    "scope": "Bubble Duel elevator entry and tap/momentum/contact behavior; separate owner-authorized workflow capacity fix already onDev",
+    "rule": "Do not touch that dirty checkout, message/pause/resume that chat, duplicate its work, cancel/restart its healthy CI or start its APK retry. Reconcile only genuinely new verified production; defer Dev mutation while the active production/build owns its source."
+  }
+}

@@ -22601,7 +22601,7 @@
       "reuse_candidates": [],
       "reuse_inspection": "Inventory completed; per-piece exact-purpose source match and current-context fit remain open unless named in context observations.",
       "named_gap": null,
-      "status": "IDENTIFIED",
+      "status": "PAINTED_SHARED_SHELL_PUBLISHED_WORK_CANDIDATE_CI_AND_DEV_PENDING",
       "integration_sha": null,
       "acceptance_evidence": {
         "current_mobile_runtime": null,
@@ -22609,8 +22609,9 @@
         "device": null,
         "child": null,
         "owner": null,
-        "machine": null,
-        "old_fallback_retired": null
+        "machine": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/SOURCE_MACHINE_RESULT.json",
+        "old_fallback_retired": "Procedural fan/ribs/dots retired only on published work source. No Dev or accepted-removal claim.",
+        "formal_QA11": null
       },
       "dependencies": [
         "Current route/phase capture and source-pixel ownership",
@@ -22630,7 +22631,13 @@
         "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
         "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
       },
-      "review_log": [],
+      "review_log": [
+        {
+          "revision": "FV-SOURCE-20261106-R144-PAINTED-SHARED-SHELL",
+          "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/TEN_AXIS_COMPARISON.json",
+          "state": "candidate comparison; no owner score or acceptance"
+        }
+      ],
       "proposed_update": "Review UI shell ornament during UI shell ornament active/rest/changed/payoff/settle states on Current shared_ui consumer from scripts/shell_ornament.gd:16 (_draw). Preserve approved painted inputs. For its visible flat part, first inspect exact-purpose existing art; then author only this context-bound role/state with the same geometry, material and action, or remove a redundant decorative layer.",
       "route_refs": [
         "ui.start",
@@ -22658,7 +22665,141 @@
         "status": "PARTIAL_WEAKNESS_CONTEXT_REVIEW",
         "device_child_owner_acceptance": false,
         "replacement_acceptance": false
-      }
+      },
+      "r144_prior_status": "IDENTIFIED",
+      "r144_current_production": {
+        "state": "PAINTED_SHARED_SHELL_PUBLISHED_WORK_CANDIDATE_SOURCE_CI_RUNNING_DEV_PENDING",
+        "artifact_key": "r144_shared_painted_shell_runtime",
+        "stable_ids": [
+          "FV-AB474EF3699E"
+        ],
+        "source_revision": "10256d79c971e1b39e7f422d63e014ae5183cc7c",
+        "source_CI": {
+          "run": 42171300891,
+          "head_sha": "10256d79c971e1b39e7f422d63e014ae5183cc7c",
+          "status": "in_progress",
+          "conclusion": null,
+          "jobs": {
+            "area-music-provenance": "success",
+            "probes": "in_progress_checkout"
+          },
+          "checked_at_utc": "2026-11-06T06:04:31.176010+00:00"
+        },
+        "current_Dev_observed": "6dfd04aef441f30e0374e9ae9049cff845ce4ebd",
+        "Dev_integration": false,
+        "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/MANIFEST.json",
+        "source_manifest_sha256": "cdfee00710c3228e122e808096e83a195ec82a49effa7d25973a52fa15e369d4",
+        "source_required_anonymous_files": 255,
+        "record": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md",
+        "new_source_artifacts": 1,
+        "new_partial_Dev_artifacts": 0,
+        "updated_existing_named_roles": 1,
+        "new_named_roles": 0,
+        "new_families": 0,
+        "new_generation_calls": 0,
+        "new_runtime_PNG": 0,
+        "new_native_frame_events": 30,
+        "new_bounded_frame_events": 26,
+        "new_excluded_frame_events": 4,
+        "unique_frame_content_hashes": 30,
+        "candidate": true,
+        "local_integration": true,
+        "runtime": "Exact local current-candidate static/import/analyzers and81assertion probes plus1headless capture SKIP pass;5557runtime files and normal save hashes unchanged. Source CI remains running.",
+        "formal_QA11": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0,
+        "complete_scene_coverage": 0,
+        "coordination": {
+          "thread": "01a1a998-88ef-7e23-b52b-fbb454bd14ea",
+          "cursor": "7fb6fbaf-c11a-4fe5-918a-41d5427687d8:31",
+          "status": "active/inProgress",
+          "scope": "Bubble Duel elevator entry and tap/momentum/contact behavior; separate owner-authorized workflow capacity fix already onDev",
+          "rule": "Do not touch that dirty checkout, message/pause/resume that chat, duplicate its work, cancel/restart its healthy CI or start its APK retry. Reconcile only genuinely new verified production; defer Dev mutation while the active production/build owns its source."
+        }
+      },
+      "current_runtime_source": {
+        "path": "scripts/shell_ornament.gd",
+        "revision": "10256d79c971e1b39e7f422d63e014ae5183cc7c",
+        "sha256": "a51f513f205cf6395c5724e9e2ef2dc09f04ea24db534aa22c28806763f3c2c8",
+        "hash_mode": "LF canonical; original source row remains historical"
+      },
+      "r144_current_runtime_consumers": [
+        {
+          "path": "scripts/storybook_ui.gd",
+          "sha256": "9ec09a6bdc926fee8a841bb0db97b39d40b9db0916d62a543c7aa5785c7f056c",
+          "hash_mode": "LF canonical",
+          "unchanged_from_baseline": true
+        },
+        {
+          "path": "scripts/start_menu.gd",
+          "sha256": "f555706f036f59c28485fe380ed9908195cb24349808eb8a8964505b0d6f8d90",
+          "hash_mode": "LF canonical",
+          "unchanged_from_baseline": true
+        },
+        {
+          "path": "scripts/intro_overlay.gd",
+          "sha256": "d39288491fd4e37024905faa11c66eee0e3a98d7de1cb340ca703c8a907ff2eb",
+          "hash_mode": "LF canonical",
+          "unchanged_from_baseline": true
+        },
+        {
+          "path": "scripts/pause_menu.gd",
+          "sha256": "38e8206f75450a101e22e9b1b7daeda2f920be6f2b6cebf565c26e947ecd9cb4",
+          "hash_mode": "LF canonical",
+          "unchanged_from_baseline": true
+        },
+        {
+          "path": "scripts/craft_studio.gd",
+          "sha256": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57",
+          "hash_mode": "LF canonical",
+          "unchanged_from_baseline": true
+        },
+        {
+          "path": "scripts/castle_logo_studio.gd",
+          "sha256": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a",
+          "hash_mode": "LF canonical",
+          "unchanged_from_baseline": true
+        },
+        {
+          "path": "scripts/wardrobe_ui.gd",
+          "sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+          "hash_mode": "LF canonical",
+          "unchanged_from_baseline": true
+        },
+        {
+          "path": "scripts/companion.gd",
+          "sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+          "hash_mode": "LF canonical",
+          "unchanged_from_baseline": true
+        },
+        {
+          "path": "scripts/mic_input.gd",
+          "sha256": "02d0af4179486e1a1b43d197917b1eb015caa7ca355cdea9783b281c22810532",
+          "hash_mode": "LF canonical",
+          "unchanged_from_baseline": true
+        },
+        {
+          "path": "scripts/games/picture_games.gd",
+          "sha256": "dea49b27f0a17ee5c78ea2b1f7ce889e9b2949030e74fa4b8afa84fafe4b0ed3",
+          "hash_mode": "LF canonical",
+          "unchanged_from_baseline": true
+        },
+        {
+          "path": "scripts/dev_mode.gd",
+          "sha256": "ff65b0693736fad7123a0ee54c48b4ca2e9c96a7c83c157c7da88ae29e016a5c",
+          "hash_mode": "LF canonical",
+          "unchanged_from_baseline": true
+        },
+        {
+          "path": "scripts/touch_ui.gd",
+          "sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+          "hash_mode": "LF canonical",
+          "unchanged_from_baseline": true
+        }
+      ],
+      "r144_diagnostic_context": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/CALLER_GEOMETRY_COMPARISON.json"
     },
     {
       "id": "FV-7976FC8C2881",
@@ -29665,7 +29806,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-INTEGRATION-20261105-R143-RACER-AND-RECENT-DEV",
+  "revision": "FV-SOURCE-20261106-R144-PAINTED-SHARED-SHELL",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -43314,7 +43455,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "SUMMARY.json. 44 published bounded source artifacts,43partial Dev artifacts,280named roles and36families as lower bounds;8030bounded/4394excluded/12424retained native events;0accepted removals and0complete scene coverage;whole-game denominators remain unknown.",
+  "current_effective_summary": "SUMMARY.json. 45 published bounded source artifacts,43partial Dev artifacts,280named roles and36families as lower bounds;8056bounded/4398excluded/12454retained native events;0accepted removals and0complete scene coverage;whole-game denominators remain unknown. R144 is published on its work branch, not integrated into Dev.",
   "unresolved_care_glyph_scopes": [
     "neutral/title heart U+2665 versus cuddle U+2764 attribution",
     "disabled Change-palette pictogram",
@@ -50534,5 +50675,72 @@
     "PAINTED_WHOLE_CREST_PARTIAL_DEV_EXACT_CI_GREEN_EXTERNAL_ACCEPTANCE_PENDING": 1,
     "DEV_PARTIAL_CANDIDATE_CONTEXT": 10
   },
-  "r143_updated_existing_named_records": 23
+  "r143_updated_existing_named_records": 23,
+  "r144_prior_effective_summary": "SUMMARY.json. 44 published bounded source artifacts,43partial Dev artifacts,280named roles and36families as lower bounds;8030bounded/4394excluded/12424retained native events;0accepted removals and0complete scene coverage;whole-game denominators remain unknown.",
+  "r144_shared_painted_shell_runtime": {
+    "state": "PAINTED_SHARED_SHELL_PUBLISHED_WORK_CANDIDATE_SOURCE_CI_RUNNING_DEV_PENDING",
+    "artifact_key": "r144_shared_painted_shell_runtime",
+    "stable_ids": [
+      "FV-AB474EF3699E"
+    ],
+    "source_revision": "10256d79c971e1b39e7f422d63e014ae5183cc7c",
+    "source_CI": {
+      "run": 42171300891,
+      "head_sha": "10256d79c971e1b39e7f422d63e014ae5183cc7c",
+      "status": "in_progress",
+      "conclusion": null,
+      "jobs": {
+        "area-music-provenance": "success",
+        "probes": "in_progress_checkout"
+      },
+      "checked_at_utc": "2026-11-06T06:04:31.176010+00:00"
+    },
+    "current_Dev_observed": "6dfd04aef441f30e0374e9ae9049cff845ce4ebd",
+    "Dev_integration": false,
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/MANIFEST.json",
+    "source_manifest_sha256": "cdfee00710c3228e122e808096e83a195ec82a49effa7d25973a52fa15e369d4",
+    "source_required_anonymous_files": 255,
+    "record": "docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md",
+    "new_source_artifacts": 1,
+    "new_partial_Dev_artifacts": 0,
+    "updated_existing_named_roles": 1,
+    "new_named_roles": 0,
+    "new_families": 0,
+    "new_generation_calls": 0,
+    "new_runtime_PNG": 0,
+    "new_native_frame_events": 30,
+    "new_bounded_frame_events": 26,
+    "new_excluded_frame_events": 4,
+    "unique_frame_content_hashes": 30,
+    "candidate": true,
+    "local_integration": true,
+    "runtime": "Exact local current-candidate static/import/analyzers and81assertion probes plus1headless capture SKIP pass;5557runtime files and normal save hashes unchanged. Source CI remains running.",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "complete_scene_coverage": 0,
+    "coordination": {
+      "thread": "01a1a998-88ef-7e23-b52b-fbb454bd14ea",
+      "cursor": "7fb6fbaf-c11a-4fe5-918a-41d5427687d8:31",
+      "status": "active/inProgress",
+      "scope": "Bubble Duel elevator entry and tap/momentum/contact behavior; separate owner-authorized workflow capacity fix already onDev",
+      "rule": "Do not touch that dirty checkout, message/pause/resume that chat, duplicate its work, cancel/restart its healthy CI or start its APK retry. Reconcile only genuinely new verified production; defer Dev mutation while the active production/build owns its source."
+    }
+  },
+  "r144_current_effective_summary": {
+    "known_roles": 280,
+    "known_families": 36,
+    "published_bounded_source_artifacts": 45,
+    "partial_Dev_artifacts": 43,
+    "retained_bounded_native_events": 8056,
+    "retained_excluded_native_events": 4398,
+    "retained_native_events": 12454,
+    "accepted_removed": 0,
+    "complete_scene_coverage": 0,
+    "whole_game_total": null,
+    "revision": "FV-SOURCE-20261106-R144-PAINTED-SHARED-SHELL"
+  },
+  "r144_prior_current_metric_fields": {}
 }
