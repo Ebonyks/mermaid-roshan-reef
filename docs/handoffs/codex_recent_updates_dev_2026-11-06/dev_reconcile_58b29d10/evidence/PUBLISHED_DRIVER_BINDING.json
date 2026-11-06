@@ -1,0 +1,15 @@
+{
+  "path": "tools/run_bubble_duel_stress.py",
+  "observed_at_utc": "2026-11-06T16:57:42.900619+00:00",
+  "observation_scope": "Sampled after cast/reload had completed, while the remaining resumption operation was active. The full staged-tree pin predates launch. This is not an independent prelaunch raw-driver sample.",
+  "raw_sha256": "777551f5d325ff0d010198854ea780afedf5bab12ac2e5557854fbe29977a055",
+  "git_sha256": "a6b715470d091bd8134d93451bfde99234480c113870d9937ea6e7fb9f89a441",
+  "raw_utf8_LF_matches_staged_Git": true,
+  "staged_Git_object": "c81d704fe3d37acc0bcd09d26db2ac51ea6a14fd",
+  "incoming_Dev_object": "c81d704fe3d37acc0bcd09d26db2ac51ea6a14fd",
+  "wording_correction": {
+    "why": "Observed state was already RUNNING_04_probe_passive; avoid implying the cast subprocess was still active.",
+    "at_utc": "2026-11-06T16:59:26.146673+00:00",
+    "prior_wording_retained": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-shell-20261106\\R145_CAST_PUBLISHED_DRIVER_BINDING_INITIAL_WORDING.json"
+  }
+}

@@ -1,0 +1,521 @@
+﻿2026-11-06T16:24:02.0278074Z Current runner version: '2.338.2'
+2026-11-06T16:24:02.0303889Z ##[group]Runner Image Provisioner
+2026-11-06T16:24:02.0304659Z Hosted Compute Agent
+2026-11-06T16:24:02.0305168Z Version: 20261103.629
+2026-11-06T16:24:02.0305805Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-06T16:24:02.0306464Z Build Date: 2026-11-03T17:26:59Z
+2026-11-06T16:24:02.0307103Z Worker ID: {8887da03-e529-4f23-abac-90c8416f4bb6}
+2026-11-06T16:24:02.0307769Z Region: westus2
+2026-11-06T16:24:02.0308232Z Cloud: Azure
+2026-11-06T16:24:02.0308908Z ##[endgroup]
+2026-11-06T16:24:02.0310230Z ##[group]Operating System
+2026-11-06T16:24:02.0310827Z Microsoft Windows Server 2025
+2026-11-06T16:24:02.0311441Z 10.0.26100
+2026-11-06T16:24:02.0311921Z Datacenter
+2026-11-06T16:24:02.0312379Z ##[endgroup]
+2026-11-06T16:24:02.0312852Z ##[group]Runner Image
+2026-11-06T16:24:02.0313509Z Image: windows-2025-vs2026
+2026-11-06T16:24:02.0314062Z Version: 20261103.298.1
+2026-11-06T16:24:02.0315445Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261103.298/images/windows/Windows2025-VS2026-Readme.md
+2026-11-06T16:24:02.0317549Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261103.298
+2026-11-06T16:24:02.0318474Z ##[endgroup]
+2026-11-06T16:24:02.0319469Z ##[group]GITHUB_TOKEN Permissions
+2026-11-06T16:24:02.0321328Z Contents: read
+2026-11-06T16:24:02.0321885Z Metadata: read
+2026-11-06T16:24:02.0322369Z ##[endgroup]
+2026-11-06T16:24:02.0324402Z Secret source: Actions
+2026-11-06T16:24:02.0325251Z Cache mode: write
+2026-11-06T16:24:02.0325959Z Prepare workflow directory
+2026-11-06T16:24:02.0803346Z Prepare all required actions
+2026-11-06T16:24:02.0854673Z Getting action download info
+2026-11-06T16:24:02.4019650Z Download action repository 'actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-11-06T16:24:02.5588953Z Download action repository 'actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97' (SHA:5fda3b95a4ea91299a34e894583c3862153e4b97)
+2026-11-06T16:24:02.8968724Z Complete job name: area-music-provenance
+2026-11-06T16:24:03.0406063Z ##[group]Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+2026-11-06T16:24:03.0407349Z with:
+2026-11-06T16:24:03.0407812Z   persist-credentials: false
+2026-11-06T16:24:03.0408367Z   repository: Ebonyks/mermaid-roshan-reef
+2026-11-06T16:24:03.0412469Z   token: ***
+2026-11-06T16:24:03.0412893Z   ssh-strict: true
+2026-11-06T16:24:03.0413332Z   ssh-user: git
+2026-11-06T16:24:03.0413739Z   clean: true
+2026-11-06T16:24:03.0414174Z   sparse-checkout-cone-mode: true
+2026-11-06T16:24:03.0414702Z   fetch-depth: 1
+2026-11-06T16:24:03.0415122Z   fetch-tags: false
+2026-11-06T16:24:03.0415554Z   show-progress: true
+2026-11-06T16:24:03.0416003Z   lfs: false
+2026-11-06T16:24:03.0416426Z   submodules: false
+2026-11-06T16:24:03.0416886Z   set-safe-directory: true
+2026-11-06T16:24:03.0417571Z env:
+2026-11-06T16:24:03.0418050Z   GODOT_RELEASE: 4.7.2-stable
+2026-11-06T16:24:03.0419673Z   GODOT_ZIP_SHA512: 9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65
+2026-11-06T16:24:03.0421318Z ##[endgroup]
+2026-11-06T16:24:03.1891379Z Syncing repository: Ebonyks/mermaid-roshan-reef
+2026-11-06T16:24:03.1893370Z ##[group]Getting Git version info
+2026-11-06T16:24:03.1894167Z Working directory is 'D:\a\mermaid-roshan-reef\mermaid-roshan-reef'
+2026-11-06T16:24:03.2920034Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-06T16:24:03.5792463Z git version 2.56.0.windows.4
+2026-11-06T16:24:03.5847079Z ##[endgroup]
+2026-11-06T16:24:03.5868067Z Temporarily overriding HOME='D:\a\_temp\062de723-a0fe-4d1e-9f5e-d913094ce019' before making global git config changes
+2026-11-06T16:24:03.5870532Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-06T16:24:03.5881759Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\mermaid-roshan-reef\mermaid-roshan-reef
+2026-11-06T16:24:03.6585321Z Deleting the contents of 'D:\a\mermaid-roshan-reef\mermaid-roshan-reef'
+2026-11-06T16:24:03.6592553Z ##[group]Initializing the repository
+2026-11-06T16:24:03.6605364Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\mermaid-roshan-reef\mermaid-roshan-reef
+2026-11-06T16:24:03.7486863Z Initialized empty Git repository in D:/a/mermaid-roshan-reef/mermaid-roshan-reef/.git/
+2026-11-06T16:24:03.7541478Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/Ebonyks/mermaid-roshan-reef
+2026-11-06T16:24:03.8270196Z ##[endgroup]
+2026-11-06T16:24:03.8272145Z ##[group]Disabling automatic garbage collection
+2026-11-06T16:24:03.8279063Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-11-06T16:24:03.8652924Z ##[endgroup]
+2026-11-06T16:24:03.8654762Z ##[group]Setting up auth
+2026-11-06T16:24:03.8665235Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-06T16:24:03.9091746Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-06T16:24:05.3671743Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-06T16:24:05.4055362Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-06T16:24:06.0142424Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-06T16:24:06.0532585Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-06T16:24:06.5967723Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-06T16:24:06.6349192Z ##[endgroup]
+2026-11-06T16:24:06.6349808Z ##[group]Fetching the repository
+2026-11-06T16:24:06.6368214Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +08a5668d2c36b97471d8e0ab08a7e9fa9be97505:refs/remotes/origin/codex/flat-vector-r6-20261012
+2026-11-06T16:29:51.1592675Z From https://github.com/Ebonyks/mermaid-roshan-reef
+2026-11-06T16:29:51.1594396Z  * [new ref]           08a5668d2c36b97471d8e0ab08a7e9fa9be97505 -> origin/codex/flat-vector-r6-20261012
+2026-11-06T16:29:51.1677326Z ##[endgroup]
+2026-11-06T16:29:51.1678265Z ##[group]Determining the checkout info
+2026-11-06T16:29:51.1681885Z ##[endgroup]
+2026-11-06T16:29:51.1704154Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-11-06T16:29:51.2343075Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-11-06T16:29:51.2764540Z ##[group]Checking out the ref
+2026-11-06T16:29:51.2773781Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B codex/flat-vector-r6-20261012 refs/remotes/origin/codex/flat-vector-r6-20261012
+2026-11-06T16:29:52.4892548Z Updating files:   1% (700/42248)
+2026-11-06T16:29:52.6989829Z Updating files:   2% (845/42248)
+2026-11-06T16:29:53.3922014Z Updating files:   3% (1268/42248)
+2026-11-06T16:29:53.7463753Z Updating files:   3% (1666/42248)
+2026-11-06T16:29:54.3456753Z Updating files:   4% (1690/42248)
+2026-11-06T16:29:54.3905532Z Updating files:   5% (2113/42248)
+2026-11-06T16:29:55.3414718Z Updating files:   5% (2136/42248)
+2026-11-06T16:29:55.3921609Z Updating files:   6% (2535/42248)
+2026-11-06T16:29:56.1063711Z Updating files:   6% (2594/42248)
+2026-11-06T16:29:56.4021718Z Updating files:   7% (2958/42248)
+2026-11-06T16:29:56.5733598Z Updating files:   7% (3295/42248)
+2026-11-06T16:29:57.2002437Z Updating files:   8% (3380/42248)
+2026-11-06T16:29:57.4165719Z Updating files:   9% (3803/42248)
+2026-11-06T16:29:57.6705652Z Updating files:   9% (4010/42248)
+2026-11-06T16:29:58.3962064Z Updating files:  10% (4225/42248)
+2026-11-06T16:29:58.4221386Z Updating files:  11% (4648/42248)
+2026-11-06T16:29:59.2060134Z Updating files:  11% (4660/42248)
+2026-11-06T16:29:59.4229515Z Updating files:  12% (5070/42248)
+2026-11-06T16:29:59.9660299Z Updating files:  12% (5143/42248)
+2026-11-06T16:30:00.4440393Z Updating files:  13% (5493/42248)
+2026-11-06T16:30:00.7328828Z Updating files:  13% (5781/42248)
+2026-11-06T16:30:01.4485986Z Updating files:  14% (5915/42248)
+2026-11-06T16:30:02.0188091Z Updating files:  14% (6068/42248)
+2026-11-06T16:30:02.4613193Z Updating files:  15% (6338/42248)
+2026-11-06T16:30:02.6692390Z Updating files:  15% (6653/42248)
+2026-11-06T16:30:03.4762399Z Updating files:  16% (6760/42248)
+2026-11-06T16:30:04.5027580Z Updating files:  16% (7025/42248)
+2026-11-06T16:30:04.6840255Z Updating files:  16% (7167/42248)
+2026-11-06T16:30:05.4943405Z Updating files:  17% (7183/42248)
+2026-11-06T16:30:06.4944202Z Updating files:  17% (7376/42248)
+2026-11-06T16:30:06.6120137Z Updating files:  17% (7576/42248)
+2026-11-06T16:30:07.2732922Z Updating files:  18% (7605/42248)
+2026-11-06T16:30:07.5184937Z Updating files:  19% (8028/42248)
+2026-11-06T16:30:08.5132983Z Updating files:  19% (8107/42248)
+2026-11-06T16:30:08.9993172Z Updating files:  19% (8311/42248)
+2026-11-06T16:30:09.5108208Z Updating files:  20% (8450/42248)
+2026-11-06T16:30:10.5392720Z Updating files:  20% (8559/42248)
+2026-11-06T16:30:11.7022146Z Updating files:  20% (8648/42248)
+2026-11-06T16:30:12.5220243Z Updating files:  20% (8664/42248)
+2026-11-06T16:30:13.1921316Z Updating files:  20% (8758/42248)
+2026-11-06T16:30:13.5195196Z Updating files:  21% (8873/42248)
+2026-11-06T16:30:13.8942309Z Updating files:  21% (9056/42248)
+2026-11-06T16:30:14.7446872Z Updating files:  22% (9295/42248)
+2026-11-06T16:30:15.5295308Z Updating files:  22% (9455/42248)
+2026-11-06T16:30:15.9365664Z Updating files:  22% (9660/42248)
+2026-11-06T16:30:16.5421926Z Updating files:  23% (9718/42248)
+2026-11-06T16:30:17.5413000Z Updating files:  23% (9922/42248)
+2026-11-06T16:30:19.1401686Z Updating files:  24% (10140/42248)
+2026-11-06T16:30:19.1699916Z Updating files:  24% (10521/42248)
+2026-11-06T16:30:19.5988617Z Updating files:  25% (10562/42248)
+2026-11-06T16:30:20.8221064Z Updating files:  25% (10671/42248)
+2026-11-06T16:30:21.7553287Z Updating files:  25% (10772/42248)
+2026-11-06T16:30:21.8386752Z Updating files:  25% (10909/42248)
+2026-11-06T16:30:22.5928375Z Updating files:  26% (10985/42248)
+2026-11-06T16:30:23.5602445Z Updating files:  26% (11180/42248)
+2026-11-06T16:30:23.5990900Z Updating files:  26% (11355/42248)
+2026-11-06T16:30:24.5089461Z Updating files:  27% (11407/42248)
+2026-11-06T16:30:24.5800423Z Updating files:  28% (11830/42248)
+2026-11-06T16:30:25.6754854Z Updating files:  28% (11881/42248)
+2026-11-06T16:30:26.5839230Z Updating files:  28% (12063/42248)
+2026-11-06T16:30:26.6932922Z Updating files:  28% (12175/42248)
+2026-11-06T16:30:27.5014175Z Updating files:  29% (12252/42248)
+2026-11-06T16:30:27.5843443Z Updating files:  30% (12675/42248)
+2026-11-06T16:30:28.9066326Z Updating files:  30% (12752/42248)
+2026-11-06T16:30:29.5344130Z Updating files:  30% (12995/42248)
+2026-11-06T16:30:29.5857734Z Updating files:  31% (13097/42248)
+2026-11-06T16:30:30.5893080Z Updating files:  31% (13123/42248)
+2026-11-06T16:30:30.8292014Z Updating files:  31% (13346/42248)
+2026-11-06T16:30:31.6055300Z Updating files:  32% (13520/42248)
+2026-11-06T16:30:32.2124672Z Updating files:  32% (13732/42248)
+2026-11-06T16:30:32.6023848Z Updating files:  33% (13942/42248)
+2026-11-06T16:30:33.6182139Z Updating files:  33% (14024/42248)
+2026-11-06T16:30:34.6224001Z Updating files:  33% (14256/42248)
+2026-11-06T16:30:35.1256404Z Updating files:  33% (14308/42248)
+2026-11-06T16:30:35.6268884Z Updating files:  34% (14365/42248)
+2026-11-06T16:30:36.6293807Z Updating files:  34% (14552/42248)
+2026-11-06T16:30:36.7319308Z Updating files:  34% (14764/42248)
+2026-11-06T16:30:37.6375816Z Updating files:  35% (14787/42248)
+2026-11-06T16:30:38.6405952Z Updating files:  35% (14969/42248)
+2026-11-06T16:30:38.9275599Z Updating files:  35% (15157/42248)
+2026-11-06T16:30:39.8498451Z Updating files:  36% (15210/42248)
+2026-11-06T16:30:40.6551620Z Updating files:  36% (15298/42248)
+2026-11-06T16:30:41.6494448Z Updating files:  36% (15457/42248)
+2026-11-06T16:30:41.7655576Z Updating files:  36% (15617/42248)
+2026-11-06T16:30:42.6563172Z Updating files:  37% (15632/42248)
+2026-11-06T16:30:43.9296170Z Updating files:  37% (15772/42248)
+2026-11-06T16:30:44.6700271Z Updating files:  37% (15869/42248)
+2026-11-06T16:30:45.3385959Z Updating files:  37% (15974/42248)
+2026-11-06T16:30:45.6826825Z Updating files:  38% (16055/42248)
+2026-11-06T16:30:46.6919145Z Updating files:  38% (16131/42248)
+2026-11-06T16:30:46.7523147Z Updating files:  38% (16438/42248)
+2026-11-06T16:30:47.4230149Z Updating files:  39% (16477/42248)
+2026-11-06T16:30:47.7097156Z Updating files:  40% (16900/42248)
+2026-11-06T16:30:48.7186801Z Updating files:  40% (17237/42248)
+2026-11-06T16:30:48.9847574Z Updating files:  40% (17282/42248)
+2026-11-06T16:30:49.7294753Z Updating files:  41% (17322/42248)
+2026-11-06T16:30:50.8389323Z Updating files:  41% (17355/42248)
+2026-11-06T16:30:51.5823614Z Updating files:  41% (17555/42248)
+2026-11-06T16:30:51.7319849Z Updating files:  42% (17745/42248)
+2026-11-06T16:30:52.7301095Z Updating files:  42% (17763/42248)
+2026-11-06T16:30:53.7493851Z Updating files:  42% (17837/42248)
+2026-11-06T16:30:54.2306044Z Updating files:  42% (18006/42248)
+2026-11-06T16:30:54.5487341Z Updating files:  43% (18167/42248)
+2026-11-06T16:30:54.9729780Z Updating files:  44% (18590/42248)
+2026-11-06T16:30:54.9896126Z Updating files:  44% (18962/42248)
+2026-11-06T16:30:55.6313985Z Updating files:  45% (19012/42248)
+2026-11-06T16:30:55.7646642Z Updating files:  46% (19435/42248)
+2026-11-06T16:30:56.7679453Z Updating files:  46% (19492/42248)
+2026-11-06T16:30:56.8229227Z Updating files:  46% (19835/42248)
+2026-11-06T16:30:57.8894459Z Updating files:  47% (19857/42248)
+2026-11-06T16:30:58.2604134Z Updating files:  47% (20074/42248)
+2026-11-06T16:30:58.7689583Z Updating files:  48% (20280/42248)
+2026-11-06T16:30:58.8336562Z Updating files:  48% (20614/42248)
+2026-11-06T16:30:59.2808355Z Updating files:  49% (20702/42248)
+2026-11-06T16:30:59.7708282Z Updating files:  50% (21124/42248)
+2026-11-06T16:30:59.8922763Z Updating files:  50% (21507/42248)
+2026-11-06T16:31:00.7732723Z Updating files:  51% (21547/42248)
+2026-11-06T16:31:01.4173626Z Updating files:  51% (21693/42248)
+2026-11-06T16:31:02.1373133Z Updating files:  52% (21969/42248)
+2026-11-06T16:31:02.7776439Z Updating files:  52% (22037/42248)
+2026-11-06T16:31:05.0210030Z Updating files:  52% (22234/42248)
+2026-11-06T16:31:06.3799212Z Updating files:  52% (22275/42248)
+2026-11-06T16:31:06.4449983Z Updating files:  52% (22380/42248)
+2026-11-06T16:31:06.8089894Z Updating files:  53% (22392/42248)
+2026-11-06T16:33:58.4069850Z Updating files:  53% (22488/42248)
+2026-11-06T16:33:58.4076809Z Updating files:  53% (22684/42248)
+2026-11-06T16:33:58.4077129Z Updating files:  54% (22814/42248)
+2026-11-06T16:33:58.4077421Z Updating files:  55% (23237/42248)
+2026-11-06T16:33:58.4077741Z Updating files:  55% (23550/42248)
+2026-11-06T16:33:58.4078017Z Updating files:  56% (23659/42248)
+2026-11-06T16:33:58.4078298Z Updating files:  57% (24082/42248)
+2026-11-06T16:33:58.4078586Z Updating files:  57% (24129/42248)
+2026-11-06T16:33:58.4078871Z Updating files:  57% (24200/42248)
+2026-11-06T16:33:58.4079156Z Updating files:  57% (24400/42248)
+2026-11-06T16:33:58.4079783Z Updating files:  58% (24504/42248)
+2026-11-06T16:33:58.4080122Z Updating files:  59% (24927/42248)
+2026-11-06T16:33:58.4080405Z Updating files:  59% (24950/42248)
+2026-11-06T16:33:58.4080678Z Updating files:  59% (25285/42248)
+2026-11-06T16:33:58.4081358Z Updating files:  60% (25349/42248)
+2026-11-06T16:33:58.4081643Z Updating files:  60% (25517/42248)
+2026-11-06T16:33:58.4081951Z Updating files:  60% (25600/42248)
+2026-11-06T16:33:58.4082226Z Updating files:  61% (25772/42248)
+2026-11-06T16:33:58.4082497Z Updating files:  61% (25805/42248)
+2026-11-06T16:33:58.4082769Z Updating files:  61% (26141/42248)
+2026-11-06T16:33:58.4083055Z Updating files:  62% (26194/42248)
+2026-11-06T16:33:58.4083356Z Updating files:  62% (26590/42248)
+2026-11-06T16:33:58.4083624Z Updating files:  63% (26617/42248)
+2026-11-06T16:34:03.5544924Z Updating files:  63% (26879/42248)
+2026-11-06T16:34:03.5545637Z Updating files:  64% (27039/42248)
+2026-11-06T16:34:03.5546163Z Updating files:  64% (27102/42248)
+2026-11-06T16:34:03.5546554Z Updating files:  64% (27439/42248)
+2026-11-06T16:34:03.5546865Z Updating files:  65% (27462/42248)
+2026-11-06T16:34:03.5547157Z Updating files:  65% (27583/42248)
+2026-11-06T16:34:03.5547693Z Updating files:  66% (27884/42248)
+2026-11-06T16:34:03.5548232Z Updating files:  66% (28116/42248)
+2026-11-06T16:34:03.5548760Z Updating files:  67% (28307/42248)
+2026-11-06T16:34:03.5549272Z Updating files:  68% (28729/42248)
+2026-11-06T16:34:03.5549708Z Updating files:  68% (28795/42248)
+2026-11-06T16:34:03.5549991Z Updating files:  69% (29152/42248)
+2026-11-06T16:34:03.5550277Z Updating files:  69% (29153/42248)
+2026-11-06T16:34:03.5550621Z Updating files:  70% (29574/42248)
+2026-11-06T16:34:03.5551130Z Updating files:  70% (29577/42248)
+2026-11-06T16:34:03.5551446Z Updating files:  70% (29920/42248)
+2026-11-06T16:34:03.5551727Z Updating files:  71% (29997/42248)
+2026-11-06T16:34:03.5551994Z Updating files:  71% (30209/42248)
+2026-11-06T16:34:03.5552270Z Updating files:  72% (30419/42248)
+2026-11-06T16:34:03.5552533Z Updating files:  72% (30502/42248)
+2026-11-06T16:34:03.5552793Z Updating files:  72% (30762/42248)
+2026-11-06T16:34:03.5553126Z Updating files:  73% (30842/42248)
+2026-11-06T16:34:03.5579780Z Updating files:  73% (30966/42248)
+2026-11-06T16:34:03.5580129Z Updating files:  74% (31264/42248)
+2026-11-06T16:34:03.5595879Z Updating files:  74% (31466/42248)
+2026-11-06T16:34:03.5596491Z Updating files:  75% (31686/42248)
+2026-11-06T16:34:03.5597053Z Updating files:  75% (31810/42248)
+2026-11-06T16:34:03.5609845Z Updating files:  75% (32000/42248)
+2026-11-06T16:34:03.5610279Z Updating files:  76% (32109/42248)
+2026-11-06T16:34:03.5618366Z Updating files:  76% (32336/42248)
+2026-11-06T16:34:03.5618722Z Updating files:  76% (32521/42248)
+2026-11-06T16:34:03.5619015Z Updating files:  77% (32531/42248)
+2026-11-06T16:34:03.5625668Z Updating files:  77% (32842/42248)
+2026-11-06T16:34:03.6940897Z Updating files:  78% (32954/42248)
+2026-11-06T16:34:03.6997043Z Updating files:  78% (33146/42248)
+2026-11-06T16:34:03.6997395Z Updating files:  79% (33376/42248)
+2026-11-06T16:34:03.7021322Z Updating files:  79% (33532/42248)
+2026-11-06T16:34:03.7021676Z Updating files:  80% (33799/42248)
+2026-11-06T16:34:03.7046992Z Updating files:  80% (33865/42248)
+2026-11-06T16:34:03.7047711Z Updating files:  80% (34117/42248)
+2026-11-06T16:34:03.7048293Z Updating files:  81% (34221/42248)
+2026-11-06T16:34:03.7068406Z Updating files:  81% (34405/42248)
+2026-11-06T16:34:03.7068779Z Updating files:  82% (34644/42248)
+2026-11-06T16:34:03.7087125Z Updating files:  82% (34711/42248)
+2026-11-06T16:34:03.7087506Z Updating files:  83% (35066/42248)
+2026-11-06T16:34:03.7087807Z Updating files:  83% (35121/42248)
+2026-11-06T16:34:03.7132126Z Updating files:  84% (35489/42248)
+2026-11-06T16:34:03.7132573Z Updating files:  84% (35512/42248)
+2026-11-06T16:34:03.7150563Z Updating files:  84% (35710/42248)
+2026-11-06T16:34:03.7170813Z Updating files:  85% (35911/42248)
+2026-11-06T16:34:03.7171400Z Updating files:  85% (36039/42248)
+2026-11-06T16:34:03.7206521Z Updating files:  86% (36334/42248)
+2026-11-06T16:34:03.7206962Z Updating files:  86% (36365/42248)
+2026-11-06T16:34:03.7207285Z Updating files:  87% (36756/42248)
+2026-11-06T16:34:03.7242691Z Updating files:  87% (36767/42248)
+2026-11-06T16:34:03.7243381Z Updating files:  87% (37068/42248)
+2026-11-06T16:34:03.7243911Z Updating files:  88% (37179/42248)
+2026-11-06T16:34:03.7261947Z Updating files:  88% (37469/42248)
+2026-11-06T16:34:03.7262323Z Updating files:  89% (37601/42248)
+2026-11-06T16:34:03.7284771Z Updating files:  89% (37789/42248)
+2026-11-06T16:34:03.7285159Z Updating files:  90% (38024/42248)
+2026-11-06T16:34:03.7285497Z Updating files:  91% (38446/42248)
+2026-11-06T16:34:03.7299978Z Updating files:  91% (38585/42248)
+2026-11-06T16:34:03.7300328Z Updating files:  91% (38775/42248)
+2026-11-06T16:34:03.7308713Z Updating files:  92% (38869/42248)
+2026-11-06T16:34:03.7309100Z Updating files:  92% (39142/42248)
+2026-11-06T16:34:03.7309444Z Updating files:  93% (39291/42248)
+2026-11-06T16:34:03.7317639Z Updating files:  94% (39714/42248)
+2026-11-06T16:34:03.7317987Z Updating files:  95% (40136/42248)
+2026-11-06T16:34:03.7326032Z Updating files:  95% (40182/42248)
+2026-11-06T16:34:03.7326416Z Updating files:  95% (40288/42248)
+2026-11-06T16:34:03.7326757Z Updating files:  95% (40388/42248)
+2026-11-06T16:34:03.7334173Z Updating files:  96% (40559/42248)
+2026-11-06T16:34:03.7334552Z Updating files:  97% (40981/42248)
+2026-11-06T16:34:03.7334886Z Updating files:  98% (41404/42248)
+2026-11-06T16:34:03.7343540Z Updating files:  98% (41461/42248)
+2026-11-06T16:34:03.7344075Z Updating files:  99% (41826/42248)
+2026-11-06T16:34:03.7358347Z Updating files: 100% (42248/42248)
+2026-11-06T16:34:03.7358775Z Updating files: 100% (42248/42248), done.
+2026-11-06T16:34:04.2087647Z ##[error]error: timer thread did not terminate timely
+2026-11-06T16:34:04.3282140Z branch 'codex/flat-vector-r6-20261012' set up to track 'origin/codex/flat-vector-r6-20261012'.
+2026-11-06T16:34:04.3282850Z Switched to a new branch 'codex/flat-vector-r6-20261012'
+2026-11-06T16:34:04.6483040Z ##[endgroup]
+2026-11-06T16:34:05.0231367Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-11-06T16:34:05.0581091Z 08a5668d2c36b97471d8e0ab08a7e9fa9be97505
+2026-11-06T16:34:05.0776156Z ##[group]Removing auth
+2026-11-06T16:34:05.0815742Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-06T16:34:05.1230229Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-06T16:34:05.8137070Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-06T16:34:05.8500392Z http.https://github.com/.extraheader
+2026-11-06T16:34:05.8552954Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2026-11-06T16:34:05.8947878Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-06T16:34:06.4705792Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-06T16:34:06.5079792Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-06T16:34:07.0764378Z ##[endgroup]
+2026-11-06T16:34:07.7850630Z ##[group]Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+2026-11-06T16:34:07.7853052Z with:
+2026-11-06T16:34:07.7853356Z   python-version: 3.13.14
+2026-11-06T16:34:07.7857057Z   check-latest: false
+2026-11-06T16:34:07.7859702Z   token: ***
+2026-11-06T16:34:07.7862150Z   update-environment: true
+2026-11-06T16:34:07.7862493Z   allow-prereleases: false
+2026-11-06T16:34:07.7866040Z   freethreaded: false
+2026-11-06T16:34:07.7866301Z env:
+2026-11-06T16:34:07.7870578Z   GODOT_RELEASE: 4.7.2-stable
+2026-11-06T16:34:07.7871328Z   GODOT_ZIP_SHA512: 9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65
+2026-11-06T16:34:07.7874934Z ##[endgroup]
+2026-11-06T16:34:08.4114321Z ##[group]Installed versions
+2026-11-06T16:34:08.4135873Z Version 3.13.14 was not found in the local cache
+2026-11-06T16:34:09.3605361Z Version 3.13.14 is available for downloading
+2026-11-06T16:34:09.3606237Z Download from "https://github.com/actions/python-versions/releases/download/3.13.14-27320626148/python-3.13.14-win32-x64.zip"
+2026-11-06T16:34:09.9337003Z Extract downloaded archive
+2026-11-06T16:34:10.0590307Z [command]"C:\Program Files\PowerShell\7\pwsh.exe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command "$ErrorActionPreference = 'Stop' ; try { Add-Type -AssemblyName System.IO.Compression.ZipFile } catch { } ; try { [System.IO.Compression.ZipFile]::ExtractToDirectory('D:\a\_temp\python-3.13.14-win32-x64.zip', 'D:\a\_temp\05b495f1-8000-48bb-8277-f7cc9cb39e4b', $true) } catch { if (($_.Exception.GetType().FullName -eq 'System.Management.Automation.MethodException') -or ($_.Exception.GetType().FullName -eq 'System.Management.Automation.RuntimeException') ){ Expand-Archive -LiteralPath 'D:\a\_temp\python-3.13.14-win32-x64.zip' -DestinationPath 'D:\a\_temp\05b495f1-8000-48bb-8277-f7cc9cb39e4b' -Force } else { throw $_ } } ;"
+2026-11-06T16:34:11.8426910Z Execute installation script
+2026-11-06T16:34:15.6470859Z Check if Python hostedtoolcache folder exist...
+2026-11-06T16:34:15.6471293Z 
+2026-11-06T16:34:15.6786692Z Check if current Python version is installed...
+2026-11-06T16:34:15.6787817Z 
+2026-11-06T16:34:15.7221693Z Python3.13 (x64) was found in C:\hostedtoolcache\windows\Python...
+2026-11-06T16:34:15.7222097Z 
+2026-11-06T16:34:15.9739101Z Deleting C:\hostedtoolcache\windows\Python\3.13.17\x64...
+2026-11-06T16:34:15.9739487Z 
+2026-11-06T16:34:27.2290758Z VERBOSE: Performing the operation "Remove File" on target "C:\hostedtoolcache\windows\Python\3.13.17\x64.complete".
+2026-11-06T16:34:27.2292227Z 
+2026-11-06T16:34:27.2301672Z Remove registry entries for Python 3.13(x64)...
+2026-11-06T16:34:27.2303157Z 
+2026-11-06T16:34:28.1754671Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.1756443Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\1FC4C8558E2824C4CB19F
+2026-11-06T16:34:28.1760806Z 5E1699E9CC9".
+2026-11-06T16:34:28.1761098Z 
+2026-11-06T16:34:28.1790617Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.1792066Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\366311F089C88AA468D6F
+2026-11-06T16:34:28.1796014Z 4E47934DCB4".
+2026-11-06T16:34:28.1796186Z 
+2026-11-06T16:34:28.1816470Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.1822081Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\4347178E0C3EC3B41823D
+2026-11-06T16:34:28.1822792Z FB16CA5A09C".
+2026-11-06T16:34:28.1822965Z 
+2026-11-06T16:34:28.1840406Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.1850804Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\54503CADFE0E4174EB980
+2026-11-06T16:34:28.1851431Z 58ABBA662AB".
+2026-11-06T16:34:28.1851592Z 
+2026-11-06T16:34:28.1870748Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.1872194Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\5AA347F7FB474E241BBE5
+2026-11-06T16:34:28.1877176Z 0B1F5500420".
+2026-11-06T16:34:28.1877422Z 
+2026-11-06T16:34:28.1881216Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.1882303Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\5E26C8E7D76BE2D40B658
+2026-11-06T16:34:28.1887563Z 816B37397E3".
+2026-11-06T16:34:28.1887740Z 
+2026-11-06T16:34:28.1906987Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.1911314Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\A5F354F24E328EA43A337
+2026-11-06T16:34:28.1912476Z C4D5E20A686".
+2026-11-06T16:34:28.1912699Z 
+2026-11-06T16:34:28.1931989Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.1936326Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\C7EC587A0B7DD144E9206
+2026-11-06T16:34:28.1936940Z 263E4692BC7".
+2026-11-06T16:34:28.1937089Z 
+2026-11-06T16:34:28.2343973Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.2344910Z HKEY_CLASSES_ROOT\Installer\Products\1FC4C8558E2824C4CB19F5E1699E9CC9".
+2026-11-06T16:34:28.2345459Z 
+2026-11-06T16:34:28.2454709Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.2455317Z HKEY_CLASSES_ROOT\Installer\Products\366311F089C88AA468D6F4E47934DCB4".
+2026-11-06T16:34:28.2455651Z 
+2026-11-06T16:34:28.2607225Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.2611089Z HKEY_CLASSES_ROOT\Installer\Products\4347178E0C3EC3B41823DFB16CA5A09C".
+2026-11-06T16:34:28.2611455Z 
+2026-11-06T16:34:28.2733827Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.2737985Z HKEY_CLASSES_ROOT\Installer\Products\54503CADFE0E4174EB98058ABBA662AB".
+2026-11-06T16:34:28.2738371Z 
+2026-11-06T16:34:28.2775922Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.2776626Z HKEY_CLASSES_ROOT\Installer\Products\5AA347F7FB474E241BBE50B1F5500420".
+2026-11-06T16:34:28.2780210Z 
+2026-11-06T16:34:28.2840165Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.2841137Z HKEY_CLASSES_ROOT\Installer\Products\5E26C8E7D76BE2D40B658816B37397E3".
+2026-11-06T16:34:28.2841813Z 
+2026-11-06T16:34:28.3321971Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.3323037Z HKEY_CLASSES_ROOT\Installer\Products\A5F354F24E328EA43A337C4D5E20A686".
+2026-11-06T16:34:28.3323602Z 
+2026-11-06T16:34:28.3749779Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.3754182Z HKEY_CLASSES_ROOT\Installer\Products\C7EC587A0B7DD144E9206263E4692BC7".
+2026-11-06T16:34:28.3754568Z 
+2026-11-06T16:34:28.4308167Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.4443840Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{0F113663-8C98-4AA8-866D-4F4E9743CD4B}".
+2026-11-06T16:34:28.4444427Z 
+2026-11-06T16:34:28.4444663Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.4445318Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{2F453F5A-23E4-4AE8-A333-C7D4E5026A68}".
+2026-11-06T16:34:28.4448722Z 
+2026-11-06T16:34:28.4489646Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.4490764Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{558C4CF1-82E8-4C42-BC91-5F1E96E9C99C}".
+2026-11-06T16:34:28.4494669Z 
+2026-11-06T16:34:28.4569584Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.4572058Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{7E8C62E5-B67D-4D2E-B056-88613B37793E}".
+2026-11-06T16:34:28.4572629Z 
+2026-11-06T16:34:28.4590971Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.4591737Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{7F743AA5-74BF-42E4-B1EB-051B5F054002}".
+2026-11-06T16:34:28.4592219Z 
+2026-11-06T16:34:28.4675037Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.4679351Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{A785CE7C-D7B0-441D-9E02-26364E96B27C}".
+2026-11-06T16:34:28.4680336Z 
+2026-11-06T16:34:28.4793184Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.4797048Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{DAC30545-E0EF-4714-BE89-50A8BB6A26BA}".
+2026-11-06T16:34:28.4797539Z 
+2026-11-06T16:34:28.4840150Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-06T16:34:28.4845602Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{E8717434-E3C0-4B3C-8132-FD1BC65A0AC9}".
+2026-11-06T16:34:28.4846136Z 
+2026-11-06T16:34:28.5688881Z Create Python 3.13.14 folder in C:\hostedtoolcache\windows\Python
+2026-11-06T16:34:28.5689450Z 
+2026-11-06T16:34:28.5745068Z Copy Python binaries to C:\hostedtoolcache\windows\Python\3.13.14\x64
+2026-11-06T16:34:28.5749128Z 
+2026-11-06T16:34:28.5883442Z Install Python 3.13.14 in C:\hostedtoolcache\windows\Python...
+2026-11-06T16:34:28.5884039Z 
+2026-11-06T16:35:12.4178858Z Create python3 symlink
+2026-11-06T16:35:12.4182827Z 
+2026-11-06T16:35:12.5091690Z 
+2026-11-06T16:35:12.5092868Z 
+2026-11-06T16:35:12.5098937Z Directory: C:\hostedtoolcache\windows\Python\3.13.14\x64
+2026-11-06T16:35:12.5099727Z 
+2026-11-06T16:35:12.5099736Z 
+2026-11-06T16:35:12.5111653Z Mode                 LastWriteTime         Length Name
+2026-11-06T16:35:12.5117347Z ----                 -------------         ------ ----
+2026-11-06T16:35:12.5129501Z -a---l         11/6/2026   4:35 PM              0 python3.exe
+2026-11-06T16:35:12.5138348Z Install and upgrade Pip
+2026-11-06T16:35:12.5142262Z 
+2026-11-06T16:35:14.3336166Z Collecting pip
+2026-11-06T16:35:14.6131847Z Downloading pip-26.3-py3-none-any.whl.metadata (4.6 kB)
+2026-11-06T16:35:14.6407518Z Downloading pip-26.3-py3-none-any.whl (2.0 MB)
+2026-11-06T16:35:14.8532539Z 
+2026-11-06T16:35:14.8533418Z ---------------------------------------- 2.0/2.0 MB 14.6 MB/s  0:00:00
+2026-11-06T16:35:14.8538133Z 
+2026-11-06T16:35:14.8897148Z Installing collected packages: pip
+2026-11-06T16:35:14.8898482Z Attempting uninstall: pip
+2026-11-06T16:35:14.8935180Z Found existing installation: pip 26.1.2
+2026-11-06T16:35:14.9782462Z Uninstalling pip-26.1.2:
+2026-11-06T16:35:15.0006248Z Successfully uninstalled pip-26.1.2
+2026-11-06T16:35:17.6007151Z Successfully installed pip-26.3
+2026-11-06T16:35:17.6584783Z Create complete file
+2026-11-06T16:35:17.6585184Z 
+2026-11-06T16:35:17.6600252Z 
+2026-11-06T16:35:17.6600304Z 
+2026-11-06T16:35:17.7706242Z Successfully set up CPython (3.13.14)
+2026-11-06T16:35:17.7710478Z ##[endgroup]
+2026-11-06T16:35:17.8694297Z ##[group]Run python -m pip install --disable-pip-version-check --quiet numpy==2.5.1 scipy==1.18.0
+2026-11-06T16:35:17.8695191Z [36;1mpython -m pip install --disable-pip-version-check --quiet numpy==2.5.1 scipy==1.18.0[0m
+2026-11-06T16:35:17.8695755Z [36;1m& ./tools/setup_video_tools.ps1[0m
+2026-11-06T16:35:17.8698702Z [36;1mpython -B tools/build_area_music.py --check[0m
+2026-11-06T16:35:17.8814323Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-06T16:35:17.8814751Z env:
+2026-11-06T16:35:17.8817854Z   GODOT_RELEASE: 4.7.2-stable
+2026-11-06T16:35:17.8818704Z   GODOT_ZIP_SHA512: 9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65
+2026-11-06T16:35:17.8822420Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.13.14\x64
+2026-11-06T16:35:17.8823033Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.13.14\x64/lib/pkgconfig
+2026-11-06T16:35:17.8826160Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.14\x64
+2026-11-06T16:35:17.8826707Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.14\x64
+2026-11-06T16:35:17.8827171Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.14\x64
+2026-11-06T16:35:17.8830239Z ##[endgroup]
+2026-11-06T16:35:34.2313364Z Downloading pinned FFmpeg 8.1.2 essentials build...
+2026-11-06T16:35:36.3449788Z error: Response status code does not indicate success: 503 (Service Unavailable).
+2026-11-06T16:35:36.7750030Z Traceback (most recent call last):
+2026-11-06T16:35:36.7755337Z   File "D:\a\mermaid-roshan-reef\mermaid-roshan-reef\tools\build_area_music.py", line 1457, in <module>
+2026-11-06T16:35:36.7757062Z     raise SystemExit(main())
+2026-11-06T16:35:36.7757472Z                      ~~~~^^
+2026-11-06T16:35:36.7758317Z   File "D:\a\mermaid-roshan-reef\mermaid-roshan-reef\tools\build_area_music.py", line 1444, in main
+2026-11-06T16:35:36.7759274Z     ffmpeg = _find_ffmpeg(args.ffmpeg, repo_root)
+2026-11-06T16:35:36.7760371Z   File "D:\a\mermaid-roshan-reef\mermaid-roshan-reef\tools\build_area_music.py", line 262, in _find_ffmpeg
+2026-11-06T16:35:36.7761347Z     raise FileNotFoundError(
+2026-11-06T16:35:36.7762048Z         "FFmpeg was not found. Pass --ffmpeg or set REEF_FFMPEG to the pinned executable."
+2026-11-06T16:35:36.7762770Z     )
+2026-11-06T16:35:36.7763471Z FileNotFoundError: FFmpeg was not found. Pass --ffmpeg or set REEF_FFMPEG to the pinned executable.
+2026-11-06T16:35:36.8440776Z ##[error]Process completed with exit code 1.
+2026-11-06T16:35:36.8783175Z Post job cleanup.
+2026-11-06T16:35:37.1268745Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-06T16:35:37.1699525Z git version 2.56.0.windows.4
+2026-11-06T16:35:37.1817856Z Temporarily overriding HOME='D:\a\_temp\3f50e38f-587e-4889-8558-8cb85a3cc555' before making global git config changes
+2026-11-06T16:35:37.1819171Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-06T16:35:37.1830887Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\mermaid-roshan-reef\mermaid-roshan-reef
+2026-11-06T16:35:37.2246721Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-06T16:35:37.2646516Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-06T16:35:37.8626811Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-06T16:35:37.9024882Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-06T16:35:38.4973453Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-06T16:35:38.5381721Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-06T16:35:39.1844131Z Cleaning up orphan processes
+2026-11-06T16:35:39.3172490Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

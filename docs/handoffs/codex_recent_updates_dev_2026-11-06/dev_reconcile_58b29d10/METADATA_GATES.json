@@ -1,0 +1,39 @@
+{
+  "state": "PASS_COMBINED_RUNTIME_UNCHANGED_METADATA_GATES",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_recent_updates_dev_2026-11-06/dev_reconcile_58b29d10/authority.log",
+      "sha256": "889c6deb48b2fdc772e2f2fcb54588c000fc1803dccb3734e61c7477ff85d457"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_recent_updates_dev_2026-11-06/dev_reconcile_58b29d10/coverage_auto.log",
+      "sha256": "cc983ea496c8cae3870af837140adee0855bd14982079232f7e7729f2f0dd0dc"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_recent_updates_dev_2026-11-06/dev_reconcile_58b29d10/coverage_caf.log",
+      "sha256": "b381bb0c7fc84ee0271da9cf768819f512b5ad6cfbb35082340229301589015d"
+    }
+  ]
+}

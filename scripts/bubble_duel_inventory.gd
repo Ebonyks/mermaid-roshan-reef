@@ -206,3 +206,39 @@ static func choose_look(main: ReefMain, look: String, player: int = 0) -> bool:
 	var data := state(main)
 	_set_profile(data, player, chosen)
 	return _store(main, data)
+
+
+static func campaign(main: ReefMain) -> Dictionary:
+	var raw: Variant = state(main).get("campaign", {})
+	var result: Dictionary = raw.duplicate(true) if raw is Dictionary else {}
+	var stage: Variant = result.get("stage", 0)
+	result["stage"] = clampi(int(stage), 0, 15) if stage is float or stage is int else 0
+	if not result.get("checkpoint", {}) is Dictionary: result["checkpoint"] = {}
+	return result
+
+
+static func checkpoint(main: ReefMain, stage: int, progress: Dictionary, pearls: int, complete: bool = false) -> bool:
+	var data: Dictionary = state(main)
+	var saved: Dictionary = campaign(main)
+	# A stale overlay can never move a newer campaign backwards or pay twice.
+	if int(saved["stage"]) != stage: return false
+	saved["checkpoint"] = progress.duplicate(true)
+	if complete:
+		saved["stage"] = (stage + 1) % 16
+		saved["checkpoint"] = {}
+		saved["completed"] = int(saved.get("completed", 0)) + 1
+		data["wins"] = int(data["wins"]) + 1
+	data["campaign"] = saved
+	data["pearls"] = mini(1000000, int(data["pearls"]) + maxi(0, pearls))
+	main.save_data[SAVE_KEY] = data
+	return main._write_save()
+
+
+static func record_ride(main: ReefMain, score: int) -> bool:
+	var data: Dictionary = state(main)
+	var previous: Variant = data.get("best_ride", 0)
+	var best: int = int(previous) if previous is int or previous is float else 0
+	if score <= best: return true
+	data["best_ride"] = maxi(best, score)
+	main.save_data[SAVE_KEY] = data
+	return main._write_save()

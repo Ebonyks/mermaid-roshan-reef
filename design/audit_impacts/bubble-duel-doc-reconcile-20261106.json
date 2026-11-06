@@ -1,0 +1,35 @@
+{
+  "id": "bubble-duel-doc-reconcile-20261106",
+  "baseline": "a7e7cc4180a551a24746c9c43c6c3af659d93e31",
+  "scope": "Preserve incoming Dev acoustic DKC review documentation without changing the tested Bubble Duel gameplay/build/assets. Mechanical clean merge of audit index and document ledger; exact Git-object equality for all non-documentation paths. No new physics setting, protected source edit, finding closure or release promotion.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07"
+  ],
+  "findings": [],
+  "no_findings_reason": "Integration-only document reconciliation; no new gameplay defect or finding repair. The original Bubble Duel impact retains all rule, test, cap-overrun and acceptance context.",
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "assets_src/bubble_duel_physics_20261105/documentation-reconciliation.json"
+  ],
+  "validation": [
+    {
+      "command": "Exact staged non-documentation Git-object comparison against a7e7cc4180a551a24746c9c43c6c3af659d93e31",
+      "result": "PASS",
+      "evidence": "assets_src/bubble_duel_physics_20261105/documentation-reconciliation.json"
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py and python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "assets_src/bubble_duel_physics_20261105/documentation-reconciliation.json; 937inventory/937ledger, coverage5b92d1c2, owner130, scoped whitespace allPASS"
+    },
+    {
+      "command": "Exact combined topic/Dev CI and fresh Dev Android package",
+      "result": "PENDING",
+      "evidence": "Exact prior runtime topic42229666121 completedSUCCESS both jobs. New combined topic/Dev CI and new APK remain required."
+    }
+  ],
+  "acceptance_gaps": "Original physics/elevator impact retains formal image/master, physical-device, two-human touch, child, owner and subjective-fun acceptance gaps. 75 total unique configurations exceeded requested50; no new designs here. Game-wide master audit remains UNSATISFIED."
+}

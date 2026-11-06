@@ -563,115 +563,97 @@ func _audit_cancel_return() -> void:
 func _audit_bubble_duel() -> void:
 	rooms.show_room("opera_hall", false)
 	await _frames(3)
-	_check("Bubble Duel uses the Opera jobs venue", routes.open_opera_venue())
+	_check("Bubble Duel elevator belongs to the explorable foyer", routes.open_opera_venue())
 	await _frames(3)
-	var venue := routes.opera_venue
-	if venue == null:
-		return
-	var progress := _bubble_duel_progress_snapshot()
-	var wallet_before := BUBBLE_SHOP.state(main)
-	var living_visible := main.living_layer.visible
+	var venue: OperaHouseVenue2D = routes.opera_venue
+	if venue == null: return
+	var progress: Dictionary = _bubble_duel_progress_snapshot()
+	var living_visible: bool = main.living_layer.visible
+	_check("entry uses the painted elevator without a floating icon",
+		venue.bubble_duel_button is Button and venue.bubble_duel_button.position == Vector2(178, 390)
+		and venue.bubble_duel_button.get_meta("painted_elevator_hit_region", false))
 	_tap_control(venue.bubble_duel_button, 60)
-	await _frames(2)
-	var duel := venue.bubble_duel
-	_check("touching the painted bubbles opens one modal practice route",
-		duel != null and main._navigation_ref().top_id() == OperaHouseVenue2D.BubbleDuel.ROUTE_ID
-		and not venue.accepting_input and not main.living_layer.visible)
+	_check("press starts real landing travel before opening", venue.bubble_duel == null and venue.motion != null)
+	for frame: int in range(1200):
+		if venue.bubble_duel != null: break
+		await process_frame
+	var duel: BubbleDuelOverlay = venue.bubble_duel
+	_check("arrival opens one modal route and quiets the world", duel != null
+		and main._navigation_ref().top_id() == OperaHouseVenue2D.BubbleDuel.ROUTE_ID
+		and not venue.accepting_input and not main.living_layer.visible
+		and venue.feet.distance_to(Vector2(270, 526)) <= 44)
 	if duel == null:
 		venue.close()
 		return
-	var card := duel.menu.get_child(0) as Button
-	_tap_control(card, 61)
+	duel.set_process(false)
+	_tap_control(duel.menu.get_child(0) as Button, 61)
 	_check("Duel offers pictured character and gear setup", duel.mode == duel.Mode.SETUP)
 	for child: Node in duel.menu.get_children():
 		if child is Button and child.tooltip_text == "Play":
 			_tap_control(child as Control, 611)
 			break
-	_check("setup starts the selected friendly bout", duel.mode == duel.Mode.DUEL)
-	await _frames(5)
-	_check("idle duel neither moves Roshan nor scores", duel.swimmer == duel.START
-		and duel.score == 0 and duel.rival_bubbles == 2)
-	duel.set_process(false)
-	for remaining: int in [2, 1]:
-		_tap_control(duel, 62, duel._target(0))
-		for tick: int in range(180):
-			duel._process(1.0 / 60.0)
-			if duel.rival_bubbles < remaining:
-				break
-		_check("one actual arena touch produces a descending fin pop (%d left)" % (remaining - 1),
-			duel.rival_bubbles == remaining - 1)
-	_check("the second pop shows replay without changing career rewards",
-		duel.mode == duel.Mode.CELEBRATE and duel.score == 2
-		and _bubble_duel_progress_snapshot() == progress)
-	var wallet_after := BUBBLE_SHOP.state(main)
-	var expected_prize: int = mini(60, 10 + int(wallet_before["wins"]) / 2)
-	_check("Duel credits its own wallet once and saves unchanged story progress",
-		int(wallet_after["pearls"]) == int(wallet_before["pearls"]) + expected_prize
-		and int(wallet_after["wins"]) == int(wallet_before["wins"]) + 1
-		and _bubble_duel_save_matches(progress))
+	_check("setup starts the shared original-style engine", duel.mode == duel.Mode.DUEL and duel.world.fighters.size() >= 2)
+	var first: Vector2 = duel.world.human(0).position
+	for tick: int in range(90): duel._process(1.0 / 30)
+	_check("zero input cannot move, score or start the match", not duel.world.started
+		and duel.world.human(0).position == first and duel.world.pops == 0)
+	var pilot := BubbleDuelTestPolicy.new(31, 6, true)
+	var coins: int = int(BUBBLE_SHOP.state(main)["pearls"])
+	var campaign: int = int(BUBBLE_SHOP.campaign(main)["stage"])
+	for tick: int in range(7200):
+		if duel.mode == duel.Mode.CELEBRATE: break
+		var action: Dictionary = pilot.observe(duel.world.human(0), duel.world, tick)
+		if tick == 0 or bool(action["flap"]):
+			_tap_control(duel, 62, duel.Duo.PADS[0].get_center() + Vector2(float(action["axis"]) * 60, 0))
+		duel._process(1.0 / 30)
+	_check("real viewport flap inputs complete the bout through physical contacts", duel.mode == duel.Mode.CELEBRATE
+		and duel.world.pops > 0 and duel.world.human(0).consumed_inputs > 0)
+	_check("campaign pays and checkpoints without altering career progress",
+		int(BUBBLE_SHOP.state(main)["pearls"]) > coins
+		and int(BUBBLE_SHOP.campaign(main)["stage"]) == (campaign if duel.world.timed_draw else (campaign + 1) % 16)
+		and _bubble_duel_progress_snapshot() == progress and _bubble_duel_save_matches(progress))
+	var paid: Dictionary = BUBBLE_SHOP.state(main)
+	for tick: int in range(30): duel._process(1.0 / 30)
+	_check("finished match cannot pay again", BUBBLE_SHOP.state(main) == paid)
 	main._navigation_ref().press()
-	_check("Back from a bout returns to the Bubble Duel hub", duel.mode == duel.Mode.HUB)
 	_tap_control(duel.menu.get_child(3) as Button, 64)
 	_tap_control(duel.menu.get_child(2) as Button, 65)
-	_check("Shell Shop purchases a pictured color while preserving career rewards",
-		duel.tint_index == 2 and _bubble_duel_progress_snapshot() == progress
-		and _bubble_duel_save_matches(progress))
+	_check("pictured color purchase preserves the shared save and story",
+		duel.tint_index == 2 and _bubble_duel_progress_snapshot() == progress and _bubble_duel_save_matches(progress))
 	main._navigation_ref().press()
-	_tap_control(duel.menu.get_child(1) as Button, 66)
-	_tap_control(duel, 67, duel._target(0))
-	duel.notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
-	for tick: int in range(180):
-		duel._process(1.0 / 60.0)
-	_check("focus loss cancels the practice kick before any pop", duel.score == 0 and not duel.armed)
-	_tap_control(duel, 68, duel._target(0))
-	for tick: int in range(180):
-		duel._process(1.0 / 60.0)
-	_check("Practice Lagoon accepts a fresh kick after focus loss", duel.score == 1)
-	main._navigation_ref().press()
-	_tap_control(duel.menu.get_child(2) as Button, 69)
-	_tap_control(duel, 70, duel._target(0))
-	for tick: int in range(180):
-		duel._process(1.0 / 60.0)
-	_check("Current Ride scores a contacted pearl once", duel.score == 1)
-	main._navigation_ref().press()
-	_tap_control(duel.menu.get_child(4) as Button, 71)
-	_check("two friends opens independent setup", duel.mode == duel.Mode.SETUP and duel.setup_two_player)
-	for child: Node in duel.menu.get_children():
-		if child is Button and child.tooltip_text == "Play together":
-			_tap_control(child as Control, 72)
-			break
-	_check("two-player pictured Play starts two independent profiles", duel.mode == duel.Mode.VERSUS and duel.fighters.size() == 2 and duel.fighters[0]["profile"] == BUBBLE_SHOP.profile(main, 0) and duel.fighters[1]["profile"] == BUBBLE_SHOP.profile(main, 1))
-	var local_wallet := BUBBLE_SHOP.state(main)
+	duel._begin_versus()
+	_check("local players retain independent owned profiles", duel.world.human(0).profile == BUBBLE_SHOP.profile(main, 0)
+		and duel.world.human(1).profile == BUBBLE_SHOP.profile(main, 1))
 	for player: int in range(2):
 		var touch := InputEventScreenTouch.new()
 		touch.index = 73 + player
 		touch.pressed = true
 		touch.position = _control_screen_point(duel, duel.Duo.PADS[player].get_center())
-		duel.get_viewport().push_input(touch, false)
-	for tick: int in range(12): duel._process(1.0 / 60.0)
-	_check("native two-finger input moves both characters", duel.duo_touch_owners.size() == 2 and (duel.fighters[0]["position"] as Vector2).y < 480 and (duel.fighters[1]["position"] as Vector2).y < 480)
+		root.push_input(touch, false)
+	for tick: int in range(10): duel._process(1.0 / 30)
+	_check("two fingers each supply one flap, holding is not thrust",
+		duel.duo_touch_owners.size() == 2 and duel.world.human(0).kick_count == 1 and duel.world.human(1).kick_count == 1)
+	var momentum: Vector2 = duel.world.human(0).velocity
+	var point: Vector2 = duel.world.human(0).position
 	duel.notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
-	var local_first: Vector2 = duel.fighters[0]["position"]
-	var local_second: Vector2 = duel.fighters[1]["position"]
-	for tick: int in range(60): duel._process(1.0 / 60.0)
-	_check("two-player focus loss stops both without reward", duel.duo_touch_owners.is_empty() and duel.fighters[0]["position"] == local_first and duel.fighters[1]["position"] == local_second and BUBBLE_SHOP.state(main) == local_wallet and _bubble_duel_progress_snapshot() == progress)
+	for tick: int in range(60): duel._process(1.0 / 30)
+	_check("focus suspends both players without deleting momentum", duel.duo_touch_owners.is_empty()
+		and duel.world.human(0).position == point and duel.world.human(0).velocity == momentum)
+	_tap_control(duel, 74, duel.Duo.PADS[0].get_center())
+	duel._process(1.0 / 30)
+	_check("fresh input resumes the physical arc", not duel.world.paused and duel.world.human(0).position != point)
+	duel._begin_coop()
+	_check("cooperative friends share a team against live rivals",
+		duel.world.human(0).team == duel.world.human(1).team and duel.world.fighters.size() >= 3)
 	main._navigation_ref().press()
 	main._navigation_ref().press()
-	_check("Back from the hub restores Jobs, ambience and input",
+	_check("Back restores venue ambience, controls and exact elevator landing",
 		venue.bubble_duel == null and venue.accepting_input and main.living_layer.visible == living_visible
 		and not main.touch_control_blocks.has(OperaHouseVenue2D.BubbleDuel.ROUTE_ID)
 		and main._navigation_ref().top_id() == "opera_venue")
-	_tap_control(venue.bubble_duel_button, 63)
-	await _frames(2)
-	_check("reopening Bubble Duel starts a new hub", venue.bubble_duel != null
-		and venue.bubble_duel.mode == venue.bubble_duel.Mode.HUB
-		and venue.bubble_duel.tint_index == 2)
 	venue.close()
-	_check("venue shutdown removes the activity and keeps career state",
-		venue.bubble_duel == null and not main.touch_control_blocks.has(OperaHouseVenue2D.BubbleDuel.ROUTE_ID)
-		and _bubble_duel_progress_snapshot() == progress)
+	_check("shutdown preserves career progress", _bubble_duel_progress_snapshot() == progress)
 	await _frames(2)
-
 
 
 

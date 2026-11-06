@@ -153,6 +153,9 @@ addons/godot_mcp/** -text -whitespace
 tools/godot_mcp/** -text whitespace=cr-at-eol
 tools/godot_mcp/evidence/** -whitespace
 
+# Bubble Duel source studies and native review receipts bind literal bytes.
+assets_src/bubble_duel_physics_20261105/** -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol
+
 # R144 native capture/log and source pins bind literal Windows bytes.
 docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/** -text whitespace=-blank-at-eol,cr-at-eol
 
@@ -164,3 +167,6 @@ audit/cycles/reef-kart-zones-20261105/** -text whitespace=-blank-at-eol,-blank-a
 # This reconciliation preserves literal native failure/capture/source evidence.
 docs/handoffs/codex_recent_updates_dev_2026-11-06/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
 assets_src/review/recent_updates_dev_20261106/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+
+# R145 combined-source raw command evidence and recipes
+docs/handoffs/codex_recent_updates_dev_2026-11-06/dev_reconcile_58b29d10/** -text

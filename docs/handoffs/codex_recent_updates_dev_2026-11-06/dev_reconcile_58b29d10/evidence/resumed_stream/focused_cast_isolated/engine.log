@@ -1,0 +1,37 @@
+BUBBLE_RUNNER|engine_exit| 0
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+BUBBLESTRESS|ROW|0|complete=true|seconds=51.9666666666667|mode=0
+BUBBLESTRESS|ROW|1|complete=true|seconds=37.0|mode=1
+BUBBLESTRESS|ROW|2|complete=true|seconds=24.3333333333333|mode=2
+BUBBLESTRESS|ROW|3|complete=true|seconds=37.5|mode=3
+WARNING: SaveState: writes disabled — the save on disk uses a newer schema than this build; the newer save is preserved and progress stays in memory
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] write_save (res://scripts/save_state.gd:237)
+       [1] _write_save (res://scripts/main.gd:3313)
+       [2] _store (res://scripts/bubble_duel_inventory.gd:74)
+       [3] choose_item (res://scripts/bubble_duel_inventory.gd:102)
+       [4] _run (res://scripts/probe_bubble_duel_stress.gd:100)
+BUBBLESTRESS|4 bouts|740 checks|0 failures
+
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+BUBBLESTRESS|ROW|0|complete=true|seconds=51.9666666666667|mode=0
+BUBBLESTRESS|ROW|1|complete=true|seconds=37.0|mode=1
+BUBBLESTRESS|ROW|2|complete=true|seconds=24.3333333333333|mode=2
+BUBBLESTRESS|ROW|3|complete=true|seconds=37.5|mode=3
+WARNING: SaveState: writes disabled — the save on disk uses a newer schema than this build; the newer save is preserved and progress stays in memory
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] write_save (res://scripts/save_state.gd:237)
+       [1] _write_save (res://scripts/main.gd:3313)
+       [2] _store (res://scripts/bubble_duel_inventory.gd:74)
+       [3] choose_item (res://scripts/bubble_duel_inventory.gd:102)
+       [4] _run (res://scripts/probe_bubble_duel_stress.gd:100)
+BUBBLESTRESS|4 bouts|740 checks|0 failures
+
+RELOAD_PHASE: new Godot process, same isolated save
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+

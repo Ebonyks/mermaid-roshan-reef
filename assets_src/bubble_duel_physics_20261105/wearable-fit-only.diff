@@ -1,0 +1,35 @@
+--- before/scripts/bubble_duel_cast.gd
++++ after/scripts/bubble_duel_cast.gd
+@@ -164,15 +164,21 @@
+ 				"rainbow_dust_bunny": center = (Vector2(55, 400) - (spec["anchor"] as Vector2)) * factor
+ 				"marlo":
+ 					center = (Vector2(122, 112) - (spec["anchor"] as Vector2)) * factor
+-					pivot = ITEM_PINS[2]
++					pivot = Vector2(0.605469, 0.746094)
+ 		"rainbow":
+ 			# A belt/wing-harness holster is honest even for portraits with no free hand.
+ 			center = Vector2(body.end.x - 2, body.end.y - 3)
+ 			span = Vector2(39, 60) * fit
+ 			pivot = ITEM_PINS[3]
++			if String(profile.get("character", "")) == "marlo":
++				center = Vector2(body.get_center().x, body.end.y + 2)
++				span = Vector2(30, 44) * fit
+ 		"kelp":
+ 			center.y += 4.0
+ 			span = Vector2(44, 46) * fit
++			if String(profile.get("character", "")) == "rumi":
++				center = Vector2(body.get_center().x, body.end.y - 3)
++				span = Vector2(32, 34) * fit
+ 		"lullaby":
+ 			center = Vector2(body.get_center().x, body.end.y)
+ 			span = Vector2(26, 26) * fit
+@@ -180,6 +186,9 @@
+ 			center = Vector2(body.end.x - 1, body.end.y - 2)
+ 			span = Vector2(25, 33) * fit
+ 			pivot = ITEM_PINS[6]
++			match String(profile.get("character", "")):
++				"baby_eagle": center = (Vector2(190, 300) - (spec["anchor"] as Vector2)) * factor
++				"rainbow_dust_bunny": center = (Vector2(300, 430) - (spec["anchor"] as Vector2)) * factor
+ 	center = _snap_socket(spec, center)
+ 	var rect := Rect2(center - span * pivot, span)
+ 	return {"icon": int(Shop.item(gear)["icon"]), "rect": rect, "socket": center,

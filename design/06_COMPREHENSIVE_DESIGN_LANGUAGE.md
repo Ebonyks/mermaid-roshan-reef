@@ -719,6 +719,14 @@ separate four-floor venue remake nor a job redesign. Device/child/owner
 acceptance and `MA-OPERA-012` remain open. See the
 [impact and evidence](audit_impacts/opera-job-playtest-20260930.json).
 
+Owner correction 2026-11-05 assigns the painted left elevator to the optional
+Bubble Duel arcade. Roshan walks to its landing before entry; the separate
+floating launcher is removed. The old developer job picker stays disabled.
+The commissioned shared 30 Hz impulse controller, multi-opponent campaign,
+local versus/cooperative modes and shared earned wardrobe/shop wallet retain
+all story locks, return, save, true-2D and acceptance rules. No career masks or
+retired routes change. See [impact and evidence](audit_impacts/bubble-duel-physics-elevator-20261105.json).
+
 `DL-INT-13` — Curtain Dragon, Shadow Phantom, and Midnight Maestro are cut from
 the reachable product. They MUST NOT appear as Opera cards, floor gates,
 required stars, finales, voices, music routes, or boss-runtime entries. Existing

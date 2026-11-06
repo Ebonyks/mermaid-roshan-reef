@@ -1,0 +1,51 @@
+{
+  "reviewer": "Codex actual native-pixel review; not independent owner acceptance",
+  "floor": 4.6,
+  "cases": [
+    {
+      "character": "rumi",
+      "item": "kelp",
+      "candidate_wear_fit_score": 4.3,
+      "result": "REJECT",
+      "observation": "Coil reaches the chin/mouth; move to waist and reduce span.",
+      "file": "visual-rejects/wear-rumi-kelp.png",
+      "sha256": "b82276af20c5535c6bc39c4173e7dac5305b06e072a1dc206a2606b0312a2d90"
+    },
+    {
+      "character": "marlo",
+      "item": "rainbow",
+      "candidate_wear_fit_score": 4.4,
+      "result": "REJECT",
+      "observation": "Wand crosses cheek/eye area; use a smaller flank holster.",
+      "file": "visual-rejects/wear-marlo-rainbow.png",
+      "sha256": "68408bf2943b4db4e9b00bca9dd738abfcb7550135b549b97f78af1f8ae1a627"
+    },
+    {
+      "character": "marlo",
+      "item": "swiftconch",
+      "candidate_wear_fit_score": 4.5,
+      "result": "REJECT",
+      "observation": "Pin uses a faint swirl instead of the solid shell; move pin onto shell body.",
+      "file": "visual-rejects/wear-marlo-swiftconch.png",
+      "sha256": "72f5eb8c594b9bce585302e245faed3383bf6b31c6fd87f1fb535eeedb491b1d"
+    },
+    {
+      "character": "baby_eagle",
+      "item": "squid",
+      "candidate_wear_fit_score": 4.5,
+      "result": "REJECT",
+      "observation": "Charm hangs between legs; move to the side of the wing/hip.",
+      "file": "visual-rejects/wear-baby_eagle-squid.png",
+      "sha256": "8ec8601a05df68a8387fa71241956e1628b7db54d5dffb39e9c8c54053a9d549"
+    },
+    {
+      "character": "rainbow_dust_bunny",
+      "item": "squid",
+      "candidate_wear_fit_score": 4.4,
+      "result": "REJECT",
+      "observation": "Charm hangs below the fur; clip it to the lower side curl.",
+      "file": "visual-rejects/wear-rainbow_dust_bunny-squid.png",
+      "sha256": "8e2d0c3d674365485c2c58a235cdd2b167bbbec1d52de0748666a88e2f6564c5"
+    }
+  ]
+}

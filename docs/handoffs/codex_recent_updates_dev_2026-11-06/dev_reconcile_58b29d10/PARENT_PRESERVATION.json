@@ -1,0 +1,73 @@
+{
+  "state": "EXACT_DISJOINT_RUNTIME_PARENT_PRESERVATION_PASS_COMBINED_GATES_PENDING",
+  "tested_prior_Racer_source": "cafce6e857ef1ba60a3d9a033b5fe5f889f3dce5",
+  "incoming_green_actual_Dev": "58b29d1014d27b29e7e5313d4dcff5f8beffc14b",
+  "incoming_exact_work_CI": 42239429125,
+  "incoming_Dev_CI": 42248649525,
+  "overlapping_runtime_paths": [],
+  "incoming_Bubble_paths": [
+    "scripts/bubble_duel_arena.gd",
+    "scripts/bubble_duel_brain.gd",
+    "scripts/bubble_duel_cast.gd",
+    "scripts/bubble_duel_fighter.gd",
+    "scripts/bubble_duel_geometry.gd",
+    "scripts/bubble_duel_inventory.gd",
+    "scripts/bubble_duel_motion.gd",
+    "scripts/bubble_duel_test_policy.gd",
+    "scripts/bubble_duel_two_player.gd",
+    "scripts/bubble_duel_view.gd",
+    "scripts/opera_bubble_duel.gd",
+    "scripts/opera_house_venue_2d.gd",
+    "scripts/probe_bubble_duel_capture.gd",
+    "scripts/probe_bubble_duel_cast.gd",
+    "scripts/probe_bubble_duel_cast_capture.gd",
+    "scripts/probe_bubble_duel_dual_active.gd",
+    "scripts/probe_bubble_duel_physics.gd",
+    "scripts/probe_bubble_duel_stress.gd",
+    "scripts/probe_bubble_duel_study.gd",
+    "scripts/probe_opera.gd"
+  ],
+  "Racer_paths": [
+    "assets/audio/objective_guides/OBJECTIVE_GUIDE_MANIFEST.json",
+    "assets/audio/objective_guides/guide_kart_kelp.ogg",
+    "assets/audio/objective_guides/guide_kart_kelp.ogg.import",
+    "assets/audio/objective_guides/guide_kart_pearls.ogg",
+    "assets/audio/objective_guides/guide_kart_pearls.ogg.import",
+    "assets/audio/objective_guides/guide_kart_sparkle.ogg",
+    "assets/audio/objective_guides/guide_kart_sparkle.ogg.import",
+    "assets/audio/objective_guides/guide_kart_sparkle_duel.ogg",
+    "assets/audio/objective_guides/guide_kart_sparkle_duel.ogg.import",
+    "assets/audio/objective_guides/guide_kart_zoom.ogg",
+    "assets/audio/objective_guides/guide_kart_zoom.ogg.import",
+    "assets/racer/zones_v1/pool_towel_cabinet.png",
+    "assets/racer/zones_v1/pool_towel_cabinet.png.import",
+    "scripts/audio_director.gd",
+    "scripts/opera_racer_surface.gd",
+    "scripts/probe_opera_2d.gd",
+    "scripts/probe_racer_integration.gd",
+    "scripts/probe_reef_kart_pc.gd",
+    "scripts/probe_voice.gd",
+    "scripts/racer/reef_kart_courses.gd",
+    "scripts/racer/reef_kart_floor.gdshader",
+    "scripts/racer/reef_kart_item_voice.gd",
+    "scripts/racer/reef_kart_pc.gd",
+    "scripts/racer/reef_kart_race.gd",
+    "scripts/racer/reef_kart_track.gd",
+    "scripts/racer/reef_kart_zones.gd"
+  ],
+  "each_incoming_runtime_blob_exact_to_Dev": true,
+  "each_Racer_runtime_blob_exact_to_caf": true,
+  "protected_paths_modified": [],
+  "native_capture_reuse_scope": "Original17Racer diagnostics remain bound toCAF. Selected Racer render/input resources, scripts and original capture fixture are unchanged. No new combined-source native render/formalQA11/natural-route claim or additional frame-event count.",
+  "metadata_conflicts": [
+    {
+      "path": "ASSET_LICENSES.md",
+      "resolution": "Both independent additive source/license/owner histories retained in full; no rejected source restored."
+    },
+    {
+      "path": "design/reference/OWNER_DECISIONS.md",
+      "resolution": "Both independent additive source/license/owner histories retained in full; no rejected source restored."
+    }
+  ],
+  "time": "2026-11-06T16:10:02.206532+00:00"
+}

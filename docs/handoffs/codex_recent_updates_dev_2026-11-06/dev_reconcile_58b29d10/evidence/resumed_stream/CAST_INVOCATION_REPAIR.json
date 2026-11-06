@@ -1,0 +1,37 @@
+{
+  "state": "PASS_USING_PUBLISHED_ISOLATED_DRIVER_AND_FRESH_PROCESS_RELOAD",
+  "original_failure": {
+    "label": "focused_probe_bubble_duel_cast",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "--path",
+      "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+      "-s",
+      "scripts/probe_bubble_duel_cast.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit_code": 2,
+    "elapsed_seconds": 8.583,
+    "failure_lines": [],
+    "log_sha256": "c0ad80bcb766a06fdefaea5990362119e235e6ca605077d2a1ca38c1223ac3e7",
+    "passed": false
+  },
+  "cause": "Direct cast probe extends stress harness and requires BUBBLE_DUEL_STRESS_ROOT to contain actual user-data directory. Missing env guard correctly stopped before trial.",
+  "repair": "Use unchanged tools/run_bubble_duel_stress.py --cast --cycles4 with owned isolated temporary profile, fixture report and new-process reload.",
+  "source_or_probe_changes": 0,
+  "new_physics_design_variants": 0,
+  "prior_75_vs_50_cap_overrun_preserved": true,
+  "actual_bouts": 4,
+  "modes": [
+    "versus",
+    "duel",
+    "coop",
+    "practice"
+  ],
+  "cast_result": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-shell-20261106\\r145_dev58b_validation_resume_cast\\focused_cast_isolated\\cast_result.json",
+  "reload_result": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-shell-20261106\\r145_dev58b_validation_resume_cast\\focused_cast_isolated\\cast_result-reload.json",
+  "no_passed_prefix_repeated": true
+}
