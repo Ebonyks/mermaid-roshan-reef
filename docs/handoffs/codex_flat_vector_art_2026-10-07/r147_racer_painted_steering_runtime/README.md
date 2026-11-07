@@ -15,3 +15,7 @@ The [actual source candidate](https://github.com/Ebonyks/mermaid-roshan-reef/blo
 ## R147 Dev checks and Android retry
 
 48 published bounded source artifacts and 47 partial Dev artifacts; 282 named roles and 36 families remain lower bounds. R147 source and exact Dev CI both pass both jobs. Automatic Android run42327084093 failed with runner NoSpace; one already authorized Dev-only capacity retry42330466713 is active at this snapshot. Its matching APK is not yet verified. Native events remain8109 bounded +4419 excluded =12528. All art, role, family, Dev, generation, native-event and accepted-removal deltas are zero. Formal QA11, natural/full-speed, device, child and owner evidence remain open; accepted0, complete0, whole-game totals unknown. [Delivery observation](android_capacity_retry_20261107/README.md). Earlier snapshots retain their original scope.
+
+## Verified Dev Android package
+
+Version code 2372 contains both painted steering textures from Dev `3190412`. Formal QA11, natural route and full-speed review, device, child and owner evidence remain open. [Android package verification](android_verified_20261107/README.md)

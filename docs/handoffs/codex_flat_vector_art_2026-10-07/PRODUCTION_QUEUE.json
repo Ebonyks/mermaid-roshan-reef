@@ -171,7 +171,7 @@
     "work_branch": "codex/flat-vector-racer-steering-painted-20261106",
     "source_CI": 42314874421,
     "Dev_integrated": true,
-    "next_step": "Follow healthy recorded retry42330466713; no duplicate build. Matching APK/source/package proof pending. Formal/device/child/owner open.",
+    "next_step": "Formal QA11, natural route and full-speed review, device, child and owner evidence remain open. Select the next eligible documented replacement while these acceptance lanes are pending.",
     "new_source_artifact_credit": 1,
     "new_role_credit": 0,
     "Dev_revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
@@ -191,6 +191,25 @@
       "dispatch_count": 1,
       "snapshot": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/RETRY_AT_INTAKE.json",
       "source_guard_and_package_proof": "PENDING; exact source head at dispatch does not itself verify the built package"
+    },
+    "Android_package_verified": true,
+    "Android_run": 42330466713,
+    "matching_Android": {
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "Dev_CI": 42321579190,
+      "Android_run": 42330466713,
+      "APK_verified": true,
+      "version_code": 2372,
+      "apk_bytes": 931318979,
+      "APK_sha256": "5e6985ed7f96246338824d55af13e9d7230ab64761368b9ec4f5e77391b43ba2",
+      "apk_asset_id": 719402217,
+      "checksum_asset_id": 719402215,
+      "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_verified_20261107/APK_VERIFIED.json",
+      "scope": "Anonymous APK and sidecar bytes, source binding, packaged resources, export boundaries and public JAR v1 signing",
+      "physical_device": null,
+      "formal_QA11": null,
+      "child": null,
+      "owner": null
     }
   }
 }

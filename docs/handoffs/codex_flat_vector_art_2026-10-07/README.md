@@ -61,3 +61,5 @@ Current R82: [local painted-ring touch-feedback reuse](r82_touch_flash_reuse/REA
 ## R147 Dev checks and Android retry
 
 48 published bounded source artifacts and 47 partial Dev artifacts; 282 named roles and 36 families remain lower bounds. R147 source and exact Dev CI both pass both jobs. Automatic Android run42327084093 failed with runner NoSpace; one already authorized Dev-only capacity retry42330466713 is active at this snapshot. Its matching APK is not yet verified. Native events remain8109 bounded +4419 excluded =12528. All art, role, family, Dev, generation, native-event and accepted-removal deltas are zero. Formal QA11, natural/full-speed, device, child and owner evidence remain open; accepted0, complete0, whole-game totals unknown. [Delivery observation](r147_racer_painted_steering_runtime/android_capacity_retry_20261107/README.md). Earlier snapshots retain their original scope.
+
+R147 painted steering is packaged in Dev Android version code 2372. [Android verification](r147_racer_painted_steering_runtime/android_verified_20261107/README.md)

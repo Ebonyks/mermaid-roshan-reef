@@ -1531,3 +1531,5 @@ R132 authority reconciliation2026-11-03: the existing docs/handoffs/codex_flat_v
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/dev_integration_20261107/README.md` | 🔵 | `SUPPORTING_CURRENT`; actualR147 sourceCIbothjobs green and normalDev integration; partialDev47. CurrentDevCI/APK and formal/device/child/owner remainseparate. Metadataonly, oldruntime preserved. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/README.md` | 🔵 | `SUPPORTING_CURRENT`; R147 exact Dev CI both jobs green, actual automatic worker NoSpace incident and one owner-authorized Dev-only capacity retry; matching APK unverified. Counters and art/formal/external acceptance unchanged; metadata only. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_verified_20261107/README.md` | 🔵 | `SUPPORTING_CURRENT`. Exact Dev Android package, source binding, export boundary and scoped public signer verification for R147. |
