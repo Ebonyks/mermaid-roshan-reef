@@ -29,7 +29,7 @@ const ZONES := {
 		{"name": "Breakfast china", "road": Color("#9ebdb6"), "ground": Color("#e5cead"), "surface": 0, "props": [
 			{"id": "kitchen_teapot", "path": "res://assets/racer/context_v2/kitchen_teapot.png", "crop": Rect2(8, 113, 1008, 798), "w": 310.0, "max_h": 320.0, "at": 0.04, "lat": -370.0},
 			{"id": "kitchen_pitcher", "path": "res://assets/opera/worlds/chef_quality_20261019/pitcher_empty.png", "crop": Rect2(18, 44, 219, 166), "w": 190.0, "max_h": 320.0, "at": 0.13, "lat": -310.0},
-			{"id": "bowl_empty", "path": "res://assets/opera/worlds/chef_quality_20261019/bowl_empty.png", "crop": Rect2(8, 43, 495, 460), "w": 140.0, "max_h": 320.0, "at": 0.2, "lat": 300.0},
+			{"id": "bowl_empty", "foot_y": 0.895, "path": "res://assets/opera/worlds/chef_quality_20261019/bowl_empty.png", "crop": Rect2(8, 43, 495, 460), "w": 140.0, "max_h": 320.0, "at": 0.2, "lat": 300.0},
 		]},
 		{"name": "Copper oven bakery", "road": Color("#d6a26e"), "ground": Color("#b99586"), "surface": 2, "props": [
 			{"id": "kitchen_oven", "path": "res://assets/opera/worlds/chef_quality_20261019/oven_cool.png", "crop": Rect2(51, 8, 410, 496), "w": 300.0, "max_h": 320.0, "at": 0.29, "lat": 370.0},
@@ -38,12 +38,12 @@ const ZONES := {
 		]},
 		{"name": "Cool fridge corner", "road": Color("#a5c5cf"), "ground": Color("#b9c3b3"), "surface": 3, "props": [
 			{"id": "room_kitchen_item_fridge", "path": "res://assets/flats/castle/rooms/room_kitchen_item_fridge.png", "crop": Rect2(3, 2, 135, 256), "w": 230.0, "max_h": 320.0, "at": 0.54, "lat": -370.0},
-			{"id": "bowl_stirred", "path": "res://assets/opera/worlds/chef_quality_20261019/bowl_stirred.png", "crop": Rect2(9, 44, 494, 458), "w": 190.0, "max_h": 320.0, "at": 0.63, "lat": -330.0},
+			{"id": "bowl_stirred", "foot_y": 0.895, "path": "res://assets/opera/worlds/chef_quality_20261019/bowl_stirred.png", "crop": Rect2(9, 44, 494, 458), "w": 190.0, "max_h": 320.0, "at": 0.63, "lat": -330.0},
 			{"id": "kitchen_pitcher", "path": "res://assets/opera/worlds/chef_quality_20261019/pitcher_empty.png", "crop": Rect2(18, 44, 219, 166), "w": 160.0, "max_h": 320.0, "at": 0.7, "lat": 310.0},
 		]},
 		{"name": "Shell sink and drying corner", "road": Color("#79b5c4"), "ground": Color("#deceb2"), "surface": 0, "props": [
 			{"id": "room_kitchen_item_sink", "path": "res://assets/flats/castle/rooms/room_kitchen_item_sink.png", "crop": Rect2(16, 7, 164, 93), "w": 370.0, "max_h": 320.0, "at": 0.79, "lat": -400.0},
-			{"id": "bowl_empty", "path": "res://assets/opera/worlds/chef_quality_20261019/bowl_empty.png", "crop": Rect2(8, 43, 495, 460), "w": 180.0, "max_h": 320.0, "at": 0.87, "lat": -320.0},
+			{"id": "bowl_empty", "foot_y": 0.895, "path": "res://assets/opera/worlds/chef_quality_20261019/bowl_empty.png", "crop": Rect2(8, 43, 495, 460), "w": 180.0, "max_h": 320.0, "at": 0.87, "lat": -320.0},
 			{"id": "kitchen_teapot", "path": "res://assets/racer/context_v2/kitchen_teapot.png", "crop": Rect2(8, 113, 1008, 798), "w": 180.0, "max_h": 320.0, "at": 0.94, "lat": 320.0},
 		]},
 	],

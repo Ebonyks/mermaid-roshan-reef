@@ -119,6 +119,8 @@ Doctor/Farmer/Magician/Painter P6 painted-art candidate (2026-10-19): [CHG-108 i
 
 #2026-11-05 Racer follow-up: [four room zones, gas and item guidance](../docs/handoffs/codex_reef_kart_art_2026-11-03/ZONES.md) and [impact](../design/audit_impacts/reef-kart-zones-20261105.json). Candidate machine and runtime evidence is separate from human/device/child/owner acceptance; no finding is closed.
 
+2026-11-07 [Racer full-speed review and repairs](../design/audit_impacts/reef-kart-full-speed-20261107.json) exercise the four room courses in solo and split screen. The scoped repairs cover resting trigger input, item guidance that could play after use, and moving-camera readability. The evidence and outstanding acceptance are recorded in the impact.
+
 ## Development task index
 
 | Geologist in-world painted station props | [R115 candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/README.md) | [Impact](../design/audit_impacts/flat-vector-geologist-station-props-20261030.json); whole fossil/three trays/gallery foreground candidate; originaltaskguard/input/save unchanged. Cavebackground/river/formal/external open. |

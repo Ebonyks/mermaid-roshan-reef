@@ -1,0 +1,9 @@
+{
+  "source": "scripts/ci.sh",
+  "script_lf_sha256": "99d4ade661f5d5492e24e29bb4c8c3cd14c8e6771f465b30b2834d2e3540af7c",
+  "prefix": "full-ci-same-drive.log through passing 95 visual contract tests",
+  "suffix": "ci_remaining.sh",
+  "suffix_starts_at": "python3 tools/audit_visual_design.py --stress",
+  "suffix_lf_sha256": "7e0fb92e7a6095498382839ab66e809619916e43b9b15f6e3b9eccae8b23646d",
+  "setup": "Original approved engine resolver and Bash pipefail. Invocation from repository root. Only the temporary file drive changes. No gate skipped or modified."
+}

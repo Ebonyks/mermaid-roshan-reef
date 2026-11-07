@@ -20,7 +20,6 @@ uniform vec4 zone_roads[4] : source_color;
 uniform vec4 zone_grounds[4] : source_color;
 uniform int zone_surfaces[4];
 uniform float course_length = 1.0;
-uniform float camera_phase = 0.0;
 uniform vec2 finish_pos;
 uniform vec2 finish_forward;
 uniform vec4 boundary_ink : source_color = vec4(0.17, 0.12, 0.28, 1.0);
@@ -93,7 +92,6 @@ float section_pattern(vec2 world, int surface) {
 
 vec4 room_floor(vec2 world, float d, float detail, vec2 phase_vector) {
 	float phase = mod(atan(phase_vector.y, phase_vector.x) / 6.2831853 + 1.0, 1.0);
-	if (d > 0.9) { phase = camera_phase; }
 	float section = phase * 4.0;
 	int zone = int(floor(section));
 	int next_zone = (zone + 1) % 4;
@@ -102,7 +100,11 @@ vec4 room_floor(vec2 world, float d, float detail, vec2 phase_vector) {
 	float pattern_b = section_pattern(world, zone_surfaces[next_zone]);
 	float motif = mix(pattern_a, pattern_b, transition);
 	vec4 road_tint = mix(zone_roads[zone], zone_roads[next_zone], transition);
-	vec4 ground_tint = mix(zone_grounds[zone], zone_grounds[next_zone], transition);
+	// Beyond the field's phase band, keep the room's floor fixed in world
+	// space. A camera-relative tint would repaint the infield during a lap.
+	vec4 room_ground = (zone_grounds[0] + zone_grounds[1] + zone_grounds[2] + zone_grounds[3]) * 0.25;
+	vec4 ground_tint = mix(room_ground, mix(zone_grounds[zone], zone_grounds[next_zone], transition),
+		1.0 - smoothstep(0.70, 0.90, d));
 	float tile = soft_checker(world, 52.0);
 	vec4 ground = mix(ground_tint * vec4(vec3(0.91), 1.0), ground_tint, mix(0.5, tile, detail * 0.6));
 	vec4 road = mix(road_tint, road_tint * vec4(vec3(0.74), 1.0), motif * detail * 0.45);

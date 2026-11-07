@@ -839,6 +839,8 @@ func _other_leader(k: Dictionary) -> Dictionary:
 
 func _use_item(k: Dictionary) -> void:
 	var kind := String(k["item"])
+	if item_voice != null and bool(k["player"]):
+		item_voice.discard_pending(karts.find(k))
 	k["item"] = ""
 	var forward := Vector2(sin(float(k["heading"])), -cos(float(k["heading"])))
 	match kind:
@@ -1067,7 +1069,6 @@ func _draw_sky() -> void:
 	if _room_art != null:
 		var source_size := _room_art.get_size()
 		var phase := track.wrap_s(float(_pl["track_s"])) / track.length
-		_floor_material.set_shader_parameter("camera_phase", phase)
 		var pan := 0.15 - 0.125 * cos(phase * TAU) + 0.025 * sin(cam_heading)
 		if track.id == "mermaid_pool":
 			# Exclude the painted towel fixture: the unique cabinet stands in-world.
@@ -1200,7 +1201,7 @@ func _draw_landmark(landmark: Dictionary, screen: Vector2, scale: float) -> void
 		_world.draw_set_transform(screen, 0.0, Vector2(1.0, 0.16))
 		_world.draw_circle(Vector2.ZERO, size.x * 0.32, Color(0.24, 0.14, 0.31, 0.17), true, -1.0, true)
 		_world.draw_set_transform(Vector2.ZERO)
-	var rect := Rect2(screen.x - size.x * 0.5, bottom - size.y, size.x, size.y)
+	var rect := Rect2(screen.x - size.x * 0.5, bottom - size.y * float(landmark.get("foot_y", 1.0)), size.x, size.y)
 	if bool(landmark.get("flip_h", false)):
 		rect.position.x += rect.size.x
 		rect.size.x = -rect.size.x
@@ -1208,6 +1209,8 @@ func _draw_landmark(landmark: Dictionary, screen: Vector2, scale: float) -> void
 
 
 func _draw_pearl(screen: Vector2, scale: float) -> void:
+	if _pc_hud:
+		scale = minf(scale, 4.0)
 	var r := maxf(2.0, 7.0 * scale)
 	var at := screen - Vector2(0.0, (11.0 + sin(_time * 3.0) * 2.0) * scale)
 	_world.draw_circle(screen, r * 0.8, Color(0.18, 0.12, 0.3, 0.18))
@@ -1219,6 +1222,8 @@ func _draw_pearl(screen: Vector2, scale: float) -> void:
 
 
 func _draw_bubble(screen: Vector2, scale: float) -> void:
+	if _pc_hud:
+		scale = minf(scale, 2.5)
 	var r := maxf(3.0, 16.0 * scale)
 	var at := screen - Vector2(0.0, (24.0 + sin(_time * 2.2) * 3.0) * scale)
 	if _draw_art("item_bubble", at, Vector2(r, r) * 2.2):
@@ -1376,6 +1381,8 @@ func _draw_buoy(buoy: Dictionary, screen: Vector2, scale: float) -> void:
 
 
 func _draw_kelp(screen: Vector2, scale: float) -> void:
+	if _pc_hud:
+		scale = minf(scale, 3.0)
 	if _draw_art("kelp", screen - Vector2(0.0, 6.0 * scale), Vector2(62.0, 38.0) * scale):
 		return
 	_world.draw_set_transform(screen, 0.0, Vector2(1.0, 0.34))
@@ -1385,6 +1392,8 @@ func _draw_kelp(screen: Vector2, scale: float) -> void:
 
 
 func _draw_sparkle(screen: Vector2, scale: float) -> void:
+	if _pc_hud:
+		scale = minf(scale, 3.0)
 	var r := maxf(3.0, 14.0 * scale)
 	var at := screen - Vector2(0.0, 18.0 * scale)
 	if _draw_art("sparkle", at, Vector2(r, r) * 2.4):
@@ -1393,7 +1402,8 @@ func _draw_sparkle(screen: Vector2, scale: float) -> void:
 	_draw_star(_world, at, r * 0.9, Color("#fff8c8"))
 
 
-func _draw_selected_driver(k: Dictionary, rect: Rect2) -> void:
+func _draw_selected_driver(k: Dictionary, rect: Rect2, tint: Color) -> void:
+	var ride_tint: Color = k["ride_tint"]
 	var vehicle := String(k["vehicle"])
 	var driver := String(k["driver"])
 	if driver == "roshan":
@@ -1406,10 +1416,10 @@ func _draw_selected_driver(k: Dictionary, rect: Rect2) -> void:
 			motion = "left"
 		var pose := _tex.get(vehicle + "_" + motion) as Texture2D
 		if pose != null:
-			_world.draw_texture_rect(pose, rect, false, k["ride_tint"])
+			_world.draw_texture_rect(pose, rect, false, ride_tint * tint)
 			return
 	elif driver == "imp" and vehicle == "kart" and _tex.has("imp_kart_straight"):
-		_world.draw_texture_rect(_tex["imp_kart_straight"] as Texture2D, rect, false, k["ride_tint"])
+		_world.draw_texture_rect(_tex["imp_kart_straight"] as Texture2D, rect, false, ride_tint * tint)
 		return
 	var face := _tex.get("driver_" + driver) as Texture2D
 	var body := _tex.get(vehicle + "_empty") as Texture2D
@@ -1418,22 +1428,32 @@ func _draw_selected_driver(k: Dictionary, rect: Rect2) -> void:
 		var head := rect.size.x * (0.38 if vehicle == "moto" else 0.44)
 		var head_height := minf(rect.size.y * 0.45, head * source.size.y / source.size.x)
 		var head_rect := Rect2(-head * 0.5, rect.position.y + rect.size.y * 0.015, head, head_height)
-		_world.draw_texture_rect_region(face, head_rect, source)
+		_world.draw_texture_rect_region(face, head_rect, source, tint)
 	if body != null:
-		_world.draw_texture_rect(body, rect.grow(-rect.size.x * 0.04), false, k["ride_tint"])
+		_world.draw_texture_rect(body, rect.grow(-rect.size.x * 0.04), false, ride_tint * tint)
 
 
 func _draw_kart(k: Dictionary, screen: Vector2, scale: float) -> void:
+	var opacity := 1.0
+	if _pc_hud and not is_same(k, _pl):
+		# Rivals between the chase camera and its driver fade before they
+		# can fill the viewport. The same world position drives contact.
+		opacity = smoothstep(40.0, CAM_BACK - 4.0, FOCAL / scale)
+		if opacity <= 0.0:
+			return
+	var tint := Color(1.0, 1.0, 1.0, opacity)
 	var size := KART_SPRITE * scale
 	_world.draw_set_transform(screen, 0.0, Vector2(1.0, 0.3))
-	_world.draw_circle(Vector2.ZERO, size * 0.42, Color(0.15, 0.1, 0.28, 0.24))
+	_world.draw_circle(Vector2.ZERO, size * 0.42, Color(0.15, 0.1, 0.28, 0.24 * opacity))
 	var driver_color: Color = k["player_color"]
+	driver_color.a *= opacity
 	if driver_color.a > 0.0:
 		_world.draw_arc(Vector2.ZERO, size * 0.43, 0.0, TAU, 20, driver_color, maxf(1.0, size * 0.035), true)
 	_world.draw_set_transform(Vector2.ZERO)
 	if pc_handling and float(k["drift_dir"]) != 0.0:
 		var charged := float(k["drift_charge"]) >= float(_pc_tune["charge"])
 		var spark := Color("#ffe4a3") if charged else Color("#9de8fa")
+		spark.a *= opacity
 		var side := float(k["drift_dir"])
 		for wheel: float in [-0.31, 0.31]:
 			var tire := screen + Vector2(wheel * size, -size * 0.04)
@@ -1444,7 +1464,7 @@ func _draw_kart(k: Dictionary, screen: Vector2, scale: float) -> void:
 	_world.draw_set_transform(center, wobble, Vector2.ONE)
 	var rect := Rect2(-size * 0.5, -size * 0.44, size, size)
 	if String(k["driver"]) != "":
-		_draw_selected_driver(k, rect)
+		_draw_selected_driver(k, rect, tint)
 	elif bool(k["player"]):
 		var key := "kart_straight"
 		if float(k["boost_t"]) > 0.0:
@@ -1455,14 +1475,14 @@ func _draw_kart(k: Dictionary, screen: Vector2, scale: float) -> void:
 			key = "kart_left"
 		var texture := _tex.get(key) as Texture2D
 		if texture != null:
-			_world.draw_texture_rect(texture, rect, false)
+			_world.draw_texture_rect(texture, rect, false, tint)
 	elif _tex.has("imp_kart_straight"):
 		var imp_key := "imp_kart_straight"
 		if float(k["steer_vis"]) > 0.35 and _tex.has("imp_kart_right"):
 			imp_key = "imp_kart_right"
 		elif float(k["steer_vis"]) < -0.35 and _tex.has("imp_kart_left"):
 			imp_key = "imp_kart_left"
-		_world.draw_texture_rect(_tex[imp_key] as Texture2D, rect, false, IMP_TINT)
+		_world.draw_texture_rect(_tex[imp_key] as Texture2D, rect, false, IMP_TINT * tint)
 	else:
 		var body := _tex.get("kart_empty") as Texture2D
 		var face := _tex.get("imp") as Texture2D
@@ -1470,29 +1490,29 @@ func _draw_kart(k: Dictionary, screen: Vector2, scale: float) -> void:
 			var head := size * 0.42
 			_world.draw_texture_rect_region(face,
 				Rect2(-head * 0.5, rect.position.y + size * 0.02, head, head * IMP_FACE.size.y / IMP_FACE.size.x),
-				IMP_FACE)
+				IMP_FACE, tint)
 		if body != null:
-			_world.draw_texture_rect(body, rect.grow(-size * 0.04), false, IMP_TINT)
+			_world.draw_texture_rect(body, rect.grow(-size * 0.04), false, IMP_TINT * tint)
 	_world.draw_set_transform(Vector2.ZERO)
 	if float(k["spin_t"]) > 0.0:
 		var dizzy := _tex.get("dizzy") as Texture2D
 		var over := center - Vector2(0.0, size * 0.55)
 		if dizzy != null:
 			_world.draw_texture_rect(dizzy, Rect2(over - Vector2(size * 0.4, size * 0.2),
-				Vector2(size * 0.8, size * 0.4)), false)
+				Vector2(size * 0.8, size * 0.4)), false, tint)
 		else:
 			for i in range(3):
 				var angle := _time * 6.0 + TAU * float(i) / 3.0
 				_draw_star(_world, over + Vector2(cos(angle) * size * 0.32, sin(angle) * size * 0.1),
-					size * 0.07, Color("#ffe27a"))
+					size * 0.07, Color("#ffe27a") * tint)
 	if bool(k["player"]) and float(k["boost_t"]) > 0.0:
 		for i in range(5):
 			var y := screen.y - size * (0.1 + float(i) * 0.09)
 			var spread := size * (0.55 + float(i) * 0.08)
 			_world.draw_line(Vector2(screen.x - spread, y + size * 0.4),
-				Vector2(screen.x - spread * 1.35, y + size * 0.6), Color(1, 1, 1, 0.55), 3.0)
+				Vector2(screen.x - spread * 1.35, y + size * 0.6), Color(1, 1, 1, 0.55 * opacity), 3.0)
 			_world.draw_line(Vector2(screen.x + spread, y + size * 0.4),
-				Vector2(screen.x + spread * 1.35, y + size * 0.6), Color(1, 1, 1, 0.55), 3.0)
+				Vector2(screen.x + spread * 1.35, y + size * 0.6), Color(1, 1, 1, 0.55 * opacity), 3.0)
 
 
 func _draw_hud() -> void:

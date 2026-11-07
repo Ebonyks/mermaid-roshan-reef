@@ -18,13 +18,20 @@ func _ready() -> void:
 func award(slot: int, kind: String) -> void:
 	if kind not in KINDS:
 		return
-	# A player can hold only one item; keep the latest waiting award per slot.
-	for index in range(pending.size() - 1, -1, -1):
-		if int(pending[index]["slot"]) == slot:
-			pending.remove_at(index)
+	discard_pending(slot)
+	# Identical simultaneous awards, including the two starting boosts, share
+	# the same instruction while it is still at the beginning of playback.
+	if playing and active.get("kind") == kind and get_playback_position() < 0.25:
+		return
 	pending.append({"slot": slot, "kind": kind})
 	if not playing:
 		_next()
+
+func discard_pending(slot: int) -> void:
+	# A player can hold only one item. A spent or replaced award is obsolete.
+	for index in range(pending.size() - 1, -1, -1):
+		if int(pending[index]["slot"]) == slot:
+			pending.remove_at(index)
 
 func _next() -> void:
 	if pending.is_empty():

@@ -1,0 +1,29 @@
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.176s
+
+OK
+GODOTBASELINE|ALL OK|4.7.2-stable|official.ed1daf0bf
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.003s
+
+OK
+FASHION_BETA_AUDIT|ALL OK| {"new_pieces": 12, "new_layers": 156, "cells": 1752, "visual_fit_device_child_owner": "PENDING"}
+......F.s...............................
+======================================================================
+FAIL: test_device_matrix_rejects_duplicate_content_with_distinct_paths (tests.test_audit_typography.TypographyAuditTests.test_device_matrix_rejects_duplicate_content_with_distinct_paths)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\Documents\mermaid-roshan-reef\tmp\reef-kart-art\tests\test_audit_typography.py", line 646, in test_device_matrix_rejects_duplicate_content_with_distinct_paths
+    self.assertTrue(any("capture content SHA-256" in error
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        for error in report["machine_errors"]))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 40 tests in 99.549s
+
+FAILED (failures=1, skipped=1)
+TYPOGRAPHY AUDIT CONTRACT TEST FAIL

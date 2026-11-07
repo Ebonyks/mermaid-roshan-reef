@@ -8,6 +8,7 @@ const ITEM_CAPSULE := preload("res://assets/racer/context_v2/item_capsule.png")
 const VIEW := Vector2(1280, 720)
 const STEP := 1.0 / 60.0
 const STICK_DEADZONE := 0.10
+const GAS_TRIGGER_DEADZONE := 0.05
 const PC_IMP_PACE := 0.89
 const VACANT := -1
 const KEYBOARD := -2
@@ -493,10 +494,12 @@ func _controls_for(slot: int) -> Dictionary:
 		if dpad != 0:
 			steer = float(dpad)
 		brake = Input.is_joy_button_pressed(device, JOY_BUTTON_B) or Input.get_joy_axis(device, JOY_AXIS_TRIGGER_LEFT) > 0.35
-		throttle = 1.0 if Input.is_joy_button_pressed(device, JOY_BUTTON_A) else maxf(0.0, Input.get_joy_axis(device, JOY_AXIS_TRIGGER_RIGHT))
+		var trigger := Input.get_joy_axis(device, JOY_AXIS_TRIGGER_RIGHT)
+		throttle = 1.0 if Input.is_joy_button_pressed(device, JOY_BUTTON_A) else clampf(
+			(trigger - GAS_TRIGGER_DEADZONE) / (1.0 - GAS_TRIGGER_DEADZONE), 0.0, 1.0)
 		drift = Input.is_joy_button_pressed(device, JOY_BUTTON_RIGHT_SHOULDER)
 	if _rearm[slot]:
-		_rearm[slot] = brake or throttle > 0.05 or drift or not is_zero_approx(steer)
+		_rearm[slot] = brake or throttle > 0.0 or drift or not is_zero_approx(steer)
 		return {}
 	return {"steer": steer, "brake": brake, "throttle": throttle, "drift": drift, "item_pressed": _items_queued[slot]}
 

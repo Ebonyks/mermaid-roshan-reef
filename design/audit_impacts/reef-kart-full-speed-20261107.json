@@ -1,0 +1,115 @@
+{
+  "id": "reef-kart-full-speed-20261107",
+  "baseline": "8c9bc130766725965a76eca876ef683b92242334",
+  "scope": "Owner-directed normal-speed playthrough and bounded repairs to the four PC room courses in solo and two-controller split screen. Run the published scene with simulated controller events and inspect the rendered motion, placement, throttle response, and recorded game audio. Preserve the embedded touch contract and exact baseline evidence.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-INT-10",
+    "DL-SND-03",
+    "DL-SND-14",
+    "DL-QA-02",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-OPERA-014",
+    "MA-VIS-008",
+    "MA-AUDIO-001"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/cycles/reef-kart-full-speed-20261107/.gdignore",
+    "audit/cycles/reef-kart-full-speed-20261107/DELIVERY_MANIFEST.json",
+    "audit/cycles/reef-kart-full-speed-20261107/RUNTIME_EVIDENCE.json",
+    "audit/cycles/reef-kart-full-speed-20261107/authority.log",
+    "audit/cycles/reef-kart-full-speed-20261107/before.log",
+    "audit/cycles/reef-kart-full-speed-20261107/captures/kitchen-1p-zones.jpg",
+    "audit/cycles/reef-kart-full-speed-20261107/captures/kitchen-2p-zones.jpg",
+    "audit/cycles/reef-kart-full-speed-20261107/captures/kitchen-fixture-bases.jpg",
+    "audit/cycles/reef-kart-full-speed-20261107/captures/kitchen-fixtures-before.jpg",
+    "audit/cycles/reef-kart-full-speed-20261107/captures/mermaid_pool-1p-zones.jpg",
+    "audit/cycles/reef-kart-full-speed-20261107/captures/mermaid_pool-2p-zones.jpg",
+    "audit/cycles/reef-kart-full-speed-20261107/captures/opera_hall-1p-zones.jpg",
+    "audit/cycles/reef-kart-full-speed-20261107/captures/opera_hall-2p-zones.jpg",
+    "audit/cycles/reef-kart-full-speed-20261107/captures/playroom-1p-zones.jpg",
+    "audit/cycles/reef-kart-full-speed-20261107/captures/playroom-2p-zones.jpg",
+    "audit/cycles/reef-kart-full-speed-20261107/ci-remaining.log",
+    "audit/cycles/reef-kart-full-speed-20261107/ci_remaining.sh",
+    "audit/cycles/reef-kart-full-speed-20261107/development.log",
+    "audit/cycles/reef-kart-full-speed-20261107/final.log",
+    "audit/cycles/reef-kart-full-speed-20261107/full-ci-mapped.log",
+    "audit/cycles/reef-kart-full-speed-20261107/full-ci-same-drive.log",
+    "audit/cycles/reef-kart-full-speed-20261107/full-ci.log",
+    "audit/cycles/reef-kart-full-speed-20261107/playthrough.gd",
+    "audit/cycles/reef-kart-full-speed-20261107/probe_racer_integration.log",
+    "audit/cycles/reef-kart-full-speed-20261107/probe_reef_kart_pc.log",
+    "audit/cycles/reef-kart-full-speed-20261107/probe_voice.log",
+    "audit/cycles/reef-kart-full-speed-20261107/repro-before.log",
+    "audit/cycles/reef-kart-full-speed-20261107/review.log",
+    "audit/cycles/reef-kart-full-speed-20261107/split-validation.json",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/ZONES.md",
+    "scripts/probe_reef_kart_pc.gd",
+    "scripts/racer/reef_kart_floor.gdshader",
+    "scripts/racer/reef_kart_item_voice.gd",
+    "scripts/racer/reef_kart_pc.gd",
+    "scripts/racer/reef_kart_race.gd",
+    "scripts/racer/reef_kart_zones.gd"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2 Mobile desktop normal-speed 1P and 2P playthroughs",
+      "result": "PASS",
+      "evidence": "audit/cycles/reef-kart-full-speed-20261107/RUNTIME_EVIDENCE.json and captures/. All eight finished before and after. Both seats crossed every zone on both laps. Confirmed expired cue starts fell from 36 to zero."
+    },
+    {
+      "command": "Godot 4.7.2 focused PC, embedded Canal, and voice probes",
+      "result": "PASS",
+      "evidence": "audit/cycles/reef-kart-full-speed-20261107/probe_reef_kart_pc.log (65 PASS), probe_racer_integration.log (50 PASS), probe_voice.log (212 OK)."
+    },
+    {
+      "command": "First scripts/ci.sh with cross-drive TMPDIR",
+      "result": "FAIL",
+      "evidence": "audit/cycles/reef-kart-full-speed-20261107/full-ci.log; unrelated fresh-visual fixture returned FAIL instead of COVERAGE_GAP with temporary files on H:. Isolated reproduction fails with H: TMPDIR and passes with same-drive C: TMPDIR. The game source was held fixed for the repeat."
+    },
+    {
+      "command": "Second scripts/ci.sh with direct same-drive scratch",
+      "result": "FAIL",
+      "evidence": "audit/cycles/reef-kart-full-speed-20261107/full-ci-same-drive.log; all 95 visual controls passed, then the following stress run hit ENOSPC. The later unchanged suffix restarts at the stress check using H: scratch."
+    },
+    {
+      "command": "Third scripts/ci.sh with mapped scratch",
+      "result": "FAIL",
+      "evidence": "audit/cycles/reef-kart-full-speed-20261107/full-ci-mapped.log; the junction passed the isolated visual test but the typography fixture rejected that path mapping. The direct prefix already passed typography and all 95 visual tests."
+    },
+    {
+      "command": "Full scripts/ci.sh checks, original prefix plus unchanged resumed suffix",
+      "result": "PASS",
+      "evidence": "audit/cycles/reef-kart-full-speed-20261107/ci-remaining.log plus the passed prefix in full-ci-same-drive.log and source binding in split-validation.json. 82 successful probe processes; approved-engine import. The visual audit remains advisory UNSATISFIED."
+    },
+    {
+      "command": "GitHub probe workflow",
+      "result": "PENDING",
+      "evidence": "The local full suite passed. CI for the published topic revision is tracked separately."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "audit/cycles/reef-kart-full-speed-20261107/authority.log"
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "audit/cycles/reef-kart-full-speed-20261107/development.log"
+    }
+  ],
+  "acceptance_gaps": "Synthetic controller inputs and PC renderer only. Physical controller, tablet, child and owner review and canonical visual acceptance remain open."
+}

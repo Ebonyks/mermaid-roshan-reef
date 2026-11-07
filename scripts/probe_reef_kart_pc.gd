@@ -108,10 +108,12 @@ func _run() -> void:
 	race._place_grid()
 	for i in range(96):
 		pc._physics_process(STEP)
-	check("both starting items enter one shared spoken-guidance lane",
-		race.item_voice != null and race.item_voice.playing and race.item_voice.pending.size() == 1
-		and race.item_voice.active["slot"] == 0 and race.item_voice.pending[0]["slot"] == 1)
+	check("simultaneous starting boosts share one spoken instruction",
+		race.item_voice != null and race.item_voice.playing and race.item_voice.pending.is_empty()
+		and race.item_voice.starts.size() == 1 and race.item_voice.active["kind"] == "zoom")
 	for kind: String in ReefKartRace.ITEM_KINDS:
+		race.item_voice.clear()
+		race.item_voice.award(0, "pearls" if kind == "zoom" else "zoom")
 		b["item"] = ""
 		b["pending"] = kind
 		b["roulette_t"] = STEP * 0.5
@@ -119,6 +121,13 @@ func _run() -> void:
 		var pending: Array = race.item_voice.pending
 		check("P2 receives exact spoken explanation for " + kind,
 			not pending.is_empty() and pending[-1]["kind"] == kind and pending[-1]["slot"] == 1)
+	b["item"] = "pearls"
+	tap(11, JOY_BUTTON_X)
+	pc._physics_process(STEP)
+	check("using P2's item removes its waiting instruction without interrupting P1",
+		String(b["item"]).is_empty() and race.item_voice.pending.is_empty()
+		and race.item_voice.playing and race.item_voice.active["slot"] == 0)
+	b["pearls"] = 0
 	race.item_voice.award(1, "sparkle")
 	race.item_voice.skip()
 	check("two-human sparkle guidance names a racer rather than an absent imp",
@@ -133,6 +142,16 @@ func _run() -> void:
 	b["item"] = "zoom"
 	check("PC countdown ends with both unpowered karts stationary",
 		is_zero_approx(float(a["speed"])) and is_zero_approx(float(b["speed"])))
+	axis(11, 0.03, JOY_AXIS_TRIGGER_RIGHT)
+	var idle_pos: Vector2 = b["pos"]
+	for i in range(60):
+		pc._physics_process(STEP)
+	check("resting trigger noise leaves P2 stationary",
+		is_zero_approx(float(pc._controls_for(1)["throttle"])) and idle_pos.is_equal_approx(b["pos"]))
+	axis(11, 0.5, JOY_AXIS_TRIGGER_RIGHT)
+	check("partial trigger travel remains analog above the deadzone",
+		is_equal_approx(float(pc._controls_for(1)["throttle"]), (0.5 - 0.05) / 0.95))
+	axis(11, 0.0, JOY_AXIS_TRIGGER_RIGHT)
 	axis(6, 0.18)
 	check("small stick input survives the new controller deadzone", float(pc._controls_for(0)["steer"]) > 0.08)
 	axis(6, -0.85)
@@ -177,6 +196,10 @@ func _run() -> void:
 	check("both reconnected players resume on Start", not pc._paused)
 	check("held accelerator is ignored until released after resume", pc._controls_for(1).is_empty())
 	button(13, JOY_BUTTON_A, false)
+	axis(13, 0.06, JOY_AXIS_TRIGGER_RIGHT)
+	check("partly held trigger cannot rearm the accelerator on resume",
+		pc._controls_for(1).is_empty() and pc._rearm[1])
+	axis(13, 0.0, JOY_AXIS_TRIGGER_RIGHT)
 	# The same simulated gamepad events available to a real player drive two laps.
 	pc._physics_process(STEP)
 	for i in range(4200):
