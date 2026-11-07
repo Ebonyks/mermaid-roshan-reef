@@ -2121,3 +2121,5 @@ R150 contributes a verified painted candidate for the Racer direction cue under 
 R150 now integrates the painted direction cue into Dev after both source jobs passed. MA-VIS-008 remains open for formal and external acceptance and other scoped artwork. [Dev evidence](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/dev_integration_20261107/README.md)
 
 R150 Android run 42382208587 delivered verified Dev package 2375. Formal and external acceptance remain open under MA-VIS-008. [Android delivery evidence](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/README.md)
+
+R151 contributes a verified painted candidate for the Racer countdown lamps under MA-VIS-008. It covers configured Opera start, retry and PC split exclusion. Formal and external acceptance remain open. [Source intake](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r151_racer_painted_countdown_lights_runtime/README.md)

@@ -1,17 +1,17 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-ANDROID-VERIFIED-20261107-R150",
-  "current_entry": "r150_racer_painted_direction_cue_runtime/android_verified_20261107/README.md",
+  "revision": "FV-PRODUCTION-20261107-R151-PAINTED-COUNTDOWN-LIGHTS",
+  "current_entry": "r151_racer_painted_countdown_lights_runtime/README.md",
   "current_per_piece": "r96_geologist_mineral_candidate/per_piece.json",
   "current_scene_coverage": "r96_geologist_mineral_candidate/scene_coverage.json",
   "current_tally": "r96_geologist_mineral_candidate/tally.json",
   "current_backlog": "r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/MANIFEST.json",
+  "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r151_racer_painted_countdown_lights_runtime/CANONICAL_MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/DEV_CI_COMPLETED.json",
+  "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r151_racer_painted_countdown_lights_runtime/SOURCE_CI_AT_INTAKE.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -7104,8 +7104,8 @@
   "r143_partial_Dev_artifact_delta": 16,
   "immutable_r143_receipt_revision": "504c290443c280ae543cb5caa1fe671340821ad4",
   "immutable_r144_payload_revision": "4bd9101a5b88ce8f0388917f297a849403e01ef3",
-  "current_payload_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/0be76936a163628801a5156507f18185878cbaa7/docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/MANIFEST.json",
-  "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/PRIOR_CANONICAL_DEV_REMOTE_VERIFICATION.json",
+  "current_payload_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/28aff01dd686b24e006cd20c595756e83e8ee011/docs/handoffs/codex_flat_vector_art_2026-10-07/r151_racer_painted_countdown_lights_runtime/MANIFEST.json",
+  "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r151_racer_painted_countdown_lights_runtime/SOURCE_REMOTE_VERIFICATION.json",
   "immutable_r144_receipt_revision": "d7c61f2636b4828a5158b3276dffdf695e5eeee3",
   "previous_receipt_manifest": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/d7c61f2636b4828a5158b3276dffdf695e5eeee3/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/RECEIPT_MANIFEST.json",
   "r144_prior_current_art_source_context": {
@@ -8532,5 +8532,117 @@
     "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/CANONICAL_MANIFEST.json",
     "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/SOURCE_REMOTE_VERIFICATION.json",
     "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/SOURCE_CI_AT_INTAKE.json"
+  },
+  "r151_prior_navigation": {
+    "revision": "FV-ANDROID-VERIFIED-20261107-R150",
+    "current_entry": "r150_racer_painted_direction_cue_runtime/android_verified_20261107/README.md",
+    "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/MANIFEST.json",
+    "current_payload_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/0be76936a163628801a5156507f18185878cbaa7/docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/MANIFEST.json",
+    "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/PRIOR_CANONICAL_DEV_REMOTE_VERIFICATION.json",
+    "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/DEV_CI_COMPLETED.json"
+  },
+  "r151_current_production": {
+    "stable_id": "FVR-F34602134988",
+    "name": "Racer painted countdown lamps",
+    "current_role": "Starting and retry countdown in Opera Racer",
+    "family": "opera_racer",
+    "artifact_key": "r151_racer_painted_countdown_lights_runtime",
+    "state": "PUBLISHED_SOURCE_CANDIDATE_LOCAL_MACHINE_AND_CONTEXT_PASS",
+    "source_revision": "28aff01dd686b24e006cd20c595756e83e8ee011",
+    "source_parent": "0be76936a163628801a5156507f18185878cbaa7",
+    "branch": "codex/flat-vector-racer-countdown-lights-20261107",
+    "source_required_files_verified": 257,
+    "source_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r151_racer_painted_countdown_lights_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "source_CI_at_intake": {
+      "run": 42390629717,
+      "status": "in_progress",
+      "conclusion": ""
+    },
+    "native_output": {
+      "path": "assets_src/imagegen/racer_countdown_lights_20261107/countdown_lamps_native.png",
+      "revision": "28aff01dd686b24e006cd20c595756e83e8ee011",
+      "bytes": 1807465,
+      "sha256": "e34b4adaf63a41dc2c04d2c2ff95240526837b57ae3013c128a44cfd694e3242",
+      "role": "Preserved original ImageGen output"
+    },
+    "runtime_texture": {
+      "path": "assets/racer/ui/countdown_lamps_painted.png",
+      "revision": "28aff01dd686b24e006cd20c595756e83e8ee011",
+      "bytes": 187216,
+      "sha256": "bf0bb770d0ee2b4855db7d34de0eb2bd3a317ab94b9ac562d0f2223388662e61",
+      "role": "Painted runtime derivative"
+    },
+    "runtime_import": {
+      "path": "assets/racer/ui/countdown_lamps_painted.png.import",
+      "revision": "28aff01dd686b24e006cd20c595756e83e8ee011",
+      "bytes": 989,
+      "sha256": "597c778655bd3fa70aa3e7187e17d687cc2a3bdf5e111928361f269518f88be1",
+      "role": "Lossless runtime import"
+    },
+    "runtime_code": {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "revision": "28aff01dd686b24e006cd20c595756e83e8ee011",
+      "bytes": 64848,
+      "sha256": "ea71f8bfcd020714ffa6f95293bf20efa18c81beeca3f58c8b4005c0e5400d23",
+      "role": "Existing countdown draw using painted lens states"
+    },
+    "generation": {
+      "path": "assets_src/imagegen/racer_countdown_lights_20261107/GENERATION_JOB.json",
+      "revision": "28aff01dd686b24e006cd20c595756e83e8ee011",
+      "bytes": 3438,
+      "sha256": "12526e3a3f5ca7ddf2fd525100d7add52d78b7e2fa14d4956b1a617a7386a714",
+      "role": "Exact derivation and generation provenance"
+    },
+    "comparison": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r151_racer_painted_countdown_lights_runtime/TEN_AXIS_COMPARISON.json",
+      "revision": "28aff01dd686b24e006cd20c595756e83e8ee011",
+      "bytes": 2682,
+      "sha256": "70c1264e6d3888151f7a3b7f1203c7e0c2187388e08be782f96b05586545aaa8",
+      "role": "Current configured in-scene review"
+    },
+    "local_static_review": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r151_racer_painted_countdown_lights_runtime/LOCAL_STATIC_ART_REVIEW.json",
+      "revision": "28aff01dd686b24e006cd20c595756e83e8ee011",
+      "bytes": 937,
+      "sha256": "cebcc802469422e51272327b3ec442ef78faf08e4605fcdd3ce27c5dcbe71421",
+      "role": "Assistant art eligibility assessment"
+    },
+    "frame_events": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r151_racer_painted_countdown_lights_runtime/FRAME_EVENTS.json",
+      "revision": "28aff01dd686b24e006cd20c595756e83e8ee011",
+      "bytes": 456,
+      "sha256": "a8b14b16096c359260e16112688f44979797ad3e9231bb45422c21136200e2ed",
+      "role": "Bounded and excluded configured capture events"
+    },
+    "machine": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r151_racer_painted_countdown_lights_runtime/evidence/full_machine/FINAL_RESULT.json",
+      "revision": "28aff01dd686b24e006cd20c595756e83e8ee011",
+      "bytes": 54015,
+      "sha256": "8ccc58622684782ee0d621206c575f6074a81217e83f4d5b154f28164d5a91c6",
+      "role": "Actual changed-candidate local machine checks"
+    },
+    "native_events": {
+      "bounded": 24,
+      "excluded": 16,
+      "total": 40
+    },
+    "functional_invisible_geometry": {
+      "scope": "Passive countdown HUD. Timing, touch ownership and geometry remain separate.",
+      "art_credit": 0
+    },
+    "original_builtin_generation_calls": 1,
+    "model_version": null,
+    "Dev_integration": false,
+    "Dev_revision": null,
+    "matching_APK": null,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "complete_scenes": 0,
+    "whole_game_total": null,
+    "mission_complete": false,
+    "source_finding": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/28aff01dd686b24e006cd20c595756e83e8ee011/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014"
   }
 }

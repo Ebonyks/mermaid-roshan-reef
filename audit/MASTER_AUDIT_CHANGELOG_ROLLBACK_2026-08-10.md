@@ -2923,3 +2923,7 @@ Canonical base `5ca05f655abc882608953f60a9376e4cff5a9b53` records exact Dev `0be
 ## CHG-173 — Verify the R150 Dev Android package
 
 Canonical base `1eafdbc385155de55f3d333f75aee2a7bb187f30` records package evidence for Dev `0be76936a163628801a5156507f18185878cbaa7`. The authorized retry depends on exact green Dev CI 42376706306. Android run 42382208587 delivered the new direction cue resource and its remap. The Dev channel can move to a later APK, so the proof pins this package to actual asset IDs, digest and verification time. A correction would amend the delivery metadata and retain the original incident and package evidence. [Package record](../docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/README.md) · [Impact](../design/audit_impacts/flat-vector-r150-matching-android-20261107.json)
+
+## CHG-175 — Record the verified R151 source
+
+Canonical base `b1572643ceab887e18a86f33008c40bbb62ac51f` records the painted countdown lamps from `28aff01dd686b24e006cd20c595756e83e8ee011`. The candidate depends on its new texture import. Configured views cover each stage at initial start and retry. Natural timing and physical device evidence remain open. A registry correction would amend the current metadata while keeping the actual source and historical frame evidence. [Source intake](../docs/handoffs/codex_flat_vector_art_2026-10-07/r151_racer_painted_countdown_lights_runtime/README.md) · [Impact](../design/audit_impacts/flat-vector-r151-canonical-source-20261107.json)
