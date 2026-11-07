@@ -1,0 +1,54 @@
+{
+  "state": "ASSISTANT_CONFIGURED_NATIVE_COMPARISON",
+  "stable_id": "FVR-3140B3498381",
+  "source": "774b0d134be93c5751ac8c03efeec85c8a854674",
+  "candidate_script_sha256": "0d621d32278e451b761b15a9f491256b76aa5739fd89ed5f6357e3eedc5e7cbd",
+  "axes": [
+    {
+      "axis": "medium",
+      "comparison": "A painted rounded ceramic plaque replaces the solid rectangular tint behind the route. Live track lines and position markers continue to be drawn over it."
+    },
+    {
+      "axis": "identity",
+      "comparison": "One passive HUD backing serves the existing Opera and PC minimap role. The course outlines, marker identities, player views and map position retain their current meaning."
+    },
+    {
+      "axis": "style",
+      "comparison": "The cool blue-violet ceramic, indigo contour and shallow handpainted light fit the illustrated controls and surroundings. The softer finish leaves the interactive controls more prominent."
+    },
+    {
+      "axis": "silhouette",
+      "comparison": "Rounded square corners replace the hard rectangle. The paint occupies the original drawing rectangle with a narrow clear outer edge."
+    },
+    {
+      "axis": "material",
+      "comparison": "Broad strokes and a shallow bevel add ceramic depth, with a quiet matte middle where all course paths remain readable."
+    },
+    {
+      "axis": "palette_value",
+      "comparison": "Medium cool values keep the white route and dark contour distinct. The PC tint is deeper than the Opera treatment. The colored live markers still separate from the backing."
+    },
+    {
+      "axis": "composition",
+      "comparison": "The image delta stays within the original map rectangles plus the two-pixel allowance in all 20 pairs. The new rounded corners reveal small portions of the scene."
+    },
+    {
+      "axis": "scale_contact_occlusion",
+      "comparison": "Both the 190-pixel Opera and 106-pixel PC backings keep the existing margins for the route, two racer dots and pane placement. The configured split views remain independent."
+    },
+    {
+      "axis": "child_readability",
+      "comparison": "The backing has no words, symbols or painted-in direction. All four PC routes and the moving Opera marker are legible in the inspected configured views. Natural-speed and child review remain open."
+    },
+    {
+      "axis": "runtime_suitability",
+      "comparison": "One 512x512 RGBA lossless texture replaces one rectangle draw. Both viewport widths were captured on exact Godot 4.7.2 Mobile with the 30 fps cap. Opera uses Speedy and PC uses its fixed renderer."
+    }
+  ],
+  "current_pair_comparison": "assets_src/review/r149_racer_minimap_20261107/PAIR_PIXEL_COMPARISON.json",
+  "scope": "Inspected both native-scale map sheets, a full 1280 Opera moving frame and a full 1600 PC split frame. All four PC course maps have configured solo and split evidence. Natural routes and physical-device evidence remain open.",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null
+}

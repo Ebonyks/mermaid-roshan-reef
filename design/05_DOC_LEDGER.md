@@ -1446,3 +1446,5 @@ The bounded 2026-11-01 [Chapter Two startup watchdog prerequisite](audit_impacts
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/README.md` | 🔵 | `SUPPORTING_CURRENT`; R147 local painted steering ring/knob candidate, exact native/crop derivation and32configured events. All88localcommands pass for5586inputs with localAI4.5floor static review. SourceCI/Dev and formal/device/child/owner remain separate; no accepted removal or canonical count yet. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/README.md` | 🔵 | `SUPPORTING_CURRENT`. Painted Racer item-frame source, configured state review and independent acceptance lanes. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/README.md` | 🔵 | `SUPPORTING_CURRENT`. R149 painted map backing source and configured view comparison with separate acceptance lanes. |

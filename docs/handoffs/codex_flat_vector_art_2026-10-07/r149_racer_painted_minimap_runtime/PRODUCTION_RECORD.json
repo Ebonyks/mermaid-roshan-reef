@@ -1,0 +1,38 @@
+{
+  "stable_id": "FVR-3140B3498381",
+  "stable_id_seed": "opera_racer|reef_kart_race|minimap_backplate",
+  "source_item": "minimap_backplate",
+  "family": "opera_racer",
+  "baseline": "774b0d134be93c5751ac8c03efeec85c8a854674",
+  "binding": "One known pending backing in the documented HUD/minimap/control scope. Opera 190 px and PC 106 px share one draw function and one square backing role. Distinct from dynamic route line and markers.",
+  "candidate": {
+    "art": "assets/racer/ui/minimap_backplate_painted.png",
+    "sha256": "c1d166d60978087380530c7fc06a948bb600e562ec733c6db529f0754b97a1b9",
+    "import_recipe_sha256": "91f90a087ecf5bb5564c2210021ed8558af3a03890a7d54e5c2aa11dda4c140c",
+    "script_sha256": "0d621d32278e451b761b15a9f491256b76aa5739fd89ed5f6357e3eedc5e7cbd",
+    "generation": "assets_src/imagegen/racer_minimap_20261107/GENERATION_JOB.json",
+    "source_generation_calls": 1
+  },
+  "integration": {
+    "local": true,
+    "source_branch_published": false,
+    "Dev": false
+  },
+  "runtime": {
+    "configured_capture": true,
+    "actual_native_events": 40,
+    "machine_checks": {
+      "state": "PASS",
+      "inputs": 5590,
+      "required_commands": 88,
+      "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/evidence/full_machine/FINAL_RESULT.json"
+    },
+    "frame_events": "FRAME_EVENTS.json"
+  },
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "whole_game_total": null
+}

@@ -1,0 +1,1676 @@
+{
+  "state": "PASS_ACTUAL_R149_PAINTED_MINIMAP_STATIC_IMPORT_2FOCUSED_AND82_STRICT_COMMAND_EXITS",
+  "baseline": "774b0d134be93c5751ac8c03efeec85c8a854674",
+  "incoming": "774b0d134be93c5751ac8c03efeec85c8a854674",
+  "results": [
+    {
+      "label": "static_import",
+      "command": [
+        "C:/Program Files/Git/bin/bash.exe",
+        "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-shell-20261106\\r149_validation_v2\\ci_static_prefix.sh"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1759.668,
+      "failure_lines": [],
+      "log_sha256": "f5c906532e0ae8e3f3978ebea5469622993e39dbfd328a8a2cd0ca04b0f1b323",
+      "passed": true
+    },
+    {
+      "label": "changed_parser",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/racer/reef_kart_race.gd",
+        "assets_src/review/r149_racer_minimap_20261107/capture_review.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.131,
+      "failure_lines": [],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    },
+    {
+      "label": "changed_inference",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/racer/reef_kart_race.gd",
+        "assets_src/review/r149_racer_minimap_20261107/capture_review.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.113,
+      "failure_lines": [],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "passed": true
+    },
+    {
+      "label": "focused_probe_racer_integration",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_racer_integration.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 11.829,
+      "failure_lines": [],
+      "log_sha256": "414a94434add293376cc794a04603003d9c5892320bea49d0048a8bb798c765a",
+      "passed": true
+    },
+    {
+      "label": "focused_probe_reef_kart_pc",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_reef_kart_pc.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 14.449,
+      "failure_lines": [],
+      "log_sha256": "a2518de9919a58b1a6c966d8ebb39174cc7cd3e9d920088ae046fa728d650b9f",
+      "passed": true
+    },
+    {
+      "label": "01_probe_reef_districts",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_reef_districts.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 11.406,
+      "failure_lines": [],
+      "log_sha256": "97a6d8b58ab878973011b9bddb5709bdfdafcc6fd2f58069e7826b2cb095c0bd",
+      "passed": true
+    },
+    {
+      "label": "02_probe_ocean_kingdoms",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_ocean_kingdoms.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 13.801,
+      "failure_lines": [],
+      "log_sha256": "df234d3d43c3aa502846363ab085a2cdb54b8b65e295a3444595f275951f7b59",
+      "passed": true
+    },
+    {
+      "label": "03_probe_audit",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_audit.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 41.74,
+      "failure_lines": [],
+      "log_sha256": "fb3b9fac72d9f3ef713f639d1036ac5d582a7f53877cf982359c81853e509d78",
+      "passed": true
+    },
+    {
+      "label": "04_probe_passive",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_passive.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 71.389,
+      "failure_lines": [],
+      "log_sha256": "5946d5388fd2fe27c4d0d930f2a17e9df27da03dc37b8d7fe0a2ffe76fe5395f",
+      "passed": true
+    },
+    {
+      "label": "05_probe_living_world",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_living_world.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 15.622,
+      "failure_lines": [],
+      "log_sha256": "b18af2adbf40b63615f990dad8d30a8c0168ccd87eefe3c287993cb30d795f98",
+      "passed": true
+    },
+    {
+      "label": "06_probe_load",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_load.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 11.524,
+      "failure_lines": [],
+      "log_sha256": "d1b64a9cf36f331c655da3d789f62d551d78bca1fff25754445d3daa5c3ed1c8",
+      "passed": true
+    },
+    {
+      "label": "07_probe_rank",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_rank.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 11.245,
+      "failure_lines": [],
+      "log_sha256": "435e795685cc5cd4b9bbd6442e111d2b46ec44535660a0a13aae8d13f83c5c7d",
+      "passed": true
+    },
+    {
+      "label": "08_probe_save_recovery",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_save_recovery.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 8.057,
+      "failure_lines": [],
+      "log_sha256": "113bce7f4f4618f7dadfe05c3dfbb527ddb58bc8cc0f915590c473f07c5de38f",
+      "passed": true
+    },
+    {
+      "label": "09_probe_galaxy_state",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_galaxy_state.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 8.526,
+      "failure_lines": [],
+      "log_sha256": "95ecb01230e2a4b73f75ee073f8b6ced4ae2ce5940989e06e4d7e7fff9c83290",
+      "passed": true
+    },
+    {
+      "label": "10_probe_collection",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_collection.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 7.515,
+      "failure_lines": [],
+      "log_sha256": "b109f82b958ac2652e4b94d374fb4016f9ca24ac49ed0eb0d2b129d1aadff690",
+      "passed": true
+    },
+    {
+      "label": "11_probe_mg2d",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_mg2d.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 16.627,
+      "failure_lines": [],
+      "log_sha256": "5c85da220a9f12d25d21f7cdf2bd58c382c413c73852d3643c11c5cac5ad4e43",
+      "passed": true
+    },
+    {
+      "label": "12_probe_fetch",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_fetch.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 9.743,
+      "failure_lines": [],
+      "log_sha256": "c4a87c2b9af09b3b409d6befa2adc7e959f503698f89d33b61e3e460846e804c",
+      "passed": true
+    },
+    {
+      "label": "13_probe_melody",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_melody.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 38.524,
+      "failure_lines": [],
+      "log_sha256": "2bb879f81e7bd56222e67f616ed887fbc8cce9e1a2e4551a62df56b08fcbb209",
+      "passed": true
+    },
+    {
+      "label": "14_probe_dolls",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_dolls.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 16.434,
+      "failure_lines": [],
+      "log_sha256": "d6fe1bf694b8499806f1cb9c4d89e4e1242d6cdcd6da470ea49e401cd4249dbf",
+      "passed": true
+    },
+    {
+      "label": "15_probe_seek",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_seek.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 8.536,
+      "failure_lines": [],
+      "log_sha256": "ad3d7281a2cfef86bd440a62afc6afd83cadf88ddc2fe62645894b7646f00b14",
+      "passed": true
+    },
+    {
+      "label": "16_probe_audio",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_audio.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 8.054,
+      "failure_lines": [],
+      "log_sha256": "d6e4cc0d68e8a0c02fdd6beb01ca228bc3516847bc8a46dba833793bc19ed33b",
+      "passed": true
+    },
+    {
+      "label": "17_probe_dance",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_dance.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 7.88,
+      "failure_lines": [],
+      "log_sha256": "e9d68243d211c408223d1196cf163535148aa1e6ee06258eef1fba2a6f60ad6e",
+      "passed": true
+    },
+    {
+      "label": "18_probe_l2",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_l2.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 9.58,
+      "failure_lines": [],
+      "log_sha256": "c3de3087edc3949ee2aa3a24b30b0f9b55da33ead38740339f13663a223528c9",
+      "passed": true
+    },
+    {
+      "label": "19_probe_l2_living_cards",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_l2_living_cards.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 8.085,
+      "failure_lines": [],
+      "log_sha256": "921b5cd605a190217e3358549c84c2a1c4c6445892701463b6dc6a7d9924eeb4",
+      "passed": true
+    },
+    {
+      "label": "20_probe_sky_lagoon_animals",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_sky_lagoon_animals.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 10.114,
+      "failure_lines": [],
+      "log_sha256": "1f403e7dc1d681de9f8ee0f2ffbb4158afc26142f61693fb695760e89c42fc08",
+      "passed": true
+    },
+    {
+      "label": "21_probe_l2_reenter",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_l2_reenter.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 7.622,
+      "failure_lines": [],
+      "log_sha256": "0836edebc4578a0f6ad00c902b5b9db5457646438bb895b91e769498e18b9b94",
+      "passed": true
+    },
+    {
+      "label": "22_probe_crown",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_crown.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 20.348,
+      "failure_lines": [],
+      "log_sha256": "f81816fd8273c27b669fdb36861e98868bed2c9b17a255f407c36510016144cd",
+      "passed": true
+    },
+    {
+      "label": "23_probe_throne",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_throne.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 29.501,
+      "failure_lines": [],
+      "log_sha256": "b468e8e804b836f83278cdfb866bed7bbb9ae104e0938f47120a273ad85f9374",
+      "passed": true
+    },
+    {
+      "label": "24_probe_northern",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_northern.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 8.07,
+      "failure_lines": [],
+      "log_sha256": "fba9e9483c9e24b53dd6437408ab313959bb7968d3a41347a011b6c0fa98013c",
+      "passed": true
+    },
+    {
+      "label": "25_probe_human_art_audit",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_human_art_audit.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 7.227,
+      "failure_lines": [],
+      "log_sha256": "5b5415d1b810a7a04bf84518731c22c3121478261795d5c89429aeca2c966dc5",
+      "passed": true
+    },
+    {
+      "label": "26_probe_train",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_train.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 8.256,
+      "failure_lines": [],
+      "log_sha256": "2617369a4b121d48b4e9cb8c9ced9a4fee3e787530afaa463169a19ab224ddb7",
+      "passed": true
+    },
+    {
+      "label": "27_probe_verbs",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_verbs.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 47.477,
+      "failure_lines": [],
+      "log_sha256": "f9ea93934bd20e8b5128e9dee40a4ff0d41bc081f50a0d71e7ad0c9a4498b353",
+      "passed": true
+    },
+    {
+      "label": "28_probe_skins",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_skins.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 7.596,
+      "failure_lines": [],
+      "log_sha256": "8925983b17113d743ea7d1c6b17a05e8946c83d9b570c1c7f96aa7d35594909d",
+      "passed": true
+    },
+    {
+      "label": "29_probe_touch_router",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_touch_router.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 8.738,
+      "failure_lines": [],
+      "log_sha256": "c2892f8084bd847bc1ef4669ea66e602741a48571030e21b659066cb38aea07e",
+      "passed": true
+    },
+    {
+      "label": "30_probe_touch_stress",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_touch_stress.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 13.476,
+      "failure_lines": [],
+      "log_sha256": "99b137ab5c8f20b5ade79fffe768339f603f3eeb57d18f7e7b72e18db7c79453",
+      "passed": true
+    },
+    {
+      "label": "31_probe_interaction",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_interaction.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 18.886,
+      "failure_lines": [],
+      "log_sha256": "75e9425089cda25286cf58484513493b928490e6fa9f0d6971cfab45fcf12a63",
+      "passed": true
+    },
+    {
+      "label": "32_probe_touch_adversary",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_touch_adversary.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 57.298,
+      "failure_lines": [],
+      "log_sha256": "7dce7b16bedf0a78e23f3951656cebf93faf911ab4ab7ef1e163c81feb2a5643",
+      "passed": true
+    },
+    {
+      "label": "33_probe_touch_look",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_touch_look.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 11.602,
+      "failure_lines": [],
+      "log_sha256": "60351641e3a32197e818e5df8416233946f40c138599c4ae85a723642cdc25fb",
+      "passed": true
+    },
+    {
+      "label": "34_probe_ui_system",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_ui_system.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 27.671,
+      "failure_lines": [],
+      "log_sha256": "fd6065e09969b8da7bbeb040707d99c214a6f3a76e5db6e1f245bdd218e6b33b",
+      "passed": true
+    },
+    {
+      "label": "35_probe_voice",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_voice.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 9.663,
+      "failure_lines": [],
+      "log_sha256": "fca4a664995df55cd25767ff31874eec4a5c673727edb530f991e6bcc2d923e7",
+      "passed": true
+    },
+    {
+      "label": "36_probe_day_one_voice",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_day_one_voice.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 7.78,
+      "failure_lines": [],
+      "log_sha256": "50a7a84c1ce20b02a158485dab22961bc3b440dc9b823a60f9ef124cdca2dbea",
+      "passed": true
+    },
+    {
+      "label": "37_probe_day_one_d8_revisits",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_day_one_d8_revisits.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.74,
+      "failure_lines": [],
+      "log_sha256": "8a62f8e03b7bbc051aa7e60d1919e69a59951770d17b526d811fe1d4aa1dc631",
+      "passed": true
+    },
+    {
+      "label": "38_probe_day_one_handoffs",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_day_one_handoffs.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 7.494,
+      "failure_lines": [],
+      "log_sha256": "908a3ed2410a386f95ff5d4b1a9190b6b2e049faf6f08be47f7dd399298c1a82",
+      "passed": true
+    },
+    {
+      "label": "39_probe_kart_feel",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_kart_feel.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 63.062,
+      "failure_lines": [],
+      "log_sha256": "15b700c8dbfeb2e233fc266fd684abcd419b6fe91b5dd72cbae41a9285f8afa5",
+      "passed": true
+    },
+    {
+      "label": "40_probe_combat",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_combat.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 9.47,
+      "failure_lines": [],
+      "log_sha256": "67aec55ee70333770a4faecb2cfd06051dfd5f0c3522629f4a522650ae60e613",
+      "passed": true
+    },
+    {
+      "label": "41_probe_dust_bunny",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_dust_bunny.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.939,
+      "failure_lines": [],
+      "log_sha256": "4663fb2a0de3512c5d77b0e136a6a59139e23f411d0224912e38b45ebde441dc",
+      "passed": true
+    },
+    {
+      "label": "42_probe_dust_bunny_boss",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_dust_bunny_boss.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.195,
+      "failure_lines": [],
+      "log_sha256": "8fc65c5380675ca971e99523bbe8e17c34f09c503cd2d87029fe79d4b73aed3d",
+      "passed": true
+    },
+    {
+      "label": "43_probe_dust_boss",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_dust_boss.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 46.17,
+      "failure_lines": [],
+      "log_sha256": "1d05616ae145a7dca0f3e940613bc73c3a1294489cac8053b80fab7a095c3316",
+      "passed": true
+    },
+    {
+      "label": "44_probe_hit",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_hit.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 8.629,
+      "failure_lines": [],
+      "log_sha256": "785d740aaff6eb57e72a8ecc2fa239cfd66b6f84d956f2ff0bb0ab109e22aaf7",
+      "passed": true
+    },
+    {
+      "label": "45_probe_partner",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_partner.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 8.536,
+      "failure_lines": [],
+      "log_sha256": "975f35172cb1329e2eb83c9d772ba96fdaf1c79126ba32f7b9a97a6e5a72ba5c",
+      "passed": true
+    },
+    {
+      "label": "46_probe_combat_tutorial",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_combat_tutorial.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 11.708,
+      "failure_lines": [],
+      "log_sha256": "744b4d5752836b437e1eccd3dc9fa32b0328a8c7383acbaa1f367fb27cba925f",
+      "passed": true
+    },
+    {
+      "label": "47_probe_imp_ai",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_imp_ai.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.862,
+      "failure_lines": [],
+      "log_sha256": "9ae03f976731e38ad51ab9e60fa5e43461359f99af606bbb269f3c7c660ab874",
+      "passed": true
+    },
+    {
+      "label": "48_probe_mic",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_mic.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 8.546,
+      "failure_lines": [],
+      "log_sha256": "4c186e6413f73aacf682d34e95d955e600da20b553d525b7b4d49cf7bdd8dd26",
+      "passed": true
+    },
+    {
+      "label": "49_probe_stuffie",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_stuffie.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 12.447,
+      "failure_lines": [],
+      "log_sha256": "ce98c5879cc8f528799c7c4a8bcfdb583da7c27f90f837794b913fc5691b7455",
+      "passed": true
+    },
+    {
+      "label": "50_probe_dungeon",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_dungeon.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 9.848,
+      "failure_lines": [],
+      "log_sha256": "e375bfcd6815b9b8d614c8ce0b555d08c2bc3c1c9daced36bc7bde6c04a5b836",
+      "passed": true
+    },
+    {
+      "label": "51_probe_ember",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_ember.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 9.752,
+      "failure_lines": [],
+      "log_sha256": "bfd3bbf78d4afc8f0be1f7b1b24e83c9e1369694a5ad2ddf6f93502c08621e70",
+      "passed": true
+    },
+    {
+      "label": "52_probe_opera",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_opera.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 37.164,
+      "failure_lines": [],
+      "log_sha256": "3dcec1cf5e80c0d7485b53285dbbcc7b306e29ed4c90677a146fabb912b0f5b2",
+      "passed": true
+    },
+    {
+      "label": "53_probe_opera_2d",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_opera_2d.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 32.678,
+      "failure_lines": [],
+      "log_sha256": "3edb1f7927aedac83b8da41a9a08907f958c66e490b59127a38ac40ad1ee6c42",
+      "passed": true
+    },
+    {
+      "label": "54_probe_opera_diegetic_paths",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_opera_diegetic_paths.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 3.527,
+      "failure_lines": [],
+      "log_sha256": "8b4fa69dca1eb815b72a9592ac787d7f7cf9650e94c21745b3a3293da39dfeb8",
+      "passed": true
+    },
+    {
+      "label": "55_probe_opera_detective",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_opera_detective.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 8.284,
+      "failure_lines": [],
+      "log_sha256": "ada2802f1fd8ddfa452d4ca6d40b560d95e2fe6a0d784f3c5ebc5161755a2498",
+      "passed": true
+    },
+    {
+      "label": "56_probe_opera_pipe",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_opera_pipe.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.937,
+      "failure_lines": [],
+      "log_sha256": "9e37f1451cf963674947e78580377efe684cb07070ef3ded7221671a9cf74efc",
+      "passed": true
+    },
+    {
+      "label": "57_probe_opera_nursery",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_opera_nursery.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 8.16,
+      "failure_lines": [],
+      "log_sha256": "ea99b8b123e699dca13b66bab6a6a0fc607ad7af6509935a9623c08e23a24dac",
+      "passed": true
+    },
+    {
+      "label": "58_probe_opera_gesture_quality",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_opera_gesture_quality.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.042,
+      "failure_lines": [],
+      "log_sha256": "24092105cea880e323075053cccc45837478b6b5abc10532a055d8b64c5c5277",
+      "passed": true
+    },
+    {
+      "label": "59_probe_kitchen_props",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_kitchen_props.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.104,
+      "failure_lines": [],
+      "log_sha256": "085ee788c6a4ea61b380dc094a318f0546223c723a4a06343e564902678217fd",
+      "passed": true
+    },
+    {
+      "label": "60_probe_bathroom_props",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_bathroom_props.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.732,
+      "failure_lines": [],
+      "log_sha256": "f1a9243fa397b4679dd72416d4e7b6fba6d21014c949cf112f3e3c29eefd494f",
+      "passed": true
+    },
+    {
+      "label": "61_probe_castle_door_language",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_castle_door_language.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 8.983,
+      "failure_lines": [],
+      "log_sha256": "4abaa12c13b1268f31ba2dcbd5a0d01bef5d51f9d72bfae4a3e1289ea6b2240b",
+      "passed": true
+    },
+    {
+      "label": "62_probe_bathroom_integration",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_bathroom_integration.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 27.439,
+      "failure_lines": [],
+      "log_sha256": "0b93b196a5572ccb0f9f76698bce1c3d2aa27084f08b0cca93da8ab561ace330",
+      "passed": true
+    },
+    {
+      "label": "63_probe_day_one_bathroom_bunny",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_day_one_bathroom_bunny.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 9.73,
+      "failure_lines": [],
+      "log_sha256": "b2317cefbc14362cdb2509477c136b7ddbf79e88550d370040f165ad452d500c",
+      "passed": true
+    },
+    {
+      "label": "64_probe_day_one_bathroom_cleanup",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_day_one_bathroom_cleanup.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 14.811,
+      "failure_lines": [],
+      "log_sha256": "e3ac904c4ddad2ceec6937274324e0f46e845f5bc74095a74bd985a7a25a3d14",
+      "passed": true
+    },
+    {
+      "label": "65_probe_day_one_bathroom_movie_handoff",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_day_one_bathroom_movie_handoff.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 7.131,
+      "failure_lines": [],
+      "log_sha256": "3c38263a6313fdfe5cfb49b7378d9e9890d36373f6f014af0411e016529f5f86",
+      "passed": true
+    },
+    {
+      "label": "66_probe_day_one_director",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_day_one_director.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 7.226,
+      "failure_lines": [],
+      "log_sha256": "c55a83f10ed8b5e8f241a127a88fdfb1001bbdb65486d44989606a1ece6e1c0e",
+      "passed": true
+    },
+    {
+      "label": "67_probe_day_one_integration",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_day_one_integration.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 7.335,
+      "failure_lines": [],
+      "log_sha256": "5d2a85cd038e521120be433551a63bdcaa394be2c493b151f616650805b1ab46",
+      "passed": true
+    },
+    {
+      "label": "68_probe_day_one_pool_cleanup",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_day_one_pool_cleanup.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 15.375,
+      "failure_lines": [],
+      "log_sha256": "76579e144a9915f9ea194441b14f48a512e133bda97808c275a9ef09b371a63e",
+      "passed": true
+    },
+    {
+      "label": "69_probe_day_one_art_attack_state",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_day_one_art_attack_state.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 7.769,
+      "failure_lines": [],
+      "log_sha256": "f60c2a724f4c1d99e78da2e83ed099fad0afd2bd2bbd4ba7e730c3ee1f1b6114",
+      "passed": true
+    },
+    {
+      "label": "70_probe_day_one_castle_dressing",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_day_one_castle_dressing.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.734,
+      "failure_lines": [],
+      "log_sha256": "17ea5dbf7d18d174c7029081bb94f79ae44f439fb81b7c77093083efceba80a0",
+      "passed": true
+    },
+    {
+      "label": "71_probe_day_one_story_clips",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_day_one_story_clips.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 13.473,
+      "failure_lines": [],
+      "log_sha256": "811e20c6e97da8efb3aa06e7e0a74e02f822b74ca0ed33a9548abd5e4e8cf1a8",
+      "passed": true
+    },
+    {
+      "label": "72_probe_chapter2",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_chapter2.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 143.953,
+      "failure_lines": [],
+      "log_sha256": "2eb4cb37c4da660566af811df5c4162ac56a2e5c9253eb868376d194a43ad094",
+      "passed": true
+    },
+    {
+      "label": "73_probe_chapter2_farmer_resume",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_chapter2_farmer_resume.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 20.963,
+      "failure_lines": [],
+      "log_sha256": "2f43fc12adfc92b0ef5bfde77ceba276190604eb8b7471697746afcbe21d942d",
+      "passed": true
+    },
+    {
+      "label": "74_probe_chapter2_lawn",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_chapter2_lawn.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 16.981,
+      "failure_lines": [],
+      "log_sha256": "b50aaf7aeae0823dcbfb26e58ab58b9b739c7780e04efb36fb554433be6d55e1",
+      "passed": true
+    },
+    {
+      "label": "75_probe_alpha_milestone_save",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_alpha_milestone_save.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 24.507,
+      "failure_lines": [],
+      "log_sha256": "c8fee9f0a438dd1b2493699c49a5d84994e818e7bd65fb0f6655fbfca08bc584",
+      "passed": true
+    },
+    {
+      "label": "76_probe_dust_boss_balance",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_dust_boss_balance.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 243.633,
+      "failure_lines": [],
+      "log_sha256": "c64cec8d6bceaf3683ad4391055d8a46cbdf8573a65c8899baaf6b85fcd34273",
+      "passed": true
+    },
+    {
+      "label": "77_probe_start_menu_routing",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_start_menu_routing.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 14.535,
+      "failure_lines": [],
+      "log_sha256": "c192b57ce2a0672867a9ce4420e32fde1eab6d258fc7e9e200127891e4d0c163",
+      "passed": true
+    },
+    {
+      "label": "78_probe_start_menu_new_game",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_start_menu_new_game.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 42.531,
+      "failure_lines": [],
+      "log_sha256": "3f383022d00b47415982febe2834031d791dadc6959772a4987d367037276ef9",
+      "passed": true
+    },
+    {
+      "label": "79_probe_castle_pool_life_2d",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_castle_pool_life_2d.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 14.941,
+      "failure_lines": [],
+      "log_sha256": "3c743dae2d362340c1369418a95b8feacb00f3f8933ddb78daa109c17bf5b6b9",
+      "passed": true
+    },
+    {
+      "label": "80_probe_castle_pearl_art",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_castle_pearl_art.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 20.52,
+      "failure_lines": [],
+      "log_sha256": "18ee6b45155a73424269f2fc4dd644deefcc1a1659fa0702434dc6f7a28d2fae",
+      "passed": true
+    },
+    {
+      "label": "81_probe_fairy_art",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_fairy_art.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.931,
+      "failure_lines": [],
+      "log_sha256": "97aa66835cca2cf482d202e46a6119b11319755d18c86c10f76174a009ff34c4",
+      "passed": true
+    },
+    {
+      "label": "82_probe_props",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+        "-s",
+        "scripts/probe_props.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 17.215,
+      "failure_lines": [],
+      "log_sha256": "c2b732eb8c197eb5004fec74f7df0fb71d031b4dff532a6de5e16c2564a3125c",
+      "passed": true
+    },
+    {
+      "label": "post_game2d",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 422.251,
+      "failure_lines": [],
+      "log_sha256": "4022b0d0dd00dd5e333ac2fdd5684e1ec48df71542d261cc30972ea71a23d6d5",
+      "passed": true
+    }
+  ],
+  "trusted_commands": 82,
+  "assertion_probes": 81,
+  "headless_capture_skip": 1,
+  "runtime_input_count": 5590,
+  "runtime_drift": [],
+  "canonical_text_only_import_normalizations": [],
+  "normal_unchanged": true,
+  "required_gate_commands": 88,
+  "new_generation_calls": 1,
+  "animation_calls": 0,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "Dev_integrated": false,
+  "accepted_removed": 0
+}

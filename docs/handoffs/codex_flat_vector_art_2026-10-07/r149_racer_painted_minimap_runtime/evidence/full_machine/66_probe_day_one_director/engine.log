@@ -1,0 +1,27 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DAY_ONE|four-room order: OK
+DAY_ONE|only bathroom starts unlocked: OK
+DAY_ONE|jobs globally locked: OK
+DAY_ONE|future room locked: OK
+DAY_ONE|arrival media hook: OK
+DAY_ONE|bathroom cannot complete before basket and both scrubs: OK
+DAY_ONE|bathroom rescue completion unlocks pool: OK
+DAY_ONE|completion cleanup hook: OK
+DAY_ONE|wrong activity rejected: OK
+DAY_ONE|pool activity completes: OK
+DAY_ONE|pool completion derives full cleanup state: OK
+DAY_ONE|stuffie activity completes: OK
+DAY_ONE|art activity completes: OK
+DAY_ONE|every later room emits its own cleanup hook in the same session: OK
+DAY_ONE|a repeated room completion never re-emits its cleanup hook: OK
+DAY_ONE|all completed and boss glow: OK
+DAY_ONE|boss trigger gated and idempotent: OK
+DAY_ONE|discovery emits both hooks: OK
+DAY_ONE|save keys are additive day-one keys: OK
+DAY_ONE|restore normalises ordered rooms: OK
+DAY_ONE|restore all rooms derives glow: OK
+DAY_ONE|only a terminal save retains the boss latch: OK
+DAY_ONE|partial pool progress restores exactly and monotonically: OK
+DAY_ONE|later days release jobs and opera: OK
+DAY_ONE|RESULT: PASS checks_failed=0

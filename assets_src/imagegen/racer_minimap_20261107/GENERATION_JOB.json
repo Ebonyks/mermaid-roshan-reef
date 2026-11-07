@@ -1,0 +1,104 @@
+{
+  "stable_id": "FVR-3140B3498381",
+  "source": "774b0d134be93c5751ac8c03efeec85c8a854674",
+  "generation_tool": "built-in image_gen.imagegen",
+  "model_version": null,
+  "native_request_count": 1,
+  "request_wall_time_ms": 44520,
+  "transparent_background_requested": true,
+  "prompt_path": "PROMPT_SENT.txt",
+  "prompt_sha256": "05d5df928b7a873183159b265e9e5d18f49db77528d714dad732c6ac9f8c19e8",
+  "style_refs": [
+    {
+      "path": "assets/racer/ui/item_bubble_frame_painted.png",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "sha256": "f26803c30c83ad995444f1ece1db686565eed6edd444f8fb1f1f36aec19dd1b3",
+      "local_sha256": "f26803c30c83ad995444f1ece1db686565eed6edd444f8fb1f1f36aec19dd1b3",
+      "bytes": 271561,
+      "role": "Unprotected project painted blue material and linework"
+    },
+    {
+      "path": "assets/racer/ui/steering_knob_painted.png",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "sha256": "a40cea67ef6d50d326c2d36f1dc148b708e984384deddb592c30723807814314",
+      "local_sha256": "a40cea67ef6d50d326c2d36f1dc148b708e984384deddb592c30723807814314",
+      "bytes": 87637,
+      "role": "Unprotected project painted contour and upper-left light"
+    }
+  ],
+  "scene_observations": [
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1280/opera-ready-pearls.png",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "sha256": "e49eeab8cae6b395a029521e089c6fe105d9099711a38b9bcc3344b0e850a535",
+      "local_sha256": "e49eeab8cae6b395a029521e089c6fe105d9099711a38b9bcc3344b0e850a535",
+      "bytes": 872022,
+      "role": "Configured real scene viewed locally. Protected scene pixels excluded from generation inputs."
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1280/pc-1-no-touch-item-frame.png",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "sha256": "ae1909b1aabc0fecf0ccbfccc3ca3c63c5208b9f0a90d727ada756003a912c97",
+      "local_sha256": "ae1909b1aabc0fecf0ccbfccc3ca3c63c5208b9f0a90d727ada756003a912c97",
+      "bytes": 637926,
+      "role": "Configured real scene viewed locally. Protected scene pixels excluded from generation inputs."
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1280/pc-2-no-touch-item-frame.png",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "sha256": "11cf79ab0ea0972d2b445b9c077bcd5543ddc1c8d9abb240a148f34d596392d8",
+      "local_sha256": "11cf79ab0ea0972d2b445b9c077bcd5543ddc1c8d9abb240a148f34d596392d8",
+      "bytes": 523557,
+      "role": "Configured real scene viewed locally. Protected scene pixels excluded from generation inputs."
+    }
+  ],
+  "native": {
+    "file": "minimap_backplate_native.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "bytes": 1689734,
+    "sha256": "6c2c6a650584ec38a5a9f7f027fa81f0806b5f482018b7069f44dbb5840dfcc9",
+    "unchanged": true
+  },
+  "runtime": {
+    "path": "assets/racer/ui/minimap_backplate_painted.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "bytes": 301571,
+    "sha256": "c1d166d60978087380530c7fc06a948bb600e562ec733c6db529f0754b97a1b9",
+    "crop_ltrb": [
+      58,
+      62,
+      1196,
+      1200
+    ],
+    "excluded_outside_crop_by_alpha_threshold": {
+      "1": 2788,
+      "4": 0,
+      "16": 0,
+      "32": 0,
+      "128": 0,
+      "240": 0
+    },
+    "tool": "FFmpeg 8.1.2",
+    "filtergraph": "crop=1138:1138:58:62,scale=512:512:flags=lanczos,format=rgba",
+    "operation": "Square technical crop keeps all source alpha at least 4. Uniform Lanczos resize."
+  },
+  "code": {
+    "path": "scripts/racer/reef_kart_race.gd",
+    "old_worktree_sha256": "1380e5dc06f2aa9ca094a00a31fdb9c68fb2818e1255e6dc6b194b23247caa36",
+    "new_worktree_sha256": "0d621d32278e451b761b15a9f491256b76aa5739fd89ed5f6357e3eedc5e7cbd",
+    "scope_proof": "The inverse replacement recovers the exact baseline blob. The route, projected markers and controls keep their existing code.",
+    "final_worktree_sha256": "0d621d32278e451b761b15a9f491256b76aa5739fd89ed5f6357e3eedc5e7cbd"
+  },
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null
+}

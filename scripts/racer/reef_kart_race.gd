@@ -80,6 +80,7 @@ const CapsuleArt := preload("res://assets/racer/context_v2/item_capsule.png")
 const KelpArt := preload("res://assets/racer/context_v2/kelp_trap.png")
 const GasButtonArt := preload("res://assets/racer/ui/gas_button_painted.png")
 const ItemBubbleFrameArt := preload("res://assets/racer/ui/item_bubble_frame_painted.png")
+const MinimapBackplateArt := preload("res://assets/racer/ui/minimap_backplate_painted.png")
 const SteeringRingArt := preload("res://assets/racer/ui/steering_ring_painted.png")
 const SteeringKnobArt := preload("res://assets/racer/ui/steering_knob_painted.png")
 const CONTEXT_ART := {
@@ -1569,8 +1570,8 @@ func _draw_order_faces() -> void:
 
 
 func _draw_minimap() -> void:
-	var plate := Color(0.07, 0.20, 0.30, 0.86) if _pc_hud else Color(1.0, 1.0, 1.0, 0.55)
-	_hud.draw_rect(_minimap_rect.grow(10.0), plate)
+	var backing_tint := Color(0.74, 0.84, 0.94, 0.94) if _pc_hud else Color(1.0, 1.0, 1.0, 0.82)
+	_hud.draw_texture_rect(MinimapBackplateArt, _minimap_rect.grow(10.0), false, backing_tint)
 	_hud.draw_polyline(_minimap, INK, 6.0 if _pc_hud else 9.0, true)
 	_hud.draw_polyline(_minimap, Color("#f4e6f0"), 2.5 if _pc_hud else 5.0, true)
 	var scale := _minimap_rect.size.x / track.world_size

@@ -1,0 +1,33 @@
+{
+  "stable_id": "FVR-3140B3498381",
+  "actual_native_events": 40,
+  "current_target_events": 40,
+  "excluded_events": 0,
+  "lanes": [
+    {
+      "variant": "source",
+      "width": 1280,
+      "events": 10,
+      "path": "assets_src/review/r149_racer_minimap_20261107/captures/source_1280"
+    },
+    {
+      "variant": "source",
+      "width": 1600,
+      "events": 10,
+      "path": "assets_src/review/r149_racer_minimap_20261107/captures/source_1600"
+    },
+    {
+      "variant": "candidate",
+      "width": 1280,
+      "events": 10,
+      "path": "assets_src/review/r149_racer_minimap_20261107/captures/candidate_1280"
+    },
+    {
+      "variant": "candidate",
+      "width": 1600,
+      "events": 10,
+      "path": "assets_src/review/r149_racer_minimap_20261107/captures/candidate_1600"
+    }
+  ],
+  "count_limit": "One event per native frame. A split image includes two map instances of the same role. Review crops create no native events. Natural routes and external acceptance remain open."
+}

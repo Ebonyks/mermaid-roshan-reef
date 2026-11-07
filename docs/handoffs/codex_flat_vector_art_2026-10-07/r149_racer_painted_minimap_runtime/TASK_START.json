@@ -1,0 +1,127 @@
+{
+  "state": "READY_FOR_ONE_BOUNDED_PAINTED_MINIMAP_BACKPLATE_GENERATION",
+  "stable_id": "FVR-3140B3498381",
+  "stable_id_seed": "opera_racer|reef_kart_race|minimap_backplate",
+  "source_item": "minimap_backplate",
+  "family": "opera_racer",
+  "baseline": "774b0d134be93c5751ac8c03efeec85c8a854674",
+  "branch": "codex/flat-vector-racer-minimap-painted-20261107",
+  "worktree": "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+  "canonical_baseline": "48571bb1462b665e4ae8a05c371a64202cc25c03",
+  "source": {
+    "path": "scripts/racer/reef_kart_race.gd",
+    "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+    "sha256": "35bbdd23e24d5564911432e41a44b5f44c91b5647965e027b28c0c868157dffb",
+    "local_sha256": "1380e5dc06f2aa9ca094a00a31fdb9c68fb2818e1255e6dc6b194b23247caa36",
+    "bytes": 64676,
+    "role": "Current _draw_minimap flat backing and live route compositor"
+  },
+  "existing_documented_gap": {
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/README.md",
+    "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+    "sha256": "039d3e93db506bacd98f14dddfccb47ef2a4b3dfe9c4252b16a230fa6729f441",
+    "local_sha256": "039d3e93db506bacd98f14dddfccb47ef2a4b3dfe9c4252b16a230fa6729f441",
+    "bytes": 5009,
+    "role": "Current minimap surfaces unresolved"
+  },
+  "aggregate_registry_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+  "binding": "One known pending backing in the documented HUD/minimap/control scope. Opera 190 px and PC 106 px share one draw function and one square backing role. Distinct from dynamic route line and markers.",
+  "scope": "Replace only the single flat rectangle behind the Racer minimap with one painted square texture. Cover Opera touch and all four PC course maps in solo and split configured views. Keep map position, per-player pane, route projection, marker colors and motion, input and saves.",
+  "style_refs": [
+    {
+      "path": "assets/racer/ui/item_bubble_frame_painted.png",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "sha256": "f26803c30c83ad995444f1ece1db686565eed6edd444f8fb1f1f36aec19dd1b3",
+      "local_sha256": "f26803c30c83ad995444f1ece1db686565eed6edd444f8fb1f1f36aec19dd1b3",
+      "bytes": 271561,
+      "role": "Unprotected project painted blue material and linework"
+    },
+    {
+      "path": "assets/racer/ui/steering_knob_painted.png",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "sha256": "a40cea67ef6d50d326c2d36f1dc148b708e984384deddb592c30723807814314",
+      "local_sha256": "a40cea67ef6d50d326c2d36f1dc148b708e984384deddb592c30723807814314",
+      "bytes": 87637,
+      "role": "Unprotected project painted contour and upper-left light"
+    }
+  ],
+  "observations": [
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1280/opera-ready-pearls.png",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "sha256": "e49eeab8cae6b395a029521e089c6fe105d9099711a38b9bcc3344b0e850a535",
+      "local_sha256": "e49eeab8cae6b395a029521e089c6fe105d9099711a38b9bcc3344b0e850a535",
+      "bytes": 872022,
+      "role": "Configured real scene viewed locally. Protected scene pixels excluded from generation inputs."
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1280/pc-1-no-touch-item-frame.png",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "sha256": "ae1909b1aabc0fecf0ccbfccc3ca3c63c5208b9f0a90d727ada756003a912c97",
+      "local_sha256": "ae1909b1aabc0fecf0ccbfccc3ca3c63c5208b9f0a90d727ada756003a912c97",
+      "bytes": 637926,
+      "role": "Configured real scene viewed locally. Protected scene pixels excluded from generation inputs."
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1280/pc-2-no-touch-item-frame.png",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "sha256": "11cf79ab0ea0972d2b445b9c077bcd5543ddc1c8d9abb240a148f34d596392d8",
+      "local_sha256": "11cf79ab0ea0972d2b445b9c077bcd5543ddc1c8d9abb240a148f34d596392d8",
+      "bytes": 523557,
+      "role": "Configured real scene viewed locally. Protected scene pixels excluded from generation inputs."
+    }
+  ],
+  "rules": [
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-MED-01",
+    "DL-PERF-02",
+    "DL-PERF-03",
+    "DL-QA-11",
+    "DL-QA-12",
+    "DL-QA-14",
+    "DL-QA-15",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-READ-03",
+    "DL-READ-04",
+    "DL-UI-01",
+    "DL-UI-02",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-UI-06",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-07"
+  ],
+  "findings": [
+    "MA-VIS-008",
+    "MA-OPERA-014"
+  ],
+  "generation": {
+    "tool": "built-in image_gen.imagegen",
+    "model_version": null,
+    "calls_requested": 0,
+    "other_funded_budgets": "out of scope"
+  },
+  "required_evidence": [
+    "actual native output and exact tool/backend metadata",
+    "lossless non-destructive component crops/exports and import recipes",
+    "same-scene ten-axis comparison and independent candidate/integration/runtime/formalQA11/device/child/owner lanes",
+    "exactGodot4.7.2Mobile/OperaSpeedy and appropriate changed-source/full gates beforeCI andDev",
+    "anonymous immutable manifest verification and canonical update only from verified changes",
+    "Inspect live route and player dots at 190 and 106 px. Pair delta restricted to existing one/two map rectangles."
+  ],
+  "time": "2026-11-07T07:13:04.113696+00:00"
+}
