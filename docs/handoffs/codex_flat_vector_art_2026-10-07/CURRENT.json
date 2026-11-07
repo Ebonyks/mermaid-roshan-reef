@@ -1,17 +1,17 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-ANDROID-VERIFIED-20261107-R148",
-  "current_entry": "r148_racer_painted_item_bubble_runtime/android_verified_20261107/README.md",
+  "revision": "FV-PRODUCTION-20261107-R149-PAINTED-MINIMAP",
+  "current_entry": "r149_racer_painted_minimap_runtime/README.md",
   "current_per_piece": "r96_geologist_mineral_candidate/per_piece.json",
   "current_scene_coverage": "r96_geologist_mineral_candidate/scene_coverage.json",
   "current_tally": "r96_geologist_mineral_candidate/tally.json",
   "current_backlog": "r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/android_verified_20261107/MANIFEST.json",
+  "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/CANONICAL_MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/android_verified_20261107/DEV_CI_COMPLETED.json",
+  "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/SOURCE_CI_AT_INTAKE.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -7104,8 +7104,8 @@
   "r143_partial_Dev_artifact_delta": 16,
   "immutable_r143_receipt_revision": "504c290443c280ae543cb5caa1fe671340821ad4",
   "immutable_r144_payload_revision": "4bd9101a5b88ce8f0388917f297a849403e01ef3",
-  "current_payload_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/774b0d134be93c5751ac8c03efeec85c8a854674/docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/MANIFEST.json",
-  "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/android_verified_20261107/PRIOR_CANONICAL_DEV_REMOTE_VERIFICATION.json",
+  "current_payload_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/118acf6c090dd42307a281f0b13e0e114bf62b54/docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/MANIFEST.json",
+  "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/SOURCE_REMOTE_VERIFICATION.json",
   "immutable_r144_receipt_revision": "d7c61f2636b4828a5158b3276dffdf695e5eeee3",
   "previous_receipt_manifest": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/d7c61f2636b4828a5158b3276dffdf695e5eeee3/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/RECEIPT_MANIFEST.json",
   "r144_prior_current_art_source_context": {
@@ -8184,5 +8184,117 @@
     "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/CANONICAL_MANIFEST.json",
     "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/SOURCE_REMOTE_VERIFICATION.json",
     "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/SOURCE_CI_AT_INTAKE.json"
+  },
+  "r149_prior_navigation": {
+    "revision": "FV-ANDROID-VERIFIED-20261107-R148",
+    "current_entry": "r148_racer_painted_item_bubble_runtime/android_verified_20261107/README.md",
+    "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/android_verified_20261107/MANIFEST.json",
+    "current_payload_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/774b0d134be93c5751ac8c03efeec85c8a854674/docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/MANIFEST.json",
+    "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/android_verified_20261107/PRIOR_CANONICAL_DEV_REMOTE_VERIFICATION.json",
+    "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/android_verified_20261107/DEV_CI_COMPLETED.json"
+  },
+  "r149_current_production": {
+    "stable_id": "FVR-3140B3498381",
+    "name": "Racer painted minimap backing",
+    "current_role": "Minimap backing across Opera and PC",
+    "family": "opera_racer",
+    "artifact_key": "r149_racer_painted_minimap_runtime",
+    "state": "PUBLISHED_SOURCE_CANDIDATE_LOCAL_MACHINE_AND_CONTEXT_PASS",
+    "source_revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+    "source_parent": "774b0d134be93c5751ac8c03efeec85c8a854674",
+    "branch": "codex/flat-vector-racer-minimap-painted-20261107",
+    "source_required_files_verified": 281,
+    "source_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "source_CI_at_intake": {
+      "run": 42355721540,
+      "status": "in_progress",
+      "conclusion": ""
+    },
+    "native_output": {
+      "path": "assets_src/imagegen/racer_minimap_20261107/minimap_backplate_native.png",
+      "revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+      "bytes": 1689734,
+      "sha256": "6c2c6a650584ec38a5a9f7f027fa81f0806b5f482018b7069f44dbb5840dfcc9",
+      "role": "Preserved original ImageGen output"
+    },
+    "runtime_texture": {
+      "path": "assets/racer/ui/minimap_backplate_painted.png",
+      "revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+      "bytes": 301571,
+      "sha256": "c1d166d60978087380530c7fc06a948bb600e562ec733c6db529f0754b97a1b9",
+      "role": "Painted runtime derivative"
+    },
+    "runtime_import": {
+      "path": "assets/racer/ui/minimap_backplate_painted.png.import",
+      "revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+      "bytes": 995,
+      "sha256": "91f90a087ecf5bb5564c2210021ed8558af3a03890a7d54e5c2aa11dda4c140c",
+      "role": "Lossless runtime import"
+    },
+    "runtime_code": {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+      "bytes": 64818,
+      "sha256": "e6570afaaea027a25fa5ae094bcd80c033c751ebac608011aae02c39377664ac",
+      "role": "Existing control draw using painted frame"
+    },
+    "generation": {
+      "path": "assets_src/imagegen/racer_minimap_20261107/GENERATION_JOB.json",
+      "revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+      "bytes": 4298,
+      "sha256": "54926f2e9b3685c2588b8dc55b53b68da67400e187bddb2aec42730f7ae04a09",
+      "role": "Exact derivation and generation provenance"
+    },
+    "comparison": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/TEN_AXIS_COMPARISON.json",
+      "revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+      "bytes": 2999,
+      "sha256": "0891dc403d838ab5d0514c5b3ecb124387fd24db8b42982a79d4d31d75bdad4a",
+      "role": "Current configured in-scene review"
+    },
+    "local_static_review": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/LOCAL_STATIC_ART_REVIEW.json",
+      "revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+      "bytes": 939,
+      "sha256": "23d16289f85ee8520642e8c905ac69f438d2d776ab48384fd0705d349402fb1d",
+      "role": "Assistant art eligibility assessment"
+    },
+    "frame_events": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/FRAME_EVENTS.json",
+      "revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+      "bytes": 1005,
+      "sha256": "e32d009c8458b588f67a6d6923dd460515b18b97bafc6634a84b82544aff50de",
+      "role": "Bounded and excluded configured capture events"
+    },
+    "machine": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/evidence/full_machine/FINAL_RESULT.json",
+      "revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+      "bytes": 53982,
+      "sha256": "28374bf24863afb13e8fca9cde05a8263ab3b832ba9357cbd2c71c80b1ad0216",
+      "role": "Actual changed-candidate local machine checks"
+    },
+    "native_events": {
+      "bounded": 40,
+      "excluded": 0,
+      "total": 40
+    },
+    "functional_invisible_geometry": {
+      "scope": "Passive HUD. Route projection, racer markers and pane transforms keep their existing behavior.",
+      "art_credit": 0
+    },
+    "original_builtin_generation_calls": 1,
+    "model_version": null,
+    "Dev_integration": false,
+    "Dev_revision": null,
+    "matching_APK": null,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "complete_scenes": 0,
+    "whole_game_total": null,
+    "mission_complete": false,
+    "source_finding": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/118acf6c090dd42307a281f0b13e0e114bf62b54/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014"
   }
 }

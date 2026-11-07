@@ -2109,3 +2109,5 @@ R148 contributes a verified painted candidate for the existing Racer Turbo contr
 R148 now integrates the painted item frame into Dev after both source jobs passed. MA-VIS-008 remains open for formal and external acceptance and other scoped artwork. [Dev evidence](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/README.md)
 
 R148 Android run 42348591601 delivered verified Dev package 2373. Formal and external acceptance remain open under MA-VIS-008. [Android delivery evidence](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/android_verified_20261107/README.md)
+
+R149 contributes a verified painted candidate for the Racer minimap backing under MA-VIS-008. It covers configured Opera and all four PC course maps. Formal and external acceptance remain open. [Source intake](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/README.md)

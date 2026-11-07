@@ -1539,3 +1539,5 @@ R132 authority reconciliation2026-11-03: the existing docs/handoffs/codex_flat_v
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/README.md` | 🔵 | `SUPPORTING_CURRENT`. R148 normal green-source Dev integration and separate Dev CI and acceptance lanes. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/android_verified_20261107/README.md` | 🔵 | `SUPPORTING_CURRENT`. R148 Android source binding, package bytes, scope exclusions and public signer verification. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/README.md` | 🔵 | `SUPPORTING_CURRENT`. R149 verified source, individual role binding and configured context with separate acceptance lanes. |

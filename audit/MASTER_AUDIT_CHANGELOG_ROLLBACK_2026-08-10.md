@@ -2899,3 +2899,7 @@ Canonical base `b0b139130f72333cbb41e1269c0636bffb40733e` records exact Dev `774
 ## CHG-165 — Verify the R148 Dev Android package
 
 Canonical base `08756e0cc9a0fec743363f979cf9bfb17a1c1647` records package evidence for Dev `774b0d134be93c5751ac8c03efeec85c8a854674`. The authorized retry depends on exact green Dev CI 42343247604. Android run 42348591601 delivered the new item frame resource and its remap. The Dev channel can move to a later APK, so the proof pins this package to actual asset IDs, digest and verification time. A correction would amend the delivery metadata and retain the original incident and package evidence. [Package record](../docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/android_verified_20261107/README.md) · [Impact](../design/audit_impacts/flat-vector-r148-matching-android-20261107.json)
+
+## CHG-167 — Record the verified R149 source
+
+Canonical base `48571bb1462b665e4ae8a05c371a64202cc25c03` records the painted minimap backing from `118acf6c090dd42307a281f0b13e0e114bf62b54`. The candidate depends on its new texture import. A darker backing can change map contrast. Configured comparisons cover both sizes, and device evidence remains open. A registry correction would amend the current metadata while keeping the actual source and historical frame evidence. [Source intake](../docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/README.md) · [Impact](../design/audit_impacts/flat-vector-r149-canonical-source-20261107.json)
