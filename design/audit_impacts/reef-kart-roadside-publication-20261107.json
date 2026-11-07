@@ -1,0 +1,23 @@
+{
+  "id": "reef-kart-roadside-publication-20261107",
+  "baseline": "be73d31464ccf70aa3ab58d930309505b79628d5",
+  "scope": "Record anonymous public verification of the roadside topic candidate.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07"
+  ],
+  "findings": [],
+  "no_findings_reason": "Publication evidence only. The implementation impact records the existing related findings.",
+  "files": [
+    "audit/cycles/reef-kart-roadside-20261107/REMOTE_VERIFICATION.json"
+  ],
+  "validation": [
+    {
+      "command": "verify_remote_packet.py against the immutable roadside revision",
+      "result": "PASS",
+      "evidence": "audit/cycles/reef-kart-roadside-20261107/REMOTE_VERIFICATION.json records the literal manifest and 26 files retrieved anonymously with matching byte lengths and SHA-256 at be73d31464ccf70aa3ab58d930309505b79628d5."
+    }
+  ],
+  "acceptance_gaps": "Physical controllers, tablet, child and owner acceptance remain open."
+}
