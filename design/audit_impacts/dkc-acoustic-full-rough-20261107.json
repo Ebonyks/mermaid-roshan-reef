@@ -1,0 +1,44 @@
+{
+  "id": "dkc-acoustic-full-rough-20261107",
+  "date": "2026-11-07",
+  "scope": "Register the complete private acoustic soundtrack rough and its source and mix verification. Publish metadata only.",
+  "baseline": "0be76936a163628801a5156507f18185878cbaa7",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SND-05",
+    "DL-SND-09",
+    "DL-SND-18"
+  ],
+  "findings": [
+    "MA-AUDIO-001"
+  ],
+  "finding_scope": "Runtime audio context only. This independent album introduces no runtime changes.",
+  "files": [
+    "design/music/dkc/ACOUSTIC_ALBUM_FULL_ROUGH_2026-11-07.md",
+    "design/music/dkc/evidence/acoustic_full_rough_manifest_20261107.json",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/music/dkc/README.md"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "Candidate authority gate passed against 947 Markdown entries and ledger rows, with exact project link targets present."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Candidate change-coverage gate passed against origin/dev at 0be76936a163628801a5156507f18185878cbaa7."
+    },
+    {
+      "command": "Private full-rough dual-format and archive byte verification",
+      "result": "PASS",
+      "evidence": "design/music/dkc/evidence/acoustic_full_rough_manifest_20261107.json"
+    }
+  ],
+  "acceptance_gaps": "Owner soundtrack approval and final album sequence reviews remain open. Runtime, device and child verification do not apply to this independent documentation and listening checkpoint."
+}
