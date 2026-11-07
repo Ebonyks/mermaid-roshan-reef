@@ -1,0 +1,545 @@
+{
+  "state": "PASS_SCOPED_NATIVE_RENDER_DELTA_AND_EXACT_RECOVERY_STATES",
+  "baseline": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+  "stable_id": "FVR-91F160FB9770",
+  "candidate_code_sha256": "7fc2bae43da27f32871545b3e4b0163e92a2df7967068e4b2aecdcf7ddd0e089",
+  "fixture_sha256": "bd20317d8f8ad83918eb2cf1deb15682717fac41ed9cb9c523f361b49558beeb",
+  "engine_sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643",
+  "total_native_events": 24,
+  "bounded_target_events": 16,
+  "excluded_negative_events": 8,
+  "paired_states": 12,
+  "normal_saves_unchanged": true,
+  "rows": [
+    {
+      "width": 1280,
+      "state": "opera-left-0",
+      "visible": true,
+      "pixel_delta_ltrb": [
+        495,
+        132,
+        634,
+        248
+      ],
+      "measured_legacy_cue_ltrb": [
+        495,
+        132,
+        634,
+        248
+      ],
+      "painted_cue_ltrb": [
+        498,
+        146,
+        633,
+        234
+      ],
+      "same_heading_classifier_state_and_bob_geometry": true,
+      "target": {
+        "bounds": [
+          497.1064453125,
+          137.0,
+          633.1064453125,
+          243.0
+        ],
+        "correction": -1.0,
+        "heading": -2.31238898038469,
+        "phase": 0,
+        "quality": "speedy",
+        "side": -1,
+        "signal_count": 1,
+        "tip": [
+          500.1064453125,
+          190.0
+        ],
+        "visible": true
+      },
+      "source": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/source_1280/opera-left-0.png",
+        "sha256": "406a1d788aecb5f6f50eb66687ca3c1c8d53fa2b5472878e4088249ee9551f8e",
+        "bytes": 816446
+      },
+      "candidate": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/candidate_1280/opera-left-0.png",
+        "sha256": "3f3b804b64dc3a52d9dba00b6fc9d2829f9d2a6569cb4255978b46f2de6fdd0d",
+        "bytes": 827487
+      }
+    },
+    {
+      "width": 1280,
+      "state": "opera-left-1",
+      "visible": true,
+      "pixel_delta_ltrb": [
+        514,
+        132,
+        654,
+        248
+      ],
+      "measured_legacy_cue_ltrb": [
+        514,
+        132,
+        654,
+        248
+      ],
+      "painted_cue_ltrb": [
+        518,
+        146,
+        652,
+        234
+      ],
+      "same_heading_classifier_state_and_bob_geometry": true,
+      "target": {
+        "bounds": [
+          516.8935546875,
+          137.0,
+          652.8935546875,
+          243.0
+        ],
+        "correction": -1.0,
+        "heading": -2.31238898038469,
+        "phase": 1,
+        "quality": "speedy",
+        "side": -1,
+        "signal_count": 1,
+        "tip": [
+          519.8935546875,
+          190.0
+        ],
+        "visible": true
+      },
+      "source": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/source_1280/opera-left-1.png",
+        "sha256": "9ac5157920ca3aec857085d26c80c323251fff2dd226994fa8d97f7bbab4ca34",
+        "bytes": 815996
+      },
+      "candidate": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/candidate_1280/opera-left-1.png",
+        "sha256": "3e5a9ce81b5a3b8a9c8c2383adb13cf08898d13c5733e20ae8334d201cae2099",
+        "bytes": 827367
+      }
+    },
+    {
+      "width": 1280,
+      "state": "opera-right-0",
+      "visible": true,
+      "pixel_delta_ltrb": [
+        646,
+        132,
+        785,
+        248
+      ],
+      "measured_legacy_cue_ltrb": [
+        646,
+        132,
+        785,
+        248
+      ],
+      "painted_cue_ltrb": [
+        647,
+        146,
+        783,
+        234
+      ],
+      "same_heading_classifier_state_and_bob_geometry": true,
+      "target": {
+        "bounds": [
+          646.8935546875,
+          137.0,
+          782.8935546875,
+          243.0
+        ],
+        "correction": 1.0,
+        "heading": -0.829203673205103,
+        "phase": 0,
+        "quality": "speedy",
+        "side": 1,
+        "signal_count": 2,
+        "tip": [
+          779.8935546875,
+          190.0
+        ],
+        "visible": true
+      },
+      "source": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/source_1280/opera-right-0.png",
+        "sha256": "6f37c07aeadd24e5045edb7e846be5c9abec22cc70fbdcd3e1362da5ff9061bf",
+        "bytes": 816549
+      },
+      "candidate": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/candidate_1280/opera-right-0.png",
+        "sha256": "156d9d88f378c5008fe1d4554cebe8da94b190eb120f6a59e86d42e5b1921cc8",
+        "bytes": 827566
+      }
+    },
+    {
+      "width": 1280,
+      "state": "opera-right-1",
+      "visible": true,
+      "pixel_delta_ltrb": [
+        626,
+        132,
+        766,
+        248
+      ],
+      "measured_legacy_cue_ltrb": [
+        626,
+        132,
+        766,
+        248
+      ],
+      "painted_cue_ltrb": [
+        628,
+        146,
+        762,
+        234
+      ],
+      "same_heading_classifier_state_and_bob_geometry": true,
+      "target": {
+        "bounds": [
+          627.1064453125,
+          137.0,
+          763.1064453125,
+          243.0
+        ],
+        "correction": 1.0,
+        "heading": -0.829203673205103,
+        "phase": 1,
+        "quality": "speedy",
+        "side": 1,
+        "signal_count": 2,
+        "tip": [
+          760.1064453125,
+          190.0
+        ],
+        "visible": true
+      },
+      "source": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/source_1280/opera-right-1.png",
+        "sha256": "47ca4265e0ac9ff209b5e1fa37d390679e9039348477d101128329d8b1726b72",
+        "bytes": 814857
+      },
+      "candidate": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/candidate_1280/opera-right-1.png",
+        "sha256": "c879ef5d33d3cc0b21582534bb70e92516c1820c8c4131867285d511036dd3d8",
+        "bytes": 826180
+      }
+    },
+    {
+      "width": 1280,
+      "state": "opera-recovered",
+      "visible": false,
+      "pixel_delta_ltrb": null,
+      "measured_legacy_cue_ltrb": null,
+      "painted_cue_ltrb": null,
+      "same_heading_classifier_state_and_bob_geometry": true,
+      "target": {
+        "heading": 1.5707963267949,
+        "quality": "speedy",
+        "signal_count": 2,
+        "visible": false
+      },
+      "source": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/source_1280/opera-recovered.png",
+        "sha256": "abc0e6de7da456993cb1cf6116493829c64272fdda479d8d336a4a55eccd1d6d",
+        "bytes": 826648
+      },
+      "candidate": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/candidate_1280/opera-recovered.png",
+        "sha256": "abc0e6de7da456993cb1cf6116493829c64272fdda479d8d336a4a55eccd1d6d",
+        "bytes": 826648
+      }
+    },
+    {
+      "width": 1280,
+      "state": "pc-split-flag-excluded",
+      "visible": false,
+      "pixel_delta_ltrb": null,
+      "measured_legacy_cue_ltrb": null,
+      "painted_cue_ltrb": null,
+      "same_heading_classifier_state_and_bob_geometry": true,
+      "target": {
+        "quality": "fixed_pc_no_quality_selector",
+        "visible": false,
+        "wrong_way_flags": [
+          true,
+          true
+        ]
+      },
+      "source": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/source_1280/pc-split-flag-excluded.png",
+        "sha256": "76eedbd9999b890433ecde1e1fe62eb3ad60960d46fa8503f1541837636a4480",
+        "bytes": 533899
+      },
+      "candidate": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/candidate_1280/pc-split-flag-excluded.png",
+        "sha256": "76eedbd9999b890433ecde1e1fe62eb3ad60960d46fa8503f1541837636a4480",
+        "bytes": 533899
+      }
+    },
+    {
+      "width": 1600,
+      "state": "opera-left-0",
+      "visible": true,
+      "pixel_delta_ltrb": [
+        655,
+        132,
+        794,
+        248
+      ],
+      "measured_legacy_cue_ltrb": [
+        655,
+        132,
+        794,
+        248
+      ],
+      "painted_cue_ltrb": [
+        658,
+        146,
+        793,
+        234
+      ],
+      "same_heading_classifier_state_and_bob_geometry": true,
+      "target": {
+        "bounds": [
+          657.1064453125,
+          137.0,
+          793.1064453125,
+          243.0
+        ],
+        "correction": -1.0,
+        "heading": -2.31238898038469,
+        "phase": 0,
+        "quality": "speedy",
+        "side": -1,
+        "signal_count": 1,
+        "tip": [
+          660.1064453125,
+          190.0
+        ],
+        "visible": true
+      },
+      "source": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/source_1600/opera-left-0.png",
+        "sha256": "5f91d984f317fcd7671d49023f83c46135036c81a37e3191c089b1b3ba684ef8",
+        "bytes": 905494
+      },
+      "candidate": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/candidate_1600/opera-left-0.png",
+        "sha256": "cc05903f75d213e82888e28bc5dad3740c51848f7c88e04f0877f889c11af962",
+        "bytes": 916654
+      }
+    },
+    {
+      "width": 1600,
+      "state": "opera-left-1",
+      "visible": true,
+      "pixel_delta_ltrb": [
+        674,
+        132,
+        814,
+        248
+      ],
+      "measured_legacy_cue_ltrb": [
+        674,
+        132,
+        814,
+        248
+      ],
+      "painted_cue_ltrb": [
+        678,
+        146,
+        812,
+        234
+      ],
+      "same_heading_classifier_state_and_bob_geometry": true,
+      "target": {
+        "bounds": [
+          676.8935546875,
+          137.0,
+          812.8935546875,
+          243.0
+        ],
+        "correction": -1.0,
+        "heading": -2.31238898038469,
+        "phase": 1,
+        "quality": "speedy",
+        "side": -1,
+        "signal_count": 1,
+        "tip": [
+          679.8935546875,
+          190.0
+        ],
+        "visible": true
+      },
+      "source": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/source_1600/opera-left-1.png",
+        "sha256": "047556962f09015f9843d65430ef7ac4472be19bdfb0626c4d07a89181a66efc",
+        "bytes": 905108
+      },
+      "candidate": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/candidate_1600/opera-left-1.png",
+        "sha256": "dd8e371e73deb1f15666340b7657c19fe9126f5bf286ac71d1c072cc3bee7913",
+        "bytes": 916485
+      }
+    },
+    {
+      "width": 1600,
+      "state": "opera-right-0",
+      "visible": true,
+      "pixel_delta_ltrb": [
+        806,
+        132,
+        945,
+        248
+      ],
+      "measured_legacy_cue_ltrb": [
+        806,
+        132,
+        945,
+        248
+      ],
+      "painted_cue_ltrb": [
+        807,
+        146,
+        943,
+        234
+      ],
+      "same_heading_classifier_state_and_bob_geometry": true,
+      "target": {
+        "bounds": [
+          806.8935546875,
+          137.0,
+          942.8935546875,
+          243.0
+        ],
+        "correction": 1.0,
+        "heading": -0.829203673205103,
+        "phase": 0,
+        "quality": "speedy",
+        "side": 1,
+        "signal_count": 2,
+        "tip": [
+          939.8935546875,
+          190.0
+        ],
+        "visible": true
+      },
+      "source": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/source_1600/opera-right-0.png",
+        "sha256": "31d9563174b2f1491b990f7b056da6cecd0e561fc589a722ed5043484e92523d",
+        "bytes": 905508
+      },
+      "candidate": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/candidate_1600/opera-right-0.png",
+        "sha256": "8bcd78c373be904414ee634c7bf8207dfe24358e2bec5c8d93ef4c7811e285d2",
+        "bytes": 916739
+      }
+    },
+    {
+      "width": 1600,
+      "state": "opera-right-1",
+      "visible": true,
+      "pixel_delta_ltrb": [
+        786,
+        132,
+        926,
+        248
+      ],
+      "measured_legacy_cue_ltrb": [
+        786,
+        132,
+        926,
+        248
+      ],
+      "painted_cue_ltrb": [
+        788,
+        146,
+        922,
+        234
+      ],
+      "same_heading_classifier_state_and_bob_geometry": true,
+      "target": {
+        "bounds": [
+          787.1064453125,
+          137.0,
+          923.1064453125,
+          243.0
+        ],
+        "correction": 1.0,
+        "heading": -0.829203673205103,
+        "phase": 1,
+        "quality": "speedy",
+        "side": 1,
+        "signal_count": 2,
+        "tip": [
+          920.1064453125,
+          190.0
+        ],
+        "visible": true
+      },
+      "source": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/source_1600/opera-right-1.png",
+        "sha256": "963f790df2f107c5de31f7e53584efe80e4e2132ae2f1d879b8d3dcec459d0ae",
+        "bytes": 903839
+      },
+      "candidate": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/candidate_1600/opera-right-1.png",
+        "sha256": "727b3a0e2e186112428b71e252ca44dab8cf195759442aef77677358ddc4b589",
+        "bytes": 915337
+      }
+    },
+    {
+      "width": 1600,
+      "state": "opera-recovered",
+      "visible": false,
+      "pixel_delta_ltrb": null,
+      "measured_legacy_cue_ltrb": null,
+      "painted_cue_ltrb": null,
+      "same_heading_classifier_state_and_bob_geometry": true,
+      "target": {
+        "heading": 1.5707963267949,
+        "quality": "speedy",
+        "signal_count": 2,
+        "visible": false
+      },
+      "source": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/source_1600/opera-recovered.png",
+        "sha256": "02a1e2e0aaf9cbfd9766f0488d1d791f139d41c2cff004d159397a60687c3c67",
+        "bytes": 915814
+      },
+      "candidate": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/candidate_1600/opera-recovered.png",
+        "sha256": "02a1e2e0aaf9cbfd9766f0488d1d791f139d41c2cff004d159397a60687c3c67",
+        "bytes": 915814
+      }
+    },
+    {
+      "width": 1600,
+      "state": "pc-split-flag-excluded",
+      "visible": false,
+      "pixel_delta_ltrb": null,
+      "measured_legacy_cue_ltrb": null,
+      "painted_cue_ltrb": null,
+      "same_heading_classifier_state_and_bob_geometry": true,
+      "target": {
+        "quality": "fixed_pc_no_quality_selector",
+        "visible": false,
+        "wrong_way_flags": [
+          true,
+          true
+        ]
+      },
+      "source": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/source_1600/pc-split-flag-excluded.png",
+        "sha256": "e47e12fe67d33659eae5e8b28e1a9d960af1fbdabbe5ab23004e31f82885194b",
+        "bytes": 544737
+      },
+      "candidate": {
+        "path": "assets_src/review/r150_racer_direction_cue_20261107/captures/candidate_1600/pc-split-flag-excluded.png",
+        "sha256": "e47e12fe67d33659eae5e8b28e1a9d960af1fbdabbe5ab23004e31f82885194b",
+        "bytes": 544737
+      }
+    }
+  ],
+  "initial_comparison_correction": "The first comparison used a two-pixel allowance beyond the predicted legacy shape. The old polyline miters exceeded it by three pixels vertically. Measured actual legacy bounds use the byte-identical recovery frame as an independent reference.",
+  "limits": "Eight visible pairs, four hidden pairs. Wrong headings are configured and run through the current heading classifier. Natural/full-speed play, formal QA11 and physical/child/owner evidence are separate."
+}

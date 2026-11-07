@@ -1,0 +1,19 @@
+{
+  "label": "30_probe_touch_stress",
+  "command": [
+    "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+    "--headless",
+    "--path",
+    "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+    "-s",
+    "scripts/probe_touch_stress.gd",
+    "--",
+    "--touch",
+    "--hybrid-touch-test"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 13.472,
+  "failure_lines": [],
+  "log_sha256": "385a5d35c8a91d612b33729a06d88804152ed25fc635b2b0760b297b6f0c3e86",
+  "passed": true
+}

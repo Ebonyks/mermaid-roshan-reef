@@ -1,0 +1,54 @@
+{
+  "state": "ASSISTANT_CONFIGURED_NATIVE_COMPARISON",
+  "stable_id": "FVR-91F160FB9770",
+  "source": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+  "candidate_script_sha256": "7fc2bae43da27f32871545b3e4b0163e92a2df7967068e4b2aecdcf7ddd0e089",
+  "axes": [
+    {
+      "axis": "medium",
+      "comparison": "One textured 2D Canvas draw replaces the solid polygon and its stroked outline. Native gouache-like value bands remain visible at runtime size."
+    },
+    {
+      "axis": "identity",
+      "comparison": "The same wrong-way help points left or right as the existing steering correction requires. No new label, mechanic, tap region or objective."
+    },
+    {
+      "axis": "style",
+      "comparison": "Warm gold face, thin plum edge and a broad painted highlight sit with the existing gold pedal, green wheel and painted coral."
+    },
+    {
+      "axis": "silhouette",
+      "comparison": "A single rounded shaft and clean triangle stay directionally distinct. Both mirrored tips stay within four pixels of the legacy fixture tip anchor."
+    },
+    {
+      "axis": "material",
+      "comparison": "A satin yellow face with gentle brush marks and an apricot lower band replaces the flat fill. Transparent corners have no visible sticker rim or floating marks."
+    },
+    {
+      "axis": "palette_value",
+      "comparison": "The honey face separates from cyan water and pink or dark coral. A continuous plum boundary separates the bright edge from the highlights on the arch."
+    },
+    {
+      "axis": "composition",
+      "comparison": "Eight visible comparisons are bounded by the measured old cue rectangles. Both negative states at both widths are pixel-identical."
+    },
+    {
+      "axis": "scale_contact_occlusion",
+      "comparison": "The 136 by 89 draw retains the horizontal role and centerline. The taller baseline stroke occupied 116 rendered pixels vertically. The painted silhouette occupies 88, exposing more of the arch and pickup fixtures."
+    },
+    {
+      "axis": "child_readability",
+      "comparison": "The high-key tip and unbroken shaft show one direction without words. Both directions and both bob samples were captured. Natural-speed and child observation remain open."
+    },
+    {
+      "axis": "runtime_suitability",
+      "comparison": "One lossless 480 by 314 RGBA texture, exact Godot 4.7.2 Mobile with 30 fps cap, and the existing bob and visibility conditions. The transform is reset before any later HUD draw."
+    }
+  ],
+  "current_pair_comparison": "assets_src/review/r150_racer_direction_cue_20261107/PAIR_PIXEL_COMPARISON.json",
+  "scope": "Actual production surfaces at 1280 and 1600. Left and right at two bob samples, recovered, and both PC split panes with the cue excluded.",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null
+}

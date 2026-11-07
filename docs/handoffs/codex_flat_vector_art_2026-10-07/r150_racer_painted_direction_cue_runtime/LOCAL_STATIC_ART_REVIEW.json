@@ -1,0 +1,27 @@
+{
+  "state": "PASS_LOCAL_AI_STATIC_OBJECT_ELIGIBILITY_ONLY",
+  "stable_id": "FVR-91F160FB9770",
+  "reviewer": {
+    "kind": "ai",
+    "id": "Codex root configured native comparison"
+  },
+  "candidate_sha256": "c3a79df73e028e8284c090f831e3e7295f6ce70cccf2f72867c928de8dced492",
+  "threshold": 4.5,
+  "dimensions": {
+    "identity": 4.7,
+    "finish": 4.6,
+    "edges": 4.5,
+    "readability": 4.6,
+    "ownership": 4.6,
+    "consistency": 4.6,
+    "technical": 4.7,
+    "animation": null
+  },
+  "minimum_applicable": 4.5,
+  "animation_na_reason": "Static painted cue under the existing bob. Two samples show placement, without a full-speed motion verdict.",
+  "observations": "Strong direction and calm painted values in the inspected full native frames. The color links to the pedal without making the cue look like a button.",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null
+}

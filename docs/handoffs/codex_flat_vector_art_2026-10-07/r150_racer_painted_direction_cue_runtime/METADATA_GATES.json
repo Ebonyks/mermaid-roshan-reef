@@ -1,0 +1,40 @@
+{
+  "state": "PASS",
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/authority.log",
+      "sha256": "6a7eef057cf3825e7a35d87f0952a6768a81fb827c5ecd510c760d76d2d469d3"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/coverage_auto.log",
+      "sha256": "d5890c8a5d74bda51e8ae0e4f95846fbe85da13330eee70a29f8f058b92f3930"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "118acf6c090dd42307a281f0b13e0e114bf62b54"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/coverage_base.log",
+      "sha256": "d5890c8a5d74bda51e8ae0e4f95846fbe85da13330eee70a29f8f058b92f3930"
+    }
+  ],
+  "time": "2026-11-07T12:28:05.777599+00:00"
+}

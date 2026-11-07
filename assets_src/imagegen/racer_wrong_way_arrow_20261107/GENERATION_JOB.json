@@ -1,0 +1,87 @@
+{
+  "stable_id": "FVR-91F160FB9770",
+  "exact_baseline": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+  "source_scope": {
+    "path": "docs/handoffs/codex_reef_kart_art_2026-11-03/ART_REQUESTS.md",
+    "revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+    "sha256": "63eea6d129243aa5b1f27187a9282945142d386c32ae5f233b0154d68d3d29b9",
+    "bytes": 9059
+  },
+  "native_request_count": 1,
+  "request_duration_ms": 28849,
+  "backend": "Built-in image_gen.imagegen",
+  "model_revision": null,
+  "output_file_identifier": "exec-fa354dcb-2bf2-4f5e-be00-ceb0c18bcb2a.png",
+  "output_fields": [
+    "image_url",
+    "output_hint"
+  ],
+  "transparent_background_requested": true,
+  "prompt": {
+    "file": "PROMPT_SENT.txt",
+    "sha256": "8a71521426624b20f0ad54272321d884b84104ae812fc2ca08f0c1b4c6688d2b"
+  },
+  "style_reference": {
+    "path": "assets/racer/ui/gas_button_painted.png",
+    "revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+    "sha256": "79f9dee0a1db33980e0d3fd24627bb25a85119d956b15a62a700de7f3741af29",
+    "bytes": 308133
+  },
+  "protected_scene_inputs_exported": false,
+  "actual_baseline_context": {
+    "fixture_result": "R150 source capture 50696 terminal pass",
+    "native_visible_events": 8,
+    "negative_events": 4,
+    "used_as_generator_pixels": false
+  },
+  "native": {
+    "file": "wrong_way_arrow_native.png",
+    "sha256": "e8040ecf76aa5feb558520ec94137fb5ce833ae71b8d1a90099762834ce10c03",
+    "bytes": 880333,
+    "mode": "RGBA",
+    "dimensions": [
+      1430,
+      1100
+    ]
+  },
+  "runtime": {
+    "path": "assets/racer/ui/wrong_way_arrow_painted.png",
+    "sha256": "c3a79df73e028e8284c090f831e3e7295f6ce70cccf2f72867c928de8dced492",
+    "bytes": 123745,
+    "dimensions": [
+      480,
+      314
+    ],
+    "mode": "RGBA",
+    "crop_ltrb": [
+      20,
+      120,
+      1364,
+      1000
+    ],
+    "excluded_outside_crop_by_alpha_threshold": {
+      "1": 40,
+      "4": 0,
+      "16": 0,
+      "32": 0,
+      "128": 0,
+      "240": 0
+    },
+    "tool": "ffmpeg version 8.1.2-essentials_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+    "filtergraph": "crop=1344:880:20:120,scale=480:314:flags=lanczos,format=rgba",
+    "display_rect_at_right_relative_to_original_anchor": [
+      -63.0,
+      -44.5,
+      136.0,
+      89.0
+    ],
+    "placement_choice": "Fit the painted contour uniformly within the old 136-by-106 footprint. Preserve the horizontal tip, anchor, centerline and bob; use less height for the wider painted proportions."
+  },
+  "code": {
+    "path": "scripts/racer/reef_kart_race.gd",
+    "sha256": "7fc2bae43da27f32871545b3e4b0163e92a2df7967068e4b2aecdcf7ddd0e089",
+    "operation": "Required preload; direction-mirrored texture draw under the current state; reset the CanvasItem draw transform for later HUD draws."
+  },
+  "review": "Native candidate available. In-scene verification pending. No owner, child, device or formal acceptance inferred.",
+  "at_utc": "2026-11-07T11:12:23.955382+00:00"
+}

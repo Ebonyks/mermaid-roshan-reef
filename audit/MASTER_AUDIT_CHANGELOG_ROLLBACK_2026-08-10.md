@@ -2533,3 +2533,7 @@ At base `3190412c191589e1b65bc4ebb6f48d18cc4dd400`, the live item control shows 
 ## CHG-166 — Paint the Racer minimap backing
 
 Base `774b0d134be93c5751ac8c03efeec85c8a854674` uses a rectangular tint behind each map. R149 replaces the backing with one required painted texture. The darker PC and softer Opera tints support their respective visual contexts. Reduced contrast is a possible map readability regression, so the review includes all PC course outlines and the live Opera marker at both sizes. A runtime rollback would restore the previous map draw and remove its preload together while retaining the art and evidence. [Production record](../docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/README.md) · [Impact](../design/audit_impacts/flat-vector-r149-painted-racer-minimap-20261107.json)
+
+## CHG-170 — Paint the Racer direction cue
+
+Baseline `118acf6c090dd42307a281f0b13e0e114bf62b54`. Replace the wrong-way polygon with one mirrored painted texture at the original anchor. The input, steering correction and PC HUD scope keep their existing behavior. If a rollback becomes necessary, restore the exact baseline draw and keep the painted source record outside runtime. [Candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/README.md) · [Impact](../design/audit_impacts/flat-vector-r150-painted-racer-direction-cue-20261107.json)

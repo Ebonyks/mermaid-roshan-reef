@@ -1,0 +1,77 @@
+{
+  "id": "R150",
+  "stable_id": "FVR-91F160FB9770",
+  "stable_id_seed": "opera_racer|reef_kart_race|wrong_way_arrow",
+  "baseline": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+  "branch": "codex/flat-vector-racer-direction-cue-20261107",
+  "task": "Replace the documented flat gold Racer wrong-way arrow with one standalone painted gold directional cue.",
+  "documented_existing_scope": {
+    "path": "docs/handoffs/codex_reef_kart_art_2026-11-03/ART_REQUESTS.md",
+    "revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+    "sha256": "63eea6d129243aa5b1f27187a9282945142d386c32ae5f233b0154d68d3d29b9",
+    "bytes": 9059
+  },
+  "source": {
+    "path": "scripts/racer/reef_kart_race.gd",
+    "revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+    "sha256": "e6570afaaea027a25fa5ae094bcd80c033c751ebac608011aae02c39377664ac",
+    "bytes": 64818
+  },
+  "current_reference": {
+    "path": "assets/racer/ui/gas_button_painted.png",
+    "revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+    "sha256": "79f9dee0a1db33980e0d3fd24627bb25a85119d956b15a62a700de7f3741af29",
+    "bytes": 308133
+  },
+  "canonical_registry_base": "80c3361db6e2b8d70bcc86a65cda62b1c698600e",
+  "findings": [
+    "MA-VIS-008",
+    "MA-OPERA-014"
+  ],
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-READ-03",
+    "DL-READ-04",
+    "DL-INT-03",
+    "DL-INT-10",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-MED-01",
+    "DL-PERF-02",
+    "DL-PERF-03",
+    "DL-QA-11",
+    "DL-QA-12",
+    "DL-QA-14",
+    "DL-QA-15"
+  ],
+  "route_scope": "Opera Movie Lounge Racer. Same draw call when the existing wrong-way flag is active. PC HUD returns before this cue, with separate configured negative proof.",
+  "change_boundary": "One directional cue artwork and corresponding draw only. Preserve side, bob, state gating, actual steering assist, signals, touch ownership, saves and all other HUD.",
+  "export_scope": "Protected full scene references reviewed locally only. Only the unprotected art-only painted gas button and localized arrow geometry if needed may be sent. No other scene or family materials.",
+  "required_evidence": [
+    "Exact actual Windows Mobile/Speedy baseline at 1280 and 1600",
+    "Both direction signs and bob states; straight and PC controls; actual one-finger gas event",
+    "Same source visual comparison across ten axes",
+    "Exact engine import, parser, lint, analyzer, focused Racer and trusted full probes",
+    "Document and audit impact gates",
+    "GitHub anonymous exact delivery manifest; normal green Dev",
+    "Formal QA11, device, child and owner remain separate"
+  ],
+  "no_parallel_runtime_editor": "Racer review thread last turn completed, Bubble Duel idle; audit reporting threads no active runtime edit to this cue.",
+  "time_utc": "2026-11-07T11:07:51.230950+00:00"
+}

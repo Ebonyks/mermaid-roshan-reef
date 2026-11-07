@@ -81,6 +81,7 @@ const KelpArt := preload("res://assets/racer/context_v2/kelp_trap.png")
 const GasButtonArt := preload("res://assets/racer/ui/gas_button_painted.png")
 const ItemBubbleFrameArt := preload("res://assets/racer/ui/item_bubble_frame_painted.png")
 const MinimapBackplateArt := preload("res://assets/racer/ui/minimap_backplate_painted.png")
+const WrongWayArrowArt := preload("res://assets/racer/ui/wrong_way_arrow_painted.png")
 const SteeringRingArt := preload("res://assets/racer/ui/steering_ring_painted.png")
 const SteeringKnobArt := preload("res://assets/racer/ui/steering_knob_painted.png")
 const CONTEXT_ART := {
@@ -1543,15 +1544,11 @@ func _draw_turn_arrow() -> void:
 	var side := signf(error)
 	var bob := sin(_time * 8.0) * 10.0
 	var center := Vector2(640.0 + side * (60.0 + bob), 190.0)
-	var points := PackedVector2Array([
-		center + Vector2(-60.0 * side, -22.0), center + Vector2(10.0 * side, -22.0),
-		center + Vector2(10.0 * side, -50.0), center + Vector2(70.0 * side, 0.0),
-		center + Vector2(10.0 * side, 50.0), center + Vector2(10.0 * side, 22.0),
-		center + Vector2(-60.0 * side, 22.0)])
-	var outline := points.duplicate()
-	outline.append(points[0])
-	_hud.draw_colored_polygon(points, Color("#ffd36b"))
-	_hud.draw_polyline(outline, INK, 6.0, true)
+	if side == 0.0:
+		return
+	_hud.draw_set_transform(center, 0.0, Vector2(side, 1.0))
+	_hud.draw_texture_rect(WrongWayArrowArt, Rect2(-63.0, -44.5, 136.0, 89.0), false)
+	_hud.draw_set_transform(Vector2.ZERO)
 
 
 func _draw_order_faces() -> void:

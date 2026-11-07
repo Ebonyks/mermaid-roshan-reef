@@ -1,0 +1,64 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+REEF_KART_PC|PASS|all twelve existing drivers have valid selection art and cockpit crops
+REEF_KART_PC|PASS|two separate devices claim the two seats
+REEF_KART_PC|PASS|vehicle and driver choices stay on their own side
+REEF_KART_PC|PASS|one player cannot launch a two-player race
+REEF_KART_PC|PASS|both ready opens the four-course picker
+REEF_KART_PC|PASS|P2 cannot change or start P1's course
+REEF_KART_PC|PASS|P1 can select the next course
+REEF_KART_PC|PASS|two cameras are bound to the same race and different drivers
+REEF_KART_PC|PASS|cycle has more straight-line speed and truck has more steering authority
+REEF_KART_PC|PASS|both starting items enter one shared spoken-guidance lane
+REEF_KART_PC|PASS|P2 receives exact spoken explanation for zoom
+REEF_KART_PC|PASS|P2 receives exact spoken explanation for sparkle
+REEF_KART_PC|PASS|P2 receives exact spoken explanation for kelp
+REEF_KART_PC|PASS|P2 receives exact spoken explanation for pearls
+REEF_KART_PC|PASS|two-human sparkle guidance names a racer rather than an absent imp
+REEF_KART_PC|PASS|touching P2's actual item icon skips the shared explanation
+REEF_KART_PC|PASS|PC countdown ends with both unpowered karts stationary
+REEF_KART_PC|PASS|small stick input survives the new controller deadzone
+REEF_KART_PC|PASS|stick axes are read by device
+REEF_KART_PC|PASS|A and RT supply throttle to separate seats
+REEF_KART_PC|PASS|P1 braking and P2 item fire affect only their own kart
+REEF_KART_PC|PASS|P2 can initiate drift with RB
+REEF_KART_PC|PASS|disconnect clears playing and queued item explanations
+REEF_KART_PC|PASS|disconnect clears an active drift
+REEF_KART_PC|PASS|disconnect pauses both racers without advancing time
+REEF_KART_PC|PASS|P1 cannot claim P2's missing seat
+REEF_KART_PC|PASS|replacement controller rejoins the vacant seat while paused
+REEF_KART_PC|PASS|both reconnected players resume on Start
+REEF_KART_PC|PASS|held accelerator is ignored until released after resume
+REEF_KART_PC|PASS|P2 can finish the complete race and reach the results screen
+REEF_KART_PC|PASS|race again preserves device assignments and returns to a fresh garage
+REEF_KART_PC|PASS|controller loss on course selection returns to garage
+REEF_KART_PC|PASS|keyboard can return to garage when both controllers are disconnected
+REEF_KART_PC|PASS|solo has keyboard fallback
+REEF_KART_PC|PASS|W controls keyboard throttle
+REEF_KART_PC|PASS|playroom uses its own art, landmarks and road-aligned item rows
+REEF_KART_PC|PASS|playroom has four authored sections with room fixtures
+REEF_KART_PC|PASS|playroom floor sections follow the driven route, including the lap seam
+REEF_KART_PC|PASS|playroom road field covers the whole map and distinguishes both shoulders
+REEF_KART_PC|PASS|playroom finishes two laps in solo
+REEF_KART_PC|PASS|playroom binds the same course and art to both players
+REEF_KART_PC|PASS|kitchen uses its own art, landmarks and road-aligned item rows
+REEF_KART_PC|PASS|kitchen has four authored sections with room fixtures
+REEF_KART_PC|PASS|kitchen floor sections follow the driven route, including the lap seam
+REEF_KART_PC|PASS|kitchen road field covers the whole map and distinguishes both shoulders
+REEF_KART_PC|PASS|kitchen finishes two laps in solo
+REEF_KART_PC|PASS|kitchen binds the same course and art to both players
+REEF_KART_PC|PASS|mermaid_pool uses its own art, landmarks and road-aligned item rows
+REEF_KART_PC|PASS|mermaid_pool has four authored sections with room fixtures
+REEF_KART_PC|PASS|mermaid_pool floor sections follow the driven route, including the lap seam
+REEF_KART_PC|PASS|pool towel cabinet is a world fixture in the changing alcove
+REEF_KART_PC|PASS|mermaid_pool road field covers the whole map and distinguishes both shoulders
+REEF_KART_PC|PASS|mermaid_pool finishes two laps in solo
+REEF_KART_PC|PASS|mermaid_pool binds the same course and art to both players
+REEF_KART_PC|PASS|opera_hall uses its own art, landmarks and road-aligned item rows
+REEF_KART_PC|PASS|opera_hall has four authored sections with room fixtures
+REEF_KART_PC|PASS|opera_hall floor sections follow the driven route, including the lap seam
+REEF_KART_PC|PASS|opera_hall road field covers the whole map and distinguishes both shoulders
+REEF_KART_PC|PASS|opera_hall finishes two laps in solo
+REEF_KART_PC|PASS|opera_hall binds the same course and art to both players
+REEF_KART_PC|PASS|the Imp can win against an idle driver without moving their kart
+REEF_KART_PC|DONE|failures=0

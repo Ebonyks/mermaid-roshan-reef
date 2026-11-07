@@ -1,0 +1,43 @@
+{
+  "stable_id": "FVR-91F160FB9770",
+  "stable_id_seed": "opera_racer|reef_kart_race|wrong_way_arrow",
+  "source_item": "wrong_way_arrow",
+  "family": "opera_racer",
+  "baseline": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+  "binding": {
+    "path": "docs/handoffs/codex_reef_kart_art_2026-11-03/ART_REQUESTS.md",
+    "revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+    "sha256": "63eea6d129243aa5b1f27187a9282945142d386c32ae5f233b0154d68d3d29b9",
+    "bytes": 9059
+  },
+  "candidate": {
+    "art": "assets/racer/ui/wrong_way_arrow_painted.png",
+    "sha256": "c3a79df73e028e8284c090f831e3e7295f6ce70cccf2f72867c928de8dced492",
+    "import_recipe_sha256": "06ec3c76e945ce49f7d0c083cff50cb81695c674eeb7350e1141ce871ac09b15",
+    "script_sha256": "7fc2bae43da27f32871545b3e4b0163e92a2df7967068e4b2aecdcf7ddd0e089",
+    "generation": "assets_src/imagegen/racer_wrong_way_arrow_20261107/GENERATION_JOB.json",
+    "source_generation_calls": 1
+  },
+  "integration": {
+    "local": true,
+    "source_branch_published": false,
+    "Dev": false
+  },
+  "runtime": {
+    "configured_capture": true,
+    "actual_native_events": 24,
+    "machine_checks": {
+      "state": "PASS",
+      "inputs": 5592,
+      "required_commands": 88,
+      "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/evidence/full_machine/FINAL_RESULT.json"
+    },
+    "frame_events": "FRAME_EVENTS.json"
+  },
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "whole_game_total": null
+}

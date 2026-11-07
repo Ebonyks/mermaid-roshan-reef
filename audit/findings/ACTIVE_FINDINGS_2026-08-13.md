@@ -422,6 +422,8 @@ R124 source candidate: [painted Melody stage apron](../../docs/handoffs/codex_fl
 
 ## MA-VIS-008
 
+[R150 painted Racer direction cue](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/README.md) supplies one painted arrow for the existing recovery cue. Configured native left/right and hidden controls preserve direction, recovery and PC HUD scope. Formal, external and broader finding acceptance remain open.
+
 [R147 painted Racer steering candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/README.md) replaces only visible pad/knob artwork with two authored RGBA components from one native output.32 configured native events and two-width input states retain source/provenance; all88current machine commands pass on5586inputs; sourceCI/Dev and formal/device/child/owner lanes remain separate. No lifecycle or acceptance credit.
 
 [R146 painted Racer gas control](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/README.md) supplies one actual painted output and replaces only the visible gas drawing on the work branch. Twenty corrected configured diagnostic frames and five excluded failed-setup frames retain exact provenance. Input geometry is unchanged; the exact5582-input changed candidate now passes88required local checks. Source CI/Dev and formal/device/child/owner acceptance remain separate. Lifecycle and accepted-removal credit are unchanged.
@@ -1910,6 +1912,8 @@ R119 boundedproduction2026-10-31: [painted Dolls progress states](../../docs/han
 | history | 2026-10-12: code queue saturation identified during source/visual review; two independent fresh fast fixtures reproduce 6/8, slow counterparts reach 8/8. Canonical record opened `CONFIRMED_OPEN`, P2, V3 partial; no game source changed or other lifecycle closed. 2026-10-17: remaining legitimate requests now bound the queue instead of a three-slot limit; excess requests produce no misleading accepted-action bubbles, and every accepted request still requires local contact. Exact Godot 4.7.2 isolated focused machine evidence passes. Lifecycle moves to `FIXED_PENDING_VERIFICATION`; full, remote and external acceptance remain independently required. 2026-10-31: the demo-readiness review (`docs/handoffs/codex_demo_readiness_2026-10-31/AUDIT.md` B1 and C6) confirms current dev still has `MAX_QUEUED_TUGS := 3` at `218ae766`; the repair remains on unmerged `6ac82b4e` and is assigned to work package DR3b. The historical source-candidate lifecycle is retained, while current-dev reconciliation and exact merged-head CI remain pending. |
 
 ## MA-OPERA-014
+
+[R150 painted Racer direction cue](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/README.md) supplies one painted arrow for the existing recovery cue. Configured native left/right and hidden controls preserve direction, recovery and PC HUD scope. Formal, external and broader finding acceptance remain open.
 
 | Field | Value |
 |---|---|

@@ -1,0 +1,37 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DAY_ONE_INTEGRATION|director uses ReefMain state owner: OK
+DAY_ONE_INTEGRATION|Day One starts with jobs and opera locked: OK
+DAY_ONE_INTEGRATION|only physical bathroom route starts unlocked: OK
+DAY_ONE_INTEGRATION|completion advances the physical castle route: OK
+DAY_ONE_INTEGRATION|Day Two cannot bypass the real boss defeat: OK
+DAY_ONE_INTEGRATION|remaining physical rooms arm the real boss boundary: OK
+DAY_ONE_INTEGRATION|the recorded boss defeat starts Chapter 2 before Day Two: OK
+DAY_ONE_INTEGRATION|Day Two policy releases rooms, jobs, and opera: OK
+DAY_ONE_INTEGRATION|save normalization cannot skip the room order: OK
+DAY_ONE_INTEGRATION|exact origin Day-Two terminal backfills the boss defeat: OK
+DAY_ONE_INTEGRATION|Day-Two migration preserves independent Chapter 3 door state: OK
+DAY_ONE_INTEGRATION|inactive or unlocked legacy data alone cannot invent a defeat: OK
+DAY_ONE_INTEGRATION|wiring source is readable: res://scripts/main.gd: OK
+DAY_ONE_INTEGRATION|wired main.gd -> DayOneDirector.new(self): OK
+DAY_ONE_INTEGRATION|wired main.gd -> func day_one_try_enter_castle_room: OK
+DAY_ONE_INTEGRATION|wired main.gd -> func day_one_activate_castle_room: OK
+DAY_ONE_INTEGRATION|wired main.gd -> _day_one_begin_arrival(): OK
+DAY_ONE_INTEGRATION|wired main.gd -> _day_one_discover_dirty_castle(): OK
+DAY_ONE_INTEGRATION|wired main.gd -> _start_game(dust_boss_fr): OK
+DAY_ONE_INTEGRATION|wiring source is readable: res://scripts/save_state.gd: OK
+DAY_ONE_INTEGRATION|wired save_state.gd -> m._day_one_ref().restore_state(m.save_data): OK
+DAY_ONE_INTEGRATION|wired save_state.gd -> m._day_one_ref().serialize_state(): OK
+DAY_ONE_INTEGRATION|wired save_state.gd -> DayOneDirector.normalise_save_patch(raw): OK
+DAY_ONE_INTEGRATION|wiring source is readable: res://scripts/arena/castle_rooms_25d.gd: OK
+DAY_ONE_INTEGRATION|wired castle_rooms_25d.gd -> m.day_one_try_enter_castle_room(start_room): OK
+DAY_ONE_INTEGRATION|wired castle_rooms_25d.gd -> m.day_one_try_enter_castle_room(room_id): OK
+DAY_ONE_INTEGRATION|wired castle_rooms_25d.gd -> m.day_one_activate_castle_room(m.castle_room_id): OK
+DAY_ONE_INTEGRATION|wired castle_rooms_25d.gd -> m._day_one_attach_castle_dressing(): OK
+DAY_ONE_INTEGRATION|wired castle_rooms_25d.gd -> m._day_one_clear_castle_dressing(): OK
+DAY_ONE_INTEGRATION|wiring source is readable: res://scripts/castle_career_routes.gd: OK
+DAY_ONE_INTEGRATION|wired castle_career_routes.gd -> m.day_one_jobs_locked(): OK
+DAY_ONE_INTEGRATION|wiring source is readable: res://scripts/games/dust_boss.gd: OK
+DAY_ONE_INTEGRATION|wired dust_boss.gd -> m.day_one_complete_boss_and_begin_day_two(): OK
+DAY_ONE_INTEGRATION|wired dust_boss.gd -> m._end_game(true, fr: OK
+DAY_ONE_INTEGRATION|RESULT: PASS failures=0
