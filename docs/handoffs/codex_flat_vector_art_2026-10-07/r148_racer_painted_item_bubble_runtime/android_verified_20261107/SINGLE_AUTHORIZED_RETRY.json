@@ -1,0 +1,42 @@
+{
+  "state": "DISPATCH_ACKNOWLEDGED",
+  "source": "774b0d134be93c5751ac8c03efeec85c8a854674",
+  "Dev_CI": 42343247604,
+  "prior_auto_failure": {
+    "state": "AUTOMATIC_ANDROID_TERMINAL_RUNNER_CAPACITY_FAILURE",
+    "run": 42347496083,
+    "job": 128328298038,
+    "workflow_code_head": "ff68f9550c28f7d979896d5c84d1214264c29165",
+    "expected_runtime_source": "774b0d134be93c5751ac8c03efeec85c8a854674",
+    "runtime_checkout_binding": "Unverified. Complete log unavailable.",
+    "actual_annotation": "No space left on device in runner diagnostic log write.",
+    "last_observed_step": "Export debug APK",
+    "log_attempt": "log not found: 128328298038",
+    "time": "2026-11-07T06:48:11.766386+00:00"
+  },
+  "expected_Dev": "774b0d134be93c5751ac8c03efeec85c8a854674",
+  "master_before": "ff68f9550c28f7d979896d5c84d1214264c29165",
+  "owner_authorization": {
+    "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+    "path": "audit/cycles/android-build-capacity-20261105/owner_request.json",
+    "sha256": "d163441b28ef42e3da4393903cd352ed1aa22bbe3450548c4a5460f48d2e1baf",
+    "record": {
+      "owner": "Peter Creed",
+      "date": "2026-11-05",
+      "question": "May I apply the prepared Android-build fix that unpacks only Android templates to avoid the runner’s disk-space failure? This edits .github/workflows/android.yml, which AGENTS.md requires you to authorize explicitly.",
+      "answer": "Approve the build-only fix",
+      "source": "Direct owner reply to request_user_input_async, questionItemId call_faa24b5e0afe4a2d97d124e5ae498648/0",
+      "implementation_dependency": "Dev-only manual retry is the implementer-selected routing required to apply the approved capacity change without promoting master. It must independently require successful exact-current-head push CI and preserve all signing/version/publishing contracts. This routing is not presented as an additional owner quotation."
+    }
+  },
+  "workflow_sha256": "0b39ce9d69c97b612d63d1254cf4d5b8f07472b5eb1a54f1c0b67e08263837b0",
+  "previous_verified_workflow_revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+  "no_active_Android_run_before_dispatch": true,
+  "dispatch_count": 1,
+  "requested_at": "2026-11-07T06:48:14.528671+00:00",
+  "dispatch_exit_code": 0,
+  "dispatch_stdout": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42348591601\n",
+  "dispatch_stderr": "",
+  "dispatch_acknowledged_at": "2026-11-07T06:48:16.040032+00:00",
+  "run": 42348591601
+}

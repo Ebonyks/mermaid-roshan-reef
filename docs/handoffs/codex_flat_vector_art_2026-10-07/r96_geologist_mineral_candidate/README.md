@@ -35,3 +35,5 @@ R147 Android package verification is available for the existing partial Dev arti
 ## R148 Dev integration
 
 49 bounded source artifacts and 48 partial Dev artifacts. R148 joins Dev under the existing Turbo control frame ID. The named role and family lower bounds remain 282 and 36. Retained native events are 8,161 bounded and 4,457 excluded. Formal, device, child and owner acceptance and whole-game totals remain open. [Dev evidence](../r148_racer_painted_item_bubble_runtime/dev_integration_20261107/README.md)
+
+R148 Android package verification is available for the existing partial Dev artifact. [Android delivery record](../r148_racer_painted_item_bubble_runtime/android_verified_20261107/README.md)

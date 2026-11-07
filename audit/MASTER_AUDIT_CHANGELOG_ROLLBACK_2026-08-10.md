@@ -2895,3 +2895,7 @@ Canonical base `4cc747301ce8a78189474a0e475dc278a00157ec` records the painted it
 ## CHG-164 — Record R148 Dev integration
 
 Canonical base `b0b139130f72333cbb41e1269c0636bffb40733e` records exact Dev `774b0d134be93c5751ac8c03efeec85c8a854674` and adds one partial Dev artifact. Its runtime depends on the R148 frame import. Natural and device checks must still establish readability at speed. A registry correction would amend the canonical metadata and keep the actual source and prior delivery history. [Dev evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/README.md) · [Impact](../design/audit_impacts/flat-vector-r148-canonical-dev-20261107.json)
+
+## CHG-165 — Verify the R148 Dev Android package
+
+Canonical base `08756e0cc9a0fec743363f979cf9bfb17a1c1647` records package evidence for Dev `774b0d134be93c5751ac8c03efeec85c8a854674`. The authorized retry depends on exact green Dev CI 42343247604. Android run 42348591601 delivered the new item frame resource and its remap. The Dev channel can move to a later APK, so the proof pins this package to actual asset IDs, digest and verification time. A correction would amend the delivery metadata and retain the original incident and package evidence. [Package record](../docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/android_verified_20261107/README.md) · [Impact](../design/audit_impacts/flat-vector-r148-matching-android-20261107.json)

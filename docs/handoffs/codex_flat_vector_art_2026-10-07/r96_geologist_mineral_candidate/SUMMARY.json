@@ -20,7 +20,7 @@
   "dev_integrated": 48,
   "runtime_verified_replacements_formal": 0,
   "accepted_removed": 0,
-  "revision": "FV-DEV-20261107-R148-PAINTED-ITEM-BUBBLE",
+  "revision": "FV-ANDROID-VERIFIED-20261107-R148",
   "inherited_summary": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/898ab3421a20e4ec876e5eb3a5a6a3ba3b706cda/docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/SUMMARY.json",
   "new_roles": 0,
   "new_families": 0,
@@ -9223,7 +9223,7 @@
     "accepted_removed": 0,
     "complete_scene_coverage": 0,
     "whole_game_total": null,
-    "revision": "FV-DEV-20261107-R148-PAINTED-ITEM-BUBBLE"
+    "revision": "FV-ANDROID-VERIFIED-20261107-R148"
   },
   "r148_revision_delta": {
     "source_artifacts": 1,
@@ -9338,7 +9338,23 @@
     "model_version": null,
     "Dev_integration": true,
     "Dev_revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
-    "matching_APK": null,
+    "matching_APK": {
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "Dev_CI": 42343247604,
+      "Android_run": 42348591601,
+      "APK_verified": true,
+      "version_code": 2373,
+      "apk_bytes": 931515828,
+      "APK_sha256": "2aae5dc8918b50a9c20a3cb4143d3edfa53702962d52afbdeafc8047f4e9fbb3",
+      "apk_asset_id": 719927048,
+      "checksum_asset_id": 719927047,
+      "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/android_verified_20261107/APK_VERIFIED.json",
+      "scope": "Anonymous package bytes, exact source guards and checkout, packaged runtime resources, scoped export exclusions and JAR v1 signature.",
+      "physical_device": null,
+      "formal_QA11": null,
+      "child": null,
+      "owner": null
+    },
     "formal_QA11": null,
     "device": null,
     "child": null,
@@ -9359,7 +9375,34 @@
       "conclusion": "",
       "source": "774b0d134be93c5751ac8c03efeec85c8a854674"
     },
-    "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/DEV_INTEGRATION.json"
+    "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/DEV_INTEGRATION.json",
+    "Dev_CI_terminal": {
+      "run": 42343247604,
+      "conclusion": "success",
+      "source": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/android_verified_20261107/DEV_CI_COMPLETED.json"
+    },
+    "Android_delivery_observation": {
+      "automatic_failure": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/android_verified_20261107/AUTO_FAILURE_SCOPE.json",
+      "approved_retry": 42348591601,
+      "matching_APK": {
+        "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+        "Dev_CI": 42343247604,
+        "Android_run": 42348591601,
+        "APK_verified": true,
+        "version_code": 2373,
+        "apk_bytes": 931515828,
+        "APK_sha256": "2aae5dc8918b50a9c20a3cb4143d3edfa53702962d52afbdeafc8047f4e9fbb3",
+        "apk_asset_id": 719927048,
+        "checksum_asset_id": 719927047,
+        "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/android_verified_20261107/APK_VERIFIED.json",
+        "scope": "Anonymous package bytes, exact source guards and checkout, packaged runtime resources, scoped export exclusions and JAR v1 signature.",
+        "physical_device": null,
+        "formal_QA11": null,
+        "child": null,
+        "owner": null
+      }
+    }
   },
   "r148_prior_revision_local_fields": {
     "new_roles": 0,
@@ -9382,5 +9425,22 @@
     "generations": 0,
     "accepted_removed": 0,
     "complete_scenes": 0
+  },
+  "r148_matching_android_delivery": {
+    "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+    "Dev_CI": 42343247604,
+    "Android_run": 42348591601,
+    "APK_verified": true,
+    "version_code": 2373,
+    "apk_bytes": 931515828,
+    "APK_sha256": "2aae5dc8918b50a9c20a3cb4143d3edfa53702962d52afbdeafc8047f4e9fbb3",
+    "apk_asset_id": 719927048,
+    "checksum_asset_id": 719927047,
+    "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/android_verified_20261107/APK_VERIFIED.json",
+    "scope": "Anonymous package bytes, exact source guards and checkout, packaged runtime resources, scoped export exclusions and JAR v1 signature.",
+    "physical_device": null,
+    "formal_QA11": null,
+    "child": null,
+    "owner": null
   }
 }

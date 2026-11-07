@@ -1,0 +1,18 @@
+{
+  "state": "PASS_COMPLETED_CHECKOUT_AND_EXACT_GREEN_DEV_CI",
+  "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+  "run_id": 42348591601,
+  "workflow_code_head": "774b0d134be93c5751ac8c03efeec85c8a854674",
+  "event": "workflow_dispatch",
+  "probe_run": 42343247604,
+  "checkout_lines": [
+    "build\tRun actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5\t2026-11-07T07:03:06.4436119Z [command]/usr/bin/git log -1 --format=%H",
+    "build\tRun actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5\t2026-11-07T07:03:06.4436926Z 774b0d134be93c5751ac8c03efeec85c8a854674"
+  ],
+  "guard_lines": [
+    "build\tVerify exact green dev source\t2026-11-07T07:03:08.8476651Z ANDROID_SOURCE|PASS|dev|774b0d134be93c5751ac8c03efeec85c8a854674|probe_run=42343247604",
+    "build\tRecheck current green dev before publishing\t2026-11-07T07:05:44.4674299Z ANDROID_SOURCE|PASS|dev|774b0d134be93c5751ac8c03efeec85c8a854674|probe_run=42343247604"
+  ],
+  "binding_method": "Actual exact-green Dev source guard twice plus completed checkout",
+  "time": "2026-11-07T07:07:53.771526+00:00"
+}

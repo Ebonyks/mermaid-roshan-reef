@@ -1,0 +1,60 @@
+{
+  "matching_Android": {
+    "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+    "Dev_CI": 42343247604,
+    "Android_run": 42348591601,
+    "APK_verified": true,
+    "version_code": 2373,
+    "apk_bytes": 931515828,
+    "APK_sha256": "2aae5dc8918b50a9c20a3cb4143d3edfa53702962d52afbdeafc8047f4e9fbb3",
+    "apk_asset_id": 719927048,
+    "checksum_asset_id": 719927047,
+    "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/android_verified_20261107/APK_VERIFIED.json",
+    "scope": "Anonymous package bytes, exact source guards and checkout, packaged runtime resources, scoped export exclusions and JAR v1 signature.",
+    "physical_device": null,
+    "formal_QA11": null,
+    "child": null,
+    "owner": null
+  },
+  "automatic_incident": {
+    "state": "AUTOMATIC_ANDROID_TERMINAL_RUNNER_CAPACITY_FAILURE",
+    "run": 42347496083,
+    "job": 128328298038,
+    "workflow_code_head": "ff68f9550c28f7d979896d5c84d1214264c29165",
+    "expected_runtime_source": "774b0d134be93c5751ac8c03efeec85c8a854674",
+    "runtime_checkout_binding": "Unverified. Complete log unavailable.",
+    "actual_annotation": "No space left on device in runner diagnostic log write.",
+    "last_observed_step": "Export debug APK",
+    "log_attempt": "log not found: 128328298038",
+    "time": "2026-11-07T06:48:11.766386+00:00"
+  },
+  "production_counts": {
+    "known_roles": 282,
+    "known_families": 36,
+    "published_bounded_source_artifacts": 49,
+    "partial_Dev_artifacts": 48,
+    "retained_bounded_native_events": 8161,
+    "retained_excluded_native_events": 4457,
+    "retained_native_events": 12618,
+    "accepted_removed": 0,
+    "complete_scene_coverage": 0,
+    "whole_game_total": null,
+    "revision": "FV-ANDROID-VERIFIED-20261107-R148"
+  },
+  "delta": {
+    "artifacts": 0,
+    "Dev_artifacts": 0,
+    "roles": 0,
+    "families": 0,
+    "native_events": 0,
+    "generations": 0,
+    "accepted_removed": 0
+  },
+  "remaining_evidence": [
+    "Natural route and full-speed review",
+    "Formal QA11",
+    "Physical Android testing",
+    "Child acceptance",
+    "Owner acceptance"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "state": "PASS_METADATA_AUTHORITY_ACTUAL_DIFF_COVERAGE_AND_RUNTIME_ROOTS_UNCHANGED",
+  "baseline": "08756e0cc9a0fec743363f979cf9bfb17a1c1647",
+  "results": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/android_verified_20261107/authority.log",
+      "sha256": "53b3816d2c618c9bf3b071704c6c080fafdd612260e67da9e0207dcea06a6cc2"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/android_verified_20261107/coverage_auto.log",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "08756e0cc9a0fec743363f979cf9bfb17a1c1647"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/android_verified_20261107/coverage_base.log",
+      "sha256": "dc0b4daaed028f7721d906a05b88562977b1d6b9bdc84b850032fb242e5d6ae5"
+    }
+  ],
+  "healthy_engine_repeat": false,
+  "time": "2026-11-07T07:09:27.567027+00:00"
+}

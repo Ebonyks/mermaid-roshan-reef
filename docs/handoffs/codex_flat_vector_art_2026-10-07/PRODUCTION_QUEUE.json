@@ -220,8 +220,27 @@
     "Dev_integrated": true,
     "new_source_artifact_credit": 1,
     "new_role_credit": 0,
-    "next_step": "Follow actual Dev CI and the matching APK. Formal and external acceptance remain open.",
+    "next_step": "Formal QA11, natural route and full-speed review, device, child and owner evidence remain open. Continue the next eligible documented replacement.",
     "Dev_revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
-    "Dev_CI": 42343247604
+    "Dev_CI": 42343247604,
+    "Android_package_verified": true,
+    "Android_run": 42348591601,
+    "matching_Android": {
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "Dev_CI": 42343247604,
+      "Android_run": 42348591601,
+      "APK_verified": true,
+      "version_code": 2373,
+      "apk_bytes": 931515828,
+      "APK_sha256": "2aae5dc8918b50a9c20a3cb4143d3edfa53702962d52afbdeafc8047f4e9fbb3",
+      "apk_asset_id": 719927048,
+      "checksum_asset_id": 719927047,
+      "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/android_verified_20261107/APK_VERIFIED.json",
+      "scope": "Anonymous package bytes, exact source guards and checkout, packaged runtime resources, scoped export exclusions and JAR v1 signature.",
+      "physical_device": null,
+      "formal_QA11": null,
+      "child": null,
+      "owner": null
+    }
   }
 }

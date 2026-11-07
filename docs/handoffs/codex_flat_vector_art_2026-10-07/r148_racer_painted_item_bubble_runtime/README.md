@@ -11,3 +11,7 @@ Formal QA11, natural routes, full-speed review, physical device testing, child a
 ## Dev integration
 
 The verified R148 candidate is on Dev. [Dev evidence](dev_integration_20261107/README.md)
+
+## Verified Dev Android package
+
+Version code 2373 contains the painted item bubble from Dev `774b0d1`. [Android package verification](android_verified_20261107/README.md)
