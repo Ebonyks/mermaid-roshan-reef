@@ -1,0 +1,1725 @@
+{
+  "schema": "dkc-acoustic-reviewed-masters/1",
+  "status": "COMPLETE_REVIEWED_ALBUM_MASTER",
+  "date": "2026-11-07",
+  "previous_checkpoint": "05b4905a8b3ee3ddd1cf311a0ba910b8c11dac61",
+  "scope": {
+    "distinct_cues": 29,
+    "original_review_rows": 30,
+    "alias": {
+      "DKC-30": "DKC-21"
+    }
+  },
+  "duration_s": 3309.2682083333334,
+  "audio_archives": [
+    {
+      "format": "mp3",
+      "cues": 29,
+      "bytes": 80486440,
+      "sha256": "9f342410fb3810b0f54f402df9b5d694b3e1c8bae4e336beaef45bd7650daee2"
+    },
+    {
+      "format": "flac",
+      "cues": 29,
+      "bytes": 540627279,
+      "sha256": "44800dc19feb9b7498f4bc14205e1b00146a112700375aa7d6e4dccea9e4efb0"
+    }
+  ],
+  "private_production_evidence_sha256": "d1a3f0db57af58dbc89a4c5f4d585a93ad502b8fe822adeb39c6cbb05aeb56d2",
+  "private_master_manifest_sha256": "2ff6e2443346568bb6ada7a1238990605259bc2ccf059060a358062d8156c374",
+  "verification": {
+    "full_decodes": 58,
+    "source_files": 27,
+    "live_game_triggers": 2,
+    "flags": [],
+    "ordered_boundaries": 28
+  },
+  "gemini": {
+    "used": 114,
+    "authorized": 200,
+    "remaining": 86
+  },
+  "sequence_groups": [
+    {
+      "group": 1,
+      "listen_call": 90,
+      "excerpt_sha256": "56795e00770aa32bc592723fc1a89e132f2dd92edf59fe3c83eca85363a1f048",
+      "boundaries": [
+        {
+          "before": "DKC-01",
+          "after": "DKC-02",
+          "entry_s": 5.15,
+          "before_revision": 2,
+          "after_revision": 4,
+          "source_sha256": [
+            "45fb8d3a51222a9f782824882023b0170157a0b49d53069e8709bbeca703a4ce",
+            "ed2625a8de2eaa67cf777178e95e3bffddebdabb4681a23d454d748f09df293e"
+          ]
+        },
+        {
+          "before": "DKC-02",
+          "after": "DKC-03",
+          "entry_s": 15.1,
+          "before_revision": 4,
+          "after_revision": 7,
+          "source_sha256": [
+            "ed2625a8de2eaa67cf777178e95e3bffddebdabb4681a23d454d748f09df293e",
+            "b0245e2f0821dc5511f8c6fc4c9ff534236ec17219e3ff1f9e2f4c1b829d9cb7"
+          ]
+        }
+      ]
+    },
+    {
+      "group": 2,
+      "listen_call": 91,
+      "excerpt_sha256": "9e17647f45e1c17683b1d75e49e3d21a7897203f23860590144dc2988d73a9b5",
+      "boundaries": [
+        {
+          "before": "DKC-03",
+          "after": "DKC-04",
+          "entry_s": 5.15,
+          "before_revision": 7,
+          "after_revision": 1,
+          "source_sha256": [
+            "b0245e2f0821dc5511f8c6fc4c9ff534236ec17219e3ff1f9e2f4c1b829d9cb7",
+            "1bb76295d38dedb23a71d6b258205a4892c6415e32ae49da3030a1d2f8ee020b"
+          ]
+        },
+        {
+          "before": "DKC-04",
+          "after": "DKC-05",
+          "entry_s": 15.1,
+          "before_revision": 1,
+          "after_revision": 3,
+          "source_sha256": [
+            "1bb76295d38dedb23a71d6b258205a4892c6415e32ae49da3030a1d2f8ee020b",
+            "43d1d1e45fb368a204b685b2201eb00036d8bdc9c655e4963e517d3505f7578f"
+          ]
+        }
+      ]
+    },
+    {
+      "group": 3,
+      "listen_call": 109,
+      "excerpt_sha256": "dca650f38c8fc2ac1e7e7468f07aa66f9c4b01ce61f169c14d586f8329412b7c",
+      "boundaries": [
+        {
+          "before": "DKC-05",
+          "after": "DKC-06",
+          "entry_s": 5.15,
+          "before_revision": 3,
+          "after_revision": 2,
+          "source_sha256": [
+            "43d1d1e45fb368a204b685b2201eb00036d8bdc9c655e4963e517d3505f7578f",
+            "23aec5e4a1ea552dd308012e3ac9dfb92f80822aff2c8b6878e2c7e345ee80cc"
+          ]
+        },
+        {
+          "before": "DKC-06",
+          "after": "DKC-07",
+          "entry_s": 15.1,
+          "before_revision": 2,
+          "after_revision": 7,
+          "source_sha256": [
+            "23aec5e4a1ea552dd308012e3ac9dfb92f80822aff2c8b6878e2c7e345ee80cc",
+            "2fbccf286cfc416526e5ce00ca6b4dae04ef09670e9415da57eb5e824db28baf"
+          ]
+        }
+      ]
+    },
+    {
+      "group": 4,
+      "listen_call": 110,
+      "excerpt_sha256": "e027cefb4b4d817b3f671b6260450033e41a09bea09954cee238a7a9b972317a",
+      "boundaries": [
+        {
+          "before": "DKC-07",
+          "after": "DKC-08",
+          "entry_s": 5.15,
+          "before_revision": 7,
+          "after_revision": 3,
+          "source_sha256": [
+            "2fbccf286cfc416526e5ce00ca6b4dae04ef09670e9415da57eb5e824db28baf",
+            "d4b556bb2d67db6b4159bd35c8e8e74c450dddaaebbd685bf62ef8f56758149f"
+          ]
+        },
+        {
+          "before": "DKC-08",
+          "after": "DKC-09",
+          "entry_s": 15.1,
+          "before_revision": 3,
+          "after_revision": 2,
+          "source_sha256": [
+            "d4b556bb2d67db6b4159bd35c8e8e74c450dddaaebbd685bf62ef8f56758149f",
+            "c42155a8cea77f69dbea6f699b824666f170616e26f80ed090840fe7dd147457"
+          ]
+        }
+      ]
+    },
+    {
+      "group": 5,
+      "listen_call": 92,
+      "excerpt_sha256": "9775674b561b1824e434e013319a8d46dd523798c9ddc0b54336ce6731a33416",
+      "boundaries": [
+        {
+          "before": "DKC-09",
+          "after": "DKC-10",
+          "entry_s": 5.15,
+          "before_revision": 2,
+          "after_revision": 2,
+          "source_sha256": [
+            "c42155a8cea77f69dbea6f699b824666f170616e26f80ed090840fe7dd147457",
+            "7dccfc6824fcfda623e6603e59576776ec8085f05a6fdde602cab34266bbb5f0"
+          ]
+        },
+        {
+          "before": "DKC-10",
+          "after": "DKC-11",
+          "entry_s": 15.1,
+          "before_revision": 2,
+          "after_revision": 8,
+          "source_sha256": [
+            "7dccfc6824fcfda623e6603e59576776ec8085f05a6fdde602cab34266bbb5f0",
+            "8336a503b90a09fe3fe9a40ec1b40e3a29ed6f9f9a3b9b8b351ebbc720264ffe"
+          ]
+        }
+      ]
+    },
+    {
+      "group": 6,
+      "listen_call": 111,
+      "excerpt_sha256": "ee1828050c33874d28f680b94ede1c7f26a848c49385bc7d50ea2584f6f80f36",
+      "boundaries": [
+        {
+          "before": "DKC-11",
+          "after": "DKC-12",
+          "entry_s": 5.15,
+          "before_revision": 8,
+          "after_revision": 2,
+          "source_sha256": [
+            "8336a503b90a09fe3fe9a40ec1b40e3a29ed6f9f9a3b9b8b351ebbc720264ffe",
+            "4eb1d0002b7b814c1e18a5ce940bb38396dd1066350b343201cb1a57f17f4b8a"
+          ]
+        },
+        {
+          "before": "DKC-12",
+          "after": "DKC-13",
+          "entry_s": 15.1,
+          "before_revision": 2,
+          "after_revision": 7,
+          "source_sha256": [
+            "4eb1d0002b7b814c1e18a5ce940bb38396dd1066350b343201cb1a57f17f4b8a",
+            "0b1dba7c9b555400614c4236cbfc1f96089480f4c5fafdc167b69f97b15ea1ea"
+          ]
+        }
+      ]
+    },
+    {
+      "group": 7,
+      "listen_call": 94,
+      "excerpt_sha256": "da59dc005bd03a946de312d784c5e61df07d57123cbe1dac04f6b473b7a0eec6",
+      "boundaries": [
+        {
+          "before": "DKC-13",
+          "after": "DKC-14",
+          "entry_s": 5.15,
+          "before_revision": 7,
+          "after_revision": 3,
+          "source_sha256": [
+            "0b1dba7c9b555400614c4236cbfc1f96089480f4c5fafdc167b69f97b15ea1ea",
+            "3397ded5d732fa25fd90b3b5ea7a2e2a53ebaf4368d4af8278f3bfada2755637"
+          ]
+        },
+        {
+          "before": "DKC-14",
+          "after": "DKC-15",
+          "entry_s": 15.1,
+          "before_revision": 3,
+          "after_revision": 6,
+          "source_sha256": [
+            "3397ded5d732fa25fd90b3b5ea7a2e2a53ebaf4368d4af8278f3bfada2755637",
+            "d4302a84d8ef15f664c0c8ea2d04fb3ed946b03516add1d20e980d6ca58faea9"
+          ]
+        }
+      ]
+    },
+    {
+      "group": 8,
+      "listen_call": 95,
+      "excerpt_sha256": "5b96a312bebec520e463a8e4a5db2502416e13b324a4bbfa7a0a1b432f8d80c8",
+      "boundaries": [
+        {
+          "before": "DKC-15",
+          "after": "DKC-16",
+          "entry_s": 5.15,
+          "before_revision": 6,
+          "after_revision": 4,
+          "source_sha256": [
+            "d4302a84d8ef15f664c0c8ea2d04fb3ed946b03516add1d20e980d6ca58faea9",
+            "487afe466fdce305d96a5c06a21c0eb4e5d1479821517a557aaf83bb6fa37046"
+          ]
+        },
+        {
+          "before": "DKC-16",
+          "after": "DKC-17",
+          "entry_s": 15.1,
+          "before_revision": 4,
+          "after_revision": 3,
+          "source_sha256": [
+            "487afe466fdce305d96a5c06a21c0eb4e5d1479821517a557aaf83bb6fa37046",
+            "4d8af68afe31a45a7384a387f3a3ba57593188e5c1c59349e63dda800b190acb"
+          ]
+        }
+      ]
+    },
+    {
+      "group": 9,
+      "listen_call": 112,
+      "excerpt_sha256": "11474ceca45c3a6685a2ed597d74c319d239fb8702c7b484a9f64b014b6bccdd",
+      "boundaries": [
+        {
+          "before": "DKC-17",
+          "after": "DKC-18",
+          "entry_s": 5.15,
+          "before_revision": 3,
+          "after_revision": 2,
+          "source_sha256": [
+            "4d8af68afe31a45a7384a387f3a3ba57593188e5c1c59349e63dda800b190acb",
+            "07762aa3747fefd6115f9589c46dafb6257454e0144880fbd76a29936b3321d9"
+          ]
+        },
+        {
+          "before": "DKC-18",
+          "after": "DKC-19",
+          "entry_s": 15.1,
+          "before_revision": 2,
+          "after_revision": 7,
+          "source_sha256": [
+            "07762aa3747fefd6115f9589c46dafb6257454e0144880fbd76a29936b3321d9",
+            "612927723b4c695d085407f33c7efeac7dcaf0857298c616bfb3fc3c71dd336a"
+          ]
+        }
+      ]
+    },
+    {
+      "group": 10,
+      "listen_call": 97,
+      "excerpt_sha256": "4341c83110b074925de4873e7db55895531b3c5e13defbc1b5142a6e59353af0",
+      "boundaries": [
+        {
+          "before": "DKC-19",
+          "after": "DKC-20",
+          "entry_s": 5.15,
+          "before_revision": 7,
+          "after_revision": 2,
+          "source_sha256": [
+            "612927723b4c695d085407f33c7efeac7dcaf0857298c616bfb3fc3c71dd336a",
+            "48d8b8ba8deedb7d8897958a5d280855c056406f641a82529dbfede42ee6d690"
+          ]
+        },
+        {
+          "before": "DKC-20",
+          "after": "DKC-21",
+          "entry_s": 15.1,
+          "before_revision": 2,
+          "after_revision": 1,
+          "source_sha256": [
+            "48d8b8ba8deedb7d8897958a5d280855c056406f641a82529dbfede42ee6d690",
+            "156fc5a12eed3e9d6044f0653407dbf51817bbd87fc4f269ac924b6448dc78ba"
+          ]
+        }
+      ]
+    },
+    {
+      "group": 11,
+      "listen_call": 113,
+      "excerpt_sha256": "25b3471c39c2c99bfffed5d475d5c7a1baadd308fe0fe64c1d12c71c9b213a9e",
+      "boundaries": [
+        {
+          "before": "DKC-21",
+          "after": "DKC-22",
+          "entry_s": 5.15,
+          "before_revision": 1,
+          "after_revision": 1,
+          "source_sha256": [
+            "156fc5a12eed3e9d6044f0653407dbf51817bbd87fc4f269ac924b6448dc78ba",
+            "dd5d623290b9ed56b24b052d4c17fe198005f356225f20a58b2343793a69d478"
+          ]
+        },
+        {
+          "before": "DKC-22",
+          "after": "DKC-23",
+          "entry_s": 15.1,
+          "before_revision": 1,
+          "after_revision": 3,
+          "source_sha256": [
+            "dd5d623290b9ed56b24b052d4c17fe198005f356225f20a58b2343793a69d478",
+            "23fd921398ffcacf810c4fa9bd01262fdc958f4c49063c3f99c0e83bef2b571b"
+          ]
+        }
+      ]
+    },
+    {
+      "group": 12,
+      "listen_call": 114,
+      "excerpt_sha256": "020dbada132af5d950f0e082598cb37654fb66e96079eeb65d50b059f4b7a5b2",
+      "boundaries": [
+        {
+          "before": "DKC-23",
+          "after": "DKC-24",
+          "entry_s": 5.15,
+          "before_revision": 3,
+          "after_revision": 2,
+          "source_sha256": [
+            "23fd921398ffcacf810c4fa9bd01262fdc958f4c49063c3f99c0e83bef2b571b",
+            "8854b2e84f29bb27897f3ff791115627742562cb7b90f4de8e3de048814a11b1"
+          ]
+        },
+        {
+          "before": "DKC-24",
+          "after": "DKC-25",
+          "entry_s": 12.7495,
+          "before_revision": 2,
+          "after_revision": 1,
+          "source_sha256": [
+            "8854b2e84f29bb27897f3ff791115627742562cb7b90f4de8e3de048814a11b1",
+            "e683541d5f2ccc6290e83e8402dcaefff040e485bafa7ca1b1d3fa00e37e18e3"
+          ]
+        }
+      ]
+    },
+    {
+      "group": 13,
+      "listen_call": 103,
+      "excerpt_sha256": "ccafb861da077f3e6a3268ed63b6b3ea154eb3922e7d2cfcf3b00ed5467d89c6",
+      "boundaries": [
+        {
+          "before": "DKC-25",
+          "after": "DKC-26",
+          "entry_s": 5.15,
+          "before_revision": 1,
+          "after_revision": 1,
+          "source_sha256": [
+            "e683541d5f2ccc6290e83e8402dcaefff040e485bafa7ca1b1d3fa00e37e18e3",
+            "ebd874335de82a4c9669902b10bf5adf25b3118fc58de1beaaf2e224cecbbc3c"
+          ]
+        },
+        {
+          "before": "DKC-26",
+          "after": "DKC-27",
+          "entry_s": 15.1,
+          "before_revision": 1,
+          "after_revision": 1,
+          "source_sha256": [
+            "ebd874335de82a4c9669902b10bf5adf25b3118fc58de1beaaf2e224cecbbc3c",
+            "26e8d580cffb8c37685e41f0efad648ba4e4ff5affb770ecef6d3a1266baf53c"
+          ]
+        }
+      ]
+    },
+    {
+      "group": 14,
+      "listen_call": 104,
+      "excerpt_sha256": "6e7fac360e33cfb4d93875116d8fa69335de797ba6f125f92db373861f16c6f9",
+      "boundaries": [
+        {
+          "before": "DKC-27",
+          "after": "DKC-28",
+          "entry_s": 4.5805,
+          "before_revision": 1,
+          "after_revision": 2,
+          "source_sha256": [
+            "26e8d580cffb8c37685e41f0efad648ba4e4ff5affb770ecef6d3a1266baf53c",
+            "1be2807aecaa9e85e5c7ed168438bb9a2d0ff1641b70ad2c54a409e3c8a940de"
+          ]
+        },
+        {
+          "before": "DKC-28",
+          "after": "DKC-29",
+          "entry_s": 8.0593,
+          "before_revision": 2,
+          "after_revision": 2,
+          "source_sha256": [
+            "1be2807aecaa9e85e5c7ed168438bb9a2d0ff1641b70ad2c54a409e3c8a940de",
+            "3bc435d6494e6e4d4c40d22a1d0a10746f3d8e6a8229a854d1094af508bda7ce"
+          ]
+        }
+      ]
+    }
+  ],
+  "tracks": [
+    {
+      "cue": "DKC-01",
+      "title": "Theme",
+      "revision": 2,
+      "duration_s": 114.8690625,
+      "original": {
+        "driver": 9,
+        "audio_sha256": "b67fc1be3ca470a09f184fa037152db5f6b72fd94c5a8746226b8ef644f5863c"
+      },
+      "cast": "Acoustic piano opening to bright wood/flute band",
+      "decision": "The miniature opening leads to bright wood and wind. Keep r2 for the more readable pipe and guitar attack. A quieter opening trial lost definition before the band.",
+      "listen_calls": [
+        41,
+        61,
+        77,
+        90
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "45fb8d3a51222a9f782824882023b0170157a0b49d53069e8709bbeca703a4ce",
+          "bytes": 23223111
+        },
+        {
+          "format": "mp3",
+          "sha256": "5f75d303e6e57260ea84932914729afcf5299e3eafdbda9f0f0b8958ef72ea85",
+          "bytes": 3039326
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -18.5,
+          "true_peak_dbtp": -2.7,
+          "mono_energy_delta_db": -0.17
+        },
+        "mp3": {
+          "lufs": -18.51,
+          "true_peak_dbtp": -2.74,
+          "mono_energy_delta_db": -0.17
+        }
+      }
+    },
+    {
+      "cue": "DKC-02",
+      "title": "Simian Segue",
+      "revision": 4,
+      "duration_s": 148.23216666666667,
+      "original": {
+        "driver": 12,
+        "audio_sha256": "30beeeff5c25202379730b746c1a8ebb69b0ff75e044aef8fcaf00bbcbe60cfb"
+      },
+      "cast": "Djafe / Latin pan-flute conversation",
+      "decision": "Separate the Djafe and pan-flute chairs by attack and tone. The suspected late missing attack fell in a space between wind entries, and the more subdued answer is intentional.",
+      "listen_calls": [
+        1,
+        65,
+        80,
+        90
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "ed2625a8de2eaa67cf777178e95e3bffddebdabb4681a23d454d748f09df293e",
+          "bytes": 29252775
+        },
+        {
+          "format": "mp3",
+          "sha256": "3f9592cc54d6d25508619a3929d234caa77695f9d4fba77d06675b6fba3c2dcf",
+          "bytes": 4339083
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -17.6,
+          "true_peak_dbtp": -3.04,
+          "mono_energy_delta_db": -0.04
+        },
+        "mp3": {
+          "lufs": -17.6,
+          "true_peak_dbtp": -3.09,
+          "mono_energy_delta_db": -0.04
+        }
+      }
+    },
+    {
+      "cue": "DKC-03",
+      "title": "DK Island Swing",
+      "revision": 7,
+      "duration_s": 137.2579375,
+      "original": {
+        "driver": 0,
+        "audio_sha256": "610c8f91a374b3e2f7163b462bc4a85e8a1c247db9978aeadbe16a00a93bb7f1"
+      },
+      "cast": "Percussion party with winds and upright bass",
+      "decision": "Start on the corrected percussion pocket and let upright and winds enter in the game order. The flagged later flutter belongs to the recorded wood register and source motion.",
+      "listen_calls": [
+        2,
+        66,
+        86,
+        90,
+        91
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "b0245e2f0821dc5511f8c6fc4c9ff534236ec17219e3ff1f9e2f4c1b829d9cb7",
+          "bytes": 23721870
+        },
+        {
+          "format": "mp3",
+          "sha256": "a620005cdd930fb34bbe4fffa5c14e0c577bb55863891b98429a84322c366a7d",
+          "bytes": 3514824
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -19.2,
+          "true_peak_dbtp": -2.49,
+          "mono_energy_delta_db": -0.18
+        },
+        "mp3": {
+          "lufs": -19.2,
+          "true_peak_dbtp": -2.51,
+          "mono_energy_delta_db": -0.18
+        }
+      }
+    },
+    {
+      "cue": "DKC-04",
+      "title": "Cranky's Theme",
+      "revision": 1,
+      "duration_s": 30.761916666666668,
+      "original": {
+        "driver": 23,
+        "audio_sha256": "a21807169a7f72570a35a57a500af60aaa95d89ce06f723faa870163c4123a90"
+      },
+      "cast": "Dry acoustic piano, woody bass, sparse skin taps",
+      "decision": "Keep the dry comic timing and audible guitar. The short low answer overlaps slightly and the line stays clear.",
+      "listen_calls": [
+        42,
+        89,
+        91
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "1bb76295d38dedb23a71d6b258205a4892c6415e32ae49da3030a1d2f8ee020b",
+          "bytes": 4611515
+        },
+        {
+          "format": "mp3",
+          "sha256": "0f85145367ad87d28f47e76b657b88d255a1673eac8adfe114d045bb73c5c728",
+          "bytes": 647758
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -18.8,
+          "true_peak_dbtp": -6.6,
+          "mono_energy_delta_db": -0.07
+        },
+        "mp3": {
+          "lufs": -18.8,
+          "true_peak_dbtp": -6.59,
+          "mono_energy_delta_db": -0.07
+        }
+      }
+    },
+    {
+      "cue": "DKC-05",
+      "title": "Cave Dweller Concert",
+      "revision": 3,
+      "duration_s": 205.32966666666667,
+      "original": {
+        "driver": 1,
+        "audio_sha256": "989c80869351b43d879e8ddb6ebc938fcc03c1c6c99b43eefdefa0ee9f38cf0f"
+      },
+      "cast": "Hollow udu, wood, breathy flute and quiet metal",
+      "decision": "Use hollow skin, wood, flute and quiet metal for the cave. The damped reprise bridge improved the handoff while retaining the low space.",
+      "listen_calls": [
+        22,
+        24,
+        25,
+        54,
+        91,
+        109
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "43d1d1e45fb368a204b685b2201eb00036d8bdc9c655e4963e517d3505f7578f",
+          "bytes": 26904519
+        },
+        {
+          "format": "mp3",
+          "sha256": "cdf57a1b8501412a276d6073068e85202ccfd2bdd143ea2237ec95235f098674",
+          "bytes": 4065725
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -19.75,
+          "true_peak_dbtp": -2.7,
+          "mono_energy_delta_db": -0.27
+        },
+        "mp3": {
+          "lufs": -19.75,
+          "true_peak_dbtp": -2.7,
+          "mono_energy_delta_db": -0.27
+        }
+      }
+    },
+    {
+      "cue": "DKC-06",
+      "title": "Bonus Room Blitz",
+      "revision": 2,
+      "duration_s": 56.98320833333333,
+      "original": {
+        "driver": 16,
+        "audio_sha256": "fff7825dc0d34fcd3b9864c7385033b141100102f022a1fa2096f35804cc9bf8"
+      },
+      "cast": "Bright balafon, acoustic guitar, dancing small percussion",
+      "decision": "Restore the rising nylon-string reply beside the bright wooden rhythm. Its measured pitch-wheel behavior carries the original slide rather than an isolated pluck.",
+      "listen_calls": [
+        13,
+        18,
+        19,
+        20,
+        68,
+        109
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "23aec5e4a1ea552dd308012e3ac9dfb92f80822aff2c8b6878e2c7e345ee80cc",
+          "bytes": 8758724
+        },
+        {
+          "format": "mp3",
+          "sha256": "1c2017d5218b94b803eb4051b711e69fafc3ea44991bc11d39596b253016071e",
+          "bytes": 1342633
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -18.41,
+          "true_peak_dbtp": -2.7,
+          "mono_energy_delta_db": -0.11
+        },
+        "mp3": {
+          "lufs": -18.41,
+          "true_peak_dbtp": -2.71,
+          "mono_energy_delta_db": -0.11
+        }
+      }
+    },
+    {
+      "cue": "DKC-07",
+      "title": "Aquatic Ambiance",
+      "revision": 7,
+      "duration_s": 201.40183333333334,
+      "original": {
+        "driver": 3,
+        "audio_sha256": "86addd7c0b63964613b736005e17f1e593a837b079815748a1168033b16804e7"
+      },
+      "cast": "Steel pan / soft handpan, bright wood answer",
+      "decision": "Use warm steel and handpan as distinct chairs. The calibrated steel realizes 299 source attacks over 27 tested keys. R7 softens the late wooden reply at the identified peaks.",
+      "listen_calls": [
+        3,
+        37,
+        38,
+        68,
+        87,
+        98,
+        109,
+        110
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "2fbccf286cfc416526e5ce00ca6b4dae04ef09670e9415da57eb5e824db28baf",
+          "bytes": 29210823
+        },
+        {
+          "format": "mp3",
+          "sha256": "3fc3480caf423af37443e747b691dad866e93993700ed6cedbd30816b9672ef8",
+          "bytes": 4139521
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -19.11,
+          "true_peak_dbtp": -2.58,
+          "mono_energy_delta_db": -0.18
+        },
+        "mp3": {
+          "lufs": -19.11,
+          "true_peak_dbtp": -2.58,
+          "mono_energy_delta_db": -0.18
+        }
+      }
+    },
+    {
+      "cue": "DKC-08",
+      "title": "Candy's Love Song",
+      "revision": 3,
+      "duration_s": 127.07925,
+      "original": {
+        "driver": 22,
+        "audio_sha256": "53343af4b6c9731e29392c6667420583f2b0720939bbd67c8e9153a4c7907673"
+      },
+      "cast": "Acoustic piano, nylon guitar and softly articulated wind",
+      "decision": "Carry the melody through acoustic piano, nylon guitar and wind. R3 gives the last low piano response more room, with a small local conga trim and a longer release.",
+      "listen_calls": [
+        47,
+        50,
+        58,
+        68,
+        99,
+        110
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "d4b556bb2d67db6b4159bd35c8e8e74c450dddaaebbd685bf62ef8f56758149f",
+          "bytes": 24127354
+        },
+        {
+          "format": "mp3",
+          "sha256": "f35038d9bdb8df82e998ae72c0bf7255617a6884e4dafa92814cca901a9db3f1",
+          "bytes": 3243217
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -19.1,
+          "true_peak_dbtp": -5.35,
+          "mono_energy_delta_db": -0.35
+        },
+        "mp3": {
+          "lufs": -19.1,
+          "true_peak_dbtp": -5.31,
+          "mono_energy_delta_db": -0.35
+        }
+      }
+    },
+    {
+      "cue": "DKC-09",
+      "title": "Bad Boss Boogie",
+      "revision": 2,
+      "duration_s": 139.83058333333332,
+      "original": {
+        "driver": 21,
+        "audio_sha256": "926ae6aa9e5a300d70a51ba619cc73dfb56b7b9b11b204977a0d6130885ae464"
+      },
+      "cast": "Low wood ostinato, upright bass, hand drums and fierce wind",
+      "decision": "Keep the low wooden motor, upright, hand drums and bold wind. R2 shapes kit and scrape transients, supporting the repeated nylon figure.",
+      "listen_calls": [
+        48,
+        59,
+        92,
+        110
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "c42155a8cea77f69dbea6f699b824666f170616e26f80ed090840fe7dd147457",
+          "bytes": 24549793
+        },
+        {
+          "format": "mp3",
+          "sha256": "4c6647a08ce9a5f56b3a0e28d82b3a730259ece8b5ad0aec986fcf5a2cd4e9e1",
+          "bytes": 3242784
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -18.1,
+          "true_peak_dbtp": -2.92,
+          "mono_energy_delta_db": -0.03
+        },
+        "mp3": {
+          "lufs": -18.1,
+          "true_peak_dbtp": -2.94,
+          "mono_energy_delta_db": -0.03
+        }
+      }
+    },
+    {
+      "cue": "DKC-10",
+      "title": "Mine Cart Madness",
+      "revision": 2,
+      "duration_s": 183.900125,
+      "original": {
+        "driver": 4,
+        "audio_sha256": "4e7239878cc70d32c09ebb231c9e48e728b17dcbfb2ac5c34d3132901166b58f"
+      },
+      "cast": "Dry mallet motor, bass, guitar and interlocking skin taps",
+      "decision": "Keep the dry mallet motion and guitar answers. R2 reduces stacked wood peaks and percussion low mids while preserving the handoff into the later phrase.",
+      "listen_calls": [
+        23,
+        26,
+        76,
+        92
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "7dccfc6824fcfda623e6603e59576776ec8085f05a6fdde602cab34266bbb5f0",
+          "bytes": 27910335
+        },
+        {
+          "format": "mp3",
+          "sha256": "d7d65dbdb0fceb18749627ab145fa74e637e844d958412266ccc19a635e92a1b",
+          "bytes": 4648538
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -18.45,
+          "true_peak_dbtp": -2.7,
+          "mono_energy_delta_db": -0.13
+        },
+        "mp3": {
+          "lufs": -18.45,
+          "true_peak_dbtp": -2.69,
+          "mono_energy_delta_db": -0.13
+        }
+      }
+    },
+    {
+      "cue": "DKC-11",
+      "title": "Life in the Mines",
+      "revision": 8,
+      "duration_s": 263.2975833333333,
+      "original": {
+        "driver": 8,
+        "audio_sha256": "ccd962c18d099c62cb27f1ee55b2f00fa6ed51c4fad6e8170a3077b58e566ac6"
+      },
+      "cast": "Pan flute and Djafe duet, restrained cave metal",
+      "decision": "Keep the pan flute and Djafe duet. The low strings restore the register anchor. Recorded breaths and two attack colors separate the players.",
+      "listen_calls": [
+        4,
+        69,
+        81,
+        92,
+        93,
+        111
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "8336a503b90a09fe3fe9a40ec1b40e3a29ed6f9f9a3b9b8b351ebbc720264ffe",
+          "bytes": 46094243
+        },
+        {
+          "format": "mp3",
+          "sha256": "fdf8ebdeb3939994c1d208f986d781df2a2fd9c3b3cf950797ce76a1e4f14053",
+          "bytes": 7818300
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -18.5,
+          "true_peak_dbtp": -5.31,
+          "mono_energy_delta_db": -0.1
+        },
+        "mp3": {
+          "lufs": -18.5,
+          "true_peak_dbtp": -5.3,
+          "mono_energy_delta_db": -0.1
+        }
+      }
+    },
+    {
+      "cue": "DKC-12",
+      "title": "Voices of the Temple",
+      "revision": 2,
+      "duration_s": 177.3820625,
+      "original": {
+        "driver": 6,
+        "audio_sha256": "bea27b7e0bbc10645a744d2309e21694ee6ae6edd15c80a7bfe3f2d313ae67ff"
+      },
+      "cast": "Low winds, struck wood, hand percussion and spare piano",
+      "decision": "Ground the wood in a clearer low chair. Five game percussion strikes absent from the guide remain in the performance.",
+      "listen_calls": [
+        27,
+        28,
+        55,
+        93,
+        105,
+        111
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "4eb1d0002b7b814c1e18a5ce940bb38396dd1066350b343201cb1a57f17f4b8a",
+          "bytes": 30031985
+        },
+        {
+          "format": "mp3",
+          "sha256": "59dfaca57b81e5416c4ceb176aa82436a3d8b078dfb0cc80205b09a468e82689",
+          "bytes": 4246037
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -19.1,
+          "true_peak_dbtp": -5.26,
+          "mono_energy_delta_db": -0.29
+        },
+        "mp3": {
+          "lufs": -19.1,
+          "true_peak_dbtp": -5.26,
+          "mono_energy_delta_db": -0.29
+        }
+      }
+    },
+    {
+      "cue": "DKC-13",
+      "title": "Forest Frenzy",
+      "revision": 7,
+      "duration_s": 120.64408333333333,
+      "original": {
+        "driver": 13,
+        "audio_sha256": "519543f8cd2ccf65749542be16d6fb6b87b4b787544d4452f32b0c81bd0bc2be"
+      },
+      "cast": "Wind call, wooden upper ostinato, low strings, piano responses and hand percussion",
+      "decision": "Use the selected wooden upper figure over low strings and piano. R7 lifts only the quiet opening and finishes its contour at 5.8 seconds. The genuine bass-led alternate remains a useful color study.",
+      "listen_calls": [
+        7,
+        73,
+        82,
+        93,
+        94,
+        105,
+        111
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "0b1dba7c9b555400614c4236cbfc1f96089480f4c5fafdc167b69f97b15ea1ea",
+          "bytes": 20842644
+        },
+        {
+          "format": "mp3",
+          "sha256": "c91624cae02c0ee39cd0b6ab095dc254d308bafb8bd10b159221b87857b86162",
+          "bytes": 3196822
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -18.34,
+          "true_peak_dbtp": -3.9,
+          "mono_energy_delta_db": -0.23
+        },
+        "mp3": {
+          "lufs": -18.35,
+          "true_peak_dbtp": -3.91,
+          "mono_energy_delta_db": -0.23
+        }
+      }
+    },
+    {
+      "cue": "DKC-14",
+      "title": "Treetop Rock",
+      "revision": 3,
+      "duration_s": 171.25797916666667,
+      "original": {
+        "driver": 19,
+        "audio_sha256": "789bfbe24f2921b45bc44ab12ba0053d7a82cbe31c7ba10b199e08cc7a0a938e"
+      },
+      "cast": "Brighter wood/flute alternation and tightly interlocked drums",
+      "decision": "Let wood and flute exchange the bright melody. R3 adds a short G answer after the second complete source statement to make the cadence deliberate.",
+      "listen_calls": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        21,
+        94
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "3397ded5d732fa25fd90b3b5ea7a2e2a53ebaf4368d4af8278f3bfada2755637",
+          "bytes": 24591636
+        },
+        {
+          "format": "mp3",
+          "sha256": "fc605229cb8ac7880c4244d6f57836fb9fa9b5080c27b3c8d53229c6febee625",
+          "bytes": 4325493
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -18.4,
+          "true_peak_dbtp": -3.31,
+          "mono_energy_delta_db": -0.26
+        },
+        "mp3": {
+          "lufs": -18.4,
+          "true_peak_dbtp": -3.29,
+          "mono_energy_delta_db": -0.26
+        }
+      }
+    },
+    {
+      "cue": "DKC-15",
+      "title": "Funky's Fugue",
+      "revision": 6,
+      "duration_s": 124.47722916666666,
+      "original": {
+        "driver": 20,
+        "audio_sha256": "038675acf7ac5b1c48ebf17c794a1c63ccc261ea323d4fa729b381edc017e806"
+      },
+      "cast": "Soul Bass foreground with acoustic guitar and real drums",
+      "decision": "Keep the approved guitar sound and Soul Bass foreground. The string-only bass state supports the band. A short recorded guiro and light snare realize the original late punctuation in place of marimba.",
+      "listen_calls": [
+        5,
+        29,
+        30,
+        67,
+        79,
+        88,
+        94,
+        95
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "d4302a84d8ef15f664c0c8ea2d04fb3ed946b03516add1d20e980d6ca58faea9",
+          "bytes": 24446804
+        },
+        {
+          "format": "mp3",
+          "sha256": "fc1a037d113116367cc2f71d03ba884c20ee6ba7542cf243a59236d69122f09b",
+          "bytes": 3282790
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -18.15,
+          "true_peak_dbtp": -2.88,
+          "mono_energy_delta_db": -0.02
+        },
+        "mp3": {
+          "lufs": -18.15,
+          "true_peak_dbtp": -2.8,
+          "mono_energy_delta_db": -0.02
+        }
+      }
+    },
+    {
+      "cue": "DKC-16",
+      "title": "Misty Menace",
+      "revision": 4,
+      "duration_s": 163.84002083333334,
+      "original": {
+        "driver": 2,
+        "audio_sha256": "1c0c3070c4fdabc8812a1a0ac069bfe20979ded14417f88e98cdcbc828b8f669"
+      },
+      "cast": "Sparse handpan, low wood, breath tones and resonant skin",
+      "decision": "Retain the sparse handpan, wood and dark breath. A recorded conga return fills the original opening gates. The follow-up sequence listen confirmed its quiet decay.",
+      "listen_calls": [
+        31,
+        32,
+        46,
+        51,
+        67,
+        70,
+        79,
+        95
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "487afe466fdce305d96a5c06a21c0eb4e5d1479821517a557aaf83bb6fa37046",
+          "bytes": 18605667
+        },
+        {
+          "format": "mp3",
+          "sha256": "02c9c0e32cd790356b1524b99513ff0bafe23f570b5fc80572e7a506bf0dd19a",
+          "bytes": 3019893
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -22.23,
+          "true_peak_dbtp": -2.7,
+          "mono_energy_delta_db": -0.56
+        },
+        "mp3": {
+          "lufs": -22.24,
+          "true_peak_dbtp": -2.71,
+          "mono_energy_delta_db": -0.56
+        }
+      }
+    },
+    {
+      "cue": "DKC-17",
+      "title": "Northern Hemispheres",
+      "revision": 3,
+      "duration_s": 170.3268125,
+      "original": {
+        "driver": 5,
+        "audio_sha256": "7ddaaad62cfd6265ccdc206548e7912ae5b6de249a9e5dad6a8b35acd2a7543f"
+      },
+      "cast": "Airy flute, gentle guitar harmonics, piano and quiet metal",
+      "decision": "Shape the scrape and high wood transient while leaving the airy arrangement spacious. The longer active phrases stay understated.",
+      "listen_calls": [
+        33,
+        34,
+        45,
+        52,
+        75,
+        95,
+        96,
+        112
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "4d8af68afe31a45a7384a387f3a3ba57593188e5c1c59349e63dda800b190acb",
+          "bytes": 23622961
+        },
+        {
+          "format": "mp3",
+          "sha256": "77d81d2587dae047bb2515fbf1da3a04349ba2d7567e3a66ceb54a46c7cdd48c",
+          "bytes": 3681677
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -19.6,
+          "true_peak_dbtp": -3.87,
+          "mono_energy_delta_db": -0.49
+        },
+        "mp3": {
+          "lufs": -19.6,
+          "true_peak_dbtp": -3.86,
+          "mono_energy_delta_db": -0.49
+        }
+      }
+    },
+    {
+      "cue": "DKC-18",
+      "title": "Ice Cave Chant",
+      "revision": 2,
+      "duration_s": 197.55291666666668,
+      "original": {
+        "driver": 11,
+        "audio_sha256": "a614f721085d7a4eea385dcae1e4c5e5bfa2eb4096ce4b15dfcd97c293cf3a34"
+      },
+      "cast": "Clear high flute, bright wood and measured low drums",
+      "decision": "Keep the clear flute and original wood role. A more aggressive pipe treatment lost air in comparison, so r2 carries the upper melody.",
+      "listen_calls": [
+        35,
+        36,
+        44,
+        53,
+        75,
+        96,
+        106,
+        112
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "07762aa3747fefd6115f9589c46dafb6257454e0144880fbd76a29936b3321d9",
+          "bytes": 32161237
+        },
+        {
+          "format": "mp3",
+          "sha256": "bb3c17f5f1405c5b302004c8ed78ae6e485ea17dd81177c1ae1a25f108c146be",
+          "bytes": 4480415
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -19.0,
+          "true_peak_dbtp": -5.64,
+          "mono_energy_delta_db": -0.11
+        },
+        "mp3": {
+          "lufs": -19.0,
+          "true_peak_dbtp": -5.63,
+          "mono_energy_delta_db": -0.11
+        }
+      }
+    },
+    {
+      "cue": "DKC-19",
+      "title": "Fear Factory",
+      "revision": 7,
+      "duration_s": 231.41702083333334,
+      "original": {
+        "driver": 7,
+        "audio_sha256": "99535a5220f62f7ab69dbd3edab397811db5b4fcbe22de2192d17b38da3e3629"
+      },
+      "cast": "Balafon motor, hand drums, acoustic piano and wind call",
+      "decision": "Keep the balafon motor, hand drums, piano and wind. The original register trace supports the stepped mechanisms. R7 eases the first transient and returns to full gain by 5.4 seconds.",
+      "listen_calls": [
+        6,
+        74,
+        75,
+        83,
+        96,
+        97,
+        106,
+        112
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "612927723b4c695d085407f33c7efeac7dcaf0857298c616bfb3fc3c71dd336a",
+          "bytes": 36178865
+        },
+        {
+          "format": "mp3",
+          "sha256": "094f829f507d5a9ff25953f5da0290969bce7c6f9aba4dd158c0e2874c05550d",
+          "bytes": 5897301
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -18.01,
+          "true_peak_dbtp": -4.09,
+          "mono_energy_delta_db": -0.19
+        },
+        "mp3": {
+          "lufs": -18.01,
+          "true_peak_dbtp": -4.12,
+          "mono_energy_delta_db": -0.19
+        }
+      }
+    },
+    {
+      "cue": "DKC-20",
+      "title": "Gang-Plank Galleon",
+      "revision": 2,
+      "duration_s": 182.53160416666665,
+      "original": {
+        "driver": 24,
+        "audio_sha256": "a6f98af3c87ac6692db30cd38a0911448e735b6c886dd3cde27568e5bbcde4b8"
+      },
+      "cast": "Acoustic guitar/wood opening to a fierce flute/percussion band",
+      "decision": "Keep the quiet shanty shape and the source band arrival around 30.46 seconds. The guitar, wood and wind grow into the full percussion section.",
+      "listen_calls": [
+        56,
+        57,
+        60,
+        67,
+        97
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "48d8b8ba8deedb7d8897958a5d280855c056406f641a82529dbfede42ee6d690",
+          "bytes": 34244981
+        },
+        {
+          "format": "mp3",
+          "sha256": "630fe3e9a11277d29ec06e9252eb7cb17051130d1ce300f7de329b49780bb607",
+          "bytes": 4510515
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -18.2,
+          "true_peak_dbtp": -3.75,
+          "mono_energy_delta_db": -0.06
+        },
+        "mp3": {
+          "lufs": -18.21,
+          "true_peak_dbtp": -3.84,
+          "mono_energy_delta_db": -0.06
+        }
+      }
+    },
+    {
+      "cue": "DKC-21",
+      "title": "K. Rool's Cacophony",
+      "revision": 1,
+      "duration_s": 21.0094375,
+      "original": {
+        "driver": 15,
+        "audio_sha256": "8030c1a9b4ee79436b92dc01634a60197bc55b54ac218334c77e12ef5eff7f2d"
+      },
+      "cast": "Sparse acoustic piano, low wind and patient final cadence",
+      "decision": "Keep the sparse final gesture and its quiet decay. This is the selected master for both Cacophony and the separately catalogued Game Over presentation.",
+      "listen_calls": [
+        43,
+        67,
+        84,
+        97,
+        101,
+        113
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "156fc5a12eed3e9d6044f0653407dbf51817bbd87fc4f269ac924b6448dc78ba",
+          "bytes": 2927287
+        },
+        {
+          "format": "mp3",
+          "sha256": "a2f4c72c650fd8a93c3589447d2e76fa6cc257fc8bc2708bb0a0d8c4e47ad1aa",
+          "bytes": 426170
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -21.14,
+          "true_peak_dbtp": -2.7,
+          "mono_energy_delta_db": -1.24
+        },
+        "mp3": {
+          "lufs": -21.14,
+          "true_peak_dbtp": -2.73,
+          "mono_energy_delta_db": -1.24
+        }
+      }
+    },
+    {
+      "cue": "DKC-22",
+      "title": "The Credits Concerto",
+      "revision": 1,
+      "duration_s": 109.298875,
+      "original": {
+        "driver": 14,
+        "audio_sha256": "662095ab8fdffe9c34e7f87ff2dcbab0d54b93852ae87f6a40196902bc6ea2b6"
+      },
+      "cast": "Returning acoustic band colors with piano-led closing statement",
+      "decision": "Keep the earlier warm ensemble and final piano response. Two alternate release treatments gave no convincing improvement in the comparisons.",
+      "listen_calls": [
+        62,
+        63,
+        64,
+        71,
+        72,
+        84,
+        85,
+        100,
+        101,
+        107,
+        113
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "dd5d623290b9ed56b24b052d4c17fe198005f356225f20a58b2343793a69d478",
+          "bytes": 20324926
+        },
+        {
+          "format": "mp3",
+          "sha256": "06e8a0d66d377983d41c5c5ec95e0f2053c241eded4a3c54b995ef2f16aa8da7",
+          "bytes": 2748077
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -18.81,
+          "true_peak_dbtp": -3.41,
+          "mono_energy_delta_db": -0.55
+        },
+        "mp3": {
+          "lufs": -18.8,
+          "true_peak_dbtp": -3.43,
+          "mono_energy_delta_db": -0.55
+        }
+      }
+    },
+    {
+      "cue": "DKC-23",
+      "title": "Fanfare",
+      "revision": 3,
+      "duration_s": 6.4913125,
+      "original": {
+        "driver": 10,
+        "audio_sha256": "318fea54318a34ecf1460864be17c1979c247a3be85de9c0ed5f03e86f6c5d2f"
+      },
+      "cast": "Bright acoustic brass-like wind and struck wood gesture",
+      "decision": "Use the r1 reward timbre and cadence at a uniform 0.85 dB lower level. The louder reference and a more heavily treated EQ alternate were useful comparisons.",
+      "listen_calls": [
+        39,
+        84,
+        85,
+        101,
+        102,
+        107,
+        113,
+        114
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "23fd921398ffcacf810c4fa9bd01262fdc958f4c49063c3f99c0e83bef2b571b",
+          "bytes": 844842
+        },
+        {
+          "format": "mp3",
+          "sha256": "a8cae1888307f8c4a27a3fbf71514386f337617e1ef93f2cfa897aec2ec42ec6",
+          "bytes": 128152
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -20.05,
+          "true_peak_dbtp": -4.94,
+          "mono_energy_delta_db": -0.12
+        },
+        "mp3": {
+          "lufs": -20.05,
+          "true_peak_dbtp": -4.96,
+          "mono_energy_delta_db": -0.12
+        }
+      }
+    },
+    {
+      "cue": "DKC-24",
+      "title": "Level Goal",
+      "revision": 2,
+      "duration_s": 3.5997708333333334,
+      "original": {
+        "driver": 26,
+        "audio_sha256": "aa302705f021790761a37b99e9f9a26d4ec6a2c50e67a5b6839c2cb119061198"
+      },
+      "cast": "Compact wood/flute/piano cadence",
+      "decision": "Keep the compact wood, flute and piano gesture. R2 restores lower-mid body and the actual short ending remains legible among the fuller rewards.",
+      "listen_calls": [
+        39,
+        49,
+        102,
+        114
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "8854b2e84f29bb27897f3ff791115627742562cb7b90f4de8e3de048814a11b1",
+          "bytes": 485379
+        },
+        {
+          "format": "mp3",
+          "sha256": "f4a5ee6073a9fbfc3f713bc3476c767796141232fd4d4d7f83d0bcfb7a1b9444",
+          "bytes": 65203
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -19.19,
+          "true_peak_dbtp": -8.48,
+          "mono_energy_delta_db": -0.04
+        },
+        "mp3": {
+          "lufs": -19.19,
+          "true_peak_dbtp": -8.45,
+          "mono_energy_delta_db": -0.04
+        }
+      }
+    },
+    {
+      "cue": "DKC-25",
+      "title": "Bonus Win",
+      "revision": 1,
+      "duration_s": 6.792083333333333,
+      "original": {
+        "driver": 18,
+        "audio_sha256": "ee7248f8d0b435482067eeab73bfc6de4b3ec71891c0b49bd14e3a4668d67a90"
+      },
+      "cast": "Warm bright wood and hand drum success cadence",
+      "decision": "Keep the warmer wooden success gesture and hand-drum answer. The ordered rewards remain distinct at a shared playback level.",
+      "listen_calls": [
+        39,
+        102,
+        103,
+        114
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "e683541d5f2ccc6290e83e8402dcaefff040e485bafa7ca1b1d3fa00e37e18e3",
+          "bytes": 1042726
+        },
+        {
+          "format": "mp3",
+          "sha256": "754663138696de9cdd8be5cedadefedac721291445e46e403cb4c055f5aa1b37",
+          "bytes": 139338
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -19.2,
+          "true_peak_dbtp": -4.74,
+          "mono_energy_delta_db": -0.12
+        },
+        "mp3": {
+          "lufs": -19.2,
+          "true_peak_dbtp": -4.77,
+          "mono_energy_delta_db": -0.12
+        }
+      }
+    },
+    {
+      "cue": "DKC-26",
+      "title": "Bonus Lose",
+      "revision": 1,
+      "duration_s": 6.296770833333333,
+      "original": {
+        "driver": 25,
+        "audio_sha256": "fb38d9bbf0f9db3c27af5224be10edc7c3368d66e513ad6a74b1b64deaaafda1"
+      },
+      "cast": "Muted acoustic punctuation and descending response",
+      "decision": "Keep the muted punctuation and descending reply. The archived and direct game endings agree, and the separate loss cadence decays cleanly.",
+      "listen_calls": [
+        40,
+        103
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "ebd874335de82a4c9669902b10bf5adf25b3118fc58de1beaaf2e224cecbbc3c",
+          "bytes": 899562
+        },
+        {
+          "format": "mp3",
+          "sha256": "cd2dc4a5312d2d4aebc41b5b1e1b9006b5029a4a3a6074ef0ca793e381bfd1dd",
+          "bytes": 131539
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -19.2,
+          "true_peak_dbtp": -7.96,
+          "mono_energy_delta_db": -0.04
+        },
+        "mp3": {
+          "lufs": -19.21,
+          "true_peak_dbtp": -7.97,
+          "mono_energy_delta_db": -0.04
+        }
+      }
+    },
+    {
+      "cue": "DKC-27",
+      "title": "Lost Life",
+      "revision": 1,
+      "duration_s": 4.580520833333333,
+      "original": {
+        "driver": 17,
+        "audio_sha256": "7f88db08496eeefa5d96750dc29af8adaae29e7ab75e97226e45fba2bdf0f473"
+      },
+      "cast": "Small wood/wind fall and dry low punctuation",
+      "decision": "Keep the small falling wood and wind figure. The quieter life-loss punctuation clears naturally before the next cue.",
+      "listen_calls": [
+        40,
+        103,
+        104
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "26e8d580cffb8c37685e41f0efad648ba4e4ff5affb770ecef6d3a1266baf53c",
+          "bytes": 583862
+        },
+        {
+          "format": "mp3",
+          "sha256": "14718dce877a1fadcbf1109d33ddaaa04ac92fd2266134a4471ea0847d416911",
+          "bytes": 79170
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -19.19,
+          "true_peak_dbtp": -8.8,
+          "mono_energy_delta_db": -0.06
+        },
+        "mp3": {
+          "lufs": -19.19,
+          "true_peak_dbtp": -8.82,
+          "mono_energy_delta_db": -0.06
+        }
+      }
+    },
+    {
+      "cue": "DKC-28",
+      "title": "Bonus Room Opened!",
+      "revision": 2,
+      "duration_s": 1.539375,
+      "original": {
+        "live_game_event": "room-opened",
+        "capture_sha256": "997b3a027f57f8b7739b4a0b8698f7d09765acdeae241f0881d4dd31d053b0c7"
+      },
+      "cast": "Short flute/wood entrance signal",
+      "decision": "Use all 13 live lead attacks and the first live echo delay. The complete echo is retained from the isolated original state for standalone listening.",
+      "listen_calls": [
+        40,
+        78,
+        104
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "1be2807aecaa9e85e5c7ed168438bb9a2d0ff1641b70ad2c54a409e3c8a940de",
+          "bytes": 206652
+        },
+        {
+          "format": "mp3",
+          "sha256": "33ae8ba0f0543150684b5f1d402f8a96a39abab5d95c51729ffb836169734055",
+          "bytes": 30434
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -19.29,
+          "true_peak_dbtp": -10.22,
+          "mono_energy_delta_db": -0.03
+        },
+        "mp3": {
+          "lufs": -19.29,
+          "true_peak_dbtp": -10.2,
+          "mono_energy_delta_db": -0.03
+        }
+      }
+    },
+    {
+      "cue": "DKC-29",
+      "title": "Extra Life Balloon",
+      "revision": 2,
+      "duration_s": 1.287,
+      "original": {
+        "live_game_event": "balloon",
+        "capture_sha256": "970affa78b1efbae9b0583f4c7889881dd882139be934bdf472d1bfece9e9d7d"
+      },
+      "cast": "Bright short pan/wood rising gesture",
+      "decision": "Use all 24 live pickup pitches and attack times on recorded handpan. The complete standalone recheck and both decoders confirmed the final decay.",
+      "listen_calls": [
+        40,
+        78,
+        104,
+        108
+      ],
+      "audio": [
+        {
+          "format": "flac",
+          "sha256": "3bc435d6494e6e4d4c40d22a1d0a10746f3d8e6a8229a854d1094af508bda7ce",
+          "bytes": 199615
+        },
+        {
+          "format": "mp3",
+          "sha256": "269012cebbd99a52f5dee6bd57e29f22fd99a82bb8f09e7d634051c6de32c4d5",
+          "bytes": 35235
+        }
+      ],
+      "technical": {
+        "flac": {
+          "lufs": -19.29,
+          "true_peak_dbtp": -6.23,
+          "mono_energy_delta_db": -0.01
+        },
+        "mp3": {
+          "lufs": -19.29,
+          "true_peak_dbtp": -6.3,
+          "mono_energy_delta_db": -0.01
+        }
+      }
+    }
+  ],
+  "owner_review": "AVAILABLE"
+}

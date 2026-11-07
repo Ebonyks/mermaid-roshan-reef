@@ -6,6 +6,8 @@ The [acoustic sound design profile](ACOUSTIC_SOUND_DESIGN_PROFILE_2026-11-05.md)
 
 The [November 7 full rough](ACOUSTIC_ALBUM_FULL_ROUGH_2026-11-07.md) records 29 playable acoustic entries, their exact hashes, original game trigger verification and remaining review decisions.
 
+The [reviewed acoustic masters](ACOUSTIC_ALBUM_REVIEWED_MASTERS_2026-11-07.md) record the finished private 29-cue sequence, the source and mix decisions and exact final archive identities.
+
 The [actual acoustic calls](acoustic_album_call_sheets_v1.json) and [production receipt](acoustic_album_production_receipt_v1.json) track the next Mines, Funky and Fear Factory revisions plus the new Forest Frenzy pilot. Printed performances, native range corrections, source evidence, listening and remaining acceptance retain their exact scopes. This separate DKC album is a sound-palette study for Roshan; it does not replace runtime music or close MA-AUDIO-001.
 
 
