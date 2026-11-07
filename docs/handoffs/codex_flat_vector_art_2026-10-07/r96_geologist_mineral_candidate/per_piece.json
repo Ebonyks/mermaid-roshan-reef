@@ -29913,7 +29913,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-DEV-20261107-R150-PAINTED-DIRECTION-CUE",
+  "revision": "FV-ANDROID-VERIFIED-20261107-R150",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -36136,6 +36136,23 @@
         "child": null,
         "owner": null,
         "accepted_removed": 0
+      },
+      "matching_Android": {
+        "revision": "0be76936a163628801a5156507f18185878cbaa7",
+        "Dev_CI": 42376706306,
+        "Android_run": 42382208587,
+        "APK_verified": true,
+        "version_code": 2375,
+        "apk_bytes": 931827602,
+        "APK_sha256": "70daac62a8fc1d77bbaca78ae43deeda8f80098f53f82a3db8411148772f68b8",
+        "apk_asset_id": 720985330,
+        "checksum_asset_id": 720985331,
+        "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/APK_VERIFIED.json",
+        "scope": "Anonymous package bytes, exact source guards and checkout, packaged runtime resources, scoped export exclusions and JAR v1 signature.",
+        "physical_device": null,
+        "formal_QA11": null,
+        "child": null,
+        "owner": null
       }
     }
   ],
@@ -54060,7 +54077,7 @@
     "accepted_removed": 0,
     "complete_scene_coverage": 0,
     "whole_game_total": null,
-    "revision": "FV-DEV-20261107-R150-PAINTED-DIRECTION-CUE"
+    "revision": "FV-ANDROID-VERIFIED-20261107-R150"
   },
   "r150_revision_delta": {
     "source_artifacts": 1,
@@ -54168,7 +54185,23 @@
     "model_version": null,
     "Dev_integration": true,
     "Dev_revision": "0be76936a163628801a5156507f18185878cbaa7",
-    "matching_APK": null,
+    "matching_APK": {
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "Dev_CI": 42376706306,
+      "Android_run": 42382208587,
+      "APK_verified": true,
+      "version_code": 2375,
+      "apk_bytes": 931827602,
+      "APK_sha256": "70daac62a8fc1d77bbaca78ae43deeda8f80098f53f82a3db8411148772f68b8",
+      "apk_asset_id": 720985330,
+      "checksum_asset_id": 720985331,
+      "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/APK_VERIFIED.json",
+      "scope": "Anonymous package bytes, exact source guards and checkout, packaged runtime resources, scoped export exclusions and JAR v1 signature.",
+      "physical_device": null,
+      "formal_QA11": null,
+      "child": null,
+      "owner": null
+    },
     "formal_QA11": null,
     "device": null,
     "child": null,
@@ -54189,7 +54222,34 @@
       "conclusion": "",
       "source": "0be76936a163628801a5156507f18185878cbaa7"
     },
-    "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/dev_integration_20261107/DEV_INTEGRATION.json"
+    "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/dev_integration_20261107/DEV_INTEGRATION.json",
+    "Dev_CI_terminal": {
+      "run": 42376706306,
+      "conclusion": "success",
+      "source": "0be76936a163628801a5156507f18185878cbaa7",
+      "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/DEV_CI_COMPLETED.json"
+    },
+    "Android_delivery_observation": {
+      "automatic_failure": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/AUTO_FAILURE_SCOPE.json",
+      "approved_retry": 42382208587,
+      "matching_APK": {
+        "revision": "0be76936a163628801a5156507f18185878cbaa7",
+        "Dev_CI": 42376706306,
+        "Android_run": 42382208587,
+        "APK_verified": true,
+        "version_code": 2375,
+        "apk_bytes": 931827602,
+        "APK_sha256": "70daac62a8fc1d77bbaca78ae43deeda8f80098f53f82a3db8411148772f68b8",
+        "apk_asset_id": 720985330,
+        "checksum_asset_id": 720985331,
+        "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/APK_VERIFIED.json",
+        "scope": "Anonymous package bytes, exact source guards and checkout, packaged runtime resources, scoped export exclusions and JAR v1 signature.",
+        "physical_device": null,
+        "formal_QA11": null,
+        "child": null,
+        "owner": null
+      }
+    }
   },
   "r150_dev_revision_delta": {
     "partial_Dev_artifacts": 1,
@@ -54200,5 +54260,22 @@
     "generations": 0,
     "accepted_removed": 0,
     "complete_scenes": 0
+  },
+  "r150_matching_android_delivery": {
+    "revision": "0be76936a163628801a5156507f18185878cbaa7",
+    "Dev_CI": 42376706306,
+    "Android_run": 42382208587,
+    "APK_verified": true,
+    "version_code": 2375,
+    "apk_bytes": 931827602,
+    "APK_sha256": "70daac62a8fc1d77bbaca78ae43deeda8f80098f53f82a3db8411148772f68b8",
+    "apk_asset_id": 720985330,
+    "checksum_asset_id": 720985331,
+    "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/APK_VERIFIED.json",
+    "scope": "Anonymous package bytes, exact source guards and checkout, packaged runtime resources, scoped export exclusions and JAR v1 signature.",
+    "physical_device": null,
+    "formal_QA11": null,
+    "child": null,
+    "owner": null
   }
 }

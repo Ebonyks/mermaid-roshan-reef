@@ -1,0 +1,51 @@
+{
+  "state": "DISPATCH_ACKNOWLEDGED",
+  "source": "0be76936a163628801a5156507f18185878cbaa7",
+  "Dev_CI": 42376706306,
+  "prior_auto_failure": {
+    "state": "AUTOMATIC_ANDROID_TERMINAL_EXPORT_FAILURE",
+    "run": 42381193692,
+    "job": 128428965263,
+    "workflow_code_head": "ff68f9550c28f7d979896d5c84d1214264c29165",
+    "expected_runtime_source": "0be76936a163628801a5156507f18185878cbaa7",
+    "actual_runtime_checkout": null,
+    "last_observed_step": {
+      "name": "Export debug APK",
+      "status": "in_progress",
+      "conclusion": null,
+      "number": 9,
+      "started_at": "2026-11-07T14:32:44Z",
+      "completed_at": null
+    },
+    "root_cause": "Unhandled exception. System.IO.IOException: No space left on device : '/home/runner/actions-runner/cached/2.338.2/_diag/Worker_20261107-142112-utc.log'\n   at System.IO.RandomAccess.WriteAtOffset(SafeFileHandle handle, ReadOnlySpan`1 buffer, Int64 fileOffset)\n   at System.IO.StreamWriter.Flush(Boolean flushStream, Boolean flushEncoder)\n   at System.Diagnostics.TextWriterTraceListener.Flush()\n   at System.Diagnostics.TraceSource.Flush()\n   at GitHub.Runner.Common.Tracing.Dispose(Boolean disposing)\n   at GitHub.Runner.Common.Tracing.Dispose()\n   at GitHub.Runner.Common.TraceManager.Dispose(Boolean disposing)\n   at GitHub.Runner.Common.TraceManager.Dispose()\n   at GitHub.Runner.Common.HostContext.Dispose(Boolean disposing)\n   at GitHub.Runner.Common.HostContext.Dispose()\n   at GitHub.Runner.Worker.Program.Main(String[] args)\nSystem.IO.IOException: No space left on device : '/home/runner/actions-runner/cached/2.338.2/_diag/Worker_20261107-142112-utc.log'\n   at System.IO.RandomAccess.WriteAtOffset(SafeFileHandle handle, ReadOnlySpan`1 buffer, Int64 fileOffset)\n   at System.IO.StreamWriter.Flush(Boolean flushStream, Boolean flushEncoder)\n   at System.Diagnostics.TextWriterTraceListener.Flush()\n   at GitHub.Runner.Common.HostTraceListener.WriteHeader(String source, TraceEventType eventType, Int32 id)\n   at System.Diagnostics.TraceSource.TraceEvent(TraceEventType eventType, Int32 id, String message)\n   at GitHub.Runner.Worker.Worker.RunAsync(String pipeIn, String pipeOut)\n   at GitHub.Runner.Worker.Worker.RunAsync(String pipeIn, String pipeOut)\n   at GitHub.Runner.Worker.Program.MainAsync(IHostContext context, String[] args)\nSystem.IO.IOException: No space left on device : '/home/runner/actions-runner/cached/2.338.2/_diag/Worker_20261107-142112-utc.log'\n   at System.IO.RandomAccess.WriteAtOffset(SafeFileHandle handle, ReadOnlySpan`1 buffer, Int64 fileOffset)\n   at System.IO.StreamWriter.Flush(Boolean flushStream, Boolean flushEncoder)\n   at System.Diagnostics.TextWriterTraceListener.Flush()\n   at GitHub.Runner.Common.HostTraceListener.WriteHeader(String source, TraceEventType eventType, Int32 id)\n   at System.Diagnostics.TraceSource.TraceEvent(TraceEventType eventType, Int32 id, String message)\n   at GitHub.Runner.Common.Tracing.Error(Exception exception)\n   at GitHub.Runner.Worker.Program.MainAsync(IHostContext context, String[] args)",
+    "notes": "GitHub job is terminal failure, and the package publication step never ran. Root-cause details are recorded only if available in a runner annotation.",
+    "available_log_sha256": "e34fb24e04443d6d084ccc6ab0f85dcb72e912d451675ee9ec96140babf594b7",
+    "recovery": "Use the owner-approved, already integrated Dev-only build path once, with exact current green Dev guards.",
+    "time": "2026-11-07T14:34:03.775895+00:00"
+  },
+  "expected_Dev": "0be76936a163628801a5156507f18185878cbaa7",
+  "master_before": "ff68f9550c28f7d979896d5c84d1214264c29165",
+  "owner_authorization": {
+    "revision": "0be76936a163628801a5156507f18185878cbaa7",
+    "path": "audit/cycles/android-build-capacity-20261105/owner_request.json",
+    "sha256": "d163441b28ef42e3da4393903cd352ed1aa22bbe3450548c4a5460f48d2e1baf",
+    "record": {
+      "owner": "Peter Creed",
+      "date": "2026-11-05",
+      "question": "May I apply the prepared Android-build fix that unpacks only Android templates to avoid the runner’s disk-space failure? This edits .github/workflows/android.yml, which AGENTS.md requires you to authorize explicitly.",
+      "answer": "Approve the build-only fix",
+      "source": "Direct owner reply to request_user_input_async, questionItemId call_faa24b5e0afe4a2d97d124e5ae498648/0",
+      "implementation_dependency": "Dev-only manual retry is the implementer-selected routing required to apply the approved capacity change without promoting master. It must independently require successful exact-current-head push CI and preserve all signing/version/publishing contracts. This routing is not presented as an additional owner quotation."
+    }
+  },
+  "workflow_sha256": "0b39ce9d69c97b612d63d1254cf4d5b8f07472b5eb1a54f1c0b67e08263837b0",
+  "previous_verified_workflow_revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+  "no_active_Android_run_before_dispatch": true,
+  "dispatch_count": 1,
+  "requested_at": "2026-11-07T14:34:07.311636+00:00",
+  "dispatch_exit_code": 0,
+  "dispatch_stdout": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42382208587\n",
+  "dispatch_stderr": "",
+  "dispatch_acknowledged_at": "2026-11-07T14:34:09.053918+00:00",
+  "run": 42382208587
+}

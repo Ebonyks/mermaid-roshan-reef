@@ -2919,3 +2919,7 @@ Canonical base `80c3361db6e2b8d70bcc86a65cda62b1c698600e` records the painted di
 ## CHG-172 — Record R150 Dev integration
 
 Canonical base `5ca05f655abc882608953f60a9376e4cff5a9b53` records exact Dev `0be76936a163628801a5156507f18185878cbaa7` and adds one partial Dev artifact. Its runtime depends on the R150 arrow import. Natural and device checks must still establish readability at speed. A registry correction would amend the canonical metadata and keep the actual source and prior delivery history. [Dev evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/dev_integration_20261107/README.md) · [Impact](../design/audit_impacts/flat-vector-r150-canonical-dev-20261107.json)
+
+## CHG-173 — Verify the R150 Dev Android package
+
+Canonical base `1eafdbc385155de55f3d333f75aee2a7bb187f30` records package evidence for Dev `0be76936a163628801a5156507f18185878cbaa7`. The authorized retry depends on exact green Dev CI 42376706306. Android run 42382208587 delivered the new direction cue resource and its remap. The Dev channel can move to a later APK, so the proof pins this package to actual asset IDs, digest and verification time. A correction would amend the delivery metadata and retain the original incident and package evidence. [Package record](../docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/README.md) · [Impact](../design/audit_impacts/flat-vector-r150-matching-android-20261107.json)

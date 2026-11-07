@@ -1,0 +1,431 @@
+{
+  "state": "SEALED_ACTUAL_STAGED_BYTES_AND_ALREADY_VERIFIED_EXTERNAL_APK_PAYLOAD",
+  "id": "FV-R150-VERIFIED-ANDROID-20261107",
+  "baseline": "1eafdbc385155de55f3d333f75aee2a7bb187f30",
+  "actual_game_source": "0be76936a163628801a5156507f18185878cbaa7",
+  "Dev_CI": 42376706306,
+  "Android_run": 42382208587,
+  "hash_contract": "SELF exact staged Git bytes; immutable unchanged current-game rows. Manifest fetched and hash-bound separately. External established Android-release payloads below were already fetched completely anonymously and verified; the mutable channel is pinned by assetID/digest/source/checktime. No recursive historical archive dependency.",
+  "external_payloads": [
+    {
+      "name": "roshan-reef.apk.sha256",
+      "asset_id": 720985331,
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-dev/roshan-reef.apk.sha256",
+      "bytes": 82,
+      "sha256": "b3970ec44ee6bfb3a81c5ca652ff42e83441f64a7b41556f526d5e39e0c88e5d",
+      "access_mode": "anonymous_no_authorization_no_cookies",
+      "checked_at_utc": "2026-11-07T14:53:08.887157+00:00"
+    },
+    {
+      "name": "roshan-reef.apk",
+      "asset_id": 720985330,
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-dev/roshan-reef.apk",
+      "bytes": 931827602,
+      "sha256": "70daac62a8fc1d77bbaca78ae43deeda8f80098f53f82a3db8411148772f68b8",
+      "access_mode": "anonymous_no_authorization_no_cookies",
+      "checked_at_utc": "2026-11-07T14:53:38.801263+00:00"
+    }
+  ],
+  "external_payload_verification": {
+    "state": "PASS_COMPLETE_ANONYMOUS_BYTES_AND_DIGESTS",
+    "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/DOWNLOAD_RESULT.json",
+    "payload_count": 2
+  },
+  "art_role_family_Dev_generation_native_accepted_delta": 0,
+  "accepted_removed": 0,
+  "complete_scenes": 0,
+  "whole_game_total": null,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "mission_complete": false,
+  "files": [
+    {
+      "path": "assets/racer/ui/item_bubble_frame_painted.png",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 271561,
+      "sha256": "f26803c30c83ad995444f1ece1db686565eed6edd444f8fb1f1f36aec19dd1b3",
+      "role": "unchanged_actual_Dev_painted_candidate_or_export_exclusion"
+    },
+    {
+      "path": "assets/racer/ui/item_bubble_frame_painted.png.import",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 995,
+      "sha256": "bde2b3a8626c595b201b6792c3148db6c1df2b6f3b012a6d922030e55db0fdf6",
+      "role": "unchanged_actual_Dev_painted_candidate_or_export_exclusion"
+    },
+    {
+      "path": "assets/racer/ui/minimap_backplate_painted.png",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 301571,
+      "sha256": "c1d166d60978087380530c7fc06a948bb600e562ec733c6db529f0754b97a1b9",
+      "role": "unchanged_actual_Dev_painted_candidate_or_export_exclusion"
+    },
+    {
+      "path": "assets/racer/ui/minimap_backplate_painted.png.import",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 995,
+      "sha256": "91f90a087ecf5bb5564c2210021ed8558af3a03890a7d54e5c2aa11dda4c140c",
+      "role": "unchanged_actual_Dev_painted_candidate_or_export_exclusion"
+    },
+    {
+      "path": "assets/racer/ui/steering_knob_painted.png",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 87637,
+      "sha256": "a40cea67ef6d50d326c2d36f1dc148b708e984384deddb592c30723807814314",
+      "role": "unchanged_actual_Dev_painted_candidate_or_export_exclusion"
+    },
+    {
+      "path": "assets/racer/ui/steering_ring_painted.png",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 254294,
+      "sha256": "2d98806fd8f48345226f751442a0247b52b68e2e419777a3599759bf149dc1a1",
+      "role": "unchanged_actual_Dev_painted_candidate_or_export_exclusion"
+    },
+    {
+      "path": "assets/racer/ui/wrong_way_arrow_painted.png",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 123745,
+      "sha256": "c3a79df73e028e8284c090f831e3e7295f6ce70cccf2f72867c928de8dced492",
+      "role": "unchanged_actual_Dev_painted_candidate_or_export_exclusion"
+    },
+    {
+      "path": "assets/racer/ui/wrong_way_arrow_painted.png.import",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 989,
+      "sha256": "06ec3c76e945ce49f7d0c083cff50cb81695c674eeb7350e1141ce871ac09b15",
+      "role": "unchanged_actual_Dev_painted_candidate_or_export_exclusion"
+    },
+    {
+      "path": "docs/handoffs/codex_recent_updates_dev_2026-11-06/.gdignore",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "unchanged_actual_Dev_painted_candidate_or_export_exclusion"
+    },
+    {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 64643,
+      "sha256": "7fc2bae43da27f32871545b3e4b0163e92a2df7967068e4b2aecdcf7ddd0e089",
+      "role": "unchanged_actual_Dev_painted_candidate_or_export_exclusion"
+    },
+    {
+      "path": ".gitattributes",
+      "revision": "SELF",
+      "bytes": 17569,
+      "sha256": "0b2fc0f8ac5a81d3c9be9ef9b1fec9d4de9f7fcaa8db6f3a9f5abc817946dba1",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "revision": "SELF",
+      "bytes": 310546,
+      "sha256": "6afe2ad3d28afea85539bf8b73e4231afd63d2d5a8283634e802174844b0f746",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "revision": "SELF",
+      "bytes": 349549,
+      "sha256": "fd4c55c607b47be90061e1a4b82fe45813f4a8f4b9c9262725feacd592c22467",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "revision": "SELF",
+      "bytes": 379249,
+      "sha256": "e50b5be4eabc300a48250ed5b95140fd2db595bed2a1e56298889ac11cab1398",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "revision": "SELF",
+      "bytes": 289843,
+      "sha256": "88a3d61ccb067d8dd20322524531deb7d72741eeecbb82d05454a6001d0496e6",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-r150-matching-android-20261107.json",
+      "revision": "SELF",
+      "bytes": 7069,
+      "sha256": "8e10afd7d97fbd391bccb65c0ad51e7924959d87998f0abf3d7ca47cc315cc31",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "revision": "SELF",
+      "bytes": 386128,
+      "sha256": "3d81353ad8c96d231004064454b9d090c9cccf063c28d897024b3eb3f52d5f58",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_QUEUE.json",
+      "revision": "SELF",
+      "bytes": 16107,
+      "sha256": "78ed712f90115a71dbb3d2af2879bfe8adbde4de1f39689efc5a2b93832d5273",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+      "revision": "SELF",
+      "bytes": 12431,
+      "sha256": "36af39a06d633f0cc6c0271b25a7d3d23ec57818a876a4a65bd06180ae72c7de",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/PRODUCTION_RECORD.json",
+      "revision": "SELF",
+      "bytes": 7108,
+      "sha256": "1525774b1f1c6c94053f09584402f442744975de6a69a36351c22b43dd947e25",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/README.md",
+      "revision": "SELF",
+      "bytes": 1600,
+      "sha256": "5d732549171d73ce7da924f1e008a63f06c6ae1e98488e4b4fd1e649a9f40772",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/.gdignore",
+      "revision": "SELF",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/ANDROID_RUNS_BEFORE_RETRY.json",
+      "revision": "SELF",
+      "bytes": 6538,
+      "sha256": "95e457b0647e916acfd6fd9445324e7b7786fc35e2d836fb868bdeb6716d9890",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/APK_VERIFIED.json",
+      "revision": "SELF",
+      "bytes": 872,
+      "sha256": "3e698589835714b76d8e7bfcc857c3d36eecbb5cbff011a3334bc70b716e05c7",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/AUTO_FAILURE_ANNOTATIONS.json",
+      "revision": "SELF",
+      "bytes": 3099,
+      "sha256": "2c168cd9ce75470fce61b689ad3ce1ac20263d874fbcb9490a26174546067d3a",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/AUTO_FAILURE_SCOPE.json",
+      "revision": "SELF",
+      "bytes": 3344,
+      "sha256": "db1991f3468d8aa846e5f3d5af0b64ad00332f4d2326b41d0eb6c6b845cee343",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/AUTO_JOB_TERMINAL.json",
+      "revision": "SELF",
+      "bytes": 3294,
+      "sha256": "daa06cda21296e141b3b57844ff75b0c3ab1cca2b461bfc5f8a7aec88011a3d4",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/AUTO_RUN_TERMINAL.json",
+      "revision": "SELF",
+      "bytes": 4650,
+      "sha256": "1e9bb7fdc2017b08c2ca9db0fa2a77893ec9f283a56bbec72b165a0494188c8b",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/DELIVERY_CONTEXT.json",
+      "revision": "SELF",
+      "bytes": 4932,
+      "sha256": "d5233fd2f887ce66849ba7427ef43246f31436bba3e894d2cdd3393b79f7da54",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/DEV_CI_COMPLETED.json",
+      "revision": "SELF",
+      "bytes": 10199,
+      "sha256": "e287dffd1228a5a6a98d6a30567e35c5dce3b091b597a8ba6bf4ec33b735ca0e",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/DOWNLOAD_RESULT.json",
+      "revision": "SELF",
+      "bytes": 1125,
+      "sha256": "07aaae4e2f03828eeea13113ed9d9042d49170458b91ec994e419a84f8099e0a",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/EXPORT_BOUNDARY_VERIFICATION.json",
+      "revision": "SELF",
+      "bytes": 1835,
+      "sha256": "d80d487cf8c8bf48ab2e25ee3f176af0c1ac3105e5be0f55e4bcec6d778b5b30",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/GATES.json",
+      "revision": "SELF",
+      "bytes": 1683,
+      "sha256": "e4d9b61415d539274c3e6be03bc4c1e3d2936faa0d46189a2fc3fdc784398a5c",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/PACKAGE_CONTENT_VERIFICATION.json",
+      "revision": "SELF",
+      "bytes": 12047,
+      "sha256": "d38292afb78ba0dcb541ce0e19af44ef93b03e3ba38f22eb1f1e202eeefc2469",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/PCK_VIRTUAL_FILE_INDEX.json",
+      "revision": "SELF",
+      "bytes": 3424374,
+      "sha256": "bf77ce0bf9f94deabca53a4bb3264b7225692d3781653b5283196ba46ff12237",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/PRIOR_CANONICAL_DEV_REMOTE_VERIFICATION.json",
+      "revision": "SELF",
+      "bytes": 21461,
+      "sha256": "58779633aeb0e3d9b67139f79f18c02e042a6b33071b210b64a86de4db493a7c",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/PUBLIC_SIGNATURE_VERIFICATION.json",
+      "revision": "SELF",
+      "bytes": 1264969,
+      "sha256": "b118ac4d35a9c7d8eccea92735ef0f3db207afd96a117499c8a978a85e76e608",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/README.md",
+      "revision": "SELF",
+      "bytes": 1485,
+      "sha256": "639186912fa2aec741ba72c1f666ce21aaa77ec798752f064fca093dd5087095",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/RELEASE_AT_INTAKE.json",
+      "revision": "SELF",
+      "bytes": 7324,
+      "sha256": "eaa1397004dbe08082268209f0ececfa14707b129b9a5bfe013c3b772a80a224",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/RUNTIME_UNCHANGED.json",
+      "revision": "SELF",
+      "bytes": 22205,
+      "sha256": "1be5ab8e287c46a6649a70acd1140ab9984a6c03a485285e6ead840e6968a915",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/RUN_COMPLETED.json",
+      "revision": "SELF",
+      "bytes": 5771,
+      "sha256": "e8d497b9c89d5ffa7e6b208659b3d11039c368a97a4854e4d636dda3e48b3504",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/SINGLE_AUTHORIZED_RETRY.json",
+      "revision": "SELF",
+      "bytes": 5318,
+      "sha256": "97aa55b1327158994f3ee854d0bae56f085493ca7d44cf83f1a86da8cef874e3",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/SOURCE_BINDING_VERIFICATION.json",
+      "revision": "SELF",
+      "bytes": 1107,
+      "sha256": "5ea55c215d42fa3183293a43f4476d0b84cba7e23f1ab864ce94d729c60958e2",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/authority.log",
+      "revision": "SELF",
+      "bytes": 78,
+      "sha256": "730da87858e3e1329ffe6be348ff28c8a5de3ceef6514104b76aa0371a20bbb8",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/coverage_auto.log",
+      "revision": "SELF",
+      "bytes": 80,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/coverage_base.log",
+      "revision": "SELF",
+      "bytes": 80,
+      "sha256": "1f11ba2abda8ee4bfc59d0588c37147ddcd2e3fd5a11dea02957e5724135ecca",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/jarsigner.log",
+      "revision": "SELF",
+      "bytes": 5586863,
+      "sha256": "a5cc481bad934f2f03ffd750bfd1b50c9bb8855c483fbb18dd0b9ed3fbb8c24c",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/public_certificate.log",
+      "revision": "SELF",
+      "bytes": 829,
+      "sha256": "4f8ab8ce83167d1a02d5b904ae71d70f3939f769f7edc8b8b09b223b7e2d3543",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/roshan-reef.apk.sha256",
+      "revision": "SELF",
+      "bytes": 82,
+      "sha256": "b3970ec44ee6bfb3a81c5ca652ff42e83441f64a7b41556f526d5e39e0c88e5d",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+      "revision": "SELF",
+      "bytes": 624447,
+      "sha256": "40f421c3baafd3251a649f9acff0c89f49b3fb9cb2d02acca0422cbb0a7f3e61",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/README.md",
+      "revision": "SELF",
+      "bytes": 8859,
+      "sha256": "e66a26a9a464b8469f2ac6f55a1de8ac3e03fd33b45f8f1f528874872deda665",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+      "revision": "SELF",
+      "bytes": 428606,
+      "sha256": "1c397669931913182a72010335a9def4c2417947912297b5c735cfd1e4a9361f",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+      "revision": "SELF",
+      "bytes": 2568774,
+      "sha256": "8d22e0717847f655059a32474ecbd8a05074f2b68e4e2c30f4c59e5aba3ff441",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+      "revision": "SELF",
+      "bytes": 2250497,
+      "sha256": "e79b8f53ddfdf55861f476e6a40e2b0167a57a39370b66426dca6b00a57f02a3",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json",
+      "revision": "SELF",
+      "bytes": 898290,
+      "sha256": "fb4c5ad7e79739ed73a6b4d8b1182bca3768119e8c61a3a1d8cef1b3d3bdc105",
+      "role": "actual_matching_Android_delivery_or_current_canonical_metadata"
+    }
+  ],
+  "time": "2026-11-07T14:55:14.272203+00:00"
+}

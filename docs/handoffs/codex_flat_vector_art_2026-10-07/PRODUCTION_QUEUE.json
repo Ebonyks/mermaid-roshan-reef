@@ -282,8 +282,27 @@
     "Dev_integrated": true,
     "new_source_artifact_credit": 1,
     "new_role_credit": 1,
-    "next_step": "Follow actual Dev CI and the matching APK. Formal and external acceptance remain open.",
+    "next_step": "Formal QA11, natural route and full-speed review, device, child and owner evidence remain open. Continue the next eligible documented replacement.",
     "Dev_revision": "0be76936a163628801a5156507f18185878cbaa7",
-    "Dev_CI": 42376706306
+    "Dev_CI": 42376706306,
+    "Android_package_verified": true,
+    "Android_run": 42382208587,
+    "matching_Android": {
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "Dev_CI": 42376706306,
+      "Android_run": 42382208587,
+      "APK_verified": true,
+      "version_code": 2375,
+      "apk_bytes": 931827602,
+      "APK_sha256": "70daac62a8fc1d77bbaca78ae43deeda8f80098f53f82a3db8411148772f68b8",
+      "apk_asset_id": 720985330,
+      "checksum_asset_id": 720985331,
+      "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/APK_VERIFIED.json",
+      "scope": "Anonymous package bytes, exact source guards and checkout, packaged runtime resources, scoped export exclusions and JAR v1 signature.",
+      "physical_device": null,
+      "formal_QA11": null,
+      "child": null,
+      "owner": null
+    }
   }
 }

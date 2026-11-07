@@ -1,0 +1,136 @@
+{
+  "conclusion": "failure",
+  "createdAt": "2026-11-07T14:21:10Z",
+  "databaseId": 42381193692,
+  "event": "workflow_run",
+  "headBranch": "master",
+  "headSha": "ff68f9550c28f7d979896d5c84d1214264c29165",
+  "jobs": [
+    {
+      "completedAt": "2026-11-07T14:33:15Z",
+      "conclusion": "failure",
+      "databaseId": 128428965263,
+      "name": "build",
+      "startedAt": "2026-11-07T14:21:12Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-11-07T14:21:14Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-11-07T14:21:13Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-07T14:30:31Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+          "number": 2,
+          "startedAt": "2026-11-07T14:21:14Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-07T14:30:34Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-java@c1e323688fd81a25caa38c78aa6df2d33d3e20d9",
+          "number": 3,
+          "startedAt": "2026-11-07T14:30:32Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-07T14:30:46Z",
+          "conclusion": "success",
+          "name": "Cache Godot + export templates",
+          "number": 4,
+          "startedAt": "2026-11-07T14:30:34Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-07T14:30:46Z",
+          "conclusion": "skipped",
+          "name": "Download Godot + export templates",
+          "number": 5,
+          "startedAt": "2026-11-07T14:30:46Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-07T14:30:58Z",
+          "conclusion": "success",
+          "name": "Install Godot + export templates",
+          "number": 6,
+          "startedAt": "2026-11-07T14:30:46Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-07T14:30:59Z",
+          "conclusion": "success",
+          "name": "Restore stable signing identity + editor settings",
+          "number": 7,
+          "startedAt": "2026-11-07T14:30:58Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-07T14:32:44Z",
+          "conclusion": "success",
+          "name": "Import project (first run generates .godot resources)",
+          "number": 8,
+          "startedAt": "2026-11-07T14:30:59Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Export debug APK",
+          "number": 9,
+          "startedAt": "2026-11-07T14:32:44Z",
+          "status": "in_progress"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Pick release tag by branch (dev gets its own pre-promotion channel)",
+          "number": 10,
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Publish APK to the prerelease (stable download URL)",
+          "number": 11,
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Post Cache Godot + export templates",
+          "number": 20,
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Post Run actions/setup-java@c1e323688fd81a25caa38c78aa6df2d33d3e20d9",
+          "number": 21,
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+          "number": 22,
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
+        }
+      ],
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42381193692/job/128428965263"
+    }
+  ],
+  "status": "completed",
+  "updatedAt": "2026-11-07T14:33:16Z",
+  "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42381193692"
+}

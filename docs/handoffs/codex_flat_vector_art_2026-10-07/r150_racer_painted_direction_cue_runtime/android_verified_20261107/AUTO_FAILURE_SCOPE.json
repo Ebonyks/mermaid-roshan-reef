@@ -1,0 +1,21 @@
+{
+  "state": "AUTOMATIC_ANDROID_TERMINAL_EXPORT_FAILURE",
+  "run": 42381193692,
+  "job": 128428965263,
+  "workflow_code_head": "ff68f9550c28f7d979896d5c84d1214264c29165",
+  "expected_runtime_source": "0be76936a163628801a5156507f18185878cbaa7",
+  "actual_runtime_checkout": null,
+  "last_observed_step": {
+    "name": "Export debug APK",
+    "status": "in_progress",
+    "conclusion": null,
+    "number": 9,
+    "started_at": "2026-11-07T14:32:44Z",
+    "completed_at": null
+  },
+  "root_cause": "Unhandled exception. System.IO.IOException: No space left on device : '/home/runner/actions-runner/cached/2.338.2/_diag/Worker_20261107-142112-utc.log'\n   at System.IO.RandomAccess.WriteAtOffset(SafeFileHandle handle, ReadOnlySpan`1 buffer, Int64 fileOffset)\n   at System.IO.StreamWriter.Flush(Boolean flushStream, Boolean flushEncoder)\n   at System.Diagnostics.TextWriterTraceListener.Flush()\n   at System.Diagnostics.TraceSource.Flush()\n   at GitHub.Runner.Common.Tracing.Dispose(Boolean disposing)\n   at GitHub.Runner.Common.Tracing.Dispose()\n   at GitHub.Runner.Common.TraceManager.Dispose(Boolean disposing)\n   at GitHub.Runner.Common.TraceManager.Dispose()\n   at GitHub.Runner.Common.HostContext.Dispose(Boolean disposing)\n   at GitHub.Runner.Common.HostContext.Dispose()\n   at GitHub.Runner.Worker.Program.Main(String[] args)\nSystem.IO.IOException: No space left on device : '/home/runner/actions-runner/cached/2.338.2/_diag/Worker_20261107-142112-utc.log'\n   at System.IO.RandomAccess.WriteAtOffset(SafeFileHandle handle, ReadOnlySpan`1 buffer, Int64 fileOffset)\n   at System.IO.StreamWriter.Flush(Boolean flushStream, Boolean flushEncoder)\n   at System.Diagnostics.TextWriterTraceListener.Flush()\n   at GitHub.Runner.Common.HostTraceListener.WriteHeader(String source, TraceEventType eventType, Int32 id)\n   at System.Diagnostics.TraceSource.TraceEvent(TraceEventType eventType, Int32 id, String message)\n   at GitHub.Runner.Worker.Worker.RunAsync(String pipeIn, String pipeOut)\n   at GitHub.Runner.Worker.Worker.RunAsync(String pipeIn, String pipeOut)\n   at GitHub.Runner.Worker.Program.MainAsync(IHostContext context, String[] args)\nSystem.IO.IOException: No space left on device : '/home/runner/actions-runner/cached/2.338.2/_diag/Worker_20261107-142112-utc.log'\n   at System.IO.RandomAccess.WriteAtOffset(SafeFileHandle handle, ReadOnlySpan`1 buffer, Int64 fileOffset)\n   at System.IO.StreamWriter.Flush(Boolean flushStream, Boolean flushEncoder)\n   at System.Diagnostics.TextWriterTraceListener.Flush()\n   at GitHub.Runner.Common.HostTraceListener.WriteHeader(String source, TraceEventType eventType, Int32 id)\n   at System.Diagnostics.TraceSource.TraceEvent(TraceEventType eventType, Int32 id, String message)\n   at GitHub.Runner.Common.Tracing.Error(Exception exception)\n   at GitHub.Runner.Worker.Program.MainAsync(IHostContext context, String[] args)",
+  "notes": "GitHub job is terminal failure, and the package publication step never ran. Root-cause details are recorded only if available in a runner annotation.",
+  "available_log_sha256": "e34fb24e04443d6d084ccc6ab0f85dcb72e912d451675ee9ec96140babf594b7",
+  "recovery": "Use the owner-approved, already integrated Dev-only build path once, with exact current green Dev guards.",
+  "time": "2026-11-07T14:34:03.775895+00:00"
+}

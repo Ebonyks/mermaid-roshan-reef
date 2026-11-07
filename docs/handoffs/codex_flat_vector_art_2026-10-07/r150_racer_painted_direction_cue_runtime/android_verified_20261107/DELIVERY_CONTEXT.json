@@ -1,0 +1,69 @@
+{
+  "matching_Android": {
+    "revision": "0be76936a163628801a5156507f18185878cbaa7",
+    "Dev_CI": 42376706306,
+    "Android_run": 42382208587,
+    "APK_verified": true,
+    "version_code": 2375,
+    "apk_bytes": 931827602,
+    "APK_sha256": "70daac62a8fc1d77bbaca78ae43deeda8f80098f53f82a3db8411148772f68b8",
+    "apk_asset_id": 720985330,
+    "checksum_asset_id": 720985331,
+    "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/android_verified_20261107/APK_VERIFIED.json",
+    "scope": "Anonymous package bytes, exact source guards and checkout, packaged runtime resources, scoped export exclusions and JAR v1 signature.",
+    "physical_device": null,
+    "formal_QA11": null,
+    "child": null,
+    "owner": null
+  },
+  "automatic_incident": {
+    "state": "AUTOMATIC_ANDROID_TERMINAL_EXPORT_FAILURE",
+    "run": 42381193692,
+    "job": 128428965263,
+    "workflow_code_head": "ff68f9550c28f7d979896d5c84d1214264c29165",
+    "expected_runtime_source": "0be76936a163628801a5156507f18185878cbaa7",
+    "actual_runtime_checkout": null,
+    "last_observed_step": {
+      "name": "Export debug APK",
+      "status": "in_progress",
+      "conclusion": null,
+      "number": 9,
+      "started_at": "2026-11-07T14:32:44Z",
+      "completed_at": null
+    },
+    "root_cause": "Unhandled exception. System.IO.IOException: No space left on device : '/home/runner/actions-runner/cached/2.338.2/_diag/Worker_20261107-142112-utc.log'\n   at System.IO.RandomAccess.WriteAtOffset(SafeFileHandle handle, ReadOnlySpan`1 buffer, Int64 fileOffset)\n   at System.IO.StreamWriter.Flush(Boolean flushStream, Boolean flushEncoder)\n   at System.Diagnostics.TextWriterTraceListener.Flush()\n   at System.Diagnostics.TraceSource.Flush()\n   at GitHub.Runner.Common.Tracing.Dispose(Boolean disposing)\n   at GitHub.Runner.Common.Tracing.Dispose()\n   at GitHub.Runner.Common.TraceManager.Dispose(Boolean disposing)\n   at GitHub.Runner.Common.TraceManager.Dispose()\n   at GitHub.Runner.Common.HostContext.Dispose(Boolean disposing)\n   at GitHub.Runner.Common.HostContext.Dispose()\n   at GitHub.Runner.Worker.Program.Main(String[] args)\nSystem.IO.IOException: No space left on device : '/home/runner/actions-runner/cached/2.338.2/_diag/Worker_20261107-142112-utc.log'\n   at System.IO.RandomAccess.WriteAtOffset(SafeFileHandle handle, ReadOnlySpan`1 buffer, Int64 fileOffset)\n   at System.IO.StreamWriter.Flush(Boolean flushStream, Boolean flushEncoder)\n   at System.Diagnostics.TextWriterTraceListener.Flush()\n   at GitHub.Runner.Common.HostTraceListener.WriteHeader(String source, TraceEventType eventType, Int32 id)\n   at System.Diagnostics.TraceSource.TraceEvent(TraceEventType eventType, Int32 id, String message)\n   at GitHub.Runner.Worker.Worker.RunAsync(String pipeIn, String pipeOut)\n   at GitHub.Runner.Worker.Worker.RunAsync(String pipeIn, String pipeOut)\n   at GitHub.Runner.Worker.Program.MainAsync(IHostContext context, String[] args)\nSystem.IO.IOException: No space left on device : '/home/runner/actions-runner/cached/2.338.2/_diag/Worker_20261107-142112-utc.log'\n   at System.IO.RandomAccess.WriteAtOffset(SafeFileHandle handle, ReadOnlySpan`1 buffer, Int64 fileOffset)\n   at System.IO.StreamWriter.Flush(Boolean flushStream, Boolean flushEncoder)\n   at System.Diagnostics.TextWriterTraceListener.Flush()\n   at GitHub.Runner.Common.HostTraceListener.WriteHeader(String source, TraceEventType eventType, Int32 id)\n   at System.Diagnostics.TraceSource.TraceEvent(TraceEventType eventType, Int32 id, String message)\n   at GitHub.Runner.Common.Tracing.Error(Exception exception)\n   at GitHub.Runner.Worker.Program.MainAsync(IHostContext context, String[] args)",
+    "notes": "GitHub job is terminal failure, and the package publication step never ran. Root-cause details are recorded only if available in a runner annotation.",
+    "available_log_sha256": "e34fb24e04443d6d084ccc6ab0f85dcb72e912d451675ee9ec96140babf594b7",
+    "recovery": "Use the owner-approved, already integrated Dev-only build path once, with exact current green Dev guards.",
+    "time": "2026-11-07T14:34:03.775895+00:00"
+  },
+  "production_counts": {
+    "known_roles": 284,
+    "known_families": 36,
+    "published_bounded_source_artifacts": 51,
+    "partial_Dev_artifacts": 50,
+    "retained_bounded_native_events": 8217,
+    "retained_excluded_native_events": 4465,
+    "retained_native_events": 12682,
+    "accepted_removed": 0,
+    "complete_scene_coverage": 0,
+    "whole_game_total": null,
+    "revision": "FV-ANDROID-VERIFIED-20261107-R150"
+  },
+  "delta": {
+    "artifacts": 0,
+    "Dev_artifacts": 0,
+    "roles": 0,
+    "families": 0,
+    "native_events": 0,
+    "generations": 0,
+    "accepted_removed": 0
+  },
+  "remaining_evidence": [
+    "Natural route and full-speed review",
+    "Formal QA11",
+    "Physical Android testing",
+    "Child acceptance",
+    "Owner acceptance"
+  ]
+}
