@@ -2891,3 +2891,7 @@ Dev `3190412c191589e1b65bc4ebb6f48d18cc4dd400` passed CI 42321579190. Android ru
 ## CHG-163 — Record the verified R148 source
 
 Canonical base `4cc747301ce8a78189474a0e475dc278a00157ec` records the painted item frame from `774b0d134be93c5751ac8c03efeec85c8a854674`. The candidate depends on its new frame import. A quieter empty control can be less apparent at small screen sizes. The configured review records the adjusted opacity, and device evidence remains open. A registry correction would amend the current metadata while keeping the actual source and historical frame evidence. [Source intake](../docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/README.md) · [Impact](../design/audit_impacts/flat-vector-r148-canonical-source-20261107.json)
+
+## CHG-164 — Record R148 Dev integration
+
+Canonical base `b0b139130f72333cbb41e1269c0636bffb40733e` records exact Dev `774b0d134be93c5751ac8c03efeec85c8a854674` and adds one partial Dev artifact. Its runtime depends on the R148 frame import. Natural and device checks must still establish readability at speed. A registry correction would amend the canonical metadata and keep the actual source and prior delivery history. [Dev evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/README.md) · [Impact](../design/audit_impacts/flat-vector-r148-canonical-dev-20261107.json)

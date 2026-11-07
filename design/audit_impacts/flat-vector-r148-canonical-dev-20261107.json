@@ -1,0 +1,81 @@
+{
+  "id": "flat-vector-r148-canonical-dev-20261107",
+  "baseline": "b0b139130f72333cbb41e1269c0636bffb40733e",
+  "scope": "Record verified normal Dev integration of R148 under the existing control role.",
+  "rules": [
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-MED-01",
+    "DL-PERF-02",
+    "DL-PERF-03",
+    "DL-QA-11",
+    "DL-QA-12",
+    "DL-QA-14",
+    "DL-QA-15",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-UI-01",
+    "DL-UI-02",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-UI-06",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-07"
+  ],
+  "findings": [
+    "MA-VIS-008"
+  ],
+  "files": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/flat-vector-r148-canonical-dev-20261107.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_QUEUE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/PRODUCTION_RECORD.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/DEV_CI_AT_INTAKE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/DEV_INTEGRATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/PRIOR_CANONICAL_SOURCE_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/RUNTIME_UNCHANGED.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/authority.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/coverage_auto.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/coverage_base.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Both source jobs succeeded and actual Dev includes the candidate",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/DEV_INTEGRATION.json"
+    },
+    {
+      "command": "Document authority and exact scope gates",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/GATES.json"
+    }
+  ],
+  "acceptance_gaps": "Matching APK, formal QA11, natural and full-speed context, device, child and owner remain separate."
+}

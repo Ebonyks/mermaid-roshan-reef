@@ -2105,3 +2105,5 @@ R147 source production2026-11-06: [painted Racer steering](../../docs/handoffs/c
 R147 actualDev integration2026-11-07: [painted steering source319](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/dev_integration_20261107/README.md) passes bothsourceCIjobs and is integrated by normalDevpush. OnepartialDevartifact46to47, source48/roles282/families36/native12528 unchanged. MA-VIS-008 lifecycle and broaderhistoricFV031 coverage unchanged; currentDevCI/APK and formal/device/child/owner remainseparate.
 
 R148 contributes a verified painted candidate for the existing Racer Turbo control frame under MA-VIS-008. It covers configured touch item states. Formal and external acceptance remain open. [Source intake](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/README.md)
+
+R148 now integrates the painted item frame into Dev after both source jobs passed. MA-VIS-008 remains open for formal and external acceptance and other scoped artwork. [Dev evidence](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/README.md)

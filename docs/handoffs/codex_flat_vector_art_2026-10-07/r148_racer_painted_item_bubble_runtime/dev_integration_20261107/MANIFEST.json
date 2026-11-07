@@ -1,0 +1,245 @@
+{
+  "state": "SEALED_EXACT_STAGED_GIT_BYTES",
+  "id": "FV-R148-CANONICAL-DEV-20261107",
+  "baseline": "b0b139130f72333cbb41e1269c0636bffb40733e",
+  "actual_game_source": "774b0d134be93c5751ac8c03efeec85c8a854674",
+  "source_CI": 42338624384,
+  "Dev_CI": 42343247604,
+  "delta": {
+    "partial_Dev_artifacts": 1,
+    "source_artifacts": 0,
+    "roles": 0,
+    "families": 0,
+    "native_events": 0,
+    "generations": 0,
+    "accepted_removed": 0,
+    "complete_scenes": 0
+  },
+  "current_counts": {
+    "known_roles": 282,
+    "known_families": 36,
+    "published_bounded_source_artifacts": 49,
+    "partial_Dev_artifacts": 48,
+    "retained_bounded_native_events": 8161,
+    "retained_excluded_native_events": 4457,
+    "retained_native_events": 12618,
+    "accepted_removed": 0,
+    "complete_scene_coverage": 0,
+    "whole_game_total": null,
+    "revision": "FV-DEV-20261107-R148-PAINTED-ITEM-BUBBLE"
+  },
+  "mission_complete": false,
+  "files": [
+    {
+      "path": "assets/racer/ui/item_bubble_frame_painted.png",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "bytes": 271561,
+      "sha256": "f26803c30c83ad995444f1ece1db686565eed6edd444f8fb1f1f36aec19dd1b3",
+      "role": "Painted runtime derivative"
+    },
+    {
+      "path": "assets/racer/ui/item_bubble_frame_painted.png.import",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "bytes": 995,
+      "sha256": "bde2b3a8626c595b201b6792c3148db6c1df2b6f3b012a6d922030e55db0fdf6",
+      "role": "Lossless runtime import"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/TEN_AXIS_COMPARISON.json",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "bytes": 2989,
+      "sha256": "a7ed7feb67809ea9175e553bae747ffbf3a1dab537c725d26d63f96cb929eea5",
+      "role": "Current configured in-scene review"
+    },
+    {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "bytes": 64676,
+      "sha256": "35bbdd23e24d5564911432e41a44b5f44c91b5647965e027b28c0c868157dffb",
+      "role": "Existing control draw using painted frame"
+    },
+    {
+      "path": ".gitattributes",
+      "revision": "SELF",
+      "bytes": 16754,
+      "sha256": "1b13b3932f086b348eecf44276155c44781aa1d7731f1bdaac33bb3d64a3c13c",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "revision": "SELF",
+      "bytes": 308910,
+      "sha256": "ffcc507b3c13c5f19a1aa9d6c8ba2712a52cdc914f7d919e3bb5613d2868e019",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "revision": "SELF",
+      "bytes": 344558,
+      "sha256": "6b554221b8a15b2fdb1ebf49a5cf28b0b2e8ec3182622e3ed4c633d415d7cd64",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "revision": "SELF",
+      "bytes": 377129,
+      "sha256": "9769e4d7c3d91e9f5dfe43114c0c68019ce94c320a8c452e3fff9fedfcc59574",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "revision": "SELF",
+      "bytes": 288136,
+      "sha256": "f91f1c1f997217709823e3c8b7f62c41a97417099229541611bdeafd627f4c30",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-r148-canonical-dev-20261107.json",
+      "revision": "SELF",
+      "bytes": 4114,
+      "sha256": "99a1890e044b7a45e8df83375e11c6d484cd6ff3eaae1fec56a408ee9317f664",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "revision": "SELF",
+      "bytes": 366040,
+      "sha256": "0d4c797c580ea504b754fb0d78dd46dfe7200a3fb5180f072b088ed46e37d9a4",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_QUEUE.json",
+      "revision": "SELF",
+      "bytes": 12269,
+      "sha256": "474991d00168e58167d996690ce9b24820940fb51f1fa9d555ea7970e8b1beac",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+      "revision": "SELF",
+      "bytes": 10188,
+      "sha256": "17aee1b95c34113f6e813ef4f2c311ce323d918caebe5ab75b852f55171fe231",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/PRODUCTION_RECORD.json",
+      "revision": "SELF",
+      "bytes": 5024,
+      "sha256": "c61cb7693fc602fde8ee5df76181cd9ab2cab08504a9018de246bae20f02ace1",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/README.md",
+      "revision": "SELF",
+      "bytes": 1559,
+      "sha256": "2ac81986273d7d2d6f2e577b77f9f6738871fb56afaeb51d9d268181dbba0da0",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/DEV_CI_AT_INTAKE.json",
+      "revision": "SELF",
+      "bytes": 9077,
+      "sha256": "be3507ce56db52034c1478036c91c17ab78ea93d8711c2a3e823ffc190ab4bc6",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/DEV_INTEGRATION.json",
+      "revision": "SELF",
+      "bytes": 11178,
+      "sha256": "c343987373fcb007048d255c91c93bf2d422f4a5aaad57896342b8750342d9e6",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/GATES.json",
+      "revision": "SELF",
+      "bytes": 1471,
+      "sha256": "6be008c3bd7a8a0cd516527d7d8a78180a133c0965c50dc756154df5a431ae35",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/PRIOR_CANONICAL_SOURCE_REMOTE_VERIFICATION.json",
+      "revision": "SELF",
+      "bytes": 23585,
+      "sha256": "0a93dd4c3a998cbfa93c97326f1323ff462a299a5ada21e450039c3ef2302ac4",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/README.md",
+      "revision": "SELF",
+      "bytes": 860,
+      "sha256": "9697a1bf4865aded77c7076ef920474bd2cc25cbd467d76ba2aa59bc33b95c69",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/RUNTIME_UNCHANGED.json",
+      "revision": "SELF",
+      "bytes": 21766,
+      "sha256": "426b63bbb4a23d00b9c2a732bfbd823bf04fdc84f7dd77527ef0b62ec0c167d1",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/authority.log",
+      "revision": "SELF",
+      "bytes": 78,
+      "sha256": "e497437b7a344bf6076b07fa68887f6a4a8a3d1541dc30fe87c9b52ebc1a237a",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/coverage_auto.log",
+      "revision": "SELF",
+      "bytes": 80,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/coverage_base.log",
+      "revision": "SELF",
+      "bytes": 80,
+      "sha256": "9d91f5b0b3962396f85e285a7c333434491ab63171e8ac2e5f2c29d469de5a94",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+      "revision": "SELF",
+      "bytes": 604029,
+      "sha256": "9bc2b74b0b2b0ac025ad03aa4558d0fb357bab3abbbe3392a87b6a9ae4880281",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/README.md",
+      "revision": "SELF",
+      "bytes": 6481,
+      "sha256": "cd1e0236d7c6857904db5b6c692d74edacda842b0af0eb542b2c29f7cb21d85f",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+      "revision": "SELF",
+      "bytes": 406444,
+      "sha256": "1da316d52a6c43a3084bd53c3b91051de9f15b7e68c4b143701542f8164b6030",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+      "revision": "SELF",
+      "bytes": 2535732,
+      "sha256": "b1092055371cea3dc084d69c36be2ff4add0f610faf5b1ecd10609a5eb579b40",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+      "revision": "SELF",
+      "bytes": 2227096,
+      "sha256": "941184bfc73bf13f8d8c92bdf2c656d96633dc52d6d00ffc53636897a0a3c6cb",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json",
+      "revision": "SELF",
+      "bytes": 876324,
+      "sha256": "5437d74a53cb408667d9874d85f25ce29e5b6064edac4f5753039d412a690c6e",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    }
+  ],
+  "time": "2026-11-07T05:35:26.035977+00:00"
+}

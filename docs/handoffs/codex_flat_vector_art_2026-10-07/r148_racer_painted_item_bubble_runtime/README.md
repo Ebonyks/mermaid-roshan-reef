@@ -7,3 +7,7 @@ The source passed 88 local commands. At both configured viewport widths, changes
 49 bounded source artifacts and 47 partial Dev artifacts. Named role and family lower bounds are 282 and 36. R148 adds one bounded source artifact for the existing Turbo control frame. Retained events are 8,161 bounded and 4,457 excluded, totaling 12,618. Formal, device, child and owner acceptance remain open. Whole-game totals remain unknown.
 
 Formal QA11, natural routes, full-speed review, physical device testing, child and owner acceptance are separate from local and package checks. [Canonical manifest](CANONICAL_MANIFEST.json)
+
+## Dev integration
+
+The verified R148 candidate is on Dev. [Dev evidence](dev_integration_20261107/README.md)

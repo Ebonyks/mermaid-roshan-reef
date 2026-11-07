@@ -1,7 +1,7 @@
 {
   "schema": "reef.flat_vector_tally/1",
   "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
-  "revision": "FV-PRODUCTION-20261107-R148-PAINTED-ITEM-BUBBLE",
+  "revision": "FV-DEV-20261107-R148-PAINTED-ITEM-BUBBLE",
   "status_lanes": [
     "NEEDS_CONTEXT_REVIEW",
     "IDENTIFIED",
@@ -10375,7 +10375,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "49 bounded source artifacts and 47 partial Dev artifacts. Named role and family lower bounds are 282 and 36. R148 adds one bounded source artifact for the existing Turbo control frame. Retained events are 8,161 bounded and 4,457 excluded, totaling 12,618. Formal, device, child and owner acceptance remain open. Whole-game totals remain unknown.",
+  "current_effective_summary": "49 bounded source artifacts and 48 partial Dev artifacts. R148 joins Dev under the existing Turbo control frame ID. The named role and family lower bounds remain 282 and 36. Retained native events are 8,161 bounded and 4,457 excluded. Formal, device, child and owner acceptance and whole-game totals remain open.",
   "intro_entry_ownership": {
     "revision": "FV-AUDIT-20261016-R77",
     "topic_baseline": "7fd93aa0d2036c06c9a65aea6c79a990cc9ae01b",
@@ -11574,7 +11574,7 @@
     "mission_complete": false,
     "recorded_at_utc": "2026-10-29T06:35:35.079787+00:00"
   },
-  "partial_dev_artifacts_current_summary": 47,
+  "partial_dev_artifacts_current_summary": 48,
   "r102_mint_runtime": {
     "stable_id": "FV-66629DC58A20",
     "scope": "First mint PAN specimen only; blue/lavender and shared helper consumers remain open.",
@@ -13685,7 +13685,7 @@
     "excluded": 2,
     "retained": 28
   },
-  "new_partial_Dev_artifacts_this_revision": 0,
+  "new_partial_Dev_artifacts_this_revision": 1,
   "r120_parent_receipt_revision": "3c3b39838b2ceacb13281a83957442662ca2f5b9",
   "r120_melody_curtains_runtime": {
     "stable_ids": [
@@ -18187,7 +18187,7 @@
     "whole_game_total": null,
     "revision": "FV-INTEGRATION-20261105-R143-RACER-AND-RECENT-DEV"
   },
-  "new_bounded_source_artifacts_this_revision": 1,
+  "new_bounded_source_artifacts_this_revision": 0,
   "r144_prior_effective_summary": "SUMMARY.json. 44 published bounded source artifacts,43partial Dev artifacts,280named roles and36families as lower bounds;8030bounded/4394excluded/12424retained native events;0accepted removals and0complete scene coverage;whole-game denominators remain unknown.",
   "r144_shared_painted_shell_runtime": {
     "state": "PAINTED_SHARED_SHELL_DEV_PARTIAL_EXACT_SOURCE_CI_GREEN_FORMAL_EXTERNAL_OPEN",
@@ -20371,14 +20371,14 @@
     "known_roles": 282,
     "known_families": 36,
     "published_bounded_source_artifacts": 49,
-    "partial_Dev_artifacts": 47,
+    "partial_Dev_artifacts": 48,
     "retained_bounded_native_events": 8161,
     "retained_excluded_native_events": 4457,
     "retained_native_events": 12618,
     "accepted_removed": 0,
     "complete_scene_coverage": 0,
     "whole_game_total": null,
-    "revision": "FV-PRODUCTION-20261107-R148-PAINTED-ITEM-BUBBLE"
+    "revision": "FV-DEV-20261107-R148-PAINTED-ITEM-BUBBLE"
   },
   "r148_revision_delta": {
     "source_artifacts": 1,
@@ -20399,7 +20399,7 @@
     "current_role": "Racer touch item bubble frame",
     "family": "opera_racer",
     "artifact_key": "r148_racer_painted_item_bubble_runtime",
-    "state": "PUBLISHED_SOURCE_CANDIDATE_LOCAL_MACHINE_AND_CONTEXT_PASS",
+    "state": "SOURCE_VERIFIED_INTEGRATED_ON_DEV",
     "source_revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
     "source_parent": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
     "branch": "codex/flat-vector-racer-item-bubble-painted-20261107",
@@ -20491,8 +20491,8 @@
     },
     "original_builtin_generation_calls": 1,
     "model_version": null,
-    "Dev_integration": false,
-    "Dev_revision": null,
+    "Dev_integration": true,
+    "Dev_revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
     "matching_APK": null,
     "formal_QA11": null,
     "device": null,
@@ -20502,16 +20502,38 @@
     "complete_scenes": 0,
     "whole_game_total": null,
     "mission_complete": false,
-    "source_finding": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/774b0d134be93c5751ac8c03efeec85c8a854674/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014"
+    "source_finding": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/774b0d134be93c5751ac8c03efeec85c8a854674/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014",
+    "exact_source_CI": {
+      "run": 42338624384,
+      "conclusion": "success",
+      "source": "774b0d134be93c5751ac8c03efeec85c8a854674"
+    },
+    "Dev_CI_at_intake": {
+      "run": 42343247604,
+      "status": "in_progress",
+      "conclusion": "",
+      "source": "774b0d134be93c5751ac8c03efeec85c8a854674"
+    },
+    "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/dev_integration_20261107/DEV_INTEGRATION.json"
   },
   "r148_counter_units": {
     "source_artifacts": 49,
-    "partial_Dev_artifacts": 47,
+    "partial_Dev_artifacts": 48,
     "named_roles_lower_bound": 282,
     "families_lower_bound": 36,
     "runtime_textures_this_artifact": 1,
     "retained_native_events": 12618,
     "accepted_artwork_removals": 0,
     "whole_game_total": null
+  },
+  "r148_dev_revision_delta": {
+    "partial_Dev_artifacts": 1,
+    "source_artifacts": 0,
+    "roles": 0,
+    "families": 0,
+    "native_events": 0,
+    "generations": 0,
+    "accepted_removed": 0,
+    "complete_scenes": 0
   }
 }
