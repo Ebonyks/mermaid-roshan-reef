@@ -28890,7 +28890,7 @@
     }
   ],
   "coverage_note": "Craft80 guarded API fixture adds game.craft_studio partial alias;77/176partial,0complete,99without. Natural/full states/acceptance and distinct screen total remain unknown.",
-  "revision": "FV-PRODUCTION-20261107-R149-PAINTED-MINIMAP",
+  "revision": "FV-DEV-20261107-R149-PAINTED-MINIMAP",
   "partial_entries": 78,
   "complete_entries": 0,
   "entries_without_current_slice": 98,
@@ -36805,7 +36805,7 @@
       "other need/growth/action variants"
     ]
   },
-  "current_effective_summary": "50 bounded source artifacts and 48 partial Dev artifacts. The minimap backing is now individually recorded within the existing Racer HUD scope. Named role and family lower bounds are 283 and 36. Retained events total 12,658, with 8,201 bounded and 4,457 excluded. Formal, device, child and owner acceptance remain open. Whole-game totals remain unknown.",
+  "current_effective_summary": "50 bounded source artifacts and 49 partial Dev artifacts. R149 joins Dev under its individually tracked minimap backing ID. The named role and family lower bounds remain 283 and 36. Retained native events are 8,201 bounded and 4,457 excluded. Formal, device, child and owner acceptance remain open. Whole-game totals remain unknown.",
   "intro_entry_ownership": {
     "revision": "FV-AUDIT-20261016-R77",
     "topic_baseline": "7fd93aa0d2036c06c9a65aea6c79a990cc9ae01b",
@@ -46309,14 +46309,14 @@
     "known_roles": 283,
     "known_families": 36,
     "published_bounded_source_artifacts": 50,
-    "partial_Dev_artifacts": 48,
+    "partial_Dev_artifacts": 49,
     "retained_bounded_native_events": 8201,
     "retained_excluded_native_events": 4457,
     "retained_native_events": 12658,
     "accepted_removed": 0,
     "complete_scene_coverage": 0,
     "whole_game_total": null,
-    "revision": "FV-PRODUCTION-20261107-R149-PAINTED-MINIMAP"
+    "revision": "FV-DEV-20261107-R149-PAINTED-MINIMAP"
   },
   "r149_revision_delta": {
     "source_artifacts": 1,
@@ -46337,7 +46337,7 @@
     "current_role": "Minimap backing across Opera and PC",
     "family": "opera_racer",
     "artifact_key": "r149_racer_painted_minimap_runtime",
-    "state": "PUBLISHED_SOURCE_CANDIDATE_LOCAL_MACHINE_AND_CONTEXT_PASS",
+    "state": "SOURCE_VERIFIED_INTEGRATED_ON_DEV",
     "source_revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
     "source_parent": "774b0d134be93c5751ac8c03efeec85c8a854674",
     "branch": "codex/flat-vector-racer-minimap-painted-20261107",
@@ -46422,8 +46422,8 @@
     },
     "original_builtin_generation_calls": 1,
     "model_version": null,
-    "Dev_integration": false,
-    "Dev_revision": null,
+    "Dev_integration": true,
+    "Dev_revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
     "matching_APK": null,
     "formal_QA11": null,
     "device": null,
@@ -46433,7 +46433,19 @@
     "complete_scenes": 0,
     "whole_game_total": null,
     "mission_complete": false,
-    "source_finding": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/118acf6c090dd42307a281f0b13e0e114bf62b54/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014"
+    "source_finding": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/118acf6c090dd42307a281f0b13e0e114bf62b54/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014",
+    "exact_source_CI": {
+      "run": 42355721540,
+      "conclusion": "success",
+      "source": "118acf6c090dd42307a281f0b13e0e114bf62b54"
+    },
+    "Dev_CI_at_intake": {
+      "run": 42360085376,
+      "status": "in_progress",
+      "conclusion": "",
+      "source": "118acf6c090dd42307a281f0b13e0e114bf62b54"
+    },
+    "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/dev_integration_20261107/DEV_INTEGRATION.json"
   },
   "r149_current_partial_route_overlay": {
     "family": "opera_racer",
@@ -46463,6 +46475,17 @@
     "formal_QA11": null,
     "device": null,
     "child": null,
-    "owner": null
+    "owner": null,
+    "Dev_revision": "118acf6c090dd42307a281f0b13e0e114bf62b54"
+  },
+  "r149_dev_revision_delta": {
+    "partial_Dev_artifacts": 1,
+    "source_artifacts": 0,
+    "roles": 0,
+    "families": 0,
+    "native_events": 0,
+    "generations": 0,
+    "accepted_removed": 0,
+    "complete_scenes": 0
   }
 }

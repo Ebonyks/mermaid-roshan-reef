@@ -29913,7 +29913,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-PRODUCTION-20261107-R149-PAINTED-MINIMAP",
+  "revision": "FV-DEV-20261107-R149-PAINTED-MINIMAP",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -35962,10 +35962,10 @@
         "actual_backend": "Built-in image_gen.imagegen. Model revision unexposed.",
         "protected_originals_modified_or_passed_to_ImageGen": false
       },
-      "status": "PUBLISHED_SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "status": "PAINTED_MINIMAP_BACKING_PARTIAL_DEV_CANDIDATE",
       "evidence_level": "PUBLISHED_SOURCE_AND_REVIEWED_SAME_SCENE_NATIVE_DIAGNOSTICS",
       "source_revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
-      "integration_sha": null,
+      "integration_sha": "118acf6c090dd42307a281f0b13e0e114bf62b54",
       "ten_axis_comparison": {
         "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/TEN_AXIS_COMPARISON.json",
         "revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
@@ -35993,7 +35993,7 @@
       "acceptance_evidence": {
         "candidate": true,
         "source_work_branch_integrated": true,
-        "Dev_integrated": false,
+        "Dev_integrated": true,
         "runtime_verified_replacement": false,
         "configured_Mobile": true,
         "Opera_Speedy": true,
@@ -43923,7 +43923,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "50 bounded source artifacts and 48 partial Dev artifacts. The minimap backing is now individually recorded within the existing Racer HUD scope. Named role and family lower bounds are 283 and 36. Retained events total 12,658, with 8,201 bounded and 4,457 excluded. Formal, device, child and owner acceptance remain open. Whole-game totals remain unknown.",
+  "current_effective_summary": "50 bounded source artifacts and 49 partial Dev artifacts. R149 joins Dev under its individually tracked minimap backing ID. The named role and family lower bounds remain 283 and 36. Retained native events are 8,201 bounded and 4,457 excluded. Formal, device, child and owner acceptance remain open. Whole-game totals remain unknown.",
   "unresolved_care_glyph_scopes": [
     "neutral/title heart U+2665 versus cuddle U+2764 attribution",
     "disabled Change-palette pictogram",
@@ -52142,7 +52142,7 @@
   "retained_excluded_current_summary": 4457,
   "retained_native_events_current_summary": 12658,
   "bounded_implementation_artifacts_published_current_summary": 50,
-  "partial_dev_artifacts_current_summary": 48,
+  "partial_dev_artifacts_current_summary": 49,
   "r145_prior_to_Dev_integration": {
     "revision": "FV-SOURCE-20261106-R145-RACER-ZONES-PAINTED-FIXTURE",
     "current_effective_summary": "46 published bounded source artifacts,44 partial Dev artifacts;281 named roles and36 families remain lower bounds. Retained per-piece events8073 bounded/4398 excluded/12471 total. Accepted removals0, complete scenes0, whole-game totals unknown. R145 source cafce6e8 is published with exact hosted CI running; Dev pending. Formal and external acceptance remain open.",
@@ -53715,14 +53715,14 @@
     "known_roles": 283,
     "known_families": 36,
     "published_bounded_source_artifacts": 50,
-    "partial_Dev_artifacts": 48,
+    "partial_Dev_artifacts": 49,
     "retained_bounded_native_events": 8201,
     "retained_excluded_native_events": 4457,
     "retained_native_events": 12658,
     "accepted_removed": 0,
     "complete_scene_coverage": 0,
     "whole_game_total": null,
-    "revision": "FV-PRODUCTION-20261107-R149-PAINTED-MINIMAP"
+    "revision": "FV-DEV-20261107-R149-PAINTED-MINIMAP"
   },
   "r149_revision_delta": {
     "source_artifacts": 1,
@@ -53743,7 +53743,7 @@
     "current_role": "Minimap backing across Opera and PC",
     "family": "opera_racer",
     "artifact_key": "r149_racer_painted_minimap_runtime",
-    "state": "PUBLISHED_SOURCE_CANDIDATE_LOCAL_MACHINE_AND_CONTEXT_PASS",
+    "state": "SOURCE_VERIFIED_INTEGRATED_ON_DEV",
     "source_revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
     "source_parent": "774b0d134be93c5751ac8c03efeec85c8a854674",
     "branch": "codex/flat-vector-racer-minimap-painted-20261107",
@@ -53828,8 +53828,8 @@
     },
     "original_builtin_generation_calls": 1,
     "model_version": null,
-    "Dev_integration": false,
-    "Dev_revision": null,
+    "Dev_integration": true,
+    "Dev_revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
     "matching_APK": null,
     "formal_QA11": null,
     "device": null,
@@ -53839,6 +53839,28 @@
     "complete_scenes": 0,
     "whole_game_total": null,
     "mission_complete": false,
-    "source_finding": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/118acf6c090dd42307a281f0b13e0e114bf62b54/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014"
+    "source_finding": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/118acf6c090dd42307a281f0b13e0e114bf62b54/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014",
+    "exact_source_CI": {
+      "run": 42355721540,
+      "conclusion": "success",
+      "source": "118acf6c090dd42307a281f0b13e0e114bf62b54"
+    },
+    "Dev_CI_at_intake": {
+      "run": 42360085376,
+      "status": "in_progress",
+      "conclusion": "",
+      "source": "118acf6c090dd42307a281f0b13e0e114bf62b54"
+    },
+    "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/dev_integration_20261107/DEV_INTEGRATION.json"
+  },
+  "r149_dev_revision_delta": {
+    "partial_Dev_artifacts": 1,
+    "source_artifacts": 0,
+    "roles": 0,
+    "families": 0,
+    "native_events": 0,
+    "generations": 0,
+    "accepted_removed": 0,
+    "complete_scenes": 0
   }
 }

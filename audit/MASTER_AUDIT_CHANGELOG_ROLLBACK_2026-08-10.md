@@ -2903,3 +2903,7 @@ Canonical base `08756e0cc9a0fec743363f979cf9bfb17a1c1647` records package eviden
 ## CHG-167 — Record the verified R149 source
 
 Canonical base `48571bb1462b665e4ae8a05c371a64202cc25c03` records the painted minimap backing from `118acf6c090dd42307a281f0b13e0e114bf62b54`. The candidate depends on its new texture import. A darker backing can change map contrast. Configured comparisons cover both sizes, and device evidence remains open. A registry correction would amend the current metadata while keeping the actual source and historical frame evidence. [Source intake](../docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/README.md) · [Impact](../design/audit_impacts/flat-vector-r149-canonical-source-20261107.json)
+
+## CHG-168 — Record R149 Dev integration
+
+Canonical base `295900b6da67c34d463bfd1f5222aad1f2742bbe` records exact Dev `118acf6c090dd42307a281f0b13e0e114bf62b54` and adds one partial Dev artifact. Its runtime depends on the R149 minimap import. Natural and device checks must still establish readability at speed. A registry correction would amend the canonical metadata and keep the actual source and prior delivery history. [Dev evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/dev_integration_20261107/README.md) · [Impact](../design/audit_impacts/flat-vector-r149-canonical-dev-20261107.json)

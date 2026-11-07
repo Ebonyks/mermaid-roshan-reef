@@ -1,17 +1,17 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-PRODUCTION-20261107-R149-PAINTED-MINIMAP",
-  "current_entry": "r149_racer_painted_minimap_runtime/README.md",
+  "revision": "FV-DEV-20261107-R149-PAINTED-MINIMAP",
+  "current_entry": "r149_racer_painted_minimap_runtime/dev_integration_20261107/README.md",
   "current_per_piece": "r96_geologist_mineral_candidate/per_piece.json",
   "current_scene_coverage": "r96_geologist_mineral_candidate/scene_coverage.json",
   "current_tally": "r96_geologist_mineral_candidate/tally.json",
   "current_backlog": "r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/CANONICAL_MANIFEST.json",
+  "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/dev_integration_20261107/MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/SOURCE_CI_AT_INTAKE.json",
+  "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/dev_integration_20261107/DEV_CI_AT_INTAKE.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -7105,7 +7105,7 @@
   "immutable_r143_receipt_revision": "504c290443c280ae543cb5caa1fe671340821ad4",
   "immutable_r144_payload_revision": "4bd9101a5b88ce8f0388917f297a849403e01ef3",
   "current_payload_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/118acf6c090dd42307a281f0b13e0e114bf62b54/docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/MANIFEST.json",
-  "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/SOURCE_REMOTE_VERIFICATION.json",
+  "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/dev_integration_20261107/PRIOR_CANONICAL_SOURCE_REMOTE_VERIFICATION.json",
   "immutable_r144_receipt_revision": "d7c61f2636b4828a5158b3276dffdf695e5eeee3",
   "previous_receipt_manifest": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/d7c61f2636b4828a5158b3276dffdf695e5eeee3/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/RECEIPT_MANIFEST.json",
   "r144_prior_current_art_source_context": {
@@ -8199,7 +8199,7 @@
     "current_role": "Minimap backing across Opera and PC",
     "family": "opera_racer",
     "artifact_key": "r149_racer_painted_minimap_runtime",
-    "state": "PUBLISHED_SOURCE_CANDIDATE_LOCAL_MACHINE_AND_CONTEXT_PASS",
+    "state": "SOURCE_VERIFIED_INTEGRATED_ON_DEV",
     "source_revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
     "source_parent": "774b0d134be93c5751ac8c03efeec85c8a854674",
     "branch": "codex/flat-vector-racer-minimap-painted-20261107",
@@ -8284,8 +8284,8 @@
     },
     "original_builtin_generation_calls": 1,
     "model_version": null,
-    "Dev_integration": false,
-    "Dev_revision": null,
+    "Dev_integration": true,
+    "Dev_revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
     "matching_APK": null,
     "formal_QA11": null,
     "device": null,
@@ -8295,6 +8295,25 @@
     "complete_scenes": 0,
     "whole_game_total": null,
     "mission_complete": false,
-    "source_finding": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/118acf6c090dd42307a281f0b13e0e114bf62b54/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014"
+    "source_finding": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/118acf6c090dd42307a281f0b13e0e114bf62b54/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014",
+    "exact_source_CI": {
+      "run": 42355721540,
+      "conclusion": "success",
+      "source": "118acf6c090dd42307a281f0b13e0e114bf62b54"
+    },
+    "Dev_CI_at_intake": {
+      "run": 42360085376,
+      "status": "in_progress",
+      "conclusion": "",
+      "source": "118acf6c090dd42307a281f0b13e0e114bf62b54"
+    },
+    "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/dev_integration_20261107/DEV_INTEGRATION.json"
+  },
+  "r149_prior_to_Dev_navigation": {
+    "revision": "FV-PRODUCTION-20261107-R149-PAINTED-MINIMAP",
+    "current_entry": "r149_racer_painted_minimap_runtime/README.md",
+    "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/CANONICAL_MANIFEST.json",
+    "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/SOURCE_CI_AT_INTAKE.json"
   }
 }
