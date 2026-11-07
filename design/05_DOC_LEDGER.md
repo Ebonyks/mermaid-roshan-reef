@@ -1450,3 +1450,5 @@ The bounded 2026-11-01 [Chapter Two startup watchdog prerequisite](audit_impacts
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/README.md` | 🔵 | `SUPPORTING_CURRENT`. R149 painted map backing source and configured view comparison with separate acceptance lanes. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/README.md` | 🔵 | `SUPPORTING_CURRENT`. R150 painted direction cue and bounded configured recovery evidence. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r151_racer_painted_countdown_lights_runtime/README.md` | 🔵 | `SUPPORTING_CURRENT`. R151 painted countdown lamps and bounded configured start and retry evidence. |

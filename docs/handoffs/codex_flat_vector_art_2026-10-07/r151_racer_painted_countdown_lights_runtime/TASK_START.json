@@ -1,0 +1,85 @@
+{
+  "id": "R151",
+  "stable_id": "FVR-F34602134988",
+  "stable_id_seed": "opera_racer|reef_kart_race|countdown_lights",
+  "baseline": "0be76936a163628801a5156507f18185878cbaa7",
+  "branch": "codex/flat-vector-racer-countdown-lights-20261107",
+  "task": "Replace the flat countdown discs with painted storybook signal-lamp art for the existing dim and lit states.",
+  "documented_existing_scope": {
+    "path": "docs/handoffs/codex_reef_kart_art_2026-11-03/ART_REQUESTS.md",
+    "revision": "0be76936a163628801a5156507f18185878cbaa7",
+    "sha256": "63eea6d129243aa5b1f27187a9282945142d386c32ae5f233b0154d68d3d29b9",
+    "bytes": 9059
+  },
+  "source": {
+    "path": "scripts/racer/reef_kart_race.gd",
+    "revision": "0be76936a163628801a5156507f18185878cbaa7",
+    "sha256": "7fc2bae43da27f32871545b3e4b0163e92a2df7967068e4b2aecdcf7ddd0e089",
+    "bytes": 64643
+  },
+  "style_refs": [
+    {
+      "path": "assets/racer/ui/gas_button_painted.png",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "sha256": "79f9dee0a1db33980e0d3fd24627bb25a85119d956b15a62a700de7f3741af29",
+      "bytes": 308133
+    },
+    {
+      "path": "assets/racer/ui/minimap_backplate_painted.png",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "sha256": "c1d166d60978087380530c7fc06a948bb600e562ec733c6db529f0754b97a1b9",
+      "bytes": 301571
+    }
+  ],
+  "canonical_registry_base": "b1572643ceab887e18a86f33008c40bbb62ac51f",
+  "prior_goal_turn": "PROGRESS_R149_AND_R150_EXACT_DEV_AND_APK_DELIVERED",
+  "findings": [
+    "MA-VIS-008",
+    "MA-OPERA-014"
+  ],
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-READ-03",
+    "DL-READ-04",
+    "DL-INT-03",
+    "DL-INT-10",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-MED-01",
+    "DL-PERF-02",
+    "DL-PERF-03",
+    "DL-QA-11",
+    "DL-QA-12",
+    "DL-QA-14",
+    "DL-QA-15"
+  ],
+  "route_scope": "Opera Movie Lounge Racer initial and retry countdown. PC uses its own HUD and is an exclusion check. Grid and GO are adjacent states and negative controls.",
+  "change_boundary": "One countdown light role with dim and lit states and three existing instances. Preserve scene positions, thresholds, audio, touch and saves.",
+  "export_scope": "Full current scene captured and reviewed locally. Only unprotected exact project gas control and map backing are style references for ImageGen.",
+  "required_evidence": [
+    "Exact current Mobile Speedy at both viewport sizes",
+    "One-finger start, all countdown steps, retry, GO and PC exclusions",
+    "Same-scene comparison over ten axes",
+    "Exact Godot import and full required checks",
+    "Document authority, impact, anonymous GitHub manifest and green Dev",
+    "QA11, physical device, child and owner separately"
+  ],
+  "no_parallel_runtime_editor": "Recent read-only Racer, Bubble Duel and art-work coordination snapshots show no competing active countdown edit.",
+  "time_utc": "2026-11-07T14:59:08.174108+00:00"
+}

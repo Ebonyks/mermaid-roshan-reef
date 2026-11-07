@@ -1,0 +1,53 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+HIT|arena builds its hit engine: OK
+HIT|router finds the live arena: OK
+HIT|engine borrows the imp dicts: OK
+HIT|battle engine holds tap priority: OK
+HIT|no imp dies without input: OK
+HIT|far tap misses every imp: OK
+HIT|missed tap deals no hit: OK
+HIT|tap picks the imp under the finger: OK
+HIT|first tap harms, never fells (3 hp): OK
+HIT|combat pops use their own voice: OK
+HIT|the 1-2-3 combo fells the basic imp: OK
+HIT|frozen imp pops into the dying animation: OK
+HIT|popped imp leaves the stage: OK
+HIT|popped imp is no longer hittable: OK
+HIT|tapping every imp wins the arena: OK
+HIT|tap-won battle saves and returns: OK
+HIT|engine unregisters after victory: OK
+HIT|boss registers with the engine: OK
+HIT|shell phase still blocks a tap: OK
+HIT|movement through the shared attack earns the peek: OK
+HIT|peeking boss takes one HitEngine tap phase: OK
+HIT|engine unregisters after cancel: OK
+HIT|generic hit lands from any source: OK
+HIT|survivor keeps reduced hp: OK
+HIT|lethal hit starts the dying animation: OK
+HIT|defeat callback fired once: OK
+HIT|flop death disposes the node: OK
+HIT|dead record refuses further hits: OK
+HIT|charge waits through the grace: OK
+HIT|ring appears after the grace: OK
+HIT|stage one reached: OK
+HIT|the stage lamps show the hold working: OK
+HIT|stage-one release totals 2 damage: OK
+HIT|the lamps leave with the charge: OK
+HIT|stage two colors the ring: OK
+HIT|full charge fires itself: OK
+HIT|a full charge totals 4, not 5: OK
+HIT|stage-three charge finishes the enemy: OK
+HIT|a full hold is slower than her own tapping: OK
+HIT|a short drag is not a slice: OK
+HIT|a swipe outside the band cuts nothing: OK
+HIT|a swipe never cuts more than the cap: OK
+HIT|the slice deals its 2 damage: OK
+HIT|the far end of a long drag is out of reach: OK
+HIT|a spent blade cuts nothing: OK
+HIT|the blade comes back after its rest: OK
+HIT|a drag cancels the held charge: OK
+HIT|enemy outranks the overlapping interactable: OK
+HIT|covered interactable is left alone: OK
+HIT|tap_priority opt-out yields the tap: OK
+HIT|result: ALL OK
