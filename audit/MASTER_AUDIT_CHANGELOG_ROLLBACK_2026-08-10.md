@@ -2887,3 +2887,7 @@ CHG-160 review: canonical baseline `a64047df38f25f82f3b23526764157fd62d17753`; a
 ## CHG-161 — Record the verified R147 Dev Android package
 
 Dev `3190412c191589e1b65bc4ebb6f48d18cc4dd400` passed CI 42321579190. Android run 42330466713 produced version code 2372. Anonymous APK and checksum bytes, both steering imports, the named source export boundary and the public JAR v1 signer verified. The Dev channel can move to a later APK. The evidence pins this package to its asset IDs, digest and verification time. A correction would amend the delivery metadata and preserve the incident history. [Package record](../docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_verified_20261107/README.md) · [Impact](../design/audit_impacts/flat-vector-r147-matching-android-20261107.json)
+
+## CHG-163 — Record the verified R148 source
+
+Canonical base `4cc747301ce8a78189474a0e475dc278a00157ec` records the painted item frame from `774b0d134be93c5751ac8c03efeec85c8a854674`. The candidate depends on its new frame import. A quieter empty control can be less apparent at small screen sizes. The configured review records the adjusted opacity, and device evidence remains open. A registry correction would amend the current metadata while keeping the actual source and historical frame evidence. [Source intake](../docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/README.md) · [Impact](../design/audit_impacts/flat-vector-r148-canonical-source-20261107.json)

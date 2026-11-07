@@ -28890,7 +28890,7 @@
     }
   ],
   "coverage_note": "Craft80 guarded API fixture adds game.craft_studio partial alias;77/176partial,0complete,99without. Natural/full states/acceptance and distinct screen total remain unknown.",
-  "revision": "FV-ANDROID-VERIFIED-20261107-R147",
+  "revision": "FV-PRODUCTION-20261107-R148-PAINTED-ITEM-BUBBLE",
   "partial_entries": 78,
   "complete_entries": 0,
   "entries_without_current_slice": 98,
@@ -36805,7 +36805,7 @@
       "other need/growth/action variants"
     ]
   },
-  "current_effective_summary": "48 published bounded source artifacts and 47 partial Dev artifacts; 282 named roles and 36 families remain lower bounds. R147 source and exact Dev CI both pass both jobs. Automatic Android run42327084093 failed with runner NoSpace; one already authorized Dev-only capacity retry42330466713 is active at this snapshot. Its matching APK is not yet verified. Native events remain8109 bounded +4419 excluded =12528. All art, role, family, Dev, generation, native-event and accepted-removal deltas are zero. Formal QA11, natural/full-speed, device, child and owner evidence remain open; accepted0, complete0, whole-game totals unknown.",
+  "current_effective_summary": "49 bounded source artifacts and 47 partial Dev artifacts. Named role and family lower bounds are 282 and 36. R148 adds one bounded source artifact for the existing Turbo control frame. Retained events are 8,161 bounded and 4,457 excluded, totaling 12,618. Formal, device, child and owner acceptance remain open. Whole-game totals remain unknown.",
   "intro_entry_ownership": {
     "revision": "FV-AUDIT-20261016-R77",
     "topic_baseline": "7fd93aa0d2036c06c9a65aea6c79a990cc9ae01b",
@@ -46049,6 +46049,176 @@
     "scope": "Anonymous APK and sidecar bytes, source binding, packaged resources, export boundaries and public JAR v1 signing",
     "physical_device": null,
     "formal_QA11": null,
+    "child": null,
+    "owner": null
+  },
+  "r148_current_effective_summary": {
+    "known_roles": 282,
+    "known_families": 36,
+    "published_bounded_source_artifacts": 49,
+    "partial_Dev_artifacts": 47,
+    "retained_bounded_native_events": 8161,
+    "retained_excluded_native_events": 4457,
+    "retained_native_events": 12618,
+    "accepted_removed": 0,
+    "complete_scene_coverage": 0,
+    "whole_game_total": null,
+    "revision": "FV-PRODUCTION-20261107-R148-PAINTED-ITEM-BUBBLE"
+  },
+  "r148_revision_delta": {
+    "source_artifacts": 1,
+    "Dev_artifacts": 0,
+    "roles": 0,
+    "families": 0,
+    "native_bounded": 52,
+    "native_excluded": 38,
+    "native_total": 90,
+    "original_builtin_generation_calls": 1,
+    "new_generation_at_intake": 0,
+    "accepted_removed": 0,
+    "complete_scenes": 0
+  },
+  "r148_racer_painted_item_bubble_runtime": {
+    "stable_id": "FV-CD4F06A6937B",
+    "name": "Turbo control frame",
+    "current_role": "Racer touch item bubble frame",
+    "family": "opera_racer",
+    "artifact_key": "r148_racer_painted_item_bubble_runtime",
+    "state": "PUBLISHED_SOURCE_CANDIDATE_LOCAL_MACHINE_AND_CONTEXT_PASS",
+    "source_revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+    "source_parent": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+    "branch": "codex/flat-vector-racer-item-bubble-painted-20261107",
+    "source_required_files_verified": 341,
+    "source_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "source_CI_at_intake": {
+      "run": 42338624384,
+      "status": "in_progress",
+      "conclusion": ""
+    },
+    "native_output": {
+      "path": "assets_src/imagegen/racer_item_bubble_20261107/item_bubble_frame_native.png",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "bytes": 1461915,
+      "sha256": "1a4c7e1a51b3277daf1fdc8f17e7a156de2f8bb9e95ba1e03ae063a92d544868",
+      "role": "Preserved original ImageGen output"
+    },
+    "runtime_texture": {
+      "path": "assets/racer/ui/item_bubble_frame_painted.png",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "bytes": 271561,
+      "sha256": "f26803c30c83ad995444f1ece1db686565eed6edd444f8fb1f1f36aec19dd1b3",
+      "role": "Painted runtime derivative"
+    },
+    "runtime_import": {
+      "path": "assets/racer/ui/item_bubble_frame_painted.png.import",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "bytes": 995,
+      "sha256": "bde2b3a8626c595b201b6792c3148db6c1df2b6f3b012a6d922030e55db0fdf6",
+      "role": "Lossless runtime import"
+    },
+    "runtime_code": {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "bytes": 64676,
+      "sha256": "35bbdd23e24d5564911432e41a44b5f44c91b5647965e027b28c0c868157dffb",
+      "role": "Existing control draw using painted frame"
+    },
+    "generation": {
+      "path": "assets_src/imagegen/racer_item_bubble_20261107/GENERATION_JOB.json",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "bytes": 3672,
+      "sha256": "5469cd2692ce02291dea2ba1a1ead263ee551752c53bae61ce5933adc03f20ce",
+      "role": "Exact derivation and generation provenance"
+    },
+    "comparison": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/TEN_AXIS_COMPARISON.json",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "bytes": 2989,
+      "sha256": "a7ed7feb67809ea9175e553bae747ffbf3a1dab537c725d26d63f96cb929eea5",
+      "role": "Current configured in-scene review"
+    },
+    "local_static_review": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/LOCAL_STATIC_ART_REVIEW.json",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "bytes": 1088,
+      "sha256": "4023e4246201a39bd1db1cc644f23e8d29eb8578f21f140a0929ba1341938c0e",
+      "role": "Assistant art eligibility assessment"
+    },
+    "frame_events": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/FRAME_EVENTS.json",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "bytes": 1034,
+      "sha256": "d5655ecd7b6c84501a39091b038277970eaf7b86c3cbc338ab6cc75ca8e57a49",
+      "role": "Bounded and excluded configured capture events"
+    },
+    "machine": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/FINAL_RESULT.json",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "bytes": 54004,
+      "sha256": "37d8ceca83005d4ce7eb360b7c80f0a040a6e547acb9f03b99ff24ba4ee4cb0c",
+      "role": "Actual changed-candidate local machine checks"
+    },
+    "native_events": {
+      "bounded": 52,
+      "excluded": 38,
+      "total": 90,
+      "PC_no_target": 8,
+      "earlier_tint": 30
+    },
+    "functional_invisible_geometry": {
+      "center": [
+        1010,
+        505
+      ],
+      "radius": 70,
+      "hit_margin": 16,
+      "art_credit": 0
+    },
+    "original_builtin_generation_calls": 1,
+    "model_version": null,
+    "Dev_integration": false,
+    "Dev_revision": null,
+    "matching_APK": null,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "complete_scenes": 0,
+    "whole_game_total": null,
+    "mission_complete": false,
+    "source_finding": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/774b0d134be93c5751ac8c03efeec85c8a854674/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014"
+  },
+  "r148_current_partial_route_overlay": {
+    "family": "opera_racer",
+    "stable_id": "FV-CD4F06A6937B",
+    "route": "Configured current OperaRacer touch controls",
+    "states": [
+      "empty",
+      "roulette with four item appearances",
+      "ready with four item appearances",
+      "held",
+      "released",
+      "focus cancellation",
+      "spent"
+    ],
+    "widths": [
+      1280,
+      1600
+    ],
+    "bounded_events": 52,
+    "excluded_events": 38,
+    "new_complete_scene_credit": 0,
+    "source": "774b0d134be93c5751ac8c03efeec85c8a854674",
+    "evidence": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/TEN_AXIS_COMPARISON.json",
+      "revision": "774b0d134be93c5751ac8c03efeec85c8a854674",
+      "bytes": 2989,
+      "sha256": "a7ed7feb67809ea9175e553bae747ffbf3a1dab537c725d26d63f96cb929eea5",
+      "role": "Current configured in-scene review"
+    },
+    "formal_QA11": null,
+    "device": null,
     "child": null,
     "owner": null
   }
