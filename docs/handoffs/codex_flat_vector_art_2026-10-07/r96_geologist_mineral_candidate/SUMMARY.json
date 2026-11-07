@@ -17,10 +17,10 @@
   "known_implementation_count_scope": "47 published bounded source artifacts,46 partial Dev artifacts;282 named roles and36 families remain lower bounds. Native events8085 bounded/4411 excluded/12496 total are unchanged. ExactFDsource/DevCI and matching931,048,177-byte Android2371 package are verified, including painted gas and review-prefix exclusions. Formal/natural/fullspeed/device/child/owner remain open; accepted0, complete0, whole totals unknown.",
   "samples_awaiting_review_global": null,
   "approved": 0,
-  "dev_integrated": 49,
+  "dev_integrated": 50,
   "runtime_verified_replacements_formal": 0,
   "accepted_removed": 0,
-  "revision": "FV-PRODUCTION-20261107-R150-PAINTED-DIRECTION-CUE",
+  "revision": "FV-DEV-20261107-R150-PAINTED-DIRECTION-CUE",
   "inherited_summary": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/898ab3421a20e4ec876e5eb3a5a6a3ba3b706cda/docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/SUMMARY.json",
   "new_roles": 1,
   "new_families": 0,
@@ -89,7 +89,8 @@
     "r146_racer_painted_gas_control_runtime",
     "r147_racer_painted_steering_control_runtime",
     "r148_racer_painted_item_bubble_runtime",
-    "r149_racer_painted_minimap_runtime"
+    "r149_racer_painted_minimap_runtime",
+    "r150_racer_painted_direction_cue_runtime"
   ],
   "r92_dev_ci_timeout": {
     "state": "DEV_ATTEMPT1_CANCELLED_CONFIRMED_55MIN_LIMIT_RETRY_PENDING",
@@ -6959,7 +6960,7 @@
     "accepted_removed": 0,
     "mission_complete": false
   },
-  "new_partial_Dev_artifacts_this_revision": 0,
+  "new_partial_Dev_artifacts_this_revision": 1,
   "current_owner_integration_authority_20261105": {
     "instruction": "Insure all updates of last several days are pushed to dev, and continue",
     "source": "Direct owner message in chat01a119cc-74b1-7d23-b956-126129405418 during the2026-11-05continuation",
@@ -7972,7 +7973,7 @@
     "whole_game_total": null,
     "revision": "FV-DEV-20261106-R145-RACER-ZONES-PAINTED-FIXTURE"
   },
-  "current_effective_summary": "51 bounded source artifacts and 49 partial Dev artifacts. The wrong-way arrow is individually recorded within the existing Racer HUD scope. Named role and family lower bounds are 284 and 36. Retained events total 12,682, with 8,217 bounded and 4,465 excluded. Formal, device, child and owner acceptance remain open. Whole-game totals remain unknown.",
+  "current_effective_summary": "51 bounded source artifacts and 50 partial Dev artifacts. R150 joins Dev under its individually tracked direction-cue ID. The named role and family lower bounds remain 284 and 36. Retained native events are 8,217 bounded and 4,465 excluded. Formal, device, child and owner acceptance remain open. Whole-game totals remain unknown.",
   "r145_prior_to_Dev_integration": {
     "revision": "FV-SOURCE-20261106-R145-RACER-ZONES-PAINTED-FIXTURE",
     "current_effective_summary": "46 published bounded source artifacts,44 partial Dev artifacts;281 named roles and36 families remain lower bounds. Retained per-piece events8073 bounded/4398 excluded/12471 total. Accepted removals0, complete scenes0, whole-game totals unknown. R145 source cafce6e8 is published with exact hosted CI running; Dev pending. Formal and external acceptance remain open.",
@@ -9672,14 +9673,14 @@
     "known_roles": 284,
     "known_families": 36,
     "published_bounded_source_artifacts": 51,
-    "partial_Dev_artifacts": 49,
+    "partial_Dev_artifacts": 50,
     "retained_bounded_native_events": 8217,
     "retained_excluded_native_events": 4465,
     "retained_native_events": 12682,
     "accepted_removed": 0,
     "complete_scene_coverage": 0,
     "whole_game_total": null,
-    "revision": "FV-PRODUCTION-20261107-R150-PAINTED-DIRECTION-CUE"
+    "revision": "FV-DEV-20261107-R150-PAINTED-DIRECTION-CUE"
   },
   "r150_revision_delta": {
     "source_artifacts": 1,
@@ -9700,7 +9701,7 @@
     "current_role": "Wrong-way direction cue in Opera Racer",
     "family": "opera_racer",
     "artifact_key": "r150_racer_painted_direction_cue_runtime",
-    "state": "PUBLISHED_SOURCE_CANDIDATE_LOCAL_MACHINE_AND_CONTEXT_PASS",
+    "state": "SOURCE_VERIFIED_INTEGRATED_ON_DEV",
     "source_revision": "0be76936a163628801a5156507f18185878cbaa7",
     "source_parent": "118acf6c090dd42307a281f0b13e0e114bf62b54",
     "branch": "codex/flat-vector-racer-direction-cue-20261107",
@@ -9785,8 +9786,8 @@
     },
     "original_builtin_generation_calls": 1,
     "model_version": null,
-    "Dev_integration": false,
-    "Dev_revision": null,
+    "Dev_integration": true,
+    "Dev_revision": "0be76936a163628801a5156507f18185878cbaa7",
     "matching_APK": null,
     "formal_QA11": null,
     "device": null,
@@ -9796,7 +9797,19 @@
     "complete_scenes": 0,
     "whole_game_total": null,
     "mission_complete": false,
-    "source_finding": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/0be76936a163628801a5156507f18185878cbaa7/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014"
+    "source_finding": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/0be76936a163628801a5156507f18185878cbaa7/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014",
+    "exact_source_CI": {
+      "run": 42372669030,
+      "conclusion": "success",
+      "source": "0be76936a163628801a5156507f18185878cbaa7"
+    },
+    "Dev_CI_at_intake": {
+      "run": 42376706306,
+      "status": "in_progress",
+      "conclusion": "",
+      "source": "0be76936a163628801a5156507f18185878cbaa7"
+    },
+    "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/dev_integration_20261107/DEV_INTEGRATION.json"
   },
   "r150_prior_revision_local_fields": {
     "new_roles": 1,
@@ -9809,5 +9822,15 @@
     "new_generation_calls": 1,
     "technical_exports_this_revision": 1,
     "new_runtime_PNG_this_revision": 1
+  },
+  "r150_dev_revision_delta": {
+    "partial_Dev_artifacts": 1,
+    "source_artifacts": 0,
+    "roles": 0,
+    "families": 0,
+    "native_events": 0,
+    "generations": 0,
+    "accepted_removed": 0,
+    "complete_scenes": 0
   }
 }

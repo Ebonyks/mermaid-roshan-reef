@@ -4,7 +4,7 @@
   "current_role": "Wrong-way direction cue in Opera Racer",
   "family": "opera_racer",
   "artifact_key": "r150_racer_painted_direction_cue_runtime",
-  "state": "PUBLISHED_SOURCE_CANDIDATE_LOCAL_MACHINE_AND_CONTEXT_PASS",
+  "state": "SOURCE_VERIFIED_INTEGRATED_ON_DEV",
   "source_revision": "0be76936a163628801a5156507f18185878cbaa7",
   "source_parent": "118acf6c090dd42307a281f0b13e0e114bf62b54",
   "branch": "codex/flat-vector-racer-direction-cue-20261107",
@@ -89,8 +89,8 @@
   },
   "original_builtin_generation_calls": 1,
   "model_version": null,
-  "Dev_integration": false,
-  "Dev_revision": null,
+  "Dev_integration": true,
+  "Dev_revision": "0be76936a163628801a5156507f18185878cbaa7",
   "matching_APK": null,
   "formal_QA11": null,
   "device": null,
@@ -100,5 +100,17 @@
   "complete_scenes": 0,
   "whole_game_total": null,
   "mission_complete": false,
-  "source_finding": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/0be76936a163628801a5156507f18185878cbaa7/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014"
+  "source_finding": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/0be76936a163628801a5156507f18185878cbaa7/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014",
+  "exact_source_CI": {
+    "run": 42372669030,
+    "conclusion": "success",
+    "source": "0be76936a163628801a5156507f18185878cbaa7"
+  },
+  "Dev_CI_at_intake": {
+    "run": 42376706306,
+    "status": "in_progress",
+    "conclusion": "",
+    "source": "0be76936a163628801a5156507f18185878cbaa7"
+  },
+  "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/dev_integration_20261107/DEV_INTEGRATION.json"
 }

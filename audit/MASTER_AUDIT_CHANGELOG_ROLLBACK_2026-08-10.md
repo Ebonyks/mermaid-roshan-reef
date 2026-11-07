@@ -2915,3 +2915,7 @@ Canonical base `5996c40d1e4f72e7f8e6153682f25972b378a993` records package eviden
 ## CHG-171 — Record the verified R150 source
 
 Canonical base `80c3361db6e2b8d70bcc86a65cda62b1c698600e` records the painted direction cue from `0be76936a163628801a5156507f18185878cbaa7`. The candidate depends on its new texture import. Configured views cover both directions and recovery. Natural motion and physical device evidence remain open. A registry correction would amend the current metadata while keeping the actual source and historical frame evidence. [Source intake](../docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/README.md) · [Impact](../design/audit_impacts/flat-vector-r150-canonical-source-20261107.json)
+
+## CHG-172 — Record R150 Dev integration
+
+Canonical base `5ca05f655abc882608953f60a9376e4cff5a9b53` records exact Dev `0be76936a163628801a5156507f18185878cbaa7` and adds one partial Dev artifact. Its runtime depends on the R150 arrow import. Natural and device checks must still establish readability at speed. A registry correction would amend the canonical metadata and keep the actual source and prior delivery history. [Dev evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/dev_integration_20261107/README.md) · [Impact](../design/audit_impacts/flat-vector-r150-canonical-dev-20261107.json)

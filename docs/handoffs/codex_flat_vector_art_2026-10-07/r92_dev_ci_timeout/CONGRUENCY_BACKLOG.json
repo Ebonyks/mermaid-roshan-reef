@@ -9587,7 +9587,7 @@
       "repair": "Review title/decorative heart collision with global Back at1280; retain readable title and110touchminimum. No runtime change."
     }
   ],
-  "current_effective_summary": "51 bounded source artifacts and 49 partial Dev artifacts. The wrong-way arrow is individually recorded within the existing Racer HUD scope. Named role and family lower bounds are 284 and 36. Retained events total 12,682, with 8,217 bounded and 4,465 excluded. Formal, device, child and owner acceptance remain open. Whole-game totals remain unknown.",
+  "current_effective_summary": "51 bounded source artifacts and 50 partial Dev artifacts. R150 joins Dev under its individually tracked direction-cue ID. The named role and family lower bounds remain 284 and 36. Retained native events are 8,217 bounded and 4,465 excluded. Formal, device, child and owner acceptance remain open. Whole-game totals remain unknown.",
   "intro_entry_ownership": {
     "revision": "FV-AUDIT-20261016-R77",
     "topic_baseline": "7fd93aa0d2036c06c9a65aea6c79a990cc9ae01b",
@@ -13657,7 +13657,7 @@
     "current_role": "Wrong-way direction cue in Opera Racer",
     "family": "opera_racer",
     "artifact_key": "r150_racer_painted_direction_cue_runtime",
-    "state": "PUBLISHED_SOURCE_CANDIDATE_LOCAL_MACHINE_AND_CONTEXT_PASS",
+    "state": "SOURCE_VERIFIED_INTEGRATED_ON_DEV",
     "source_revision": "0be76936a163628801a5156507f18185878cbaa7",
     "source_parent": "118acf6c090dd42307a281f0b13e0e114bf62b54",
     "branch": "codex/flat-vector-racer-direction-cue-20261107",
@@ -13742,8 +13742,8 @@
     },
     "original_builtin_generation_calls": 1,
     "model_version": null,
-    "Dev_integration": false,
-    "Dev_revision": null,
+    "Dev_integration": true,
+    "Dev_revision": "0be76936a163628801a5156507f18185878cbaa7",
     "matching_APK": null,
     "formal_QA11": null,
     "device": null,
@@ -13753,7 +13753,19 @@
     "complete_scenes": 0,
     "whole_game_total": null,
     "mission_complete": false,
-    "source_finding": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/0be76936a163628801a5156507f18185878cbaa7/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014"
+    "source_finding": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/0be76936a163628801a5156507f18185878cbaa7/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014",
+    "exact_source_CI": {
+      "run": 42372669030,
+      "conclusion": "success",
+      "source": "0be76936a163628801a5156507f18185878cbaa7"
+    },
+    "Dev_CI_at_intake": {
+      "run": 42376706306,
+      "status": "in_progress",
+      "conclusion": "",
+      "source": "0be76936a163628801a5156507f18185878cbaa7"
+    },
+    "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/dev_integration_20261107/DEV_INTEGRATION.json"
   },
-  "r150_required_followup": "Exact source CI and normal green Dev integration. Matching package and formal, natural, full-speed, device, child and owner lanes remain separate."
+  "r150_required_followup": "Verify current Dev CI and matching APK. Formal QA11, natural and full-speed review, device, child and owner remain separate."
 }

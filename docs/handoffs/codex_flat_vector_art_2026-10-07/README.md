@@ -87,3 +87,7 @@ R149 is packaged in Dev Android version code 2374. [Android verification](r149_r
 ## R150 direction cue source
 
 51 bounded source artifacts and 49 partial Dev artifacts. The wrong-way arrow is individually recorded within the existing Racer HUD scope. Named role and family lower bounds are 284 and 36. Retained events total 12,682, with 8,217 bounded and 4,465 excluded. Formal, device, child and owner acceptance remain open. Whole-game totals remain unknown. [Source intake](r150_racer_painted_direction_cue_runtime/README.md)
+
+## R150 Dev integration
+
+51 bounded source artifacts and 50 partial Dev artifacts. R150 joins Dev under its individually tracked direction-cue ID. The named role and family lower bounds remain 284 and 36. Retained native events are 8,217 bounded and 4,465 excluded. Formal, device, child and owner acceptance remain open. Whole-game totals remain unknown. [Dev evidence](r150_racer_painted_direction_cue_runtime/dev_integration_20261107/README.md)

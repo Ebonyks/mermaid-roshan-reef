@@ -2117,3 +2117,5 @@ R149 now integrates the painted minimap backing into Dev after both source jobs 
 R149 Android run 42365481816 delivered verified Dev package 2374. Formal and external acceptance remain open under MA-VIS-008. [Android delivery evidence](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/android_verified_20261107/README.md)
 
 R150 contributes a verified painted candidate for the Racer direction cue under MA-VIS-008. It covers configured Opera steering recovery and PC split exclusion. Formal and external acceptance remain open. [Source intake](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/README.md)
+
+R150 now integrates the painted direction cue into Dev after both source jobs passed. MA-VIS-008 remains open for formal and external acceptance and other scoped artwork. [Dev evidence](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/dev_integration_20261107/README.md)

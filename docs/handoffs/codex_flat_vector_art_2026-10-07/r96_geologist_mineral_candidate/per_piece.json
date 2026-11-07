@@ -29913,7 +29913,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-PRODUCTION-20261107-R150-PAINTED-DIRECTION-CUE",
+  "revision": "FV-DEV-20261107-R150-PAINTED-DIRECTION-CUE",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -36083,10 +36083,10 @@
         "actual_backend": "Built-in image_gen.imagegen. Model revision unexposed.",
         "protected_originals_modified_or_passed_to_ImageGen": false
       },
-      "status": "PUBLISHED_SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "status": "PAINTED_DIRECTION_CUE_PARTIAL_DEV_CANDIDATE",
       "evidence_level": "PUBLISHED_SOURCE_AND_REVIEWED_SAME_SCENE_NATIVE_DIAGNOSTICS",
       "source_revision": "0be76936a163628801a5156507f18185878cbaa7",
-      "integration_sha": null,
+      "integration_sha": "0be76936a163628801a5156507f18185878cbaa7",
       "ten_axis_comparison": {
         "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/TEN_AXIS_COMPARISON.json",
         "revision": "0be76936a163628801a5156507f18185878cbaa7",
@@ -36119,7 +36119,7 @@
       "acceptance_evidence": {
         "candidate": true,
         "source_work_branch_integrated": true,
-        "Dev_integrated": false,
+        "Dev_integrated": true,
         "runtime_verified_replacement": false,
         "configured_Mobile": true,
         "Opera_Speedy": true,
@@ -44049,7 +44049,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "51 bounded source artifacts and 49 partial Dev artifacts. The wrong-way arrow is individually recorded within the existing Racer HUD scope. Named role and family lower bounds are 284 and 36. Retained events total 12,682, with 8,217 bounded and 4,465 excluded. Formal, device, child and owner acceptance remain open. Whole-game totals remain unknown.",
+  "current_effective_summary": "51 bounded source artifacts and 50 partial Dev artifacts. R150 joins Dev under its individually tracked direction-cue ID. The named role and family lower bounds remain 284 and 36. Retained native events are 8,217 bounded and 4,465 excluded. Formal, device, child and owner acceptance remain open. Whole-game totals remain unknown.",
   "unresolved_care_glyph_scopes": [
     "neutral/title heart U+2665 versus cuddle U+2764 attribution",
     "disabled Change-palette pictogram",
@@ -52268,7 +52268,7 @@
   "retained_excluded_current_summary": 4465,
   "retained_native_events_current_summary": 12682,
   "bounded_implementation_artifacts_published_current_summary": 51,
-  "partial_dev_artifacts_current_summary": 49,
+  "partial_dev_artifacts_current_summary": 50,
   "r145_prior_to_Dev_integration": {
     "revision": "FV-SOURCE-20261106-R145-RACER-ZONES-PAINTED-FIXTURE",
     "current_effective_summary": "46 published bounded source artifacts,44 partial Dev artifacts;281 named roles and36 families remain lower bounds. Retained per-piece events8073 bounded/4398 excluded/12471 total. Accepted removals0, complete scenes0, whole-game totals unknown. R145 source cafce6e8 is published with exact hosted CI running; Dev pending. Formal and external acceptance remain open.",
@@ -54053,14 +54053,14 @@
     "known_roles": 284,
     "known_families": 36,
     "published_bounded_source_artifacts": 51,
-    "partial_Dev_artifacts": 49,
+    "partial_Dev_artifacts": 50,
     "retained_bounded_native_events": 8217,
     "retained_excluded_native_events": 4465,
     "retained_native_events": 12682,
     "accepted_removed": 0,
     "complete_scene_coverage": 0,
     "whole_game_total": null,
-    "revision": "FV-PRODUCTION-20261107-R150-PAINTED-DIRECTION-CUE"
+    "revision": "FV-DEV-20261107-R150-PAINTED-DIRECTION-CUE"
   },
   "r150_revision_delta": {
     "source_artifacts": 1,
@@ -54081,7 +54081,7 @@
     "current_role": "Wrong-way direction cue in Opera Racer",
     "family": "opera_racer",
     "artifact_key": "r150_racer_painted_direction_cue_runtime",
-    "state": "PUBLISHED_SOURCE_CANDIDATE_LOCAL_MACHINE_AND_CONTEXT_PASS",
+    "state": "SOURCE_VERIFIED_INTEGRATED_ON_DEV",
     "source_revision": "0be76936a163628801a5156507f18185878cbaa7",
     "source_parent": "118acf6c090dd42307a281f0b13e0e114bf62b54",
     "branch": "codex/flat-vector-racer-direction-cue-20261107",
@@ -54166,8 +54166,8 @@
     },
     "original_builtin_generation_calls": 1,
     "model_version": null,
-    "Dev_integration": false,
-    "Dev_revision": null,
+    "Dev_integration": true,
+    "Dev_revision": "0be76936a163628801a5156507f18185878cbaa7",
     "matching_APK": null,
     "formal_QA11": null,
     "device": null,
@@ -54177,6 +54177,28 @@
     "complete_scenes": 0,
     "whole_game_total": null,
     "mission_complete": false,
-    "source_finding": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/0be76936a163628801a5156507f18185878cbaa7/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014"
+    "source_finding": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/0be76936a163628801a5156507f18185878cbaa7/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014",
+    "exact_source_CI": {
+      "run": 42372669030,
+      "conclusion": "success",
+      "source": "0be76936a163628801a5156507f18185878cbaa7"
+    },
+    "Dev_CI_at_intake": {
+      "run": 42376706306,
+      "status": "in_progress",
+      "conclusion": "",
+      "source": "0be76936a163628801a5156507f18185878cbaa7"
+    },
+    "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/dev_integration_20261107/DEV_INTEGRATION.json"
+  },
+  "r150_dev_revision_delta": {
+    "partial_Dev_artifacts": 1,
+    "source_artifacts": 0,
+    "roles": 0,
+    "families": 0,
+    "native_events": 0,
+    "generations": 0,
+    "accepted_removed": 0,
+    "complete_scenes": 0
   }
 }
