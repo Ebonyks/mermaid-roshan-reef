@@ -2907,3 +2907,7 @@ Canonical base `48571bb1462b665e4ae8a05c371a64202cc25c03` records the painted mi
 ## CHG-168 — Record R149 Dev integration
 
 Canonical base `295900b6da67c34d463bfd1f5222aad1f2742bbe` records exact Dev `118acf6c090dd42307a281f0b13e0e114bf62b54` and adds one partial Dev artifact. Its runtime depends on the R149 minimap import. Natural and device checks must still establish readability at speed. A registry correction would amend the canonical metadata and keep the actual source and prior delivery history. [Dev evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/dev_integration_20261107/README.md) · [Impact](../design/audit_impacts/flat-vector-r149-canonical-dev-20261107.json)
+
+## CHG-169 — Verify the R149 Dev Android package
+
+Canonical base `5996c40d1e4f72e7f8e6153682f25972b378a993` records package evidence for Dev `118acf6c090dd42307a281f0b13e0e114bf62b54`. The authorized retry depends on exact green Dev CI 42360085376. Android run 42365481816 delivered the new minimap backing resource and its remap. The Dev channel can move to a later APK, so the proof pins this package to actual asset IDs, digest and verification time. A correction would amend the delivery metadata and retain the original incident and package evidence. [Package record](../docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/android_verified_20261107/README.md) · [Impact](../design/audit_impacts/flat-vector-r149-matching-android-20261107.json)

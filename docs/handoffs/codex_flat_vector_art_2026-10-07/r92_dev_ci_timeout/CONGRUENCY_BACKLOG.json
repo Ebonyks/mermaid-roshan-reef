@@ -13566,7 +13566,23 @@
     "model_version": null,
     "Dev_integration": true,
     "Dev_revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
-    "matching_APK": null,
+    "matching_APK": {
+      "revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+      "Dev_CI": 42360085376,
+      "Android_run": 42365481816,
+      "APK_verified": true,
+      "version_code": 2374,
+      "apk_bytes": 931733157,
+      "APK_sha256": "417ae4016da18e3e3639d73671c6c210fda1a696250c64053417e1eee206bb6a",
+      "apk_asset_id": 720442609,
+      "checksum_asset_id": 720442610,
+      "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/android_verified_20261107/APK_VERIFIED.json",
+      "scope": "Anonymous package bytes, exact source guards and checkout, packaged runtime resources, scoped export exclusions and JAR v1 signature.",
+      "physical_device": null,
+      "formal_QA11": null,
+      "child": null,
+      "owner": null
+    },
     "formal_QA11": null,
     "device": null,
     "child": null,
@@ -13587,7 +13603,51 @@
       "conclusion": "",
       "source": "118acf6c090dd42307a281f0b13e0e114bf62b54"
     },
-    "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/dev_integration_20261107/DEV_INTEGRATION.json"
+    "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/dev_integration_20261107/DEV_INTEGRATION.json",
+    "Dev_CI_terminal": {
+      "run": 42360085376,
+      "conclusion": "success",
+      "source": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+      "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/android_verified_20261107/DEV_CI_COMPLETED.json"
+    },
+    "Android_delivery_observation": {
+      "automatic_failure": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/android_verified_20261107/AUTO_FAILURE_SCOPE.json",
+      "approved_retry": 42365481816,
+      "matching_APK": {
+        "revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+        "Dev_CI": 42360085376,
+        "Android_run": 42365481816,
+        "APK_verified": true,
+        "version_code": 2374,
+        "apk_bytes": 931733157,
+        "APK_sha256": "417ae4016da18e3e3639d73671c6c210fda1a696250c64053417e1eee206bb6a",
+        "apk_asset_id": 720442609,
+        "checksum_asset_id": 720442610,
+        "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/android_verified_20261107/APK_VERIFIED.json",
+        "scope": "Anonymous package bytes, exact source guards and checkout, packaged runtime resources, scoped export exclusions and JAR v1 signature.",
+        "physical_device": null,
+        "formal_QA11": null,
+        "child": null,
+        "owner": null
+      }
+    }
   },
-  "r149_required_followup": "Verify current Dev CI and matching APK. Formal QA11, natural and full-speed review, device, child and owner remain separate."
+  "r149_required_followup": "Verify current Dev CI and matching APK. Formal QA11, natural and full-speed review, device, child and owner remain separate.",
+  "r149_matching_android_delivery": {
+    "revision": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+    "Dev_CI": 42360085376,
+    "Android_run": 42365481816,
+    "APK_verified": true,
+    "version_code": 2374,
+    "apk_bytes": 931733157,
+    "APK_sha256": "417ae4016da18e3e3639d73671c6c210fda1a696250c64053417e1eee206bb6a",
+    "apk_asset_id": 720442609,
+    "checksum_asset_id": 720442610,
+    "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/android_verified_20261107/APK_VERIFIED.json",
+    "scope": "Anonymous package bytes, exact source guards and checkout, packaged runtime resources, scoped export exclusions and JAR v1 signature.",
+    "physical_device": null,
+    "formal_QA11": null,
+    "child": null,
+    "owner": null
+  }
 }

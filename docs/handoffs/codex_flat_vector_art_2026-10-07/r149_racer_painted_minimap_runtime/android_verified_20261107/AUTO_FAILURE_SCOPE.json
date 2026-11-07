@@ -1,0 +1,21 @@
+{
+  "state": "AUTOMATIC_ANDROID_TERMINAL_EXPORT_FAILURE",
+  "run": 42364163082,
+  "job": 128378625815,
+  "workflow_code_head": "ff68f9550c28f7d979896d5c84d1214264c29165",
+  "expected_runtime_source": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+  "actual_runtime_checkout": "build\tRun actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5\t2026-11-07T10:42:34.0447387Z 118acf6c090dd42307a281f0b13e0e114bf62b54",
+  "last_observed_step": {
+    "name": "Export debug APK",
+    "status": "in_progress",
+    "conclusion": null,
+    "number": 9,
+    "started_at": "2026-11-07T10:45:26Z",
+    "completed_at": null
+  },
+  "root_cause": null,
+  "notes": "GitHub job is terminal failure. Export was the last active step. Available log stops after import and the sole annotation is a runner-image notice. Prior capacity failures are historical.",
+  "available_log_sha256": "710e991300f26f9f59f9d12a951da75b51d6a28849dcff2351c4effcc5644b10",
+  "recovery": "Use the owner-approved, already integrated Dev-only build path once, with exact current green Dev guards.",
+  "time": "2026-11-07T10:48:08.481269+00:00"
+}

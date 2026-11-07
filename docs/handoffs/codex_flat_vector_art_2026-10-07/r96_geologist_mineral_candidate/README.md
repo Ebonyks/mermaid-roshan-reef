@@ -45,3 +45,5 @@ R148 Android package verification is available for the existing partial Dev arti
 ## R149 Dev integration
 
 50 bounded source artifacts and 49 partial Dev artifacts. R149 joins Dev under its individually tracked minimap backing ID. The named role and family lower bounds remain 283 and 36. Retained native events are 8,201 bounded and 4,457 excluded. Formal, device, child and owner acceptance remain open. Whole-game totals remain unknown. [Dev evidence](../r149_racer_painted_minimap_runtime/dev_integration_20261107/README.md)
+
+R149 Android package verification is available for the existing partial Dev artifact. [Android delivery record](../r149_racer_painted_minimap_runtime/android_verified_20261107/README.md)

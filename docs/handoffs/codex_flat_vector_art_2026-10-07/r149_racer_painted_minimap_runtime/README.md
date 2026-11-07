@@ -11,3 +11,7 @@ Formal QA11, natural routes, full-speed review, physical device testing, child a
 ## Dev integration
 
 The verified R149 candidate is on Dev. [Dev evidence](dev_integration_20261107/README.md)
+
+## Verified Dev Android package
+
+Version code 2374 contains the painted minimap backing from Dev `118acf6`. [Android package verification](android_verified_20261107/README.md)
