@@ -3,6 +3,7 @@ extends Control
 
 ## Storybook effect choreography. Host input/state owns every actual action.
 const DUST := preload("res://assets/opera/worlds/props/fx_dust_puff.png")
+const GOO := preload("res://assets/effects/grand_puff/cold_goo.svg")
 const STAR := preload("res://assets/opera/worlds/props/fx_stolen_sparkle.png")
 const BUBBLES := preload("res://assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png")
 var floor_effects: bool = false
@@ -22,6 +23,7 @@ var _beam_from := Vector2.ZERO
 var _beam_to := Vector2.ZERO
 var _dust_time: float = 0.0
 var _dust_at := Vector2.ZERO
+var _cold_landing: bool = false
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -33,8 +35,9 @@ func counter(origin: Vector2, destination: Vector2) -> void:
 	_beam_to = destination
 	_beam_time = 0.55
 
-func land(point: Vector2) -> void:
+func land(point: Vector2, cold_cloud: bool = false) -> void:
 	_dust_at = point
+	_cold_landing = cold_cloud
 	_dust_time = 0.65
 
 func _process(delta: float) -> void:
@@ -110,14 +113,21 @@ func _draw_floor_effects() -> void:
 		_stamp(DUST, tuft + Vector2(0.0, breath * 2.0), Vector2(64.0 + breath * 2.0, 40.0), 0.95)
 	if _dust_time > 0.0:
 		var progress: float = 1.0 - _dust_time / 0.65
+		if _cold_landing:
+			var settle: float = smoothstep(0.0, 0.3, progress)
+			var width: float = lerpf(59.0, 104.0, settle)
+			_stamp(GOO, _dust_at, Vector2(width, lerpf(34.0, 24.0, settle)), 1.0 - progress)
 		for i: int in range(5):
 			var direction := Vector2.from_angle(TAU * float(i) / 5.0)
 			var point: Vector2 = _dust_at + direction * progress * Vector2(75.0, 25.0)
 			point.y -= sin(progress * PI) * (11.0 + float(i % 2) * 7.0)
 			var edge: float = 36.0 + sin(progress * PI) * 20.0
-			_stamp(DUST, point, Vector2(edge, edge * 0.68), (1.0 - progress) * 0.72)
+			if _cold_landing:
+				_stamp(GOO, point, Vector2(edge, edge * 0.68) * 0.43, (1.0 - progress) * 0.86)
+			else:
+				_stamp(DUST, point, Vector2(edge, edge * 0.68), (1.0 - progress) * 0.72)
 
 func _stamp(texture: Texture2D, point: Vector2, dimensions: Vector2, alpha: float) -> void:
 	draw_set_transform(point, 0.0, dimensions / texture.get_size())
-	draw_texture(texture, -texture.get_size() * 0.5, Color(1.0, 1.0, 1.0, alpha))
+	draw_texture(texture, -texture.get_size() * 0.5, Color(1, 1, 1, alpha))
 	draw_set_transform(Vector2.ZERO)

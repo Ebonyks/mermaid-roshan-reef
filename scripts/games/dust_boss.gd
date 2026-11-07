@@ -1,6 +1,6 @@
 class_name DustBossGame
 extends RefCounted
-# Grand Puff has a cold. Step clear of an accidental dusty sneeze, then tap
+# Grand Puff has a cold. Step clear of his sneezes, then tap
 # his star to wash the dusty coat. Each intentional clean is saved. Old damage
 # and counter keys remain compatibility names, never the character's intent.
 const HP := DustBunnyBossSprite.TOTAL_DAMAGE_ROUNDS
@@ -13,7 +13,10 @@ const WIN_T := 3.4             # befriending beat before the win banner
 const STORY_WIN_T := 1.6       # original handoff; the care cue is 1.533 seconds
 
 const LEAP_H := 7.6            # existing contact-shadow scale reference
-const HOP_H := 2.4
+const HOP_H := 2.4            # retained arena framing headroom
+const ROAM_HOP_HEIGHT := 0.95
+const ROAM_HOP_SECONDS := 2.0
+const ROAM_LOOP_SECONDS := 14.0
 const BOSS_H := 17.0           # on-screen height of the animated CARD. The
                                # authored frames carry dust plumes and padding,
                                # so the bunny inside reads at roughly 0.6 of
@@ -110,8 +113,7 @@ func build(fr: Dictionary, _origin: Vector3) -> void:
 	m.g["db_x"] = 0.0
 	m.g["db_z"] = -12.0
 	m.g["db_y"] = 0.0
-	m.g["db_from"] = Vector2(0.0, -12.0)
-	m.g["db_to"] = Vector2(0.0, -12.0)
+	m.g["db_roam_t"] = 0.0
 	m.g["db_spin"] = 0.0
 	m.g["db_flash"] = 0.0
 	m.g["db_active_t"] = 0.0
@@ -263,7 +265,9 @@ func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 		m.g["db_active_t"] = float(m.g.get("db_active_t", 0.0)) + delta
 	m.g["db_st"] = float(m.g.get("db_st", 0.0)) + delta
 	var st: float = float(m.g["db_st"])
-	match String(m.g.get("db_state", "showing")):
+	var state: String = String(m.g.get("db_state", "showing"))
+	_tick_boss_roam(delta, state)
+	match state:
 		"splash":
 			pass
 		"showing":
@@ -434,46 +438,33 @@ func _tick_attack_tell(delta: float, tapped: bool) -> void:
 		encounter.begin_strike()
 		m.g["db_attack_hit"] = false
 		m.g["db_impact_sampled"] = false
-		var shape: String = String(patterns.geometry.get("shape", ""))
-		var attack_from := Vector2(float(m.g.get("db_x", 0.0)),
-			float(m.g.get("db_z", 0.0)))
-		var attack_to: Vector2 = attack_from
-		if shape == "circle":
-			attack_to = patterns.geometry.get("center", Vector2.ZERO) as Vector2
-		else:
-			attack_from = patterns.geometry.get("from", attack_from) as Vector2
-			attack_to = patterns.geometry.get("to", attack_from) as Vector2
-		m.g["db_from"] = attack_from
-		m.g["db_to"] = attack_to
-		m.g["db_x"] = attack_from.x
-		m.g["db_z"] = attack_from.y
+		var target: Vector2 = _sneeze_target()
+		var direction_x: float = target.x - float(m.g["db_x"])
 		var k: DustBunnyBossSprite = kit()
 		var strike_duration: float = 0.6
 		if k != null and is_instance_valid(k):
-			strike_duration = k.play_jump(1.0 if attack_to.x >= attack_from.x else -1.0)
+			strike_duration = k.play_care_sneeze(1.0 if direction_x >= 0.0 else -1.0)
 		m.g["db_strike_duration"] = maxf(0.5, strike_duration)
 		_enter_state("strike")
+
+
+func _sneeze_progress() -> float:
+	return clampf(float(m.g["db_st"]) / float(m.g["db_strike_duration"]), 0.0, 1.0)
 
 
 func _tick_attack_strike(st: float, tapped: bool) -> void:
 	if tapped:
 		_answer_only()
 	var duration: float = maxf(0.5, float(m.g.get("db_strike_duration", 0.6)))
-	var progress: float = clampf(st / duration, 0.0, 1.0)
-	var attack_from: Vector2 = m.g.get("db_from", Vector2.ZERO) as Vector2
-	var attack_to: Vector2 = m.g.get("db_to", Vector2.ZERO) as Vector2
-	var boss_here: Vector2 = attack_from.lerp(attack_to, progress)
-	m.g["db_x"] = boss_here.x
-	m.g["db_z"] = boss_here.y
-	m.g["db_y"] = sin(progress * PI) * HOP_H
 	if st < duration:
 		return
-	m.g["db_y"] = 0.0
+	var landing: Vector2 = _sneeze_target()
+	var boss_here := Vector2(float(m.g["db_x"]), float(m.g["db_z"]))
 	var impact: BossEncounter2D.Impact = encounter.resolve_impact(
 		stage.player_local(), boss_here, RADIUS)
 	var lesson: DustBossLesson2D = m.g.get("db_lesson_floor") as DustBossLesson2D
 	if lesson != null:
-		lesson.land(stage.project_floor_point(boss_here))
+		lesson.land(stage.project_floor_point(landing), true)
 	m.g["db_impact_sampled"] = true
 	m.g["db_attack_hit"] = impact == BossEncounter2D.Impact.HIT
 	if impact == BossEncounter2D.Impact.HIT:
@@ -485,7 +476,7 @@ func _tick_attack_strike(st: float, tapped: bool) -> void:
 		m.g["db_bumps"] = int(m.g.get("db_bumps", 0)) + 1
 		if m.player != null:
 			m.player.play_verb("boing")
-		_say_day_one_context("day1_boss_bump", "Grand Puff bounced away!")
+		m.show_msg("", "Oops, a cold cloud!")
 		_enter_state("damage_recovery")
 		return
 	if impact == BossEncounter2D.Impact.IGNORED:
@@ -506,6 +497,11 @@ func _tick_attack_strike(st: float, tapped: bool) -> void:
 			"Move out of the glowing shape!")
 		return
 	_begin_counter_opening()
+
+
+func _sneeze_target() -> Vector2:
+	var geometry: Dictionary = patterns.geometry
+	return geometry.get("to", geometry.get("center", Vector2.ZERO)) as Vector2
 
 
 func _tick_damage_recovery(st: float, tapped: bool) -> void:
@@ -552,7 +548,6 @@ func _tick_counter_opening(delta: float, tapped: bool) -> void:
 # A real first movement: any direction works, and waiting never advances it.
 func _tick_showing(st: float, _fr: Dictionary, _tapped: bool) -> void:
 	m.g["db_show_grow"] = clampf(st / 0.7, 0.0, 1.0)
-	m.g["db_y"] = 0.0
 	m.g["db_flash"] = 0.0
 	var start: Vector2 = m.g.get("db_lesson_start", stage.player_local()) as Vector2
 	if stage.player_local().distance_to(start) >= 2.0:
@@ -581,7 +576,6 @@ func _tick_struck(delta: float, st: float, fr: Dictionary, tapped: bool) -> void
 		m.g["db_dash_taught"] = true
 		_say_day_one_context("day1_boss_double_tap", "Tap twice to dash!")
 	m.g["db_spin"] = float(m.g.get("db_spin", 0.0)) + 9.0 * delta
-	m.g["db_y"] = maxf(0.0, float(m.g.get("db_y", 0.0)) - delta * 22.0)
 	m.g["db_flash"] = 0.0
 	# The compatibility flinch sequence shows cleaning and a relieved smile.
 	# Keep the original breather before the next accidental sneeze.
@@ -596,7 +590,6 @@ func _tick_struck(delta: float, st: float, fr: Dictionary, tapped: bool) -> void
 func _tick_friends(st: float, fr: Dictionary, tapped: bool) -> void:
 	if tapped:
 		_answer_only()
-	m.g["db_y"] = maxf(0.0, float(m.g.get("db_y", 0.0)) - 0.3)
 	m.g["db_flash"] = 0.0
 	# The compatibility completion signal now means the whole friend has settled.
 	var done: bool = bool(m.g.get("db_imploded", false))
@@ -771,6 +764,25 @@ func pose_for_state() -> String:
 	return "idle"
 
 # ---- presentation ----------------------------------------------------------
+func _tick_boss_roam(delta: float, state: String) -> void:
+	# He ambles during breathers and while a circle is still aiming. Settle
+	# before the lock pulses, and hold still for the lane and the gold star.
+	var circle_aiming: bool = state == "tell" \
+		and patterns.geometry.get("shape") == "circle" \
+		and not EncounterWarningCue2D.is_locked(patterns.elapsed / patterns.tell_time)
+	var roaming: bool = state in ["showing", "damage_recovery", "struck"] or circle_aiming
+	if not roaming:
+		m.g["db_y"] = move_toward(float(m.g["db_y"]), 0.0, delta * 7.0)
+		return
+	var elapsed: float = float(m.g["db_roam_t"]) + delta
+	m.g["db_roam_t"] = elapsed
+	var route: float = elapsed * TAU / ROAM_LOOP_SECONDS
+	var hop: float = sin(elapsed * PI / ROAM_HOP_SECONDS)
+	m.g["db_x"] = sin(route) * 8.0
+	m.g["db_z"] = -10.0 - cos(route) * 2.0
+	m.g["db_y"] = move_toward(float(m.g["db_y"]), ROAM_HOP_HEIGHT * hop * hop, delta * 5.0)
+
+
 func _place_boss(delta: float) -> void:
 	var boss: Node3D = m.g.get("db_boss") as Node3D
 	var r := stage.root()
@@ -799,9 +811,17 @@ func _place_boss(delta: float) -> void:
 				var top: Vector2 = m.player.cam.unproject_position(
 					k.to_global(k.sprite.position * 2.0))
 				var edge: float = absf(foot.y - top.y)
-				care_view.present(k.sprite.sprite_frames, k.sprite.animation,
-					k.sprite.frame, foot, edge)
-				care_view.flip_h = k.sprite.flip_h
+				var animation: StringName = k.sprite.animation
+				var frame: int = k.sprite.frame
+				var sneezing: bool = m.g.get("db_state") == "strike"
+				if sneezing:
+					# Show the exhale on the same clock as the flying goo.
+					animation = StringName(pose_for_state())
+					var count: int = k.sprite.sprite_frames.get_frame_count(animation)
+					frame = floori(_sneeze_progress() * float(count))
+				care_view.present(k.sprite.sprite_frames, animation, frame, foot, edge)
+				# The authored achoo key exhales left before mirroring.
+				care_view.flip_h = not k.sprite.flip_h if sneezing else k.sprite.flip_h
 				lesson.boss_anchor = care_view.forehead_anchor()
 	var shadow: Sprite2D = m.g.get("db_shadow") as Sprite2D
 	if shadow != null and is_instance_valid(shadow):
@@ -948,6 +968,11 @@ func _update_telegraph() -> void:
 	_telegraph_data["boss_point"] = stage.project_floor_point(Vector2(
 		float(m.g.get("db_x", 0.0)), float(m.g.get("db_z", 0.0))))
 	_telegraph_data["encounter_visible"] = state != "splash"
+	_telegraph_data["strike_progress"] = _sneeze_progress() if state == "strike" else 0.0
+	_telegraph_data["plume_point"] = care_view.plume_anchor() if care_view != null \
+		else _telegraph_data["boss_point"]
+	_telegraph_data["plume_side"] = 1.0 if care_view != null and care_view.flip_h else -1.0
+	_telegraph_data["landing_point"] = stage.project_floor_point(_sneeze_target())
 	telegraph.set_telegraph(_telegraph_data)
 	var floor_telegraph: DustBossTelegraph2D = m.g.get("db_floor_telegraph") as DustBossTelegraph2D
 	if floor_telegraph != null and is_instance_valid(floor_telegraph):
@@ -1027,7 +1052,7 @@ func _build_boss() -> void:
 	m.g["db_boss"] = boss
 	# THE ANIMATED BOSS. DustBunnyBossSprite owns the four-frame sheets, the
 	# counter window, the flinch chain and the implosion; this file positions
-	# it, tells it when to jump and when to open, and answers its signals.
+	# it, tells it when to sneeze and when to open, and answers its signals.
 	var kit := DustBunnyBossSprite.new()
 	kit.name = "GrandPuff"
 	kit.care_mode = true
@@ -1041,7 +1066,7 @@ func _build_boss() -> void:
 	kit.final_round_started.connect(_on_final_round)
 	kit.tap_progress_changed.connect(_on_tap_progress)
 	kit.vulnerability_changed.connect(_on_vulnerability_changed)
-	# the ground shadow stays on the deck so a leap reads as a leap
+	# The shadow stays on the floor under his slow roaming bounces.
 	var shadow := Sprite2D.new()
 	shadow.texture = preload("res://assets/flats/castle/rooms/room_actor_shadow.png")
 	(m.g["db_attic_layer"] as CanvasLayer).add_child(shadow)

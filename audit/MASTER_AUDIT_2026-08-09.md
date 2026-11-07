@@ -272,6 +272,8 @@ rules; sealed evidence below remains scoped to its recorded build. Follow the
 [Executive verdict](#1-executive-verdict) · [Superseded design choices](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#15-explicitly-superseded-dismissed-and-deferred-ideas) · [Canonical finding schema](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#17-finding-record-fields)
 <!-- AUDIT_TASK_INDEX_END -->
 
+Owner-directed [Grand Puff cold effects](../design/audit_impacts/grand-puff-cold-presentation-20261107.json) (2026-11-07) presents all five original locked steps as planted sneezes that send green goo carrying germs. Slow roaming is separate from the strike. The shared engine, attack shapes and cadence, saves, rewards and selected clips remain unchanged; device/child/owner acceptance and canonical findings remain open.
+
 ## Sealed audit snapshot and subsequent round metadata
 
 - **Audit ID:** `MA-2026-08-09`

@@ -338,6 +338,8 @@ un-earned once Chapter 2 starts. No existing finding is closed.
 
 ## MA-VIS-006
 
+[Grand Puff cold presentation](../../design/audit_impacts/grand-puff-cold-presentation-20261107.json) (2026-11-07) replaces the vortex, charge graphics and strike jumps with a planted sneeze, green goo and exhale foley along the existing warning shapes. Grand Puff keeps a separate slow roaming bounce. This is a bounded presentation change; the broader finding and external acceptance remain open.
+
 [R144 shared shell candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md) replaces the procedural crest with byte-unchanged painted castle art. Thirty configured native before/candidate frames and identical caller geometry are diagnostic evidence; machine, Dev, formal QA11, device, child and owner evidence remain distinct. Hidden touch-pad and occluded Garden-header crests earn no visible-removal credit. Lifecycle remains open.
 
 [R143 Racer](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/README.md) binds the existing painted capsule/kelp as required resources and retires two procedural fallback drawing paths on an isolated current-Dev candidate. 54paired configured native scenes are identical; the later actual MCP combination passes81assertion-based probes plus1headless capture SKIP with strict-zero exits. FormalQA11/device/child/owner and integration remain separate. Finding lifecycle remains open.

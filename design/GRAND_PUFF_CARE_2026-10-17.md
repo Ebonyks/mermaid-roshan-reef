@@ -104,3 +104,37 @@ do not establish target-device performance/listening, full fresh-save traversal,
 child comprehension, owner art/motion acceptance or release acceptance. Related
 `MA-PLAY-001` and `MA-ACCESS-001` keep their current lifecycle; the separate
 combat-tutorial phone finding is outside this commission.
+
+## 2026-11-07: green-goo sneezes and gentle roaming
+
+Grand Puff has a cold. He inhales while the original warning aims and flashes
+three times. He stays planted through each of the five strikes and sneezes
+green goo carrying germs. The flight begins at the painted breath outlet and
+lands with a quick splat at the locked circle center or the far end of the
+locked lane. The shared impact check still uses the original warning shape
+and strike duration. The lane takes its starting point from Grand Puff's
+position as the tell begins, as before.
+
+Grand Puff moves slowly in a shallow loop with low bounces between sneezes.
+He settles before the circle's lock flashes and holds position during the lane
+tell and the gold-star opening. Cleaning input, assistance, checkpoint,
+reward, and selected story footage carry forward.
+
+The movement profile uses a 14-second shallow roaming loop and a low
+two-second bounce. The floor shadow keeps its contact point under the actor.
+The sneeze uses the existing four-slot clip. Slots are inhale, exhale,
+held exhale, and settle, at the original round-specific playback speeds.
+The exhale begins at one-quarter of the existing strike window. The actor's
+floor point is fixed for that window, and the goo alone makes contact.
+This local timing pass reuses the cold atlas and adds two Canvas effect
+textures. It used no generated character frames or paid animation work.
+
+The goo and airborne germ marks are original small SVGs. Paper-lavender floor
+dust and soap/star cues keep their cleaning meaning. An original synthesized
+sneeze plays once per release on the stage SFX layer. The optional bounce
+commentary gives way to a short cold-cloud caption at contact. The spoken
+“Move out of the glowing shape!” cue and other care instructions keep their
+existing routing and protected recordings.
+
+[Scoped impact and evidence](audit_impacts/grand-puff-cold-presentation-20261107.json).
+Machine and desktop evidence are separate from device, child and owner acceptance.

@@ -4,6 +4,7 @@ const FRAME_CAP := 9000
 const CONTRACT_CHECKS = preload("res://scripts/encounter_contract_checks.gd")
 var main: ReefMain
 var bad := 0
+var cold_shots: String = OS.get_environment("DUSTBOSS_COLD_SHOTS")
 
 func _init() -> void:
 	_warning_choreography_case()
@@ -241,7 +242,15 @@ func _splash_and_geometry_case() -> void:
 		print("DUSTBOSS|contract_failures|", contract_failures)
 	await _wait_state(["showing"], 1600)
 	_ck("showing follows splash", _state() == "showing")
-	await _frames(340)
+	var start_x: float = float(main.g.get("db_x", 0.0))
+	var roam_distance: float = 0.0
+	var roam_lift: float = 0.0
+	for _i in range(340):
+		await process_frame
+		roam_distance = maxf(roam_distance, absf(float(main.g.get("db_x", 0.0)) - start_x))
+		roam_lift = maxf(roam_lift, float(main.g.get("db_y", 0.0)))
+	_ck("Grand Puff gently bounces around the stage while waiting",
+		roam_distance >= 2.0 and roam_lift >= 0.4 and roam_lift <= DustBossGame.ROAM_HOP_HEIGHT)
 	_ck("unlearned movement waits without a fake gold opening",
 		_state() == "showing" and _hits() == 0 and float(main.g.get("db_flash", 0.0)) == 0.0)
 	_ck("encounter uses direct hybrid world touch without an action medallion",
@@ -567,6 +576,13 @@ func _adaptive_completion_case() -> void:
 	var saw_phase_one_combo := false
 	var saw_final_lane := false
 	var saw_telegraph := false
+	var cold_releases: Dictionary = {}
+	var cold_landings: Dictionary = {}
+	var strike_positions: Dictionary = {}
+	var planted: bool = true
+	var synced_exhale: bool = true
+	var strike_key: String = ""
+	var strike_landing := Vector2.ZERO
 	var snapshot_checked := false
 	var last_tell_key := ""
 	var locked_target := Vector2.ZERO
@@ -583,6 +599,11 @@ func _adaptive_completion_case() -> void:
 		if state == "struck" and not checked_breather:
 			checked_breather = true
 			await _free_steering_case("struck")
+		if state != "strike" and not strike_key.is_empty():
+			var floor_effects: DustBossLesson2D = main.g.get("db_lesson_floor") as DustBossLesson2D
+			cold_landings[strike_key] = floor_effects != null and floor_effects._cold_landing \
+				and floor_effects._dust_at.is_equal_approx(strike_landing)
+			strike_key = ""
 		if state != "vuln":
 			tapped_opening = false
 		if state == "tell":
@@ -608,6 +629,28 @@ func _adaptive_completion_case() -> void:
 				snapshot_checked = true
 			await _move_one_frame_toward(danger.get("safe_point", Vector2.ZERO) as Vector2)
 			continue
+		if state == "strike":
+			var danger: Dictionary = _boss().danger_geometry()
+			var key: String = "%d_%d" % [int(danger.get("phase", -1)), int(danger.get("step", -1))]
+			var floor_position := Vector2(float(main.g["db_x"]), float(main.g["db_z"]))
+			if strike_key.is_empty():
+				strike_key = key
+				strike_positions[key] = floor_position
+				strike_landing = _boss().stage.project_floor_point(
+					danger.get("to", danger.get("center", Vector2.ZERO)) as Vector2)
+			planted = planted and is_zero_approx(float(main.g["db_y"])) \
+				and floor_position.is_equal_approx(strike_positions[key] as Vector2)
+			var cold_view: DustBossTelegraph2D = main.g.get("db_telegraph") as DustBossTelegraph2D
+			if cold_view != null and cold_view._released and cold_view._strike_progress < 0.75:
+				var expected: StringName = StringName(_boss().pose_for_state())
+				synced_exhale = synced_exhale and _boss().care_view._animation == expected \
+					and _boss().care_view._frame in [1, 2]
+			if cold_view != null and cold_view._released and cold_view._strike_progress >= 0.62 \
+					and not cold_releases.has(key):
+				cold_releases[key] = cold_view._cold_sfx != null \
+					and cold_view._cold_sfx.stream == DustBossTelegraph2D.SNEEZE \
+					and cold_view._visible and cold_view.release_target().is_equal_approx(strike_landing)
+				await _capture_cold_release(key)
 		main.touch_ui.stick_vec = Vector2.ZERO
 		var kit: DustBunnyBossSprite = _boss().kit()
 		if state == "vuln" and kit != null and kit.vulnerable and not tapped_opening:
@@ -636,6 +679,12 @@ func _adaptive_completion_case() -> void:
 	_ck("phase two executes its warned lane", saw_final_lane)
 	_ck("live tells keep their captured target while the player moves", snapshot_checked)
 	_ck("a visible 2D telegraph accompanies live danger", saw_telegraph)
+	_ck("Grand Puff stays planted through all five sneezes", planted and strike_positions.size() == 5)
+	_ck("Grand Puff visibly holds his exhale while goo is released", synced_exhale)
+	_ck("all five steps sneeze green goo toward the exact locked target",
+		cold_releases.size() == 5 and not cold_releases.values().has(false))
+	_ck("all five splats land at the same point as their airborne goo",
+		cold_landings.size() == 5 and not cold_landings.values().has(false))
 	_ck("hybrid head touch can land a real counter", used_world_touch)
 	_ck("one fresh counter edge per opening returns Day Two to Canvas",
 		main.game == "level2" and String(main.g.get("phase", "")) == "promenade"
@@ -767,6 +816,18 @@ func _pattern_geometry_case() -> void:
 					sequencer.advance_combo(expected, Vector2.ZERO, DustBossGame.RADIUS)
 	_ck("all 16 edge targets are captured, covered, escapable, and stage-valid in every phase step", all_ok)
 
+func _capture_cold_release(key: String) -> void:
+	if cold_shots.is_empty() or DisplayServer.get_name() == "headless":
+		return
+	DirAccess.make_dir_recursive_absolute(cold_shots)
+	await RenderingServer.frame_post_draw
+	var image: Image = root.get_texture().get_image()
+	var path: String = cold_shots.path_join("release_" + key + ".png")
+	var saved: bool = image != null and not image.is_empty() and image.save_png(path) == OK
+	_ck("rendered cold release " + key, saved)
+	print("DUSTBOSS|cold_shot|", path, "|", RenderingServer.get_current_rendering_method())
+
+
 func _dust_edge_matches(warning: DustBossTelegraph2D) -> bool:
 	if warning.edge_points.size() < 16 or warning.edge_points.size() > 48:
 		return false
@@ -786,10 +847,10 @@ func _warning_choreography_case() -> void:
 	var data: Dictionary = {"visible": true, "active": false, "points": points,
 		"boss_point": Vector2(30, 100), "progress": 0.0, "encounter_visible": true}
 	warning.set_telegraph(data)
-	_ck("jump warning starts underneath Grand Puff", warning.warning_center().distance_to(Vector2(30, 100)) < 0.01)
+	_ck("sneeze warning starts underneath Grand Puff", warning.warning_center().distance_to(Vector2(30, 100)) < 0.01)
 	data["progress"] = EncounterWarningCue2D.AIM_FRACTION
 	warning.set_telegraph(data)
-	_ck("jump warning arrives before lock flashes", warning.warning_center().distance_to(Vector2(180, 100)) < 0.01)
+	_ck("sneeze warning arrives before lock flashes", warning.warning_center().distance_to(Vector2(180, 100)) < 0.01)
 	data["boss_point"] = Vector2(900, 400)
 	data["progress"] = 0.8
 	warning.set_telegraph(data)
@@ -813,4 +874,24 @@ func _warning_choreography_case() -> void:
 		for attack: EncounterAttack2D in phase.attacks:
 			enough_time = enough_time and attack.warning_seconds >= EncounterWarningCue2D.MIN_WARNING_SECONDS
 	_ck("every Grand Puff attack leaves time for travel and three lock flashes", enough_time)
+	data["active"] = true
+	data["plume_point"] = Vector2(38, 63)
+	data["strike_progress"] = 0.20
+	warning.set_telegraph(data)
+	_ck("germs wait for the exhale after the breath-in pose", not warning._released)
+	data["strike_progress"] = 0.28
+	warning.set_telegraph(data)
+	_ck("the airborne puff begins at the painted breath outlet",
+		warning._released and warning._release_from == Vector2(38, 63))
+	data["plume_point"] = Vector2(400, 80)
+	warning.set_telegraph(data)
+	_ck("the moving actor cannot pull a released puff off its locked circle",
+		warning._release_from == Vector2(38, 63) and warning.release_target() == Vector2(180, 100))
+	data["active"] = false
+	data["shape"] = "lane"
+	data["points"] = PackedVector2Array([Vector2(40, 70), Vector2(240, 70),
+		Vector2(240, 130), Vector2(40, 130)])
+	warning.set_telegraph(data)
+	_ck("a new lane warning resets emission and keeps the locked far end",
+		not warning._released and warning.release_target() == Vector2(240, 100))
 	warning.free()

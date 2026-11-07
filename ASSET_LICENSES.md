@@ -21521,3 +21521,9 @@ The existing castle motif keeps its source licence and provenance unchanged. The
 | `assets/racer/ui/minimap_backplate_painted.png` | Technical derivative of the R149 native minimap plaque. | Same project-generated art source. | `assets_src/imagegen/racer_minimap_20261107/GENERATION_JOB.json` | Declared square crop and uniform 512×512 RGBA export. Runtime candidate pending contextual and acceptance checks. |
 | `assets_src/imagegen/racer_wrong_way_arrow_20261107/wrong_way_arrow_native.png` | R150 built-in ImageGen, model revision unexposed. | Owner-authorized project-generated art. | `assets_src/imagegen/racer_wrong_way_arrow_20261107/GENERATION_JOB.json` | Original 1430×1100 RGBA, exact prompt and one unprotected style reference retained. |
 | `assets/racer/ui/wrong_way_arrow_painted.png` | R150 native painted arrow technical derivative. | Same project-generated art. | `assets_src/imagegen/racer_wrong_way_arrow_20261107/GENERATION_JOB.json` | Preserved painted alpha, declared crop and 480×314 RGBA export. |
+
+| Asset | Source | License | Reference | Modifications |
+|---|---|---|---|---|
+| `assets/effects/grand_puff/cold_germ.svg` | Project-original 96px stylized airborne germ glyph, 2026-11-07 | Project-original artwork | `design/audit_impacts/grand-puff-cold-presentation-20261107.json` | Original vector paths and gradient; no source image, generation service or protected art. |
+| `assets/effects/grand_puff/cold_goo.svg` | Project-original 96px green goo glob and splat, 2026-11-07 | Project-original artwork | `design/audit_impacts/grand-puff-cold-presentation-20261107.json` | Original vector paths and gradient; no source image or protected art. |
+| `assets/audio/sfx/grand_puff_sneeze.ogg` | Project-original seeded cartoon sneeze synthesis, 2026-11-07 | Project-original sound | `tools/build_grand_puff_cold_sfx.py` | Mono 48 kHz Vorbis; no speech recording, samples or family imitation. |

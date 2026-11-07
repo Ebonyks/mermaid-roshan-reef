@@ -197,14 +197,20 @@ func play_idle() -> void:
 
 
 func play_jump(direction_x: float = 1.0) -> float:
+	if care_mode:
+		return play_care_sneeze(direction_x)
 	_reset_tap_progress()
 	set_facing_x(direction_x)
 	var jump_animation: StringName = (
 		&"angry_jump_final" if final_round_active else &"jump"
 	)
-	if care_mode:
-		jump_animation = &"care_sneeze_final" if final_round_active else &"care_sneeze"
 	return _play_action(jump_animation)
+
+
+func play_care_sneeze(direction_x: float) -> float:
+	_reset_tap_progress()
+	set_facing_x(direction_x)
+	return _play_action(&"care_sneeze_final" if final_round_active else &"care_sneeze")
 
 
 func play_vulnerable_laugh() -> float:

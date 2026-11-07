@@ -1,0 +1,203 @@
+{
+  "id": "grand-puff-cold-presentation-20261107",
+  "baseline": "0be76936a163628801a5156507f18185878cbaa7",
+  "scope": "Owner-directed cold presentation and movement. Grand Puff roams with slow low hops between releases and stays planted during the five existing strike windows. Green goo carrying germs leaves his authored exhale and splats in the locked circle or lane. Retain the shared engine, attack shape dimensions, strike and warning cadence, input, saves, rewards and selected clips.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-MED-01",
+    "DL-VIS-01",
+    "DL-VIS-05",
+    "DL-INT-04",
+    "DL-MOT-01",
+    "DL-MOT-03",
+    "DL-MOT-04",
+    "DL-SND-01",
+    "DL-SND-04",
+    "DL-SND-05",
+    "DL-PERF-02",
+    "DL-ASSET-01",
+    "DL-CIN-16",
+    "DL-MOT-11",
+    "DL-MOT-12"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-001",
+    "MA-ACCESS-001"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets/audio/sfx/grand_puff_sneeze.ogg",
+    "assets/effects/grand_puff/cold_germ.svg",
+    "assets/effects/grand_puff/cold_goo.svg",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/audio_quality_ledger_2026-08-24.csv",
+    "audit/audio_quality_summary_2026-08-24.json",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/GRAND_PUFF_CARE_2026-10-17.md",
+    "scripts/dust_boss_lesson_2d.gd",
+    "scripts/dust_boss_telegraph_2d.gd",
+    "scripts/dust_bunny_boss_sprite.gd",
+    "scripts/games/dust_boss.gd",
+    "scripts/grand_puff_care_2d.gd",
+    "scripts/probe_dust_boss.gd",
+    "tools/build_grand_puff_cold_sfx.py"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2-stable official.ed1daf0bf --headless --verbose --path . -s scripts/probe_dust_boss.gd -- --touch --classic-touch-test",
+      "result": "PASS",
+      "evidence": "143 assertions. Real Royal Hall touch after prior jobs are supplied, all five stationary exhale poses, independent low roaming bounce, five locked air-to-splat contacts, original warning/strike cadence, one-finger counter and both interruption paths through the one-time Day Two reward. Local log tmp/puff_cold_verify/headless_goo_final/probe.log, SHA-256 8c50413ffa5f42de74398ab2e016617a35b86883358f3998c46e9b03d312e352."
+    },
+    {
+      "command": "Desktop Vulkan Forward Mobile, exact Godot 4.7.2, direct stage capture of initial circle and final lane",
+      "result": "PASS",
+      "evidence": "Visual fixture bypasses doorway and introduction for the captures. Observed original pose identity, planted exhale, readable bright green droplets and locked circle/lane targets, and contact splats on the floor. This is a scoped desktop observation.",
+      "log": {
+        "path": "tmp/puff_cold_verify/mobile_goo_synced/probe.log",
+        "sha256": "340118a788495802761205b700bc857f9f6bf0cafec03f4e92201137eaab162e"
+      },
+      "capture_directory": "tmp/puff_cold_verify/mobile_goo_synced",
+      "capture_hashes": {
+        "flight_0.png": {
+          "size": [
+            2560,
+            1369
+          ],
+          "sha256": "b21ba33c6583b3abd3bfed3831a2649dcf05b58cc3e475ad04a67936698e7422"
+        },
+        "flight_2.png": {
+          "size": [
+            2560,
+            1369
+          ],
+          "sha256": "4102597f695794ad3074a3f50e0c4eb5405b53e9b4da5d47dbb7a9894c7bd6fb"
+        },
+        "locked_0.png": {
+          "size": [
+            2560,
+            1369
+          ],
+          "sha256": "94f079a8735a866c0a97dcdfb582c09717ee97174f2fa3cb13ebcfe55da545b2"
+        },
+        "locked_2.png": {
+          "size": [
+            2560,
+            1369
+          ],
+          "sha256": "767a0ad22f75b49fb0c4f7f0775e72b3a65ba881845649f988b3ee7f65185726"
+        },
+        "slow_bounce.png": {
+          "size": [
+            2560,
+            1369
+          ],
+          "sha256": "e555f268f4dcc043e530888cc3a57244da076e7a2b068958207eb1c2be758e26"
+        },
+        "splat_0.png": {
+          "size": [
+            2560,
+            1369
+          ],
+          "sha256": "34dd847de60d45ee8ffd89b9b9ac1900e9a9d7c681c42fd22035d5aa7a5fd313"
+        },
+        "splat_2.png": {
+          "size": [
+            2560,
+            1369
+          ],
+          "sha256": "f0ee7bc88304181b3e61e2991c87bb73d72e3b41533dfce650006963fceb8bf3"
+        }
+      }
+    },
+    {
+      "command": "Changed GDScript parser, Variant inference lint and Godot --check-only, exact Godot asset import, deterministic sneeze reconstruction and refreshed audio ledger",
+      "result": "PASS",
+      "evidence": "New imported vector art, one 48 kHz mono synthesized SFX, 868 audio ledger entries. Existing family voices, atlas art, story clips, profile, pattern resolver and saves passed baseline diff check.",
+      "unchanged_paths_verified": [
+        "project.godot",
+        "scripts/main.gd",
+        "scripts/boss_encounter_2d.gd",
+        "scripts/encounter_profile_2d.gd",
+        "scripts/encounter_patterns_2d.gd",
+        "scripts/encounter_warning_cue_2d.gd",
+        "scripts/games/octagon_stage.gd",
+        "scripts/save_state.gd",
+        "scripts/audio_director.gd",
+        "scripts/day_one_contextual_voice_catalog.gd",
+        "assets/sprites/dust_bunnies/boss/grand_puff_cold_keys_v1.png",
+        "assets/cinematics/day_one_story",
+        "assets/audio/voices",
+        "assets/book",
+        "assets/characters/friends"
+      ],
+      "source_hashes": {
+        "assets/audio/sfx/grand_puff_sneeze.ogg": "6b770bdffcdb8c640e5a4329e34091d98d282e7109c8ad643719dfe0cf8a1dd4",
+        "assets/effects/grand_puff/cold_germ.svg": "c4972a6833e7c645db93846329ad58969a35d2f74e6bc99fb4c44fef7c28cb6e",
+        "assets/effects/grand_puff/cold_goo.svg": "3a4a7131cefcaf8326795923f8e4faa76a7b5d2348156f7afe59ca7a0b763898",
+        "scripts/dust_boss_lesson_2d.gd": "c40cf093fe32c1e3cd8c943fe4f4af5753d0664cabb91dce339cea6e48e16a6b",
+        "scripts/dust_boss_telegraph_2d.gd": "da2397e75fd189272bf8d680f5be50cb1c3a662c65f20e608679e38e07dc3296",
+        "scripts/dust_bunny_boss_sprite.gd": "a19b472792aae2c81aa6abfbb082e1fcf87589d1be2a3e421dd64e46e69a8c2e",
+        "scripts/games/dust_boss.gd": "ee75b3385744e41f5581c9c6d8752181e81e24e0619f29d504a69de253138a10",
+        "scripts/grand_puff_care_2d.gd": "ac96e81d4982708877c49d90629e3d606e55cd5368e83a4394c44488fa04dc45",
+        "scripts/probe_dust_boss.gd": "ee3cd7bffec4b67fc0e3a9c358040dc2c0bfcbb3662623d7872d0e039555371f",
+        "tools/build_grand_puff_cold_sfx.py": "29eea1d8d0bbe28ab6bc186f61576887362dae048e379a1c738eebd73cad497b"
+      }
+    },
+    {
+      "command": "Exact-Godot standalone boss animation, Grand Puff balance, and Day One story/teardown probes",
+      "result": "PASS",
+      "evidence": "Standalone boss animation, all balance personas and the protected Day One story clips/teardown passed in isolated exact-Godot runs.",
+      "logs": {
+        "probe_dust_bunny_boss": {
+          "log": "tmp/puff_cold_verify/probe_dust_bunny_boss_final/probe.log",
+          "sha256": "0adac9041e9ec7fcc93ce9f82000db989b6e3d3f25cc36f80031be6977d0e88d",
+          "result": "BUNNYBOSS|result: ALL OK"
+        },
+        "probe_day_one_story_clips": {
+          "log": "tmp/puff_cold_verify/probe_day_one_story_clips_final/probe.log",
+          "sha256": "ec166fdc2b26dc8c017a91e237309903d8b2f58e1e85410c7d1b9a8267c8f3a1",
+          "result": "DAY_ONE_STORY_CLIPS|RESULT: PASS failures=0"
+        },
+        "probe_dust_boss_balance": {
+          "log": "tmp/puff_cold_verify/probe_dust_boss_balance_final/probe.log",
+          "sha256": "8ee74c898711ee5ac82113228e0074ed3cfe6e5b00225749275d5c44b37cb86f",
+          "result": "DUSTBAL|result: ALL OK"
+        }
+      }
+    },
+    {
+      "command": "Canonical local static and import gates plus isolated exact-Godot probe-by-probe coverage of the full scripts/ci.sh roster",
+      "result": "PASS",
+      "evidence": "All canonical pre-probe gates completed through import. The first 2D migration scan found two new probe-only Vector3 tokens. The test now measures Vector2 floor position and scalar lift, and both the exact migration gate and the changed probe passed on retry. The unchanged probe roster completed 81 passes and the expected headless human-art skip. The broader advisory visual and strict zero-debt audits remain UNSATISFIED.",
+      "logs": [
+        {
+          "path": "tmp/puff_cold_verify/full_ci_goo_retry.log",
+          "sha256": "9369c026ed15d527399b072591555b2c14d0e2c3f90bfe96cb8a5e7b02849bab"
+        },
+        {
+          "path": "tmp/puff_cold_verify/game2d_goo_final.log",
+          "sha256": "4022b0d0dd00dd5e333ac2fdd5684e1ec48df71542d261cc30972ea71a23d6d5"
+        },
+        {
+          "path": "tmp/puff_cold_verify/parallel_canonical_probes/results.json",
+          "sha256": "01acb2417ece99d9cd792b4f0d4cd524bb31742388559ca88a352b0881c9b455"
+        },
+        {
+          "path": "tmp/puff_cold_verify/headless_goo_final/probe.log",
+          "sha256": "8c50413ffa5f42de74398ab2e016617a35b86883358f3998c46e9b03d312e352"
+        }
+      ]
+    },
+    {
+      "command": "Exact topic-head remote probe workflow",
+      "result": "PENDING",
+      "evidence": "GitHub CI must pass the exact topic revision before dev integration."
+    }
+  ],
+  "acceptance_gaps": "Physical Android performance, listening, child comprehension, owner presentation approval and global finding closure remain open."
+}

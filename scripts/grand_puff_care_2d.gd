@@ -7,11 +7,13 @@ const ATLAS := preload("res://assets/sprites/dust_bunnies/boss/grand_puff_cold_k
 const CELL := 512.0
 const ROOT := Vector2(256.0, 470.0)
 const FOREHEAD := Vector2(256.0, 282.0)
+# Outer end of the painted breath curl in the existing achoo key.
+const PLUME_OUTLET := Vector2(113.0, 351.0)
 const ANIMATIONS: Dictionary = {
 	&"idle": {"fps": 1.0, "loop": true, "keys": [0, 0, 1, 0]},
 	&"care_breath": {"fps": 1.0, "loop": true, "keys": [1]},
-	&"care_sneeze": {"fps": 6.0, "keys": [1, 2, 0, 0]},
-	&"care_sneeze_final": {"fps": 8.0, "keys": [1, 2, 0, 0]},
+	&"care_sneeze": {"fps": 6.0, "keys": [1, 2, 2, 0]},
+	&"care_sneeze_final": {"fps": 8.0, "keys": [1, 2, 2, 0]},
 	&"jump": {"fps": 6.0, "keys": [1, 2, 0, 0]},
 	&"laugh_vulnerable": {"fps": 5.0, "keys": [0, 3, 3, 3]},
 	&"flinch_1": {"fps": 12.0, "keys": [0, 3]},
@@ -72,3 +74,10 @@ func present(frames: SpriteFrames, animation: StringName, frame: int,
 
 func forehead_anchor() -> Vector2:
 	return position + (FOREHEAD - ROOT) * scale
+
+
+func plume_anchor() -> Vector2:
+	var outlet: Vector2 = PLUME_OUTLET
+	if flip_h:
+		outlet.x = CELL - outlet.x
+	return position + (outlet - ROOT) * scale
