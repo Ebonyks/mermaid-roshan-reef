@@ -1,0 +1,44 @@
+{
+  "id": "dkc-acoustic-reviewed-masters-20261107",
+  "date": "2026-11-07",
+  "baseline": "05b4905a8b3ee3ddd1cf311a0ba910b8c11dac61",
+  "scope": "Publish metadata and exact evidence for the completed private acoustic DKC album and its final source, performance, mix, mastering and sequence reviews.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SND-05",
+    "DL-SND-09",
+    "DL-SND-18"
+  ],
+  "findings": [
+    "MA-AUDIO-001"
+  ],
+  "finding_scope": "Runtime context only. The private album delivers no game runtime assets.",
+  "files": [
+    "design/music/dkc/ACOUSTIC_ALBUM_REVIEWED_MASTERS_2026-11-07.md",
+    "design/music/dkc/evidence/acoustic_reviewed_master_manifest_20261107.json",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/music/dkc/README.md"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "Candidate document authority passed with 948 Markdown files and 948 ledger entries on the populated exact worktree."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Candidate change coverage passed against the exact integrated baseline 0be76936a163628801a5156507f18185878cbaa7."
+    },
+    {
+      "command": "Private album finalizer, full dual-format decoding and archive verification",
+      "result": "PASS",
+      "evidence": "design/music/dkc/evidence/acoustic_reviewed_master_manifest_20261107.json"
+    }
+  ],
+  "acceptance_gaps": "Owner listening is available. Device, child and runtime verification do not apply to this private album record."
+}

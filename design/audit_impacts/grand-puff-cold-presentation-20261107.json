@@ -194,10 +194,22 @@
       ]
     },
     {
-      "command": "Exact topic-head remote probe workflow",
+      "command": "Exact original topic-head remote probe workflow",
+      "result": "FAIL",
+      "evidence": "On exact topic bddec302b7309f8588fba6c5057224af0a5f1cb3, trusted gameplay probes, real viewport boot, and Grand Puff balance passed. GitHub stopped the workflow at its 90-minute job limit in subsequent advisory work. Dev integration requires a successful complete run on the reconciled head.",
+      "initial_checkout_retry": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42402226682",
+      "run": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42404929288"
+    },
+    {
+      "command": "Exact reconciled topic-head remote probe workflow",
       "result": "PENDING",
-      "evidence": "GitHub CI must pass the exact topic revision before dev integration."
+      "evidence": "Wait for a successful workflow on the revision reconciled with current dev."
     }
   ],
-  "acceptance_gaps": "Physical Android performance, listening, child comprehension, owner presentation approval and global finding closure remain open."
+  "acceptance_gaps": "Physical Android performance, listening, child comprehension, owner presentation approval and global finding closure remain open.",
+  "integration_reconciliation": {
+    "dev": "e14494ece1d04a8a561fa070f8a975dd8b183251",
+    "tested_topic": "bddec302b7309f8588fba6c5057224af0a5f1cb3",
+    "scope": "The two incoming commits add DKC album documentation and evidence. The reconciled tree has byte-identical gameplay and asset paths to the locally tested topic."
+  }
 }

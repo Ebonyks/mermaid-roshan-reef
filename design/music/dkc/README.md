@@ -4,6 +4,10 @@
 
 The [acoustic sound design profile](ACOUSTIC_SOUND_DESIGN_PROFILE_2026-11-05.md) develops the current Simian V4, Island V6 and Aquatic V5r3 performances into a concrete band identity: clear source themes, firm acoustic attacks, distinct answering voices, warm metal and lively hand percussion. The later owner-directed acoustic variant supersedes electronic instrument choices in earlier call sheets for this album; their source/theme analysis remains useful. The [album plan](ACOUSTIC_ALBUM_PLAN_2026-11-05.md) and [30-row board](acoustic_album_board_v1.json) target a complete rough sequence November 12 and refined album candidates November 19, 2026.
 
+The [November 7 full rough](ACOUSTIC_ALBUM_FULL_ROUGH_2026-11-07.md) records 29 playable acoustic entries, their exact hashes, original game trigger verification and remaining review decisions.
+
+The [reviewed acoustic masters](ACOUSTIC_ALBUM_REVIEWED_MASTERS_2026-11-07.md) record the finished private 29-cue sequence, the source and mix decisions and exact final archive identities.
+
 The [actual acoustic calls](acoustic_album_call_sheets_v1.json) and [production receipt](acoustic_album_production_receipt_v1.json) track the next Mines, Funky and Fear Factory revisions plus the new Forest Frenzy pilot. Printed performances, native range corrections, source evidence, listening and remaining acceptance retain their exact scopes. This separate DKC album is a sound-palette study for Roshan; it does not replace runtime music or close MA-AUDIO-001.
 
 
