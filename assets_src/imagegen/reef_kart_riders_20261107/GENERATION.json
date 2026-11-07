@@ -1,0 +1,329 @@
+{
+  "task": "Racer rear driver gameplay key sprites",
+  "baseline": "8d6d7cce6748d1fb7d6fcee243f2a4d21f2f3290",
+  "verb": "Drive, seated with hands, paws or wings supported at the wheel or bars.",
+  "fixed": "Existing vehicle pixels, wheel contact anchor, chase camera and character identity",
+  "moving": "Baby Eagle subtle discrete left/right held keys. Other missing views get one rear key. Existing authored Roshan and Imp keys remain active where already suitable.",
+  "registration": "Normalized source pivot; compare seat contact and wheel ground anchor. Hold the exact same chassis pixels across new keys.",
+  "inputs": "Character inventory and project chase art. Source portraits lack rear geometry and functional seated shoulders.",
+  "attempt_cap": "Five total built-in calls, at most two takes per grouped sheet; stop and diagnose after the cap.",
+  "time_cap": "Three minutes of manual cleanup per usable cell, 25 minutes total of operator cleanup.",
+  "monetary_cap": "No additional paid provider calls.",
+  "method": "Built-in ImageGen for missing rear sprites only, then deterministic Godot 4.7.2 whole-sprite atlas composition and contact registration.",
+  "evidence": "All driver and ride combinations in solo and both split-screen seats. Neutral, left/right steering, boost, spin, rival distance, and moving laps.",
+  "atlas_identity": "Protected sources remain untouched. Candidate, target device, child and owner acceptance open.",
+  "tool": "Built-in OpenAI ImageGen",
+  "provider_revision_or_seed": "Unexposed by the tool",
+  "reported_usage": "Three calls, one per group. No paid provider was used.",
+  "license": "https://openai.com/policies/terms-of-use/",
+  "sources": [
+    {
+      "path": "assets/book/baby_doll.png",
+      "sha256": "00bf49b8e76cec939b2c3908654b5bc25bee02d1907ca034d347f3ffaa386472",
+      "size": [
+        390,
+        471
+      ]
+    },
+    {
+      "path": "assets/book/baby_doll2.png",
+      "sha256": "10d8153696b2bccc6b878e000862c42cfb4c5e23002b8975e2e83418878b4652",
+      "size": [
+        409,
+        544
+      ]
+    },
+    {
+      "path": "assets/book/baby_doll3.png",
+      "sha256": "0617bf861b63ef92b396f979cb4894948ad9517157b5dd820001e0131fbe1a6a",
+      "size": [
+        288,
+        547
+      ]
+    },
+    {
+      "path": "assets/book/doll_bunny.png",
+      "sha256": "445ae6349e552a20ca47d665a619a42453e59c69c15da315619b6d8dc2485b4a",
+      "size": [
+        220,
+        159
+      ]
+    },
+    {
+      "path": "assets/book/doll_cat.png",
+      "sha256": "2f1a6732f16dc5847dc5b84ee6642e69487702878b70ecf440ba15e1927bb71c",
+      "size": [
+        220,
+        205
+      ]
+    },
+    {
+      "path": "assets/characters/companions/baby_eagle.png",
+      "sha256": "7d6f10afbd8cd157436a05eaadab7eb4cc07c3a3d242ad2291111fc6b4f3ed2f",
+      "size": [
+        290,
+        512
+      ]
+    },
+    {
+      "path": "assets/characters/friends/daddy.webp",
+      "sha256": "9031736498f05662716988b6c9a8091dc148edf92ae1e8422fb5e4f2fd17c089",
+      "size": [
+        727,
+        1024
+      ]
+    },
+    {
+      "path": "assets/characters/friends/huluu.png",
+      "sha256": "4b6c0e4d1c4945cc1c3cb1594ad967aa6001e9bf24506e4574345088fd9a2dc9",
+      "size": [
+        640,
+        1039
+      ]
+    },
+    {
+      "path": "assets/characters/friends/mama_baby.png",
+      "sha256": "57c479d7a709b1bd268cfa1efeaf9340721056c9b9d4765929ed0add581334a2",
+      "size": [
+        393,
+        479
+      ]
+    },
+    {
+      "path": "assets/characters/rumi/rumi_eight_pose_runtime.png",
+      "sha256": "44120bbb2b1e60a9ec94e0cf3db7e46e33f564671af986bb42357b8bd59c14d5",
+      "size": [
+        1024,
+        768
+      ]
+    },
+    {
+      "path": "assets/kart/chase/empty_kart.png",
+      "sha256": "35457c5cf602bffa666d6663f9fcbefb9be26bd2d0eca1c96cb5c2a6fbf9ac88",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/kart/chase/empty_moto.png",
+      "sha256": "dfec5d6132bf3d81a086f451b4b1030aef435b9b44804ebe22ea7fce7d611bda",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/kart/chase/empty_truck.png",
+      "sha256": "8fc3380295df50ac0c981a2b28f12d4b82236be7c79c7de9907ceb640eeda1fd",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/kart/chase/kart_straight.png",
+      "sha256": "6a3107b79afd615b96b3777cd002b9d2e5814743dbfef718567d7e535693deee",
+      "size": [
+        627,
+        627
+      ]
+    },
+    {
+      "path": "assets/kart/chase/moto_straight.png",
+      "sha256": "dd2abb4e3076a8e87e0a0c412c1dbf2ce1b34c573a7281bcfb513568808df6a0",
+      "size": [
+        627,
+        627
+      ]
+    },
+    {
+      "path": "assets/kart/chase/truck_straight.png",
+      "sha256": "3e9d73e98848e690c7785c8b26f7a7959a766eb974f237af3df0975bfbfab247",
+      "size": [
+        627,
+        627
+      ]
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_racer.png",
+      "sha256": "da75600112937ed4f6bb5f9433b4792316419047e8de10f9bfdb7076c65f360f",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "assets/racer/karts/imp_kart_straight.png",
+      "sha256": "25bf06001690aa86b6f96ab5d2a3d919f02b257c345b1fe45cc3eb12e8900ba2",
+      "size": [
+        627,
+        627
+      ]
+    },
+    {
+      "path": "assets_src/characters/baby_eagle_2026-09-26/eagle_original_isolated.png",
+      "sha256": "166461427017b2624dcf1c342bde658c63a8247b522ad113c92f6ec1bb084bd9",
+      "size": [
+        944,
+        1666
+      ]
+    }
+  ],
+  "generation": [
+    {
+      "group": "eagle",
+      "attempt": 1,
+      "status": "USED_RUNTIME_CANDIDATE",
+      "output_id": "exec-9c4f947f-c27f-4c9b-ae29-96f234204630.png",
+      "exact_prompt": "Make a hand-painted 2D game rider atlas on fully transparent RGBA. The attachment is the exact identity reference, and the other attachment shows existing in-game Roshan seated art for brushwork and chase-camera angle only. Use no original reference pixels directly. Preserve anatomy, colors, age, contours and garment motifs. Show driver only, top of head through seated lower torso, held elbows forward in a believable driving position, arms or wings angled forward at wheel/handlebar height and no equipment, on a true transparent background. Crop no heads, ears, fingers or feathers. The camera is directly behind and slightly above the seated driver, facing away from the viewer toward the top of the canvas. Soft warm dimensional painted value bands, deep-plum contour, clean readable forms at game size. Calm driving posture, no text, floor, shadow, wheel, vehicle, rim, accessory, new costume or inset portrait. Flat sheet, no frame, no divider. Create one horizontal sheet of exactly three evenly spaced sprites, one per exact third. All depict the same Baby Eagle from reference: cyan and sea-green feathered head and back, salmon pink three-lobed crest, small pink wings with black outer tips, yellow eye patch and dark gray beak visible only subtly in the side angles. Keep the little bird juvenile and backpack-free with no helmet, harness or other added features. Left cell is straight rear view, crest centered, both wings reaching forward, the entire seated back torso visible; no face is seen. Middle cell is a slight turn toward the bird's own left, 20 degrees, still viewed from behind, only the edge of the left yellow eye patch and beak. Right cell is an equally slight right turn. Wing/torso support, crest size, camera pitch, contact/scale and pelvis remain fixed across the three cells. All three figures occupy equal cell proportions, align bottoms, and have a generous clear gutter.",
+      "references": [
+        {
+          "path": "assets/characters/companions/baby_eagle.png",
+          "sha256": "7d6f10afbd8cd157436a05eaadab7eb4cc07c3a3d242ad2291111fc6b4f3ed2f",
+          "dimensions": [
+            290,
+            512
+          ],
+          "role": "identity only"
+        },
+        {
+          "path": "assets/kart/chase/kart_straight.png",
+          "sha256": "6a3107b79afd615b96b3777cd002b9d2e5814743dbfef718567d7e535693deee",
+          "dimensions": [
+            627,
+            627
+          ],
+          "role": "medium and chase pitch only"
+        }
+      ],
+      "native": {
+        "path": "assets_src/imagegen/reef_kart_riders_20261107/eagle_native.png",
+        "sha256": "42430b9b8d8230bfc52499d12479cc55b6f4157763621f20f8f0462aea0eeb5f",
+        "dimensions": [
+          2172,
+          724
+        ]
+      }
+    },
+    {
+      "group": "toy",
+      "attempt": 1,
+      "status": "USED_RUNTIME_CANDIDATE",
+      "output_id": "exec-e0fbb205-b503-4102-a288-26db199797d8.png",
+      "exact_prompt": "Make a hand-painted 2D game rider atlas on fully transparent RGBA. The attachment is the exact identity reference, and the other attachment shows existing in-game Roshan seated art for brushwork and chase-camera angle only. Use no original reference pixels directly. Preserve anatomy, colors, age, contours and garment motifs. Show driver only, top of head through seated lower torso, held elbows forward in a believable driving position, arms or wings angled forward at wheel/handlebar height and no equipment, on a true transparent background. Crop no heads, ears, fingers or feathers. The camera is directly behind and slightly above the seated driver, facing away from the viewer toward the top of the canvas. Soft warm dimensional painted value bands, deep-plum contour, clean readable forms at game size. Calm driving posture, no text, floor, shadow, wheel, vehicle, rim, accessory, new costume or inset portrait. Flat sheet, no frame, no divider. Exactly six evenly sized separate driver cutouts, three columns by two rows, each centered with generous transparent gaps, all in the same direct rear seated view. Match the reference grid identity cell-for-cell. TOP left: the soft blush beige flop-eared plush Bunny, the two long soft ears frame its little seated back. TOP center: the round blue-grey plush Kitty, dark teal stripes on head and back, the same small ears and no costume. TOP right: Baby Doll, pale nearly bald sparse light hair, rose-pink panda onesie with a plain pink back. BOTTOM left: Dolly, short sunny blond hair and pink patterned skirt with blue trim, distinct from the first doll. BOTTOM center: Sleepy, light beige ribbed hood and matching knit onesie, no hair outside hood. BOTTOM right: the violet Imp, same two curled horns, wide pointed violet ears, coral and navy driving suit, no separate helmet or tail in this torso view. Bunny and Kitty are anatomically plush toys with short reaching paws, no human arms or clothes. Children are toy figures and remain fully clothed. Preserve the distinct six silhouettes and all cell assignments.",
+      "references": [
+        {
+          "path": "assets_src/imagegen/reef_kart_riders_20261107/toy_reference.jpg",
+          "sha256": "c8822a4021d3bc1aa65d15223465eac49e7a5da5a5484e652602591304f69808",
+          "dimensions": [
+            795,
+            470
+          ],
+          "role": "identity only"
+        },
+        {
+          "path": "assets/kart/chase/kart_straight.png",
+          "sha256": "6a3107b79afd615b96b3777cd002b9d2e5814743dbfef718567d7e535693deee",
+          "dimensions": [
+            627,
+            627
+          ],
+          "role": "medium and chase pitch only"
+        }
+      ],
+      "native": {
+        "path": "assets_src/imagegen/reef_kart_riders_20261107/toy_native.png",
+        "sha256": "a4d0fd6476a42fbdcc40ee122e404b2059712fc51f4a44a4543c4d94e6c9d5b5",
+        "dimensions": [
+          1536,
+          1024
+        ]
+      }
+    },
+    {
+      "group": "family",
+      "attempt": 1,
+      "status": "USED_RUNTIME_CANDIDATE",
+      "output_id": "exec-7d4467ce-33cf-44c4-9458-695ad168d33b.png",
+      "exact_prompt": "Make a hand-painted 2D game rider atlas on fully transparent RGBA. The attachment is the exact identity reference, and the other attachment shows existing in-game Roshan seated art for brushwork and chase-camera angle only. Use no original reference pixels directly. Preserve anatomy, colors, age, contours and garment motifs. Show driver only, top of head through seated lower torso, held elbows forward in a believable driving position, arms or wings angled forward at wheel/handlebar height and no equipment, on a true transparent background. Crop no heads, ears, fingers or feathers. The camera is directly behind and slightly above the seated driver, facing away from the viewer toward the top of the canvas. Soft warm dimensional painted value bands, deep-plum contour, clean readable forms at game size. Calm driving posture, no text, floor, shadow, wheel, vehicle, rim, accessory, new costume or inset portrait. Flat sheet, no frame, no divider. Exactly four evenly sized separate driver cutouts, two by two, centered with generous transparent gaps. Match the reference grid identity cell-for-cell. TOP left Princess Huluu, little girl with sunny golden side ponytail and cyan hair accent, pink and gold petal-layer top, rear seated posture. TOP right Rumi, adult lavender-haired mermaid, oversized braided purple ponytail with the same bead segmentation draping down the left, blue-violet cropped jacket with gold trim, no sleeves or costume substituted. BOTTOM left Daddy Mermaid, adult with glasses (seen only if the very edge is visible), long brown hair, small golden crown, dark navy coat and teal cape, crop below torso so no legs or tail outside the seat. BOTTOM right Mama and her baby as one seated pair, shoulder-length blonde hair, deep burgundy long-sleeved gown, securely holding the same tiny baby in tan knit and bonnet on the inside of her right arm against her chest and cheek, visible just beside her right shoulder from this rear view, her left hand reaches forward. Keep the baby nestled into the mother's silhouette with appropriate size and secure support, and keep no loose objects. All four mermaids keep their existing heads/hair, outfit shapes and child/adult proportions. Their tails tuck beneath the occluding seat and are outside this waist-up atlas. No human legs.",
+      "references": [
+        {
+          "path": "assets_src/imagegen/reef_kart_riders_20261107/family_reference.jpg",
+          "sha256": "716ff0f2683a1e623396ae96f043598330d8f13d0d1c607eecb3e2cb6cc95a1f",
+          "dimensions": [
+            530,
+            470
+          ],
+          "role": "identity only"
+        },
+        {
+          "path": "assets/kart/chase/kart_straight.png",
+          "sha256": "6a3107b79afd615b96b3777cd002b9d2e5814743dbfef718567d7e535693deee",
+          "dimensions": [
+            627,
+            627
+          ],
+          "role": "medium and chase pitch only"
+        }
+      ],
+      "native": {
+        "path": "assets_src/imagegen/reef_kart_riders_20261107/family_native.png",
+        "sha256": "3f5ed21b4e5da99bd2c0e2e480f8ebc54fb463b59b4799eade581364e6ec303b",
+        "dimensions": [
+          1309,
+          1202
+        ]
+      }
+    }
+  ],
+  "source_reference_grids": {
+    "toy_reference.jpg": [
+      "Bunny",
+      "Kitty",
+      "Baby Doll",
+      "Dolly",
+      "Sleepy",
+      "Imp"
+    ],
+    "family_reference.jpg": [
+      "Princess Huluu",
+      "Rumi first-row wave cell",
+      "Daddy Mermaid",
+      "Mama & Baby"
+    ]
+  },
+  "export": {
+    "script": "assets_src/imagegen/reef_kart_riders_20261107/build_rider_atlases.gd",
+    "runtime": [
+      {
+        "path": "assets/racer/riders_v1/kart.png",
+        "sha256": "ff540e60c130b6816e14f5ebf2e57344df0440dacc75ed2482f70bef9f207236",
+        "dimensions": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "path": "assets/racer/riders_v1/moto.png",
+        "sha256": "a16705411d0f3cbb72dab9387fa4993f73f10fe691a7118aa260ffa7c3c7ca49",
+        "dimensions": [
+          1024,
+          1024
+        ]
+      },
+      {
+        "path": "assets/racer/riders_v1/truck.png",
+        "sha256": "858a7cc166b64a503e78a545383974be765d59362e379e57666e0585e00c9090",
+        "dimensions": [
+          1024,
+          1024
+        ]
+      }
+    ],
+    "process": "Use native RGBA, isolate by cell and alpha bounds, resize isotropically with Lanczos, fit spine and contact, blend behind original seat and restore the original foreground. Pack thirteen whole 256×256 keys per atlas. Export three 1024×1024 lossless mipmapped textures. Tire baseline y220 in 256 space.",
+    "state_mapping": "Roster after Roshan in catalogue order, then Baby Eagle left and right. Baby Eagle neutral is reused for boost with the existing effect. The other new characters hold one seated rear key.",
+    "review_decision": "The Mama and Baby take keeps the baby supported against her left side, the side shown by the front identity source. Existing Roshan pose art and the solo rival portrait binding supply separate authored keys.",
+    "runtime_identity": "No protected original was edited or re-encoded."
+  }
+}

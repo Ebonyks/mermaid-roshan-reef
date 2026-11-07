@@ -417,6 +417,8 @@ R95 production update2026-10-17: [Geologist painted pan](../../docs/handoffs/cod
 
 The 2026-11-07 [Racer roadside pass](../../docs/handoffs/codex_reef_kart_art_2026-11-03/ROADSIDE.md) replaces freestanding scenery with forty-eight world-anchored structures, opaque shared painted surfaces and reused room fixtures. Desktop geometry and rendering evidence is scoped to the PC courses. The mobile and full-game acceptance criteria remain open.
 
+The 2026-11-07 [seated cast pass](../../docs/handoffs/codex_reef_kart_art_2026-11-03/RIDERS.md) draws each selectable driver and ride as one registered sprite. It addresses overlapping portrait and chassis draws in the PC chase view. Existing whole-game overdraw and device acceptance remain open.
+
 ## MA-VIS-009
 
 | Field | Value |
@@ -1866,6 +1868,8 @@ CHG-107 publication reconciliation2026-10-19: topic256e1f36 passes exact remoteP
 2026-11-05 scoped Racer follow-up: owner requests gas, useful item explanations and two to four room zones per course. The [four-zone candidate](../../docs/handoffs/codex_reef_kart_art_2026-11-03/ZONES.md) records bounded implementation and evidence in its [impact](../../design/audit_impacts/reef-kart-zones-20261105.json). Existing lifecycle and closure criteria remain; physical/human/child/owner acceptance is not inferred. The [2026-11-07 moving review and repairs](../../design/audit_impacts/reef-kart-full-speed-20261107.json) record exact solo and split-screen checks, with the same remaining acceptance.
 
 The 2026-11-07 owner review found the improved curbs readable and asked for higher-quality art beyond them. The [Racer roadside pass](../../docs/handoffs/codex_reef_kart_art_2026-11-03/ROADSIDE.md) gives the four room courses connected scenery and covers it in both chase cameras. The [impact](../../design/audit_impacts/reef-kart-roadside-20261107.json) preserves the existing lifecycle and records desktop verification separately from device, child and owner acceptance.
+
+The 2026-11-07 owner-directed [seated cast pass](../../docs/handoffs/codex_reef_kart_art_2026-11-03/RIDERS.md) covers Baby Eagle and the full selectable roster across the three rides. The [impact](../../design/audit_impacts/reef-kart-rider-art-20261107.json) tracks the existing pose and contact defects separately from physical device, child and owner acceptance.
 
 ## MA-VIS-011
 

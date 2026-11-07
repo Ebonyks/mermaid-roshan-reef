@@ -15193,3 +15193,20 @@ Racer review evidence below reuses project artwork under each original source's 
 | `audit/cycles/reef-kart-roadside-20261107/kitchen.jpg` | Godot captures of project game artwork, with existing runtime art and the fascia credits above. | Labeled solo and split-screen screenshot board for review. |
 | `audit/cycles/reef-kart-roadside-20261107/mermaid_pool.jpg` | Godot captures of project game artwork, with existing runtime art and the fascia credits above. | Labeled solo and split-screen screenshot board for review. |
 | `audit/cycles/reef-kart-roadside-20261107/opera_hall.jpg` | Godot captures of project game artwork, with existing runtime art and the fascia credits above. | Labeled solo and split-screen screenshot board for review. |
+
+## Racer seated cast (2026-11-07)
+
+| Asset | Source / license / URL | Modifications |
+|---|---|---|
+| `assets_src/imagegen/reef_kart_riders_20261107/eagle_native.png` | Built-in OpenAI ImageGen from project cast and chase references. https://openai.com/policies/terms-of-use/ | Preserved generated alpha, exact prompts and source hashes in GENERATION.json. |
+| `assets_src/imagegen/reef_kart_riders_20261107/toy_native.png` | Built-in OpenAI ImageGen from project cast and chase references. https://openai.com/policies/terms-of-use/ | Preserved generated alpha, exact prompts and source hashes in GENERATION.json. |
+| `assets_src/imagegen/reef_kart_riders_20261107/family_native.png` | Built-in OpenAI ImageGen from project cast and chase references. https://openai.com/policies/terms-of-use/ | Preserved generated alpha, exact prompts and source hashes in GENERATION.json. |
+| `assets_src/imagegen/reef_kart_riders_20261107/toy_reference.jpg` | Existing project identity artwork, existing original licenses. Paths in GENERATION.json. | Labeled non-runtime reference collage. |
+| `assets_src/imagegen/reef_kart_riders_20261107/family_reference.jpg` | Existing project identity artwork, existing original licenses. Paths in GENERATION.json. | Labeled non-runtime reference collage. |
+| `assets/racer/riders_v1/kart.png` | Corresponding project chase chassis and above generated driver keys, same provenance. | Isotropic registration, seat occlusion, whole-frame packing and mipmapped lossless import. |
+| `assets/racer/riders_v1/moto.png` | Corresponding project chase chassis and above generated driver keys, same provenance. | Isotropic registration, seat occlusion, whole-frame packing and mipmapped lossless import. |
+| `assets/racer/riders_v1/truck.png` | Corresponding project chase chassis and above generated driver keys, same provenance. | Isotropic registration, seat occlusion, whole-frame packing and mipmapped lossless import. |
+| `audit/cycles/reef-kart-riders-20261107/baby-eagle-comparison.jpg` | Godot capture of project artwork with the above sprite credits. | Cropped and labeled runtime review board. |
+| `audit/cycles/reef-kart-riders-20261107/go-kart.jpg` | Godot capture of project artwork with the above sprite credits. | Cropped and labeled runtime review board. |
+| `audit/cycles/reef-kart-riders-20261107/zoom-cycle.jpg` | Godot capture of project artwork with the above sprite credits. | Cropped and labeled runtime review board. |
+| `audit/cycles/reef-kart-riders-20261107/monster-truck.jpg` | Godot capture of project artwork with the above sprite credits. | Cropped and labeled runtime review board. |

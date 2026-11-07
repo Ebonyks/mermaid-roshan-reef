@@ -1,8 +1,8 @@
 extends RefCounted
 
 # Keep the existing eight Racer characters, the Canal rival and the family.
-# Crops are source pixel regions for cockpit portraits. The original images
-# are also used directly on the selection screen.
+# Crops are retained for callers without a seated chase sprite. The original
+# images remain the identity portraits in the garage.
 const PORTRAIT_CROPS := [
 	Rect2(102, 10, 115, 96), Rect2(12, 0, 236, 218),
 	Rect2(260, 0, 361, 340), Rect2(59, 8, 161, 133),
@@ -37,7 +37,8 @@ static func driver(index: int) -> Dictionary:
 	if index >= DRIVER_IDS.size():
 		return EXTRA_DRIVERS[index - DRIVER_IDS.size()]
 	var prior: Dictionary = RacerGame2D.RACERS[index]
-	return {"id": DRIVER_IDS[index], "name": prior["name"], "sprite": prior["sprite"], "crop": PORTRAIT_CROPS[index]}
+	var name := "Baby Eagle" if DRIVER_IDS[index] == "sparkle" else String(prior["name"])
+	return {"id": DRIVER_IDS[index], "name": name, "sprite": prior["sprite"], "crop": PORTRAIT_CROPS[index]}
 
 
 static func portrait(cast_member: Dictionary) -> Texture2D:

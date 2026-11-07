@@ -1,6 +1,7 @@
 extends Control
 
 const Catalog := preload("res://scripts/racer/reef_kart_catalog.gd")
+const RiderArt := preload("res://scripts/racer/reef_kart_rider_art.gd")
 const Courses := preload("res://scripts/racer/reef_kart_courses.gd")
 const Race := preload("res://scripts/racer/reef_kart_race.gd")
 const TITLE_SCENE := "res://scenes/main.tscn"
@@ -284,7 +285,7 @@ func _garage_panel(slot: int) -> void:
 	_label(_content, "PLAYER %d  ·  %s" % [slot + 1, device_label],
 		Rect2(x + 12, 115, 524, 48), 21, P_COLORS[slot])
 	_picture(_content, Catalog.portrait(driver), Rect2(x + 78, 172, 183, 190))
-	var body := load("res://assets/kart/chase/empty_%s.png" % ride["id"]) as Texture2D
+	var body := RiderArt.preview(String(driver["id"]), String(ride["id"]))
 	_picture(_content, body, Rect2(x + 287, 174, 184, 185))
 	_label(_content, String(driver["name"]), Rect2(x + 36, 366, 246, 46), 25)
 	_label(_content, String(ride["name"]), Rect2(x + 278, 366, 235, 46), 25)

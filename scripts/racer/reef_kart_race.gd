@@ -28,6 +28,7 @@ const ItemVoice := preload("res://scripts/racer/reef_kart_item_voice.gd")
 const FloorShader := preload("res://scripts/racer/reef_kart_floor.gdshader")
 const Roadside := preload("res://scripts/racer/reef_kart_roadside.gd")
 const RoadsidePaint := preload("res://scripts/racer/reef_kart_roadside.gdshader")
+const RiderArt := preload("res://scripts/racer/reef_kart_rider_art.gd")
 
 const VIEW := Vector2(1280.0, 720.0)
 const HORIZON_Y := 268.0
@@ -298,6 +299,12 @@ func _load_textures() -> void:
 		if driver == "":
 			continue
 		var vehicle := String(kart["vehicle"])
+		if RiderArt.SLOTS.has(driver):
+			var rider_key := vehicle + "_riders"
+			if not _tex.has(rider_key):
+				_tex[rider_key] = RiderArt.atlas(vehicle)
+			if _tex[rider_key] != null:
+				continue
 		var driver_key := "driver_" + driver
 		if not _tex.has(driver_key):
 			_tex[driver_key] = load(String(kart["driver_art"])) as Texture2D
@@ -1449,18 +1456,17 @@ func _draw_selected_driver(k: Dictionary, rect: Rect2, tint: Color) -> void:
 	var vehicle := String(k["vehicle"])
 	var driver := String(k["driver"])
 	if driver == "roshan":
-		var motion := "straight"
-		if float(k["boost_t"]) > 0.0:
-			motion = "boost"
-		elif float(k["steer_vis"]) > 0.35:
-			motion = "right"
-		elif float(k["steer_vis"]) < -0.35:
-			motion = "left"
-		var pose := _tex.get(vehicle + "_" + motion) as Texture2D
+		var motion := RiderArt.pose(k, true)
+		var pose := _tex.get(vehicle + "_" + RiderArt.POSES[motion]) as Texture2D
 		if pose != null:
-			_world.draw_texture_rect(pose, rect, false, ride_tint * tint)
+			_world.draw_texture_rect(pose, RiderArt.registered(vehicle, motion, rect), false, ride_tint * tint)
 			return
-	elif driver == "imp" and vehicle == "kart" and _tex.has("imp_kart_straight"):
+	var sheet := _tex.get(vehicle + "_riders") as Texture2D
+	if sheet != null and RiderArt.SLOTS.has(driver):
+		_world.draw_texture_rect_region(sheet, rect, RiderArt.region(driver, RiderArt.pose(k, false)),
+			ride_tint * tint)
+		return
+	if driver == "imp" and vehicle == "kart" and _tex.has("imp_kart_straight"):
 		_world.draw_texture_rect(_tex["imp_kart_straight"] as Texture2D, rect, false, ride_tint * tint)
 		return
 	var face := _tex.get("driver_" + driver) as Texture2D
@@ -1503,9 +1509,11 @@ func _draw_kart(k: Dictionary, screen: Vector2, scale: float) -> void:
 				spark, clampf(size * 0.024, 1.0, 5.0), true)
 	var center := screen - Vector2(0.0, size * 0.42)
 	var wobble := sin(float(k["spin_vis"])) * 0.45
-	_world.draw_set_transform(center, wobble, Vector2.ONE)
-	var rect := Rect2(-size * 0.5, -size * 0.44, size, size)
-	if String(k["driver"]) != "":
+	var selected := String(k["driver"]) != ""
+	# Spin the seated card around the registered tire contact.
+	_world.draw_set_transform(screen if selected else center, wobble, Vector2.ONE)
+	var rect := Rect2(-size * 0.5, -size * (0.86 if selected else 0.44), size, size)
+	if selected:
 		_draw_selected_driver(k, rect, tint)
 	elif bool(k["player"]):
 		var key := "kart_straight"
