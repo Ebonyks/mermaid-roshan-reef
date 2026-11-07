@@ -1,0 +1,23 @@
+{
+  "id": "reef-kart-full-speed-publication-20261107",
+  "baseline": "426e6cb30584fbebfbf6f30f8b8c16845c91b3c4",
+  "scope": "Preserve the public verification receipt for the full-speed racer review and fixes.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07"
+  ],
+  "findings": [],
+  "no_findings_reason": "Publication evidence only. The reviewed gameplay and its acceptance are recorded in the implementation impact.",
+  "files": [
+    "audit/cycles/reef-kart-full-speed-20261107/REMOTE_VERIFICATION.json"
+  ],
+  "validation": [
+    {
+      "command": "verify_remote_packet.py against the immutable game revision",
+      "result": "PASS",
+      "evidence": "audit/cycles/reef-kart-full-speed-20261107/REMOTE_VERIFICATION.json records 39 anonymous public HTTP 200 responses and matching byte counts and SHA-256 at 426e6cb30584fbebfbf6f30f8b8c16845c91b3c4."
+    }
+  ],
+  "acceptance_gaps": "Physical controller, target device, human listening, child and owner review stay open."
+}

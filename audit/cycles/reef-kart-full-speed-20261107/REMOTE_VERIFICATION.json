@@ -1,0 +1,327 @@
+{
+  "schema": "reef.kart.remote-verification.v1",
+  "repository": "Ebonyks/mermaid-roshan-reef",
+  "revision": "426e6cb30584fbebfbf6f30f8b8c16845c91b3c4",
+  "checked_utc": "2026-11-07T18:49:45.737547+00:00",
+  "access_mode": "Anonymous public raw HTTPS; no Authorization header, GitHub app, token, signed or expiring URL",
+  "manifest_path": "audit/cycles/reef-kart-full-speed-20261107/DELIVERY_MANIFEST.json",
+  "manifest_sha256": "743f914a64154e8308ff6901f2914b0b755b01ef76f9b04ac5c369a0e79f225c",
+  "payload_sha256": "e0437e120a8f4c96a0c3d01f6e13b9d60c0b84cc05a6c6e2eb11e08e65c5dfd3",
+  "checked_files": 39,
+  "pass": true,
+  "files": [
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "http_status": 200,
+      "expected_sha256": "c11168277fa8947b6f0a301a49c8dded6e13d7230921a2f97bc396847b61eca9",
+      "actual_sha256": "c11168277fa8947b6f0a301a49c8dded6e13d7230921a2f97bc396847b61eca9",
+      "bytes": 341226,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/.gdignore",
+      "http_status": 200,
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/RUNTIME_EVIDENCE.json",
+      "http_status": 200,
+      "expected_sha256": "abe0a252eb8c29aa8f7ba77fac9ab1b3e036702ce88561f6a8e2ff57ecf77e13",
+      "actual_sha256": "abe0a252eb8c29aa8f7ba77fac9ab1b3e036702ce88561f6a8e2ff57ecf77e13",
+      "bytes": 107827,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/authority.log",
+      "http_status": 200,
+      "expected_sha256": "d9a9471be4b05629988242ed955d9e8f9db755f77b39cd7d3669957a5581c079",
+      "actual_sha256": "d9a9471be4b05629988242ed955d9e8f9db755f77b39cd7d3669957a5581c079",
+      "bytes": 76,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/before.log",
+      "http_status": 200,
+      "expected_sha256": "967bf501c4e7c4cf6cee5d96b44675ddd5f372062a6f453a7186305e9ef81517",
+      "actual_sha256": "967bf501c4e7c4cf6cee5d96b44675ddd5f372062a6f453a7186305e9ef81517",
+      "bytes": 452,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/captures/kitchen-1p-zones.jpg",
+      "http_status": 200,
+      "expected_sha256": "f5440ddb564351e266e2994606962f88aefcfff0ca1897ed58a74f1cc5ab2034",
+      "actual_sha256": "f5440ddb564351e266e2994606962f88aefcfff0ca1897ed58a74f1cc5ab2034",
+      "bytes": 343599,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/captures/kitchen-2p-zones.jpg",
+      "http_status": 200,
+      "expected_sha256": "a5496fdd0150e45a4436ff931575c3c2f58547754e44b1008d8447bfa88c48a3",
+      "actual_sha256": "a5496fdd0150e45a4436ff931575c3c2f58547754e44b1008d8447bfa88c48a3",
+      "bytes": 373077,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/captures/kitchen-fixture-bases.jpg",
+      "http_status": 200,
+      "expected_sha256": "f1fb8282ac58567c3b4717becdc89664e80128f763a199937b4428d8b329a89b",
+      "actual_sha256": "f1fb8282ac58567c3b4717becdc89664e80128f763a199937b4428d8b329a89b",
+      "bytes": 224715,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/captures/kitchen-fixtures-before.jpg",
+      "http_status": 200,
+      "expected_sha256": "cb586450e712183a9f6feaa359b8a1d0902269d506d1aea40534a261623333b6",
+      "actual_sha256": "cb586450e712183a9f6feaa359b8a1d0902269d506d1aea40534a261623333b6",
+      "bytes": 225498,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/captures/mermaid_pool-1p-zones.jpg",
+      "http_status": 200,
+      "expected_sha256": "5fd36638f31d3fcf61a8febbdd208fcd365709a57846db00a516c5c8373d6e5a",
+      "actual_sha256": "5fd36638f31d3fcf61a8febbdd208fcd365709a57846db00a516c5c8373d6e5a",
+      "bytes": 358693,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/captures/mermaid_pool-2p-zones.jpg",
+      "http_status": 200,
+      "expected_sha256": "170b7fea53ca7614f3057a9810d65d33fd10f8329ceeb920a0824298aa0b27f3",
+      "actual_sha256": "170b7fea53ca7614f3057a9810d65d33fd10f8329ceeb920a0824298aa0b27f3",
+      "bytes": 384002,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/captures/opera_hall-1p-zones.jpg",
+      "http_status": 200,
+      "expected_sha256": "c03baf2ebab5bb2fe54d36b05466bdcd718de9bde33383d9fb84873dd0071e41",
+      "actual_sha256": "c03baf2ebab5bb2fe54d36b05466bdcd718de9bde33383d9fb84873dd0071e41",
+      "bytes": 322022,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/captures/opera_hall-2p-zones.jpg",
+      "http_status": 200,
+      "expected_sha256": "c92420f1fcd81f213419a508cfaf34e1b5b16669c9a0bba5008d5011a380b989",
+      "actual_sha256": "c92420f1fcd81f213419a508cfaf34e1b5b16669c9a0bba5008d5011a380b989",
+      "bytes": 356357,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/captures/playroom-1p-zones.jpg",
+      "http_status": 200,
+      "expected_sha256": "4d5f3e84e9003e2badf9d61d4235a21021269ec8a2b6dab86474ea46a713f6db",
+      "actual_sha256": "4d5f3e84e9003e2badf9d61d4235a21021269ec8a2b6dab86474ea46a713f6db",
+      "bytes": 344178,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/captures/playroom-2p-zones.jpg",
+      "http_status": 200,
+      "expected_sha256": "c4eb23fcdcedc99f73496c137b54b49d522adfcdfdd5843df3d720945bc10402",
+      "actual_sha256": "c4eb23fcdcedc99f73496c137b54b49d522adfcdfdd5843df3d720945bc10402",
+      "bytes": 374098,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/ci-remaining.log",
+      "http_status": 200,
+      "expected_sha256": "b35375003b9f600612607cd5da6a96867b976e24bf617c1165cb157d2160f74c",
+      "actual_sha256": "b35375003b9f600612607cd5da6a96867b976e24bf617c1165cb157d2160f74c",
+      "bytes": 489823,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/ci_remaining.sh",
+      "http_status": 200,
+      "expected_sha256": "7e0fb92e7a6095498382839ab66e809619916e43b9b15f6e3b9eccae8b23646d",
+      "actual_sha256": "7e0fb92e7a6095498382839ab66e809619916e43b9b15f6e3b9eccae8b23646d",
+      "bytes": 8295,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/development.log",
+      "http_status": 200,
+      "expected_sha256": "54645b01be933ef46fe6afef189ba6639a15439c14b085f8ec9c624039219494",
+      "actual_sha256": "54645b01be933ef46fe6afef189ba6639a15439c14b085f8ec9c624039219494",
+      "bytes": 78,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/final.log",
+      "http_status": 200,
+      "expected_sha256": "6b5f799e5be18e6ec05281693d9d1e978bb09f4b2877b52b32f9ad4b2c47b21c",
+      "actual_sha256": "6b5f799e5be18e6ec05281693d9d1e978bb09f4b2877b52b32f9ad4b2c47b21c",
+      "bytes": 3659,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/full-ci-mapped.log",
+      "http_status": 200,
+      "expected_sha256": "73e24f334cca2240b597b93e233ba7eeb73028b90d5212d3a079b484d2a59594",
+      "actual_sha256": "73e24f334cca2240b597b93e233ba7eeb73028b90d5212d3a079b484d2a59594",
+      "bytes": 1412,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/full-ci-same-drive.log",
+      "http_status": 200,
+      "expected_sha256": "25bb97281a6d04b695c1fe79b4cbdc1927e5899545e3315e3065766ee171cbbc",
+      "actual_sha256": "25bb97281a6d04b695c1fe79b4cbdc1927e5899545e3315e3065766ee171cbbc",
+      "bytes": 33868,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/full-ci.log",
+      "http_status": 200,
+      "expected_sha256": "9dbe951789c2207a5c9c97ba0b8d81a2b9e6e1ffcb6f18fc3e2a3264df91462f",
+      "actual_sha256": "9dbe951789c2207a5c9c97ba0b8d81a2b9e6e1ffcb6f18fc3e2a3264df91462f",
+      "bytes": 33532,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/playthrough.gd",
+      "http_status": 200,
+      "expected_sha256": "72b9cd21f9189119ce609d0313b3aa5414e56f9d9fcc7b8c851533f90b2fe208",
+      "actual_sha256": "72b9cd21f9189119ce609d0313b3aa5414e56f9d9fcc7b8c851533f90b2fe208",
+      "bytes": 8763,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/probe_racer_integration.log",
+      "http_status": 200,
+      "expected_sha256": "d8ddcf6d00ba144bf75ff547ba2407c4697737b288053ee67b6ea57722e4e008",
+      "actual_sha256": "d8ddcf6d00ba144bf75ff547ba2407c4697737b288053ee67b6ea57722e4e008",
+      "bytes": 4475,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/probe_reef_kart_pc.log",
+      "http_status": 200,
+      "expected_sha256": "24ef723d74c3ddfa26123a9a53885579d54d7fba6b0db2a4e4464be497140e82",
+      "actual_sha256": "24ef723d74c3ddfa26123a9a53885579d54d7fba6b0db2a4e4464be497140e82",
+      "bytes": 4811,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/probe_voice.log",
+      "http_status": 200,
+      "expected_sha256": "14e3e00b0e64f1148f8128e55ad32175b18d63d3b02acf2f5fa591ab8e76f3ae",
+      "actual_sha256": "14e3e00b0e64f1148f8128e55ad32175b18d63d3b02acf2f5fa591ab8e76f3ae",
+      "bytes": 21146,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/repro-before.log",
+      "http_status": 200,
+      "expected_sha256": "e1b45001958b40bd9e7fc1aec1910726ffb92b12587b43ae2da1cd2465c4569c",
+      "actual_sha256": "e1b45001958b40bd9e7fc1aec1910726ffb92b12587b43ae2da1cd2465c4569c",
+      "bytes": 646,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/review.log",
+      "http_status": 200,
+      "expected_sha256": "719980eef54ad9994eecba3ab7e55bd06985f9b8c94aa9f9c00e473e9f127fdb",
+      "actual_sha256": "719980eef54ad9994eecba3ab7e55bd06985f9b8c94aa9f9c00e473e9f127fdb",
+      "bytes": 1061,
+      "pass": true
+    },
+    {
+      "path": "audit/cycles/reef-kart-full-speed-20261107/split-validation.json",
+      "http_status": 200,
+      "expected_sha256": "bb98044198db97ea29ff535b3ce16cd3011e827967294fd56848c6c8b4e1accd",
+      "actual_sha256": "bb98044198db97ea29ff535b3ce16cd3011e827967294fd56848c6c8b4e1accd",
+      "bytes": 561,
+      "pass": true
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "http_status": 200,
+      "expected_sha256": "c7c61277bac840863a5b30528169e7cb329b680f2c77dcc1261d47ff4172c2d0",
+      "actual_sha256": "c7c61277bac840863a5b30528169e7cb329b680f2c77dcc1261d47ff4172c2d0",
+      "bytes": 323681,
+      "pass": true
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "http_status": 200,
+      "expected_sha256": "7cf99888fe08871b0b3fbdaa03f6d7c60fc40fbb0d8cb31ad300434e99387238",
+      "actual_sha256": "7cf99888fe08871b0b3fbdaa03f6d7c60fc40fbb0d8cb31ad300434e99387238",
+      "bytes": 245857,
+      "pass": true
+    },
+    {
+      "path": "design/audit_impacts/reef-kart-full-speed-20261107.json",
+      "http_status": 200,
+      "expected_sha256": "6b540c6832c69496e0f90e2b1172afd39dc8dd1db08f5848dc6170c199f8911c",
+      "actual_sha256": "6b540c6832c69496e0f90e2b1172afd39dc8dd1db08f5848dc6170c199f8911c",
+      "bytes": 6214,
+      "pass": true
+    },
+    {
+      "path": "docs/handoffs/codex_reef_kart_art_2026-11-03/ZONES.md",
+      "http_status": 200,
+      "expected_sha256": "903ea1df53c351fe0f0a8d6c804e296b57535243a8bedc8c65ba1ec54778a726",
+      "actual_sha256": "903ea1df53c351fe0f0a8d6c804e296b57535243a8bedc8c65ba1ec54778a726",
+      "bytes": 5565,
+      "pass": true
+    },
+    {
+      "path": "scripts/probe_reef_kart_pc.gd",
+      "http_status": 200,
+      "expected_sha256": "d642b45076f7ae0b55954b42637fb105cfcdf603abdff310c6ff30b3ec28ef9d",
+      "actual_sha256": "d642b45076f7ae0b55954b42637fb105cfcdf603abdff310c6ff30b3ec28ef9d",
+      "bytes": 14988,
+      "pass": true
+    },
+    {
+      "path": "scripts/racer/reef_kart_floor.gdshader",
+      "http_status": 200,
+      "expected_sha256": "349362cbe0352f86df308b226c245fdc57a8e8b609384afaf156d183af576818",
+      "actual_sha256": "349362cbe0352f86df308b226c245fdc57a8e8b609384afaf156d183af576818",
+      "bytes": 10486,
+      "pass": true
+    },
+    {
+      "path": "scripts/racer/reef_kart_item_voice.gd",
+      "http_status": 200,
+      "expected_sha256": "d6058b5bd60e035aa62e413110fe441e688f71edd9a74b6df4ea62ed43f5d3a9",
+      "actual_sha256": "d6058b5bd60e035aa62e413110fe441e688f71edd9a74b6df4ea62ed43f5d3a9",
+      "bytes": 2502,
+      "pass": true
+    },
+    {
+      "path": "scripts/racer/reef_kart_pc.gd",
+      "http_status": 200,
+      "expected_sha256": "ba54591d21e646099ac35bfcb6dc42e9d6d792e57242b529b71818eb316f2387",
+      "actual_sha256": "ba54591d21e646099ac35bfcb6dc42e9d6d792e57242b529b71818eb316f2387",
+      "bytes": 23273,
+      "pass": true
+    },
+    {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "http_status": 200,
+      "expected_sha256": "60ea8649633ddb6dafc3335d53c2f3899f938cf7d7d6c1f1fe6ef20cc81bdb31",
+      "actual_sha256": "60ea8649633ddb6dafc3335d53c2f3899f938cf7d7d6c1f1fe6ef20cc81bdb31",
+      "bytes": 66596,
+      "pass": true
+    },
+    {
+      "path": "scripts/racer/reef_kart_zones.gd",
+      "http_status": 200,
+      "expected_sha256": "1dc99ee0bbe97e88569aaf5ff8e419c5f24e139db48a681f371f2c6641ad5e28",
+      "actual_sha256": "1dc99ee0bbe97e88569aaf5ff8e419c5f24e139db48a681f371f2c6641ad5e28",
+      "bytes": 11214,
+      "pass": true
+    }
+  ],
+  "creative_acceptance": "Not supplied. Human audio/visual, device, child and owner gates remain separate."
+}
