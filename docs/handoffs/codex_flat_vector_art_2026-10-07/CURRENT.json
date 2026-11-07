@@ -1,17 +1,17 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-ANDROID-VERIFIED-20261107-R149",
-  "current_entry": "r149_racer_painted_minimap_runtime/android_verified_20261107/README.md",
+  "revision": "FV-PRODUCTION-20261107-R150-PAINTED-DIRECTION-CUE",
+  "current_entry": "r150_racer_painted_direction_cue_runtime/README.md",
   "current_per_piece": "r96_geologist_mineral_candidate/per_piece.json",
   "current_scene_coverage": "r96_geologist_mineral_candidate/scene_coverage.json",
   "current_tally": "r96_geologist_mineral_candidate/tally.json",
   "current_backlog": "r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/android_verified_20261107/MANIFEST.json",
+  "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/CANONICAL_MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/android_verified_20261107/DEV_CI_COMPLETED.json",
+  "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/SOURCE_CI_AT_INTAKE.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -7104,8 +7104,8 @@
   "r143_partial_Dev_artifact_delta": 16,
   "immutable_r143_receipt_revision": "504c290443c280ae543cb5caa1fe671340821ad4",
   "immutable_r144_payload_revision": "4bd9101a5b88ce8f0388917f297a849403e01ef3",
-  "current_payload_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/118acf6c090dd42307a281f0b13e0e114bf62b54/docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/MANIFEST.json",
-  "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/android_verified_20261107/PRIOR_CANONICAL_DEV_REMOTE_VERIFICATION.json",
+  "current_payload_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/0be76936a163628801a5156507f18185878cbaa7/docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/MANIFEST.json",
+  "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/SOURCE_REMOTE_VERIFICATION.json",
   "immutable_r144_receipt_revision": "d7c61f2636b4828a5158b3276dffdf695e5eeee3",
   "previous_receipt_manifest": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/d7c61f2636b4828a5158b3276dffdf695e5eeee3/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/RECEIPT_MANIFEST.json",
   "r144_prior_current_art_source_context": {
@@ -8358,5 +8358,117 @@
     "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/CANONICAL_MANIFEST.json",
     "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/SOURCE_REMOTE_VERIFICATION.json",
     "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/SOURCE_CI_AT_INTAKE.json"
+  },
+  "r150_prior_navigation": {
+    "revision": "FV-ANDROID-VERIFIED-20261107-R149",
+    "current_entry": "r149_racer_painted_minimap_runtime/android_verified_20261107/README.md",
+    "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/android_verified_20261107/MANIFEST.json",
+    "current_payload_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/118acf6c090dd42307a281f0b13e0e114bf62b54/docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/MANIFEST.json",
+    "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/android_verified_20261107/PRIOR_CANONICAL_DEV_REMOTE_VERIFICATION.json",
+    "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/android_verified_20261107/DEV_CI_COMPLETED.json"
+  },
+  "r150_current_production": {
+    "stable_id": "FVR-91F160FB9770",
+    "name": "Racer painted direction cue",
+    "current_role": "Wrong-way direction cue in Opera Racer",
+    "family": "opera_racer",
+    "artifact_key": "r150_racer_painted_direction_cue_runtime",
+    "state": "PUBLISHED_SOURCE_CANDIDATE_LOCAL_MACHINE_AND_CONTEXT_PASS",
+    "source_revision": "0be76936a163628801a5156507f18185878cbaa7",
+    "source_parent": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+    "branch": "codex/flat-vector-racer-direction-cue-20261107",
+    "source_required_files_verified": 240,
+    "source_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "source_CI_at_intake": {
+      "run": 42372669030,
+      "status": "in_progress",
+      "conclusion": ""
+    },
+    "native_output": {
+      "path": "assets_src/imagegen/racer_wrong_way_arrow_20261107/wrong_way_arrow_native.png",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 880333,
+      "sha256": "e8040ecf76aa5feb558520ec94137fb5ce833ae71b8d1a90099762834ce10c03",
+      "role": "Preserved original ImageGen output"
+    },
+    "runtime_texture": {
+      "path": "assets/racer/ui/wrong_way_arrow_painted.png",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 123745,
+      "sha256": "c3a79df73e028e8284c090f831e3e7295f6ce70cccf2f72867c928de8dced492",
+      "role": "Painted runtime derivative"
+    },
+    "runtime_import": {
+      "path": "assets/racer/ui/wrong_way_arrow_painted.png.import",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 989,
+      "sha256": "06ec3c76e945ce49f7d0c083cff50cb81695c674eeb7350e1141ce871ac09b15",
+      "role": "Lossless runtime import"
+    },
+    "runtime_code": {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 64643,
+      "sha256": "7fc2bae43da27f32871545b3e4b0163e92a2df7967068e4b2aecdcf7ddd0e089",
+      "role": "Existing wrong-way draw using painted arrow"
+    },
+    "generation": {
+      "path": "assets_src/imagegen/racer_wrong_way_arrow_20261107/GENERATION_JOB.json",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 2982,
+      "sha256": "8bbcc1e701eca6d7e22f9b7aeaeb410f72e5c10dd8034bca9d94769575137a18",
+      "role": "Exact derivation and generation provenance"
+    },
+    "comparison": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/TEN_AXIS_COMPARISON.json",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 2812,
+      "sha256": "37e8751ae2f8278c256236cb8ff010a5c4594c181eb84dbc488f7a32293c8624",
+      "role": "Current configured in-scene review"
+    },
+    "local_static_review": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/LOCAL_STATIC_ART_REVIEW.json",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 904,
+      "sha256": "d619445466f04c7e53b91e5c51fa4e99fd85c7329509835e8edb6c8605971fe8",
+      "role": "Assistant art eligibility assessment"
+    },
+    "frame_events": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/FRAME_EVENTS.json",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 453,
+      "sha256": "4d1b2011bdef364cc081db59953ca8bd8eefefddb341c504b6aa41f57f6be3bd",
+      "role": "Bounded and excluded configured capture events"
+    },
+    "machine": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/evidence/full_machine/FINAL_RESULT.json",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 54000,
+      "sha256": "537e9128391d4045f103b3db48ded67fb9c3b6742e8e964ad6d2b862285f27a1",
+      "role": "Actual changed-candidate local machine checks"
+    },
+    "native_events": {
+      "bounded": 16,
+      "excluded": 8,
+      "total": 24
+    },
+    "functional_invisible_geometry": {
+      "scope": "Passive direction HUD. Heading classifier, steering assist and touch geometry remain separate.",
+      "art_credit": 0
+    },
+    "original_builtin_generation_calls": 1,
+    "model_version": null,
+    "Dev_integration": false,
+    "Dev_revision": null,
+    "matching_APK": null,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "complete_scenes": 0,
+    "whole_game_total": null,
+    "mission_complete": false,
+    "source_finding": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/0be76936a163628801a5156507f18185878cbaa7/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014"
   }
 }

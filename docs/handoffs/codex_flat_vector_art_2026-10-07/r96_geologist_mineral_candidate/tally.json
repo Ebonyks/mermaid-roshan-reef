@@ -1,7 +1,7 @@
 {
   "schema": "reef.flat_vector_tally/1",
   "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
-  "revision": "FV-ANDROID-VERIFIED-20261107-R149",
+  "revision": "FV-PRODUCTION-20261107-R150-PAINTED-DIRECTION-CUE",
   "status_lanes": [
     "NEEDS_CONTEXT_REVIEW",
     "IDENTIFIED",
@@ -10375,7 +10375,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "50 bounded source artifacts and 49 partial Dev artifacts. R149 joins Dev under its individually tracked minimap backing ID. The named role and family lower bounds remain 283 and 36. Retained native events are 8,201 bounded and 4,457 excluded. Formal, device, child and owner acceptance remain open. Whole-game totals remain unknown.",
+  "current_effective_summary": "51 bounded source artifacts and 49 partial Dev artifacts. The wrong-way arrow is individually recorded within the existing Racer HUD scope. Named role and family lower bounds are 284 and 36. Retained events total 12,682, with 8,217 bounded and 4,465 excluded. Formal, device, child and owner acceptance remain open. Whole-game totals remain unknown.",
   "intro_entry_ownership": {
     "revision": "FV-AUDIT-20261016-R77",
     "topic_baseline": "7fd93aa0d2036c06c9a65aea6c79a990cc9ae01b",
@@ -11246,8 +11246,8 @@
     "trusted_probe_count_limit": "81distinct actual remote probe headers; exact run/job/step success. Do not transpose local82probe count or fabricate remote per-process exit records.",
     "observed_unique_trusted_probe_headers": 81
   },
-  "retained_native_events_current_summary": 12658,
-  "bounded_implementation_artifacts_published_current_summary": 50,
+  "retained_native_events_current_summary": 12682,
+  "bounded_implementation_artifacts_published_current_summary": 51,
   "inherited_r93_reference_base": "../r93_painted_hand_candidate/",
   "r94_parent_snapshot": {
     "revision": "e3088008d9934e94aa4d81f1c669da493a5f7087",
@@ -13685,7 +13685,7 @@
     "excluded": 2,
     "retained": 28
   },
-  "new_partial_Dev_artifacts_this_revision": 1,
+  "new_partial_Dev_artifacts_this_revision": 0,
   "r120_parent_receipt_revision": "3c3b39838b2ceacb13281a83957442662ca2f5b9",
   "r120_melody_curtains_runtime": {
     "stable_ids": [
@@ -17679,9 +17679,9 @@
     "r132_retained_bounded_current_summary": 7333,
     "r132_retained_excluded_current_summary": 4206
   },
-  "retained_bounded_current_summary": 8201,
-  "retained_excluded_current_summary": 4457,
-  "current_known_named_design_records": 283,
+  "retained_bounded_current_summary": 8217,
+  "retained_excluded_current_summary": 4465,
+  "current_known_named_design_records": 284,
   "current_known_family_count": 36,
   "r141_racer_context_source": {
     "state": "SEVEN_PAINTED_RACER_OBJECTS_SOURCE_INTEGRATED_DEV_PENDING",
@@ -18187,7 +18187,7 @@
     "whole_game_total": null,
     "revision": "FV-INTEGRATION-20261105-R143-RACER-AND-RECENT-DEV"
   },
-  "new_bounded_source_artifacts_this_revision": 0,
+  "new_bounded_source_artifacts_this_revision": 1,
   "r144_prior_effective_summary": "SUMMARY.json. 44 published bounded source artifacts,43partial Dev artifacts,280named roles and36families as lower bounds;8030bounded/4394excluded/12424retained native events;0accepted removals and0complete scene coverage;whole-game denominators remain unknown.",
   "r144_shared_painted_shell_runtime": {
     "state": "PAINTED_SHARED_SHELL_DEV_PARTIAL_EXACT_SOURCE_CI_GREEN_FORMAL_EXTERNAL_OPEN",
@@ -20817,5 +20817,145 @@
     "formal_QA11": null,
     "child": null,
     "owner": null
+  },
+  "r150_current_effective_summary": {
+    "known_roles": 284,
+    "known_families": 36,
+    "published_bounded_source_artifacts": 51,
+    "partial_Dev_artifacts": 49,
+    "retained_bounded_native_events": 8217,
+    "retained_excluded_native_events": 4465,
+    "retained_native_events": 12682,
+    "accepted_removed": 0,
+    "complete_scene_coverage": 0,
+    "whole_game_total": null,
+    "revision": "FV-PRODUCTION-20261107-R150-PAINTED-DIRECTION-CUE"
+  },
+  "r150_revision_delta": {
+    "source_artifacts": 1,
+    "Dev_artifacts": 0,
+    "roles": 1,
+    "families": 0,
+    "native_bounded": 16,
+    "native_excluded": 8,
+    "native_total": 24,
+    "original_builtin_generation_calls": 1,
+    "new_generation_at_intake": 0,
+    "accepted_removed": 0,
+    "complete_scenes": 0
+  },
+  "r150_racer_painted_direction_cue_runtime": {
+    "stable_id": "FVR-91F160FB9770",
+    "name": "Racer painted direction cue",
+    "current_role": "Wrong-way direction cue in Opera Racer",
+    "family": "opera_racer",
+    "artifact_key": "r150_racer_painted_direction_cue_runtime",
+    "state": "PUBLISHED_SOURCE_CANDIDATE_LOCAL_MACHINE_AND_CONTEXT_PASS",
+    "source_revision": "0be76936a163628801a5156507f18185878cbaa7",
+    "source_parent": "118acf6c090dd42307a281f0b13e0e114bf62b54",
+    "branch": "codex/flat-vector-racer-direction-cue-20261107",
+    "source_required_files_verified": 240,
+    "source_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "source_CI_at_intake": {
+      "run": 42372669030,
+      "status": "in_progress",
+      "conclusion": ""
+    },
+    "native_output": {
+      "path": "assets_src/imagegen/racer_wrong_way_arrow_20261107/wrong_way_arrow_native.png",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 880333,
+      "sha256": "e8040ecf76aa5feb558520ec94137fb5ce833ae71b8d1a90099762834ce10c03",
+      "role": "Preserved original ImageGen output"
+    },
+    "runtime_texture": {
+      "path": "assets/racer/ui/wrong_way_arrow_painted.png",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 123745,
+      "sha256": "c3a79df73e028e8284c090f831e3e7295f6ce70cccf2f72867c928de8dced492",
+      "role": "Painted runtime derivative"
+    },
+    "runtime_import": {
+      "path": "assets/racer/ui/wrong_way_arrow_painted.png.import",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 989,
+      "sha256": "06ec3c76e945ce49f7d0c083cff50cb81695c674eeb7350e1141ce871ac09b15",
+      "role": "Lossless runtime import"
+    },
+    "runtime_code": {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 64643,
+      "sha256": "7fc2bae43da27f32871545b3e4b0163e92a2df7967068e4b2aecdcf7ddd0e089",
+      "role": "Existing wrong-way draw using painted arrow"
+    },
+    "generation": {
+      "path": "assets_src/imagegen/racer_wrong_way_arrow_20261107/GENERATION_JOB.json",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 2982,
+      "sha256": "8bbcc1e701eca6d7e22f9b7aeaeb410f72e5c10dd8034bca9d94769575137a18",
+      "role": "Exact derivation and generation provenance"
+    },
+    "comparison": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/TEN_AXIS_COMPARISON.json",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 2812,
+      "sha256": "37e8751ae2f8278c256236cb8ff010a5c4594c181eb84dbc488f7a32293c8624",
+      "role": "Current configured in-scene review"
+    },
+    "local_static_review": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/LOCAL_STATIC_ART_REVIEW.json",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 904,
+      "sha256": "d619445466f04c7e53b91e5c51fa4e99fd85c7329509835e8edb6c8605971fe8",
+      "role": "Assistant art eligibility assessment"
+    },
+    "frame_events": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/FRAME_EVENTS.json",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 453,
+      "sha256": "4d1b2011bdef364cc081db59953ca8bd8eefefddb341c504b6aa41f57f6be3bd",
+      "role": "Bounded and excluded configured capture events"
+    },
+    "machine": {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/evidence/full_machine/FINAL_RESULT.json",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 54000,
+      "sha256": "537e9128391d4045f103b3db48ded67fb9c3b6742e8e964ad6d2b862285f27a1",
+      "role": "Actual changed-candidate local machine checks"
+    },
+    "native_events": {
+      "bounded": 16,
+      "excluded": 8,
+      "total": 24
+    },
+    "functional_invisible_geometry": {
+      "scope": "Passive direction HUD. Heading classifier, steering assist and touch geometry remain separate.",
+      "art_credit": 0
+    },
+    "original_builtin_generation_calls": 1,
+    "model_version": null,
+    "Dev_integration": false,
+    "Dev_revision": null,
+    "matching_APK": null,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "complete_scenes": 0,
+    "whole_game_total": null,
+    "mission_complete": false,
+    "source_finding": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/0be76936a163628801a5156507f18185878cbaa7/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-014"
+  },
+  "r150_counter_units": {
+    "source_artifacts": 51,
+    "partial_Dev_artifacts": 49,
+    "named_roles_lower_bound": 284,
+    "families_lower_bound": 36,
+    "runtime_textures_this_artifact": 1,
+    "retained_native_events": 12682,
+    "accepted_artwork_removals": 0,
+    "whole_game_total": null
   }
 }

@@ -1,0 +1,284 @@
+{
+  "state": "SEALED_EXACT_STAGED_GIT_BYTES",
+  "id": "FV-R150-CANONICAL-SOURCE-20261107",
+  "baseline": "80c3361db6e2b8d70bcc86a65cda62b1c698600e",
+  "actual_game_source": "0be76936a163628801a5156507f18185878cbaa7",
+  "source_required_files_verified": 240,
+  "source_CI": 42372669030,
+  "delta": {
+    "source_artifacts": 1,
+    "Dev_artifacts": 0,
+    "roles": 1,
+    "families": 0,
+    "native_bounded": 16,
+    "native_excluded": 8,
+    "native_total": 24,
+    "original_builtin_generation_calls": 1,
+    "new_generation_at_intake": 0,
+    "accepted_removed": 0,
+    "complete_scenes": 0
+  },
+  "current_counts": {
+    "known_roles": 284,
+    "known_families": 36,
+    "published_bounded_source_artifacts": 51,
+    "partial_Dev_artifacts": 49,
+    "retained_bounded_native_events": 8217,
+    "retained_excluded_native_events": 4465,
+    "retained_native_events": 12682,
+    "accepted_removed": 0,
+    "complete_scene_coverage": 0,
+    "whole_game_total": null,
+    "revision": "FV-PRODUCTION-20261107-R150-PAINTED-DIRECTION-CUE"
+  },
+  "mission_complete": false,
+  "hash_contract": "SELF pins current staged bytes. Named source rows are immutable. The completed source delivery receipt covers its full manifest.",
+  "files": [
+    {
+      "path": "assets/racer/ui/wrong_way_arrow_painted.png",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 123745,
+      "sha256": "c3a79df73e028e8284c090f831e3e7295f6ce70cccf2f72867c928de8dced492",
+      "role": "Painted runtime derivative"
+    },
+    {
+      "path": "assets/racer/ui/wrong_way_arrow_painted.png.import",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 989,
+      "sha256": "06ec3c76e945ce49f7d0c083cff50cb81695c674eeb7350e1141ce871ac09b15",
+      "role": "Lossless runtime import"
+    },
+    {
+      "path": "assets_src/imagegen/racer_wrong_way_arrow_20261107/GENERATION_JOB.json",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 2982,
+      "sha256": "8bbcc1e701eca6d7e22f9b7aeaeb410f72e5c10dd8034bca9d94769575137a18",
+      "role": "Exact derivation and generation provenance"
+    },
+    {
+      "path": "assets_src/imagegen/racer_wrong_way_arrow_20261107/wrong_way_arrow_native.png",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 880333,
+      "sha256": "e8040ecf76aa5feb558520ec94137fb5ce833ae71b8d1a90099762834ce10c03",
+      "role": "Preserved original ImageGen output"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/FRAME_EVENTS.json",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 453,
+      "sha256": "4d1b2011bdef364cc081db59953ca8bd8eefefddb341c504b6aa41f57f6be3bd",
+      "role": "Bounded and excluded configured capture events"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/LOCAL_STATIC_ART_REVIEW.json",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 904,
+      "sha256": "d619445466f04c7e53b91e5c51fa4e99fd85c7329509835e8edb6c8605971fe8",
+      "role": "Assistant art eligibility assessment"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/TEN_AXIS_COMPARISON.json",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 2812,
+      "sha256": "37e8751ae2f8278c256236cb8ff010a5c4594c181eb84dbc488f7a32293c8624",
+      "role": "Current configured in-scene review"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/evidence/full_machine/FINAL_RESULT.json",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 54000,
+      "sha256": "537e9128391d4045f103b3db48ded67fb9c3b6742e8e964ad6d2b862285f27a1",
+      "role": "Actual changed-candidate local machine checks"
+    },
+    {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "bytes": 64643,
+      "sha256": "7fc2bae43da27f32871545b3e4b0163e92a2df7967068e4b2aecdcf7ddd0e089",
+      "role": "Existing wrong-way draw using painted arrow"
+    },
+    {
+      "path": ".gitattributes",
+      "revision": "SELF",
+      "bytes": 17316,
+      "sha256": "0c73353f629413ebef5b1b9fa65994782af3374ed5785882a07dca6e7b186801",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "revision": "SELF",
+      "bytes": 310240,
+      "sha256": "337971d6c57bb8dc9f3ff54bf6ebc9cbf681a8452e40450dd754ce694b716216",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "revision": "SELF",
+      "bytes": 348112,
+      "sha256": "908c82f9e05c38223ed10fdfa88cc4066b85f6a556a313f59841ad0125f14fcc",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "revision": "SELF",
+      "bytes": 378645,
+      "sha256": "20dd22bfdd29fc18f6b4de2aca819b3b667376d21b786e9d99aaa4f9048131d6",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "revision": "SELF",
+      "bytes": 289344,
+      "sha256": "e89cee566661e15cf2c9fb90b0387b419f1802ab6f06f09061b5acbf46219c12",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-r150-canonical-source-20261107.json",
+      "revision": "SELF",
+      "bytes": 3990,
+      "sha256": "6d0b65eaa5f016fd495b33c9acff570d0719aa28d1db8ed7d70ad98e26cb29df",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "revision": "SELF",
+      "bytes": 382755,
+      "sha256": "18182ea804245d8dca433357e8d8284e800371f8c446cd047804b85728c3cf17",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_QUEUE.json",
+      "revision": "SELF",
+      "bytes": 15103,
+      "sha256": "753348eba2e973f7feb5af2bc27539cb63e20908740a953a5c365b6405635f39",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+      "revision": "SELF",
+      "bytes": 11829,
+      "sha256": "85b99885e7524d0f4ccc5c759a0bc98487db19b4a63f6ba5a256d88843547209",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/.gdignore",
+      "revision": "SELF",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/GATES.json",
+      "revision": "SELF",
+      "bytes": 1402,
+      "sha256": "4c3f4af862003bd7d3800c07630b5f5e6c3c0a92436abc476b423c0c6064bb7c",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/PRIOR_R149_APK_CANONICAL_REMOTE_VERIFICATION.json",
+      "revision": "SELF",
+      "bytes": 36823,
+      "sha256": "b5ff43dfe82b8c73920e3fd683497624d8afe30c4a4de74abc6f25596b90cd79",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/PRODUCTION_RECORD.json",
+      "revision": "SELF",
+      "bytes": 4563,
+      "sha256": "7792aed831282dd1ec637614f8eb2fab44e8c217115f7a1dd658019d57cd2386",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/README.md",
+      "revision": "SELF",
+      "bytes": 1314,
+      "sha256": "a1ab72436df80582307c34ae42f4a456e8d329676c25b4da45df1789bf27cad9",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/RUNTIME_UNCHANGED.json",
+      "revision": "SELF",
+      "bytes": 21811,
+      "sha256": "ad9390cabfac3c1b448ed70130fced492db3ce5f0d19c30d78d2a20118ac8605",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/SOURCE_CI_AT_INTAKE.json",
+      "revision": "SELF",
+      "bytes": 9110,
+      "sha256": "b24ea6d1efddc469cc046ea88516767a96130bd9fa7be8421b0e4d28e8f9e140",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/SOURCE_REMOTE_VERIFICATION.json",
+      "revision": "SELF",
+      "bytes": 175262,
+      "sha256": "b52ee9b358d3b46584d5e14bc475e47b52ee8def2c4f58ab64cc86b013e34d86",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/authority.log",
+      "revision": "SELF",
+      "bytes": 78,
+      "sha256": "dc68f0bf052c3edbbd0c34ce4cde1d39ada7c18b4a9b9186620275a3f6403c40",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/coverage_auto.log",
+      "revision": "SELF",
+      "bytes": 80,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/coverage_base.log",
+      "revision": "SELF",
+      "bytes": 80,
+      "sha256": "28b2c9becd84052c0576cfaec3c0573c6f9f2e52b691e436ee605feedb5cdbde",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+      "revision": "SELF",
+      "bytes": 621047,
+      "sha256": "4940cbfc05d9e0891cafeb8f381b9eb4738977066bd5603e096a5af71ac990c7",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/README.md",
+      "revision": "SELF",
+      "bytes": 8213,
+      "sha256": "732937f8f45486ea4a811230b8f58e9327a34a7e25ff7925bde9155cb5ebee9e",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+      "revision": "SELF",
+      "bytes": 424940,
+      "sha256": "ae2ec5a8785cb3879058ecbad81eb655f2aea292d62d4e4002c3d77520863675",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+      "revision": "SELF",
+      "bytes": 2564278,
+      "sha256": "73fdbf83053e5702fb62078699221c6afa4e80d53e20e784bc47938bbb9e529d",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+      "revision": "SELF",
+      "bytes": 2246815,
+      "sha256": "e8279b5fac582da2507e89e325d31820fdbf06e0f805c1dcc292068bb299b04c",
+      "role": "Current canonical source-intake evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json",
+      "revision": "SELF",
+      "bytes": 894672,
+      "sha256": "3c511837894ba2faf8caf235d8fd30bca4e5ae1f3f2baa496474bd426572e938",
+      "role": "Current canonical source-intake evidence"
+    }
+  ],
+  "time": "2026-11-07T12:30:47.786848+00:00"
+}
