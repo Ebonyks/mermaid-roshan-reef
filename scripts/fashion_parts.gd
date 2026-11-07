@@ -86,14 +86,15 @@ static func composed_path(main: ReefMain, spec: Dictionary, base: String, previe
 		return (cached["texture"] as Texture2D).resource_path
 	var started: int = Time.get_ticks_usec()
 	var original: Texture2D = load(body_base) as Texture2D
-	var image: Image = original.get_image()
+	# Some renderers return the cached decoded Image. Blend into a private copy.
+	var image: Image = original.get_image().duplicate()
 	if image.is_compressed() and image.decompress() != OK:
 		push_error("Cannot decompress wardrobe source: " + body_base)
 		return body_base
 	image.convert(Image.FORMAT_RGBA8)
 	for layer_path: String in active:
 		var layer_texture: Texture2D = load(layer_path) as Texture2D
-		var layer: Image = layer_texture.get_image()
+		var layer: Image = layer_texture.get_image().duplicate()
 		if layer.is_compressed() and layer.decompress() != OK:
 			push_error("Cannot decompress wardrobe layer: " + layer_path)
 			return body_base

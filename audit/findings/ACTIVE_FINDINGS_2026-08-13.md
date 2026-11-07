@@ -503,6 +503,8 @@ R132 source production2026-11-03: [painted Snowman coal candidate](../../docs/ha
 
 ## MA-VIS-010
 
+[Bubble Duel visual audit](../../assets_src/bubble_duel_visual_20261107/README.md) records scoped painted controls, packed native pool art and wardrobe attachment repairs. The per-image findings and strict live-evidence gaps stay open. Lifecycle remains unchanged.
+
 [R144 shared shell candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/README.md) replaces the procedural crest with byte-unchanged painted castle art. Thirty configured native before/candidate frames and identical caller geometry are diagnostic evidence; machine, Dev, formal QA11, device, child and owner evidence remain distinct. Hidden touch-pad and occluded Garden-header crests earn no visible-removal credit. Lifecycle remains open.
 
 The later actual Dev32588/Racer combination retains all87Racer and11Bubble parent runtime paths exactly as staged Git blobs. Six focused suites,23analyzers and81assertion-based probes plus1headless capture SKIP have actual-zero exits. Eleven importer CRLF-to-LF sidecar differences match staged/parent Git settings exactly; the original raw-hash rejection and independent reconstruction are preserved in the [current result](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/current_dev_32588fbf/evidence/RECONCILED_RESULT.json). This adds no creative or finding acceptance.

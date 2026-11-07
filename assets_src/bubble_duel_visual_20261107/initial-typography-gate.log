@@ -1,0 +1,50 @@
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.157s
+
+OK
+GODOTBASELINE|ALL OK|4.7.2-stable|official.ed1daf0bf
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.004s
+
+OK
+FASHION_BETA_AUDIT|ALL OK| {"new_pieces": 12, "new_layers": 156, "cells": 1752, "visual_fit_device_child_owner": "PENDING"}
+...F....s..................F............
+======================================================================
+FAIL: test_current_repository_is_open_only_for_external_evidence (tests.test_audit_typography.TypographyAuditTests.test_current_repository_is_open_only_for_external_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\Documents\mermaid-roshan-reef\tmp\bubble-duel-cast-two-player-20261105\tests\test_audit_typography.py", line 903, in test_current_repository_is_open_only_for_external_evidence
+    self.assertEqual(report["glyphs"]["unclassified"], [])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['U+2196', 'U+2197'] != []
+
+First list contains 2 additional elements.
+First extra element 0:
+'U+2196'
+
+- ['U+2196', 'U+2197']
++ []
+
+======================================================================
+FAIL: test_retired_dodge_glyph_has_no_live_or_allowlisted_authority (tests.test_audit_typography.TypographyAuditTests.test_retired_dodge_glyph_has_no_live_or_allowlisted_authority)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\Documents\mermaid-roshan-reef\tmp\bubble-duel-cast-two-player-20261105\tests\test_audit_typography.py", line 869, in test_retired_dodge_glyph_has_no_live_or_allowlisted_authority
+    self.assertEqual(report["glyphs"]["unclassified"], [])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['U+2196', 'U+2197'] != []
+
+First list contains 2 additional elements.
+First extra element 0:
+'U+2196'
+
+- ['U+2196', 'U+2197']
++ []
+
+----------------------------------------------------------------------
+Ran 40 tests in 44.909s
+
+FAILED (failures=2, skipped=1)
+TYPOGRAPHY AUDIT CONTRACT TEST FAIL

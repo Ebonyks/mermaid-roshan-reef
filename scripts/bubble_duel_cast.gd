@@ -64,6 +64,8 @@ func texture(profile: Dictionary, moving: bool) -> Texture2D:
 				parts = {"head": "head_" + costume + "_v1", "body": "body_" + costume + "_v1", "tail": "tail_original"}
 			else:
 				parts["body"] = person + "_" + kind + ("" if kind == "original" else "_v1")
+				if person == "roshan" and gear_id == "moonpearl":
+					parts["body"] = costume
 			outfit_id = String(parts["body"])
 		else:
 			parts["body"] = look
@@ -157,7 +159,7 @@ func attachment(profile: Dictionary, moving: bool, clock: float) -> Dictionary:
 		"swiftconch":
 			center = Vector2(body.position.x - 8, body.get_center().y + 3)
 			span = Vector2(39, 44) * fit
-			pivot = Vector2(0.9, 0.5)
+			pivot = Vector2(222, 132) / 256.0
 			behind = true
 			match String(profile.get("character", "")):
 				"baby_eagle": center = (Vector2(110, 290) - (spec["anchor"] as Vector2)) * factor
