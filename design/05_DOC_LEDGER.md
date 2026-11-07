@@ -1444,3 +1444,5 @@ The bounded 2026-11-01 [Chapter Two startup watchdog prerequisite](audit_impacts
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/export_boundary_followup_20261106/README.md` | 🔵 | `SUPPORTING_CURRENT`; exact E700 Android integrity/public signer receipt, failed230JSON export boundary and scoped source-only exclusion follow-up. R146 art/runtime unchanged; corrected APK and all creative/device acceptance separate. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/README.md` | 🔵 | `SUPPORTING_CURRENT`; R147 local painted steering ring/knob candidate, exact native/crop derivation and32configured events. All88localcommands pass for5586inputs with localAI4.5floor static review. SourceCI/Dev and formal/device/child/owner remain separate; no accepted removal or canonical count yet. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/README.md` | 🔵 | `SUPPORTING_CURRENT`. Painted Racer item-frame source, configured state review and independent acceptance lanes. |

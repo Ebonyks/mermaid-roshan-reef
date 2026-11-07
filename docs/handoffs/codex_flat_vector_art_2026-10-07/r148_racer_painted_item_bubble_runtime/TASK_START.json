@@ -1,0 +1,191 @@
+{
+  "state": "READY_FOR_ONE_BOUNDED_PAINTED_ITEM_BUBBLE_GENERATION",
+  "stable_id": "FV-CD4F06A6937B",
+  "family": "opera_racer",
+  "source_item": "turbo_item_bubble_frame",
+  "baseline": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+  "branch": "codex/flat-vector-racer-item-bubble-painted-20261107",
+  "worktree": "H:\\Dev\\Worktrees\\flat-vector-racer-mount-fit-20261105\\project",
+  "canonical_baseline": "4cc747301ce8a78189474a0e475dc278a00157ec",
+  "registry_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+  "existing_registry_row": {
+    "id": "FV-CD4F06A6937B",
+    "name": "Turbo control frame",
+    "family": "opera_racer",
+    "count_unit": "named_art_role_state_family",
+    "repeated_instance_count": null,
+    "source": {
+      "path": "scripts/opera_racer_surface.gd",
+      "function": "_draw_race_controls",
+      "start_line": 419,
+      "end_line": 471,
+      "sha256": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
+      "hash_mode": "LF-canonical text"
+    },
+    "source_scope_ids": [
+      "FVF-5336AE096A29"
+    ],
+    "runtime_consumers": [],
+    "screen_coverage": {
+      "measured_current_bounds": null,
+      "coverage_state": "COVERAGE_GAP",
+      "geometry_expressions": [
+        "var center := Vector2(190 + lap * 88, 68)",
+        "draw_line(center + Vector2(-10, 12), center + Vector2(-10, -13),",
+        "center + Vector2(-8, -12), center + Vector2(13, -7),",
+        "center + Vector2(-8, 0),",
+        "draw_line(center - Vector2(290, 0), center + Vector2(290, 0), Color(\"#b3ded7\"), 14, true)",
+        "var at := center + Vector2(sign_value * 316, 0)",
+        "draw_polyline(PackedVector2Array([at + Vector2(-sign_value * 18, -16),",
+        "at, at + Vector2(-sign_value * 18, 16)]), Color(\"#6b4e81\"), 6, true)",
+        "var knob := center + Vector2(race_steer * 270, 0)",
+        "draw_line(knob, knob + Vector2(0, 26), Color(\"#fff0d0\"), 6, true)",
+        "draw_colored_polygon(PackedVector2Array([TURBO_CENTER + Vector2(4, -33),",
+        "TURBO_CENTER + Vector2(-23, 3), TURBO_CENTER + Vector2(-2, 3),",
+        "TURBO_CENTER + Vector2(-6, 31), TURBO_CENTER + Vector2(24, -8),",
+        "TURBO_CENTER + Vector2(4, -8)]), Color(\"#fff2bd\"))",
+        "draw_circle(Vector2(550 + index * 90, 515), 28,"
+      ],
+      "note": "Expressions are scope evidence, not measured per-piece screen bounds."
+    },
+    "evidence_level": "SOURCE_INSPECTION",
+    "observed_weakness": "Source-bound candidate Turbo control frame uses or delegates visible primitive/material construction in _draw_race_controls. No current phone-context quality verdict is claimed.",
+    "priority": "P1",
+    "child_impact": "Readable material, identity, contact and actionable-object hierarchy must remain clear with the HUD at phone size.",
+    "context_brief_id": "BRIEF-OPERA_RACER",
+    "reuse_candidates": [],
+    "reuse_inspection": "Inventory completed; per-piece exact-purpose source match and current-context fit remain open unless named in context observations.",
+    "named_gap": null,
+    "status": "NEEDS_CONTEXT_REVIEW",
+    "integration_sha": null,
+    "acceptance_evidence": {
+      "current_mobile_runtime": null,
+      "wide_phone_runtime": null,
+      "device": null,
+      "child": null,
+      "owner": null,
+      "machine": null,
+      "old_fallback_retired": null
+    },
+    "dependencies": [
+      "Current route/phase capture and source-pixel ownership",
+      "Inspected suitable reuse or recorded exact missing gap",
+      "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+    ],
+    "unchanged_contracts": [
+      "Visible object/input/socket transforms and generous one-finger targets",
+      "Additive saves and unknown keys; no lost progress",
+      "Current action, answer/count, narrative and authored identity",
+      "Protected originals and owner-selected Day One clips"
+    ],
+    "replacement_output": {
+      "lane": "Canvas Sprite2D/TextureRect or authored texture material on functional Control",
+      "layer_owner": "Existing scene/controller; exact z_index retained unless reviewed framing change is needed",
+      "runtime_budget": "<=1024 longest side or POT; POT-only VRAM; Mobile/Speedy 30fps and measured overdraw",
+      "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
+      "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
+    },
+    "review_log": [],
+    "proposed_update": "Review Turbo control frame during TUNE; TO THE LINE; RACE on Castle room movie_lounge picture route; temporary Opera painted left elevator -> playtest card also launches same engine without durable rewards. Preserve approved painted inputs. For its visible flat part, first inspect exact-purpose existing art; then author only this context-bound role/state with the same geometry, material and action, or remove a redundant decorative layer.",
+    "route_refs": [
+      "opera.act.12"
+    ],
+    "route_evidence": "Castle room movie_lounge picture route; temporary Opera painted left elevator -> playtest card also launches same engine without durable rewards",
+    "context_action": "TUNE; TO THE LINE; RACE",
+    "source_image_reviews": [],
+    "individual_brief_id": "PIECE-FV-CD4F06A6937B"
+  },
+  "source": {
+    "path": "scripts/racer/reef_kart_race.gd",
+    "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+    "sha256": "51ac5462cdec6918318dd1f997d317c0281aea75d1b3fc86b471e1da391ca64e",
+    "local_sha256": "d156126c5cf53705e66b92daa884da0650cc5c11ad5d93241d83b12da31fc179",
+    "bytes": 64827,
+    "role": "Five frame draw operations and the retained icon compositor"
+  },
+  "rules": [
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-MED-01",
+    "DL-PERF-02",
+    "DL-PERF-03",
+    "DL-QA-11",
+    "DL-QA-12",
+    "DL-QA-14",
+    "DL-QA-15",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-UI-01",
+    "DL-UI-02",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-UI-06",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-07"
+  ],
+  "findings": [
+    "MA-VIS-008",
+    "MA-OPERA-014"
+  ],
+  "existing_documented_gap": {
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/README.md",
+    "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+    "sha256": "e86e36fcc7d639efc4cd4a9525d8ab0f31eb4845171918cc1e808f21295d02c7",
+    "local_sha256": "e86e36fcc7d639efc4cd4a9525d8ab0f31eb4845171918cc1e808f21295d02c7",
+    "bytes": 3825,
+    "role": "Remaining flat steering/item frames"
+  },
+  "binding": "OperaRacerSurface._claim uses TURBO_CENTER and TURBO_RADIUS and queues turbo. _publish_controls maps the same coordinates and held state to bubble_center, bubble_radius and bubble_held. ReefKartRace._draw_item_bubble draws this frame. The world pickup capsule and central item icon have separate roles.",
+  "scope": "Replace visible circles, three hue arcs and highlight of the touch item bubble with one painted sprite. Preserve empty, roulette, ready, held and focus behavior, item icon layers and scoring/saves. Review PC solo/split controls-empty negative. Broader historical routes remain open.",
+  "style_refs": [
+    {
+      "path": "assets/racer/ui/gas_button_painted.png",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "sha256": "79f9dee0a1db33980e0d3fd24627bb25a85119d956b15a62a700de7f3741af29",
+      "local_sha256": "79f9dee0a1db33980e0d3fd24627bb25a85119d956b15a62a700de7f3741af29",
+      "bytes": 308133,
+      "role": "Unprotected painted UI contour, texture and light"
+    },
+    {
+      "path": "assets/racer/ui/steering_knob_painted.png",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "sha256": "a40cea67ef6d50d326c2d36f1dc148b708e984384deddb592c30723807814314",
+      "local_sha256": "a40cea67ef6d50d326c2d36f1dc148b708e984384deddb592c30723807814314",
+      "bytes": 87637,
+      "role": "Unprotected painted round surface and brush texture"
+    }
+  ],
+  "observation": {
+    "path": "assets_src/review/r147_racer_steering_20261106/captures/candidate_1280/opera-released.png",
+    "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+    "sha256": "1dc0e086dc85d6c67495b89e6177e366db4936e7bd3fae637cff889e970fc6d6",
+    "local_sha256": "1dc0e086dc85d6c67495b89e6177e366db4936e7bd3fae637cff889e970fc6d6",
+    "bytes": 862064,
+    "role": "Configured 1280x720 Mobile/Speedy comparison. Viewed locally. Excluded from image generation inputs."
+  },
+  "generation": {
+    "tool": "built-in image_gen.imagegen",
+    "model_version": "unexposed",
+    "calls_requested": 0,
+    "other_funded_budgets": "out of scope"
+  },
+  "required_evidence": [
+    "actual native output and exact tool/backend metadata",
+    "lossless non-destructive component crops/exports and import recipes",
+    "same-scene ten-axis comparison and independent candidate/integration/runtime/formalQA11/device/child/owner lanes",
+    "exactGodot4.7.2Mobile/OperaSpeedy and appropriate changed-source/full gates beforeCI andDev",
+    "anonymous immutable manifest verification and canonical update only from verified changes"
+  ],
+  "time": "2026-11-07T03:05:56.028327+00:00"
+}

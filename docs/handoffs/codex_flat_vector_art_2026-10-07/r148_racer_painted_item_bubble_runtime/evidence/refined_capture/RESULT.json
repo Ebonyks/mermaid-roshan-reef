@@ -1,0 +1,839 @@
+{
+  "state": "PASS30_REFINED_CANDIDATE_CONFIGURED_NATIVE_ITEM_FRAME_MOBILE_FRAMES",
+  "baseline_code": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+  "results": [
+    {
+      "label": "candidate_1280",
+      "exit_code": 0,
+      "elapsed_seconds": 32.655,
+      "source_script_sha256": "1380e5dc06f2aa9ca094a00a31fdb9c68fb2818e1255e6dc6b194b23247caa36",
+      "records": {
+        "failures": 0,
+        "frame_cap": 30,
+        "limits": "Configured real surface and production fit helper. Inventory and roulette states are posed; item press/release/cancel and spend use the surface handlers. PC negatives are configured. Formal QA11 and natural/device/child/owner remain open.",
+        "records": [
+          {
+            "file": "opera-empty.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "08f4feb2368e600e8094703521d22fb8789f77cdc177b09aa7febf9e5312c33a",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.25,
+              "held": false,
+              "item": "",
+              "owner": -1,
+              "queued": false,
+              "radius": 70.0,
+              "roulette": 0.0,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-rolling-zoom.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "6489dd5c792f5edd9f1c188016d002727dfeea70a579cc2d9ba0909ea3472d73",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.00833333333333333,
+              "held": false,
+              "item": "",
+              "owner": -1,
+              "queued": false,
+              "radius": 70.0,
+              "roulette": 0.45,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-rolling-sparkle.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "f382c44d2e52e844a3896f82430df7e773d91d6df6f04e57b79ae6f69c0551d4",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.0916666666666667,
+              "held": false,
+              "item": "",
+              "owner": -1,
+              "queued": false,
+              "radius": 70.0,
+              "roulette": 0.45,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-rolling-kelp.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "e9d6b7a226e67436a9cbbb8cd65b783fd5ccc6ede7695ad2fb9620855e87e8f8",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.175,
+              "held": false,
+              "item": "",
+              "owner": -1,
+              "queued": false,
+              "radius": 70.0,
+              "roulette": 0.45,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-rolling-pearls.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "135e69ae82ebe215c49a67144e3151f163ac253818da5b95fadf599d5fbf965c",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.258333333333333,
+              "held": false,
+              "item": "",
+              "owner": -1,
+              "queued": false,
+              "radius": 70.0,
+              "roulette": 0.45,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-ready-zoom.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "91e26dec407ba48d0b9f5171d8e61d93648029952f050a44bf7b12d5bdb093fc",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.32,
+              "held": false,
+              "item": "zoom",
+              "owner": -1,
+              "queued": false,
+              "radius": 70.0,
+              "roulette": 0.0,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-ready-sparkle.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "c935756a03db456adc79c99ed6f75042fdc894e40d2a14d1ad353e6ec0f9ba1d",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.32,
+              "held": false,
+              "item": "sparkle",
+              "owner": -1,
+              "queued": false,
+              "radius": 70.0,
+              "roulette": 0.0,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-ready-kelp.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "08797a000f2923f0aa2d2b729226246acff4912cc385dcb06101846b42021d76",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.32,
+              "held": false,
+              "item": "kelp",
+              "owner": -1,
+              "queued": false,
+              "radius": 70.0,
+              "roulette": 0.0,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-ready-pearls.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "e49eeab8cae6b395a029521e089c6fe105d9099711a38b9bcc3344b0e850a535",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.32,
+              "held": false,
+              "item": "pearls",
+              "owner": -1,
+              "queued": false,
+              "radius": 70.0,
+              "roulette": 0.0,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-held.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "2ab42938e1381d1d205554ec534e369f0cdf58e3920bb6580891f330ad007d5c",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.32,
+              "held": true,
+              "item": "zoom",
+              "owner": 73,
+              "queued": true,
+              "radius": 70.0,
+              "roulette": 0.0,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-released.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "f7bae147564357d0c1fb87f34b4f1ea886a6ab8fc4532279c933bc0cb68f6441",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.32,
+              "held": false,
+              "item": "zoom",
+              "owner": -1,
+              "queued": true,
+              "radius": 70.0,
+              "roulette": 0.0,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-focus-cancelled.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "f7bae147564357d0c1fb87f34b4f1ea886a6ab8fc4532279c933bc0cb68f6441",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.32,
+              "held": false,
+              "item": "zoom",
+              "owner": -1,
+              "queued": false,
+              "radius": 70.0,
+              "roulette": 0.0,
+              "suspended": true
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-spent.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "8582421a56df63577c0fd1a090c564aef33ab6de5c0f7235944e8eb070bf9f66",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.32,
+              "held": false,
+              "item": "",
+              "owner": -1,
+              "queued": false,
+              "radius": 70.0,
+              "roulette": 0.0,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "pc-1-no-touch-item-frame.png",
+            "formal_QA11": false,
+            "quality_context": "fixed_pc_no_quality_selector",
+            "renderer": "mobile",
+            "sha256": "ae1909b1aabc0fecf0ccbfccc3ca3c63c5208b9f0a90d727ada756003a912c97",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {},
+            "target_visible": false,
+            "variant": "candidate"
+          },
+          {
+            "file": "pc-2-no-touch-item-frame.png",
+            "formal_QA11": false,
+            "quality_context": "fixed_pc_no_quality_selector",
+            "renderer": "mobile",
+            "sha256": "11cf79ab0ea0972d2b445b9c077bcd5543ddc1c8d9abb240a148f34d596392d8",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {},
+            "target_visible": false,
+            "variant": "candidate"
+          }
+        ],
+        "renderer": "mobile",
+        "source_script_sha256": "1380e5dc06f2aa9ca094a00a31fdb9c68fb2818e1255e6dc6b194b23247caa36",
+        "variant": "candidate",
+        "version": {
+          "build": "official",
+          "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+          "hex": 263938,
+          "major": 4,
+          "minor": 7,
+          "patch": 2,
+          "status": "stable",
+          "string": "4.7.2-stable (official)",
+          "timestamp": 0
+        },
+        "width": 1280
+      },
+      "console_sha256": "9a66d6dc7011a60381cfe12f355d3aec661e012e58308a5e49096f217f4fbadc",
+      "native_log_sha256": "973d61db57129992ccb168cef3687abf517c39b65f5786a777d284e52dfe64bb"
+    },
+    {
+      "label": "candidate_1600",
+      "exit_code": 0,
+      "elapsed_seconds": 30.311,
+      "source_script_sha256": "1380e5dc06f2aa9ca094a00a31fdb9c68fb2818e1255e6dc6b194b23247caa36",
+      "records": {
+        "failures": 0,
+        "frame_cap": 30,
+        "limits": "Configured real surface and production fit helper. Inventory and roulette states are posed; item press/release/cancel and spend use the surface handlers. PC negatives are configured. Formal QA11 and natural/device/child/owner remain open.",
+        "records": [
+          {
+            "file": "opera-empty.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "9af754caaf15c5992dbf67935c2930c4cf158a420e9ce32878432563e6f95de5",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.25,
+              "held": false,
+              "item": "",
+              "owner": -1,
+              "queued": false,
+              "radius": 70.0,
+              "roulette": 0.0,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-rolling-zoom.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "8841a30a49f88fb1eef887e46503b94d5583d90716bbce5170be9672b97d09dc",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.00833333333333333,
+              "held": false,
+              "item": "",
+              "owner": -1,
+              "queued": false,
+              "radius": 70.0,
+              "roulette": 0.45,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-rolling-sparkle.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "dc9900699d090ced61690deb6cbd3d3ac9313c136027e591e002703b290bf4c4",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.0916666666666667,
+              "held": false,
+              "item": "",
+              "owner": -1,
+              "queued": false,
+              "radius": 70.0,
+              "roulette": 0.45,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-rolling-kelp.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "26932d74d32e9c7fd0612af8e455da70cb09f684425dbee702369dbf5f3fd827",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.175,
+              "held": false,
+              "item": "",
+              "owner": -1,
+              "queued": false,
+              "radius": 70.0,
+              "roulette": 0.45,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-rolling-pearls.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "7080ca8d7f7cddc8ec62795f9fb802746a0b92583dece57d5df61d7a2c97af9b",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.258333333333333,
+              "held": false,
+              "item": "",
+              "owner": -1,
+              "queued": false,
+              "radius": 70.0,
+              "roulette": 0.45,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-ready-zoom.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "860493152f908c206f9d5b097bb76ab4875aae33ae58b2ce2ed95185cd22b263",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.32,
+              "held": false,
+              "item": "zoom",
+              "owner": -1,
+              "queued": false,
+              "radius": 70.0,
+              "roulette": 0.0,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-ready-sparkle.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "14411f1d0dda1aa049c4d406ba66305ba030a6d01a08dbcbf3f1743eff952b59",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.32,
+              "held": false,
+              "item": "sparkle",
+              "owner": -1,
+              "queued": false,
+              "radius": 70.0,
+              "roulette": 0.0,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-ready-kelp.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "7e0bbfeacb139f099243216df031e61de8534eef7b84fbbb82adc525ff66a06d",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.32,
+              "held": false,
+              "item": "kelp",
+              "owner": -1,
+              "queued": false,
+              "radius": 70.0,
+              "roulette": 0.0,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-ready-pearls.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "0bae290133b7df7ee11a59f0e70fdb4cd7366fc25152337b07f3092e165a200e",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.32,
+              "held": false,
+              "item": "pearls",
+              "owner": -1,
+              "queued": false,
+              "radius": 70.0,
+              "roulette": 0.0,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-held.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "821a1dacb564bbb53c76c54938b6a16c77a07a1caf39b4abff7fee20c81e1baa",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.32,
+              "held": true,
+              "item": "zoom",
+              "owner": 73,
+              "queued": true,
+              "radius": 70.0,
+              "roulette": 0.0,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-released.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "5fac0f47486063080997f06f38993d26388176c0bfd856b4b12970a014cddd14",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.32,
+              "held": false,
+              "item": "zoom",
+              "owner": -1,
+              "queued": true,
+              "radius": 70.0,
+              "roulette": 0.0,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-focus-cancelled.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "5fac0f47486063080997f06f38993d26388176c0bfd856b4b12970a014cddd14",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.32,
+              "held": false,
+              "item": "zoom",
+              "owner": -1,
+              "queued": false,
+              "radius": 70.0,
+              "roulette": 0.0,
+              "suspended": true
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "opera-spent.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "ee7cb6e45e53e3c2bf302367ef4e06432528dca7371c45414ac66dc6652bd198",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "center": [
+                1010,
+                505
+              ],
+              "clock": 0.32,
+              "held": false,
+              "item": "",
+              "owner": -1,
+              "queued": false,
+              "radius": 70.0,
+              "roulette": 0.0,
+              "suspended": false
+            },
+            "target_visible": true,
+            "variant": "candidate"
+          },
+          {
+            "file": "pc-1-no-touch-item-frame.png",
+            "formal_QA11": false,
+            "quality_context": "fixed_pc_no_quality_selector",
+            "renderer": "mobile",
+            "sha256": "3e92912b738206ac16465bd2431cce14374a755d49716a4eec45dad570054d40",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {},
+            "target_visible": false,
+            "variant": "candidate"
+          },
+          {
+            "file": "pc-2-no-touch-item-frame.png",
+            "formal_QA11": false,
+            "quality_context": "fixed_pc_no_quality_selector",
+            "renderer": "mobile",
+            "sha256": "8d9d0372fb25bde91f46cb02dc454dfaa071c1e928e10e9e7f34244d7c2fc30a",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {},
+            "target_visible": false,
+            "variant": "candidate"
+          }
+        ],
+        "renderer": "mobile",
+        "source_script_sha256": "1380e5dc06f2aa9ca094a00a31fdb9c68fb2818e1255e6dc6b194b23247caa36",
+        "variant": "candidate",
+        "version": {
+          "build": "official",
+          "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+          "hex": 263938,
+          "major": 4,
+          "minor": 7,
+          "patch": 2,
+          "status": "stable",
+          "string": "4.7.2-stable (official)",
+          "timestamp": 0
+        },
+        "width": 1600
+      },
+      "console_sha256": "9a66d6dc7011a60381cfe12f355d3aec661e012e58308a5e49096f217f4fbadc",
+      "native_log_sha256": "973d61db57129992ccb168cef3687abf517c39b65f5786a777d284e52dfe64bb"
+    }
+  ],
+  "actual_runtime_inputs": 5588,
+  "normal_save_unchanged": true,
+  "candidate_restored_raw_sha256": "1380e5dc06f2aa9ca094a00a31fdb9c68fb2818e1255e6dc6b194b23247caa36",
+  "runtime_drift": [],
+  "native_events": 30,
+  "previous_failed_events": 0,
+  "target_visible_configured_events": 26,
+  "no_touch_target_PC_negative_events": 4,
+  "source_variant_limit": "Unreferenced candidate frame PNG/import present with exact 3190412 baseline race script. Configured Mobile diagnostics.",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "finished_at_utc": "2026-11-07T03:15:50.246943+00:00"
+}

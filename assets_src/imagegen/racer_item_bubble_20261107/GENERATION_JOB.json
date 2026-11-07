@@ -1,0 +1,90 @@
+{
+  "stable_id": "FV-CD4F06A6937B",
+  "source": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+  "generation_tool": "built-in image_gen.imagegen",
+  "model_version": null,
+  "native_request_count": 1,
+  "request_wall_time_ms": 38845,
+  "transparent_background_requested": true,
+  "prompt_path": "PROMPT_SENT.txt",
+  "prompt_sha256": "1ce7882ae39a024344d497277635d41130207da58007d67d828441bd88019bed",
+  "style_refs": [
+    {
+      "path": "assets/racer/ui/gas_button_painted.png",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "sha256": "79f9dee0a1db33980e0d3fd24627bb25a85119d956b15a62a700de7f3741af29",
+      "local_sha256": "79f9dee0a1db33980e0d3fd24627bb25a85119d956b15a62a700de7f3741af29",
+      "bytes": 308133,
+      "role": "Unprotected painted UI contour, texture and light"
+    },
+    {
+      "path": "assets/racer/ui/steering_knob_painted.png",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "sha256": "a40cea67ef6d50d326c2d36f1dc148b708e984384deddb592c30723807814314",
+      "local_sha256": "a40cea67ef6d50d326c2d36f1dc148b708e984384deddb592c30723807814314",
+      "bytes": 87637,
+      "role": "Unprotected painted round surface and brush texture"
+    }
+  ],
+  "scene_observation": {
+    "path": "assets_src/review/r147_racer_steering_20261106/captures/candidate_1280/opera-released.png",
+    "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+    "sha256": "1dc0e086dc85d6c67495b89e6177e366db4936e7bd3fae637cff889e970fc6d6",
+    "local_sha256": "1dc0e086dc85d6c67495b89e6177e366db4936e7bd3fae637cff889e970fc6d6",
+    "bytes": 862064,
+    "role": "Configured 1280x720 Mobile/Speedy comparison. Viewed locally. Excluded from image generation inputs."
+  },
+  "native": {
+    "file": "item_bubble_frame_native.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "bytes": 1461915,
+    "sha256": "1a4c7e1a51b3277daf1fdc8f17e7a156de2f8bb9e95ba1e03ae063a92d544868",
+    "unchanged": true
+  },
+  "runtime": {
+    "path": "assets/racer/ui/item_bubble_frame_painted.png",
+    "dimensions": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "bytes": 271561,
+    "sha256": "f26803c30c83ad995444f1ece1db686565eed6edd444f8fb1f1f36aec19dd1b3",
+    "crop_ltrb": [
+      31,
+      27,
+      1215,
+      1211
+    ],
+    "excluded_outside_crop_by_alpha_threshold": {
+      "1": 689,
+      "4": 64,
+      "32": 17,
+      "128": 2,
+      "240": 0
+    },
+    "operation": "Square technical crop excludes the detached left edge fleck and very faint outer fringe. Uniform Lanczos resize.",
+    "tool": "FFmpeg 8.1.2",
+    "filtergraph": "crop=1184:1184:31:27,scale=512:512:flags=lanczos,format=rgba"
+  },
+  "code": {
+    "path": "scripts/racer/reef_kart_race.gd",
+    "old_worktree_sha256": "d156126c5cf53705e66b92daa884da0650cc5c11ad5d93241d83b12da31fc179",
+    "new_worktree_sha256": "443deb1e683132af0d624a11e28a65d751bee96a5be45793fed88f03227fc065",
+    "scope_proof": "Inverse replacement restores exact baseline Git bytes. Required preload and drawn frame only. Item icons and fallback code are independent.",
+    "final_worktree_sha256": "1380e5dc06f2aa9ca094a00a31fdb9c68fb2818e1255e6dc6b194b23247caa36"
+  },
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "presentation_refinement": {
+    "before": "443deb1e683132af0d624a11e28a65d751bee96a5be45793fed88f03227fc065",
+    "after": "1380e5dc06f2aa9ca094a00a31fdb9c68fb2818e1255e6dc6b194b23247caa36",
+    "change": "Empty/spent frame opacity 0.44 to 0.60. The first rendered empty frame was hard to pick out against the bright track at phone scale. Existing ready/rolling tint and the painted source are the same."
+  }
+}

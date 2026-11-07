@@ -1,0 +1,2409 @@
+{
+  "state": "SEALED_EXACT_STAGED_GIT_BYTES",
+  "id": "FV-R148-PAINTED-RACER-ITEM-BUBBLE-20261107",
+  "baseline": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+  "stable_id": "FV-CD4F06A6937B",
+  "artifact_key": "r148_racer_painted_item_bubble_runtime",
+  "new_known_role_credit": 0,
+  "validated_staged_tree": "ea539f71e901f402796acf68c53224fad0c161cd",
+  "actual_runtime_inputs": 5588,
+  "local_required_gate_commands": 88,
+  "new_native_events": 90,
+  "bounded_native_events": 52,
+  "excluded_native_events": 38,
+  "new_generation_calls": 1,
+  "source_CI": null,
+  "Dev_integrated": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "complete_scenes": 0,
+  "whole_game_total": null,
+  "mission_complete": false,
+  "hash_contract": "SELF pins exact staged Git bytes. Named baseline rows use immutable hashes. Other historical evidence stays cited at its revision.",
+  "files": [
+    {
+      "path": "assets/racer/ui/gas_button_painted.png",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "sha256": "79f9dee0a1db33980e0d3fd24627bb25a85119d956b15a62a700de7f3741af29",
+      "bytes": 308133,
+      "role": "Unprotected painted UI contour, texture and light"
+    },
+    {
+      "path": "assets/racer/ui/steering_knob_painted.png",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "sha256": "a40cea67ef6d50d326c2d36f1dc148b708e984384deddb592c30723807814314",
+      "bytes": 87637,
+      "role": "Unprotected painted round surface and brush texture"
+    },
+    {
+      "path": "assets_src/review/r147_racer_steering_20261106/captures/candidate_1280/opera-released.png",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "sha256": "1dc0e086dc85d6c67495b89e6177e366db4936e7bd3fae637cff889e970fc6d6",
+      "bytes": 862064,
+      "role": "Configured 1280x720 Mobile/Speedy comparison. Viewed locally. Excluded from image generation inputs."
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r146_racer_painted_gas_runtime/README.md",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "sha256": "e86e36fcc7d639efc4cd4a9525d8ab0f31eb4845171918cc1e808f21295d02c7",
+      "bytes": 3825,
+      "role": "Remaining flat steering/item frames"
+    },
+    {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "sha256": "51ac5462cdec6918318dd1f997d317c0281aea75d1b3fc86b471e1da391ca64e",
+      "bytes": 64827,
+      "role": "Five frame draw operations and the retained icon compositor"
+    },
+    {
+      "path": ".gitattributes",
+      "revision": "SELF",
+      "bytes": 12033,
+      "sha256": "e1aa51a893036e48198a456e9bc98f104a302c1b2f920b9505d49b9635bdeb2c",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "revision": "SELF",
+      "bytes": 8946317,
+      "sha256": "26c343e3ac6e3969200433e47ecdec80f6eae93511a01461a6cb359b93a1b1dd",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets/racer/ui/item_bubble_frame_painted.png",
+      "revision": "SELF",
+      "bytes": 271561,
+      "sha256": "f26803c30c83ad995444f1ece1db686565eed6edd444f8fb1f1f36aec19dd1b3",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets/racer/ui/item_bubble_frame_painted.png.import",
+      "revision": "SELF",
+      "bytes": 995,
+      "sha256": "bde2b3a8626c595b201b6792c3148db6c1df2b6f3b012a6d922030e55db0fdf6",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/imagegen/racer_item_bubble_20261107/.gdignore",
+      "revision": "SELF",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/imagegen/racer_item_bubble_20261107/GENERATION_JOB.json",
+      "revision": "SELF",
+      "bytes": 3672,
+      "sha256": "5469cd2692ce02291dea2ba1a1ead263ee551752c53bae61ce5933adc03f20ce",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/imagegen/racer_item_bubble_20261107/PROMPT_SENT.txt",
+      "revision": "SELF",
+      "bytes": 1325,
+      "sha256": "1ce7882ae39a024344d497277635d41130207da58007d67d828441bd88019bed",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/imagegen/racer_item_bubble_20261107/item_bubble_frame_native.png",
+      "revision": "SELF",
+      "bytes": 1461915,
+      "sha256": "1a4c7e1a51b3277daf1fdc8f17e7a156de2f8bb9e95ba1e03ae063a92d544868",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/.gdignore",
+      "revision": "SELF",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/FINAL_PAIR_PIXEL_COMPARISON.json",
+      "revision": "SELF",
+      "bytes": 22691,
+      "sha256": "25c1873186d8e9547920a22dcb9b104f149e63b5782aa35a39e3511a9321fbb6",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/PAIR_PIXEL_COMPARISON.json",
+      "revision": "SELF",
+      "bytes": 22308,
+      "sha256": "e16a2063cddb8ccb269df899717f6e038fc5346e7e6174adff0d11493f8c297d",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/capture_review.gd",
+      "revision": "SELF",
+      "bytes": 6898,
+      "sha256": "212604e4b741a355840fd474dcb5b2cdacf68e5687b316203b36c8b9fdd3d4ad",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1280/captures.json",
+      "revision": "SELF",
+      "bytes": 8278,
+      "sha256": "b963c5a83e55291983fb8ef5f53eea4011e72a8d817f31acc272f3afe217a2ad",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1280/opera-empty.png",
+      "revision": "SELF",
+      "bytes": 866097,
+      "sha256": "39129de5ec2df840f4e25a368e22d86c3df709eb31aecb3fa6a8ecf30b5378c1",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1280/opera-focus-cancelled.png",
+      "revision": "SELF",
+      "bytes": 871363,
+      "sha256": "f7bae147564357d0c1fb87f34b4f1ea886a6ab8fc4532279c933bc0cb68f6441",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1280/opera-held.png",
+      "revision": "SELF",
+      "bytes": 870269,
+      "sha256": "2ab42938e1381d1d205554ec534e369f0cdf58e3920bb6580891f330ad007d5c",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1280/opera-ready-kelp.png",
+      "revision": "SELF",
+      "bytes": 873731,
+      "sha256": "08797a000f2923f0aa2d2b729226246acff4912cc385dcb06101846b42021d76",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1280/opera-ready-pearls.png",
+      "revision": "SELF",
+      "bytes": 872022,
+      "sha256": "e49eeab8cae6b395a029521e089c6fe105d9099711a38b9bcc3344b0e850a535",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1280/opera-ready-sparkle.png",
+      "revision": "SELF",
+      "bytes": 872816,
+      "sha256": "c935756a03db456adc79c99ed6f75042fdc894e40d2a14d1ad353e6ec0f9ba1d",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1280/opera-ready-zoom.png",
+      "revision": "SELF",
+      "bytes": 871654,
+      "sha256": "91e26dec407ba48d0b9f5171d8e61d93648029952f050a44bf7b12d5bdb093fc",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1280/opera-released.png",
+      "revision": "SELF",
+      "bytes": 871363,
+      "sha256": "f7bae147564357d0c1fb87f34b4f1ea886a6ab8fc4532279c933bc0cb68f6441",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1280/opera-rolling-kelp.png",
+      "revision": "SELF",
+      "bytes": 873077,
+      "sha256": "e9d6b7a226e67436a9cbbb8cd65b783fd5ccc6ede7695ad2fb9620855e87e8f8",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1280/opera-rolling-pearls.png",
+      "revision": "SELF",
+      "bytes": 871633,
+      "sha256": "135e69ae82ebe215c49a67144e3151f163ac253818da5b95fadf599d5fbf965c",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1280/opera-rolling-sparkle.png",
+      "revision": "SELF",
+      "bytes": 872502,
+      "sha256": "f382c44d2e52e844a3896f82430df7e773d91d6df6f04e57b79ae6f69c0551d4",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1280/opera-rolling-zoom.png",
+      "revision": "SELF",
+      "bytes": 871620,
+      "sha256": "6489dd5c792f5edd9f1c188016d002727dfeea70a579cc2d9ba0909ea3472d73",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1280/opera-spent.png",
+      "revision": "SELF",
+      "bytes": 862457,
+      "sha256": "7630412ab7873314dd24c36f6a08043ea437884890e4a507b5b43ef39dc6a507",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1280/pc-1-no-touch-item-frame.png",
+      "revision": "SELF",
+      "bytes": 637926,
+      "sha256": "ae1909b1aabc0fecf0ccbfccc3ca3c63c5208b9f0a90d727ada756003a912c97",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1280/pc-2-no-touch-item-frame.png",
+      "revision": "SELF",
+      "bytes": 523557,
+      "sha256": "11cf79ab0ea0972d2b445b9c077bcd5543ddc1c8d9abb240a148f34d596392d8",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1600/captures.json",
+      "revision": "SELF",
+      "bytes": 8278,
+      "sha256": "e74ec4d2aa0296fff87d1c9f0e6ab862e17424c2b72b819ad0222db56a85b534",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1600/opera-empty.png",
+      "revision": "SELF",
+      "bytes": 967653,
+      "sha256": "a1b6c9c8bb584e168efadb0c821ff3c4b0ca5b15863cfee002ef73ae48721b09",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1600/opera-focus-cancelled.png",
+      "revision": "SELF",
+      "bytes": 973199,
+      "sha256": "5fac0f47486063080997f06f38993d26388176c0bfd856b4b12970a014cddd14",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1600/opera-held.png",
+      "revision": "SELF",
+      "bytes": 972183,
+      "sha256": "821a1dacb564bbb53c76c54938b6a16c77a07a1caf39b4abff7fee20c81e1baa",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1600/opera-ready-kelp.png",
+      "revision": "SELF",
+      "bytes": 975243,
+      "sha256": "7e0bbfeacb139f099243216df031e61de8534eef7b84fbbb82adc525ff66a06d",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1600/opera-ready-pearls.png",
+      "revision": "SELF",
+      "bytes": 973522,
+      "sha256": "0bae290133b7df7ee11a59f0e70fdb4cd7366fc25152337b07f3092e165a200e",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1600/opera-ready-sparkle.png",
+      "revision": "SELF",
+      "bytes": 974210,
+      "sha256": "14411f1d0dda1aa049c4d406ba66305ba030a6d01a08dbcbf3f1743eff952b59",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1600/opera-ready-zoom.png",
+      "revision": "SELF",
+      "bytes": 973331,
+      "sha256": "860493152f908c206f9d5b097bb76ab4875aae33ae58b2ce2ed95185cd22b263",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1600/opera-released.png",
+      "revision": "SELF",
+      "bytes": 973199,
+      "sha256": "5fac0f47486063080997f06f38993d26388176c0bfd856b4b12970a014cddd14",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1600/opera-rolling-kelp.png",
+      "revision": "SELF",
+      "bytes": 974692,
+      "sha256": "26932d74d32e9c7fd0612af8e455da70cb09f684425dbee702369dbf5f3fd827",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1600/opera-rolling-pearls.png",
+      "revision": "SELF",
+      "bytes": 973115,
+      "sha256": "7080ca8d7f7cddc8ec62795f9fb802746a0b92583dece57d5df61d7a2c97af9b",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1600/opera-rolling-sparkle.png",
+      "revision": "SELF",
+      "bytes": 973986,
+      "sha256": "dc9900699d090ced61690deb6cbd3d3ac9313c136027e591e002703b290bf4c4",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1600/opera-rolling-zoom.png",
+      "revision": "SELF",
+      "bytes": 973382,
+      "sha256": "8841a30a49f88fb1eef887e46503b94d5583d90716bbce5170be9672b97d09dc",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1600/opera-spent.png",
+      "revision": "SELF",
+      "bytes": 964590,
+      "sha256": "c07c99631805e5a2409cf52d545dd16629182ec7334bddd760a7fb1fcb8c5e5a",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1600/pc-1-no-touch-item-frame.png",
+      "revision": "SELF",
+      "bytes": 650725,
+      "sha256": "3e92912b738206ac16465bd2431cce14374a755d49716a4eec45dad570054d40",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/candidate_1600/pc-2-no-touch-item-frame.png",
+      "revision": "SELF",
+      "bytes": 533492,
+      "sha256": "8d9d0372fb25bde91f46cb02dc454dfaa071c1e928e10e9e7f34244d7c2fc30a",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1280/captures.json",
+      "revision": "SELF",
+      "bytes": 8230,
+      "sha256": "4d63eab37ca0a2397939a6b6676707e54a8adb78d25788a70c804335dce5f5e1",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1280/opera-empty.png",
+      "revision": "SELF",
+      "bytes": 864217,
+      "sha256": "9abc66a523898349f75160a6def989726f7a9ac5a0e617b246d2f1cbfa3b8d4f",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1280/opera-focus-cancelled.png",
+      "revision": "SELF",
+      "bytes": 863221,
+      "sha256": "837fc96ea75d1b2f18ec31f4cd7d9ed352eaa036692a9b45512339b920c58241",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1280/opera-held.png",
+      "revision": "SELF",
+      "bytes": 863410,
+      "sha256": "92a097461b1e68a6ae4806da8dc53e0325fa94c47f45f87e93245067eac5d119",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1280/opera-ready-kelp.png",
+      "revision": "SELF",
+      "bytes": 866380,
+      "sha256": "5be30355de4fd15c9ba9a2f6926d13e09992b59c774f3bd4dd6a3aba915c2cf8",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1280/opera-ready-pearls.png",
+      "revision": "SELF",
+      "bytes": 864694,
+      "sha256": "ac4b5c22a6cb4c052e18555b3b6d4a0169b0e0c775abd7743d56849d076628c6",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1280/opera-ready-sparkle.png",
+      "revision": "SELF",
+      "bytes": 865386,
+      "sha256": "305bd77013630ef707e2fc37cd33c21881fd6fcc2dc5dda2ceccd0598faa96ce",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1280/opera-ready-zoom.png",
+      "revision": "SELF",
+      "bytes": 863291,
+      "sha256": "5b2552fa0457ceb788dc4e130d7820ae0128b5cc642ecbc3f39505cdac1c3f7a",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1280/opera-released.png",
+      "revision": "SELF",
+      "bytes": 863221,
+      "sha256": "837fc96ea75d1b2f18ec31f4cd7d9ed352eaa036692a9b45512339b920c58241",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1280/opera-rolling-kelp.png",
+      "revision": "SELF",
+      "bytes": 866132,
+      "sha256": "b3ddf4995ae95ab75b2b4373351515ec7abf0293b165cdf8e75ad346bd9ce71d",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1280/opera-rolling-pearls.png",
+      "revision": "SELF",
+      "bytes": 864842,
+      "sha256": "aeeda3e960654186a377fdfcd2216ab6aba7eed63331d12285aab235200c2ae3",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1280/opera-rolling-sparkle.png",
+      "revision": "SELF",
+      "bytes": 865321,
+      "sha256": "5e9df13293020ca89394b4ba707239e4c36b5c7ddee668da369bfdc7c434cb6e",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1280/opera-rolling-zoom.png",
+      "revision": "SELF",
+      "bytes": 863696,
+      "sha256": "a4232d9ed614a83059af07467804be212844fcabed92e6fc7b2d228fd30ed573",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1280/opera-spent.png",
+      "revision": "SELF",
+      "bytes": 860401,
+      "sha256": "fd42e8b7e92b74a38015f3a3b1f0a4d8f0e4aee8f739c17ca7ba59b24d1648ed",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1280/pc-1-no-touch-item-frame.png",
+      "revision": "SELF",
+      "bytes": 637926,
+      "sha256": "ae1909b1aabc0fecf0ccbfccc3ca3c63c5208b9f0a90d727ada756003a912c97",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1280/pc-2-no-touch-item-frame.png",
+      "revision": "SELF",
+      "bytes": 523557,
+      "sha256": "11cf79ab0ea0972d2b445b9c077bcd5543ddc1c8d9abb240a148f34d596392d8",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1600/captures.json",
+      "revision": "SELF",
+      "bytes": 8230,
+      "sha256": "11ca82eb5dd09b13b2fa1d946f0fddf41d25692dd18accee2eec9eecc66b0b07",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1600/opera-empty.png",
+      "revision": "SELF",
+      "bytes": 965472,
+      "sha256": "8ada24a52b28d33e73a7af419a4c5a42bd2b49a499fd79b67730fc4ff3005b88",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1600/opera-focus-cancelled.png",
+      "revision": "SELF",
+      "bytes": 964577,
+      "sha256": "e96b1fc545b3e9f11085569edf903a526e634b4eee8fc89572fe795613b02f09",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1600/opera-held.png",
+      "revision": "SELF",
+      "bytes": 964780,
+      "sha256": "f2330aed88ff8ae142ecb89724c84d19d641af0ac4f7b6fb298fb0d1950a7e72",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1600/opera-ready-kelp.png",
+      "revision": "SELF",
+      "bytes": 967708,
+      "sha256": "80f26d0daa350e582edd184fb8137f30480de2e45d9ae4a0d66029dec46dfbd6",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1600/opera-ready-pearls.png",
+      "revision": "SELF",
+      "bytes": 965993,
+      "sha256": "6e3fa2314db334bda1513a7ba6cabc3c06f6deac3a628762515cacbbcfeace59",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1600/opera-ready-sparkle.png",
+      "revision": "SELF",
+      "bytes": 966654,
+      "sha256": "49b6fbd6e4cf9a71b7003c4e7b58c3db8e5e47028662244d3bc173f0eb8aaffc",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1600/opera-ready-zoom.png",
+      "revision": "SELF",
+      "bytes": 964504,
+      "sha256": "1486fcab65498e10d37342504baba25e7febfac06557c875d7c2e8f5cd0d8112",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1600/opera-released.png",
+      "revision": "SELF",
+      "bytes": 964577,
+      "sha256": "e96b1fc545b3e9f11085569edf903a526e634b4eee8fc89572fe795613b02f09",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1600/opera-rolling-kelp.png",
+      "revision": "SELF",
+      "bytes": 967467,
+      "sha256": "b6ad24effa9a7b5908ed91ba4e2972037bbfaffccbb22174ca7a8f5233c03a18",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1600/opera-rolling-pearls.png",
+      "revision": "SELF",
+      "bytes": 966126,
+      "sha256": "83e58a6ee901a59cb15ed30cf9cf8a2ef7a4dedd8da80cb9b9876fb0b4548870",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1600/opera-rolling-sparkle.png",
+      "revision": "SELF",
+      "bytes": 966605,
+      "sha256": "3b68a965ff5036647963f5436d831c1581879ecd0085755a8dc9d2a2b0799ebe",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1600/opera-rolling-zoom.png",
+      "revision": "SELF",
+      "bytes": 964891,
+      "sha256": "52e1a897c2b120fb6ab67bc1dc06cca36a55273f941b600223e216f65e8b6d20",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1600/opera-spent.png",
+      "revision": "SELF",
+      "bytes": 962334,
+      "sha256": "61a49ae6c4f3f9cea06e98c7966bb68ceb32cc8793adac961407452419176387",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1600/pc-1-no-touch-item-frame.png",
+      "revision": "SELF",
+      "bytes": 650725,
+      "sha256": "3e92912b738206ac16465bd2431cce14374a755d49716a4eec45dad570054d40",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures/source_1600/pc-2-no-touch-item-frame.png",
+      "revision": "SELF",
+      "bytes": 533492,
+      "sha256": "8d9d0372fb25bde91f46cb02dc454dfaa071c1e928e10e9e7f34244d7c2fc30a",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1280/captures.json",
+      "revision": "SELF",
+      "bytes": 8278,
+      "sha256": "68c29068c7f775030969225aed5325c03bff752a414a69005f3e13f213c07c3a",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1280/opera-empty.png",
+      "revision": "SELF",
+      "bytes": 867090,
+      "sha256": "08f4feb2368e600e8094703521d22fb8789f77cdc177b09aa7febf9e5312c33a",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1280/opera-focus-cancelled.png",
+      "revision": "SELF",
+      "bytes": 871363,
+      "sha256": "f7bae147564357d0c1fb87f34b4f1ea886a6ab8fc4532279c933bc0cb68f6441",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1280/opera-held.png",
+      "revision": "SELF",
+      "bytes": 870269,
+      "sha256": "2ab42938e1381d1d205554ec534e369f0cdf58e3920bb6580891f330ad007d5c",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1280/opera-ready-kelp.png",
+      "revision": "SELF",
+      "bytes": 873731,
+      "sha256": "08797a000f2923f0aa2d2b729226246acff4912cc385dcb06101846b42021d76",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1280/opera-ready-pearls.png",
+      "revision": "SELF",
+      "bytes": 872022,
+      "sha256": "e49eeab8cae6b395a029521e089c6fe105d9099711a38b9bcc3344b0e850a535",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1280/opera-ready-sparkle.png",
+      "revision": "SELF",
+      "bytes": 872816,
+      "sha256": "c935756a03db456adc79c99ed6f75042fdc894e40d2a14d1ad353e6ec0f9ba1d",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1280/opera-ready-zoom.png",
+      "revision": "SELF",
+      "bytes": 871654,
+      "sha256": "91e26dec407ba48d0b9f5171d8e61d93648029952f050a44bf7b12d5bdb093fc",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1280/opera-released.png",
+      "revision": "SELF",
+      "bytes": 871363,
+      "sha256": "f7bae147564357d0c1fb87f34b4f1ea886a6ab8fc4532279c933bc0cb68f6441",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1280/opera-rolling-kelp.png",
+      "revision": "SELF",
+      "bytes": 873077,
+      "sha256": "e9d6b7a226e67436a9cbbb8cd65b783fd5ccc6ede7695ad2fb9620855e87e8f8",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1280/opera-rolling-pearls.png",
+      "revision": "SELF",
+      "bytes": 871633,
+      "sha256": "135e69ae82ebe215c49a67144e3151f163ac253818da5b95fadf599d5fbf965c",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1280/opera-rolling-sparkle.png",
+      "revision": "SELF",
+      "bytes": 872502,
+      "sha256": "f382c44d2e52e844a3896f82430df7e773d91d6df6f04e57b79ae6f69c0551d4",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1280/opera-rolling-zoom.png",
+      "revision": "SELF",
+      "bytes": 871620,
+      "sha256": "6489dd5c792f5edd9f1c188016d002727dfeea70a579cc2d9ba0909ea3472d73",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1280/opera-spent.png",
+      "revision": "SELF",
+      "bytes": 863794,
+      "sha256": "8582421a56df63577c0fd1a090c564aef33ab6de5c0f7235944e8eb070bf9f66",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1280/pc-1-no-touch-item-frame.png",
+      "revision": "SELF",
+      "bytes": 637926,
+      "sha256": "ae1909b1aabc0fecf0ccbfccc3ca3c63c5208b9f0a90d727ada756003a912c97",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1280/pc-2-no-touch-item-frame.png",
+      "revision": "SELF",
+      "bytes": 523557,
+      "sha256": "11cf79ab0ea0972d2b445b9c077bcd5543ddc1c8d9abb240a148f34d596392d8",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1600/captures.json",
+      "revision": "SELF",
+      "bytes": 8278,
+      "sha256": "708c5bcb5feaf18e591264cf44a9c4cd3189bd9516574be8dbee87bf2264e56c",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1600/opera-empty.png",
+      "revision": "SELF",
+      "bytes": 968686,
+      "sha256": "9af754caaf15c5992dbf67935c2930c4cf158a420e9ce32878432563e6f95de5",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1600/opera-focus-cancelled.png",
+      "revision": "SELF",
+      "bytes": 973199,
+      "sha256": "5fac0f47486063080997f06f38993d26388176c0bfd856b4b12970a014cddd14",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1600/opera-held.png",
+      "revision": "SELF",
+      "bytes": 972183,
+      "sha256": "821a1dacb564bbb53c76c54938b6a16c77a07a1caf39b4abff7fee20c81e1baa",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1600/opera-ready-kelp.png",
+      "revision": "SELF",
+      "bytes": 975243,
+      "sha256": "7e0bbfeacb139f099243216df031e61de8534eef7b84fbbb82adc525ff66a06d",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1600/opera-ready-pearls.png",
+      "revision": "SELF",
+      "bytes": 973522,
+      "sha256": "0bae290133b7df7ee11a59f0e70fdb4cd7366fc25152337b07f3092e165a200e",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1600/opera-ready-sparkle.png",
+      "revision": "SELF",
+      "bytes": 974210,
+      "sha256": "14411f1d0dda1aa049c4d406ba66305ba030a6d01a08dbcbf3f1743eff952b59",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1600/opera-ready-zoom.png",
+      "revision": "SELF",
+      "bytes": 973331,
+      "sha256": "860493152f908c206f9d5b097bb76ab4875aae33ae58b2ce2ed95185cd22b263",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1600/opera-released.png",
+      "revision": "SELF",
+      "bytes": 973199,
+      "sha256": "5fac0f47486063080997f06f38993d26388176c0bfd856b4b12970a014cddd14",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1600/opera-rolling-kelp.png",
+      "revision": "SELF",
+      "bytes": 974692,
+      "sha256": "26932d74d32e9c7fd0612af8e455da70cb09f684425dbee702369dbf5f3fd827",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1600/opera-rolling-pearls.png",
+      "revision": "SELF",
+      "bytes": 973115,
+      "sha256": "7080ca8d7f7cddc8ec62795f9fb802746a0b92583dece57d5df61d7a2c97af9b",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1600/opera-rolling-sparkle.png",
+      "revision": "SELF",
+      "bytes": 973986,
+      "sha256": "dc9900699d090ced61690deb6cbd3d3ac9313c136027e591e002703b290bf4c4",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1600/opera-rolling-zoom.png",
+      "revision": "SELF",
+      "bytes": 973382,
+      "sha256": "8841a30a49f88fb1eef887e46503b94d5583d90716bbce5170be9672b97d09dc",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1600/opera-spent.png",
+      "revision": "SELF",
+      "bytes": 965927,
+      "sha256": "ee7cb6e45e53e3c2bf302367ef4e06432528dca7371c45414ac66dc6652bd198",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1600/pc-1-no-touch-item-frame.png",
+      "revision": "SELF",
+      "bytes": 650725,
+      "sha256": "3e92912b738206ac16465bd2431cce14374a755d49716a4eec45dad570054d40",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/captures_refined/candidate_1600/pc-2-no-touch-item-frame.png",
+      "revision": "SELF",
+      "bytes": 533492,
+      "sha256": "8d9d0372fb25bde91f46cb02dc454dfaa071c1e928e10e9e7f34244d7c2fc30a",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/empty_frame_refinement.png",
+      "revision": "SELF",
+      "bytes": 169737,
+      "sha256": "ae10dc239dc3569c3a23724dac9e25d2c5391ce4a5762b47885baadabbd42adb",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/item_frame_review_1280.png",
+      "revision": "SELF",
+      "bytes": 618123,
+      "sha256": "2274560c852f1606a3f4c4a1c374687d3a347705b09f29f7af2f0497b2db9aec",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "assets_src/review/r148_racer_item_bubble_20261107/item_frame_review_1600.png",
+      "revision": "SELF",
+      "bytes": 618119,
+      "sha256": "65459af0e20a13f7a5803cbebd0bf217afa9e2c9dcfa5e84578da4302f1fe1e3",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "revision": "SELF",
+      "bytes": 367437,
+      "sha256": "5868cbe9c000655d9e18e781aeb6ac57bab7fd983feba5a31ebf748eb9342eb5",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "revision": "SELF",
+      "bytes": 273688,
+      "sha256": "4ab069063f11ed4f874c11e9ced6be47c7c182c1e9aa35bb1f9abcaf42c1d47a",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "revision": "SELF",
+      "bytes": 355506,
+      "sha256": "8b8a23ce226077ea684540ff0c9f72971b56b186d215dec79239b2f956625024",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "revision": "SELF",
+      "bytes": 306913,
+      "sha256": "ac4a702d589857eb4074606cb9af36982bed767e673ceb8bd099c61e60444869",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-r148-painted-racer-item-bubble-20261107.json",
+      "revision": "SELF",
+      "bytes": 45107,
+      "sha256": "0d098d2f3fe25d24663a0970cbd0e1ad44b6a9f9c9e65d71c294e2ba6d5c7975",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/.gdignore",
+      "revision": "SELF",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/FRAME_EVENTS.json",
+      "revision": "SELF",
+      "bytes": 1034,
+      "sha256": "d5655ecd7b6c84501a39091b038277970eaf7b86c3cbc338ab6cc75ca8e57a49",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/LOCAL_STATIC_ART_REVIEW.json",
+      "revision": "SELF",
+      "bytes": 1088,
+      "sha256": "4023e4246201a39bd1db1cc644f23e8d29eb8578f21f140a0929ba1341938c0e",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/METADATA_GATES.json",
+      "revision": "SELF",
+      "bytes": 1396,
+      "sha256": "2829e4b86ab6d814c6f70e69f70846df929770cad33c68a32d9fd558d2fd8902",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/PRODUCTION_RECORD.json",
+      "revision": "SELF",
+      "bytes": 6090,
+      "sha256": "2f0167a714b0c83b8c3f323c97cd1c0d6d4f58ce9f2ecf89ab882c70ed07cc45",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/README.md",
+      "revision": "SELF",
+      "bytes": 1505,
+      "sha256": "1d7feeaf06bb6b32928086608503711a463edde1e75991f3fb76d3fccb72725e",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/REVIEW_EXPORT_BOUNDARY.json",
+      "revision": "SELF",
+      "bytes": 608,
+      "sha256": "cabdf799ae0e51ae63f3cd929ec32238ef52e465171309ca121022c42394e1ab",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/RUNTIME_STAGED_EQUALITY.json",
+      "revision": "SELF",
+      "bytes": 589,
+      "sha256": "b3fd5a701f5a2efae8b79614b8921b5b1224729251833088cd60f09fdb2d17b8",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/TASK_START.json",
+      "revision": "SELF",
+      "bytes": 9438,
+      "sha256": "d48e302d93f0b580cd986e888572158077c6490dd86c5db5bcf962aacd675b05",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/TEN_AXIS_COMPARISON.json",
+      "revision": "SELF",
+      "bytes": 2989,
+      "sha256": "a7ed7feb67809ea9175e553bae747ffbf3a1dab537c725d26d63f96cb929eea5",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/authority.log",
+      "revision": "SELF",
+      "bytes": 76,
+      "sha256": "e7ab6705fc53ae56748bc645e88298d651fdcc90c7919091c8a9658625aae4ef",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/coverage_auto.log",
+      "revision": "SELF",
+      "bytes": 78,
+      "sha256": "06d799ae24d261885e5b96b807f83f6f6ecbe98c705d6187585ccddf5705cb98",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/coverage_base.log",
+      "revision": "SELF",
+      "bytes": 78,
+      "sha256": "06d799ae24d261885e5b96b807f83f6f6ecbe98c705d6187585ccddf5705cb98",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/01_probe_reef_districts/RESULT.json",
+      "revision": "SELF",
+      "bytes": 540,
+      "sha256": "438aa6d97b8284a26918d52324e4846a795b68f5f56ea4306eb0689b18d95c0f",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/01_probe_reef_districts/engine.log",
+      "revision": "SELF",
+      "bytes": 1748,
+      "sha256": "712829d63a8d7c9d48e3b569577bf6d6860b625da841d64a196c3ef21c8d9646",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/02_probe_ocean_kingdoms/RESULT.json",
+      "revision": "SELF",
+      "bytes": 540,
+      "sha256": "0d44ee4d65541d42e19e75fd4a8abaff126ad4fd681553c7f9366b4a7cd72b41",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/02_probe_ocean_kingdoms/engine.log",
+      "revision": "SELF",
+      "bytes": 1092,
+      "sha256": "6e0b53812a281d8af19da82c68934a363cbb7c18424886c797fd3236adf34ba0",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/03_probe_audit/RESULT.json",
+      "revision": "SELF",
+      "bytes": 522,
+      "sha256": "ee225a96b49f77c99731ac45f1769a70e021653f613d8b85a1a9d188d04ef838",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/03_probe_audit/engine.log",
+      "revision": "SELF",
+      "bytes": 30821,
+      "sha256": "09e3eecea4e3871e9f15dab822d30fb92e06a71ed7bd0ae35b15d4acd459a05b",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/04_probe_passive/RESULT.json",
+      "revision": "SELF",
+      "bytes": 525,
+      "sha256": "141a7e22484868cbfa6f99d9ac06dda8510ff42be0b1828b5f1457039a5fe0f1",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/04_probe_passive/engine.log",
+      "revision": "SELF",
+      "bytes": 998,
+      "sha256": "7ce1e73aea09c4306b4b219ddbed519c6c94aeb263be4ce4586cce3ba78302f8",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/05_probe_living_world/RESULT.json",
+      "revision": "SELF",
+      "bytes": 536,
+      "sha256": "d9db9a1c257819c705baf6b48e313ec6869eeeb58e3e5f456a27c41cb1d23b0c",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/05_probe_living_world/engine.log",
+      "revision": "SELF",
+      "bytes": 1520,
+      "sha256": "31f45d929f22823017ed26f79c9b5bd248dba86fef7447ac3d767f4628e8f6c7",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/06_probe_load/RESULT.json",
+      "revision": "SELF",
+      "bytes": 520,
+      "sha256": "c1cd1210b755d89116ef64b51447c0fe551f903dd354df367ab36facddfadda2",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/06_probe_load/engine.log",
+      "revision": "SELF",
+      "bytes": 846,
+      "sha256": "e6a4f9b8c642f764ae6190217917dd0544ccf403f0b17df322a092fee7e07a51",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/07_probe_rank/RESULT.json",
+      "revision": "SELF",
+      "bytes": 520,
+      "sha256": "2976216d7c1b549b726b9f46c79aec87cdca3f0d31e6cb910c6971e10b1c70eb",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/07_probe_rank/engine.log",
+      "revision": "SELF",
+      "bytes": 609,
+      "sha256": "9093a6e34aefebf5c8a1dc8870744234aa9d84c4ea5f9800330696f6db497dff",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/08_probe_save_recovery/RESULT.json",
+      "revision": "SELF",
+      "bytes": 537,
+      "sha256": "ec65eedd039dfdf78420cbf19fd45c38a9d15854dd4dd6cfa2311a5f3c2fe87e",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/08_probe_save_recovery/engine.log",
+      "revision": "SELF",
+      "bytes": 5957,
+      "sha256": "581c3de27184b5b374d8e0b0bf21cbfe0610e1e97b345416e2334854256009ca",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/09_probe_galaxy_state/RESULT.json",
+      "revision": "SELF",
+      "bytes": 535,
+      "sha256": "4d5c8b5908483bccbe21a14bb0b3c6f2849f642289feb9b2ce9e12be1c231778",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/09_probe_galaxy_state/engine.log",
+      "revision": "SELF",
+      "bytes": 1144,
+      "sha256": "abb3a8e2a2b4823b0ae69af7cf8962e8db45a38399604a4bde5da8c85c410e5d",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/10_probe_collection/RESULT.json",
+      "revision": "SELF",
+      "bytes": 531,
+      "sha256": "742d4446f7d94f972856c2946f0df60905022186b9900346f5fc6c12358c2081",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/10_probe_collection/engine.log",
+      "revision": "SELF",
+      "bytes": 723,
+      "sha256": "7bd1b02594284b47654b599d9ecafd9d6fec1f82e029c411d180109c826e623c",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/11_probe_mg2d/RESULT.json",
+      "revision": "SELF",
+      "bytes": 520,
+      "sha256": "2a028ccb609a791a60df0f97349170aae32eeeed971d968b956f95e0ef7040bf",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/11_probe_mg2d/engine.log",
+      "revision": "SELF",
+      "bytes": 3459,
+      "sha256": "ad079d888abc699b2cc021b81a9d274138ef1d569a3560769f270a68c60a8cdb",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/12_probe_fetch/RESULT.json",
+      "revision": "SELF",
+      "bytes": 521,
+      "sha256": "685c92cc606ee336fe374b9d77b06012f6eefbc4d28dcd9490dd6c598127dfce",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/12_probe_fetch/engine.log",
+      "revision": "SELF",
+      "bytes": 525,
+      "sha256": "03f100b4060cc03f9426442680ba455ac49b87c98115adc2a20036f280161152",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/13_probe_melody/RESULT.json",
+      "revision": "SELF",
+      "bytes": 524,
+      "sha256": "463ea4058c32f25aed45318b4734905619b50d86743e4e96428ea8fea227386b",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/13_probe_melody/engine.log",
+      "revision": "SELF",
+      "bytes": 161927,
+      "sha256": "a92699f44263e612faf692bfa2362955546c9c0eef5cf3f1f192584366cb317d",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/14_probe_dolls/RESULT.json",
+      "revision": "SELF",
+      "bytes": 522,
+      "sha256": "56140affd34682882d1f3827cd40578e148b6e80595d69279f6701308d5af0f7",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/14_probe_dolls/engine.log",
+      "revision": "SELF",
+      "bytes": 3831,
+      "sha256": "011b739a1f3664c9317e4f3fa2efd13c800f5f4701ad17cf16f216c332e12bab",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/15_probe_seek/RESULT.json",
+      "revision": "SELF",
+      "bytes": 519,
+      "sha256": "31024b875a9cad4f5689f2e48b82fbffb702ff5ffefbe2023d4a49bd4277dfae",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/15_probe_seek/engine.log",
+      "revision": "SELF",
+      "bytes": 3829,
+      "sha256": "896fb477c4d0c38dafacf4d7a5973edd9850a88fec0ce792ca2a4e44cd172b66",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/16_probe_audio/RESULT.json",
+      "revision": "SELF",
+      "bytes": 521,
+      "sha256": "461900827f81fccefe6d189394af956787648fdb7bcd853f8932d955c7cc4d46",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/16_probe_audio/engine.log",
+      "revision": "SELF",
+      "bytes": 1601,
+      "sha256": "e34efd3454ad7b3f077783dd569dd54dfbb5c9ed9a31ca8e908de04476567e04",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/17_probe_dance/RESULT.json",
+      "revision": "SELF",
+      "bytes": 521,
+      "sha256": "0ef24045ac0a30a3d8464bf4218d7403ca96511f52bbc57697afc264a889b23e",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/17_probe_dance/engine.log",
+      "revision": "SELF",
+      "bytes": 463,
+      "sha256": "4d0a6955d0b5c9f2ed98f0fda27faed220616427c32506603769125094ff1a74",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/18_probe_l2/RESULT.json",
+      "revision": "SELF",
+      "bytes": 515,
+      "sha256": "4baaf0a63cd1dc2ea5a4e1c6f48d21424e544d62bc34644c935c1b38901a8990",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/18_probe_l2/engine.log",
+      "revision": "SELF",
+      "bytes": 5879,
+      "sha256": "40841ca8c6d0ac1b1b9c499b7b9b4575caac18a983a83c0f753e01a9e0773a0c",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/19_probe_l2_living_cards/RESULT.json",
+      "revision": "SELF",
+      "bytes": 541,
+      "sha256": "09235fe68caa3a41e5f9b1fc068b196f78cccbd007a4d89b1db915fdeb54f977",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/19_probe_l2_living_cards/engine.log",
+      "revision": "SELF",
+      "bytes": 792,
+      "sha256": "c63557bd766bbfde42beb44ec65126a07cb2d47e1a4405ffaae350de9fdf3158",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/20_probe_sky_lagoon_animals/RESULT.json",
+      "revision": "SELF",
+      "bytes": 548,
+      "sha256": "6672009ea2763733f44997ec0ef08453b1cee2a132c3ff6ed520d2102ec83e87",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/20_probe_sky_lagoon_animals/engine.log",
+      "revision": "SELF",
+      "bytes": 9704,
+      "sha256": "28976fa497d167a3aecb6e8ad7a5187a3be2bf0bd30d32e3f22003f1513b3f08",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/21_probe_l2_reenter/RESULT.json",
+      "revision": "SELF",
+      "bytes": 531,
+      "sha256": "9898f2d6cdf917125f8583a9e744cfcea8ef5c75eb8026197087ef44241cd169",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/21_probe_l2_reenter/engine.log",
+      "revision": "SELF",
+      "bytes": 149,
+      "sha256": "935f3190934fd6f675cecd881b412f6e1294f2834a0e2a30b165367ba2edbd68",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/22_probe_crown/RESULT.json",
+      "revision": "SELF",
+      "bytes": 522,
+      "sha256": "a75bcf9ab4fc5de34d43de3e7daac5336d3d4ea4321c9906aa08b90fbfb2fee4",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/22_probe_crown/engine.log",
+      "revision": "SELF",
+      "bytes": 2208,
+      "sha256": "f3cd750d4d070deb2361b35b0868c45e804597c7b03f47a503bc8fde3ac62870",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/23_probe_throne/RESULT.json",
+      "revision": "SELF",
+      "bytes": 524,
+      "sha256": "e5dcb376c0581344446b236f16073dbf79d0e9b23b812ae2b308480c276448cc",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/23_probe_throne/engine.log",
+      "revision": "SELF",
+      "bytes": 2778,
+      "sha256": "b162644b91abe06cae212bdf62359bf13b785394405f9148d4a2265eb53bda34",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/24_probe_northern/RESULT.json",
+      "revision": "SELF",
+      "bytes": 527,
+      "sha256": "fa2c070bdd762a00c5e79cdcef24445f265997be21835ae66e0b65afff381a79",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/24_probe_northern/engine.log",
+      "revision": "SELF",
+      "bytes": 1222,
+      "sha256": "9213d28bf9ea323df1db407f31e80ea05940f1326f337d41c3b9ed0f7b648108",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/25_probe_human_art_audit/RESULT.json",
+      "revision": "SELF",
+      "bytes": 541,
+      "sha256": "5f5edb718f519330ddbcfba0c2975ece1ddb9d45b1cb4871a2e0a89f1b386933",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/25_probe_human_art_audit/engine.log",
+      "revision": "SELF",
+      "bytes": 150,
+      "sha256": "0952bee62af37dfc0293772bcdc04101c7bfc73f58cf52c44c5e4da0fb1f2240",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/26_probe_train/RESULT.json",
+      "revision": "SELF",
+      "bytes": 521,
+      "sha256": "176c844a1c2c2498a2e091bd3d4c8d7adc73bd27a0465f09c5809b58b93b053e",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/26_probe_train/engine.log",
+      "revision": "SELF",
+      "bytes": 283,
+      "sha256": "8c1ebeb46c758dfd76484c2874f64e3984e2eabf81acf2682cf159f37990783a",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/27_probe_verbs/RESULT.json",
+      "revision": "SELF",
+      "bytes": 522,
+      "sha256": "b16363e8998073da79384db10c6365470815380a890d5d9c68dfd9c906f0f2f8",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/27_probe_verbs/engine.log",
+      "revision": "SELF",
+      "bytes": 828,
+      "sha256": "2ad05a2e2f6510cb8ad1adb7f12446da8a8aa014a7d716581a346b03acf3c19b",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/28_probe_skins/RESULT.json",
+      "revision": "SELF",
+      "bytes": 521,
+      "sha256": "f409737be1334256ec70cc1fcfd61d2f43ac79e1443ae1e9ae378d787c41dc83",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/28_probe_skins/engine.log",
+      "revision": "SELF",
+      "bytes": 153,
+      "sha256": "5cb4246113a608655160e2ee4882327d878f6b76977fb0ee64756ce45aeac444",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/29_probe_touch_router/RESULT.json",
+      "revision": "SELF",
+      "bytes": 534,
+      "sha256": "db86a4650c4d1f52102cb1b92078d38e949a8187c80e241c7047f77dcb1ec6c8",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/29_probe_touch_router/engine.log",
+      "revision": "SELF",
+      "bytes": 154,
+      "sha256": "49aa7af12055443a4606c2068d5bf26eb55e588fc79f68c81fff2a92007c39bb",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/30_probe_touch_stress/RESULT.json",
+      "revision": "SELF",
+      "bytes": 535,
+      "sha256": "7b599a4d208ff29331b606fdf3a4b9041566860948df48f56bb7d9c501c4d18e",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/30_probe_touch_stress/engine.log",
+      "revision": "SELF",
+      "bytes": 1371,
+      "sha256": "258ca038b6390cfed24f4fb6128d02bf9e841069ef088928cfebc0bbf51074d6",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/31_probe_interaction/RESULT.json",
+      "revision": "SELF",
+      "bytes": 533,
+      "sha256": "1b1132b8825ab07ae0035a66d5520576ff1934d1233bf55c7dfcce03ba008477",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/31_probe_interaction/engine.log",
+      "revision": "SELF",
+      "bytes": 92,
+      "sha256": "fb8e12a56207328accf76d96771eef479651c3573efa6e7241206f8a48435817",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/32_probe_touch_adversary/RESULT.json",
+      "revision": "SELF",
+      "bytes": 541,
+      "sha256": "4ed4ec386f407992e2eddb686aed4cb8136ec3fea55391e758875f42bf6c8d71",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/32_probe_touch_adversary/engine.log",
+      "revision": "SELF",
+      "bytes": 1616,
+      "sha256": "69cd485bd1dba63bce3f3dae242640a89658d77bf7c1cf236ddb33095d2edf59",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/33_probe_touch_look/RESULT.json",
+      "revision": "SELF",
+      "bytes": 532,
+      "sha256": "1eb911aa382b738f05c78550fcaca296a7724d0e5cec36769ce8fd76bf7d1f86",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/33_probe_touch_look/engine.log",
+      "revision": "SELF",
+      "bytes": 412,
+      "sha256": "bc79a6341afcbda8becd11cfaa73990b37b20cecfe73788b0650f71e86d4f24e",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/34_probe_ui_system/RESULT.json",
+      "revision": "SELF",
+      "bytes": 530,
+      "sha256": "49a4137b86421ad11d6ff9556ecef604422d00d5251f9321efb29f84ddd4c009",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/34_probe_ui_system/engine.log",
+      "revision": "SELF",
+      "bytes": 31196,
+      "sha256": "cfdecdacdd8f5b47760bc0c020c2540b6926d6ebc318aff06e66192af7699c5c",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/35_probe_voice/RESULT.json",
+      "revision": "SELF",
+      "bytes": 521,
+      "sha256": "18d65d232f7e6c163bfc6799b4b295ea6c0b92a1c30c77de441958c08d00ff8c",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/35_probe_voice/engine.log",
+      "revision": "SELF",
+      "bytes": 21146,
+      "sha256": "14e3e00b0e64f1148f8128e55ad32175b18d63d3b02acf2f5fa591ab8e76f3ae",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/36_probe_day_one_voice/RESULT.json",
+      "revision": "SELF",
+      "bytes": 537,
+      "sha256": "b0300423c4d3a027c515e2220beebcf0f04684b0a471c5236b058227728f915c",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/36_probe_day_one_voice/engine.log",
+      "revision": "SELF",
+      "bytes": 4843,
+      "sha256": "9223e4caa61867ff3ab4100256736f47dba623a3d4dd33e98af1139272389e0b",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/37_probe_day_one_d8_revisits/RESULT.json",
+      "revision": "SELF",
+      "bytes": 549,
+      "sha256": "d820d0c1bea3c852f7de6aef38a4fd6bbc3a511107e8a79ab898899f9760dcc3",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/37_probe_day_one_d8_revisits/engine.log",
+      "revision": "SELF",
+      "bytes": 754,
+      "sha256": "a0623f39ffb1bf066912e17c20d14f07ba427d5a9887efd6052e2f32c2e2959a",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/38_probe_day_one_handoffs/RESULT.json",
+      "revision": "SELF",
+      "bytes": 543,
+      "sha256": "5106b7cdb3e7f2bf4335483b69c020b130b3ce709525fd75edd94dfdacfab889",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/38_probe_day_one_handoffs/engine.log",
+      "revision": "SELF",
+      "bytes": 1982,
+      "sha256": "6d742331d60505b1e98a65f28ed49d12597fc98da165275681636be4cd1376b4",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/39_probe_kart_feel/RESULT.json",
+      "revision": "SELF",
+      "bytes": 530,
+      "sha256": "e62afd8ba321d7fac96f7e2579a3b45df2fe45df83ef1feeebd8a2063251db51",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/39_probe_kart_feel/engine.log",
+      "revision": "SELF",
+      "bytes": 1118,
+      "sha256": "dc9ed87601f7af1c086317101bd0a5685ef4ea10524f0ba93826c38230d6acc0",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/40_probe_combat/RESULT.json",
+      "revision": "SELF",
+      "bytes": 523,
+      "sha256": "ca645763c061ed1986d2ef2a22e5183c2d9764b007734e59e7c65ba45610e005",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/40_probe_combat/engine.log",
+      "revision": "SELF",
+      "bytes": 1944,
+      "sha256": "e536a073c9bcbd79a5a1ab719f0d7f45b16da2349bd63a16cdf53d8cd0bf0cf5",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/41_probe_dust_bunny/RESULT.json",
+      "revision": "SELF",
+      "bytes": 531,
+      "sha256": "03f3b9ba52709fe61545292101f032f74b8929daebb0aa9e95502d21997d1844",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/41_probe_dust_bunny/engine.log",
+      "revision": "SELF",
+      "bytes": 706,
+      "sha256": "7efe9a1b2c0a0460098d11c15a23d52d2ef035c0a9e58f3addc95e61f768cfe7",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/42_probe_dust_bunny_boss/RESULT.json",
+      "revision": "SELF",
+      "bytes": 541,
+      "sha256": "21584bab5924bdfe2d4a80e14b154961431bbf924b4cde7f6822e5fc2a561d15",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/42_probe_dust_bunny_boss/engine.log",
+      "revision": "SELF",
+      "bytes": 3782,
+      "sha256": "51a5028daecaa42fbc7a1bf4ad5e56fd3d146541bbcc9828c93f32b01adc6ea3",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/43_probe_dust_boss/RESULT.json",
+      "revision": "SELF",
+      "bytes": 530,
+      "sha256": "44513c1b7036637086a6b85e6b9c5d85a5f2bb31185b2e9940d05481a8025c11",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/43_probe_dust_boss/engine.log",
+      "revision": "SELF",
+      "bytes": 8561,
+      "sha256": "c8d53b8626abcac3582c161c446d9f3bb53b52a33213db480327f27b6ee81408",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/44_probe_hit/RESULT.json",
+      "revision": "SELF",
+      "bytes": 517,
+      "sha256": "e59df7a9abf3c9db672e0bfb80904bab02c604aec40a0abac82178b67b9f3340",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/44_probe_hit/engine.log",
+      "revision": "SELF",
+      "bytes": 2127,
+      "sha256": "54d1119422baa74543313f5a2a707c8ef7686b67986f912b37dcf457f90c21bb",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/45_probe_partner/RESULT.json",
+      "revision": "SELF",
+      "bytes": 525,
+      "sha256": "cff1dc88ac7585a2a1da078c7ea7f33b5546ee2c3f8159ba26e3ba076e6c85ae",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/45_probe_partner/engine.log",
+      "revision": "SELF",
+      "bytes": 831,
+      "sha256": "78e885d86362398f2887381dc00e1f98c8bfb46989fde1293306946eeac6a179",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/46_probe_combat_tutorial/RESULT.json",
+      "revision": "SELF",
+      "bytes": 542,
+      "sha256": "18f423eaa00459cc62c66cf91e53fd4c9f7431c3d29ee141ec86027b7f318091",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/46_probe_combat_tutorial/engine.log",
+      "revision": "SELF",
+      "bytes": 1804,
+      "sha256": "cf044bdc0d762c7db23e2503d8811f28977dffe74785aae8ad7b2bceda4455bb",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/47_probe_imp_ai/RESULT.json",
+      "revision": "SELF",
+      "bytes": 523,
+      "sha256": "d6d20301cfeee04d07e6415b7b078c596617f29ec4c92275261008adbd6b29ed",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/47_probe_imp_ai/engine.log",
+      "revision": "SELF",
+      "bytes": 1606,
+      "sha256": "1785b0e692dd770a0c2dc3cd9e9ccc1bee1a10d9436e774a4431383e21d4b8d4",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/48_probe_mic/RESULT.json",
+      "revision": "SELF",
+      "bytes": 518,
+      "sha256": "05ad193d66100972f19ae92ab4b543173752e9561a00bb5999eab0e68406f26a",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/48_probe_mic/engine.log",
+      "revision": "SELF",
+      "bytes": 1925,
+      "sha256": "63b0a4896375c238247650e34d78039a9dc5637d6832bc36e381b768e9e928fe",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/49_probe_stuffie/RESULT.json",
+      "revision": "SELF",
+      "bytes": 526,
+      "sha256": "a815dcc051c7606fd8cb0133327dbe694549361cbbc640c2d080acdd9eff1f12",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/49_probe_stuffie/engine.log",
+      "revision": "SELF",
+      "bytes": 4928,
+      "sha256": "57beb95a9284404775f42776ed6d035778e44c2f04a3e2f4432d2ac93aba18d5",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/50_probe_dungeon/RESULT.json",
+      "revision": "SELF",
+      "bytes": 526,
+      "sha256": "73a7a9cea749c6b296dade09888d533cbdc16b9a8a9927f045743a64f4ace9b6",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/50_probe_dungeon/engine.log",
+      "revision": "SELF",
+      "bytes": 3894,
+      "sha256": "c6a7f8b88229f14870d470947e613a66467a463ffe3dcf92d3236769596d55d8",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/51_probe_ember/RESULT.json",
+      "revision": "SELF",
+      "bytes": 521,
+      "sha256": "f327eee71ecd3b0dcf3e01afd1e9ac77da5581044eeb6678c917bc9cb618afbb",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/51_probe_ember/engine.log",
+      "revision": "SELF",
+      "bytes": 3236,
+      "sha256": "eb9cf9b5f3ca19c5f836d75a5dff3a93f77d974cf59c51884667ced8f2022461",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/52_probe_opera/RESULT.json",
+      "revision": "SELF",
+      "bytes": 522,
+      "sha256": "e34bce15107484793b82ff01be0e2ea260c8bf66d328c508d8ec107a87198c73",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/52_probe_opera/engine.log",
+      "revision": "SELF",
+      "bytes": 14737,
+      "sha256": "9e02e9c9269ef71f57f7fefe429ee98bf803774333f256aff86c300e65700d22",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/53_probe_opera_2d/RESULT.json",
+      "revision": "SELF",
+      "bytes": 528,
+      "sha256": "4f52d529d1c75ee3d55c8b6d820d990b1b2efd474fc8a43a3b9b73cf656f048a",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/53_probe_opera_2d/engine.log",
+      "revision": "SELF",
+      "bytes": 102477,
+      "sha256": "a44fb32357e08049552b2b356e7a1c0f4d01bbffdb6a62f20d8f809695546e84",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/54_probe_opera_diegetic_paths/RESULT.json",
+      "revision": "SELF",
+      "bytes": 551,
+      "sha256": "1e0b2239e80106e3dda550d7e84f9407550b55254d66c663c3a5630a6fe1fd83",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/54_probe_opera_diegetic_paths/engine.log",
+      "revision": "SELF",
+      "bytes": 187,
+      "sha256": "780424e44c5a73349beca7ec4ec6b1519ca87ee02f85942947805629416ffa8e",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/55_probe_opera_detective/RESULT.json",
+      "revision": "SELF",
+      "bytes": 541,
+      "sha256": "7be3821d0ab6537f6bd3bb7aac544002ab0077ab3b3e5e641f4109e3d6bae653",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/55_probe_opera_detective/engine.log",
+      "revision": "SELF",
+      "bytes": 1121,
+      "sha256": "ea20620e8dc5a80947c0cc791b4c77acae3527e939cb9da00ac73e7daf28281d",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/56_probe_opera_pipe/RESULT.json",
+      "revision": "SELF",
+      "bytes": 531,
+      "sha256": "70e1262575099b22b3314c48bd27e5aaa65b225fedcdc39581de1304987be145",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/56_probe_opera_pipe/engine.log",
+      "revision": "SELF",
+      "bytes": 93,
+      "sha256": "0506cb7f4a253239aaed943d78719291d4d1533c7c6b19e3b464e132ae0ebf13",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/57_probe_opera_nursery/RESULT.json",
+      "revision": "SELF",
+      "bytes": 537,
+      "sha256": "d60d0123a4970288f25a9ac3e5793694e248577563cc7e6af47669cd5c8441dd",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/57_probe_opera_nursery/engine.log",
+      "revision": "SELF",
+      "bytes": 2137,
+      "sha256": "c4a16ff67621f62313170348e4c96fc164ba6ab044f99e4df26051286e92ebde",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/58_probe_opera_gesture_quality/RESULT.json",
+      "revision": "SELF",
+      "bytes": 553,
+      "sha256": "c206d6f64b2dd2baac22fb126789c96f788f7c0f4c21a488b341ba9ded0f1140",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/58_probe_opera_gesture_quality/engine.log",
+      "revision": "SELF",
+      "bytes": 117,
+      "sha256": "840c56e3c4e5418667fe5e072de4321cfcc33dc5d0cf353539f01d308c2768cf",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/59_probe_kitchen_props/RESULT.json",
+      "revision": "SELF",
+      "bytes": 537,
+      "sha256": "186ab65ecbfead0e6b530ad907cd22eabecebec3e05b9f564e1787b878db647f",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/59_probe_kitchen_props/engine.log",
+      "revision": "SELF",
+      "bytes": 2251,
+      "sha256": "90b15abe1ddab433cc42a9d907451a6fc3f76872d403818f69b0f083bfdd7cd7",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/60_probe_bathroom_props/RESULT.json",
+      "revision": "SELF",
+      "bytes": 539,
+      "sha256": "9bf2de890bcecd752c314639a7f8c6ee9a2775c5e9b653b4f386f662847af3e0",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/60_probe_bathroom_props/engine.log",
+      "revision": "SELF",
+      "bytes": 895,
+      "sha256": "5b768f84c253e0a9f5674b19f610e7396147a98289b17bc72a4eed7c7fe8c4ba",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/61_probe_castle_door_language/RESULT.json",
+      "revision": "SELF",
+      "bytes": 550,
+      "sha256": "6f10b70f8973671e4bf725d2633d9599117011920eb3cf9ebeae2059fb77dbc3",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/61_probe_castle_door_language/engine.log",
+      "revision": "SELF",
+      "bytes": 5140,
+      "sha256": "8e71287378f0e83ab7e9726d14ad4d5ad52570fb509db3da7d99e41bc5b0012c",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/62_probe_bathroom_integration/RESULT.json",
+      "revision": "SELF",
+      "bytes": 552,
+      "sha256": "9ab81f3c61f0f5845e47e186509b87aeaa39875f69bd2c94ff910d3ecb0c4ff0",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/62_probe_bathroom_integration/engine.log",
+      "revision": "SELF",
+      "bytes": 3958,
+      "sha256": "58108c7c9c73ec70e06851851ff5f0de64d71050f6cadf4b09e2e3fd94fbfe71",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/63_probe_day_one_bathroom_bunny/RESULT.json",
+      "revision": "SELF",
+      "bytes": 556,
+      "sha256": "4a2eb3dd3ac7baa72ad635d20575f048d30608fe97d6ee3c7bd15448224c42eb",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/63_probe_day_one_bathroom_bunny/engine.log",
+      "revision": "SELF",
+      "bytes": 1145,
+      "sha256": "af08f375f6e0e41e477e1e321417ec757d1bd3e09b7b77817f29ab2bc271db7e",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/64_probe_day_one_bathroom_cleanup/RESULT.json",
+      "revision": "SELF",
+      "bytes": 560,
+      "sha256": "bbb2ef477fbbba9160260f7722554ae11a1e2f741c1263be8cf91b2701f8b53b",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/64_probe_day_one_bathroom_cleanup/engine.log",
+      "revision": "SELF",
+      "bytes": 7833,
+      "sha256": "f0440e52660e0c6eecee69157eed6ed8b69f19e71aaa56526e86c4556c93dc19",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/65_probe_day_one_bathroom_movie_handoff/RESULT.json",
+      "revision": "SELF",
+      "bytes": 571,
+      "sha256": "e96f859745b3c2a0a7cc6c74b2ca426580a8506927968a41e30fe348ee6e82ca",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/65_probe_day_one_bathroom_movie_handoff/engine.log",
+      "revision": "SELF",
+      "bytes": 1123,
+      "sha256": "a84cfe54b9534f533379b2bd91976a5b91914c233b313947f40c614be45b4b7c",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/66_probe_day_one_director/RESULT.json",
+      "revision": "SELF",
+      "bytes": 543,
+      "sha256": "1dfbecbf7f2f64cd9bb2897a8af53b3aa4c2b10799f875116cdde7a010e2682c",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/66_probe_day_one_director/engine.log",
+      "revision": "SELF",
+      "bytes": 1210,
+      "sha256": "9ddacdbace04683b76bfc0f315e630a3df3a8cf56c50a0cacf68f9537b2a23e7",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/67_probe_day_one_integration/RESULT.json",
+      "revision": "SELF",
+      "bytes": 549,
+      "sha256": "696a125caee956c65296242b2a34ef4342f7b33fb28b3c7fb263b530e3f366a3",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/67_probe_day_one_integration/engine.log",
+      "revision": "SELF",
+      "bytes": 2806,
+      "sha256": "3e1c4febce995ab9eb19459eb5120cbbe1cc724e27b7638feff30ccbe94fdd23",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/68_probe_day_one_pool_cleanup/RESULT.json",
+      "revision": "SELF",
+      "bytes": 552,
+      "sha256": "c8445e3b448e39d99407d44c506242e01af98690c1841775c524b17af3c29bc0",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/68_probe_day_one_pool_cleanup/engine.log",
+      "revision": "SELF",
+      "bytes": 10203,
+      "sha256": "75ce91fccb8838385b706e76e500ffe84a257f03f87b077f17359b58e5b31ac6",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/69_probe_day_one_art_attack_state/RESULT.json",
+      "revision": "SELF",
+      "bytes": 558,
+      "sha256": "6b708402803d4ab86341c9717ae48cb6218ec4e117edde59eef685121482cc3b",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/69_probe_day_one_art_attack_state/engine.log",
+      "revision": "SELF",
+      "bytes": 3484,
+      "sha256": "0402f84dcc53595703b0ea85b7a830984b8ba69870c59f7286c7271534c73c29",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/70_probe_day_one_castle_dressing/RESULT.json",
+      "revision": "SELF",
+      "bytes": 557,
+      "sha256": "153ef8a8541ddd11e1a76a1a1960eb4da46374ffacffc510b900ed835dd7290d",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/70_probe_day_one_castle_dressing/engine.log",
+      "revision": "SELF",
+      "bytes": 773,
+      "sha256": "243b8bfe542357afdd0e77efdbbbb830e21c2c67d00ef17a54928d364824520a",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/71_probe_day_one_story_clips/RESULT.json",
+      "revision": "SELF",
+      "bytes": 550,
+      "sha256": "699fb290800bbc4a6eac60cef202fa2b14e606de34d77b95fe38b6c5a78e6501",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/71_probe_day_one_story_clips/engine.log",
+      "revision": "SELF",
+      "bytes": 6585,
+      "sha256": "fc217ffc72e84dfd3874554899d27989bb19541e91cff3360207500600b05897",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/72_probe_chapter2/RESULT.json",
+      "revision": "SELF",
+      "bytes": 529,
+      "sha256": "4e7704a8f9d8db04be1dffb3c97f58384b0b9d7144b6f92726f8b785433ead3b",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/72_probe_chapter2/engine.log",
+      "revision": "SELF",
+      "bytes": 49029,
+      "sha256": "dbf0e543ec28f5b1ef6c86725dd1238d02f68f054bfe3932929a621acefead53",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/73_probe_chapter2_farmer_resume/RESULT.json",
+      "revision": "SELF",
+      "bytes": 556,
+      "sha256": "e9ca781d2bd1a2362d8a6129caf041e05fc32f1d2e42971aaaac484041fde5f0",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/73_probe_chapter2_farmer_resume/engine.log",
+      "revision": "SELF",
+      "bytes": 9879,
+      "sha256": "c36abd8eee62616d06105dc4a87b6ae8627a91c1b83cc0fb9645bed9425a63a1",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/74_probe_chapter2_lawn/RESULT.json",
+      "revision": "SELF",
+      "bytes": 537,
+      "sha256": "c9ab253e7ab887596c6b06ac77bc4b743219aa355e8065dde5bd7964629da5ef",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/74_probe_chapter2_lawn/engine.log",
+      "revision": "SELF",
+      "bytes": 4595,
+      "sha256": "ef43ab4ecaa6d8d2c85c227e6f81a470a471b20914e31a5a9bae4dbe623608f3",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/75_probe_alpha_milestone_save/RESULT.json",
+      "revision": "SELF",
+      "bytes": 552,
+      "sha256": "ec33e5c872fc2d8e3810ebaefa555671cfb9efc8c5cff436cd74eace14bd7095",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/75_probe_alpha_milestone_save/engine.log",
+      "revision": "SELF",
+      "bytes": 16640,
+      "sha256": "574d88714cd9f6024a5a7ff57ca8e2da247de54e0ee4585e0597ebc9dc5e8c09",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/76_probe_dust_boss_balance/RESULT.json",
+      "revision": "SELF",
+      "bytes": 547,
+      "sha256": "8f6a3ef1f0710d7bfb4c7609f192593a7d30a232f0089ef5dcff79058dad3e96",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/76_probe_dust_boss_balance/engine.log",
+      "revision": "SELF",
+      "bytes": 648,
+      "sha256": "efbaabd03d1694881cb46b096f8fdb285bc7cdded2b98db557dae9c6333ba35a",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/77_probe_start_menu_routing/RESULT.json",
+      "revision": "SELF",
+      "bytes": 548,
+      "sha256": "9a5900068ecf734c8200b9a880f901f574750116f69d163ed7f621601d813b96",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/77_probe_start_menu_routing/engine.log",
+      "revision": "SELF",
+      "bytes": 2128,
+      "sha256": "d7756a7f4a30e6c599dd385729bded776c154d963e60ea1f46ff50e0f7ff23e0",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/78_probe_start_menu_new_game/RESULT.json",
+      "revision": "SELF",
+      "bytes": 550,
+      "sha256": "c527d911174e1805beb5c8af6fec5e7f6b1118411e339725910565ce4c2d8c60",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/78_probe_start_menu_new_game/engine.log",
+      "revision": "SELF",
+      "bytes": 3841,
+      "sha256": "70cc6472c7f53271b41b92dc6284aa111354110b2998f8c61cd8fea512c52b67",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/79_probe_castle_pool_life_2d/RESULT.json",
+      "revision": "SELF",
+      "bytes": 550,
+      "sha256": "90915675c9f2053be9f23417cde03571a9a344ff2d9bfdb874dc645a65d7d578",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/79_probe_castle_pool_life_2d/engine.log",
+      "revision": "SELF",
+      "bytes": 740,
+      "sha256": "0596e5d831e2d294ed6b331fb911d01994a7a62817785ab31163c6ad9cd6313a",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/80_probe_castle_pearl_art/RESULT.json",
+      "revision": "SELF",
+      "bytes": 544,
+      "sha256": "b340f8b8cf3a4a90a3bc58065bed030f353af13178d95e579613542b7cc1e484",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/80_probe_castle_pearl_art/engine.log",
+      "revision": "SELF",
+      "bytes": 5322,
+      "sha256": "048e9cd487028efa575f0585991fb5fcc0192615b2dbd40887743d330a09a713",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/81_probe_fairy_art/RESULT.json",
+      "revision": "SELF",
+      "bytes": 529,
+      "sha256": "ebfea2e653687693418c4ce1c1c69d433c5f869a426cca7f636661c0b65ad2b5",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/81_probe_fairy_art/engine.log",
+      "revision": "SELF",
+      "bytes": 1013,
+      "sha256": "97a9bed8c2ddb0e2e688aeca47630237833160082e425c906d0736ac12676538",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/82_probe_props/RESULT.json",
+      "revision": "SELF",
+      "bytes": 522,
+      "sha256": "a426bbfbda160fed8942c82a8ca0dc418f4ae8ece1e642417e439a25aa0eb787",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/82_probe_props/engine.log",
+      "revision": "SELF",
+      "bytes": 1201,
+      "sha256": "ed482c665168324c1c8ed9ef9963603e5d14fd32e95970fb73421c4bd0f63937",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/FINAL_RESULT.json",
+      "revision": "SELF",
+      "bytes": 54004,
+      "sha256": "37d8ceca83005d4ce7eb360b7c80f0a040a6e547acb9f03b99ff24ba4ee4cb0c",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/R148_VALIDATE_V2.py",
+      "revision": "SELF",
+      "bytes": 6531,
+      "sha256": "c9c7a2125929e5c0f493d20fd566d05286427c7d2f4589b5506c122faf9a7fd7",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/SOURCE_PIN.json",
+      "revision": "SELF",
+      "bytes": 725300,
+      "sha256": "8617135692595587432adf856a7fc4318d386bcd37712a0ce6c3778cb3315b7e",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/changed_inference/RESULT.json",
+      "revision": "SELF",
+      "bytes": 460,
+      "sha256": "7d0bb1c7911d11f393ccb0734eaa58b28b0dbf92fd2fe88ed7b2451ceda7fb9c",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/changed_inference/engine.log",
+      "revision": "SELF",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/changed_parser/RESULT.json",
+      "revision": "SELF",
+      "bytes": 460,
+      "sha256": "835bcbb8c59b2f359ca9adcc6f16182cfcfbad1e2801b78c8a760a040d97772f",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/changed_parser/engine.log",
+      "revision": "SELF",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/ci_static_prefix.sh",
+      "revision": "SELF",
+      "bytes": 11152,
+      "sha256": "b2090d79e5a0f444bfa1a20e0a7284e5c57962680cfbd942c0dc9e790bb5a97b",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/focused_probe_racer_integration/RESULT.json",
+      "revision": "SELF",
+      "bytes": 551,
+      "sha256": "014fcca7fb4ec1b6419e1ef60ae2f3551794719305bd949e71a356fa65f3758b",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/focused_probe_racer_integration/engine.log",
+      "revision": "SELF",
+      "bytes": 4475,
+      "sha256": "cdcd1450a66ee6f2103af3a65e0d03e1905b420dc679e10523e17f4c1289494f",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/focused_probe_reef_kart_pc/RESULT.json",
+      "revision": "SELF",
+      "bytes": 541,
+      "sha256": "582450254932bec4f8b7ee27c826fde00287ff60c23408f8cfeec237056026e3",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/focused_probe_reef_kart_pc/engine.log",
+      "revision": "SELF",
+      "bytes": 4508,
+      "sha256": "e8b790ef4b03bf14d94c0ed1bae845132fec90af3c530ac920e5923d59d55659",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/post_game2d/RESULT.json",
+      "revision": "SELF",
+      "bytes": 366,
+      "sha256": "38a2f170be928493a84bb693c1ea9b4c765f649c91b297d9a13a4315bb16de6e",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/post_game2d/engine.log",
+      "revision": "SELF",
+      "bytes": 566,
+      "sha256": "5a2785a134c6830d0c05a79d11a797dc40232a6b9a82d4f1cc56f322efa43bb0",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/static_import/RESULT.json",
+      "revision": "SELF",
+      "bytes": 385,
+      "sha256": "042843141881917a22e6c4be631c6f7d1a2ae0d6044866e40b4b8cd2c98555d0",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/static_import/engine.log",
+      "revision": "SELF",
+      "bytes": 59170,
+      "sha256": "8fa2b49a4458c481f7d03c2d9f58011c3bbfe6f4fe4b228803798b3441e2216d",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/initial_capture/RESULT.json",
+      "revision": "SELF",
+      "bytes": 50417,
+      "sha256": "1fae2266ca97ec124a21ef0fd77095d0e8ea9390c18da4cc20586552c9ccadcc",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/initial_capture/SOURCE_PIN.json",
+      "revision": "SELF",
+      "bytes": 725578,
+      "sha256": "6a12eaa62ca3660cd4ca0253b4b6b3b8f9acc1c6af6b7e027f04b372c51bc0d6",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/initial_capture/candidate_1280/RESULT.json",
+      "revision": "SELF",
+      "bytes": 10792,
+      "sha256": "6eb1e4089fd1c8561b9f8c3dbf6dbce3581d8a41e524e2b7196d37f717b2d4a8",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/initial_capture/candidate_1280/console.log",
+      "revision": "SELF",
+      "bytes": 2606,
+      "sha256": "973d61db57129992ccb168cef3687abf517c39b65f5786a777d284e52dfe64bb",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/initial_capture/candidate_1280/native_engine.log",
+      "revision": "SELF",
+      "bytes": 2606,
+      "sha256": "973d61db57129992ccb168cef3687abf517c39b65f5786a777d284e52dfe64bb",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/initial_capture/candidate_1600/RESULT.json",
+      "revision": "SELF",
+      "bytes": 10792,
+      "sha256": "36d2df9a1fe234117880193c0c9f2a5ba35d384eb14aba25c7e3e5f1a14b4304",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/initial_capture/candidate_1600/console.log",
+      "revision": "SELF",
+      "bytes": 2606,
+      "sha256": "973d61db57129992ccb168cef3687abf517c39b65f5786a777d284e52dfe64bb",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/initial_capture/candidate_1600/native_engine.log",
+      "revision": "SELF",
+      "bytes": 2606,
+      "sha256": "973d61db57129992ccb168cef3687abf517c39b65f5786a777d284e52dfe64bb",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/initial_capture/source_1280/RESULT.json",
+      "revision": "SELF",
+      "bytes": 10741,
+      "sha256": "5c1024a0323f6bf6bcf12eca0498688e6385b8990fb297e4e394b9a96212e0a1",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/initial_capture/source_1280/console.log",
+      "revision": "SELF",
+      "bytes": 2606,
+      "sha256": "973d61db57129992ccb168cef3687abf517c39b65f5786a777d284e52dfe64bb",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/initial_capture/source_1280/native_engine.log",
+      "revision": "SELF",
+      "bytes": 2606,
+      "sha256": "973d61db57129992ccb168cef3687abf517c39b65f5786a777d284e52dfe64bb",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/initial_capture/source_1600/RESULT.json",
+      "revision": "SELF",
+      "bytes": 10741,
+      "sha256": "2c463269132e0fe49759c02e4eab98b0b4c90b34f3ffb09556fffc306584819e",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/initial_capture/source_1600/console.log",
+      "revision": "SELF",
+      "bytes": 2606,
+      "sha256": "973d61db57129992ccb168cef3687abf517c39b65f5786a777d284e52dfe64bb",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/initial_capture/source_1600/native_engine.log",
+      "revision": "SELF",
+      "bytes": 2606,
+      "sha256": "973d61db57129992ccb168cef3687abf517c39b65f5786a777d284e52dfe64bb",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/initial_import/RESULT.json",
+      "revision": "SELF",
+      "bytes": 497,
+      "sha256": "b996803931f93d37a1c85df56edafcd4bf8e861d45c521b517fb5b6dd9052932",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/initial_import/console.log",
+      "revision": "SELF",
+      "bytes": 2437,
+      "sha256": "4919a9b183e98fe0bc21ca8f99d1e9e2115bf050917682007df68b0cc15466c3",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/initial_import/native.log",
+      "revision": "SELF",
+      "bytes": 1954,
+      "sha256": "5ed6a70f4f610cca7c175d72a23c8bb5c1889c6a1876cb94ec19432cd920a84d",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/refined_capture/RESULT.json",
+      "revision": "SELF",
+      "bytes": 25662,
+      "sha256": "ad4be343af65a74849bf5125bb44fb29b9fe9619f4966eea45c33833e2fa5aa3",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/refined_capture/SOURCE_PIN.json",
+      "revision": "SELF",
+      "bytes": 725578,
+      "sha256": "c0162c71fb3d86a911909ca0c0aed061a6a80fda019d865b68fe57bdc1150549",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/refined_capture/candidate_1280/RESULT.json",
+      "revision": "SELF",
+      "bytes": 10792,
+      "sha256": "f5bd17b6e2985fc13029c707148a04957fbb9e38e7103ec73ee736912d23a781",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/refined_capture/candidate_1280/console.log",
+      "revision": "SELF",
+      "bytes": 2606,
+      "sha256": "973d61db57129992ccb168cef3687abf517c39b65f5786a777d284e52dfe64bb",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/refined_capture/candidate_1280/native_engine.log",
+      "revision": "SELF",
+      "bytes": 2606,
+      "sha256": "973d61db57129992ccb168cef3687abf517c39b65f5786a777d284e52dfe64bb",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/refined_capture/candidate_1600/RESULT.json",
+      "revision": "SELF",
+      "bytes": 10792,
+      "sha256": "fe9601447da4a19f2e6b6dbc7c9e3d843be36b89a07076badc07d35b3280c8f6",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/refined_capture/candidate_1600/console.log",
+      "revision": "SELF",
+      "bytes": 2606,
+      "sha256": "973d61db57129992ccb168cef3687abf517c39b65f5786a777d284e52dfe64bb",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/refined_capture/candidate_1600/native_engine.log",
+      "revision": "SELF",
+      "bytes": 2606,
+      "sha256": "973d61db57129992ccb168cef3687abf517c39b65f5786a777d284e52dfe64bb",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    },
+    {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "revision": "SELF",
+      "bytes": 64676,
+      "sha256": "35bbdd23e24d5564911432e41a44b5f44c91b5647965e027b28c0c868157dffb",
+      "role": "Candidate, provenance, configured context or validation evidence"
+    }
+  ],
+  "time": "2026-11-07T04:27:57.097661+00:00"
+}

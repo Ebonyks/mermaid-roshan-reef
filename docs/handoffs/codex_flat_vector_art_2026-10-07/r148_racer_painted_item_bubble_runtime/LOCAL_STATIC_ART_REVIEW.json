@@ -1,0 +1,24 @@
+{
+  "state": "PASS_LOCAL_AI_STATIC_OBJECT_ELIGIBILITY_ONLY",
+  "reviewer": {
+    "kind": "ai",
+    "id": "Codex root configured native comparison"
+  },
+  "stable_id": "FV-CD4F06A6937B",
+  "candidate_sha256": "f26803c30c83ad995444f1ece1db686565eed6edd444f8fb1f1f36aec19dd1b3",
+  "threshold": 4.5,
+  "dimensions": {
+    "identity": 4.6,
+    "finish": 4.6,
+    "edges": 4.5,
+    "readability": 4.5,
+    "ownership": 4.6,
+    "consistency": 4.6,
+    "technical": 4.7,
+    "animation": null
+  },
+  "minimum_applicable": 4.5,
+  "observations": "The rim reads as a painted bubble alongside the neighboring controls. All item icons have room in the well. The empty state is quieter and remains visible after the tint refinement. Source/destination edge checks and same-scene bounds support the static suitability judgment.",
+  "animation_na_reason": "Static frame sprite with existing runtime tint, scale, pulse and item roulette. The rating covers the painted frame.",
+  "scope": "Subjective static review. Natural routes, full-speed motion, device, child, owner and formal QA11 remain open."
+}

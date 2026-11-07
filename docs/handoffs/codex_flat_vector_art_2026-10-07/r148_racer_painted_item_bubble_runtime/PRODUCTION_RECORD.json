@@ -1,0 +1,123 @@
+{
+  "stable_id": "FV-CD4F06A6937B",
+  "source_item": "turbo_item_bubble_frame",
+  "family": "opera_racer",
+  "baseline": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+  "canonical_existing_piece": {
+    "id": "FV-CD4F06A6937B",
+    "name": "Turbo control frame",
+    "family": "opera_racer",
+    "count_unit": "named_art_role_state_family",
+    "repeated_instance_count": null,
+    "source": {
+      "path": "scripts/opera_racer_surface.gd",
+      "function": "_draw_race_controls",
+      "start_line": 419,
+      "end_line": 471,
+      "sha256": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
+      "hash_mode": "LF-canonical text"
+    },
+    "source_scope_ids": [
+      "FVF-5336AE096A29"
+    ],
+    "runtime_consumers": [],
+    "screen_coverage": {
+      "measured_current_bounds": null,
+      "coverage_state": "COVERAGE_GAP",
+      "geometry_expressions": [
+        "var center := Vector2(190 + lap * 88, 68)",
+        "draw_line(center + Vector2(-10, 12), center + Vector2(-10, -13),",
+        "center + Vector2(-8, -12), center + Vector2(13, -7),",
+        "center + Vector2(-8, 0),",
+        "draw_line(center - Vector2(290, 0), center + Vector2(290, 0), Color(\"#b3ded7\"), 14, true)",
+        "var at := center + Vector2(sign_value * 316, 0)",
+        "draw_polyline(PackedVector2Array([at + Vector2(-sign_value * 18, -16),",
+        "at, at + Vector2(-sign_value * 18, 16)]), Color(\"#6b4e81\"), 6, true)",
+        "var knob := center + Vector2(race_steer * 270, 0)",
+        "draw_line(knob, knob + Vector2(0, 26), Color(\"#fff0d0\"), 6, true)",
+        "draw_colored_polygon(PackedVector2Array([TURBO_CENTER + Vector2(4, -33),",
+        "TURBO_CENTER + Vector2(-23, 3), TURBO_CENTER + Vector2(-2, 3),",
+        "TURBO_CENTER + Vector2(-6, 31), TURBO_CENTER + Vector2(24, -8),",
+        "TURBO_CENTER + Vector2(4, -8)]), Color(\"#fff2bd\"))",
+        "draw_circle(Vector2(550 + index * 90, 515), 28,"
+      ],
+      "note": "Expressions are scope evidence, not measured per-piece screen bounds."
+    },
+    "evidence_level": "SOURCE_INSPECTION",
+    "observed_weakness": "Source-bound candidate Turbo control frame uses or delegates visible primitive/material construction in _draw_race_controls. No current phone-context quality verdict is claimed.",
+    "priority": "P1",
+    "child_impact": "Readable material, identity, contact and actionable-object hierarchy must remain clear with the HUD at phone size.",
+    "context_brief_id": "BRIEF-OPERA_RACER",
+    "reuse_candidates": [],
+    "reuse_inspection": "Inventory completed; per-piece exact-purpose source match and current-context fit remain open unless named in context observations.",
+    "named_gap": null,
+    "status": "NEEDS_CONTEXT_REVIEW",
+    "integration_sha": null,
+    "acceptance_evidence": {
+      "current_mobile_runtime": null,
+      "wide_phone_runtime": null,
+      "device": null,
+      "child": null,
+      "owner": null,
+      "machine": null,
+      "old_fallback_retired": null
+    },
+    "dependencies": [
+      "Current route/phase capture and source-pixel ownership",
+      "Inspected suitable reuse or recorded exact missing gap",
+      "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+    ],
+    "unchanged_contracts": [
+      "Visible object/input/socket transforms and generous one-finger targets",
+      "Additive saves and unknown keys; no lost progress",
+      "Current action, answer/count, narrative and authored identity",
+      "Protected originals and owner-selected Day One clips"
+    ],
+    "replacement_output": {
+      "lane": "Canvas Sprite2D/TextureRect or authored texture material on functional Control",
+      "layer_owner": "Existing scene/controller; exact z_index retained unless reviewed framing change is needed",
+      "runtime_budget": "<=1024 longest side or POT; POT-only VRAM; Mobile/Speedy 30fps and measured overdraw",
+      "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
+      "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
+    },
+    "review_log": [],
+    "proposed_update": "Review Turbo control frame during TUNE; TO THE LINE; RACE on Castle room movie_lounge picture route; temporary Opera painted left elevator -> playtest card also launches same engine without durable rewards. Preserve approved painted inputs. For its visible flat part, first inspect exact-purpose existing art; then author only this context-bound role/state with the same geometry, material and action, or remove a redundant decorative layer.",
+    "route_refs": [
+      "opera.act.12"
+    ],
+    "route_evidence": "Castle room movie_lounge picture route; temporary Opera painted left elevator -> playtest card also launches same engine without durable rewards",
+    "context_action": "TUNE; TO THE LINE; RACE",
+    "source_image_reviews": [],
+    "individual_brief_id": "PIECE-FV-CD4F06A6937B"
+  },
+  "candidate": {
+    "art": "assets/racer/ui/item_bubble_frame_painted.png",
+    "sha256": "f26803c30c83ad995444f1ece1db686565eed6edd444f8fb1f1f36aec19dd1b3",
+    "import_recipe_sha256": "bde2b3a8626c595b201b6792c3148db6c1df2b6f3b012a6d922030e55db0fdf6",
+    "script_sha256": "1380e5dc06f2aa9ca094a00a31fdb9c68fb2818e1255e6dc6b194b23247caa36",
+    "generation": "assets_src/imagegen/racer_item_bubble_20261107/GENERATION_JOB.json",
+    "source_generation_calls": 1
+  },
+  "integration": {
+    "local": true,
+    "source_branch_published": false,
+    "Dev": false
+  },
+  "runtime": {
+    "configured_capture": true,
+    "actual_native_events": 90,
+    "machine_checks": {
+      "state": "PASS",
+      "inputs": 5588,
+      "required_commands": 88,
+      "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r148_racer_painted_item_bubble_runtime/evidence/full_machine/FINAL_RESULT.json"
+    },
+    "frame_events": "FRAME_EVENTS.json"
+  },
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "whole_game_total": null
+}

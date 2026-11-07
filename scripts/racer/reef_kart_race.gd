@@ -79,6 +79,7 @@ const ART_ROOT := "res://assets/racer/"
 const CapsuleArt := preload("res://assets/racer/context_v2/item_capsule.png")
 const KelpArt := preload("res://assets/racer/context_v2/kelp_trap.png")
 const GasButtonArt := preload("res://assets/racer/ui/gas_button_painted.png")
+const ItemBubbleFrameArt := preload("res://assets/racer/ui/item_bubble_frame_painted.png")
 const SteeringRingArt := preload("res://assets/racer/ui/steering_ring_painted.png")
 const SteeringKnobArt := preload("res://assets/racer/ui/steering_knob_painted.png")
 const CONTEXT_ART := {
@@ -1623,18 +1624,14 @@ func _draw_item_bubble() -> void:
 	var lit := ready or rolling
 	var pulse := 1.0 + (sin(_time * 5.0) * 0.05 if ready else 0.0)
 	var r := radius * pulse * (0.93 if held else 1.0)
-	_controls.draw_circle(at, r + 5.0, Color(INK, 0.85 if lit else 0.4))
-	_controls.draw_circle(at, r, Color(0.85, 0.95, 1.0, 0.55 if lit else 0.22))
-	for band in range(3):
-		var hue := fposmod(_time * 0.25 + float(band) * 0.33, 1.0)
-		_controls.draw_arc(at, r * (0.94 - float(band) * 0.07), 0.0, TAU, 40,
-			Color.from_hsv(hue, 0.4, 1.0, 0.9 if lit else 0.35), 4.0, true)
+	var frame_size := Vector2.ONE * (r + 5.0) * 2.0
+	var frame_tint := Color(1.0, 1.0, 1.0, 0.93 if lit else 0.60)
+	_controls.draw_texture_rect(ItemBubbleFrameArt, Rect2(at - frame_size * 0.5, frame_size), false, frame_tint)
 	var shown := item
 	if rolling:
 		shown = ITEM_KINDS[int(floor(_time * 12.0)) % ITEM_KINDS.size()]
 	if shown != "":
 		_draw_item_icon(shown, at, r * 0.55)
-	_controls.draw_circle(at - Vector2(r * 0.42, r * 0.45), r * 0.13, Color(1.0, 1.0, 1.0, 0.8))
 
 
 func _draw_item_icon(kind: String, at: Vector2, r: float) -> void:
