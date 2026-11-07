@@ -16865,7 +16865,10 @@
         "current_subrole_id": "FVR-AA4F097D3DAE",
         "status": "PAINTED_CURRENT_GREEN_PAD_SUBROLE_PARTIAL_SOURCE_CANDIDATE",
         "broader_historical_scope_retired": false,
-        "new_known_role_credit": 0
+        "new_known_role_credit": 0,
+        "Dev_integration": true,
+        "Dev_revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+        "source_CI": 42314874421
       }
     },
     {
@@ -29895,7 +29898,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-PRODUCTION-20261106-R147-PAINTED-STEERING",
+  "revision": "FV-DEV-20261107-R147-PAINTED-STEERING",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -43799,7 +43802,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "48 published bounded source artifacts,46 partial Dev artifacts;282 named roles and36 families remain lower bounds. R147 partial existingFV031 steering repair adds one artifact, zero roles/families and32nativeevents (24bounded/8excluded), totals8109/4419/12528. SourceCI/Dev/matchingR147APK and formal/natural/fullspeed/device/child/owner remain separate. Accepted0, complete0, whole unknown.",
+  "current_effective_summary": "48 published bounded source artifacts,47 partial Dev artifacts;282 named roles/36 families remain lower bounds. R147 exact319sourceCI passes bothjobs and actual normalgreenDev integration is verified. Native8109bounded/4419excluded/12528total unchanged; zero newart/frame/role/family/generation credit from this Dev event. MatchingR147APK, formal/natural/fullspeed/device/child/owner remain separate; accepted0, complete0, whole totals unknown.",
   "unresolved_care_glyph_scopes": [
     "neutral/title heart U+2665 versus cuddle U+2764 attribution",
     "disabled Change-palette pictogram",
@@ -52018,7 +52021,7 @@
   "retained_excluded_current_summary": 4419,
   "retained_native_events_current_summary": 12528,
   "bounded_implementation_artifacts_published_current_summary": 48,
-  "partial_dev_artifacts_current_summary": 46,
+  "partial_dev_artifacts_current_summary": 47,
   "r145_prior_to_Dev_integration": {
     "revision": "FV-SOURCE-20261106-R145-RACER-ZONES-PAINTED-FIXTURE",
     "current_effective_summary": "46 published bounded source artifacts,44 partial Dev artifacts;281 named roles and36 families remain lower bounds. Retained per-piece events8073 bounded/4398 excluded/12471 total. Accepted removals0, complete scenes0, whole-game totals unknown. R145 source cafce6e8 is published with exact hosted CI running; Dev pending. Formal and external acceptance remain open.",
@@ -52896,7 +52899,7 @@
     "source_item": "green_steering_pad",
     "family": "opera_racer",
     "artifact_key": "r147_racer_painted_steering_control_runtime",
-    "state": "PUBLISHED_SOURCE_CANDIDATE_LOCAL_MACHINE_AND_CONFIGURED_CONTEXT_PASS_CI_DEV_EXTERNAL_OPEN",
+    "state": "DEV_CODE_INTEGRATED_SOURCE_CI_GREEN_FORMAL_EXTERNAL_ACCEPTANCE_OPEN",
     "source_revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
     "branch": "codex/flat-vector-racer-steering-painted-20261106",
     "source_delivery": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/canonical_source_intake_20261106/SOURCE_REMOTE_VERIFICATION.json",
@@ -53006,8 +53009,8 @@
     },
     "candidate": true,
     "source_work_branch_integrated": true,
-    "Dev_integration": false,
-    "Dev_revision": null,
+    "Dev_integration": true,
+    "Dev_revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
     "formal_QA11": null,
     "device": null,
     "child": null,
@@ -53015,20 +53018,35 @@
     "accepted_removed": 0,
     "complete_scenes": 0,
     "mission_complete": false,
-    "prior_canonical_revision": "c45a9f5242ddb4c37751f6432a43036eabde8928"
+    "prior_canonical_revision": "c45a9f5242ddb4c37751f6432a43036eabde8928",
+    "current_source_CI": {
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "run": 42314874421,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/dev_integration_20261107/DEV_INTEGRATION.json",
+    "Dev_CI": {
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "run": 42321579190,
+      "status": "in_progress",
+      "conclusion": ""
+    },
+    "matching_R147_APK": null,
+    "prior_canonical_source_intake_revision": "a3746e4b4e6fea80b2be5be2327f978820ac6478"
   },
   "r147_current_effective_summary": {
     "known_roles": 282,
     "known_families": 36,
     "published_bounded_source_artifacts": 48,
-    "partial_Dev_artifacts": 46,
+    "partial_Dev_artifacts": 47,
     "retained_bounded_native_events": 8109,
     "retained_excluded_native_events": 4419,
     "retained_native_events": 12528,
     "accepted_removed": 0,
     "complete_scene_coverage": 0,
     "whole_game_total": null,
-    "revision": "FV-PRODUCTION-20261106-R147-PAINTED-STEERING"
+    "revision": "FV-DEV-20261107-R147-PAINTED-STEERING"
   },
   "r147_revision_delta": {
     "bounded_source_artifacts": 1,
@@ -53133,6 +53151,26 @@
     },
     "source_revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
     "new_known_role_credit": 0,
-    "candidate": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/PRODUCTION_RECORD.json"
+    "candidate": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/PRODUCTION_RECORD.json",
+    "current_Dev_revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400"
+  },
+  "r147_prior_to_Dev_canonical_revision": "a3746e4b4e6fea80b2be5be2327f978820ac6478",
+  "r147_Dev_integration": {
+    "source": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+    "source_CI": 42314874421,
+    "Dev_CI": 42321579190,
+    "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/dev_integration_20261107/DEV_INTEGRATION.json",
+    "partial_Dev_artifact_delta": 1,
+    "new_art_or_frame_delta": 0
+  },
+  "r147_Dev_revision_delta": {
+    "partial_Dev_artifacts": 1,
+    "source_artifacts": 0,
+    "roles": 0,
+    "families": 0,
+    "native_events": 0,
+    "generation_calls": 0,
+    "accepted_removed": 0,
+    "complete_scenes": 0
   }
 }

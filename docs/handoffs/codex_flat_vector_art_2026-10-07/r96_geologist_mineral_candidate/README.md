@@ -17,3 +17,7 @@ Delivery: [immutable payload](https://github.com/Ebonyks/mermaid-roshan-reef/tre
 ## R147 current registry
 
 48 published bounded source artifacts,46 partial Dev artifacts;282 named roles and36 families remain lower bounds. R147 partial existingFV031 steering repair adds one artifact, zero roles/families and32nativeevents (24bounded/8excluded), totals8109/4419/12528. SourceCI/Dev/matchingR147APK and formal/natural/fullspeed/device/child/owner remain separate. Accepted0, complete0, whole unknown. [Candidate](../r147_racer_painted_steering_runtime/README.md). Historical totals and operation handles below remain preserved; current operation is exact R147 sourceCI.
+
+## R147 verified Dev integration
+
+48 published bounded source artifacts,47 partial Dev artifacts;282 named roles/36 families remain lower bounds. R147 exact319sourceCI passes bothjobs and actual normalgreenDev integration is verified. Native8109bounded/4419excluded/12528total unchanged; zero newart/frame/role/family/generation credit from this Dev event. MatchingR147APK, formal/natural/fullspeed/device/child/owner remain separate; accepted0, complete0, whole totals unknown. [Integration record](../r147_racer_painted_steering_runtime/dev_integration_20261107/README.md). Earlier source-intake observations remain historical.

@@ -1527,3 +1527,5 @@ R132 authority reconciliation2026-11-03: the existing docs/handoffs/codex_flat_v
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/README.md` | 🔵 | `SUPPORTING_CURRENT`; verified R147 paintedsteering source/intake, existingFV031 partialbinding, all88localcommands/32configured events/localAI4.5floor; sourceCI/Dev/formal/device/child/owner remain separate. |
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/canonical_source_intake_20261106/README.md` | 🔵 | `SUPPORTING_EVIDENCE`; bounded anonymoussource proof and currentcanonical metadata only, no newruntime validation or acceptance. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/dev_integration_20261107/README.md` | 🔵 | `SUPPORTING_CURRENT`; actualR147 sourceCIbothjobs green and normalDev integration; partialDev47. CurrentDevCI/APK and formal/device/child/owner remainseparate. Metadataonly, oldruntime preserved. |

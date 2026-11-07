@@ -1,17 +1,17 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-PRODUCTION-20261106-R147-PAINTED-STEERING",
-  "current_entry": "r147_racer_painted_steering_runtime/README.md",
+  "revision": "FV-DEV-20261107-R147-PAINTED-STEERING",
+  "current_entry": "r147_racer_painted_steering_runtime/dev_integration_20261107/README.md",
   "current_per_piece": "r96_geologist_mineral_candidate/per_piece.json",
   "current_scene_coverage": "r96_geologist_mineral_candidate/scene_coverage.json",
   "current_tally": "r96_geologist_mineral_candidate/tally.json",
   "current_backlog": "r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/canonical_source_intake_20261106/MANIFEST.json",
+  "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/dev_integration_20261107/MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/canonical_source_intake_20261106/SOURCE_CI_AT_INTAKE.json",
+  "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/dev_integration_20261107/DEV_CI_AT_INTAKE.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -7099,7 +7099,7 @@
   "immutable_r143_receipt_revision": "504c290443c280ae543cb5caa1fe671340821ad4",
   "immutable_r144_payload_revision": "4bd9101a5b88ce8f0388917f297a849403e01ef3",
   "current_payload_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3190412c191589e1b65bc4ebb6f48d18cc4dd400/docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/MANIFEST.json",
-  "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/canonical_source_intake_20261106/SOURCE_REMOTE_VERIFICATION.json",
+  "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/dev_integration_20261107/DEV_INTEGRATION.json",
   "immutable_r144_receipt_revision": "d7c61f2636b4828a5158b3276dffdf695e5eeee3",
   "previous_receipt_manifest": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/d7c61f2636b4828a5158b3276dffdf695e5eeee3/docs/handoffs/codex_flat_vector_art_2026-10-07/r144_shared_painted_shell/RECEIPT_MANIFEST.json",
   "r144_prior_current_art_source_context": {
@@ -7758,7 +7758,7 @@
     "source_item": "green_steering_pad",
     "family": "opera_racer",
     "artifact_key": "r147_racer_painted_steering_control_runtime",
-    "state": "PUBLISHED_SOURCE_CANDIDATE_LOCAL_MACHINE_AND_CONFIGURED_CONTEXT_PASS_CI_DEV_EXTERNAL_OPEN",
+    "state": "DEV_CODE_INTEGRATED_SOURCE_CI_GREEN_FORMAL_EXTERNAL_ACCEPTANCE_OPEN",
     "source_revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
     "branch": "codex/flat-vector-racer-steering-painted-20261106",
     "source_delivery": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/canonical_source_intake_20261106/SOURCE_REMOTE_VERIFICATION.json",
@@ -7868,8 +7868,8 @@
     },
     "candidate": true,
     "source_work_branch_integrated": true,
-    "Dev_integration": false,
-    "Dev_revision": null,
+    "Dev_integration": true,
+    "Dev_revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
     "formal_QA11": null,
     "device": null,
     "child": null,
@@ -7877,6 +7877,29 @@
     "accepted_removed": 0,
     "complete_scenes": 0,
     "mission_complete": false,
-    "prior_canonical_revision": "c45a9f5242ddb4c37751f6432a43036eabde8928"
-  }
+    "prior_canonical_revision": "c45a9f5242ddb4c37751f6432a43036eabde8928",
+    "current_source_CI": {
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "run": 42314874421,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/dev_integration_20261107/DEV_INTEGRATION.json",
+    "Dev_CI": {
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "run": 42321579190,
+      "status": "in_progress",
+      "conclusion": ""
+    },
+    "matching_R147_APK": null,
+    "prior_canonical_source_intake_revision": "a3746e4b4e6fea80b2be5be2327f978820ac6478"
+  },
+  "r147_prior_to_Dev_navigation": {
+    "revision": "FV-PRODUCTION-20261106-R147-PAINTED-STEERING",
+    "current_entry": "r147_racer_painted_steering_runtime/README.md",
+    "current_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/canonical_source_intake_20261106/MANIFEST.json",
+    "current_remote_verification": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/canonical_source_intake_20261106/SOURCE_REMOTE_VERIFICATION.json",
+    "current_ci_evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/canonical_source_intake_20261106/SOURCE_CI_AT_INTAKE.json"
+  },
+  "r147_current_Dev": "3190412c191589e1b65bc4ebb6f48d18cc4dd400"
 }

@@ -1,0 +1,254 @@
+{
+  "state": "SEALED_EXACT_STAGED_BYTES",
+  "id": "FV-R147-DEV-INTEGRATION-20261107",
+  "baseline": "a3746e4b4e6fea80b2be5be2327f978820ac6478",
+  "actual_game_source": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+  "source_CI": 42314874421,
+  "Dev_CI": 42321579190,
+  "partial_Dev_artifact_delta": 1,
+  "source_artifact_delta": 0,
+  "role_family_generation_native_accepted_delta": 0,
+  "accepted_removed": 0,
+  "complete_scenes": 0,
+  "whole_game_total": null,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "mission_complete": false,
+  "hash_contract": "SELF exactstaged Gitbytes; fiveimmutable actualDev resources. Manifestfetched/hashbound separately. Currentdelivery only, no recursive historical archive dependency.",
+  "files": [
+    {
+      "path": "assets/racer/ui/steering_knob_painted.png",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 87637,
+      "sha256": "a40cea67ef6d50d326c2d36f1dc148b708e984384deddb592c30723807814314",
+      "role": "unchanged_actual_Dev_candidate_art_or_code"
+    },
+    {
+      "path": "assets/racer/ui/steering_knob_painted.png.import",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 983,
+      "sha256": "5c10ada1dd3bd9dab72b601fca798f6a5d83eeff86eba68a6ef05c04f7a12731",
+      "role": "unchanged_actual_Dev_candidate_art_or_code"
+    },
+    {
+      "path": "assets/racer/ui/steering_ring_painted.png",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 254294,
+      "sha256": "2d98806fd8f48345226f751442a0247b52b68e2e419777a3599759bf149dc1a1",
+      "role": "unchanged_actual_Dev_candidate_art_or_code"
+    },
+    {
+      "path": "assets/racer/ui/steering_ring_painted.png.import",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 982,
+      "sha256": "436003f64137fc2611cbfc0bfb2800386a503da7b9687ff054673cba48430268",
+      "role": "unchanged_actual_Dev_candidate_art_or_code"
+    },
+    {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 64827,
+      "sha256": "51ac5462cdec6918318dd1f997d317c0281aea75d1b3fc86b471e1da391ca64e",
+      "role": "unchanged_actual_Dev_candidate_art_or_code"
+    },
+    {
+      "path": ".gitattributes",
+      "revision": "SELF",
+      "bytes": 16281,
+      "sha256": "b27bd879cf193d856582670f8e1ee67046b62ecfbd4f2ad8c7ed833874923b5a",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "revision": "SELF",
+      "bytes": 307962,
+      "sha256": "b7a8face4082d95a85ca0c8f225372e231c6062bae385ec71d8ceb77009062c1",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "revision": "SELF",
+      "bytes": 341029,
+      "sha256": "86011812ce77b96629758008a103dd309bbf5e92fa6bfef4af5dd1e6e31f8f85",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "revision": "SELF",
+      "bytes": 375654,
+      "sha256": "cbde89117fd6c486f2b1e16d3cd1d6b853ad3bb2948bf707b2fadfe31c83cc14",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "revision": "SELF",
+      "bytes": 287023,
+      "sha256": "faa81732804137b5419702605503c6f839d99863c245b56ce66bd36b547fbd4b",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-r147-dev-integration-20261107.json",
+      "revision": "SELF",
+      "bytes": 4552,
+      "sha256": "e6c73780aca4d301fcda1832c7fcea05e4bac40651b4f967924338e310981994",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "revision": "SELF",
+      "bytes": 353957,
+      "sha256": "f5b339ce97894d00d3fbbea99916cb540ed30e26747e0d8bdaffd09c77bfc169",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_QUEUE.json",
+      "revision": "SELF",
+      "bytes": 10048,
+      "sha256": "7bf02cd3c1954e1d58e2d3cec6c65f3070e4de2e391f88ff110c571ee82d28c0",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+      "revision": "SELF",
+      "bytes": 8333,
+      "sha256": "ec3b3f0a3a7027dd7f633d1d5e0251197ad00c7df2f1dde5332ab7e4e1043a46",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/PRODUCTION_RECORD.json",
+      "revision": "SELF",
+      "bytes": 6294,
+      "sha256": "2ec723cc7ffe4643e9b533e4774354eb303e808d8c1129c5246bc9664b9b4261",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/README.md",
+      "revision": "SELF",
+      "bytes": 3068,
+      "sha256": "360c73f6c4cb51fa9c456d06b44bbe73c750959d4c6606b62a4dcc4eba8296af",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/dev_integration_20261107/ACTUAL_REMOTE_DEV_ANCESTRY.json",
+      "revision": "SELF",
+      "bytes": 320,
+      "sha256": "7d1f4fef8372747c235c9addc7e2da2057a6d7476e5ec0eaa2163010f1942866",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/dev_integration_20261107/DEV_CI_AT_INTAKE.json",
+      "revision": "SELF",
+      "bytes": 9058,
+      "sha256": "8ecb88a46cd9962a28199eecbc2f290b68d86c9d6fcd5e7529db17c46e6ee462",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/dev_integration_20261107/DEV_INTEGRATION.json",
+      "revision": "SELF",
+      "bytes": 11173,
+      "sha256": "205553cf21e9a08261639092c108143dcd23941a46379930211836cc04a65770",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/dev_integration_20261107/GATES.json",
+      "revision": "SELF",
+      "bytes": 1585,
+      "sha256": "deab18a16907444e6c3fb1dee940871b4ea22d4c62cec9bee6fb8cad90e8c0f2",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/dev_integration_20261107/PRIOR_SOURCE_CANONICAL_REMOTE_VERIFICATION.json",
+      "revision": "SELF",
+      "bytes": 49048,
+      "sha256": "28568b23b4e92cc14ace113563d9641db5d671c1b519c4208c50adb710d3195f",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/dev_integration_20261107/README.md",
+      "revision": "SELF",
+      "bytes": 992,
+      "sha256": "2e5bc4389f7838c4e6bfa182f811d1e62a2d920ae39cf7d3cfa6e5ca171d9859",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/dev_integration_20261107/RUNTIME_UNCHANGED.json",
+      "revision": "SELF",
+      "bytes": 21939,
+      "sha256": "e4b6314d07bd2a249bcfc6f3f35b824ea84eb6c2a44a1e482dbeafdc608aabd1",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/dev_integration_20261107/SOURCE_CI_COMPLETED.json",
+      "revision": "SELF",
+      "bytes": 9846,
+      "sha256": "670cdfe296b6504515ea925db5c02b1dcf4024337e4b0258cc8034ba22cb7379",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/dev_integration_20261107/authority.log",
+      "revision": "SELF",
+      "bytes": 78,
+      "sha256": "881f499268dd4241641920b53c16c7a1e830bf752658c76b64656870db2f9f70",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/dev_integration_20261107/coverage_auto.log",
+      "revision": "SELF",
+      "bytes": 80,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/dev_integration_20261107/coverage_base.log",
+      "revision": "SELF",
+      "bytes": 80,
+      "sha256": "de41a5629190633af133bf5097db4a67be801d4599e9e42c31e528db70bd7c7e",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+      "revision": "SELF",
+      "bytes": 593002,
+      "sha256": "bd3807f16b35316320e0a40a3c67bb62e2b28f3c3bb1776f983262352268bfda",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/README.md",
+      "revision": "SELF",
+      "bytes": 4593,
+      "sha256": "a956655d0b6544d75d376b6bc3c0027b1e8afcc25b218bee47885217339d379e",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+      "revision": "SELF",
+      "bytes": 394868,
+      "sha256": "a8bea3ecfad1997fe8a260456788428c624052fde334c19b5f6214c90b0354a5",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+      "revision": "SELF",
+      "bytes": 2518459,
+      "sha256": "09faf72cc196a09899c48e4da31bbfb3034a80a3b056aadd1c43ce9f1e2cc629",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+      "revision": "SELF",
+      "bytes": 2214545,
+      "sha256": "9212698f01c2adf0b88c802c5fdf52b64d85fc4d27a4f3aea1189a6352b82d64",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json",
+      "revision": "SELF",
+      "bytes": 864848,
+      "sha256": "1a36ea3cc469ddaec654069ffad02500cb1e8010e944f8fee50627a67e2551ee",
+      "role": "actual_Dev_integration_or_current_canonical_metadata"
+    }
+  ],
+  "time": "2026-11-07T01:01:59.238129+00:00"
+}
