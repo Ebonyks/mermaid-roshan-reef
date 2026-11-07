@@ -1,0 +1,94 @@
+{
+  "id": "reef-kart-roadside-20261107",
+  "baseline": "c97a4cc6f8b60522c5de782842325ed9984d54c6",
+  "scope": "Owner-directed construction study and roadside art overhaul for all four PC courses and their sixteen zones. Existing room identities, source art, road markings and physical routes are the reference. Build the roadside with supported object groups, world-space side architecture and clear approach views in both cameras. The moving review also covers a subpixel painted-arch triangulation repair.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-QA-02",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-OPERA-014",
+    "MA-VIS-008"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets/racer/roadside_v1/fascias.png",
+    "assets/racer/roadside_v1/fascias.png.import",
+    "assets_src/imagegen/reef_kart_roadside_20261107/.gdignore",
+    "assets_src/imagegen/reef_kart_roadside_20261107/generation_job.json",
+    "assets_src/imagegen/reef_kart_roadside_20261107/painted_fascias_native.png",
+    "assets_src/imagegen/reef_kart_roadside_20261107/prepare_atlas.gd",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/cycles/reef-kart-roadside-20261107/.gdignore",
+    "audit/cycles/reef-kart-roadside-20261107/DELIVERY_MANIFEST.json",
+    "audit/cycles/reef-kart-roadside-20261107/RUNTIME_EVIDENCE.json",
+    "audit/cycles/reef-kart-roadside-20261107/capture.gd",
+    "audit/cycles/reef-kart-roadside-20261107/drive.gd",
+    "audit/cycles/reef-kart-roadside-20261107/kitchen.jpg",
+    "audit/cycles/reef-kart-roadside-20261107/mermaid_pool.jpg",
+    "audit/cycles/reef-kart-roadside-20261107/opera_hall.jpg",
+    "audit/cycles/reef-kart-roadside-20261107/playroom.jpg",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/ROADSIDE.md",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/ZONES.md",
+    "scripts/racer/reef_kart_floor.gdshader",
+    "scripts/racer/reef_kart_race.gd",
+    "scripts/racer/reef_kart_roadside.gd",
+    "scripts/racer/reef_kart_roadside.gdshader",
+    "scripts/racer/reef_kart_track.gd"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2 Mobile posed coverage",
+      "result": "PASS",
+      "evidence": "audit/cycles/reef-kart-roadside-20261107/capture.gd. Forty-eight captures, four large bays and eight lower structures per course, rail clearance and ten mip levels verified."
+    },
+    {
+      "command": "Godot 4.7.2 Mobile drive.gd with real-time simulation and injected controller events",
+      "result": "PASS",
+      "evidence": "audit/cycles/reef-kart-roadside-20261107/RUNTIME_EVIDENCE.json#motion. Eight finishes, both laps and all four zones per seat."
+    },
+    {
+      "command": "bash scripts/ci.sh, approved 4.7.2, Windows native scratch",
+      "result": "PASS",
+      "evidence": "audit/cycles/reef-kart-roadside-20261107/RUNTIME_EVIDENCE.json#full_local_ci. All eighty-two trusted probes exited zero."
+    },
+    {
+      "command": "python -m gdtoolkit.parser and python -B tools/lint_inference.py on changed production GDScript",
+      "result": "PASS",
+      "evidence": "Parser and inference lint exit zero for race, track and roadside."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py and python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Both preflights report ALL OK. Run again on the final staged packet."
+    },
+    {
+      "command": "python -m gdtoolkit.parser and python -B tools/lint_inference.py on changed production GDScript",
+      "result": "PASS",
+      "evidence": "Parser and inference lint exit zero for race, track and roadside."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py and python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Both preflights report ALL OK. Run again on the final staged packet."
+    }
+  ],
+  "acceptance_gaps": "Physical device, child and owner acceptance are separate from desktop Mobile runtime checks."
+}

@@ -26,6 +26,8 @@ const RoomCourses := preload("res://scripts/racer/reef_kart_courses.gd")
 const PCDrive := preload("res://scripts/racer/reef_kart_drive.gd")
 const ItemVoice := preload("res://scripts/racer/reef_kart_item_voice.gd")
 const FloorShader := preload("res://scripts/racer/reef_kart_floor.gdshader")
+const Roadside := preload("res://scripts/racer/reef_kart_roadside.gd")
+const RoadsidePaint := preload("res://scripts/racer/reef_kart_roadside.gdshader")
 
 const VIEW := Vector2(1280.0, 720.0)
 const HORIZON_Y := 268.0
@@ -149,9 +151,12 @@ var _sky_tex: Array[Texture2D] = []
 var _skyline: Texture2D = null
 var _room_art: Texture2D
 var _landmark_tex: Dictionary = {}
+var _roadside := Roadside.new()
+var _fascia: Texture2D
 var _drawables: Array = []
 var _minimap := PackedVector2Array()
 var _pc_hud := false
+var _pane_width := VIEW.x
 var _minimap_rect := Rect2(1090, 18, 170, 170)
 var _count_mark := 3
 var _time := 0.0
@@ -166,6 +171,9 @@ var item_voice: Node = null
 func setup(options: Dictionary = {}) -> void:
 	set_process(false)
 	track = TrackScript.new(options.get("course", {}))
+	if not track.room.is_empty():
+		track.roadside = Roadside.build(track)
+		_fascia = load(Roadside.PAINT) as Texture2D
 	_duel = bool(options.get("duel", false))
 	pc_handling = bool(options.get("pc_handling", false))
 	if pc_handling:
@@ -209,6 +217,7 @@ func setup_camera_view(source: ReefKartRace, slot: int) -> void:
 	_skyline = source._skyline
 	_room_art = source._room_art
 	_landmark_tex = source._landmark_tex
+	_fascia = source._fascia
 	_build_view()
 	_build_minimap()
 	_update_camera(1.0, true)
@@ -227,6 +236,7 @@ func refresh_camera_view(source: ReefKartRace, delta: float) -> void:
 
 func use_pc_hud(view_width: int) -> void:
 	_pc_hud = true
+	_pane_width = float(view_width)
 	_minimap_rect = Rect2((VIEW.x + float(view_width)) * 0.5 - 111.0, 32, 86, 86)
 	_build_minimap()
 
@@ -366,6 +376,10 @@ func _build_view() -> void:
 	_floor.material = _floor_material
 	add_child(_floor)
 	_world = Node2D.new()
+	if not track.roadside.is_empty():
+		var paint := ShaderMaterial.new()
+		paint.shader = RoadsidePaint
+		_world.material = paint
 	_world.name = "Racers"
 	_world.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	add_child(_world)
@@ -389,6 +403,14 @@ func _style_room_floor() -> void:
 	_floor_material.set_shader_parameter("wall_a", paint[1])
 	_floor_material.set_shader_parameter("curb_a", paint[2])
 	_floor_material.set_shader_parameter("room_pattern", track.room["pattern"])
+	_floor_material.set_shader_parameter("room_surface", _room_art)
+	var floor_crops := {
+		"playroom": Vector4(0.12, 0.68, 0.66, 0.28),
+		"kitchen": Vector4(0.19, 0.76, 0.59, 0.20),
+		"mermaid_pool": Vector4(0.20, 0.932, 0.59, 0.062),
+		"opera_hall": Vector4(0.31, 0.69, 0.38, 0.26),
+	}
+	_floor_material.set_shader_parameter("room_surface_rect", floor_crops[track.id])
 	_floor_material.set_shader_parameter("haze_start", 410.0)
 	_floor_material.set_shader_parameter("haze_end", 1200.0)
 	_floor_material.set_shader_parameter("finish_pos", track.point_at(0.0))
@@ -1122,6 +1144,21 @@ func _draw_sky() -> void:
 
 func _draw_world() -> void:
 	_drawables.clear()
+	if not track.roadside.is_empty():
+		var camera_right := Vector2(cos(cam_heading), sin(cam_heading))
+		_roadside.begin(_world, cam_pos, cam_heading, _fascia,
+			_room_art if track.id == "mermaid_pool" else null,
+			FOCAL, CAM_HEIGHT, HORIZON_Y, NEAR * 2.0, VIEW.x * 0.5)
+		for index in range(track.roadside.size()):
+			var deck: Dictionary = track.roadside[index]
+			var center: Vector2 = deck["pos"]
+			var depth := _depth(center)
+			var radius := float(deck["radius"])
+			var lateral := absf((center - cam_pos).dot(camera_right))
+			var side_limit := maxf(depth + radius, NEAR) * (_pane_width * 0.5 / FOCAL) + radius + 20.0
+			if depth + radius >= NEAR * 2.0 and depth - radius <= FAR and lateral <= side_limit:
+				# Draw the base behind its own fixture when their depths match.
+				_drawables.append([maxf(NEAR, depth + 0.1), "roadside", index, center])
 	for index in range(track.pearls.size()):
 		var pearl := track.pearls[index]
 		if float(pearl["respawn_t"]) <= 0.0:
@@ -1171,6 +1208,8 @@ func _draw_world() -> void:
 				_draw_sparkle(screen, scale)
 			"landmark":
 				_draw_landmark(track.landmarks[int(entry[2])], screen, scale)
+			"roadside":
+				_roadside.draw(track.roadside[int(entry[2])])
 			"kart":
 				_draw_kart(karts[int(entry[2])], screen, scale)
 
@@ -1197,8 +1236,9 @@ func _draw_landmark(landmark: Dictionary, screen: Vector2, scale: float) -> void
 	if size.x < 3.0:
 		return
 	var bottom := screen.y - float(landmark.get("lift", 0.0)) * scale
-	if (id.begins_with("reef_") or not track.room.is_empty()) and float(landmark.get("lift", 0.0)) == 0.0:
-		_world.draw_set_transform(screen, 0.0, Vector2(1.0, 0.16))
+	var grounded := float(landmark.get("lift", 0.0)) == 0.0 or bool(landmark.get("supported", false))
+	if grounded and (id.begins_with("reef_") or not track.room.is_empty()):
+		_world.draw_set_transform(Vector2(screen.x, bottom), 0.0, Vector2(1.0, 0.16))
 		_world.draw_circle(Vector2.ZERO, size.x * 0.32, Color(0.24, 0.14, 0.31, 0.17), true, -1.0, true)
 		_world.draw_set_transform(Vector2.ZERO)
 	var rect := Rect2(screen.x - size.x * 0.5, bottom - size.y * float(landmark.get("foot_y", 1.0)), size.x, size.y)
@@ -1287,7 +1327,9 @@ func _draw_painted_span(art: Texture2D, left: Vector2, right: Vector2, height: f
 		var foot1 := _screen(left.lerp(right, u1), depth1) - Vector2(0.0, lift * FOCAL / depth1)
 		var top1 := foot1 - Vector2(0.0, height * FOCAL / depth1)
 		var ink1 := Color(1.0, 1.0, 1.0, smoothstep(clear_depth, fade_end, depth1))
-		if foot1.x > foot0.x and foot1.x >= 0.0 and foot0.x <= VIEW.x:
+		# Almost edge-on strips can collapse within Canvas triangulation's
+		# tolerance. Skip the subpixel sliver before submitting the quad.
+		if foot1.x - foot0.x >= 0.1 and foot1.x >= 0.0 and foot0.x <= VIEW.x:
 			_world.draw_polygon(
 				PackedVector2Array([top0, top1, foot1, foot0]),
 				PackedColorArray([ink0, ink1, ink1, ink0]),

@@ -1,0 +1,946 @@
+{
+  "schema": "reef.kart.roadside.evidence.v1",
+  "baseline": "c97a4cc6f8b60522c5de782842325ed9984d54c6",
+  "engine": "4.7.2-stable official.ed1daf0bf",
+  "renderer": "Vulkan Mobile, NVIDIA GeForce RTX 3060 Ti",
+  "size": [
+    1280,
+    720
+  ],
+  "runtime_sha256": {
+    "assets/racer/roadside_v1/fascias.png": "a10049305b518db79655299feba4939bba2e11afe2b1b696493afeef622809c1",
+    "assets/racer/roadside_v1/fascias.png.import": "2890616511729418b96463d29f92bf283520c51654bf53aafabc719f253beb73",
+    "scripts/racer/reef_kart_floor.gdshader": "41c96ff802ffc941453950158269d1fb6a9c7541d3465d4eda6f0e8c75d01c7a",
+    "scripts/racer/reef_kart_race.gd": "cd37da1b1aa001342846db3969019e1ab1335b9e7425875a4edbb5af4ce7e40b",
+    "scripts/racer/reef_kart_roadside.gd": "b287a2180f7133f8ea31a94d8897e5f5fb2374eb1a881884d742d24b23e6b072",
+    "scripts/racer/reef_kart_roadside.gdshader": "9623e4803b03a17dd8c4682929be1a98f83b1ea978a8bb914d142bb8cfccd76d",
+    "scripts/racer/reef_kart_track.gd": "50188f2f07ed970f5eeef3e8f4c82cc09c9b5d5b58e3d4ac71a24a8e6ed4a5c9"
+  },
+  "asset_provenance": {
+    "manifest": "assets_src/imagegen/reef_kart_roadside_20261107/generation_job.json",
+    "inventory_count": 208,
+    "inventory_sha256": "3d4d532b4e6846e4761b2bdce3fe77a8a611603e72b9645bacea2f424a380a7a",
+    "atlas_sha256": "a10049305b518db79655299feba4939bba2e11afe2b1b696493afeef622809c1"
+  },
+  "posed": {
+    "harness": "audit/cycles/reef-kart-roadside-20261107/capture.gd",
+    "capture_log_sha256": "17cce92ed1bc44a7233767a2dc2f59ad0dcc29b48cdf48cf5f72ae24e8809bb5",
+    "rendered_views": 48,
+    "approaches": 32,
+    "close_pass_poses": 16,
+    "geometry_result": "PASS",
+    "course_bays": 16,
+    "low_trim_and_benches": 32,
+    "newly_reused_bench_details": 16,
+    "rail_samples_tested_per_structure": 720,
+    "atlas_mip_levels": 10,
+    "review": "All four course boards and the close-pass board reviewed. Turn signage reads from the approaches, structures maintain ground contact, material stays registered on oblique faces.",
+    "boards": [
+      "audit/cycles/reef-kart-roadside-20261107/playroom.jpg",
+      "audit/cycles/reef-kart-roadside-20261107/kitchen.jpg",
+      "audit/cycles/reef-kart-roadside-20261107/mermaid_pool.jpg",
+      "audit/cycles/reef-kart-roadside-20261107/opera_hall.jpg"
+    ]
+  },
+  "motion": {
+    "harness": "audit/cycles/reef-kart-roadside-20261107/drive.gd",
+    "log_sha256": "839f1ac131a8cfca7c0d96657fd68fbc2db1a425d2b57337783eae3b7857054e",
+    "input": "Simulated controllers, normal game clock, 60 fps cap, sampled at approximately 750 ms",
+    "fps_scope": "Diagnostic samples include concurrent checks and capture overhead. Physical device performance remains open.",
+    "motion_frames": 908,
+    "reviewed_motion_board_samples": 160,
+    "review_scope": "Seven initial moving boards and the final Opera split-screen repeat, twenty views per board.",
+    "cases": [
+      {
+        "course": "kitchen",
+        "players": 1,
+        "finished": true,
+        "attempts": 2,
+        "wall_seconds": 104.331,
+        "finishing_attempt_game_seconds": 47.117,
+        "sampled_frames": 135,
+        "finishing_attempt_active_frames": 63,
+        "visited_lap_zone_pairs_by_seat": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        ],
+        "fps_median": 60.0,
+        "fps_minimum_sample": 24.0,
+        "run_telemetry_sha256": "2524b817704ccb82fab67b052c9c2df7925eef82b1a9e6b775f952980c0ef897"
+      },
+      {
+        "course": "kitchen",
+        "players": 2,
+        "finished": true,
+        "attempts": 1,
+        "wall_seconds": 47.691,
+        "finishing_attempt_game_seconds": 46.267,
+        "sampled_frames": 64,
+        "finishing_attempt_active_frames": 61,
+        "visited_lap_zone_pairs_by_seat": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        ],
+        "fps_median": 60.0,
+        "fps_minimum_sample": 60.0,
+        "run_telemetry_sha256": "475342e26acd9970112296a4ab0af16140e23a71c9fa3a3bdf84a69d28ffd73f"
+      },
+      {
+        "course": "mermaid_pool",
+        "players": 1,
+        "finished": true,
+        "attempts": 2,
+        "wall_seconds": 193.411,
+        "finishing_attempt_game_seconds": 92.633,
+        "sampled_frames": 256,
+        "finishing_attempt_active_frames": 123,
+        "visited_lap_zone_pairs_by_seat": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        ],
+        "fps_median": 60.0,
+        "fps_minimum_sample": 55.0,
+        "run_telemetry_sha256": "f387bee6272e65390e927c21302a0250e673f8c124d604b34d7023355c04a320"
+      },
+      {
+        "course": "mermaid_pool",
+        "players": 2,
+        "finished": true,
+        "attempts": 1,
+        "wall_seconds": 97.067,
+        "finishing_attempt_game_seconds": 95.6,
+        "sampled_frames": 130,
+        "finishing_attempt_active_frames": 127,
+        "visited_lap_zone_pairs_by_seat": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        ],
+        "fps_median": 60.0,
+        "fps_minimum_sample": 52.0,
+        "run_telemetry_sha256": "67f0bbf90b53380d269d0cd75e703f29e8cebdc1bd63e286c2161ee92b45a68f"
+      },
+      {
+        "course": "opera_hall",
+        "players": 1,
+        "finished": true,
+        "attempts": 1,
+        "wall_seconds": 93.867,
+        "finishing_attempt_game_seconds": 91.45,
+        "sampled_frames": 125,
+        "finishing_attempt_active_frames": 122,
+        "visited_lap_zone_pairs_by_seat": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        ],
+        "fps_median": 60.0,
+        "fps_minimum_sample": 11.0,
+        "run_telemetry_sha256": "b8c880e565ac6fe56bce664f30dd877a66954b339682201beb4867f433547491"
+      },
+      {
+        "course": "opera_hall",
+        "players": 2,
+        "finished": true,
+        "attempts": 1,
+        "wall_seconds": 90.567,
+        "finishing_attempt_game_seconds": 88.15,
+        "sampled_frames": 121,
+        "finishing_attempt_active_frames": 118,
+        "visited_lap_zone_pairs_by_seat": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        ],
+        "fps_median": 60.0,
+        "fps_minimum_sample": 22.0,
+        "run_telemetry_sha256": "1b298152fa6d8ee4b78c483e80fc656f172c3f456a1b888dedac65017babdc43"
+      },
+      {
+        "course": "playroom",
+        "players": 1,
+        "finished": true,
+        "attempts": 1,
+        "wall_seconds": 27.886,
+        "finishing_attempt_game_seconds": 26.533,
+        "sampled_frames": 38,
+        "finishing_attempt_active_frames": 35,
+        "visited_lap_zone_pairs_by_seat": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        ],
+        "fps_median": 60.0,
+        "fps_minimum_sample": 38.0,
+        "run_telemetry_sha256": "676428435d7f9f8cb1c3a2d1020aca58b3adf5c6b3823b8c6fa62f6403688563"
+      },
+      {
+        "course": "playroom",
+        "players": 2,
+        "finished": true,
+        "attempts": 1,
+        "wall_seconds": 28.574,
+        "finishing_attempt_game_seconds": 27.167,
+        "sampled_frames": 39,
+        "finishing_attempt_active_frames": 36,
+        "visited_lap_zone_pairs_by_seat": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        ],
+        "fps_median": 60.0,
+        "fps_minimum_sample": 60.0,
+        "run_telemetry_sha256": "206e3a7ddba7be65c0292b1aaf253946ec98471b0f7f41fa42fa628d04771943"
+      }
+    ],
+    "repaired_render_issue": {
+      "course": "opera_hall",
+      "players": 2,
+      "reported_triangulation_errors_before": 9,
+      "before_log_sha256": "5da8820af001340b8e3e838f06fc04e21a4e161ca594f184ddd70228ff6cf1de",
+      "after_render_errors": 0,
+      "repair": "Cull projected arch strips under one tenth of a pixel wide."
+    }
+  },
+  "focused_regressions": [
+    {
+      "probe": "probe_reef_kart_pc",
+      "pass_assertions": 65,
+      "sha256": "65835e6a4714333f5e6ba314c102c77f476ba4977b95655f33af7aa5341c9968"
+    },
+    {
+      "probe": "probe_racer_integration",
+      "pass_assertions": 50,
+      "sha256": "cdcb0c5aece8c58225563d979c859d5aaa9da65184763b1906ab83daae05d414"
+    }
+  ],
+  "full_local_ci": {
+    "script": "scripts/ci.sh",
+    "sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e",
+    "log_sha256": "7ba935cd3ac2b732d6d3f43bdd70408c96a2d84aa029d844f663c0120806efe6",
+    "exit_code": 0,
+    "probe_count": 82,
+    "probes": [
+      {
+        "probe": "probe_reef_districts",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_ocean_kingdoms",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_audit",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_passive",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_living_world",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_load",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_rank",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_save_recovery",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_galaxy_state",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_collection",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_mg2d",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_fetch",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_melody",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_dolls",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_seek",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_audio",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_dance",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_l2",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_l2_living_cards",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_sky_lagoon_animals",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_l2_reenter",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_crown",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_throne",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_northern",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_human_art_audit",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_train",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_verbs",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_skins",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_touch_router",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_touch_stress",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_interaction",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_touch_adversary",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_touch_look",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_ui_system",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_voice",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_day_one_voice",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_day_one_d8_revisits",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_day_one_handoffs",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_kart_feel",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_combat",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_dust_bunny",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_dust_bunny_boss",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_dust_boss",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_hit",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_partner",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_combat_tutorial",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_imp_ai",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_mic",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_stuffie",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_dungeon",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_ember",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_opera",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_opera_2d",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_opera_diegetic_paths",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_opera_detective",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_opera_pipe",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_opera_nursery",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_opera_gesture_quality",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_kitchen_props",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_bathroom_props",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_castle_door_language",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_bathroom_integration",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_day_one_bathroom_bunny",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_day_one_bathroom_cleanup",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_day_one_bathroom_movie_handoff",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_day_one_director",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_day_one_integration",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_day_one_pool_cleanup",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_day_one_art_attack_state",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_day_one_castle_dressing",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_day_one_story_clips",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_chapter2",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_chapter2_farmer_resume",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_chapter2_lawn",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_alpha_milestone_save",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_dust_boss_balance",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_start_menu_routing",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_start_menu_new_game",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_castle_pool_life_2d",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_castle_pearl_art",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_fairy_art",
+        "process_exit": 0
+      },
+      {
+        "probe": "probe_props",
+        "process_exit": 0
+      }
+    ]
+  },
+  "acceptance": {
+    "desktop_geometry_and_motion": "PASS",
+    "master_visual": "UNSATISFIED",
+    "physical_controllers_tablet_child_owner": "OPEN"
+  }
+}

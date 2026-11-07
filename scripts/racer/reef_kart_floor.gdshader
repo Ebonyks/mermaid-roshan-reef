@@ -26,6 +26,8 @@ uniform vec4 boundary_ink : source_color = vec4(0.17, 0.12, 0.28, 1.0);
 uniform vec4 bridge_a;
 uniform vec4 bridge_b;
 uniform sampler2D painted_floor : source_color, filter_linear_mipmap, repeat_disable;
+uniform sampler2D room_surface : source_color, filter_linear_mipmap, repeat_disable;
+uniform vec4 room_surface_rect = vec4(0.2, 0.72, 0.5, 0.20);
 uniform sampler2D field : filter_linear, repeat_disable;
 uniform float road_edge = 0.5;
 uniform float rail_edge = 0.625;
@@ -107,6 +109,11 @@ vec4 room_floor(vec2 world, float d, float detail, vec2 phase_vector) {
 		1.0 - smoothstep(0.70, 0.90, d));
 	float tile = soft_checker(world, 52.0);
 	vec4 ground = mix(ground_tint * vec4(vec3(0.91), 1.0), ground_tint, mix(0.5, tile, detail * 0.6));
+	// Mirror a clean patch of the room's own painted floor. The projected
+	// track mask below retains the original lane, apron, and markings.
+	vec2 repeat_pos = 1.0 - abs(fract(world / vec2(610.0, 490.0)) * 2.0 - 1.0);
+	vec3 room_paint = texture(room_surface, room_surface_rect.xy + repeat_pos * room_surface_rect.zw).rgb;
+	ground.rgb = mix(ground.rgb, room_paint, 0.28 + detail * 0.32);
 	vec4 road = mix(road_tint, road_tint * vec4(vec3(0.74), 1.0), motif * detail * 0.45);
 	// A flush gold threshold marks entry to each part of the room.
 	float threshold = min(fract(section), 1.0 - fract(section)) * course_length * 0.25;

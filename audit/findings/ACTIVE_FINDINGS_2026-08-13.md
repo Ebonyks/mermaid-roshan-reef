@@ -415,6 +415,8 @@ R95 production update2026-10-17: [Geologist painted pan](../../docs/handoffs/cod
 
 2026-11-05 scoped Racer follow-up: owner requests gas, useful item explanations and two to four room zones per course. The [four-zone candidate](../../docs/handoffs/codex_reef_kart_art_2026-11-03/ZONES.md) records bounded implementation and evidence in its [impact](../../design/audit_impacts/reef-kart-zones-20261105.json). Existing lifecycle and closure criteria remain; physical/human/child/owner acceptance is not inferred. The [2026-11-07 moving review and repairs](../../design/audit_impacts/reef-kart-full-speed-20261107.json) record exact solo and split-screen checks, with the same remaining acceptance.
 
+The 2026-11-07 [Racer roadside pass](../../docs/handoffs/codex_reef_kart_art_2026-11-03/ROADSIDE.md) replaces freestanding scenery with forty-eight world-anchored structures, opaque shared painted surfaces and reused room fixtures. Desktop geometry and rendering evidence is scoped to the PC courses. The mobile and full-game acceptance criteria remain open.
+
 ## MA-VIS-009
 
 | Field | Value |
@@ -1862,6 +1864,8 @@ CHG-107 combined local02 verification 2026-10-19: unchanged82trustedprobes all c
 CHG-107 publication reconciliation2026-10-19: topic256e1f36 passes exact remoteProbeSuite39279536724. Dev advanced from58339deb to e1dc3e21 through six Rumi handoff/ledger files only. The topic merge preserves every frozen production source hash from full02(82/82zeroexits, logSHA256c9583a511ab036d01a4d81aa0e72669d0ab3f5244ca67e3a50e282030b58e4f4); no production-source drift. New merged-head document/development gates and exactheadCI remain required beforeDev. Staticappearance, fullmotion, canonical/device/child/owner and finalcampaign acceptance remain separate; no lifecycle/master change.
 
 2026-11-05 scoped Racer follow-up: owner requests gas, useful item explanations and two to four room zones per course. The [four-zone candidate](../../docs/handoffs/codex_reef_kart_art_2026-11-03/ZONES.md) records bounded implementation and evidence in its [impact](../../design/audit_impacts/reef-kart-zones-20261105.json). Existing lifecycle and closure criteria remain; physical/human/child/owner acceptance is not inferred. The [2026-11-07 moving review and repairs](../../design/audit_impacts/reef-kart-full-speed-20261107.json) record exact solo and split-screen checks, with the same remaining acceptance.
+
+The 2026-11-07 owner review found the improved curbs readable and asked for higher-quality art beyond them. The [Racer roadside pass](../../docs/handoffs/codex_reef_kart_art_2026-11-03/ROADSIDE.md) gives the four room courses connected scenery and covers it in both chase cameras. The [impact](../../design/audit_impacts/reef-kart-roadside-20261107.json) preserves the existing lifecycle and records desktop verification separately from device, child and owner acceptance.
 
 ## MA-VIS-011
 
