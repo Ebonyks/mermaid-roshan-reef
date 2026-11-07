@@ -1,0 +1,57 @@
+{
+  "state": "PASS_AUTHORITY_ACTUAL_DIFF_COVERAGE_VALIDATOR_UNITS_AND_RUNTIME_ROOTS_UNCHANGED",
+  "baseline": "a64047df38f25f82f3b23526764157fd62d17753",
+  "results": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/authority.log",
+      "sha256": "fc1d5e7588db382a330d55f38847a35def7af871256df730494d3d06f3f5cf27"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/coverage_auto.log",
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "a64047df38f25f82f3b23526764157fd62d17753"
+      ],
+      "exit_code": 0,
+      "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/coverage_base.log",
+      "sha256": "aa6b491b6cc06022262411a71a4f367e9fbcfe1172a20522f5b28e231256a35b"
+    }
+  ],
+  "unchanged_validator_unit_evidence": {
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "-m",
+      "unittest",
+      "tools.tests.test_audit_document_authority",
+      "tools.tests.test_audit_development"
+    ],
+    "exit_code": 0,
+    "log": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/audit_validator_units.log",
+    "sha256": "3f52ded074a4019389ba95b233022047fdb48456d130c8f9d7e0e101183dd03a"
+  },
+  "validator_code_unchanged_since_unit_run": true,
+  "unit_run_before_final_prose_review": true,
+  "new_engine_runs": 0,
+  "time": "2026-11-07T02:51:11.321267+00:00"
+}

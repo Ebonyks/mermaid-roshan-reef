@@ -171,10 +171,26 @@
     "work_branch": "codex/flat-vector-racer-steering-painted-20261106",
     "source_CI": 42314874421,
     "Dev_integrated": true,
-    "next_step": "Follow actualDevCI and matchingAPK; formal/device/child/owner open. Neverrestarthealthyjobs or regenerateviablepaintedring/knob.",
+    "next_step": "Follow healthy recorded retry42330466713; no duplicate build. Matching APK/source/package proof pending. Formal/device/child/owner open.",
     "new_source_artifact_credit": 1,
     "new_role_credit": 0,
     "Dev_revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
-    "Dev_CI": 42321579190
+    "Dev_CI": {
+      "run": 42321579190,
+      "status": "completed",
+      "conclusion": "success",
+      "both_jobs_green": true,
+      "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/DEV_CI_COMPLETED.json"
+    },
+    "Android_retry": {
+      "run": 42330466713,
+      "event": "workflow_dispatch",
+      "source": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "branch": "dev",
+      "status_at_intake": "in_progress",
+      "dispatch_count": 1,
+      "snapshot": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/RETRY_AT_INTAKE.json",
+      "source_guard_and_package_proof": "PENDING; exact source head at dispatch does not itself verify the built package"
+    }
   }
 }

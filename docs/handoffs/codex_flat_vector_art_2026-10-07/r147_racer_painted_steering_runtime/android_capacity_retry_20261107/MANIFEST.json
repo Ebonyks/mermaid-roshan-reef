@@ -1,0 +1,338 @@
+{
+  "state": "SEALED_EXACT_STAGED_BYTES",
+  "id": "FV-R147-ANDROID-CAPACITY-RETRY-20261107",
+  "baseline": "a64047df38f25f82f3b23526764157fd62d17753",
+  "actual_game_source": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+  "source_CI": 42314874421,
+  "Dev_CI": 42321579190,
+  "failed_automatic_Android": 42327084093,
+  "single_approved_retry": 42330466713,
+  "art_role_family_Dev_generation_native_accepted_delta": 0,
+  "accepted_removed": 0,
+  "complete_scenes": 0,
+  "whole_game_total": null,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "mission_complete": false,
+  "hash_contract": "SELF exact staged Git bytes; bounded immutable current Dev art/build-authority rows. Manifest fetched and hash-bound separately. No recursive past archive dependency. No private signing key or protected art export.",
+  "files": [
+    {
+      "path": ".github/workflows/android.yml",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 12347,
+      "sha256": "0b39ce9d69c97b612d63d1254cf4d5b8f07472b5eb1a54f1c0b67e08263837b0",
+      "role": "unchanged_immutable_current_Dev_art_source_or_existing_build_authority"
+    },
+    {
+      "path": "assets/racer/ui/steering_knob_painted.png",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 87637,
+      "sha256": "a40cea67ef6d50d326c2d36f1dc148b708e984384deddb592c30723807814314",
+      "role": "unchanged_immutable_current_Dev_art_source_or_existing_build_authority"
+    },
+    {
+      "path": "assets/racer/ui/steering_knob_painted.png.import",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 983,
+      "sha256": "5c10ada1dd3bd9dab72b601fca798f6a5d83eeff86eba68a6ef05c04f7a12731",
+      "role": "unchanged_immutable_current_Dev_art_source_or_existing_build_authority"
+    },
+    {
+      "path": "assets/racer/ui/steering_ring_painted.png",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 254294,
+      "sha256": "2d98806fd8f48345226f751442a0247b52b68e2e419777a3599759bf149dc1a1",
+      "role": "unchanged_immutable_current_Dev_art_source_or_existing_build_authority"
+    },
+    {
+      "path": "assets/racer/ui/steering_ring_painted.png.import",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 982,
+      "sha256": "436003f64137fc2611cbfc0bfb2800386a503da7b9687ff054673cba48430268",
+      "role": "unchanged_immutable_current_Dev_art_source_or_existing_build_authority"
+    },
+    {
+      "path": "audit/cycles/android-build-capacity-20261105/owner_request.json",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 804,
+      "sha256": "d163441b28ef42e3da4393903cd352ed1aa22bbe3450548c4a5460f48d2e1baf",
+      "role": "unchanged_immutable_current_Dev_art_source_or_existing_build_authority"
+    },
+    {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 64827,
+      "sha256": "51ac5462cdec6918318dd1f997d317c0281aea75d1b3fc86b471e1da391ca64e",
+      "role": "unchanged_immutable_current_Dev_art_source_or_existing_build_authority"
+    },
+    {
+      "path": "tools/verify_android_build_source.py",
+      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "bytes": 3344,
+      "sha256": "bbdaf394c3301f11ccf7b667393aaf8637f2bfcca08214c4ff0b1babb295b8a4",
+      "role": "unchanged_immutable_current_Dev_art_source_or_existing_build_authority"
+    },
+    {
+      "path": ".gitattributes",
+      "revision": "SELF",
+      "bytes": 16409,
+      "sha256": "ed255a429971fa3c75cd47e1087aecfd30dede21c229bca4517c08d77de028c8",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "revision": "SELF",
+      "bytes": 308132,
+      "sha256": "0ab65e6a78c77c406b8ad7fdfd5c363432fb68c211adc899f9b2e55d9e643979",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "revision": "SELF",
+      "bytes": 342463,
+      "sha256": "723a010e74b020267a7c39425afc95357f42bf42dc943c0ca645b4f28f37849a",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "revision": "SELF",
+      "bytes": 376211,
+      "sha256": "b73700e920a68620d34fb7f48e7cea40cfeb5862a25c8b4897d13ba6e1b91d14",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "revision": "SELF",
+      "bytes": 287407,
+      "sha256": "d86400db0adacca58987e96ebf64cd0561d114bf97d7391982a8c437372d52b1",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-r147-android-capacity-retry-20261107.json",
+      "revision": "SELF",
+      "bytes": 6074,
+      "sha256": "644773e06d4a26090610bbd84b68bca8ad023fc11ddfe92ffdaa04bd12b070b6",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "revision": "SELF",
+      "bytes": 358164,
+      "sha256": "47526d104dcff0f76a6d0ca788a3937fa943b08ed4a497adc4502cfb745ac8a0",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_QUEUE.json",
+      "revision": "SELF",
+      "bytes": 10847,
+      "sha256": "0e84c6a7a01a15a1c61a140ad9cf315233923be235f20c0f7c99c97ddc5175ab",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+      "revision": "SELF",
+      "bytes": 9153,
+      "sha256": "f3d4c29adc2f47ad7939931bed59742f887d216cdcff61765e0d1e20cc9a935a",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/PRODUCTION_RECORD.json",
+      "revision": "SELF",
+      "bytes": 8072,
+      "sha256": "c472367c94a13bc7d1728d07460c06b1482305176edf2bb38fc683d2116abcd1",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/README.md",
+      "revision": "SELF",
+      "bytes": 3852,
+      "sha256": "3f59567d418b0e84e1bcfaaf6ad50b1764fe275a985d66924c7b5b22fbc48199",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/AUTO_ANNOTATIONS.json",
+      "revision": "SELF",
+      "bytes": 3257,
+      "sha256": "9debc4128ffbf401efe4444bad33c11b60dedbaeff6e4013ce80a9bd7c0f0d20",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/AUTO_FAILURE_SCOPE.json",
+      "revision": "SELF",
+      "bytes": 708,
+      "sha256": "bc24ed71ab4542e904e274ea152c9d7f230c8a2c8a10d09f172a8f97977a772b",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/AUTO_JOB_TERMINAL.json",
+      "revision": "SELF",
+      "bytes": 4349,
+      "sha256": "60dde179474fadc59554fc95bf5ba3f19efc42ea73cf97eb879cec16149f25b1",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/AUTO_LOG_UNAVAILABLE.log",
+      "revision": "SELF",
+      "bytes": 28,
+      "sha256": "a7592976932eebb6433cf1e52567497bcbe8d1560ccf51c4794ae2f2225f6a49",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/AUTO_RUN_TERMINAL.json",
+      "revision": "SELF",
+      "bytes": 3129,
+      "sha256": "e57f7492346ace9ac4273acee4e90c65650009f6d4c319fa40f93d5f09d81254",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/DELIVERY_OBSERVATION.json",
+      "revision": "SELF",
+      "bytes": 1519,
+      "sha256": "b8609b77dbdd5ab177a61ff9d7ad7e4b43c06258616c3d44f5092555c1be4d6a",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/DEV_CI_COMPLETED.json",
+      "revision": "SELF",
+      "bytes": 6721,
+      "sha256": "8c8534214af11ad1092d317b53d860b8d572724602cbae6e82b9f7837f63f3c6",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/GATES.json",
+      "revision": "SELF",
+      "bytes": 2282,
+      "sha256": "15d8f1edf973b8201d92839c3038479b2221ae2e31701ec14a2166039c509685",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/NO_HEALTHY_ANDROID_BEFORE_RETRY.json",
+      "revision": "SELF",
+      "bytes": 34817,
+      "sha256": "9449dc3cfc4fb64b4b8980e47a8030fdd4afd1f3ccd445219b1b7bbbc0cba8c1",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/PRIOR_DEV_CANONICAL_REMOTE_VERIFICATION.json",
+      "revision": "SELF",
+      "bytes": 22535,
+      "sha256": "71cc8527fc1ff1c36b8e87724227528eeef4f43aa7fd369094e4f6c4e96aaed0",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/README.md",
+      "revision": "SELF",
+      "bytes": 1750,
+      "sha256": "cb5534adfc926a9626809b81bfb05e77d33b4d52510e05044ce108b95ee0ce32",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/RETRY_AT_INTAKE.json",
+      "revision": "SELF",
+      "bytes": 4666,
+      "sha256": "7ad316af6c357a7df759628ab4114e354adf8f136bb196f00b1b781f885cfe11",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/RUNTIME_UNCHANGED.json",
+      "revision": "SELF",
+      "bytes": 21916,
+      "sha256": "581cd5c8e3c7082e8664654f038f272ca5cf3931c982af8ff9cee325453be5d2",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/SINGLE_RETRY_INITIAL_HANDLE.json",
+      "revision": "SELF",
+      "bytes": 374,
+      "sha256": "e3f1f69e15b7532dd81d353dcbc03f624178d5cb1ab7223bfa2b57e569886759",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/SINGLE_RETRY_REQUEST.json",
+      "revision": "SELF",
+      "bytes": 13479,
+      "sha256": "d94422f4919c3e86487293affc6c0075f7ff32410540ffcb1d1c2e13de42b6b7",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/TASK_START.json",
+      "revision": "SELF",
+      "bytes": 1580,
+      "sha256": "8b2e9e4ac0c0161b525e79ad3b8d447ad8987f594249ec7d91fa121a2ace917a",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/audit_validator_units.log",
+      "revision": "SELF",
+      "bytes": 179,
+      "sha256": "3f52ded074a4019389ba95b233022047fdb48456d130c8f9d7e0e101183dd03a",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/authority.log",
+      "revision": "SELF",
+      "bytes": 78,
+      "sha256": "fc1d5e7588db382a330d55f38847a35def7af871256df730494d3d06f3f5cf27",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/coverage_auto.log",
+      "revision": "SELF",
+      "bytes": 80,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/coverage_base.log",
+      "revision": "SELF",
+      "bytes": 80,
+      "sha256": "aa6b491b6cc06022262411a71a4f367e9fbcfe1172a20522f5b28e231256a35b",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+      "revision": "SELF",
+      "bytes": 596700,
+      "sha256": "0459cd8db6b6c86c3c6498f0837e6cd3a99d36ed3045f3288b8b19a677f54ecc",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/README.md",
+      "revision": "SELF",
+      "bytes": 5416,
+      "sha256": "41fc04da548a613127b431cd456f9ebfc9b3d17beffa130fad8ae96b545f13ee",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+      "revision": "SELF",
+      "bytes": 398531,
+      "sha256": "d1f347c37546612055bf0c5722070641235e176b1f7ce669e3ffe5c1433d31e7",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+      "revision": "SELF",
+      "bytes": 2522446,
+      "sha256": "166ebf723dd30d11b218023b3646a3819627a1b9fb1b480e7a7d435de8af12fd",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+      "revision": "SELF",
+      "bytes": 2218504,
+      "sha256": "08ade76674cef78a2e849827e7b9b6416cc88e40c36b3a5b9bbd945547a23296",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json",
+      "revision": "SELF",
+      "bytes": 868511,
+      "sha256": "9334b7dda8f84fe729ab9d43f387dcf6f6354dbb6ac89f3d74e321a3142be1b9",
+      "role": "actual_R147_delivery_incident_or_current_canonical_context"
+    }
+  ],
+  "time": "2026-11-07T02:51:12.559108+00:00"
+}

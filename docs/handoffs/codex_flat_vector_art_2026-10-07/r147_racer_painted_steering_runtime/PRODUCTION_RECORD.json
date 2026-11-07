@@ -4,7 +4,7 @@
   "source_item": "green_steering_pad",
   "family": "opera_racer",
   "artifact_key": "r147_racer_painted_steering_control_runtime",
-  "state": "DEV_CODE_INTEGRATED_SOURCE_CI_GREEN_FORMAL_EXTERNAL_ACCEPTANCE_OPEN",
+  "state": "DEV_BOTH_CI_GREEN_AUTOMATIC_ANDROID_RUNNER_CAPACITY_FAILURE_SINGLE_APPROVED_DEV_RETRY_ACTIVE",
   "source_revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
   "branch": "codex/flat-vector-racer-steering-painted-20261106",
   "source_delivery": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/canonical_source_intake_20261106/SOURCE_REMOTE_VERIFICATION.json",
@@ -132,11 +132,48 @@
   },
   "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/dev_integration_20261107/DEV_INTEGRATION.json",
   "Dev_CI": {
-    "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
     "run": 42321579190,
-    "status": "in_progress",
-    "conclusion": ""
+    "status": "completed",
+    "conclusion": "success",
+    "both_jobs_green": true,
+    "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/DEV_CI_COMPLETED.json"
   },
   "matching_R147_APK": null,
-  "prior_canonical_source_intake_revision": "a3746e4b4e6fea80b2be5be2327f978820ac6478"
+  "prior_canonical_source_intake_revision": "a3746e4b4e6fea80b2be5be2327f978820ac6478",
+  "Android_delivery_observation": {
+    "state": "DEV_BOTH_CI_GREEN_AUTOMATIC_ANDROID_RUNNER_CAPACITY_FAILURE_SINGLE_APPROVED_DEV_RETRY_ACTIVE",
+    "source": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+    "Dev_CI": {
+      "run": 42321579190,
+      "status": "completed",
+      "conclusion": "success",
+      "both_jobs_green": true,
+      "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/DEV_CI_COMPLETED.json"
+    },
+    "automatic_Android": {
+      "run": 42327084093,
+      "conclusion": "failure",
+      "failure": "Actual NoSpace worker IOException",
+      "runtime_checkout_verified": false,
+      "scope": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/AUTO_FAILURE_SCOPE.json"
+    },
+    "retry": {
+      "run": 42330466713,
+      "event": "workflow_dispatch",
+      "source": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "branch": "dev",
+      "status_at_intake": "in_progress",
+      "dispatch_count": 1,
+      "snapshot": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/RETRY_AT_INTAKE.json",
+      "source_guard_and_package_proof": "PENDING; exact source head at dispatch does not itself verify the built package"
+    },
+    "matching_R147_APK": null,
+    "runtime_art_generation_role_family_Dev_native_accepted_delta": 0,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "mission_complete": false,
+    "time": "2026-11-07T02:47:03.697542+00:00"
+  }
 }

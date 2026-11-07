@@ -20,7 +20,7 @@
   "dev_integrated": 47,
   "runtime_verified_replacements_formal": 0,
   "accepted_removed": 0,
-  "revision": "FV-DEV-20261107-R147-PAINTED-STEERING",
+  "revision": "FV-ANDROID-CAPACITY-20261107-R147",
   "inherited_summary": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/898ab3421a20e4ec876e5eb3a5a6a3ba3b706cda/docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/SUMMARY.json",
   "new_roles": 0,
   "new_families": 0,
@@ -7970,7 +7970,7 @@
     "whole_game_total": null,
     "revision": "FV-DEV-20261106-R145-RACER-ZONES-PAINTED-FIXTURE"
   },
-  "current_effective_summary": "48 published bounded source artifacts,47 partial Dev artifacts;282 named roles/36 families remain lower bounds. R147 exact319sourceCI passes bothjobs and actual normalgreenDev integration is verified. Native8109bounded/4419excluded/12528total unchanged; zero newart/frame/role/family/generation credit from this Dev event. MatchingR147APK, formal/natural/fullspeed/device/child/owner remain separate; accepted0, complete0, whole totals unknown.",
+  "current_effective_summary": "48 published bounded source artifacts and 47 partial Dev artifacts; 282 named roles and 36 families remain lower bounds. R147 source and exact Dev CI both pass both jobs. Automatic Android run42327084093 failed with runner NoSpace; one already authorized Dev-only capacity retry42330466713 is active at this snapshot. Its matching APK is not yet verified. Native events remain8109 bounded +4419 excluded =12528. All art, role, family, Dev, generation, native-event and accepted-removal deltas are zero. Formal QA11, natural/full-speed, device, child and owner evidence remain open; accepted0, complete0, whole-game totals unknown.",
   "r145_prior_to_Dev_integration": {
     "revision": "FV-SOURCE-20261106-R145-RACER-ZONES-PAINTED-FIXTURE",
     "current_effective_summary": "46 published bounded source artifacts,44 partial Dev artifacts;281 named roles and36 families remain lower bounds. Retained per-piece events8073 bounded/4398 excluded/12471 total. Accepted removals0, complete scenes0, whole-game totals unknown. R145 source cafce6e8 is published with exact hosted CI running; Dev pending. Formal and external acceptance remain open.",
@@ -8912,7 +8912,7 @@
     "source_item": "green_steering_pad",
     "family": "opera_racer",
     "artifact_key": "r147_racer_painted_steering_control_runtime",
-    "state": "DEV_CODE_INTEGRATED_SOURCE_CI_GREEN_FORMAL_EXTERNAL_ACCEPTANCE_OPEN",
+    "state": "DEV_BOTH_CI_GREEN_AUTOMATIC_ANDROID_RUNNER_CAPACITY_FAILURE_SINGLE_APPROVED_DEV_RETRY_ACTIVE",
     "source_revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
     "branch": "codex/flat-vector-racer-steering-painted-20261106",
     "source_delivery": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/canonical_source_intake_20261106/SOURCE_REMOTE_VERIFICATION.json",
@@ -9040,13 +9040,50 @@
     },
     "Dev_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/dev_integration_20261107/DEV_INTEGRATION.json",
     "Dev_CI": {
-      "revision": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
       "run": 42321579190,
-      "status": "in_progress",
-      "conclusion": ""
+      "status": "completed",
+      "conclusion": "success",
+      "both_jobs_green": true,
+      "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/DEV_CI_COMPLETED.json"
     },
     "matching_R147_APK": null,
-    "prior_canonical_source_intake_revision": "a3746e4b4e6fea80b2be5be2327f978820ac6478"
+    "prior_canonical_source_intake_revision": "a3746e4b4e6fea80b2be5be2327f978820ac6478",
+    "Android_delivery_observation": {
+      "state": "DEV_BOTH_CI_GREEN_AUTOMATIC_ANDROID_RUNNER_CAPACITY_FAILURE_SINGLE_APPROVED_DEV_RETRY_ACTIVE",
+      "source": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "Dev_CI": {
+        "run": 42321579190,
+        "status": "completed",
+        "conclusion": "success",
+        "both_jobs_green": true,
+        "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/DEV_CI_COMPLETED.json"
+      },
+      "automatic_Android": {
+        "run": 42327084093,
+        "conclusion": "failure",
+        "failure": "Actual NoSpace worker IOException",
+        "runtime_checkout_verified": false,
+        "scope": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/AUTO_FAILURE_SCOPE.json"
+      },
+      "retry": {
+        "run": 42330466713,
+        "event": "workflow_dispatch",
+        "source": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+        "branch": "dev",
+        "status_at_intake": "in_progress",
+        "dispatch_count": 1,
+        "snapshot": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/RETRY_AT_INTAKE.json",
+        "source_guard_and_package_proof": "PENDING; exact source head at dispatch does not itself verify the built package"
+      },
+      "matching_R147_APK": null,
+      "runtime_art_generation_role_family_Dev_native_accepted_delta": 0,
+      "formal_QA11": null,
+      "device": null,
+      "child": null,
+      "owner": null,
+      "mission_complete": false,
+      "time": "2026-11-07T02:47:03.697542+00:00"
+    }
   },
   "r147_current_effective_summary": {
     "known_roles": 282,
@@ -9104,5 +9141,41 @@
     "generation_calls": 0,
     "accepted_removed": 0,
     "complete_scenes": 0
+  },
+  "r147_android_delivery_observation": {
+    "state": "DEV_BOTH_CI_GREEN_AUTOMATIC_ANDROID_RUNNER_CAPACITY_FAILURE_SINGLE_APPROVED_DEV_RETRY_ACTIVE",
+    "source": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+    "Dev_CI": {
+      "run": 42321579190,
+      "status": "completed",
+      "conclusion": "success",
+      "both_jobs_green": true,
+      "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/DEV_CI_COMPLETED.json"
+    },
+    "automatic_Android": {
+      "run": 42327084093,
+      "conclusion": "failure",
+      "failure": "Actual NoSpace worker IOException",
+      "runtime_checkout_verified": false,
+      "scope": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/AUTO_FAILURE_SCOPE.json"
+    },
+    "retry": {
+      "run": 42330466713,
+      "event": "workflow_dispatch",
+      "source": "3190412c191589e1b65bc4ebb6f48d18cc4dd400",
+      "branch": "dev",
+      "status_at_intake": "in_progress",
+      "dispatch_count": 1,
+      "snapshot": "docs/handoffs/codex_flat_vector_art_2026-10-07/r147_racer_painted_steering_runtime/android_capacity_retry_20261107/RETRY_AT_INTAKE.json",
+      "source_guard_and_package_proof": "PENDING; exact source head at dispatch does not itself verify the built package"
+    },
+    "matching_R147_APK": null,
+    "runtime_art_generation_role_family_Dev_native_accepted_delta": 0,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "mission_complete": false,
+    "time": "2026-11-07T02:47:03.697542+00:00"
   }
 }

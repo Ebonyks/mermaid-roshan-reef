@@ -57,3 +57,7 @@ Current R82: [local painted-ring touch-feedback reuse](r82_touch_flash_reuse/REA
 ## R147 verified Dev integration
 
 48 published bounded source artifacts,47 partial Dev artifacts;282 named roles/36 families remain lower bounds. R147 exact319sourceCI passes bothjobs and actual normalgreenDev integration is verified. Native8109bounded/4419excluded/12528total unchanged; zero newart/frame/role/family/generation credit from this Dev event. MatchingR147APK, formal/natural/fullspeed/device/child/owner remain separate; accepted0, complete0, whole totals unknown. [Integration record](r147_racer_painted_steering_runtime/dev_integration_20261107/README.md). Earlier source-intake observations remain historical.
+
+## R147 Dev checks and Android retry
+
+48 published bounded source artifacts and 47 partial Dev artifacts; 282 named roles and 36 families remain lower bounds. R147 source and exact Dev CI both pass both jobs. Automatic Android run42327084093 failed with runner NoSpace; one already authorized Dev-only capacity retry42330466713 is active at this snapshot. Its matching APK is not yet verified. Native events remain8109 bounded +4419 excluded =12528. All art, role, family, Dev, generation, native-event and accepted-removal deltas are zero. Formal QA11, natural/full-speed, device, child and owner evidence remain open; accepted0, complete0, whole-game totals unknown. [Delivery observation](r147_racer_painted_steering_runtime/android_capacity_retry_20261107/README.md). Earlier snapshots retain their original scope.
