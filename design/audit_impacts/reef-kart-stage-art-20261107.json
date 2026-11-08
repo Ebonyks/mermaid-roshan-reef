@@ -1,0 +1,100 @@
+{
+  "id": "reef-kart-stage-art-20261107",
+  "baseline": "77252935800b8146694d1eceba930309f7999c8c",
+  "scope": "Four existing PC courses, sixteen zones, room backdrop, projected scenery, shared pickup presentation. Existing room art and roadside pack reused. New original cards fill the unique middle-distance silhouette and pickup visibility gaps. Compare construction with Nintendo course reference, and capture ten scenarios per course in both cameras plus real-time gameplay.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-QA-02",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-OPERA-014",
+    "MA-VIS-008"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets/racer/stage_art_v1/kitchen.png",
+    "assets/racer/stage_art_v1/kitchen.png.import",
+    "assets/racer/stage_art_v1/mermaid_pool.png",
+    "assets/racer/stage_art_v1/mermaid_pool.png.import",
+    "assets/racer/stage_art_v1/opera_hall.png",
+    "assets/racer/stage_art_v1/opera_hall.png.import",
+    "assets/racer/stage_art_v1/pickups.png",
+    "assets/racer/stage_art_v1/pickups.png.import",
+    "assets/racer/stage_art_v1/playroom.png",
+    "assets/racer/stage_art_v1/playroom.png.import",
+    "assets_src/imagegen/reef_kart_stage_art_20261107/.gdignore",
+    "assets_src/imagegen/reef_kart_stage_art_20261107/generation_job.json",
+    "assets_src/imagegen/reef_kart_stage_art_20261107/kitchen_native.png",
+    "assets_src/imagegen/reef_kart_stage_art_20261107/mermaid_pool_native.png",
+    "assets_src/imagegen/reef_kart_stage_art_20261107/opera_hall_native.png",
+    "assets_src/imagegen/reef_kart_stage_art_20261107/pickups_native.png",
+    "assets_src/imagegen/reef_kart_stage_art_20261107/playroom_native.png",
+    "assets_src/imagegen/reef_kart_stage_art_20261107/prepare_atlases.py",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/cycles/reef-kart-stage-art-20261107/.gdignore",
+    "audit/cycles/reef-kart-stage-art-20261107/DELIVERY_MANIFEST.json",
+    "audit/cycles/reef-kart-stage-art-20261107/RUNTIME_EVIDENCE.json",
+    "audit/cycles/reef-kart-stage-art-20261107/drive.gd",
+    "audit/cycles/reef-kart-stage-art-20261107/kitchen.jpg",
+    "audit/cycles/reef-kart-stage-art-20261107/mermaid_pool.jpg",
+    "audit/cycles/reef-kart-stage-art-20261107/opera_hall.jpg",
+    "audit/cycles/reef-kart-stage-art-20261107/playroom.jpg",
+    "audit/cycles/reef-kart-stage-art-20261107/stage-preview.jpg",
+    "audit/cycles/reef-kart-stage-art-20261107/stress.gd",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/STAGE_ART.md",
+    "scripts/racer/reef_kart_floor.gdshader",
+    "scripts/racer/reef_kart_race.gd",
+    "scripts/racer/reef_kart_stage_art.gd",
+    "scripts/racer/reef_kart_stage_art.gd.uid"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2 Mobile stress.gd",
+      "result": "PASS",
+      "evidence": "audit\\cycles\\reef-kart-stage-art-20261107\\RUNTIME_EVIDENCE.json#visual and four labeled runtime boards"
+    },
+    {
+      "command": "Godot 4.7.2 Mobile drive.gd",
+      "result": "PASS",
+      "evidence": "audit\\cycles\\reef-kart-stage-art-20261107\\RUNTIME_EVIDENCE.json#motion"
+    },
+    {
+      "command": "bash scripts/ci.sh plus three isolated reruns of probe_audit",
+      "result": "PASS",
+      "evidence": "audit\\cycles\\reef-kart-stage-art-20261107\\RUNTIME_EVIDENCE.json#full_local_ci. The aggregate initially exited 1 after two Slide assertions. The same probe passed all three reruns."
+    },
+    {
+      "command": "Focused Godot PC and integrated Racer probes",
+      "result": "PASS",
+      "evidence": "audit\\cycles\\reef-kart-stage-art-20261107\\RUNTIME_EVIDENCE.json#focused_probes"
+    },
+    {
+      "command": "python -m gdtoolkit.parser and python -B tools/lint_inference.py",
+      "result": "PASS",
+      "evidence": "Both commands exit zero for changed production and diagnostic GDScript."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py and python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Exact staged packet checks completed before the branch commit."
+    }
+  ],
+  "acceptance_gaps": "Require native Mobile visual captures with solo and both split seats, route and pickup assertions, exact engine and repository gates. Child, physical device and owner acceptance remain separate."
+}

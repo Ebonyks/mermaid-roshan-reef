@@ -15250,3 +15250,23 @@ Racer review evidence below reuses project artwork under each original source's 
 | `audit/cycles/reef-kart-rigid-heads-20261107/go-kart.jpg` | Project race artwork under the original rider and vehicle credits. | Labeled comparison or cropped Godot review capture. |
 | `audit/cycles/reef-kart-rigid-heads-20261107/zoom-cycle.jpg` | Project race artwork under the original rider and vehicle credits. | Labeled comparison or cropped Godot review capture. |
 | `audit/cycles/reef-kart-rigid-heads-20261107/monster-truck.jpg` | Project race artwork under the original rider and vehicle credits. | Labeled comparison or cropped Godot review capture. |
+
+### Reef Grand Prix stage art 2026-11-07
+
+| Path | Source and license | Modifications |
+| --- | --- | --- |
+| `assets_src\imagegen\reef_kart_stage_art_20261107/playroom_native.png` | Built-in OpenAI ImageGen, commissioned for Mermaid Roshan. https://openai.com/policies/terms-of-use/ | Native RGBA source, prompt and input hashes in generation_job.json. |
+| `assets\racer\stage_art_v1/playroom.png` | Corresponding native ImageGen sheet, same provenance. | Isolated alpha contour, lossless atlas export and mipmapped import. |
+| `assets_src\imagegen\reef_kart_stage_art_20261107/kitchen_native.png` | Built-in OpenAI ImageGen, commissioned for Mermaid Roshan. https://openai.com/policies/terms-of-use/ | Native RGBA source, prompt and input hashes in generation_job.json. |
+| `assets\racer\stage_art_v1/kitchen.png` | Corresponding native ImageGen sheet, same provenance. | Isolated alpha contour, lossless atlas export and mipmapped import. |
+| `assets_src\imagegen\reef_kart_stage_art_20261107/mermaid_pool_native.png` | Built-in OpenAI ImageGen, commissioned for Mermaid Roshan. https://openai.com/policies/terms-of-use/ | Native RGBA source, prompt and input hashes in generation_job.json. |
+| `assets\racer\stage_art_v1/mermaid_pool.png` | Corresponding native ImageGen sheet, same provenance. | Isolated alpha contour, lossless atlas export and mipmapped import. |
+| `assets_src\imagegen\reef_kart_stage_art_20261107/opera_hall_native.png` | Built-in OpenAI ImageGen, commissioned for Mermaid Roshan. https://openai.com/policies/terms-of-use/ | Native RGBA source, prompt and input hashes in generation_job.json. |
+| `assets\racer\stage_art_v1/opera_hall.png` | Corresponding native ImageGen sheet, same provenance. | Isolated alpha contour, lossless atlas export and mipmapped import. |
+| `assets_src\imagegen\reef_kart_stage_art_20261107/pickups_native.png` | Built-in OpenAI ImageGen, commissioned for Mermaid Roshan. https://openai.com/policies/terms-of-use/ | Native RGBA source, prompt and input hashes in generation_job.json. |
+| `assets\racer\stage_art_v1/pickups.png` | Corresponding native ImageGen sheet, same provenance. | Isolated alpha contour, lossless atlas export and mipmapped import. |
+| `audit\cycles\reef-kart-stage-art-20261107/kitchen.jpg` | Godot desktop capture of project and derived stage art under the recorded asset credits. | Downscaled and labeled visual stress frames. |
+| `audit\cycles\reef-kart-stage-art-20261107/playroom.jpg` | Godot desktop capture of project and derived stage art under the recorded asset credits. | Downscaled and labeled visual stress frames. |
+| `audit\cycles\reef-kart-stage-art-20261107/mermaid_pool.jpg` | Godot desktop capture of project and derived stage art under the recorded asset credits. | Downscaled and labeled visual stress frames. |
+| `audit\cycles\reef-kart-stage-art-20261107/opera_hall.jpg` | Godot desktop capture of project and derived stage art under the recorded asset credits. | Downscaled and labeled visual stress frames. |
+| `audit/cycles/reef-kart-stage-art-20261107/stage-preview.jpg` | Godot desktop capture of project and derived stage art under the recorded asset credits. | Labeled four-course solo and split-screen comparison. |

@@ -27,6 +27,7 @@ const PCDrive := preload("res://scripts/racer/reef_kart_drive.gd")
 const ItemVoice := preload("res://scripts/racer/reef_kart_item_voice.gd")
 const FloorShader := preload("res://scripts/racer/reef_kart_floor.gdshader")
 const Roadside := preload("res://scripts/racer/reef_kart_roadside.gd")
+const StageArt := preload("res://scripts/racer/reef_kart_stage_art.gd")
 const RoadsidePaint := preload("res://scripts/racer/reef_kart_roadside.gdshader")
 const RiderArt := preload("res://scripts/racer/reef_kart_rider_art.gd")
 
@@ -174,6 +175,7 @@ func setup(options: Dictionary = {}) -> void:
 	track = TrackScript.new(options.get("course", {}))
 	if not track.room.is_empty():
 		track.roadside = Roadside.build(track)
+		StageArt.add_landmarks(track, CAM_BACK, FOCAL)
 		_fascia = load(Roadside.PAINT) as Texture2D
 	_duel = bool(options.get("duel", false))
 	pc_handling = bool(options.get("pc_handling", false))
@@ -344,6 +346,14 @@ func _load_textures() -> void:
 		atlas.region = spec[1]
 		atlas.filter_clip = true
 		_tex[key] = atlas
+	if not track.room.is_empty():
+		var pickups := load(StageArt.ROOT + "pickups.png") as Texture2D
+		for role: String in StageArt.PICKUP_REGIONS:
+			var tile := AtlasTexture.new()
+			tile.atlas = pickups
+			tile.region = StageArt.PICKUP_REGIONS[role]
+			tile.filter_clip = true
+			_tex[role] = tile
 	_landmark_tex.clear()
 	for landmark: Dictionary in track.landmarks:
 		var id := String(landmark["id"])
@@ -1114,13 +1124,14 @@ func _draw_sky() -> void:
 		# Upper architecture only: the room's fixtures now stand in world space.
 		var source := Rect2(source_size * Vector2(clampf(pan, 0.0, 0.30), 0.0), source_size * Vector2(0.70, 0.27))
 		var wall := Rect2(0.0, 0.0, VIEW.x, HORIZON_Y + 2.0)
-		_sky.draw_texture_rect_region(_room_art, wall, source)
+		var light := StageArt.wall_light(track.id, phase)
+		_sky.draw_texture_rect_region(_room_art, wall, source, Color.WHITE.lerp(light, 0.42))
 		var palette: Array = track.room["palette"]
 		var haze: Color = palette[5]
-		var top := wall.end.y - 29.0
+		# Quiet distant architecture leaves room for the grounded set silhouettes.
 		_sky.draw_polygon(PackedVector2Array([
-			Vector2(0, top), Vector2(VIEW.x, top), wall.end, Vector2(0, wall.end.y)]),
-			PackedColorArray([Color(haze, 0), Color(haze, 0), haze, haze]))
+			Vector2.ZERO, Vector2(VIEW.x, 0), wall.end, Vector2(0, wall.end.y)]),
+			PackedColorArray([Color(light, 0.12), Color(light, 0.12), haze, haze]))
 		return
 	_sky.draw_rect(Rect2(Vector2.ZERO, Vector2(VIEW.x, HORIZON_Y + 2.0)), SKY_WATER)
 	var band_y := HORIZON_Y - SKY_BAND + 2.0
@@ -1181,7 +1192,7 @@ func _draw_world() -> void:
 			_queue_drawable(pearl["pos"] as Vector2, "pearl", index)
 	for index in range(track.bubbles.size()):
 		var bubble := track.bubbles[index]
-		if float(bubble["respawn_t"]) <= 0.0:
+		if float(bubble["respawn_t"]) <= 0.0 or not track.room.is_empty():
 			_queue_drawable(bubble["pos"] as Vector2, "bubble", index)
 	for index in range(track.buoys.size()):
 		_queue_drawable(track.buoys[index]["pos"] as Vector2, "buoy", index)
@@ -1213,7 +1224,11 @@ func _draw_world() -> void:
 			"pearl":
 				_draw_pearl(screen, scale)
 			"bubble":
-				_draw_bubble(screen, scale)
+				var ready := float(track.bubbles[int(entry[2])]["respawn_t"]) <= 0.0
+				if not track.room.is_empty():
+					_draw_item_socket(screen, scale, ready)
+				if ready:
+					_draw_bubble(screen, scale)
 			"buoy":
 				_draw_buoy(track.buoys[int(entry[2])], screen, scale)
 			"span":
@@ -1253,15 +1268,36 @@ func _draw_landmark(landmark: Dictionary, screen: Vector2, scale: float) -> void
 		return
 	var bottom := screen.y - float(landmark.get("lift", 0.0)) * scale
 	var grounded := float(landmark.get("lift", 0.0)) == 0.0 or bool(landmark.get("supported", false))
+	var stage_piece := landmark.has("stage_zone")
 	if grounded and (id.begins_with("reef_") or not track.room.is_empty()):
-		_world.draw_set_transform(Vector2(screen.x, bottom), 0.0, Vector2(1.0, 0.16))
-		_world.draw_circle(Vector2.ZERO, size.x * 0.32, Color(0.24, 0.14, 0.31, 0.17), true, -1.0, true)
+		var shadow_y := bottom + (size.x * 0.016 if stage_piece else 0.0)
+		_world.draw_set_transform(Vector2(screen.x, shadow_y), 0.0, Vector2(1.0, 0.16))
+		if stage_piece:
+			_world.draw_circle(Vector2.ZERO, size.x * 0.49, Color(0.24, 0.14, 0.31, 0.12), true, -1.0, true)
+		_world.draw_circle(Vector2.ZERO, size.x * (0.40 if stage_piece else 0.32),
+			Color(0.24, 0.14, 0.31, 0.17), true, -1.0, true)
 		_world.draw_set_transform(Vector2.ZERO)
 	var rect := Rect2(screen.x - size.x * 0.5, bottom - size.y * float(landmark.get("foot_y", 1.0)), size.x, size.y)
 	if bool(landmark.get("flip_h", false)):
 		rect.position.x += rect.size.x
 		rect.size.x = -rect.size.x
-	_world.draw_texture_rect(texture, rect, false)
+	var tint := Color.WHITE
+	if stage_piece:
+		var palette: Array = track.room["palette"]
+		var haze: Color = palette[5]
+		var fog := lerpf(0.08, 0.31, smoothstep(420.0, 1650.0, FOCAL / scale))
+		tint = tint.lerp(haze, fog)
+	_world.draw_texture_rect(texture, rect, false, tint)
+
+
+func _draw_item_socket(screen: Vector2, scale: float, ready: bool) -> void:
+	var role := "socket_lit" if ready else "socket_empty"
+	var socket := _tex.get(role) as Texture2D
+	if socket == null:
+		return
+	var footprint := Vector2(42.0, 15.0) * minf(scale, 3.2)
+	var ink := Color(1.0, 1.0, 1.0, 0.82 if ready else 0.46)
+	_world.draw_texture_rect(socket, Rect2(screen - footprint * 0.5, footprint), false, ink)
 
 
 func _draw_pearl(screen: Vector2, scale: float) -> void:
@@ -1269,7 +1305,12 @@ func _draw_pearl(screen: Vector2, scale: float) -> void:
 		scale = minf(scale, 4.0)
 	var r := maxf(2.0, 7.0 * scale)
 	var at := screen - Vector2(0.0, (11.0 + sin(_time * 3.0) * 2.0) * scale)
-	_world.draw_circle(screen, r * 0.8, Color(0.18, 0.12, 0.3, 0.18))
+	if track.room.is_empty():
+		_world.draw_circle(screen, r * 0.8, Color(0.18, 0.12, 0.3, 0.18))
+	else:
+		_world.draw_set_transform(screen, 0.0, Vector2(1.0, 0.24))
+		_world.draw_circle(Vector2.ZERO, r * 0.96, Color(0.18, 0.12, 0.3, 0.25), true, -1.0, true)
+		_world.draw_set_transform(Vector2.ZERO)
 	if _draw_art("pearl", at, Vector2(r, r) * 2.3):
 		return
 	_world.draw_circle(at, r, Color("#fff4e2"))

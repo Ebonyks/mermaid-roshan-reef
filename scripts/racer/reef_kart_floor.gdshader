@@ -220,5 +220,6 @@ void fragment() {
 	float distance_field = inside ? texture(field, uv).r : 1.0;
 	color = race_markings(world, distance_field, color);
 	float h = smoothstep(haze_start, haze_end, depth);
-	COLOR = vec4(mix(color.rgb, haze.rgb, h * 0.86), 1.0);
+	float room_horizon = room_pattern > 0 ? smoothstep(1500.0, 2550.0, depth) : 0.0;
+	COLOR = vec4(mix(color.rgb, haze.rgb, max(h * 0.86, room_horizon)), 1.0);
 }

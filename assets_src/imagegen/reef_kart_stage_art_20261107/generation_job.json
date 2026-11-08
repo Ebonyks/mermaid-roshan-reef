@@ -1,0 +1,99 @@
+{
+  "date": "2026-11-07",
+  "method": "Built-in OpenAI ImageGen, four project-owned room palette references and one independent collectible brief",
+  "provider_revision": "Built-in model revision and seed were not exposed.",
+  "attempts": 5,
+  "cleanup": "One native sheet per brief. Quadrant isolation, connected matte cleanup, antialiased edge preservation, Lanczos resampling and twelve-pixel atlas cell padding with prepare_atlases.py.",
+  "jobs": {
+    "playroom": {
+      "id": "b8384422-2168-4403-b9c5-7208bae1d6e9",
+      "source": "assets/flats/castle/rooms/room_playroom_background.png",
+      "prompt": "Create a square 2 by 2 source sheet with exactly four individually isolated, complete foreground object clusters on real transparent alpha. Each quadrant is one cluster. Leave at least 7% empty padding on all four sides of each cell, especially at the midlines. No cluster may touch another. Each cluster has a single horizontal support baseline with its whole base visible. No extraneous marks in the alpha, big cast shadows, scene backdrop, floors, roads, vehicles, text, numbers, or characters. These assets are world-anchored decorative landmarks seen at a low camera height from a toy-size kart. Frame them in a gentle mostly-frontal three-quarter view. Match only the provided Mermaid Roshan room palette, soft storybook painted finish, materials, trims and proportions. Strong unique outer silhouette, simple two-tone big forms and neat miniature detail, soft edges and hand-painted surfaces. Avoid hyperreal detail and thick black outlines. A consistent shared light from upper left. Fill each cell with its own subject at similar scale. Pearl Castle Playroom. Use lavender masonry, soft carved gold shells, rosy carpets, teal windows and powder-blue wood. Top left: large colorful wooden building-block castle with three asymmetric turret towers and broad solid toy base. Top right: low rosy reading alcove with a draped canopy, book stacks and oversized teal floor cushions on a platform. Bottom left: two peaked blue-and-gold star-play tents, cloth pennants and a crescent finial on a single wooden platform. Bottom right: a chunky toy clock and train station, one stationary toy engine with big painted wheels and a little clock tower set on one low platform. Each silhouette clearly different.",
+      "source_sha256": "bd0baef94bad5c9257c0ab20d239513bd42ef465584fec6f012d990993ce797b",
+      "native": "assets_src/imagegen/reef_kart_stage_art_20261107/playroom_native.png",
+      "native_sha256": "1d611fd220adc9557c543fdc14ce3965f356ee92c8c2b070b4b542aec1359662",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "runtime": "assets/racer/stage_art_v1/playroom.png",
+      "runtime_sha256": "f8f963d1ca800ea84d4e03e96b6828dd3775a7c4dfef81dfb92b1b5934f9b868",
+      "runtime_dimensions": [
+        1024,
+        1024
+      ]
+    },
+    "kitchen": {
+      "id": "41d15b33-b634-4ca5-a591-d32d0e56c1ff",
+      "source": "assets/flats/castle/rooms/room_kitchen_background.png",
+      "prompt": "Create a square 2 by 2 source sheet with exactly four individually isolated, complete foreground object clusters on real transparent alpha. Each quadrant is one cluster. Leave at least 7% empty padding on all four sides of each cell, especially at the midlines. No cluster may touch another. Each cluster has a single horizontal support baseline with its whole base visible. No extraneous marks in the alpha, big cast shadows, scene backdrop, floors, roads, vehicles, text, numbers, or characters. These assets are world-anchored decorative landmarks seen at a low camera height from a toy-size kart. Frame them in a gentle mostly-frontal three-quarter view. Match only the provided Mermaid Roshan room palette, soft storybook painted finish, materials, trims and proportions. Strong unique outer silhouette, simple two-tone big forms and neat miniature detail, soft edges and hand-painted surfaces. Avoid hyperreal detail and thick black outlines. A consistent shared light from upper left. Fill each cell with its own subject at similar scale. Mermaid castle kitchen. Purple masonry, honey stone, turquoise painted cabinetry, copper and sea-glass. Top left: broad tall shell-shaped copper bakehouse oven with chimney and teal tiled base, small warm oven glow. Top right: wide turquoise washing station with two scalloped sinks, plate drying rack and rising coral-shaped copper taps. Bottom left: narrow tall violet pantry hutch with stacked colorful preserve jars and cream shell trim, pantry ladder tucked against it. Bottom right: two rounded turquoise and lilac tea kettles on a scalloped tea buffet, golden hanging cups under a small tea canopy. Distinct wide/tall/arched contours.",
+      "source_sha256": "b58bd03a394717ebff381d76e4cb7d03410a463b7b30d2a58065be5a4df8c065",
+      "native": "assets_src/imagegen/reef_kart_stage_art_20261107/kitchen_native.png",
+      "native_sha256": "2baf51836b1b4025696671f3e0e8c13444d0e38504d461b9a3de01d8b5552f24",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "runtime": "assets/racer/stage_art_v1/kitchen.png",
+      "runtime_sha256": "8d13bc49877935fe40515439151b9e8d074ae9b8f4c25c03a942338edd67be4c",
+      "runtime_dimensions": [
+        1024,
+        1024
+      ]
+    },
+    "mermaid_pool": {
+      "id": "2f343295-ed1c-4069-9cf9-391373ba98da",
+      "source": "assets/flats/castle/rooms/room_mermaid_pool_background.png",
+      "prompt": "Create a square 2 by 2 source sheet with exactly four individually isolated, complete foreground object clusters on real transparent alpha. Each quadrant is one cluster. Leave at least 7% empty padding on all four sides of each cell, especially at the midlines. No cluster may touch another. Each cluster has a single horizontal support baseline with its whole base visible. No extraneous marks in the alpha, big cast shadows, scene backdrop, floors, roads, vehicles, text, numbers, or characters. These assets are world-anchored decorative landmarks seen at a low camera height from a toy-size kart. Frame them in a gentle mostly-frontal three-quarter view. Match only the provided Mermaid Roshan room palette, soft storybook painted finish, materials, trims and proportions. Strong unique outer silhouette, simple two-tone big forms and neat miniature detail, soft edges and hand-painted surfaces. Avoid hyperreal detail and thick black outlines. A consistent shared light from upper left. Fill each cell with its own subject at similar scale. Mermaid Pool. Palette of violet stone, peach shell frames, brilliant glassy turquoise and coral. Top left: arched changing cabanas with folded colorful towels stacked on an integrated bench and cream shell crests. Top right: tall seahorse fountain with a turquoise bowl and cream stone steps on a substantial low stepped plinth. Bottom left: two giant aquatic lily flowers with pink and mint leaves in staggered heights on a low rounded pool island with peach coping, the island base has a clean visible edge. Bottom right: tallest rainbow waterfall grotto, a broad violet cave arch with a blue waterfall and faint rainbow highlights, rooted into a visible shell-trimmed turquoise splash basin. Each vignette a freestanding supported landmark.",
+      "source_sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+      "native": "assets_src/imagegen/reef_kart_stage_art_20261107/mermaid_pool_native.png",
+      "native_sha256": "b01ed864e37d1f4ab8bcbc56579bce8dcb80b968b90185e4a8f232e9804049b2",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "runtime": "assets/racer/stage_art_v1/mermaid_pool.png",
+      "runtime_sha256": "79461a202f09d892e4b790c04752539eda4d08b8eb1c50cff5a92336c886eb98",
+      "runtime_dimensions": [
+        1024,
+        1024
+      ]
+    },
+    "opera_hall": {
+      "id": "cfd10b25-a3c9-41d2-b5f3-8a9abc103996",
+      "source": "assets/flats/castle/rooms/room_opera_hall_background.png",
+      "prompt": "Create a square 2 by 2 source sheet with exactly four individually isolated, complete foreground object clusters on real transparent alpha. Each quadrant is one cluster. Leave at least 7% empty padding on all four sides of each cell, especially at the midlines. No cluster may touch another. Each cluster has a single horizontal support baseline with its whole base visible. No extraneous marks in the alpha, big cast shadows, scene backdrop, floors, roads, vehicles, text, numbers, or characters. These assets are world-anchored decorative landmarks seen at a low camera height from a toy-size kart. Frame them in a gentle mostly-frontal three-quarter view. Match only the provided Mermaid Roshan room palette, soft storybook painted finish, materials, trims and proportions. Strong unique outer silhouette, simple two-tone big forms and neat miniature detail, soft edges and hand-painted surfaces. Avoid hyperreal detail and thick black outlines. A consistent shared light from upper left. Fill each cell with its own subject at similar scale. Mermaid Opera Hall. Royal violet stone, gold shell trim, lavender curtains, navy celestial decoration. Top left: broad curved opera box balcony on two full-height gold shell columns, red-violet swags, complete low footing. Top right: tall fantasy pipe organ with gold and coral pipes stepped in height, lilac cabinet and visible base. Bottom left: wide open gold proscenium standing on a low base, rich purple gathered curtains, large shell at top, dark empty opening, muted warm footlights. Bottom right: backstage moon and star props leaning inside a painted rolling theatrical frame with lavender folded wings and small blue crates on the common platform. Distinct silhouettes.",
+      "source_sha256": "ebd074ac85a1b7d479eada4f49e0000690a9e96576a8ae1370525fe68e08116f",
+      "native": "assets_src/imagegen/reef_kart_stage_art_20261107/opera_hall_native.png",
+      "native_sha256": "b0410384b95f73d027c53f3b2ddefda69374adda7a3a74105ea7c3fd0c7b8a7d",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "runtime": "assets/racer/stage_art_v1/opera_hall.png",
+      "runtime_sha256": "dec0de39da2a032d5fab359da66e96c729a867ff5b585768a346ea714944bfe3",
+      "runtime_dimensions": [
+        1024,
+        1024
+      ]
+    },
+    "pickups": {
+      "id": "c77d88a6-9b32-4e26-8fe6-ff0427b1b6b1",
+      "source": null,
+      "prompt": "Make a square source sprite sheet, strictly four independent transparent-alpha cells separated by broad gutters. No writing, faces, characters, stars, sparkle particles outside forms, arrows, cast shadows, floor, frame around the sheet, or border. These are four extremely clear collectible illustrations for the hand-painted 2D storybook Mermaid Roshan game. A kart collects the first two; instantly distinct at tiny screen size. Use soft storybook paint with clearly separated bold value blocks, readable silhouette, upper left lighting. Top left only: an almost square bold teal-and-indigo sea glass capsule with a raised ivory scallop shell emblem and warm gold clasp at center, crisp dark plum contour, slightly angled three-quarter front, buoyant and magical. Top right only: one large fully round warm ivory treasure pearl, lit creamy yellow, clearly round with no surrounding shell, small gold rim around bottom, dark amber edge for contrast. Bottom left only: subdued flat empty round teal-and-purple rim, an unlit socket facing directly upward as viewed from 30 degrees, transparent central opening. Bottom right only: the same ring from the same view glowing in turquoise with gold rim, open center. Each object is whole and isolated with no touching the neighboring tile; large empty alpha margin around every quadrant.",
+      "source_sha256": null,
+      "native": "assets_src/imagegen/reef_kart_stage_art_20261107/pickups_native.png",
+      "native_sha256": "0ce72bb3a7d2f4c9350dbdfae111c4997df7aa5007bd9f26f721529bab1bc01a",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "runtime": "assets/racer/stage_art_v1/pickups.png",
+      "runtime_sha256": "7b2e9a0d83f376b65f4e5efea75c260fe314986d29d350096a473a38dc298e63",
+      "runtime_dimensions": [
+        512,
+        512
+      ]
+    }
+  }
+}

@@ -1,0 +1,984 @@
+{
+  "baseline": "77252935800b8146694d1eceba930309f7999c8c",
+  "engine": "Godot 4.7.2 stable ed1daf0bf Vulkan Mobile",
+  "visual": {
+    "cases": 80,
+    "frames": 240,
+    "assertion_failures": 0,
+    "renderer": "Vulkan Mobile, GeForce RTX 3060 Ti",
+    "native_frame_size": [
+      1280,
+      720
+    ],
+    "poses_per_case": 3,
+    "courses": 4,
+    "modes": [
+      "solo",
+      "split-screen"
+    ],
+    "stress_log_sha256": "e6333413f481207e362eba3b6639f7cea0ad4f6e6e2656a52e8d72f4ef5d3db7",
+    "assertions_passed": 116,
+    "boards": {
+      "playroom": "c7162488362321905b3418d9d17f6a537b6536a462b923403d58c48165f4566e",
+      "kitchen": "13ae9e5d233dd384b4cc50cd9b55dbc03d4635799fb58b9890abfcd1c52697dc",
+      "mermaid_pool": "f4214f13602c31fe701128ac0b502bc722faac1a9dafa521b8263b3ddeaa9ee5",
+      "opera_hall": "cfe6d2c9e9cd3f5b237c40e29c6a635199ef69ead5a92b73cccd692ba14f431b"
+    },
+    "review": "All 240 frames visually reviewed in the four contact sheets, with representative 640x360 crops inspected at full review size. All sixteen zone approaches and both seats preserve readable lanes and visibly different foreground, set-piece and back-wall layers."
+  },
+  "motion": {
+    "result": "PASS",
+    "method": "Normal garage, countdown, input-only steering and gas, two laps per leg, no frame stepping",
+    "finish_count": 8,
+    "log_sha256": "a5f949bcd84e90558e8e27e5eabf35cc3c91bfd15e6df5eb877e5d48c8af81d8",
+    "legs": [
+      {
+        "course": "kitchen",
+        "players": 1,
+        "finish": true,
+        "winner_slot": 0,
+        "attempts": 2,
+        "frames": 46,
+        "wall_seconds": 100.364,
+        "median_sampled_race_fps": 60.0,
+        "voice_streams_observed": [
+          "res://assets/audio/objective_guides/guide_kart_kelp.ogg",
+          "res://assets/audio/objective_guides/guide_kart_pearls.ogg",
+          "res://assets/audio/objective_guides/guide_kart_zoom.ogg"
+        ],
+        "seats": [
+          {
+            "slot": 1,
+            "zones": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "top_sampled_speed": 318.2,
+            "item_awards": [
+              "zoom",
+              "zoom",
+              "kelp",
+              "pearls",
+              "pearls",
+              "kelp",
+              "zoom",
+              "zoom",
+              "kelp",
+              "zoom",
+              "zoom",
+              "kelp",
+              "pearls",
+              "pearls"
+            ],
+            "zero_based_lap_zone_pairs": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "laps_completed_before_finish": 2
+          }
+        ],
+        "raw_telemetry_sha256": "e62381815543f35b6fdd140cb795017d8389cf20f7924e0b638135c5ab5675ff"
+      },
+      {
+        "course": "kitchen",
+        "players": 2,
+        "finish": true,
+        "winner_slot": 0,
+        "attempts": 1,
+        "frames": 23,
+        "wall_seconds": 48.634,
+        "median_sampled_race_fps": 60.0,
+        "voice_streams_observed": [
+          "res://assets/audio/objective_guides/guide_kart_kelp.ogg",
+          "res://assets/audio/objective_guides/guide_kart_pearls.ogg",
+          "res://assets/audio/objective_guides/guide_kart_zoom.ogg"
+        ],
+        "seats": [
+          {
+            "slot": 1,
+            "zones": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "top_sampled_speed": 304.2,
+            "item_awards": [
+              "zoom",
+              "kelp",
+              "kelp",
+              "pearls",
+              "kelp",
+              "pearls",
+              "pearls"
+            ],
+            "zero_based_lap_zone_pairs": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "laps_completed_before_finish": 2
+          },
+          {
+            "slot": 2,
+            "zones": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "top_sampled_speed": 317.3,
+            "item_awards": [
+              "zoom",
+              "pearls",
+              "pearls",
+              "zoom",
+              "zoom",
+              "pearls",
+              "sparkle"
+            ],
+            "zero_based_lap_zone_pairs": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "laps_completed_before_finish": 1
+          }
+        ],
+        "raw_telemetry_sha256": "a52739aa3a376a499a93d97ebc0e63b96622fb2dc12ccd76eedcfb22a377f59b"
+      },
+      {
+        "course": "mermaid_pool",
+        "players": 1,
+        "finish": true,
+        "winner_slot": 0,
+        "attempts": 2,
+        "frames": 86,
+        "wall_seconds": 191.95,
+        "median_sampled_race_fps": 60.0,
+        "voice_streams_observed": [
+          "res://assets/audio/objective_guides/guide_kart_kelp.ogg",
+          "res://assets/audio/objective_guides/guide_kart_pearls.ogg",
+          "res://assets/audio/objective_guides/guide_kart_sparkle.ogg",
+          "res://assets/audio/objective_guides/guide_kart_zoom.ogg"
+        ],
+        "seats": [
+          {
+            "slot": 1,
+            "zones": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "top_sampled_speed": 319.3,
+            "item_awards": [
+              "zoom",
+              "zoom",
+              "pearls",
+              "kelp",
+              "zoom",
+              "zoom",
+              "kelp",
+              "kelp",
+              "sparkle",
+              "zoom",
+              "zoom",
+              "kelp",
+              "zoom",
+              "pearls",
+              "pearls",
+              "pearls",
+              "pearls",
+              "pearls"
+            ],
+            "zero_based_lap_zone_pairs": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "laps_completed_before_finish": 2
+          }
+        ],
+        "raw_telemetry_sha256": "640ef7d2af1c0b157d317728238a242b1310f3310b4f4e290b8ac6c44631242d"
+      },
+      {
+        "course": "mermaid_pool",
+        "players": 2,
+        "finish": true,
+        "winner_slot": 1,
+        "attempts": 1,
+        "frames": 44,
+        "wall_seconds": 97.031,
+        "median_sampled_race_fps": 60.0,
+        "voice_streams_observed": [
+          "res://assets/audio/objective_guides/guide_kart_kelp.ogg",
+          "res://assets/audio/objective_guides/guide_kart_pearls.ogg",
+          "res://assets/audio/objective_guides/guide_kart_zoom.ogg"
+        ],
+        "seats": [
+          {
+            "slot": 1,
+            "zones": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "top_sampled_speed": 305.2,
+            "item_awards": [
+              "zoom",
+              "pearls",
+              "sparkle",
+              "pearls",
+              "sparkle",
+              "zoom",
+              "pearls",
+              "sparkle",
+              "pearls"
+            ],
+            "zero_based_lap_zone_pairs": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "laps_completed_before_finish": 1
+          },
+          {
+            "slot": 2,
+            "zones": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "top_sampled_speed": 318.8,
+            "item_awards": [
+              "zoom",
+              "kelp",
+              "zoom",
+              "sparkle",
+              "zoom",
+              "sparkle",
+              "pearls",
+              "zoom",
+              "pearls"
+            ],
+            "zero_based_lap_zone_pairs": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "laps_completed_before_finish": 2
+          }
+        ],
+        "raw_telemetry_sha256": "391a689c10c05e558b0be2111c869eb5f1c08b145fa8c943e8d6bafaa0e07ea7"
+      },
+      {
+        "course": "opera_hall",
+        "players": 1,
+        "finish": true,
+        "winner_slot": 0,
+        "attempts": 1,
+        "frames": 43,
+        "wall_seconds": 101.017,
+        "median_sampled_race_fps": 60.0,
+        "voice_streams_observed": [
+          "res://assets/audio/objective_guides/guide_kart_kelp.ogg",
+          "res://assets/audio/objective_guides/guide_kart_pearls.ogg",
+          "res://assets/audio/objective_guides/guide_kart_sparkle.ogg",
+          "res://assets/audio/objective_guides/guide_kart_zoom.ogg"
+        ],
+        "seats": [
+          {
+            "slot": 1,
+            "zones": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "top_sampled_speed": 324.3,
+            "item_awards": [
+              "zoom",
+              "pearls",
+              "zoom",
+              "pearls",
+              "sparkle",
+              "zoom",
+              "kelp",
+              "sparkle",
+              "sparkle"
+            ],
+            "zero_based_lap_zone_pairs": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "laps_completed_before_finish": 2
+          }
+        ],
+        "raw_telemetry_sha256": "91636766532916f356f868ba5d0cd0725e5abe8e47f25fa72ede069dc876fc77"
+      },
+      {
+        "course": "opera_hall",
+        "players": 2,
+        "finish": true,
+        "winner_slot": 1,
+        "attempts": 1,
+        "frames": 41,
+        "wall_seconds": 89.608,
+        "median_sampled_race_fps": 60.0,
+        "voice_streams_observed": [
+          "res://assets/audio/objective_guides/guide_kart_kelp.ogg",
+          "res://assets/audio/objective_guides/guide_kart_pearls.ogg",
+          "res://assets/audio/objective_guides/guide_kart_zoom.ogg"
+        ],
+        "seats": [
+          {
+            "slot": 1,
+            "zones": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "top_sampled_speed": 305.0,
+            "item_awards": [
+              "zoom",
+              "pearls",
+              "zoom",
+              "zoom",
+              "sparkle",
+              "sparkle",
+              "pearls",
+              "sparkle",
+              "kelp"
+            ],
+            "zero_based_lap_zone_pairs": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "laps_completed_before_finish": 1
+          },
+          {
+            "slot": 2,
+            "zones": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "top_sampled_speed": 304.8,
+            "item_awards": [
+              "zoom",
+              "kelp",
+              "pearls",
+              "pearls",
+              "kelp",
+              "kelp",
+              "zoom",
+              "pearls",
+              "sparkle"
+            ],
+            "zero_based_lap_zone_pairs": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "laps_completed_before_finish": 2
+          }
+        ],
+        "raw_telemetry_sha256": "ef82fceaaef83fb27836a2d60deaf2c87a10e1f4d494a9ca0359d8042a762abe"
+      },
+      {
+        "course": "playroom",
+        "players": 1,
+        "finish": true,
+        "winner_slot": 0,
+        "attempts": 1,
+        "frames": 14,
+        "wall_seconds": 27.933,
+        "median_sampled_race_fps": 60.0,
+        "voice_streams_observed": [
+          "res://assets/audio/objective_guides/guide_kart_kelp.ogg",
+          "res://assets/audio/objective_guides/guide_kart_pearls.ogg",
+          "res://assets/audio/objective_guides/guide_kart_sparkle.ogg",
+          "res://assets/audio/objective_guides/guide_kart_zoom.ogg"
+        ],
+        "seats": [
+          {
+            "slot": 1,
+            "zones": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "top_sampled_speed": 316.2,
+            "item_awards": [
+              "zoom",
+              "sparkle",
+              "kelp",
+              "pearls",
+              "zoom"
+            ],
+            "zero_based_lap_zone_pairs": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "laps_completed_before_finish": 2
+          }
+        ],
+        "raw_telemetry_sha256": "10dad761c027fde8554ebca3e7004d9f1ff2a3ebb0e900e1821d11b0bb57ec2b"
+      },
+      {
+        "course": "playroom",
+        "players": 2,
+        "finish": true,
+        "winner_slot": 1,
+        "attempts": 1,
+        "frames": 14,
+        "wall_seconds": 28.601,
+        "median_sampled_race_fps": 60.0,
+        "voice_streams_observed": [
+          "res://assets/audio/objective_guides/guide_kart_kelp.ogg",
+          "res://assets/audio/objective_guides/guide_kart_pearls.ogg",
+          "res://assets/audio/objective_guides/guide_kart_zoom.ogg"
+        ],
+        "seats": [
+          {
+            "slot": 1,
+            "zones": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "top_sampled_speed": 315.8,
+            "item_awards": [
+              "zoom",
+              "zoom",
+              "zoom",
+              "sparkle",
+              "pearls"
+            ],
+            "zero_based_lap_zone_pairs": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "laps_completed_before_finish": 1
+          },
+          {
+            "slot": 2,
+            "zones": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "top_sampled_speed": 300.5,
+            "item_awards": [
+              "zoom",
+              "zoom",
+              "sparkle",
+              "kelp",
+              "sparkle"
+            ],
+            "zero_based_lap_zone_pairs": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "laps_completed_before_finish": 2
+          }
+        ],
+        "raw_telemetry_sha256": "f42464833619adf26a6e34fee0d25497d8d6dba9759272ce5f2ff5bfc4ffd6c3"
+      }
+    ]
+  },
+  "full_local_ci": {
+    "result": "PASS_WITH_ISOLATED_RETRY",
+    "command": "bash scripts/ci.sh",
+    "suite_exit_code": 1,
+    "suite_log_sha256": "16d3c90b429599c6dfcf9fc80d591d429870fd80a258d3b657a068a2e17a032a",
+    "probe_count": 82,
+    "zero_exit_probes": [
+      "probe_reef_districts",
+      "probe_ocean_kingdoms",
+      "probe_audit",
+      "probe_passive",
+      "probe_living_world",
+      "probe_load",
+      "probe_rank",
+      "probe_save_recovery",
+      "probe_galaxy_state",
+      "probe_collection",
+      "probe_mg2d",
+      "probe_fetch",
+      "probe_melody",
+      "probe_dolls",
+      "probe_seek",
+      "probe_audio",
+      "probe_dance",
+      "probe_l2",
+      "probe_l2_living_cards",
+      "probe_sky_lagoon_animals",
+      "probe_l2_reenter",
+      "probe_crown",
+      "probe_throne",
+      "probe_northern",
+      "probe_human_art_audit",
+      "probe_train",
+      "probe_verbs",
+      "probe_skins",
+      "probe_touch_router",
+      "probe_touch_stress",
+      "probe_interaction",
+      "probe_touch_adversary",
+      "probe_touch_look",
+      "probe_ui_system",
+      "probe_voice",
+      "probe_day_one_voice",
+      "probe_day_one_d8_revisits",
+      "probe_day_one_handoffs",
+      "probe_kart_feel",
+      "probe_combat",
+      "probe_dust_bunny",
+      "probe_dust_bunny_boss",
+      "probe_dust_boss",
+      "probe_hit",
+      "probe_partner",
+      "probe_combat_tutorial",
+      "probe_imp_ai",
+      "probe_mic",
+      "probe_stuffie",
+      "probe_dungeon",
+      "probe_ember",
+      "probe_opera",
+      "probe_opera_2d",
+      "probe_opera_diegetic_paths",
+      "probe_opera_detective",
+      "probe_opera_pipe",
+      "probe_opera_nursery",
+      "probe_opera_gesture_quality",
+      "probe_kitchen_props",
+      "probe_bathroom_props",
+      "probe_castle_door_language",
+      "probe_bathroom_integration",
+      "probe_day_one_bathroom_bunny",
+      "probe_day_one_bathroom_cleanup",
+      "probe_day_one_bathroom_movie_handoff",
+      "probe_day_one_director",
+      "probe_day_one_integration",
+      "probe_day_one_pool_cleanup",
+      "probe_day_one_art_attack_state",
+      "probe_day_one_castle_dressing",
+      "probe_day_one_story_clips",
+      "probe_chapter2",
+      "probe_chapter2_farmer_resume",
+      "probe_chapter2_lawn",
+      "probe_alpha_milestone_save",
+      "probe_dust_boss_balance",
+      "probe_start_menu_routing",
+      "probe_start_menu_new_game",
+      "probe_castle_pool_life_2d",
+      "probe_castle_pearl_art",
+      "probe_fairy_art",
+      "probe_props"
+    ],
+    "initial_failures": [
+      "probe_audit Slide opening black-cover touch neutral and return-poll vocabulary"
+    ],
+    "retry_command": "Godot 4.7.2 --headless -s scripts/probe_audit.gd -- --touch --classic-touch-test with fresh per-run data",
+    "retry_results": [
+      {
+        "attempt": 1,
+        "result": "PASS",
+        "log_sha256": "1459431de7f7bbb4d7e949695f97fa9ecd7f4819fde5286aac82cbce22052819"
+      },
+      {
+        "attempt": 2,
+        "result": "PASS",
+        "log_sha256": "546d092437842fb60d43684a9d0dfa6519e0201379fa3aff6cae01d35fb0708d"
+      },
+      {
+        "attempt": 3,
+        "result": "PASS",
+        "log_sha256": "6db28faaaad918ec55573aaf62191c211690c2685b13e0894905b8ed6273d5f0"
+      }
+    ]
+  },
+  "focused_probes": [
+    {
+      "script": "scripts/probe_reef_kart_pc.gd",
+      "pass_lines": 65,
+      "log_sha256": "65835e6a4714333f5e6ba314c102c77f476ba4977b95655f33af7aa5341c9968"
+    },
+    {
+      "script": "scripts/probe_racer_integration.gd",
+      "pass_lines": 50,
+      "log_sha256": "55b6bd372d7e73f23cd0ac48b9c96b797cc02a1369b07a15ecdf58a8df05c046"
+    }
+  ],
+  "outstanding": [
+    "Physical USB and Bluetooth controller hardware",
+    "Android performance and touch",
+    "Child readability and observed play",
+    "Owner visual acceptance"
+  ]
+}
