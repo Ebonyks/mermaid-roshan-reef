@@ -5,7 +5,9 @@ extends Control
 signal close_requested
 
 const ROUTE_ID := "opera_bubble_duel"
-const POOL := preload("res://assets/flats/castle/interactions_v4/backgrounds/room_mermaid_pool_background.png")
+const POOL_TILE_PATH := "res://assets/opera/bubble_duel_v2/pool_tiles/pool_r%d_c%d.png"
+const POOL_TILE_SIZE := Vector2(910, 1024)
+const POOL_NATIVE_SIZE := Vector2(3640, 2048)
 const BUBBLES := preload("res://assets/opera/bubble_duel_v2/bubble.png")
 const BUBBLE_REGION := Rect2(0, 0, 256, 256)
 const ITEMS := preload("res://assets/opera/bubble_duel_v2/items.png")
@@ -57,6 +59,7 @@ var menu: Control
 var status_label: Label
 var heading: Label
 var hint: Label
+var pool_art: Node2D
 var bubble: AtlasTexture
 var elapsed := 0.0
 var active_time := 0.0
@@ -101,6 +104,21 @@ func setup(owner_main: ReefMain) -> void:
 		icon.filter_clip = true
 		item_icons.append(icon)
 	title_style = _title_panel()
+	pool_art = Node2D.new()
+	pool_art.name = "ArenaPainting"
+	pool_art.show_behind_parent = true
+	add_child(pool_art)
+	for row: int in range(2):
+		for column: int in range(4):
+			var tile := Sprite2D.new()
+			tile.name = "PoolTile%d%d" % [row, column]
+			tile.texture = load(POOL_TILE_PATH % [row, column]) as Texture2D
+			tile.centered = false
+			tile.region_enabled = true
+			tile.region_rect = Rect2(Vector2.ZERO, POOL_TILE_SIZE)
+			tile.region_filter_clip_enabled = true
+			tile.position = Vector2(column, row) * POOL_TILE_SIZE
+			pool_art.add_child(tile)
 	bubble = AtlasTexture.new()
 	bubble.atlas = BUBBLES
 	bubble.region = BUBBLE_REGION
@@ -114,6 +132,7 @@ func setup(owner_main: ReefMain) -> void:
 	power_button.position = Vector2(48, 292)
 	power_button.size = Vector2(124, 124)
 	StorybookUI.style_picture_button(power_button)
+	StorybookUI.paint_button_surface(power_button)
 	power_button.button_down.connect(_activate_power)
 	power_button.button_up.connect(func() -> void: world.queue_power(0, false, false))
 	power_button.hide()
@@ -137,6 +156,7 @@ func setup(owner_main: ReefMain) -> void:
 	second_power_button.position = Vector2(1108, 292)
 	second_power_button.size = Vector2(124, 124)
 	StorybookUI.style_picture_button(second_power_button)
+	StorybookUI.paint_button_surface(second_power_button)
 	second_power_button.button_down.connect(func() -> void: duo.activate(1))
 	second_power_button.button_up.connect(func() -> void: world.queue_power(1, false, false))
 	second_power_button.hide()
@@ -184,6 +204,7 @@ func _card(title: String, art: Texture2D, at: Vector2, action: Callable,
 	button.size = dimensions
 	button.tooltip_text = title
 	StorybookUI.style_picture_button(button)
+	StorybookUI.paint_button_surface(button)
 	button.pressed.connect(action)
 	menu.add_child(button)
 	var picture := TextureRect.new()
@@ -199,12 +220,13 @@ func _card(title: String, art: Texture2D, at: Vector2, action: Callable,
 	button.add_child(picture)
 	var caption := Label.new()
 	caption.text = title
-	caption.position = Vector2(6, dimensions.y - (92 if multiline else 62))
-	caption.size = Vector2(dimensions.x - 12, 88 if multiline else 58)
+	caption.position = Vector2(14, dimensions.y - (88 if multiline else 61))
+	caption.size = Vector2(dimensions.x - 28, 76 if multiline else 49)
+	caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	caption.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	StorybookUI.style_label(caption, 20)
+	StorybookUI.style_label(caption, 18 if multiline else 20)
 	button.add_child(caption)
 	return button
 
@@ -372,8 +394,9 @@ func _build_pads() -> void:
 		pad.size = Duo.PADS[player].size
 		pad.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		StorybookUI.style_picture_button(pad)
-		pad.text = "←  ↑  →"
-		pad.add_theme_font_size_override("font_size", 30)
+		StorybookUI.paint_button_surface(pad)
+		pad.text = "←   ↑   →"
+		pad.add_theme_font_size_override("font_size", 34)
 		menu.add_child(pad)
 		var guide := TextureRect.new()
 		guide.texture = HAND
@@ -639,16 +662,6 @@ func _draw() -> void:
 	var view: Vector2 = get_viewport_rect().size
 	var offset: Vector2 = position / scale.x
 	var canvas := Rect2(-offset, view / scale.x)
-	var native: Vector2 = POOL.get_size()
-	var aspect: float = canvas.size.x / canvas.size.y
-	var source := Rect2(Vector2.ZERO, native)
-	if aspect >= native.x / native.y:
-		var crop_height: float = native.x / aspect
-		source = Rect2(0, (native.y - crop_height) * 0.5, native.x, crop_height)
-	else:
-		var crop_width: float = native.y * aspect
-		source = Rect2((native.x - crop_width) * 0.5, 0, crop_width, native.y)
-	draw_texture_rect_region(POOL, canvas, source)
 	draw_rect(canvas, Color(0.05, 0.20, 0.30, 0.11))
 	if mode in [Mode.HUB, Mode.SHOP, Mode.SETUP, Mode.PICKER, Mode.CELEBRATE]:
 		draw_style_box(title_style, Rect2(170, 12, 940, 125))
@@ -674,6 +687,10 @@ func _fit_view() -> void:
 	var factor := minf(view.x / 1280.0, view.y / 720.0)
 	scale = Vector2.ONE * factor
 	position = (view - size * factor) * 0.5
+	var canvas := Rect2(-position / factor, view / factor)
+	var art_scale := maxf(canvas.size.x / POOL_NATIVE_SIZE.x, canvas.size.y / POOL_NATIVE_SIZE.y)
+	pool_art.scale = Vector2.ONE * art_scale
+	pool_art.position = canvas.get_center() - POOL_NATIVE_SIZE * art_scale * 0.5
 
 
 func _title_panel() -> StyleBoxFlat:

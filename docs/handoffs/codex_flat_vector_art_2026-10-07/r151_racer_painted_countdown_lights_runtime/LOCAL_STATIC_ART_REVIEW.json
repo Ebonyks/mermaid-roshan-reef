@@ -1,0 +1,27 @@
+{
+  "state": "PASS_LOCAL_AI_STATIC_OBJECT_ELIGIBILITY_ONLY",
+  "stable_id": "FVR-F34602134988",
+  "reviewer": {
+    "kind": "ai",
+    "id": "Codex root configured native comparison"
+  },
+  "candidate_sha256": "bf0bb770d0ee2b4855db7d34de0eb2bd3a317ab94b9ac562d0f2223388662e61",
+  "threshold": 4.5,
+  "dimensions": {
+    "identity": 4.7,
+    "finish": 4.6,
+    "edges": 4.5,
+    "readability": 4.6,
+    "ownership": 4.6,
+    "consistency": 4.6,
+    "technical": 4.7,
+    "animation": null
+  },
+  "minimum_applicable": 4.5,
+  "animation_na_reason": "Two static authored lens states on the existing countdown timer. Configured captures verify their order and do not confer full-speed acceptance.",
+  "observations": "The quiet blue lens and luminous amber face are distinct in the inspected full frames. The stable rim avoids visual movement as the lens changes.",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null
+}

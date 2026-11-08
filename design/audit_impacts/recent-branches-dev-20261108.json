@@ -1,0 +1,51 @@
+{
+  "id": "recent-branches-dev-20261108",
+  "scope": "Integrate the published Racer countdown artwork and Bubble Duel presentation repairs into the current shared dev base. Reconcile the append-only license ledger while preserving both topics' runtime, art, source and audit evidence.",
+  "baseline": "487a0ddf4b321004d371b4260585bedc8a0e6a4a",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-07",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-VIS-008",
+    "MA-VIS-010",
+    "MA-OPERA-014"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "Exact source branch GitHub Probe suite",
+      "result": "PASS",
+      "evidence": "Racer 28aff01dd686b24e006cd20c595756e83e8ee011 run 42390629717, Bubble Duel 48ecda36c4f09e769734f75edb365ed2dc162669 run 42403799490, integration baseline 487a0ddf4b321004d371b4260585bedc8a0e6a4a run 42464409348."
+    },
+    {
+      "command": "Git merge-tree, diff and protected-path check",
+      "result": "PASS",
+      "evidence": "Tree 9bd579427504518110a1c86d4c278b6b366518b5 before this record. The 329-path union matches both topic deltas. Incoming scripts, runtime assets, source assets and tools match the reviewed topic blobs. The merged license ledger retains Racer, Bubble Duel and Grand Puff entries. Security, workflow and protected asset paths are identical to the integration baseline."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; Git Bash scripts/ci.sh with official Godot 4.7.2-stable; isolated retry of probe_day_one_bathroom_cleanup",
+      "result": "PASS",
+      "evidence": "Staged tested tree 90895cde75bb3769a4a25829a7f71fd1947c7bb0 before the two evidence-only receipt edits. All 82 trusted probes covered; the full command exited 1 on the existing bathroom drain timing assertion alone, and two fresh isolated runs of the same probe passed without a source change. Full log SHA-256 d1464f6c06096299f5077dc4b8883d643fc578bf942290b822a452862287378c; retained isolated retry SHA-256 2e0de39efe2f4e3ff9997192bacf62e06469efba123129561ac6d3afabf9f8b0. Authority 950/950 with 75 active items and 78 records; 2D NO_REGRESSION; game-wide acceptance remains separate."
+    },
+    {
+      "command": "GitHub Actions Probe suite on the exact integration topic commit",
+      "result": "PENDING",
+      "evidence": "Required before the fast-forward update to dev."
+    }
+  ],
+  "acceptance_gaps": "The source impacts retain Racer formal/native-route and external gaps and Bubble Duel's 14 below-floor wardrobe composites, missing strict live adapters, authored swim motion and external gates. Device, child and owner acceptance and existing finding lifecycles remain open."
+}

@@ -11,9 +11,10 @@ var interpolation: float = 0.0
 func _draw() -> void:
 	if host == null or host.world == null: return
 	var world: BubbleDuelArena = host.world
-	draw_rect(Rect2(0, 0, 840, 720), Color(0.04, 0.22, 0.31, 0.11))
 	draw_line(Vector2(0, 114), Vector2(840, 114), Color(0.7, 0.95, 1, 0.17), 2)
 	_draw_power_effects()
+	var player_markers: Array[Vector2] = []
+	var marker_players: Array[int] = []
 	for fighter: BubbleDuelFighter in world.fighters:
 		if fighter.lost: continue
 		var root: Vector2 = _root(fighter)
@@ -34,12 +35,16 @@ func _draw() -> void:
 		if fighter.invincible > 0:
 			draw_arc(at, 26, 0, TAU, 28, Color(0.85, 1.0, 1.0, 0.65), 2, true)
 		if fighter.held > 0:
-			draw_texture_rect(host._icon(6), Rect2(at - Vector2(22, 22), Vector2(44, 44)), false, Color(1, 1, 1, 0.75))
-		var badge_x: float = (-36.0 if fighter.human == 0 else 36.0) if fighter.human >= 0 else (36.0 if fighter.facing > 0 else -36.0)
-		var badge: Vector2 = at + Vector2(badge_x, -8)
-		draw_circle(badge, 9, Color(0.20, 0.65, 0.86) if fighter.team == 0 else Color(0.91, 0.46, 0.64))
-		for dot: int in range(1 + maxi(0, fighter.human)):
-			draw_circle(badge + Vector2(float(dot) * 7.0 - (3.5 if fighter.human == 1 else 0.0), 0), 2, Color.WHITE)
+			# Show one ink tell beside the fighter, clear of the face and worn gear.
+			var ink_at := at + Vector2(31.0 * fighter.facing, 24.0)
+			draw_texture_rect(host._icon(6), Rect2(ink_at - Vector2(14, 14), Vector2(28, 28)), false)
+		if fighter.human >= 0:
+			var badge_x := -40.0 if fighter.human == 0 else 40.0
+			var badge := (at + Vector2(badge_x, -10)).clamp(Vector2(15, 15), Vector2(825, 705))
+			if not player_markers.is_empty() and badge.distance_to(player_markers[0]) < 30.0:
+				badge.y = player_markers[0].y - 30.0 if player_markers[0].y >= 45.0 else player_markers[0].y + 30.0
+			player_markers.append(badge)
+			marker_players.append(fighter.human)
 	for shot: Dictionary in world.shots:
 		if int(shot["life"]) <= 0: continue
 		var at: Vector2 = TOP + (shot["position"] as Vector2) * ZOOM
@@ -56,6 +61,14 @@ func _draw() -> void:
 		draw_texture_rect_region(host.POP, Rect2(at - Vector2(40, 40), Vector2(80, 80)),
 			host._cell(mini(7, int(progress * 8)), 4))
 
+	for index: int in range(player_markers.size()):
+		var badge := player_markers[index]
+		var player := marker_players[index]
+		draw_circle(badge, 13, Color("242043"), true, -1.0, true)
+		draw_circle(badge, 10, Color("197494") if player == 0 else Color("a14069"), true, -1.0, true)
+		for dot: int in range(1 + player):
+			draw_circle(badge + Vector2(float(dot) * 7.0 - (3.5 if player == 1 else 0.0), 0), 2.6, Color.WHITE, true, -1.0, true)
+
 
 func _draw_power_effects() -> void:
 	for effect: Dictionary in host.power_effects:
@@ -69,21 +82,24 @@ func _draw_power_effects() -> void:
 			"kelp":
 				var target: int = int(effect["target"])
 				if target < 0: continue
-				var end: Vector2 = TOP + _root(host.world.fighters[target]) * ZOOM
+				var target_root := _root(host.world.fighters[target])
+				var dx := BubbleDuelMotion.wrapped_dx(target_root.x - root.x)
+				var end := TOP + Vector2(root.x + dx, target_root.y) * ZOOM
 				var points := PackedVector2Array()
 				for index: int in range(13):
 					var weight: float = float(index) / 12
 					points.append(start.lerp(end, weight) + Vector2(0, sin(weight * PI) * 18))
 				draw_polyline(points, Color(0.42, 0.82, 0.46, alpha), 3, true)
+				# Continue the short tether across the same seam as the fighters.
+				if end.x < 0.0 or end.x > size.x:
+					var shift := BubbleDuelMotion.WRAP_SPAN * ZOOM * (1.0 if end.x < 0.0 else -1.0)
+					for index: int in range(points.size()):
+						points[index].x += shift
+					draw_polyline(points, Color(0.42, 0.82, 0.46, alpha), 3, true)
 			"lullaby":
 				for index: int in range(3):
 					var radius: float = 10 + fposmod(progress * 70 + index * 22, 70)
 					draw_arc(start, radius, -PI, PI, 24, Color(0.86, 0.77, 1, alpha * 0.6), 2, true)
-			"squid":
-				var target: int = int(effect["target"])
-				if target >= 0:
-					var end: Vector2 = TOP + _root(host.world.fighters[target]) * ZOOM
-					draw_texture_rect(host._icon(6), Rect2(end - Vector2(28, 28), Vector2(56, 56)), false, Color(1, 1, 1, alpha))
 			"swiftconch":
 				for index: int in range(3):
 					var point: Vector2 = TOP + root * ZOOM - Vector2(actor.facing * (18 + index * 15), 0)

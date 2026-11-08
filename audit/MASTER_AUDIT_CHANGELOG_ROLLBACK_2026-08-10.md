@@ -2537,3 +2537,7 @@ Base `774b0d134be93c5751ac8c03efeec85c8a854674` uses a rectangular tint behind e
 ## CHG-170 — Paint the Racer direction cue
 
 Baseline `118acf6c090dd42307a281f0b13e0e114bf62b54`. Replace the wrong-way polygon with one mirrored painted texture at the original anchor. The input, steering correction and PC HUD scope keep their existing behavior. If a rollback becomes necessary, restore the exact baseline draw and keep the painted source record outside runtime. [Candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/README.md) · [Impact](../design/audit_impacts/flat-vector-r150-painted-racer-direction-cue-20261107.json)
+
+## CHG-174 — Paint the Racer countdown lamps
+
+Baseline `0be76936a163628801a5156507f18185878cbaa7`. Replace the three flat countdown discs with two authored lens states at the original lamp positions. Preserve input, timing and the PC HUD route. A rollback would restore the exact baseline draw and retain the painted source record outside runtime. [Candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r151_racer_painted_countdown_lights_runtime/README.md) · [Impact](../design/audit_impacts/flat-vector-r151-painted-racer-countdown-lights-20261107.json)

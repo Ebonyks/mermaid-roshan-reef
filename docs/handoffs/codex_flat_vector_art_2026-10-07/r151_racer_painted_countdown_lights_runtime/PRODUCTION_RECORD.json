@@ -1,0 +1,43 @@
+{
+  "stable_id": "FVR-F34602134988",
+  "stable_id_seed": "opera_racer|reef_kart_race|countdown_lights",
+  "source_item": "countdown_lights",
+  "family": "opera_racer",
+  "baseline": "0be76936a163628801a5156507f18185878cbaa7",
+  "binding": {
+    "path": "docs/handoffs/codex_reef_kart_art_2026-11-03/ART_REQUESTS.md",
+    "revision": "0be76936a163628801a5156507f18185878cbaa7",
+    "sha256": "63eea6d129243aa5b1f27187a9282945142d386c32ae5f233b0154d68d3d29b9",
+    "bytes": 9059
+  },
+  "candidate": {
+    "art": "assets/racer/ui/countdown_lamps_painted.png",
+    "sha256": "bf0bb770d0ee2b4855db7d34de0eb2bd3a317ab94b9ac562d0f2223388662e61",
+    "import_recipe_sha256": "597c778655bd3fa70aa3e7187e17d687cc2a3bdf5e111928361f269518f88be1",
+    "script_sha256": "ea71f8bfcd020714ffa6f95293bf20efa18c81beeca3f58c8b4005c0e5400d23",
+    "generation": "assets_src/imagegen/racer_countdown_lights_20261107/GENERATION_JOB.json",
+    "source_generation_calls": 1
+  },
+  "integration": {
+    "local": true,
+    "source_branch_published": false,
+    "Dev": false
+  },
+  "runtime": {
+    "configured_capture": true,
+    "actual_native_events": 40,
+    "machine_checks": {
+      "state": "PASS",
+      "inputs": 5594,
+      "required_commands": 88,
+      "receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r151_racer_painted_countdown_lights_runtime/evidence/full_machine/FINAL_RESULT.json"
+    },
+    "frame_events": "FRAME_EVENTS.json"
+  },
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "whole_game_total": null
+}

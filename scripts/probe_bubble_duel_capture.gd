@@ -84,6 +84,8 @@ func _run() -> void:
 	await _capture("03-two-player", "Independent cast, clothing and items; versus or cooperative")
 	game._open_picker(0, "character")
 	await _capture("04-six-friends", "All six reusable identities")
+	game._open_picker(0, "look")
+	await _capture("04b-clothes", "Actual wardrobe chooser, painted cards and captions")
 	var width: int = int(OS.get_environment("DUEL_CAPTURE_WIDTH"))
 	if width == 1280 or width == 0:
 		for person: String in BubbleDuelCast.PEOPLE:
@@ -238,7 +240,7 @@ func _motion_tour() -> void:
 
 func _capture_source_hashes() -> Dictionary:
 	var result: Dictionary = {}
-	for path: String in ["opera_bubble_duel.gd", "bubble_duel_motion.gd", "bubble_duel_fighter.gd", "bubble_duel_arena.gd", "bubble_duel_brain.gd", "bubble_duel_two_player.gd", "bubble_duel_geometry.gd", "bubble_duel_view.gd", "bubble_duel_inventory.gd", "bubble_duel_cast.gd", "opera_house_venue_2d.gd", "probe_bubble_duel_capture.gd"]:
+	for path: String in ["opera_bubble_duel.gd", "bubble_duel_motion.gd", "bubble_duel_fighter.gd", "bubble_duel_arena.gd", "bubble_duel_brain.gd", "bubble_duel_two_player.gd", "bubble_duel_geometry.gd", "bubble_duel_view.gd", "bubble_duel_inventory.gd", "bubble_duel_cast.gd", "opera_house_venue_2d.gd", "probe_bubble_duel_capture.gd", "bubble_duel_preview.gd", "fashion_parts.gd", "storybook_ui.gd"]:
 		result[path] = FileAccess.get_sha256("res://scripts/" + path)
 	return result
 

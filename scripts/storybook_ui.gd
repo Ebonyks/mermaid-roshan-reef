@@ -316,6 +316,11 @@ static func style_navigation_button(button: Button, icon: String, parent_hint: S
 	# Apply in the same call as the original icon style so mode changes cannot
 	# expose a frame of the old flat surface. Source pixels stay unchanged.
 	style_icon_button(button, icon, "secondary", Vector2(112.0, 112.0), parent_hint)
+	paint_button_surface(button)
+
+
+static func paint_button_surface(button: Button) -> void:
+	# Retain the caller’s touch size, typography and button action.
 	for state: String in ["normal", "hover", "pressed", "hover_pressed", "focus", "disabled"]:
 		var prior: StyleBox = button.get_theme_stylebox(state)
 		var surface := StyleBoxTexture.new()

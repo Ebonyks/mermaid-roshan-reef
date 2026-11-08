@@ -1,0 +1,59 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+RACER_INTEGRATION|MEASURE|track|length=4317.8|tightest_radius=131.5|closest_far_corridor=533.2|projection_err_s=2.5|projection_err_lat=0.03|world_margin=249.8
+RACER_INTEGRATION|PASS|course is one closed loop of evenly spaced samples
+RACER_INTEGRATION|PASS|tightest bend is drivable at speed (radius >= 120)
+RACER_INTEGRATION|PASS|distant parts of the course never share a corridor
+RACER_INTEGRATION|PASS|projection round-trips every reachable position to within 3 units
+RACER_INTEGRATION|PASS|course and its rails stay inside the painted world square
+RACER_INTEGRATION|PASS|every pearl, item bubble and gem buoy sits on the water lane
+RACER_INTEGRATION|PASS|every pearl row is at least 55 units from Roshan's starting lane
+RACER_INTEGRATION|PASS|standing landmarks stay off the lane and the four arches span it
+RACER_INTEGRATION|MEASURE|floor_field_ms=25.8|size=128x128
+RACER_INTEGRATION|PASS|interim floor field is a single 128 px channel built once
+RACER_INTEGRATION|PASS|engine is one owned Canvas node with five fixed drawn layers
+RACER_INTEGRATION|PASS|only the owning surface clocks the simulation
+RACER_INTEGRATION|PASS|two racers: Roshan and the imp
+RACER_INTEGRATION|PASS|sixty seconds unattended earns no distance, pearl or finish
+RACER_INTEGRATION|PASS|the guide hand shows on the stick while she has not started
+RACER_INTEGRATION|PASS|first stick touch starts the countdown, not the race
+RACER_INTEGRATION|PASS|a foreign finger cannot steer
+RACER_INTEGRATION|PASS|stick, bubble and gas each keep their own finger
+RACER_INTEGRATION|PASS|the bubble pressed during the countdown fires the start zoom
+RACER_INTEGRATION|PASS|holding gas alone accelerates from rest and keeps the race live
+RACER_INTEGRATION|PASS|releasing gas coasts instead of accelerating or hard braking
+RACER_INTEGRATION|PASS|cancel freezes Roshan and the imp together
+RACER_INTEGRATION|PASS|a touch away from every control claims nothing
+RACER_INTEGRATION|PASS|the starting item waits until the career steering instruction finishes
+RACER_INTEGRATION|PASS|cancel removes an item explanation waiting behind the introduction
+RACER_INTEGRATION|PASS|retry removes an obsolete pending item explanation
+RACER_INTEGRATION|PASS|the item bubble skips a pending opening explanation
+RACER_INTEGRATION|PASS|collected pearls survive cancellation
+RACER_INTEGRATION|PASS|collected pearls survive cancellation
+RACER_INTEGRATION|MEASURE|pearl_row|lane_hit=4|lane_miss=0
+RACER_INTEGRATION|PASS|steering into the pearl row collects it; the starting lane misses it
+RACER_INTEGRATION|PASS|the imp is only ever dealt zoom or kelp, never anything aimed at Roshan
+RACER_INTEGRATION|PASS|a sparkle bubble homes in on the imp ahead and spins him
+RACER_INTEGRATION|PASS|a pearl bundle adds three pearls
+RACER_INTEGRATION|PASS|kelp drops behind the kart and is harmless to her while it settles
+RACER_INTEGRATION|PASS|an empty bubble press does nothing
+RACER_INTEGRATION|PASS|driving through an item bubble under a pearl arch rolls and deals an item
+RACER_INTEGRATION|PASS|steering into a gem buoy pops its orb and deals an item
+RACER_INTEGRATION|PASS|held items leave both overlapping bubbles available
+RACER_INTEGRATION|PASS|a rolling item leaves both bubbles available
+RACER_INTEGRATION|PASS|one overlapping pickup goes on cooldown for one new roll
+RACER_INTEGRATION|MEASURE|wrong_way|heading_error_after_2.5s=0.34
+RACER_INTEGRATION|PASS|facing backwards shows the arrow and turns her back toward the course
+RACER_INTEGRATION|MEASURE|imp_contest|beats_frames=[109, 109]|paces=[0.88, 0.5]|frames=5322
+RACER_INTEGRATION|PASS|when the imp wins only the race restarts, after a beat of at most two seconds
+RACER_INTEGRATION|PASS|earned pearls are kept across imp restarts
+RACER_INTEGRATION|PASS|the imp slows after one win and drives at half pace after two
+RACER_INTEGRATION|PASS|after mercy a held stick wins the third attempt
+RACER_INTEGRATION|PASS|a dead heat goes to Roshan
+RACER_INTEGRATION|MEASURE|held_stick_race|seconds=30.18|attempts=1|pearls=0|bumps=0|avg_step_usec=148
+RACER_INTEGRATION|PASS|a held stick finishes two laps ahead of the imp within seventy seconds
+RACER_INTEGRATION|PASS|the race never adds or removes nodes
+RACER_INTEGRATION|PASS|coasting after the line manufactures no distance
+RACER_INTEGRATION|PASS|leaving the race frees the old engine
+RACER_INTEGRATION|PASS|teardown frees the fresh engine
+RACER_INTEGRATION|DONE|failures=0

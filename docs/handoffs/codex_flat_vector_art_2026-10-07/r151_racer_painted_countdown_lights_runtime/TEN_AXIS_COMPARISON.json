@@ -1,0 +1,54 @@
+{
+  "state": "ASSISTANT_CONFIGURED_NATIVE_COMPARISON",
+  "stable_id": "FVR-F34602134988",
+  "source": "0be76936a163628801a5156507f18185878cbaa7",
+  "candidate_script_sha256": "ea71f8bfcd020714ffa6f95293bf20efa18c81beeca3f58c8b4005c0e5400d23",
+  "axes": [
+    {
+      "axis": "medium",
+      "comparison": "One painted RGBA atlas supplies both lens states. Each textured lamp replaces the two nested flat-color circles in the current Canvas HUD."
+    },
+    {
+      "axis": "identity",
+      "comparison": "The three passive starting lamps retain their one-two-three rhythm on the first start and retry. GO and the PC HUD keep their established cues."
+    },
+    {
+      "axis": "style",
+      "comparison": "Plum ceramic rims, blue glass and amber light borrow the visual language of the neighboring painted controls and reef set."
+    },
+    {
+      "axis": "silhouette",
+      "comparison": "Both states have a stable circular outline. The registered alpha masks overlap at 99.90 percent at the half-alpha threshold."
+    },
+    {
+      "axis": "material",
+      "comparison": "Smoky reflected glass reads off and a creamy amber lens reads lit. Highlights and the inner shade remain within the painted hardware."
+    },
+    {
+      "axis": "palette_value",
+      "comparison": "In twelve visible comparisons the lowest sampled lit lens center is 237.79 luma and the highest unlit center is 111.0 on the 8-bit scale. Color and brightness both distinguish the states."
+    },
+    {
+      "axis": "composition",
+      "comparison": "Pixel changes are confined to the three original lamp regions with the antialias allowance. The eight adjacent-state and PC pairs are pixel-identical."
+    },
+    {
+      "axis": "scale_contact_occlusion",
+      "comparison": "The lamps retain their 60-pixel footprint and existing spacing. The original scene, foreground, interaction surfaces and controls are outside the delta."
+    },
+    {
+      "axis": "child_readability",
+      "comparison": "Each step adds one clear warm light from left to right without labels or reading. Device and child observation remain open."
+    },
+    {
+      "axis": "runtime_suitability",
+      "comparison": "One 512 by 256 lossless 2D texture, same original state gate and centers, and one texture-region draw per lamp on exact Godot 4.7.2 Mobile and Speedy."
+    }
+  ],
+  "current_pair_comparison": "assets_src/review/r151_racer_countdown_lights_20261107/PAIR_PIXEL_COMPARISON.json",
+  "scope": "Actual production surfaces at 1280 and 1600. Three initial stages, three retry stages, grid, two GO transitions, and PC split exclusion.",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null
+}

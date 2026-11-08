@@ -1,0 +1,878 @@
+{
+  "stage": "PASS",
+  "variant": "source",
+  "baseline": "0be76936a163628801a5156507f18185878cbaa7",
+  "code_sha256": "7fc2bae43da27f32871545b3e4b0163e92a2df7967068e4b2aecdcf7ddd0e089",
+  "fixture_sha256": "7cfd1527bdb2b18678b6075433b090f3c2ecf3249f474ab5a4e9eaeb0a0b034d",
+  "engine": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+  "engine_sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643",
+  "normal_saves_unchanged": true,
+  "native_events": 20,
+  "target_visible_events": 12,
+  "negative_events": 8,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "results": [
+    {
+      "width": 1280,
+      "console_sha256": "8cec6e7387aea281beb44c0116d93eb2e1e0fd7768a6df33294d0662bbda2e11",
+      "native_log_sha256": "12f4d7839d9daa084edabb4f0e9538e106e82e23c928dba0679ed88a44c9d9e2",
+      "records": {
+        "failures": 0,
+        "frame_cap": 30,
+        "limits": "Configured production Opera touch and PC split surfaces. Real input starts the timed sequence. Configured rival-win endpoint invokes the actual retry transition. PC exclusion is a sibling negative. Physical controls, natural routes, formal QA11, device, child and owner review are separate.",
+        "records": [
+          {
+            "file": "opera-grid.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "1ad0f6df342f16a67b5484b2a7719f7dfda3f8c865a1b6ff43d3a6e42ee413fe",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "attempt": 1,
+              "bounds": [],
+              "clock": 0.0,
+              "countdown_events": [],
+              "go_events": 0,
+              "go_time": 0.0,
+              "lit": 0,
+              "quality": "speedy",
+              "state": "grid",
+              "visible": false
+            },
+            "target_visible": false,
+            "variant": "source"
+          },
+          {
+            "file": "opera-initial-1.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "b8a289cf60a3ed890c32c5ee5f143d393df72b0e8b8994111d795081bf0e0481",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "attempt": 1,
+              "bounds": [
+                [
+                  520.0,
+                  170.0,
+                  580.0,
+                  230.0
+                ],
+                [
+                  610.0,
+                  170.0,
+                  670.0,
+                  230.0
+                ],
+                [
+                  700.0,
+                  170.0,
+                  760.0,
+                  230.0
+                ]
+              ],
+              "clock": 1.5,
+              "countdown_events": [],
+              "go_events": 0,
+              "go_time": 0.0,
+              "lit": 1,
+              "quality": "speedy",
+              "state": "countdown",
+              "visible": true
+            },
+            "target_visible": true,
+            "variant": "source"
+          },
+          {
+            "file": "opera-initial-2.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "4d607b4f91da170633a1f03cd5f0a3c90f46bb48be4e71aeef6d62e250bf005b",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "attempt": 1,
+              "bounds": [
+                [
+                  520.0,
+                  170.0,
+                  580.0,
+                  230.0
+                ],
+                [
+                  610.0,
+                  170.0,
+                  670.0,
+                  230.0
+                ],
+                [
+                  700.0,
+                  170.0,
+                  760.0,
+                  230.0
+                ]
+              ],
+              "clock": 0.750000000000001,
+              "countdown_events": [
+                1.0
+              ],
+              "go_events": 0,
+              "go_time": 0.0,
+              "lit": 2,
+              "quality": "speedy",
+              "state": "countdown",
+              "visible": true
+            },
+            "target_visible": true,
+            "variant": "source"
+          },
+          {
+            "file": "opera-initial-3.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "ded8a46634ae28e28be750c5f35edb5ab6435372d51e3acbdabbc2be03a1b907",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "attempt": 1,
+              "bounds": [
+                [
+                  520.0,
+                  170.0,
+                  580.0,
+                  230.0
+                ],
+                [
+                  610.0,
+                  170.0,
+                  670.0,
+                  230.0
+                ],
+                [
+                  700.0,
+                  170.0,
+                  760.0,
+                  230.0
+                ]
+              ],
+              "clock": 0.25,
+              "countdown_events": [
+                1.0,
+                2.0
+              ],
+              "go_events": 0,
+              "go_time": 0.0,
+              "lit": 3,
+              "quality": "speedy",
+              "state": "countdown",
+              "visible": true
+            },
+            "target_visible": true,
+            "variant": "source"
+          },
+          {
+            "file": "opera-initial-go.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "875e90cb7ad2e7ae5ac50fe0a5d6f724ed532fc67653155dc54fc4d78ca7ee0a",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "attempt": 1,
+              "bounds": [],
+              "clock": -0.0166666666666663,
+              "countdown_events": [
+                1.0,
+                2.0,
+                3.0
+              ],
+              "go_events": 1,
+              "go_time": 0.683333333333333,
+              "lit": 0,
+              "quality": "speedy",
+              "state": "race",
+              "visible": false
+            },
+            "target_visible": false,
+            "variant": "source"
+          },
+          {
+            "file": "opera-retry-1.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "c6e90f0a47c1e924580c77d0b7c0441a960d595b37234b2545079ca4a1f6e0f8",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "attempt": 2,
+              "bounds": [
+                [
+                  520.0,
+                  170.0,
+                  580.0,
+                  230.0
+                ],
+                [
+                  610.0,
+                  170.0,
+                  670.0,
+                  230.0
+                ],
+                [
+                  700.0,
+                  170.0,
+                  760.0,
+                  230.0
+                ]
+              ],
+              "clock": 1.5,
+              "countdown_events": [
+                1.0,
+                2.0,
+                3.0
+              ],
+              "go_events": 1,
+              "go_time": 0.0,
+              "lit": 1,
+              "quality": "speedy",
+              "state": "countdown",
+              "visible": true
+            },
+            "target_visible": true,
+            "variant": "source"
+          },
+          {
+            "file": "opera-retry-2.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "ae29e6523327316c0ea2d625a979c5a88ac95f6657e4c3900a9a3f0d6d582e3a",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "attempt": 2,
+              "bounds": [
+                [
+                  520.0,
+                  170.0,
+                  580.0,
+                  230.0
+                ],
+                [
+                  610.0,
+                  170.0,
+                  670.0,
+                  230.0
+                ],
+                [
+                  700.0,
+                  170.0,
+                  760.0,
+                  230.0
+                ]
+              ],
+              "clock": 0.750000000000001,
+              "countdown_events": [
+                1.0,
+                2.0,
+                3.0,
+                1.0
+              ],
+              "go_events": 1,
+              "go_time": 0.0,
+              "lit": 2,
+              "quality": "speedy",
+              "state": "countdown",
+              "visible": true
+            },
+            "target_visible": true,
+            "variant": "source"
+          },
+          {
+            "file": "opera-retry-3.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "ed4779ccd09becc33bb1b1dd5d5f2580beb6993500b5540eeafaa0634118a742",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "attempt": 2,
+              "bounds": [
+                [
+                  520.0,
+                  170.0,
+                  580.0,
+                  230.0
+                ],
+                [
+                  610.0,
+                  170.0,
+                  670.0,
+                  230.0
+                ],
+                [
+                  700.0,
+                  170.0,
+                  760.0,
+                  230.0
+                ]
+              ],
+              "clock": 0.25,
+              "countdown_events": [
+                1.0,
+                2.0,
+                3.0,
+                1.0,
+                2.0
+              ],
+              "go_events": 1,
+              "go_time": 0.0,
+              "lit": 3,
+              "quality": "speedy",
+              "state": "countdown",
+              "visible": true
+            },
+            "target_visible": true,
+            "variant": "source"
+          },
+          {
+            "file": "opera-retry-go.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "669b3265b94fc350a248d8f5ae9d7f70506b4a77755febff35f8d37205c5ab42",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "attempt": 2,
+              "bounds": [],
+              "clock": -0.0166666666666663,
+              "countdown_events": [
+                1.0,
+                2.0,
+                3.0,
+                1.0,
+                2.0,
+                3.0
+              ],
+              "go_events": 2,
+              "go_time": 0.683333333333333,
+              "lit": 0,
+              "quality": "speedy",
+              "state": "race",
+              "visible": false
+            },
+            "target_visible": false,
+            "variant": "source"
+          },
+          {
+            "file": "pc-split-countdown-excluded.png",
+            "formal_QA11": false,
+            "quality_context": "fixed_pc_no_quality_selector",
+            "renderer": "mobile",
+            "sha256": "76eedbd9999b890433ecde1e1fe62eb3ad60960d46fa8503f1541837636a4480",
+            "size": [
+              1280,
+              720
+            ],
+            "target_state": {
+              "attempt": 1,
+              "bounds": [],
+              "clock": 0.25,
+              "countdown_events": [
+                1.0,
+                2.0,
+                3.0,
+                1.0,
+                2.0,
+                3.0
+              ],
+              "go_events": 2,
+              "go_time": 0.0,
+              "lit": 0,
+              "quality": "fixed_pc_no_quality_selector",
+              "state": "countdown",
+              "visible": false
+            },
+            "target_visible": false,
+            "variant": "source"
+          }
+        ],
+        "renderer": "mobile",
+        "source_script_sha256": "7fc2bae43da27f32871545b3e4b0163e92a2df7967068e4b2aecdcf7ddd0e089",
+        "variant": "source",
+        "version": {
+          "build": "official",
+          "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+          "hex": 263938,
+          "major": 4,
+          "minor": 7,
+          "patch": 2,
+          "status": "stable",
+          "string": "4.7.2-stable (official)",
+          "timestamp": 0
+        },
+        "width": 1280
+      }
+    },
+    {
+      "width": 1600,
+      "console_sha256": "8cec6e7387aea281beb44c0116d93eb2e1e0fd7768a6df33294d0662bbda2e11",
+      "native_log_sha256": "12f4d7839d9daa084edabb4f0e9538e106e82e23c928dba0679ed88a44c9d9e2",
+      "records": {
+        "failures": 0,
+        "frame_cap": 30,
+        "limits": "Configured production Opera touch and PC split surfaces. Real input starts the timed sequence. Configured rival-win endpoint invokes the actual retry transition. PC exclusion is a sibling negative. Physical controls, natural routes, formal QA11, device, child and owner review are separate.",
+        "records": [
+          {
+            "file": "opera-grid.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "7542dcefa01261c96cf7a48ded70aefdfbc6c6f30d52a88d79e4d266ce22b2a4",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "attempt": 1,
+              "bounds": [],
+              "clock": 0.0,
+              "countdown_events": [],
+              "go_events": 0,
+              "go_time": 0.0,
+              "lit": 0,
+              "quality": "speedy",
+              "state": "grid",
+              "visible": false
+            },
+            "target_visible": false,
+            "variant": "source"
+          },
+          {
+            "file": "opera-initial-1.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "40b9164e830d5c0349682b362e6a71999f16b4435dd40cfe26334d856be11b47",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "attempt": 1,
+              "bounds": [
+                [
+                  680.0,
+                  170.0,
+                  740.0,
+                  230.0
+                ],
+                [
+                  770.0,
+                  170.0,
+                  830.0,
+                  230.0
+                ],
+                [
+                  860.0,
+                  170.0,
+                  920.0,
+                  230.0
+                ]
+              ],
+              "clock": 1.5,
+              "countdown_events": [],
+              "go_events": 0,
+              "go_time": 0.0,
+              "lit": 1,
+              "quality": "speedy",
+              "state": "countdown",
+              "visible": true
+            },
+            "target_visible": true,
+            "variant": "source"
+          },
+          {
+            "file": "opera-initial-2.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "18196a4a0292d3f67deadd0b81b63c682b4ffddc2b857876f4d194f29311f209",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "attempt": 1,
+              "bounds": [
+                [
+                  680.0,
+                  170.0,
+                  740.0,
+                  230.0
+                ],
+                [
+                  770.0,
+                  170.0,
+                  830.0,
+                  230.0
+                ],
+                [
+                  860.0,
+                  170.0,
+                  920.0,
+                  230.0
+                ]
+              ],
+              "clock": 0.750000000000001,
+              "countdown_events": [
+                1.0
+              ],
+              "go_events": 0,
+              "go_time": 0.0,
+              "lit": 2,
+              "quality": "speedy",
+              "state": "countdown",
+              "visible": true
+            },
+            "target_visible": true,
+            "variant": "source"
+          },
+          {
+            "file": "opera-initial-3.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "4b714ac18ea398b70b305d03189b28cdf864772d2f2eb5a99e190b9bcf24efb1",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "attempt": 1,
+              "bounds": [
+                [
+                  680.0,
+                  170.0,
+                  740.0,
+                  230.0
+                ],
+                [
+                  770.0,
+                  170.0,
+                  830.0,
+                  230.0
+                ],
+                [
+                  860.0,
+                  170.0,
+                  920.0,
+                  230.0
+                ]
+              ],
+              "clock": 0.25,
+              "countdown_events": [
+                1.0,
+                2.0
+              ],
+              "go_events": 0,
+              "go_time": 0.0,
+              "lit": 3,
+              "quality": "speedy",
+              "state": "countdown",
+              "visible": true
+            },
+            "target_visible": true,
+            "variant": "source"
+          },
+          {
+            "file": "opera-initial-go.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "c2171394e51025bc1087b4566e4a438036fcc56717ae43a1ba28dae4e8ef4423",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "attempt": 1,
+              "bounds": [],
+              "clock": -0.0166666666666663,
+              "countdown_events": [
+                1.0,
+                2.0,
+                3.0
+              ],
+              "go_events": 1,
+              "go_time": 0.683333333333333,
+              "lit": 0,
+              "quality": "speedy",
+              "state": "race",
+              "visible": false
+            },
+            "target_visible": false,
+            "variant": "source"
+          },
+          {
+            "file": "opera-retry-1.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "04788ff7ecd0fcf5650e1ed2c3adefedd57a02af97deb611fd5b24d8a25b92fc",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "attempt": 2,
+              "bounds": [
+                [
+                  680.0,
+                  170.0,
+                  740.0,
+                  230.0
+                ],
+                [
+                  770.0,
+                  170.0,
+                  830.0,
+                  230.0
+                ],
+                [
+                  860.0,
+                  170.0,
+                  920.0,
+                  230.0
+                ]
+              ],
+              "clock": 1.5,
+              "countdown_events": [
+                1.0,
+                2.0,
+                3.0
+              ],
+              "go_events": 1,
+              "go_time": 0.0,
+              "lit": 1,
+              "quality": "speedy",
+              "state": "countdown",
+              "visible": true
+            },
+            "target_visible": true,
+            "variant": "source"
+          },
+          {
+            "file": "opera-retry-2.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "73ba02826b015638a9cea87ab6f1026efce06c245d7ee9fc4bfe7bef358d558a",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "attempt": 2,
+              "bounds": [
+                [
+                  680.0,
+                  170.0,
+                  740.0,
+                  230.0
+                ],
+                [
+                  770.0,
+                  170.0,
+                  830.0,
+                  230.0
+                ],
+                [
+                  860.0,
+                  170.0,
+                  920.0,
+                  230.0
+                ]
+              ],
+              "clock": 0.750000000000001,
+              "countdown_events": [
+                1.0,
+                2.0,
+                3.0,
+                1.0
+              ],
+              "go_events": 1,
+              "go_time": 0.0,
+              "lit": 2,
+              "quality": "speedy",
+              "state": "countdown",
+              "visible": true
+            },
+            "target_visible": true,
+            "variant": "source"
+          },
+          {
+            "file": "opera-retry-3.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "7d77f3acfc1b736d9a046fcb113f03ed853cf721544f930dfbef113373555a6d",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "attempt": 2,
+              "bounds": [
+                [
+                  680.0,
+                  170.0,
+                  740.0,
+                  230.0
+                ],
+                [
+                  770.0,
+                  170.0,
+                  830.0,
+                  230.0
+                ],
+                [
+                  860.0,
+                  170.0,
+                  920.0,
+                  230.0
+                ]
+              ],
+              "clock": 0.25,
+              "countdown_events": [
+                1.0,
+                2.0,
+                3.0,
+                1.0,
+                2.0
+              ],
+              "go_events": 1,
+              "go_time": 0.0,
+              "lit": 3,
+              "quality": "speedy",
+              "state": "countdown",
+              "visible": true
+            },
+            "target_visible": true,
+            "variant": "source"
+          },
+          {
+            "file": "opera-retry-go.png",
+            "formal_QA11": false,
+            "quality_context": "speedy",
+            "renderer": "mobile",
+            "sha256": "9f43bc622fb21137d364c139677766bbe0c3a026862c6cdbc1903dc43fda0751",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "attempt": 2,
+              "bounds": [],
+              "clock": -0.0166666666666663,
+              "countdown_events": [
+                1.0,
+                2.0,
+                3.0,
+                1.0,
+                2.0,
+                3.0
+              ],
+              "go_events": 2,
+              "go_time": 0.683333333333333,
+              "lit": 0,
+              "quality": "speedy",
+              "state": "race",
+              "visible": false
+            },
+            "target_visible": false,
+            "variant": "source"
+          },
+          {
+            "file": "pc-split-countdown-excluded.png",
+            "formal_QA11": false,
+            "quality_context": "fixed_pc_no_quality_selector",
+            "renderer": "mobile",
+            "sha256": "e47e12fe67d33659eae5e8b28e1a9d960af1fbdabbe5ab23004e31f82885194b",
+            "size": [
+              1600,
+              720
+            ],
+            "target_state": {
+              "attempt": 1,
+              "bounds": [],
+              "clock": 0.25,
+              "countdown_events": [
+                1.0,
+                2.0,
+                3.0,
+                1.0,
+                2.0,
+                3.0
+              ],
+              "go_events": 2,
+              "go_time": 0.0,
+              "lit": 0,
+              "quality": "fixed_pc_no_quality_selector",
+              "state": "countdown",
+              "visible": false
+            },
+            "target_visible": false,
+            "variant": "source"
+          }
+        ],
+        "renderer": "mobile",
+        "source_script_sha256": "7fc2bae43da27f32871545b3e4b0163e92a2df7967068e4b2aecdcf7ddd0e089",
+        "variant": "source",
+        "version": {
+          "build": "official",
+          "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+          "hex": 263938,
+          "major": 4,
+          "minor": 7,
+          "patch": 2,
+          "status": "stable",
+          "string": "4.7.2-stable (official)",
+          "timestamp": 0
+        },
+        "width": 1600
+      }
+    }
+  ],
+  "time": "2026-11-07T15:00:48.459449+00:00"
+}

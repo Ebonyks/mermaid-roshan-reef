@@ -82,6 +82,8 @@ const GasButtonArt := preload("res://assets/racer/ui/gas_button_painted.png")
 const ItemBubbleFrameArt := preload("res://assets/racer/ui/item_bubble_frame_painted.png")
 const MinimapBackplateArt := preload("res://assets/racer/ui/minimap_backplate_painted.png")
 const WrongWayArrowArt := preload("res://assets/racer/ui/wrong_way_arrow_painted.png")
+const CountdownLampArt := preload("res://assets/racer/ui/countdown_lamps_painted.png")
+const COUNTDOWN_LAMP_CELL := 256.0
 const SteeringRingArt := preload("res://assets/racer/ui/steering_ring_painted.png")
 const SteeringKnobArt := preload("res://assets/racer/ui/steering_knob_painted.png")
 const CONTEXT_ART := {
@@ -1513,9 +1515,9 @@ func _draw_hud() -> void:
 	if state == "countdown":
 		for index in range(3):
 			var lit := clock <= COUNTDOWN - float(index) * 0.5
-			_hud.draw_circle(Vector2(550.0 + float(index) * 90.0, 200.0), 30.0, INK)
-			_hud.draw_circle(Vector2(550.0 + float(index) * 90.0, 200.0), 24.0,
-				Color("#ffe5a8") if lit else Color("#9abcc8"))
+			var center := Vector2(550.0 + float(index) * 90.0, 200.0)
+			var lens := Rect2(COUNTDOWN_LAMP_CELL if lit else 0.0, 0.0, COUNTDOWN_LAMP_CELL, COUNTDOWN_LAMP_CELL)
+			_hud.draw_texture_rect_region(CountdownLampArt, Rect2(center - Vector2(30.0, 30.0), Vector2(60.0, 60.0)), lens)
 	if go_t > 0.0:
 		var grow := 1.0 + (1.0 - go_t / GO_SHOW) * 0.4
 		_hud.draw_circle(Vector2(640.0, 200.0), 48.0 * grow, INK)

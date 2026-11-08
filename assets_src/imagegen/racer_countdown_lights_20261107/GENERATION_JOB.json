@@ -1,0 +1,112 @@
+{
+  "stable_id": "FVR-F34602134988",
+  "exact_baseline": "0be76936a163628801a5156507f18185878cbaa7",
+  "source_scope": {
+    "path": "docs/handoffs/codex_reef_kart_art_2026-11-03/ART_REQUESTS.md",
+    "revision": "0be76936a163628801a5156507f18185878cbaa7",
+    "sha256": "63eea6d129243aa5b1f27187a9282945142d386c32ae5f233b0154d68d3d29b9",
+    "bytes": 9059
+  },
+  "native_request_count": 1,
+  "request_duration_ms": 28984,
+  "backend": "Built-in image_gen.imagegen",
+  "model_revision": null,
+  "output_file_identifier": "exec-452fbb09-f88f-4a7d-84c8-c45a675ed0c7.png",
+  "output_fields": [
+    "image_url",
+    "output_hint"
+  ],
+  "transparent_background_requested": true,
+  "prompt": {
+    "file": "PROMPT_SENT.txt",
+    "sha256": "705eac2c93d5f5cde72c1fd8b9d5b9fb58051911c9cb621b2e20191339ed923d"
+  },
+  "style_refs": [
+    {
+      "path": "assets/racer/ui/gas_button_painted.png",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "sha256": "79f9dee0a1db33980e0d3fd24627bb25a85119d956b15a62a700de7f3741af29",
+      "bytes": 308133
+    },
+    {
+      "path": "assets/racer/ui/minimap_backplate_painted.png",
+      "revision": "0be76936a163628801a5156507f18185878cbaa7",
+      "sha256": "c1d166d60978087380530c7fc06a948bb600e562ec733c6db529f0754b97a1b9",
+      "bytes": 301571
+    }
+  ],
+  "protected_scene_inputs_exported": false,
+  "actual_baseline_context": {
+    "fixture_result": "R151 source capture 79977 terminal pass",
+    "native_visible_events": 12,
+    "negative_events": 8,
+    "used_as_generator_pixels": false
+  },
+  "native": {
+    "file": "countdown_lamps_native.png",
+    "sha256": "e34b4adaf63a41dc2c04d2c2ff95240526837b57ae3013c128a44cfd694e3242",
+    "bytes": 1807465,
+    "mode": "RGBA",
+    "dimensions": [
+      1774,
+      887
+    ]
+  },
+  "runtime": {
+    "path": "assets/racer/ui/countdown_lamps_painted.png",
+    "sha256": "bf0bb770d0ee2b4855db7d34de0eb2bd3a317ab94b9ac562d0f2223388662e61",
+    "bytes": 187216,
+    "dimensions": [
+      512,
+      256
+    ],
+    "mode": "RGBA",
+    "crop_ltrb": [
+      [
+        10,
+        12,
+        874,
+        876
+      ],
+      [
+        897,
+        12,
+        1761,
+        876
+      ]
+    ],
+    "excluded_outside_crop_by_alpha_threshold": {
+      "1": 58,
+      "4": 0,
+      "16": 0,
+      "32": 0,
+      "128": 0,
+      "240": 0
+    },
+    "tool": "ffmpeg version 8.1.2-essentials_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+    "filtergraph": "[0:v]split[a][b];[a]crop=864:864:10:12,scale=256:256:flags=lanczos[l];[b]crop=864:864:897:12,scale=256:256:flags=lanczos[r];[l][r]hstack=inputs=2,format=rgba[out]",
+    "frames": {
+      "off": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "lit": [
+        256,
+        0,
+        256,
+        256
+      ]
+    },
+    "registered_alpha_mask_intersection_over_union": 0.9990235389441755,
+    "placement": "Two equally sized authored frames registered to the same 60 px footprint for each of the three original instances."
+  },
+  "code": {
+    "path": "scripts/racer/reef_kart_race.gd",
+    "sha256": "ea71f8bfcd020714ffa6f95293bf20efa18c81beeca3f58c8b4005c0e5400d23",
+    "operation": "Use the original thresholds and centers for one authored atlas region draw per lamp."
+  },
+  "review": "Native candidate available. In-scene verification pending. No owner, child, device or formal acceptance inferred.",
+  "at_utc": "2026-11-07T15:03:26.951649+00:00"
+}

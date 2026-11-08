@@ -320,6 +320,77 @@
       "asset_roots": ["assets/opera"]
     },
     {
+      "id": "bubble_duel",
+      "name": "Bubble Duel arcade",
+      "art_medium": "flattened_2d",
+      "presentation": "fixed_depth_cards",
+      "lifecycle": "active_shipped",
+      "builders": [
+        "scripts/opera_bubble_duel.gd",
+        "scripts/bubble_duel_view.gd",
+        "scripts/bubble_duel_preview.gd",
+        "scripts/bubble_duel_cast.gd"
+      ],
+      "probes": [
+        "scripts/probe_bubble_duel_capture.gd",
+        "scripts/probe_bubble_duel_image_inventory.gd"
+      ],
+      "murals": [
+        "assets/opera/bubble_duel_v2/pool_tiles/*.png"
+      ],
+      "standees": [
+        "assets/opera/bubble_duel_v2/marlo_swim.png",
+        "assets/characters/companions/baby_eagle.png",
+        "assets/sprites/dust_bunnies/rainbow_friend.png"
+      ],
+      "characters": [
+        "assets/characters/roshan_25d/roshan_base.png",
+        "assets/characters/roshan_25d/roshan_swim_front.png",
+        "assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
+        "assets/fashion/skin_engine_v2/atlases/daddy_original.png"
+      ],
+      "rendered_readability_states": [
+        {
+          "id": "hub",
+          "capture_adapter": "not_implemented",
+          "coverage_gap_reason": "The canonical live probe does not yet enter the painted elevator and bind the real hub touch targets",
+          "min_samples": 1
+        },
+        {
+          "id": "loadout_and_shop",
+          "capture_adapter": "not_implemented",
+          "coverage_gap_reason": "The canonical live probe does not yet bind dynamically composed outfit atlases and distinct worn item layers on actual controls",
+          "min_samples": 1
+        },
+        {
+          "id": "versus_and_cooperative",
+          "capture_adapter": "not_implemented",
+          "coverage_gap_reason": "Fighter, bubble, gear and effect draws still share one CanvasItem; independent hidden/restored target proof is missing",
+          "min_samples": 1
+        },
+        {
+          "id": "current_ride",
+          "capture_adapter": "not_implemented",
+          "coverage_gap_reason": "Pearl and ink draws share the board and do not have independent live target proof",
+          "min_samples": 1
+        },
+        {
+          "id": "result_and_return",
+          "capture_adapter": "not_implemented",
+          "coverage_gap_reason": "The canonical live probe does not yet assert the result and venue-return transitions",
+          "min_samples": 1
+        }
+      ],
+      "asset_roots": [
+        "assets/opera/bubble_duel_v2",
+        "assets/opera/worlds/teacher/pearl_uncounted.png",
+        "assets/castle/training/ghost_hand.png",
+        "assets/sprites/fx_water/fx_water_bubble_burst_atlas.png",
+        "assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+        "assets/fashion/skin_engine_v2/garments/party.png"
+      ]
+    },
+    {
       "id": "galaxy",
       "name": "Galaxy",
       "art_medium": "flattened_2d",

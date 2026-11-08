@@ -1,0 +1,1600 @@
+{
+  "state": "PASS_SCOPED_NATIVE_RENDER_DELTA_AND_EXACT_COUNTDOWN_TIMING",
+  "baseline": "0be76936a163628801a5156507f18185878cbaa7",
+  "stable_id": "FVR-F34602134988",
+  "candidate_code_sha256": "ea71f8bfcd020714ffa6f95293bf20efa18c81beeca3f58c8b4005c0e5400d23",
+  "fixture_sha256": "7cfd1527bdb2b18678b6075433b090f3c2ecf3249f474ab5a4e9eaeb0a0b034d",
+  "engine_sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643",
+  "total_native_events": 40,
+  "bounded_target_events": 24,
+  "excluded_negative_events": 16,
+  "paired_states": 20,
+  "normal_saves_unchanged": true,
+  "rows": [
+    {
+      "width": 1280,
+      "state": "opera-grid",
+      "visible": false,
+      "pixel_delta_ltrb": null,
+      "allowed_individual_lamp_ltrb": [],
+      "same_timer_events_and_scene_state": true,
+      "lens_centers": [],
+      "target": {
+        "attempt": 1,
+        "bounds": [],
+        "clock": 0.0,
+        "countdown_events": [],
+        "go_events": 0,
+        "go_time": 0.0,
+        "lit": 0,
+        "quality": "speedy",
+        "state": "grid",
+        "visible": false
+      },
+      "source": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/source_1280/opera-grid.png",
+        "sha256": "1ad0f6df342f16a67b5484b2a7719f7dfda3f8c865a1b6ff43d3a6e42ee413fe",
+        "bytes": 894148
+      },
+      "candidate": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/candidate_1280/opera-grid.png",
+        "sha256": "1ad0f6df342f16a67b5484b2a7719f7dfda3f8c865a1b6ff43d3a6e42ee413fe",
+        "bytes": 894148
+      }
+    },
+    {
+      "width": 1280,
+      "state": "opera-initial-1",
+      "visible": true,
+      "pixel_delta_ltrb": [
+        520,
+        170,
+        760,
+        230
+      ],
+      "allowed_individual_lamp_ltrb": [
+        [
+          518,
+          168,
+          582,
+          232
+        ],
+        [
+          608,
+          168,
+          672,
+          232
+        ],
+        [
+          698,
+          168,
+          762,
+          232
+        ]
+      ],
+      "same_timer_events_and_scene_state": true,
+      "lens_centers": [
+        {
+          "index": 0,
+          "lit": true,
+          "mean_RGB": [
+            251.74,
+            240.92,
+            172.4
+          ],
+          "luma_8bit": 238.27
+        },
+        {
+          "index": 1,
+          "lit": false,
+          "mean_RGB": [
+            93.56,
+            112.8,
+            144.55
+          ],
+          "luma_8bit": 111.0
+        },
+        {
+          "index": 2,
+          "lit": false,
+          "mean_RGB": [
+            93.47,
+            112.8,
+            144.57
+          ],
+          "luma_8bit": 110.98
+        }
+      ],
+      "target": {
+        "attempt": 1,
+        "bounds": [
+          [
+            520.0,
+            170.0,
+            580.0,
+            230.0
+          ],
+          [
+            610.0,
+            170.0,
+            670.0,
+            230.0
+          ],
+          [
+            700.0,
+            170.0,
+            760.0,
+            230.0
+          ]
+        ],
+        "clock": 1.5,
+        "countdown_events": [],
+        "go_events": 0,
+        "go_time": 0.0,
+        "lit": 1,
+        "quality": "speedy",
+        "state": "countdown",
+        "visible": true
+      },
+      "source": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/source_1280/opera-initial-1.png",
+        "sha256": "b8a289cf60a3ed890c32c5ee5f143d393df72b0e8b8994111d795081bf0e0481",
+        "bytes": 877394
+      },
+      "candidate": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/candidate_1280/opera-initial-1.png",
+        "sha256": "38b5c91a65235dd3c112f66423cc79df900d052e906d17dfe0fc2c4a8532971a",
+        "bytes": 890949
+      }
+    },
+    {
+      "width": 1280,
+      "state": "opera-initial-2",
+      "visible": true,
+      "pixel_delta_ltrb": [
+        520,
+        170,
+        760,
+        230
+      ],
+      "allowed_individual_lamp_ltrb": [
+        [
+          518,
+          168,
+          582,
+          232
+        ],
+        [
+          608,
+          168,
+          672,
+          232
+        ],
+        [
+          698,
+          168,
+          762,
+          232
+        ]
+      ],
+      "same_timer_events_and_scene_state": true,
+      "lens_centers": [
+        {
+          "index": 0,
+          "lit": true,
+          "mean_RGB": [
+            251.74,
+            240.92,
+            172.4
+          ],
+          "luma_8bit": 238.27
+        },
+        {
+          "index": 1,
+          "lit": true,
+          "mean_RGB": [
+            251.47,
+            240.64,
+            172.39
+          ],
+          "luma_8bit": 238.01
+        },
+        {
+          "index": 2,
+          "lit": false,
+          "mean_RGB": [
+            93.47,
+            112.8,
+            144.57
+          ],
+          "luma_8bit": 110.98
+        }
+      ],
+      "target": {
+        "attempt": 1,
+        "bounds": [
+          [
+            520.0,
+            170.0,
+            580.0,
+            230.0
+          ],
+          [
+            610.0,
+            170.0,
+            670.0,
+            230.0
+          ],
+          [
+            700.0,
+            170.0,
+            760.0,
+            230.0
+          ]
+        ],
+        "clock": 0.750000000000001,
+        "countdown_events": [
+          1.0
+        ],
+        "go_events": 0,
+        "go_time": 0.0,
+        "lit": 2,
+        "quality": "speedy",
+        "state": "countdown",
+        "visible": true
+      },
+      "source": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/source_1280/opera-initial-2.png",
+        "sha256": "4d607b4f91da170633a1f03cd5f0a3c90f46bb48be4e71aeef6d62e250bf005b",
+        "bytes": 877596
+      },
+      "candidate": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/candidate_1280/opera-initial-2.png",
+        "sha256": "3802019c9b7f3a19382524d9706e9c3aeb51a1f808ba736efd40f669a3fa7e00",
+        "bytes": 891598
+      }
+    },
+    {
+      "width": 1280,
+      "state": "opera-initial-3",
+      "visible": true,
+      "pixel_delta_ltrb": [
+        520,
+        170,
+        760,
+        230
+      ],
+      "allowed_individual_lamp_ltrb": [
+        [
+          518,
+          168,
+          582,
+          232
+        ],
+        [
+          608,
+          168,
+          672,
+          232
+        ],
+        [
+          698,
+          168,
+          762,
+          232
+        ]
+      ],
+      "same_timer_events_and_scene_state": true,
+      "lens_centers": [
+        {
+          "index": 0,
+          "lit": true,
+          "mean_RGB": [
+            251.74,
+            240.92,
+            172.4
+          ],
+          "luma_8bit": 238.27
+        },
+        {
+          "index": 1,
+          "lit": true,
+          "mean_RGB": [
+            251.47,
+            240.64,
+            172.39
+          ],
+          "luma_8bit": 238.01
+        },
+        {
+          "index": 2,
+          "lit": true,
+          "mean_RGB": [
+            250.44,
+            240.63,
+            172.39
+          ],
+          "luma_8bit": 237.79
+        }
+      ],
+      "target": {
+        "attempt": 1,
+        "bounds": [
+          [
+            520.0,
+            170.0,
+            580.0,
+            230.0
+          ],
+          [
+            610.0,
+            170.0,
+            670.0,
+            230.0
+          ],
+          [
+            700.0,
+            170.0,
+            760.0,
+            230.0
+          ]
+        ],
+        "clock": 0.25,
+        "countdown_events": [
+          1.0,
+          2.0
+        ],
+        "go_events": 0,
+        "go_time": 0.0,
+        "lit": 3,
+        "quality": "speedy",
+        "state": "countdown",
+        "visible": true
+      },
+      "source": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/source_1280/opera-initial-3.png",
+        "sha256": "ded8a46634ae28e28be750c5f35edb5ab6435372d51e3acbdabbc2be03a1b907",
+        "bytes": 877054
+      },
+      "candidate": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/candidate_1280/opera-initial-3.png",
+        "sha256": "130c0758a0229da193300d3b5f8d2e26ff01f975c4878ba576100278f294d3f5",
+        "bytes": 889126
+      }
+    },
+    {
+      "width": 1280,
+      "state": "opera-initial-go",
+      "visible": false,
+      "pixel_delta_ltrb": null,
+      "allowed_individual_lamp_ltrb": [],
+      "same_timer_events_and_scene_state": true,
+      "lens_centers": [],
+      "target": {
+        "attempt": 1,
+        "bounds": [],
+        "clock": -0.0166666666666663,
+        "countdown_events": [
+          1.0,
+          2.0,
+          3.0
+        ],
+        "go_events": 1,
+        "go_time": 0.683333333333333,
+        "lit": 0,
+        "quality": "speedy",
+        "state": "race",
+        "visible": false
+      },
+      "source": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/source_1280/opera-initial-go.png",
+        "sha256": "875e90cb7ad2e7ae5ac50fe0a5d6f724ed532fc67653155dc54fc4d78ca7ee0a",
+        "bytes": 875863
+      },
+      "candidate": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/candidate_1280/opera-initial-go.png",
+        "sha256": "875e90cb7ad2e7ae5ac50fe0a5d6f724ed532fc67653155dc54fc4d78ca7ee0a",
+        "bytes": 875863
+      }
+    },
+    {
+      "width": 1280,
+      "state": "opera-retry-1",
+      "visible": true,
+      "pixel_delta_ltrb": [
+        520,
+        170,
+        760,
+        230
+      ],
+      "allowed_individual_lamp_ltrb": [
+        [
+          518,
+          168,
+          582,
+          232
+        ],
+        [
+          608,
+          168,
+          672,
+          232
+        ],
+        [
+          698,
+          168,
+          762,
+          232
+        ]
+      ],
+      "same_timer_events_and_scene_state": true,
+      "lens_centers": [
+        {
+          "index": 0,
+          "lit": true,
+          "mean_RGB": [
+            251.74,
+            240.92,
+            172.4
+          ],
+          "luma_8bit": 238.27
+        },
+        {
+          "index": 1,
+          "lit": false,
+          "mean_RGB": [
+            93.56,
+            112.8,
+            144.55
+          ],
+          "luma_8bit": 111.0
+        },
+        {
+          "index": 2,
+          "lit": false,
+          "mean_RGB": [
+            93.47,
+            112.8,
+            144.57
+          ],
+          "luma_8bit": 110.98
+        }
+      ],
+      "target": {
+        "attempt": 2,
+        "bounds": [
+          [
+            520.0,
+            170.0,
+            580.0,
+            230.0
+          ],
+          [
+            610.0,
+            170.0,
+            670.0,
+            230.0
+          ],
+          [
+            700.0,
+            170.0,
+            760.0,
+            230.0
+          ]
+        ],
+        "clock": 1.5,
+        "countdown_events": [
+          1.0,
+          2.0,
+          3.0
+        ],
+        "go_events": 1,
+        "go_time": 0.0,
+        "lit": 1,
+        "quality": "speedy",
+        "state": "countdown",
+        "visible": true
+      },
+      "source": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/source_1280/opera-retry-1.png",
+        "sha256": "c6e90f0a47c1e924580c77d0b7c0441a960d595b37234b2545079ca4a1f6e0f8",
+        "bytes": 882638
+      },
+      "candidate": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/candidate_1280/opera-retry-1.png",
+        "sha256": "29e77dc3ab5136a56fbf5a854b71d703adcfa9b9ae0da67e746f3620809da214",
+        "bytes": 896181
+      }
+    },
+    {
+      "width": 1280,
+      "state": "opera-retry-2",
+      "visible": true,
+      "pixel_delta_ltrb": [
+        520,
+        170,
+        760,
+        230
+      ],
+      "allowed_individual_lamp_ltrb": [
+        [
+          518,
+          168,
+          582,
+          232
+        ],
+        [
+          608,
+          168,
+          672,
+          232
+        ],
+        [
+          698,
+          168,
+          762,
+          232
+        ]
+      ],
+      "same_timer_events_and_scene_state": true,
+      "lens_centers": [
+        {
+          "index": 0,
+          "lit": true,
+          "mean_RGB": [
+            251.74,
+            240.92,
+            172.4
+          ],
+          "luma_8bit": 238.27
+        },
+        {
+          "index": 1,
+          "lit": true,
+          "mean_RGB": [
+            251.47,
+            240.64,
+            172.39
+          ],
+          "luma_8bit": 238.01
+        },
+        {
+          "index": 2,
+          "lit": false,
+          "mean_RGB": [
+            93.47,
+            112.8,
+            144.57
+          ],
+          "luma_8bit": 110.98
+        }
+      ],
+      "target": {
+        "attempt": 2,
+        "bounds": [
+          [
+            520.0,
+            170.0,
+            580.0,
+            230.0
+          ],
+          [
+            610.0,
+            170.0,
+            670.0,
+            230.0
+          ],
+          [
+            700.0,
+            170.0,
+            760.0,
+            230.0
+          ]
+        ],
+        "clock": 0.750000000000001,
+        "countdown_events": [
+          1.0,
+          2.0,
+          3.0,
+          1.0
+        ],
+        "go_events": 1,
+        "go_time": 0.0,
+        "lit": 2,
+        "quality": "speedy",
+        "state": "countdown",
+        "visible": true
+      },
+      "source": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/source_1280/opera-retry-2.png",
+        "sha256": "ae29e6523327316c0ea2d625a979c5a88ac95f6657e4c3900a9a3f0d6d582e3a",
+        "bytes": 881844
+      },
+      "candidate": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/candidate_1280/opera-retry-2.png",
+        "sha256": "b2b98169ebf41100678d30239dddeaf82eaf455e967cd686e38d6229e99ee9dc",
+        "bytes": 895725
+      }
+    },
+    {
+      "width": 1280,
+      "state": "opera-retry-3",
+      "visible": true,
+      "pixel_delta_ltrb": [
+        520,
+        170,
+        760,
+        230
+      ],
+      "allowed_individual_lamp_ltrb": [
+        [
+          518,
+          168,
+          582,
+          232
+        ],
+        [
+          608,
+          168,
+          672,
+          232
+        ],
+        [
+          698,
+          168,
+          762,
+          232
+        ]
+      ],
+      "same_timer_events_and_scene_state": true,
+      "lens_centers": [
+        {
+          "index": 0,
+          "lit": true,
+          "mean_RGB": [
+            251.74,
+            240.92,
+            172.4
+          ],
+          "luma_8bit": 238.27
+        },
+        {
+          "index": 1,
+          "lit": true,
+          "mean_RGB": [
+            251.47,
+            240.64,
+            172.39
+          ],
+          "luma_8bit": 238.01
+        },
+        {
+          "index": 2,
+          "lit": true,
+          "mean_RGB": [
+            250.44,
+            240.63,
+            172.39
+          ],
+          "luma_8bit": 237.79
+        }
+      ],
+      "target": {
+        "attempt": 2,
+        "bounds": [
+          [
+            520.0,
+            170.0,
+            580.0,
+            230.0
+          ],
+          [
+            610.0,
+            170.0,
+            670.0,
+            230.0
+          ],
+          [
+            700.0,
+            170.0,
+            760.0,
+            230.0
+          ]
+        ],
+        "clock": 0.25,
+        "countdown_events": [
+          1.0,
+          2.0,
+          3.0,
+          1.0,
+          2.0
+        ],
+        "go_events": 1,
+        "go_time": 0.0,
+        "lit": 3,
+        "quality": "speedy",
+        "state": "countdown",
+        "visible": true
+      },
+      "source": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/source_1280/opera-retry-3.png",
+        "sha256": "ed4779ccd09becc33bb1b1dd5d5f2580beb6993500b5540eeafaa0634118a742",
+        "bytes": 883202
+      },
+      "candidate": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/candidate_1280/opera-retry-3.png",
+        "sha256": "518ca9907d447747e660159831b8bace09aacc878d93af98b8bf1956a54027e9",
+        "bytes": 895213
+      }
+    },
+    {
+      "width": 1280,
+      "state": "opera-retry-go",
+      "visible": false,
+      "pixel_delta_ltrb": null,
+      "allowed_individual_lamp_ltrb": [],
+      "same_timer_events_and_scene_state": true,
+      "lens_centers": [],
+      "target": {
+        "attempt": 2,
+        "bounds": [],
+        "clock": -0.0166666666666663,
+        "countdown_events": [
+          1.0,
+          2.0,
+          3.0,
+          1.0,
+          2.0,
+          3.0
+        ],
+        "go_events": 2,
+        "go_time": 0.683333333333333,
+        "lit": 0,
+        "quality": "speedy",
+        "state": "race",
+        "visible": false
+      },
+      "source": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/source_1280/opera-retry-go.png",
+        "sha256": "669b3265b94fc350a248d8f5ae9d7f70506b4a77755febff35f8d37205c5ab42",
+        "bytes": 880851
+      },
+      "candidate": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/candidate_1280/opera-retry-go.png",
+        "sha256": "669b3265b94fc350a248d8f5ae9d7f70506b4a77755febff35f8d37205c5ab42",
+        "bytes": 880851
+      }
+    },
+    {
+      "width": 1280,
+      "state": "pc-split-countdown-excluded",
+      "visible": false,
+      "pixel_delta_ltrb": null,
+      "allowed_individual_lamp_ltrb": [],
+      "same_timer_events_and_scene_state": true,
+      "lens_centers": [],
+      "target": {
+        "attempt": 1,
+        "bounds": [],
+        "clock": 0.25,
+        "countdown_events": [
+          1.0,
+          2.0,
+          3.0,
+          1.0,
+          2.0,
+          3.0
+        ],
+        "go_events": 2,
+        "go_time": 0.0,
+        "lit": 0,
+        "quality": "fixed_pc_no_quality_selector",
+        "state": "countdown",
+        "visible": false
+      },
+      "source": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/source_1280/pc-split-countdown-excluded.png",
+        "sha256": "76eedbd9999b890433ecde1e1fe62eb3ad60960d46fa8503f1541837636a4480",
+        "bytes": 533899
+      },
+      "candidate": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/candidate_1280/pc-split-countdown-excluded.png",
+        "sha256": "76eedbd9999b890433ecde1e1fe62eb3ad60960d46fa8503f1541837636a4480",
+        "bytes": 533899
+      }
+    },
+    {
+      "width": 1600,
+      "state": "opera-grid",
+      "visible": false,
+      "pixel_delta_ltrb": null,
+      "allowed_individual_lamp_ltrb": [],
+      "same_timer_events_and_scene_state": true,
+      "lens_centers": [],
+      "target": {
+        "attempt": 1,
+        "bounds": [],
+        "clock": 0.0,
+        "countdown_events": [],
+        "go_events": 0,
+        "go_time": 0.0,
+        "lit": 0,
+        "quality": "speedy",
+        "state": "grid",
+        "visible": false
+      },
+      "source": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/source_1600/opera-grid.png",
+        "sha256": "7542dcefa01261c96cf7a48ded70aefdfbc6c6f30d52a88d79e4d266ce22b2a4",
+        "bytes": 995605
+      },
+      "candidate": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/candidate_1600/opera-grid.png",
+        "sha256": "7542dcefa01261c96cf7a48ded70aefdfbc6c6f30d52a88d79e4d266ce22b2a4",
+        "bytes": 995605
+      }
+    },
+    {
+      "width": 1600,
+      "state": "opera-initial-1",
+      "visible": true,
+      "pixel_delta_ltrb": [
+        680,
+        170,
+        920,
+        230
+      ],
+      "allowed_individual_lamp_ltrb": [
+        [
+          678,
+          168,
+          742,
+          232
+        ],
+        [
+          768,
+          168,
+          832,
+          232
+        ],
+        [
+          858,
+          168,
+          922,
+          232
+        ]
+      ],
+      "same_timer_events_and_scene_state": true,
+      "lens_centers": [
+        {
+          "index": 0,
+          "lit": true,
+          "mean_RGB": [
+            251.74,
+            240.92,
+            172.4
+          ],
+          "luma_8bit": 238.27
+        },
+        {
+          "index": 1,
+          "lit": false,
+          "mean_RGB": [
+            93.56,
+            112.8,
+            144.55
+          ],
+          "luma_8bit": 111.0
+        },
+        {
+          "index": 2,
+          "lit": false,
+          "mean_RGB": [
+            93.47,
+            112.8,
+            144.57
+          ],
+          "luma_8bit": 110.98
+        }
+      ],
+      "target": {
+        "attempt": 1,
+        "bounds": [
+          [
+            680.0,
+            170.0,
+            740.0,
+            230.0
+          ],
+          [
+            770.0,
+            170.0,
+            830.0,
+            230.0
+          ],
+          [
+            860.0,
+            170.0,
+            920.0,
+            230.0
+          ]
+        ],
+        "clock": 1.5,
+        "countdown_events": [],
+        "go_events": 0,
+        "go_time": 0.0,
+        "lit": 1,
+        "quality": "speedy",
+        "state": "countdown",
+        "visible": true
+      },
+      "source": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/source_1600/opera-initial-1.png",
+        "sha256": "40b9164e830d5c0349682b362e6a71999f16b4435dd40cfe26334d856be11b47",
+        "bytes": 979131
+      },
+      "candidate": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/candidate_1600/opera-initial-1.png",
+        "sha256": "6c2a04294546536124cb4120b9debcf48b2253faa4b4f7151b7cd534c2123716",
+        "bytes": 992762
+      }
+    },
+    {
+      "width": 1600,
+      "state": "opera-initial-2",
+      "visible": true,
+      "pixel_delta_ltrb": [
+        680,
+        170,
+        920,
+        230
+      ],
+      "allowed_individual_lamp_ltrb": [
+        [
+          678,
+          168,
+          742,
+          232
+        ],
+        [
+          768,
+          168,
+          832,
+          232
+        ],
+        [
+          858,
+          168,
+          922,
+          232
+        ]
+      ],
+      "same_timer_events_and_scene_state": true,
+      "lens_centers": [
+        {
+          "index": 0,
+          "lit": true,
+          "mean_RGB": [
+            251.74,
+            240.92,
+            172.4
+          ],
+          "luma_8bit": 238.27
+        },
+        {
+          "index": 1,
+          "lit": true,
+          "mean_RGB": [
+            251.47,
+            240.64,
+            172.39
+          ],
+          "luma_8bit": 238.01
+        },
+        {
+          "index": 2,
+          "lit": false,
+          "mean_RGB": [
+            93.47,
+            112.8,
+            144.57
+          ],
+          "luma_8bit": 110.98
+        }
+      ],
+      "target": {
+        "attempt": 1,
+        "bounds": [
+          [
+            680.0,
+            170.0,
+            740.0,
+            230.0
+          ],
+          [
+            770.0,
+            170.0,
+            830.0,
+            230.0
+          ],
+          [
+            860.0,
+            170.0,
+            920.0,
+            230.0
+          ]
+        ],
+        "clock": 0.750000000000001,
+        "countdown_events": [
+          1.0
+        ],
+        "go_events": 0,
+        "go_time": 0.0,
+        "lit": 2,
+        "quality": "speedy",
+        "state": "countdown",
+        "visible": true
+      },
+      "source": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/source_1600/opera-initial-2.png",
+        "sha256": "18196a4a0292d3f67deadd0b81b63c682b4ffddc2b857876f4d194f29311f209",
+        "bytes": 979456
+      },
+      "candidate": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/candidate_1600/opera-initial-2.png",
+        "sha256": "c7ccbcdfcf6504c8dd738f5237a6b077bb422fa0b3aef139bf7cd171ddf32365",
+        "bytes": 993478
+      }
+    },
+    {
+      "width": 1600,
+      "state": "opera-initial-3",
+      "visible": true,
+      "pixel_delta_ltrb": [
+        680,
+        170,
+        920,
+        230
+      ],
+      "allowed_individual_lamp_ltrb": [
+        [
+          678,
+          168,
+          742,
+          232
+        ],
+        [
+          768,
+          168,
+          832,
+          232
+        ],
+        [
+          858,
+          168,
+          922,
+          232
+        ]
+      ],
+      "same_timer_events_and_scene_state": true,
+      "lens_centers": [
+        {
+          "index": 0,
+          "lit": true,
+          "mean_RGB": [
+            251.74,
+            240.92,
+            172.4
+          ],
+          "luma_8bit": 238.27
+        },
+        {
+          "index": 1,
+          "lit": true,
+          "mean_RGB": [
+            251.47,
+            240.64,
+            172.39
+          ],
+          "luma_8bit": 238.01
+        },
+        {
+          "index": 2,
+          "lit": true,
+          "mean_RGB": [
+            250.44,
+            240.63,
+            172.39
+          ],
+          "luma_8bit": 237.79
+        }
+      ],
+      "target": {
+        "attempt": 1,
+        "bounds": [
+          [
+            680.0,
+            170.0,
+            740.0,
+            230.0
+          ],
+          [
+            770.0,
+            170.0,
+            830.0,
+            230.0
+          ],
+          [
+            860.0,
+            170.0,
+            920.0,
+            230.0
+          ]
+        ],
+        "clock": 0.25,
+        "countdown_events": [
+          1.0,
+          2.0
+        ],
+        "go_events": 0,
+        "go_time": 0.0,
+        "lit": 3,
+        "quality": "speedy",
+        "state": "countdown",
+        "visible": true
+      },
+      "source": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/source_1600/opera-initial-3.png",
+        "sha256": "4b714ac18ea398b70b305d03189b28cdf864772d2f2eb5a99e190b9bcf24efb1",
+        "bytes": 978903
+      },
+      "candidate": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/candidate_1600/opera-initial-3.png",
+        "sha256": "f3dc69e2f435d85c4ae8b18883f62832929e8f7f6b233b9dfa14908bab531f90",
+        "bytes": 990992
+      }
+    },
+    {
+      "width": 1600,
+      "state": "opera-initial-go",
+      "visible": false,
+      "pixel_delta_ltrb": null,
+      "allowed_individual_lamp_ltrb": [],
+      "same_timer_events_and_scene_state": true,
+      "lens_centers": [],
+      "target": {
+        "attempt": 1,
+        "bounds": [],
+        "clock": -0.0166666666666663,
+        "countdown_events": [
+          1.0,
+          2.0,
+          3.0
+        ],
+        "go_events": 1,
+        "go_time": 0.683333333333333,
+        "lit": 0,
+        "quality": "speedy",
+        "state": "race",
+        "visible": false
+      },
+      "source": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/source_1600/opera-initial-go.png",
+        "sha256": "c2171394e51025bc1087b4566e4a438036fcc56717ae43a1ba28dae4e8ef4423",
+        "bytes": 977147
+      },
+      "candidate": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/candidate_1600/opera-initial-go.png",
+        "sha256": "c2171394e51025bc1087b4566e4a438036fcc56717ae43a1ba28dae4e8ef4423",
+        "bytes": 977147
+      }
+    },
+    {
+      "width": 1600,
+      "state": "opera-retry-1",
+      "visible": true,
+      "pixel_delta_ltrb": [
+        680,
+        170,
+        920,
+        230
+      ],
+      "allowed_individual_lamp_ltrb": [
+        [
+          678,
+          168,
+          742,
+          232
+        ],
+        [
+          768,
+          168,
+          832,
+          232
+        ],
+        [
+          858,
+          168,
+          922,
+          232
+        ]
+      ],
+      "same_timer_events_and_scene_state": true,
+      "lens_centers": [
+        {
+          "index": 0,
+          "lit": true,
+          "mean_RGB": [
+            251.74,
+            240.92,
+            172.4
+          ],
+          "luma_8bit": 238.27
+        },
+        {
+          "index": 1,
+          "lit": false,
+          "mean_RGB": [
+            93.56,
+            112.8,
+            144.55
+          ],
+          "luma_8bit": 111.0
+        },
+        {
+          "index": 2,
+          "lit": false,
+          "mean_RGB": [
+            93.47,
+            112.8,
+            144.57
+          ],
+          "luma_8bit": 110.98
+        }
+      ],
+      "target": {
+        "attempt": 2,
+        "bounds": [
+          [
+            680.0,
+            170.0,
+            740.0,
+            230.0
+          ],
+          [
+            770.0,
+            170.0,
+            830.0,
+            230.0
+          ],
+          [
+            860.0,
+            170.0,
+            920.0,
+            230.0
+          ]
+        ],
+        "clock": 1.5,
+        "countdown_events": [
+          1.0,
+          2.0,
+          3.0
+        ],
+        "go_events": 1,
+        "go_time": 0.0,
+        "lit": 1,
+        "quality": "speedy",
+        "state": "countdown",
+        "visible": true
+      },
+      "source": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/source_1600/opera-retry-1.png",
+        "sha256": "04788ff7ecd0fcf5650e1ed2c3adefedd57a02af97deb611fd5b24d8a25b92fc",
+        "bytes": 984234
+      },
+      "candidate": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/candidate_1600/opera-retry-1.png",
+        "sha256": "df2fad76dd407488c3e278d19185eb58123bc1a90cb070e460de542a4285c142",
+        "bytes": 997899
+      }
+    },
+    {
+      "width": 1600,
+      "state": "opera-retry-2",
+      "visible": true,
+      "pixel_delta_ltrb": [
+        680,
+        170,
+        920,
+        230
+      ],
+      "allowed_individual_lamp_ltrb": [
+        [
+          678,
+          168,
+          742,
+          232
+        ],
+        [
+          768,
+          168,
+          832,
+          232
+        ],
+        [
+          858,
+          168,
+          922,
+          232
+        ]
+      ],
+      "same_timer_events_and_scene_state": true,
+      "lens_centers": [
+        {
+          "index": 0,
+          "lit": true,
+          "mean_RGB": [
+            251.74,
+            240.92,
+            172.4
+          ],
+          "luma_8bit": 238.27
+        },
+        {
+          "index": 1,
+          "lit": true,
+          "mean_RGB": [
+            251.47,
+            240.64,
+            172.39
+          ],
+          "luma_8bit": 238.01
+        },
+        {
+          "index": 2,
+          "lit": false,
+          "mean_RGB": [
+            93.47,
+            112.8,
+            144.57
+          ],
+          "luma_8bit": 110.98
+        }
+      ],
+      "target": {
+        "attempt": 2,
+        "bounds": [
+          [
+            680.0,
+            170.0,
+            740.0,
+            230.0
+          ],
+          [
+            770.0,
+            170.0,
+            830.0,
+            230.0
+          ],
+          [
+            860.0,
+            170.0,
+            920.0,
+            230.0
+          ]
+        ],
+        "clock": 0.750000000000001,
+        "countdown_events": [
+          1.0,
+          2.0,
+          3.0,
+          1.0
+        ],
+        "go_events": 1,
+        "go_time": 0.0,
+        "lit": 2,
+        "quality": "speedy",
+        "state": "countdown",
+        "visible": true
+      },
+      "source": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/source_1600/opera-retry-2.png",
+        "sha256": "73ba02826b015638a9cea87ab6f1026efce06c245d7ee9fc4bfe7bef358d558a",
+        "bytes": 983529
+      },
+      "candidate": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/candidate_1600/opera-retry-2.png",
+        "sha256": "e2df3500afd21ac7741de8b74cec485ad1316ba97135647879b58b7cf0646870",
+        "bytes": 997572
+      }
+    },
+    {
+      "width": 1600,
+      "state": "opera-retry-3",
+      "visible": true,
+      "pixel_delta_ltrb": [
+        680,
+        170,
+        920,
+        230
+      ],
+      "allowed_individual_lamp_ltrb": [
+        [
+          678,
+          168,
+          742,
+          232
+        ],
+        [
+          768,
+          168,
+          832,
+          232
+        ],
+        [
+          858,
+          168,
+          922,
+          232
+        ]
+      ],
+      "same_timer_events_and_scene_state": true,
+      "lens_centers": [
+        {
+          "index": 0,
+          "lit": true,
+          "mean_RGB": [
+            251.74,
+            240.92,
+            172.4
+          ],
+          "luma_8bit": 238.27
+        },
+        {
+          "index": 1,
+          "lit": true,
+          "mean_RGB": [
+            251.47,
+            240.64,
+            172.39
+          ],
+          "luma_8bit": 238.01
+        },
+        {
+          "index": 2,
+          "lit": true,
+          "mean_RGB": [
+            250.44,
+            240.63,
+            172.39
+          ],
+          "luma_8bit": 237.79
+        }
+      ],
+      "target": {
+        "attempt": 2,
+        "bounds": [
+          [
+            680.0,
+            170.0,
+            740.0,
+            230.0
+          ],
+          [
+            770.0,
+            170.0,
+            830.0,
+            230.0
+          ],
+          [
+            860.0,
+            170.0,
+            920.0,
+            230.0
+          ]
+        ],
+        "clock": 0.25,
+        "countdown_events": [
+          1.0,
+          2.0,
+          3.0,
+          1.0,
+          2.0
+        ],
+        "go_events": 1,
+        "go_time": 0.0,
+        "lit": 3,
+        "quality": "speedy",
+        "state": "countdown",
+        "visible": true
+      },
+      "source": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/source_1600/opera-retry-3.png",
+        "sha256": "7d77f3acfc1b736d9a046fcb113f03ed853cf721544f930dfbef113373555a6d",
+        "bytes": 985141
+      },
+      "candidate": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/candidate_1600/opera-retry-3.png",
+        "sha256": "7dd8b762a4c01765346a503558c26e1f237ab4d26ef41ec21022010b25e46760",
+        "bytes": 997275
+      }
+    },
+    {
+      "width": 1600,
+      "state": "opera-retry-go",
+      "visible": false,
+      "pixel_delta_ltrb": null,
+      "allowed_individual_lamp_ltrb": [],
+      "same_timer_events_and_scene_state": true,
+      "lens_centers": [],
+      "target": {
+        "attempt": 2,
+        "bounds": [],
+        "clock": -0.0166666666666663,
+        "countdown_events": [
+          1.0,
+          2.0,
+          3.0,
+          1.0,
+          2.0,
+          3.0
+        ],
+        "go_events": 2,
+        "go_time": 0.683333333333333,
+        "lit": 0,
+        "quality": "speedy",
+        "state": "race",
+        "visible": false
+      },
+      "source": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/source_1600/opera-retry-go.png",
+        "sha256": "9f43bc622fb21137d364c139677766bbe0c3a026862c6cdbc1903dc43fda0751",
+        "bytes": 981700
+      },
+      "candidate": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/candidate_1600/opera-retry-go.png",
+        "sha256": "9f43bc622fb21137d364c139677766bbe0c3a026862c6cdbc1903dc43fda0751",
+        "bytes": 981700
+      }
+    },
+    {
+      "width": 1600,
+      "state": "pc-split-countdown-excluded",
+      "visible": false,
+      "pixel_delta_ltrb": null,
+      "allowed_individual_lamp_ltrb": [],
+      "same_timer_events_and_scene_state": true,
+      "lens_centers": [],
+      "target": {
+        "attempt": 1,
+        "bounds": [],
+        "clock": 0.25,
+        "countdown_events": [
+          1.0,
+          2.0,
+          3.0,
+          1.0,
+          2.0,
+          3.0
+        ],
+        "go_events": 2,
+        "go_time": 0.0,
+        "lit": 0,
+        "quality": "fixed_pc_no_quality_selector",
+        "state": "countdown",
+        "visible": false
+      },
+      "source": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/source_1600/pc-split-countdown-excluded.png",
+        "sha256": "e47e12fe67d33659eae5e8b28e1a9d960af1fbdabbe5ab23004e31f82885194b",
+        "bytes": 544737
+      },
+      "candidate": {
+        "path": "assets_src/review/r151_racer_countdown_lights_20261107/captures/candidate_1600/pc-split-countdown-excluded.png",
+        "sha256": "e47e12fe67d33659eae5e8b28e1a9d960af1fbdabbe5ab23004e31f82885194b",
+        "bytes": 544737
+      }
+    }
+  ],
+  "limits": "Twelve visible pairs, eight hidden pairs. Real gas-touch start, configured rival-win endpoint exercises the real retry. Natural/full-speed play, formal QA11 and physical, child and owner evidence are separate."
+}

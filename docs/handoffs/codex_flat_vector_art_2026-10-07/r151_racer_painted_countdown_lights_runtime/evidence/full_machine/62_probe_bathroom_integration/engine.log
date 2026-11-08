@@ -1,0 +1,48 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+BATHROOM_WORLD|empty Day One bathtub has no swimmer or fill water: OK
+BATHROOM_WORLD|sprite stage open: OK
+BATHROOM_WORLD|direct canvas has no camera: OK
+BATHROOM_WORLD|retired modeled bathroom absent: OK
+BATHROOM_WORLD|one child-readable bathtub silhouette: OK false_foreground_left=false false_foreground_right=false real_bathtub=true
+BATHROOM_WORLD|audited V4 bathroom registry: OK
+BATHROOM_WORLD|source-owned bath touch props: OK expected=5 runtime=5 hotspots=5
+BATHROOM_WORLD|zero V3 additions or duplicate props: OK
+BATHROOM_WORLD|native bath props own pixels over complete full-frame clean tiles: OK expected_native=true runtime_native=true
+BATHROOM_WORLD|unshaded Sprite2D fixtures: OK
+BATHROOM_WORLD|fixtures occupy real depth: OK
+BATHROOM_WORLD|semantic atlas sequences follow audited timelines and reset: OK
+BATHROOM_WORLD|Canvas fixtures add 3x temporal samples and sleep at one idle draw: OK
+BATHROOM_WORLD|semantic fixture actions stay bounded and restore roots: OK
+BATHROOM_WORLD|fixture actions play exact castle audio: OK
+BATHROOM_WORLD|fixture animations reject repeat taps while busy: OK
+BATHROOM_WORLD|toilet vortex stays inside the animated bowl cavity: OK spec={ "role": "vortex", "shape": "ellipse", "center": [0.51, 0.615], "radius": [0.12, 0.028], "z_offset": 0.003, "flow_start": 0.08, "render_priority": 1.0, "active_frames": [2.0, 3.0, 4.0], "contact_role": "inside_bowl_cavity", "cavity_bounds_normalized": [0.365, 0.57, 0.29, 0.09], "occlusion_contract": "front_surface_confined_to_inner_bowl_waterline", "deep": [0.3, 0.7, 0.82, 1.0], "shallow": [0.74, 0.95, 0.98, 1.0], "alpha_base": 0.56, "turbulence": 0.52, "edge_foam": 0.18, "flow_speed": 1.25 } bounds=[P: (0.39, 0.587), S: (0.24, 0.056)] cavity=[P: (0.365, 0.57), S: (0.29, 0.09)] water_z=100 sprite_z=100
+BATHROOM_WORLD|bathtub water is a soft contained basin layer: OK roles=["fill"] alpha=0.240
+BATHROOM_WORLD|filled Day One bathtub reuses the true-swimming bunny: OK
+BATHROOM_WORLD|no bathtub-like foreground occluders: OK
+BATHROOM_WORLD|free-roaming controls disabled: OK
+BATHROOM_WORLD|bubble_bath authored lanes stay in stage and clear fixture bodies: OK
+BATHROOM_WORLD|bubble_bath item approaches resolve onto authored lanes: OK
+BATHROOM_WORLD|bubble_bath navigation snapshot carries atlas source geometry: OK
+BATHROOM_WORLD|live bathtub hotspot starts an approach: OK
+BATHROOM_WORLD|bathtub action waits while Roshan approaches: OK
+BATHROOM_WORLD|every bathtub interpolation sample stays on clear authored floor: OK
+BATHROOM_WORLD|bathtub action begins only at its approach socket: OK
+BATHROOM_WORLD|a new real floor tap cancels the queued bathtub action: OK
+BATHROOM_WORLD|touch drag release over bathtub requests its shared approach: OK
+BATHROOM_WORLD|dragged bathtub action waits for clear path arrival: OK
+BATHROOM_WORLD|library authored lanes stay in stage and clear fixture bodies: OK
+BATHROOM_WORLD|library item approaches resolve onto authored lanes: OK
+BATHROOM_WORLD|library navigation snapshot carries atlas source geometry: OK
+BATHROOM_WORLD|playroom authored lanes stay in stage and clear fixture bodies: OK
+BATHROOM_WORLD|playroom item approaches resolve onto authored lanes: OK
+BATHROOM_WORLD|playroom navigation snapshot carries atlas source geometry: OK
+BATHROOM_WORLD|drag release over an in-room physical door waits for arrival: OK
+BATHROOM_WORLD|dragged in-room door follows its lane before changing rooms: OK
+BATHROOM_WORLD|press held over a hall door cannot arm or enter it: OK
+BATHROOM_WORLD|a foreign touch release cannot steal the owned castle drag: OK
+BATHROOM_WORLD|a canceled touch drag clears movement and door intent: OK
+BATHROOM_WORLD|drag release on a physical door waits for arrival: OK
+BATHROOM_WORLD|dragged door route samples stay on the hall network: OK
+BATHROOM_WORLD|drag release enters the door after Roshan arrives: OK
+BATHROOM_WORLD|RESULT: 0 OK
