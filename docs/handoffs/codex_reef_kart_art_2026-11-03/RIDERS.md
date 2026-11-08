@@ -19,3 +19,5 @@ The PC garage now names Baby Eagle directly and previews the selected driver in 
 [Audit impact](../../../design/audit_impacts/reef-kart-rider-art-20261107.json) · [Runtime evidence](../../../audit/cycles/reef-kart-riders-20261107/RUNTIME_EVIDENCE.json)
 
 Desktop appearance and runtime checks are scoped to the PC candidate. Physical controller, tablet, child and owner acceptance remain open.
+
+The [turn and boost follow-up](CAST_MOTION.md) expands the seated sprites with registered motion keys.

@@ -15210,3 +15210,22 @@ Racer review evidence below reuses project artwork under each original source's 
 | `audit/cycles/reef-kart-riders-20261107/go-kart.jpg` | Godot capture of project artwork with the above sprite credits. | Cropped and labeled runtime review board. |
 | `audit/cycles/reef-kart-riders-20261107/zoom-cycle.jpg` | Godot capture of project artwork with the above sprite credits. | Cropped and labeled runtime review board. |
 | `audit/cycles/reef-kart-riders-20261107/monster-truck.jpg` | Godot capture of project artwork with the above sprite credits. | Cropped and labeled runtime review board. |
+
+## Racer turn and boost keys (2026-11-07)
+
+| Asset | Source / license / URL | Modifications |
+|---|---|---|
+| `assets/racer/rider_poses_v2/sparkle.png` | Existing project rear-rider art and chassis under the original license entries. Exact bindings in `assets_src/racer_pose_keys_20261107/JOB_CARD.json`. | Local Canvas key derivation, registered grip and chassis, lossless packed mipmapped export. |
+| `assets/racer/rider_poses_v2/huluu.png` | Existing project rear-rider art and chassis under the original license entries. Exact bindings in `assets_src/racer_pose_keys_20261107/JOB_CARD.json`. | Local Canvas key derivation, registered grip and chassis, lossless packed mipmapped export. |
+| `assets/racer/rider_poses_v2/bunny.png` | Existing project rear-rider art and chassis under the original license entries. Exact bindings in `assets_src/racer_pose_keys_20261107/JOB_CARD.json`. | Local Canvas key derivation, registered grip and chassis, lossless packed mipmapped export. |
+| `assets/racer/rider_poses_v2/kitty.png` | Existing project rear-rider art and chassis under the original license entries. Exact bindings in `assets_src/racer_pose_keys_20261107/JOB_CARD.json`. | Local Canvas key derivation, registered grip and chassis, lossless packed mipmapped export. |
+| `assets/racer/rider_poses_v2/baby_doll.png` | Existing project rear-rider art and chassis under the original license entries. Exact bindings in `assets_src/racer_pose_keys_20261107/JOB_CARD.json`. | Local Canvas key derivation, registered grip and chassis, lossless packed mipmapped export. |
+| `assets/racer/rider_poses_v2/dolly.png` | Existing project rear-rider art and chassis under the original license entries. Exact bindings in `assets_src/racer_pose_keys_20261107/JOB_CARD.json`. | Local Canvas key derivation, registered grip and chassis, lossless packed mipmapped export. |
+| `assets/racer/rider_poses_v2/sleepy.png` | Existing project rear-rider art and chassis under the original license entries. Exact bindings in `assets_src/racer_pose_keys_20261107/JOB_CARD.json`. | Local Canvas key derivation, registered grip and chassis, lossless packed mipmapped export. |
+| `assets/racer/rider_poses_v2/imp.png` | Existing project rear-rider art and chassis under the original license entries. Exact bindings in `assets_src/racer_pose_keys_20261107/JOB_CARD.json`. | Local Canvas key derivation, registered grip and chassis, lossless packed mipmapped export. |
+| `assets/racer/rider_poses_v2/rumi.png` | Existing project rear-rider art and chassis under the original license entries. Exact bindings in `assets_src/racer_pose_keys_20261107/JOB_CARD.json`. | Local Canvas key derivation, registered grip and chassis, lossless packed mipmapped export. |
+| `assets/racer/rider_poses_v2/daddy.png` | Existing project rear-rider art and chassis under the original license entries. Exact bindings in `assets_src/racer_pose_keys_20261107/JOB_CARD.json`. | Local Canvas key derivation, registered grip and chassis, lossless packed mipmapped export. |
+| `assets/racer/rider_poses_v2/mama_baby.png` | Existing project rear-rider art and chassis under the original license entries. Exact bindings in `assets_src/racer_pose_keys_20261107/JOB_CARD.json`. | Local Canvas key derivation, registered grip and chassis, lossless packed mipmapped export. |
+| `audit/cycles/reef-kart-cast-motion-20261107/go-kart.jpg` | Godot capture of the project artwork with the above rider credits. | Cropped and labeled pose review board. |
+| `audit/cycles/reef-kart-cast-motion-20261107/zoom-cycle.jpg` | Godot capture of the project artwork with the above rider credits. | Cropped and labeled pose review board. |
+| `audit/cycles/reef-kart-cast-motion-20261107/monster-truck.jpg` | Godot capture of the project artwork with the above rider credits. | Cropped and labeled pose review board. |

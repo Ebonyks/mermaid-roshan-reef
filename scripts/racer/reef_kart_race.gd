@@ -277,6 +277,7 @@ func _place_grid() -> void:
 		k["speed"] = 0.0
 		if pc_handling:
 			PCDrive.reset(k)
+			k["rider_pose"] = Vector2.ZERO
 		k["lap"] = 0
 		for key: String in ["roulette_t", "boost_t", "spin_t", "slow_t", "bump_t",
 				"finish_time", "steer_vis", "ai_item_t", "spin_vis"]:
@@ -296,9 +297,14 @@ func _load_textures() -> void:
 			_tex[key] = load(path) as Texture2D
 	for kart: Dictionary in karts:
 		var driver := String(kart["driver"])
-		if driver == "":
-			continue
 		var vehicle := String(kart["vehicle"])
+		var art_driver := "imp" if pc_handling and driver.is_empty() and kart["id"] == "imp" else driver
+		if pc_handling and RiderArt.SLOTS.has(art_driver) and RiderArt.VEHICLE_INDEX.has(vehicle):
+			kart["motion_sheet"] = RiderArt.motion_atlas(art_driver)
+			if kart["motion_sheet"] != null:
+				continue
+		if driver.is_empty():
+			continue
 		if RiderArt.SLOTS.has(driver):
 			var rider_key := vehicle + "_riders"
 			if not _tex.has(rider_key):
@@ -697,6 +703,7 @@ func _drive_pc(k: Dictionary, command: Dictionary, delta: float) -> void:
 			race_event.emit("wrong_way", 0.0)
 		k["wrong_way"] = absf(error) > WRONG_WAY
 	_contact_features(k, delta)
+	RiderArt.advance_motion(k, delta, true)
 
 
 func cancel_pc_input() -> void:
@@ -713,6 +720,7 @@ func _settle_kart(k: Dictionary, braking: float, delta: float) -> void:
 		k["velocity"] = velocity
 		k["speed"] = velocity.length()
 		_move_pc(k, delta)
+		RiderArt.advance_motion(k, delta, false)
 	else:
 		k["speed"] = move_toward(float(k["speed"]), 0.0, BRAKE * braking * delta)
 		_move(k, delta)
@@ -1452,9 +1460,14 @@ func _draw_sparkle(screen: Vector2, scale: float) -> void:
 
 
 func _draw_selected_driver(k: Dictionary, rect: Rect2, tint: Color) -> void:
-	var ride_tint: Color = k["ride_tint"]
 	var vehicle := String(k["vehicle"])
 	var driver := String(k["driver"])
+	var ride_tint: Color = IMP_TINT if driver.is_empty() else k["ride_tint"]
+	var motion_sheet := k.get("motion_sheet") as Texture2D
+	if motion_sheet != null:
+		var frame := RiderArt.motion_frame(k["rider_pose"])
+		_world.draw_texture_rect_region(motion_sheet, rect, RiderArt.motion_region(vehicle, frame), ride_tint * tint)
+		return
 	if driver == "roshan":
 		var motion := RiderArt.pose(k, true)
 		var pose := _tex.get(vehicle + "_" + RiderArt.POSES[motion]) as Texture2D
@@ -1509,7 +1522,7 @@ func _draw_kart(k: Dictionary, screen: Vector2, scale: float) -> void:
 				spark, clampf(size * 0.024, 1.0, 5.0), true)
 	var center := screen - Vector2(0.0, size * 0.42)
 	var wobble := sin(float(k["spin_vis"])) * 0.45
-	var selected := String(k["driver"]) != ""
+	var selected := String(k["driver"]) != "" or k.get("motion_sheet") != null
 	# Spin the seated card around the registered tire contact.
 	_world.draw_set_transform(screen if selected else center, wobble, Vector2.ONE)
 	var rect := Rect2(-size * 0.5, -size * (0.86 if selected else 0.44), size, size)

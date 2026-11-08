@@ -1871,6 +1871,8 @@ The 2026-11-07 owner review found the improved curbs readable and asked for high
 
 The 2026-11-07 owner-directed [seated cast pass](../../docs/handoffs/codex_reef_kart_art_2026-11-03/RIDERS.md) covers Baby Eagle and the full selectable roster across the three rides. The [impact](../../design/audit_impacts/reef-kart-rider-art-20261107.json) tracks the existing pose and contact defects separately from physical device, child and owner acceptance.
 
+The owner-directed [turn and boost follow-up](../../docs/handoffs/codex_reef_kart_art_2026-11-03/CAST_MOTION.md) gives the PC cast registered lean and tuck keys on all three rides. The existing finding lifecycle and separate physical acceptance gates remain open.
+
 ## MA-VIS-011
 
 | Field | Value |
