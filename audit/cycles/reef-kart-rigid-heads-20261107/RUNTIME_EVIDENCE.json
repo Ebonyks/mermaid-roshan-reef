@@ -1,0 +1,255 @@
+{
+  "schema": "reef.kart.rigid.heads.evidence.v1",
+  "baseline": "e233e003b0de17f58aa783cc3597c0f2d7ac1367",
+  "engine": "Godot 4.7.2-stable official.ed1daf0bf",
+  "renderer": "1280×720 Vulkan Mobile, NVIDIA RTX 3060 Ti",
+  "runtime_sha256": {
+    "assets/racer/rider_poses_v3/baby_doll.png": "a9e03eb03fea4969bf811eebb243f995e58497a25547c97980d4f5290707ae29",
+    "assets/racer/rider_poses_v3/baby_doll.png.import": "52f887da9903c3ee86f8dd1467f2e1f7f1f5bca851828ed0c4a1a981bc00807f",
+    "assets/racer/rider_poses_v3/bunny.png": "63ec9881b4754098e44d043d34e603ee85679f7587641c526bd3eab3c461cc7d",
+    "assets/racer/rider_poses_v3/bunny.png.import": "b718bf43d5307335afb7b8eac4c5fe34fa7109d0d80826e50616e4c1cd1cb833",
+    "assets/racer/rider_poses_v3/daddy.png": "6afa5fd192e7f6e7a8a2adb3d416934fc14468a27a26def7315d2ef6a3566367",
+    "assets/racer/rider_poses_v3/daddy.png.import": "edc79d040ae3c7d4a00be4588a309118018dd2fb13c0bc9aa5e40d62f77d2bca",
+    "assets/racer/rider_poses_v3/dolly.png": "662ef4046adde1dae0371441c8a02b6ab78ae8e909cf71bdc7b51c513c56b875",
+    "assets/racer/rider_poses_v3/dolly.png.import": "f1e934e6b495deac5c9c38955a7cc53db82ec717fdac20f1013a41b4227d462c",
+    "assets/racer/rider_poses_v3/huluu.png": "4d514a0b1304fe552687653627e48a46a015bf414e6ca6f194c6edb142afe103",
+    "assets/racer/rider_poses_v3/huluu.png.import": "c803c638dd1d9cdacc29f553b2b16cd99abf5faa60d58fea0d2d94421a2db0df",
+    "assets/racer/rider_poses_v3/imp.png": "aa3c9dbefa6b11ead56c5574e7892dbebd6f74e83ef2d7c4664088641ed36efc",
+    "assets/racer/rider_poses_v3/imp.png.import": "d42871b4266d02a234d6be85b98b18e08bd8d3ce440fb546f1b6a8d570364d57",
+    "assets/racer/rider_poses_v3/kitty.png": "434297ecd25bf310e25339dc8e7e6d1c71b20d45f7b7aed129c4439d28c738f1",
+    "assets/racer/rider_poses_v3/kitty.png.import": "4f618101e9e61ddf62c36f77a721a699f439a818245d9f51206f9f93a0181a0c",
+    "assets/racer/rider_poses_v3/mama_baby.png": "1af37dee9aef4d45c1be5c7f77a1e74b82d8e376f8e624ff5155a83d8744ab31",
+    "assets/racer/rider_poses_v3/mama_baby.png.import": "0e3ff20b1611eeb8c8f338e3fe8eeba4b3ce27871399fe8dd4978cd8496f230c",
+    "assets/racer/rider_poses_v3/roshan.png": "ce8b7e1b92c08f4c2ff7d46a41004d9eb29e97e124aac700ab4823b6fddee165",
+    "assets/racer/rider_poses_v3/roshan.png.import": "bc3714503ab462b1f60ceeee2bfd6b55e49411934a1576e33f52b3851fee1647",
+    "assets/racer/rider_poses_v3/rumi.png": "2d2fd0125531b69b27383a3728fa99288cac56fa5d56e1e582bf083bae170dbf",
+    "assets/racer/rider_poses_v3/rumi.png.import": "4512ba5c4275d35271719eae46a229edbc0129df4fc885f7e17b9bf1ffdbe735",
+    "assets/racer/rider_poses_v3/sleepy.png": "e77ee9e11dbe8fc114203548015c1346fc439662f8dcb02cf9effd7ca9e225f6",
+    "assets/racer/rider_poses_v3/sleepy.png.import": "22dac4f256c7ddacc4db47846b631606407a93e4f14587a62ceb0ab53002f194",
+    "assets/racer/rider_poses_v3/sparkle.png": "57213220f2aa52ec2e2bbd532dc3e3d6f4896fd1b928dedff60614b94a1574cd",
+    "assets/racer/rider_poses_v3/sparkle.png.import": "e5360ad897c80c8c84a5c2233ef51254ea8c641d2da68e150ec3f571fb3e338f",
+    "scripts/racer/reef_kart_race.gd": "bc6fef4e4476a78f258d550555129f934e240151abd0ceddaf1dfa9b1918108e",
+    "scripts/racer/reef_kart_rider_art.gd": "6e412bc78c0517ea65cecc48daefa8855be92c38177362c3faec43bea7e89f2b"
+  },
+  "export": {
+    "atlas_count": 12,
+    "poses_per_ride": 7,
+    "packed_keys": 252,
+    "motion_keys": 216,
+    "head_check": "audit/cycles/reef-kart-rigid-heads-20261107/check_geometry.py",
+    "minimum_head_mask_overlap": 0.9643,
+    "maximum_mean_rgb_error": 5.667,
+    "previous_pose_rigid_model_failures": {
+      "checked": 99,
+      "failed": 99
+    },
+    "unchanged_lower_cockpit_and_tires": "Byte-identical below the held foreground boundary in each seven-key sequence.",
+    "measurement_log_sha256": "3aa19d3fa8d1f0e1e97e460b4e2f96b929431b965d726101be70035edc1cb388"
+  },
+  "state_check": {
+    "harness": "audit/cycles/reef-kart-rigid-heads-20261107/check_state.gd",
+    "log_sha256": "79105957f890ad571e6acc09b20ae0dd31a199292d1e01e16558844bae1cba8a",
+    "key_order": [
+      0,
+      1,
+      2,
+      1,
+      0,
+      3,
+      4,
+      3,
+      0,
+      5,
+      6,
+      5,
+      0
+    ],
+    "atlas_mip_count": 9
+  },
+  "exercise": {
+    "harness": "audit/cycles/reef-kart-rigid-heads-20261107/exercise.gd",
+    "clock": "normal-time Godot simulation with injected controller input",
+    "race_setups": 72,
+    "driver_observations": 108,
+    "pose_captures": 756,
+    "verified_capture_archive_sha256": "40a0ac32b6a6ef7745106eb7ef894e9c52bf5a9ca9b3b4d98568b6077125ed09",
+    "per_role_pairings": {
+      "1p-p0": 36,
+      "2p-p0": 36,
+      "2p-p1": 36
+    },
+    "all_keys_and_neutral_recovery": true,
+    "error_count": 0,
+    "speed_units": "track units per second at an observed frame entering each full pose",
+    "peak_entry_speed_min_median_max": {
+      "left": [
+        270.89,
+        348.685,
+        436.13
+      ],
+      "right": [
+        270.9,
+        300.78,
+        411.89
+      ],
+      "boost": [
+        309.19,
+        339.28,
+        375.33
+      ]
+    },
+    "report_sha256": "48bb86788ca651c7ee53afb1ece87e435044cc9beeb88b2ca9e45704e914f4f8",
+    "log_sha256": "107607a6cd213c5ac88f7817edf5c142763f823f7bc2e68d82f7f7a8ca1b29da",
+    "review": "Agent reviewed all 36 pairing silhouettes through the runtime boards, with additional split left and right examples and time-based key traces.",
+    "boards": [
+      "audit/cycles/reef-kart-rigid-heads-20261107/comparison.jpg",
+      "audit/cycles/reef-kart-rigid-heads-20261107/go-kart.jpg",
+      "audit/cycles/reef-kart-rigid-heads-20261107/zoom-cycle.jpg",
+      "audit/cycles/reef-kart-rigid-heads-20261107/monster-truck.jpg"
+    ]
+  },
+  "complete_races": {
+    "harness": "audit/cycles/reef-kart-rigid-heads-20261107/full_races.gd",
+    "run_count": 4,
+    "log_sha256": "d44b31d137fe097a004698960cda90886342f57709a345e6f191387613fcb3e7",
+    "runs": [
+      {
+        "course": "playroom",
+        "mode": 1,
+        "attempts": 1,
+        "seconds": 26.95,
+        "frames": 26,
+        "telemetry_sha256": "2fabd1a88a8757e6e08ac522eabf6dba33c956e9dca75e46a1b6525cb5ca0f67"
+      },
+      {
+        "course": "kitchen",
+        "mode": 1,
+        "attempts": 2,
+        "seconds": 47.15,
+        "frames": 88,
+        "telemetry_sha256": "b1f251e69e5f00a2a3961d2534313a1c7de9704fd13f9d98af2611a365b3f8b4"
+      },
+      {
+        "course": "mermaid_pool",
+        "mode": 2,
+        "attempts": 1,
+        "seconds": 94.833,
+        "frames": 85,
+        "telemetry_sha256": "7c381d21cd9f9fb9e78d59373e9c5ced17dcf9a9792a6580c4260245fdad71b8"
+      },
+      {
+        "course": "opera_hall",
+        "mode": 2,
+        "attempts": 1,
+        "seconds": 85.35,
+        "frames": 76,
+        "telemetry_sha256": "84d8bfd98a463d20dbf767bd024ad42f13fd93ec850a90b739a0da4e35caf4cc"
+      }
+    ]
+  },
+  "focused": {
+    "probe_reef_kart_pc": {
+      "passed_assertions": 65,
+      "log_sha256": "65835e6a4714333f5e6ba314c102c77f476ba4977b95655f33af7aa5341c9968"
+    },
+    "probe_racer_integration": {
+      "passed_assertions": 50,
+      "log_sha256": "53b41d3789abf5bc82487665e8728408c0c4c4328de3f8867e049dd104046e2d"
+    }
+  },
+  "full_local_ci": {
+    "script": "scripts/ci.sh",
+    "log_sha256": "e7ccac3bae37c83393a9164e0f7d2665b7165daebeb49b670fc93053228f6634",
+    "exit_code": 0,
+    "probe_count": 82,
+    "zero_exit_probes": [
+      "probe_reef_districts",
+      "probe_ocean_kingdoms",
+      "probe_audit",
+      "probe_passive",
+      "probe_living_world",
+      "probe_load",
+      "probe_rank",
+      "probe_save_recovery",
+      "probe_galaxy_state",
+      "probe_collection",
+      "probe_mg2d",
+      "probe_fetch",
+      "probe_melody",
+      "probe_dolls",
+      "probe_seek",
+      "probe_audio",
+      "probe_dance",
+      "probe_l2",
+      "probe_l2_living_cards",
+      "probe_sky_lagoon_animals",
+      "probe_l2_reenter",
+      "probe_crown",
+      "probe_throne",
+      "probe_northern",
+      "probe_human_art_audit",
+      "probe_train",
+      "probe_verbs",
+      "probe_skins",
+      "probe_touch_router",
+      "probe_touch_stress",
+      "probe_interaction",
+      "probe_touch_adversary",
+      "probe_touch_look",
+      "probe_ui_system",
+      "probe_voice",
+      "probe_day_one_voice",
+      "probe_day_one_d8_revisits",
+      "probe_day_one_handoffs",
+      "probe_kart_feel",
+      "probe_combat",
+      "probe_dust_bunny",
+      "probe_dust_bunny_boss",
+      "probe_dust_boss",
+      "probe_hit",
+      "probe_partner",
+      "probe_combat_tutorial",
+      "probe_imp_ai",
+      "probe_mic",
+      "probe_stuffie",
+      "probe_dungeon",
+      "probe_ember",
+      "probe_opera",
+      "probe_opera_2d",
+      "probe_opera_diegetic_paths",
+      "probe_opera_detective",
+      "probe_opera_pipe",
+      "probe_opera_nursery",
+      "probe_opera_gesture_quality",
+      "probe_kitchen_props",
+      "probe_bathroom_props",
+      "probe_castle_door_language",
+      "probe_bathroom_integration",
+      "probe_day_one_bathroom_bunny",
+      "probe_day_one_bathroom_cleanup",
+      "probe_day_one_bathroom_movie_handoff",
+      "probe_day_one_director",
+      "probe_day_one_integration",
+      "probe_day_one_pool_cleanup",
+      "probe_day_one_art_attack_state",
+      "probe_day_one_castle_dressing",
+      "probe_day_one_story_clips",
+      "probe_chapter2",
+      "probe_chapter2_farmer_resume",
+      "probe_chapter2_lawn",
+      "probe_alpha_milestone_save",
+      "probe_dust_boss_balance",
+      "probe_start_menu_routing",
+      "probe_start_menu_new_game",
+      "probe_castle_pool_life_2d",
+      "probe_castle_pearl_art",
+      "probe_fairy_art",
+      "probe_props"
+    ]
+  },
+  "acceptance": {
+    "desktop_geometry_animation_and_render": "PASS",
+    "physical_controllers_tablet_child_owner": "OPEN",
+    "master_visual": "UNSATISFIED"
+  }
+}

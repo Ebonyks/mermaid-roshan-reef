@@ -1,0 +1,153 @@
+{
+  "schema": "reef.kart.roadside.delivery.v1",
+  "status": "PLAYABLE_TOPIC_CANDIDATE",
+  "repository": "Ebonyks/mermaid-roshan-reef",
+  "branch": "codex/reef-kart-art-20261104",
+  "baseline": "c97a4cc6f8b60522c5de782842325ed9984d54c6",
+  "created_utc": "2026-11-07T20:14:29.771997+00:00",
+  "basis": "Delta on the named immutable demo baseline. The repository tree provides the reused stage and game assets. This manifest binds every changed file except itself.",
+  "previous_delivery": "audit/cycles/reef-kart-full-speed-20261107/DELIVERY_MANIFEST.json",
+  "entry": "docs/handoffs/codex_reef_kart_art_2026-11-03/ROADSIDE.md",
+  "play_scene": "res://scenes/racer/reef_grand_prix_pc.tscn",
+  "runtime_evidence": "audit/cycles/reef-kart-roadside-20261107/RUNTIME_EVIDENCE.json",
+  "files": [
+    {
+      "path": "ASSET_LICENSES.md",
+      "bytes": 6246740,
+      "sha256": "527c7c157901135f0694da5434e8c8c91ab60ce587c2fff17d0c3a43b867b084"
+    },
+    {
+      "path": "assets/racer/roadside_v1/fascias.png",
+      "bytes": 663520,
+      "sha256": "a10049305b518db79655299feba4939bba2e11afe2b1b696493afeef622809c1"
+    },
+    {
+      "path": "assets/racer/roadside_v1/fascias.png.import",
+      "bytes": 949,
+      "sha256": "2890616511729418b96463d29f92bf283520c51654bf53aafabc719f253beb73"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_roadside_20261107/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_roadside_20261107/generation_job.json",
+      "bytes": 4089,
+      "sha256": "ce8f0d6c2c972700b4f8044effde910170750b622c05af80a6a0a76761bd3c6c"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_roadside_20261107/painted_fascias_native.png",
+      "bytes": 1950553,
+      "sha256": "9f0b6984ba4d8f3af95eed09390170c9a50e157508be1e753e84a861f712edbb"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_roadside_20261107/prepare_atlas.gd",
+      "bytes": 854,
+      "sha256": "655345aba28d171e96e172ab78ae76475f8fd4e6f0deba5fb8150f8a3f7e209f"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 342231,
+      "sha256": "293d12548d158636de3844524951f7a6ef7c87e1d5615d62bbec860930803074"
+    },
+    {
+      "path": "audit/cycles/reef-kart-roadside-20261107/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/cycles/reef-kart-roadside-20261107/RUNTIME_EVIDENCE.json",
+      "bytes": 20987,
+      "sha256": "0cacb7feb4aec46ddbbad327e2791cf746e92dc41c70f5911d2cf5fe9d3cc7a6"
+    },
+    {
+      "path": "audit/cycles/reef-kart-roadside-20261107/capture.gd",
+      "bytes": 4093,
+      "sha256": "644d54cc831d06e3fbe8577345dd1ab026920e26bcc1035910f3fdfd31dc8c21"
+    },
+    {
+      "path": "audit/cycles/reef-kart-roadside-20261107/drive.gd",
+      "bytes": 8418,
+      "sha256": "8b50f866ef626b6804da6e4506f3dbae5b1fe5ef3fba0e53248c0a53a3057f4f"
+    },
+    {
+      "path": "audit/cycles/reef-kart-roadside-20261107/kitchen.jpg",
+      "bytes": 250209,
+      "sha256": "1478902c45aab8d2968f0481bc394bd820575c09d698a8045936a08a94086d8e"
+    },
+    {
+      "path": "audit/cycles/reef-kart-roadside-20261107/mermaid_pool.jpg",
+      "bytes": 264235,
+      "sha256": "96f076294ac8e13b27877f8f3bcd86fc386775cf89803b5547712edef878f78b"
+    },
+    {
+      "path": "audit/cycles/reef-kart-roadside-20261107/opera_hall.jpg",
+      "bytes": 249229,
+      "sha256": "323bc1ebc35da7c89f53842f36805ed68bdef7948f844fa1031430496f5d6860"
+    },
+    {
+      "path": "audit/cycles/reef-kart-roadside-20261107/playroom.jpg",
+      "bytes": 258162,
+      "sha256": "3eb62e84efb6fcf728c083fcb8ef9acdeae7cb67eba9261208c8cef3acd995a7"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 324515,
+      "sha256": "76121ae72e9cf9e8d923b0053002597f47d08e0581ee4525bb7dc05a3ffd0214"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 246130,
+      "sha256": "38f37cc63e607cec3e9850ee314c832a2d48cc3aa9fa1b04974ab414077544b8"
+    },
+    {
+      "path": "design/audit_impacts/reef-kart-roadside-20261107.json",
+      "bytes": 4277,
+      "sha256": "6aa114020fabde374496b3db2e9163926f724fb1392a303026335bd8b4ced190"
+    },
+    {
+      "path": "docs/handoffs/codex_reef_kart_art_2026-11-03/ROADSIDE.md",
+      "bytes": 4935,
+      "sha256": "8dff1275f9b1885999707bb6c0d82dde131b4819b45df8b68789e6a48a0619c9"
+    },
+    {
+      "path": "docs/handoffs/codex_reef_kart_art_2026-11-03/ZONES.md",
+      "bytes": 5701,
+      "sha256": "cb7b26d48309350fa1c8f22ca0795116374da7978c72b0a999d048e502b6c1f9"
+    },
+    {
+      "path": "scripts/racer/reef_kart_floor.gdshader",
+      "bytes": 11019,
+      "sha256": "41c96ff802ffc941453950158269d1fb6a9c7541d3465d4eda6f0e8c75d01c7a"
+    },
+    {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "bytes": 68656,
+      "sha256": "cd37da1b1aa001342846db3969019e1ab1335b9e7425875a4edbb5af4ce7e40b"
+    },
+    {
+      "path": "scripts/racer/reef_kart_roadside.gd",
+      "bytes": 15636,
+      "sha256": "b287a2180f7133f8ea31a94d8897e5f5fb2374eb1a881884d742d24b23e6b072"
+    },
+    {
+      "path": "scripts/racer/reef_kart_roadside.gdshader",
+      "bytes": 527,
+      "sha256": "9623e4803b03a17dd8c4682929be1a98f83b1ea978a8bb914d142bb8cfccd76d"
+    },
+    {
+      "path": "scripts/racer/reef_kart_track.gd",
+      "bytes": 20931,
+      "sha256": "50188f2f07ed970f5eeef3e8f4c82cc09c9b5d5b58e3d4ac71a24a8e6ed4a5c9"
+    }
+  ],
+  "payload_sha256": "fe3fde0bf2fab3bd4f7693cb35b0f6475f793a31efeb15fc411eb8de6838c545",
+  "acceptance": {
+    "posed_desktop_views": "48 captures across all room courses and both modes",
+    "desktop_replay": "8/8 normal-speed races finished with simulated controllers",
+    "local_regression": "Passed the full local suite with Godot 4.7.2",
+    "master_visual": "UNSATISFIED",
+    "device_child_owner": "OPEN"
+  }
+}

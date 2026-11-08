@@ -1,0 +1,102 @@
+{
+  "id": "reef-kart-cast-motion-20261107",
+  "baseline": "a71ec8bffd70441ef1f713b1ee0d100ce95721c0",
+  "scope": "Turn and boost artwork, fixed cockpit contacts and responsive authored-key playback for the full PC cast across all three rides. Reuse existing authored Roshan poses and approved reference art. Verify 1P and both split-screen seats at full speed.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-MOT-01",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-QA-02",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-OPERA-014",
+    "MA-VIS-008"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets/racer/rider_poses_v2/baby_doll.png",
+    "assets/racer/rider_poses_v2/baby_doll.png.import",
+    "assets/racer/rider_poses_v2/bunny.png",
+    "assets/racer/rider_poses_v2/bunny.png.import",
+    "assets/racer/rider_poses_v2/daddy.png",
+    "assets/racer/rider_poses_v2/daddy.png.import",
+    "assets/racer/rider_poses_v2/dolly.png",
+    "assets/racer/rider_poses_v2/dolly.png.import",
+    "assets/racer/rider_poses_v2/huluu.png",
+    "assets/racer/rider_poses_v2/huluu.png.import",
+    "assets/racer/rider_poses_v2/imp.png",
+    "assets/racer/rider_poses_v2/imp.png.import",
+    "assets/racer/rider_poses_v2/kitty.png",
+    "assets/racer/rider_poses_v2/kitty.png.import",
+    "assets/racer/rider_poses_v2/mama_baby.png",
+    "assets/racer/rider_poses_v2/mama_baby.png.import",
+    "assets/racer/rider_poses_v2/rumi.png",
+    "assets/racer/rider_poses_v2/rumi.png.import",
+    "assets/racer/rider_poses_v2/sleepy.png",
+    "assets/racer/rider_poses_v2/sleepy.png.import",
+    "assets/racer/rider_poses_v2/sparkle.png",
+    "assets/racer/rider_poses_v2/sparkle.png.import",
+    "assets_src/racer_pose_keys_20261107/.gdignore",
+    "assets_src/racer_pose_keys_20261107/JOB_CARD.json",
+    "assets_src/racer_pose_keys_20261107/build_pose_atlases.gd",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/cycles/reef-kart-cast-motion-20261107/.gdignore",
+    "audit/cycles/reef-kart-cast-motion-20261107/DELIVERY_MANIFEST.json",
+    "audit/cycles/reef-kart-cast-motion-20261107/RUNTIME_EVIDENCE.json",
+    "audit/cycles/reef-kart-cast-motion-20261107/check_state.gd",
+    "audit/cycles/reef-kart-cast-motion-20261107/exercise.gd",
+    "audit/cycles/reef-kart-cast-motion-20261107/full_races.gd",
+    "audit/cycles/reef-kart-cast-motion-20261107/go-kart.jpg",
+    "audit/cycles/reef-kart-cast-motion-20261107/monster-truck.jpg",
+    "audit/cycles/reef-kart-cast-motion-20261107/zoom-cycle.jpg",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/CAST_MOTION.md",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/RIDERS.md",
+    "scripts/racer/reef_kart_race.gd",
+    "scripts/racer/reef_kart_rider_art.gd"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2 Mobile exercise.gd with actual PC input routing and normal game clock",
+      "result": "PASS",
+      "evidence": "audit/cycles/reef-kart-cast-motion-20261107/RUNTIME_EVIDENCE.json. 108 successful driver observations across all three camera roles and 729 pose captures."
+    },
+    {
+      "command": "Godot 4.7.2 Mobile full_races.gd",
+      "result": "PASS",
+      "evidence": "audit/cycles/reef-kart-cast-motion-20261107/RUNTIME_EVIDENCE.json. Four complete races with no rendering errors."
+    },
+    {
+      "command": "Local whole-key exporter, geometry and contact check, Godot import, state and focused racer checks",
+      "result": "PASS",
+      "evidence": "audit/cycles/reef-kart-cast-motion-20261107/RUNTIME_EVIDENCE.json. 231 distinct packed keys by driver and ride, fixed lower bands, nine mips per sheet, ordered transitions, and 115 focused assertions."
+    },
+    {
+      "command": "bash scripts/ci.sh and final authority, development, parser and inference gates",
+      "result": "PASS",
+      "evidence": "audit/cycles/reef-kart-cast-motion-20261107/RUNTIME_EVIDENCE.json. Full local suite exited zero with 82 zero-exit trusted probes."
+    }
+  ],
+  "acceptance_gaps": "Physical controllers, tablet, child and owner acceptance are separate."
+}

@@ -150,6 +150,7 @@ var pearls: Array[Dictionary] = []
 var bubbles: Array[Dictionary] = []
 var buoys: Array[Dictionary] = []
 var landmarks: Array[Dictionary] = []
+var roadside: Array[Dictionary] = []
 var gate_s: Array[float] = []
 
 static var _field_cache: ImageTexture = null

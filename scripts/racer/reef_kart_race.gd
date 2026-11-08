@@ -26,6 +26,10 @@ const RoomCourses := preload("res://scripts/racer/reef_kart_courses.gd")
 const PCDrive := preload("res://scripts/racer/reef_kart_drive.gd")
 const ItemVoice := preload("res://scripts/racer/reef_kart_item_voice.gd")
 const FloorShader := preload("res://scripts/racer/reef_kart_floor.gdshader")
+const Roadside := preload("res://scripts/racer/reef_kart_roadside.gd")
+const StageArt := preload("res://scripts/racer/reef_kart_stage_art.gd")
+const RoadsidePaint := preload("res://scripts/racer/reef_kart_roadside.gdshader")
+const RiderArt := preload("res://scripts/racer/reef_kart_rider_art.gd")
 
 const VIEW := Vector2(1280.0, 720.0)
 const HORIZON_Y := 268.0
@@ -156,9 +160,12 @@ var _sky_tex: Array[Texture2D] = []
 var _skyline: Texture2D = null
 var _room_art: Texture2D
 var _landmark_tex: Dictionary = {}
+var _roadside := Roadside.new()
+var _fascia: Texture2D
 var _drawables: Array = []
 var _minimap := PackedVector2Array()
 var _pc_hud := false
+var _pane_width := VIEW.x
 var _minimap_rect := Rect2(1090, 18, 170, 170)
 var _count_mark := 3
 var _time := 0.0
@@ -173,6 +180,10 @@ var item_voice: Node = null
 func setup(options: Dictionary = {}) -> void:
 	set_process(false)
 	track = TrackScript.new(options.get("course", {}))
+	if not track.room.is_empty():
+		track.roadside = Roadside.build(track)
+		StageArt.add_landmarks(track, CAM_BACK, FOCAL)
+		_fascia = load(Roadside.PAINT) as Texture2D
 	_duel = bool(options.get("duel", false))
 	pc_handling = bool(options.get("pc_handling", false))
 	if pc_handling:
@@ -193,7 +204,6 @@ func setup(options: Dictionary = {}) -> void:
 		item_voice = ItemVoice.new()
 		item_voice.duel = _duel
 		add_child(item_voice)
-		item_awarded.connect(item_voice.award)
 	_load_textures()
 	_build_view()
 	_build_minimap()
@@ -216,6 +226,7 @@ func setup_camera_view(source: ReefKartRace, slot: int) -> void:
 	_skyline = source._skyline
 	_room_art = source._room_art
 	_landmark_tex = source._landmark_tex
+	_fascia = source._fascia
 	_build_view()
 	_build_minimap()
 	_update_camera(1.0, true)
@@ -234,6 +245,7 @@ func refresh_camera_view(source: ReefKartRace, delta: float) -> void:
 
 func use_pc_hud(view_width: int) -> void:
 	_pc_hud = true
+	_pane_width = float(view_width)
 	_minimap_rect = Rect2((VIEW.x + float(view_width)) * 0.5 - 111.0, 32, 86, 86)
 	_build_minimap()
 
@@ -273,6 +285,7 @@ func _place_grid() -> void:
 		k["speed"] = 0.0
 		if pc_handling:
 			PCDrive.reset(k)
+			k["rider_pose"] = Vector2.ZERO
 		k["lap"] = 0
 		for key: String in ["roulette_t", "boost_t", "spin_t", "slow_t", "bump_t",
 				"finish_time", "steer_vis", "ai_item_t", "spin_vis"]:
@@ -292,9 +305,21 @@ func _load_textures() -> void:
 			_tex[key] = load(path) as Texture2D
 	for kart: Dictionary in karts:
 		var driver := String(kart["driver"])
-		if driver == "":
-			continue
 		var vehicle := String(kart["vehicle"])
+		var art_driver := "imp" if pc_handling and driver.is_empty() and kart["id"] == "imp" else driver
+		if pc_handling and (art_driver == "roshan" or RiderArt.SLOTS.has(art_driver)) \
+				and RiderArt.VEHICLE_INDEX.has(vehicle):
+			kart["motion_sheet"] = RiderArt.motion_atlas(art_driver)
+			if kart["motion_sheet"] != null:
+				continue
+		if driver.is_empty():
+			continue
+		if RiderArt.SLOTS.has(driver):
+			var rider_key := vehicle + "_riders"
+			if not _tex.has(rider_key):
+				_tex[rider_key] = RiderArt.atlas(vehicle)
+			if _tex[rider_key] != null:
+				continue
 		var driver_key := "driver_" + driver
 		if not _tex.has(driver_key):
 			_tex[driver_key] = load(String(kart["driver_art"])) as Texture2D
@@ -327,6 +352,14 @@ func _load_textures() -> void:
 		atlas.region = spec[1]
 		atlas.filter_clip = true
 		_tex[key] = atlas
+	if not track.room.is_empty():
+		var pickups := load(StageArt.ROOT + "pickups.png") as Texture2D
+		for role: String in StageArt.PICKUP_REGIONS:
+			var tile := AtlasTexture.new()
+			tile.atlas = pickups
+			tile.region = StageArt.PICKUP_REGIONS[role]
+			tile.filter_clip = true
+			_tex[role] = tile
 	_landmark_tex.clear()
 	for landmark: Dictionary in track.landmarks:
 		var id := String(landmark["id"])
@@ -373,6 +406,10 @@ func _build_view() -> void:
 	_floor.material = _floor_material
 	add_child(_floor)
 	_world = Node2D.new()
+	if not track.roadside.is_empty():
+		var paint := ShaderMaterial.new()
+		paint.shader = RoadsidePaint
+		_world.material = paint
 	_world.name = "Racers"
 	_world.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	add_child(_world)
@@ -396,6 +433,14 @@ func _style_room_floor() -> void:
 	_floor_material.set_shader_parameter("wall_a", paint[1])
 	_floor_material.set_shader_parameter("curb_a", paint[2])
 	_floor_material.set_shader_parameter("room_pattern", track.room["pattern"])
+	_floor_material.set_shader_parameter("room_surface", _room_art)
+	var floor_crops := {
+		"playroom": Vector4(0.12, 0.68, 0.66, 0.28),
+		"kitchen": Vector4(0.19, 0.76, 0.59, 0.20),
+		"mermaid_pool": Vector4(0.20, 0.932, 0.59, 0.062),
+		"opera_hall": Vector4(0.31, 0.69, 0.38, 0.26),
+	}
+	_floor_material.set_shader_parameter("room_surface_rect", floor_crops[track.id])
 	_floor_material.set_shader_parameter("haze_start", 410.0)
 	_floor_material.set_shader_parameter("haze_end", 1200.0)
 	_floor_material.set_shader_parameter("finish_pos", track.point_at(0.0))
@@ -485,7 +530,10 @@ func step_race(delta: float, input: Dictionary) -> void:
 				race_event.emit("go", 0.0)
 				for slot in range(karts.size()):
 					if bool(karts[slot]["player"]):
-						item_awarded.emit(slot, String(karts[slot]["item"]))
+						var kind := String(karts[slot]["item"])
+						if item_voice != null and (not _duel or slot == 0):
+							item_voice.award(ItemVoice.SHARED_SLOT if _duel else slot, kind)
+						item_awarded.emit(slot, kind)
 		"race":
 			race_time += delta
 			_step_racers(delta, input)
@@ -675,6 +723,7 @@ func _drive_pc(k: Dictionary, command: Dictionary, delta: float) -> void:
 			race_event.emit("wrong_way", 0.0)
 		k["wrong_way"] = absf(error) > WRONG_WAY
 	_contact_features(k, delta)
+	RiderArt.advance_motion(k, delta, true)
 
 
 func cancel_pc_input() -> void:
@@ -691,6 +740,7 @@ func _settle_kart(k: Dictionary, braking: float, delta: float) -> void:
 		k["velocity"] = velocity
 		k["speed"] = velocity.length()
 		_move_pc(k, delta)
+		RiderArt.advance_motion(k, delta, false)
 	else:
 		k["speed"] = move_toward(float(k["speed"]), 0.0, BRAKE * braking * delta)
 		_move(k, delta)
@@ -813,7 +863,11 @@ func _contact_features(k: Dictionary, delta: float) -> void:
 			k["ai_item_t"] = 0.0
 			if bool(k["player"]):
 				race_event.emit("item_ready", float(ITEM_KINDS.find(String(k["item"]))))
-				item_awarded.emit(karts.find(k), String(k["item"]))
+				var slot := karts.find(k)
+				var kind := String(k["item"])
+				if item_voice != null:
+					item_voice.award(slot, kind)
+				item_awarded.emit(slot, kind)
 
 
 ## Position-weighted draws keep the race close: whoever is behind is more
@@ -846,6 +900,8 @@ func _other_leader(k: Dictionary) -> Dictionary:
 
 func _use_item(k: Dictionary) -> void:
 	var kind := String(k["item"])
+	if item_voice != null and bool(k["player"]):
+		item_voice.discard_pending(karts.find(k))
 	k["item"] = ""
 	var forward := Vector2(sin(float(k["heading"])), -cos(float(k["heading"])))
 	match kind:
@@ -1074,7 +1130,6 @@ func _draw_sky() -> void:
 	if _room_art != null:
 		var source_size := _room_art.get_size()
 		var phase := track.wrap_s(float(_pl["track_s"])) / track.length
-		_floor_material.set_shader_parameter("camera_phase", phase)
 		var pan := 0.15 - 0.125 * cos(phase * TAU) + 0.025 * sin(cam_heading)
 		if track.id == "mermaid_pool":
 			# Exclude the painted towel fixture: the unique cabinet stands in-world.
@@ -1082,13 +1137,14 @@ func _draw_sky() -> void:
 		# Upper architecture only: the room's fixtures now stand in world space.
 		var source := Rect2(source_size * Vector2(clampf(pan, 0.0, 0.30), 0.0), source_size * Vector2(0.70, 0.27))
 		var wall := Rect2(0.0, 0.0, VIEW.x, HORIZON_Y + 2.0)
-		_sky.draw_texture_rect_region(_room_art, wall, source)
+		var light := StageArt.wall_light(track.id, phase)
+		_sky.draw_texture_rect_region(_room_art, wall, source, Color.WHITE.lerp(light, 0.42))
 		var palette: Array = track.room["palette"]
 		var haze: Color = palette[5]
-		var top := wall.end.y - 29.0
+		# Quiet distant architecture leaves room for the grounded set silhouettes.
 		_sky.draw_polygon(PackedVector2Array([
-			Vector2(0, top), Vector2(VIEW.x, top), wall.end, Vector2(0, wall.end.y)]),
-			PackedColorArray([Color(haze, 0), Color(haze, 0), haze, haze]))
+			Vector2.ZERO, Vector2(VIEW.x, 0), wall.end, Vector2(0, wall.end.y)]),
+			PackedColorArray([Color(light, 0.12), Color(light, 0.12), haze, haze]))
 		return
 	_sky.draw_rect(Rect2(Vector2.ZERO, Vector2(VIEW.x, HORIZON_Y + 2.0)), SKY_WATER)
 	var band_y := HORIZON_Y - SKY_BAND + 2.0
@@ -1128,13 +1184,28 @@ func _draw_sky() -> void:
 
 func _draw_world() -> void:
 	_drawables.clear()
+	if not track.roadside.is_empty():
+		var camera_right := Vector2(cos(cam_heading), sin(cam_heading))
+		_roadside.begin(_world, cam_pos, cam_heading, _fascia,
+			_room_art if track.id == "mermaid_pool" else null,
+			FOCAL, CAM_HEIGHT, HORIZON_Y, NEAR * 2.0, VIEW.x * 0.5)
+		for index in range(track.roadside.size()):
+			var deck: Dictionary = track.roadside[index]
+			var center: Vector2 = deck["pos"]
+			var depth := _depth(center)
+			var radius := float(deck["radius"])
+			var lateral := absf((center - cam_pos).dot(camera_right))
+			var side_limit := maxf(depth + radius, NEAR) * (_pane_width * 0.5 / FOCAL) + radius + 20.0
+			if depth + radius >= NEAR * 2.0 and depth - radius <= FAR and lateral <= side_limit:
+				# Draw the base behind its own fixture when their depths match.
+				_drawables.append([maxf(NEAR, depth + 0.1), "roadside", index, center])
 	for index in range(track.pearls.size()):
 		var pearl := track.pearls[index]
 		if float(pearl["respawn_t"]) <= 0.0:
 			_queue_drawable(pearl["pos"] as Vector2, "pearl", index)
 	for index in range(track.bubbles.size()):
 		var bubble := track.bubbles[index]
-		if float(bubble["respawn_t"]) <= 0.0:
+		if float(bubble["respawn_t"]) <= 0.0 or not track.room.is_empty():
 			_queue_drawable(bubble["pos"] as Vector2, "bubble", index)
 	for index in range(track.buoys.size()):
 		_queue_drawable(track.buoys[index]["pos"] as Vector2, "buoy", index)
@@ -1166,7 +1237,11 @@ func _draw_world() -> void:
 			"pearl":
 				_draw_pearl(screen, scale)
 			"bubble":
-				_draw_bubble(screen, scale)
+				var ready := float(track.bubbles[int(entry[2])]["respawn_t"]) <= 0.0
+				if not track.room.is_empty():
+					_draw_item_socket(screen, scale, ready)
+				if ready:
+					_draw_bubble(screen, scale)
 			"buoy":
 				_draw_buoy(track.buoys[int(entry[2])], screen, scale)
 			"span":
@@ -1177,6 +1252,8 @@ func _draw_world() -> void:
 				_draw_sparkle(screen, scale)
 			"landmark":
 				_draw_landmark(track.landmarks[int(entry[2])], screen, scale)
+			"roadside":
+				_roadside.draw(track.roadside[int(entry[2])])
 			"kart":
 				_draw_kart(karts[int(entry[2])], screen, scale)
 
@@ -1203,21 +1280,50 @@ func _draw_landmark(landmark: Dictionary, screen: Vector2, scale: float) -> void
 	if size.x < 3.0:
 		return
 	var bottom := screen.y - float(landmark.get("lift", 0.0)) * scale
-	if (id.begins_with("reef_") or not track.room.is_empty()) and float(landmark.get("lift", 0.0)) == 0.0:
-		_world.draw_set_transform(screen, 0.0, Vector2(1.0, 0.16))
-		_world.draw_circle(Vector2.ZERO, size.x * 0.32, Color(0.24, 0.14, 0.31, 0.17), true, -1.0, true)
+	var grounded := float(landmark.get("lift", 0.0)) == 0.0 or bool(landmark.get("supported", false))
+	var stage_piece := landmark.has("stage_zone")
+	if grounded and (id.begins_with("reef_") or not track.room.is_empty()):
+		var shadow_y := bottom + (size.x * 0.016 if stage_piece else 0.0)
+		_world.draw_set_transform(Vector2(screen.x, shadow_y), 0.0, Vector2(1.0, 0.16))
+		if stage_piece:
+			_world.draw_circle(Vector2.ZERO, size.x * 0.49, Color(0.24, 0.14, 0.31, 0.12), true, -1.0, true)
+		_world.draw_circle(Vector2.ZERO, size.x * (0.40 if stage_piece else 0.32),
+			Color(0.24, 0.14, 0.31, 0.17), true, -1.0, true)
 		_world.draw_set_transform(Vector2.ZERO)
-	var rect := Rect2(screen.x - size.x * 0.5, bottom - size.y, size.x, size.y)
+	var rect := Rect2(screen.x - size.x * 0.5, bottom - size.y * float(landmark.get("foot_y", 1.0)), size.x, size.y)
 	if bool(landmark.get("flip_h", false)):
 		rect.position.x += rect.size.x
 		rect.size.x = -rect.size.x
-	_world.draw_texture_rect(texture, rect, false)
+	var tint := Color.WHITE
+	if stage_piece:
+		var palette: Array = track.room["palette"]
+		var haze: Color = palette[5]
+		var fog := lerpf(0.08, 0.31, smoothstep(420.0, 1650.0, FOCAL / scale))
+		tint = tint.lerp(haze, fog)
+	_world.draw_texture_rect(texture, rect, false, tint)
+
+
+func _draw_item_socket(screen: Vector2, scale: float, ready: bool) -> void:
+	var role := "socket_lit" if ready else "socket_empty"
+	var socket := _tex.get(role) as Texture2D
+	if socket == null:
+		return
+	var footprint := Vector2(42.0, 15.0) * minf(scale, 3.2)
+	var ink := Color(1.0, 1.0, 1.0, 0.82 if ready else 0.46)
+	_world.draw_texture_rect(socket, Rect2(screen - footprint * 0.5, footprint), false, ink)
 
 
 func _draw_pearl(screen: Vector2, scale: float) -> void:
+	if _pc_hud:
+		scale = minf(scale, 4.0)
 	var r := maxf(2.0, 7.0 * scale)
 	var at := screen - Vector2(0.0, (11.0 + sin(_time * 3.0) * 2.0) * scale)
-	_world.draw_circle(screen, r * 0.8, Color(0.18, 0.12, 0.3, 0.18))
+	if track.room.is_empty():
+		_world.draw_circle(screen, r * 0.8, Color(0.18, 0.12, 0.3, 0.18))
+	else:
+		_world.draw_set_transform(screen, 0.0, Vector2(1.0, 0.24))
+		_world.draw_circle(Vector2.ZERO, r * 0.96, Color(0.18, 0.12, 0.3, 0.25), true, -1.0, true)
+		_world.draw_set_transform(Vector2.ZERO)
 	if _draw_art("pearl", at, Vector2(r, r) * 2.3):
 		return
 	_world.draw_circle(at, r, Color("#fff4e2"))
@@ -1226,6 +1332,8 @@ func _draw_pearl(screen: Vector2, scale: float) -> void:
 
 
 func _draw_bubble(screen: Vector2, scale: float) -> void:
+	if _pc_hud:
+		scale = minf(scale, 2.5)
 	var r := maxf(3.0, 16.0 * scale)
 	var at := screen - Vector2(0.0, (24.0 + sin(_time * 2.2) * 3.0) * scale)
 	_draw_art("item_bubble", at, Vector2(r, r) * 2.2)
@@ -1281,7 +1389,9 @@ func _draw_painted_span(art: Texture2D, left: Vector2, right: Vector2, height: f
 		var foot1 := _screen(left.lerp(right, u1), depth1) - Vector2(0.0, lift * FOCAL / depth1)
 		var top1 := foot1 - Vector2(0.0, height * FOCAL / depth1)
 		var ink1 := Color(1.0, 1.0, 1.0, smoothstep(clear_depth, fade_end, depth1))
-		if foot1.x > foot0.x and foot1.x >= 0.0 and foot0.x <= VIEW.x:
+		# Almost edge-on strips can collapse within Canvas triangulation's
+		# tolerance. Skip the subpixel sliver before submitting the quad.
+		if foot1.x - foot0.x >= 0.1 and foot1.x >= 0.0 and foot0.x <= VIEW.x:
 			_world.draw_polygon(
 				PackedVector2Array([top0, top1, foot1, foot0]),
 				PackedColorArray([ink0, ink1, ink1, ink0]),
@@ -1375,10 +1485,19 @@ func _draw_buoy(buoy: Dictionary, screen: Vector2, scale: float) -> void:
 
 
 func _draw_kelp(screen: Vector2, scale: float) -> void:
-	_draw_art("kelp", screen - Vector2(0.0, 6.0 * scale), Vector2(62.0, 38.0) * scale)
+	if _pc_hud:
+		scale = minf(scale, 3.0)
+	if _draw_art("kelp", screen - Vector2(0.0, 6.0 * scale), Vector2(62.0, 38.0) * scale) or not _pc_hud:
+		return
+	_world.draw_set_transform(screen, 0.0, Vector2(1.0, 0.34))
+	_world.draw_circle(Vector2.ZERO, maxf(3.0, 24.0 * scale), Color("#4fa36b"))
+	_world.draw_circle(Vector2(6.0 * scale, -4.0 * scale), maxf(2.0, 14.0 * scale), Color("#77c98a"))
+	_world.draw_set_transform(Vector2.ZERO)
 
 
 func _draw_sparkle(screen: Vector2, scale: float) -> void:
+	if _pc_hud:
+		scale = minf(scale, 3.0)
 	var r := maxf(3.0, 14.0 * scale)
 	var at := screen - Vector2(0.0, 18.0 * scale)
 	if _draw_art("sparkle", at, Vector2(r, r) * 2.4):
@@ -1387,23 +1506,28 @@ func _draw_sparkle(screen: Vector2, scale: float) -> void:
 	_draw_star(_world, at, r * 0.9, Color("#fff8c8"))
 
 
-func _draw_selected_driver(k: Dictionary, rect: Rect2) -> void:
+func _draw_selected_driver(k: Dictionary, rect: Rect2, tint: Color) -> void:
 	var vehicle := String(k["vehicle"])
 	var driver := String(k["driver"])
+	var ride_tint: Color = IMP_TINT if driver.is_empty() else k["ride_tint"]
+	var motion_sheet := k.get("motion_sheet") as Texture2D
+	if motion_sheet != null:
+		var frame := RiderArt.motion_frame(k["rider_pose"])
+		_world.draw_texture_rect_region(motion_sheet, rect, RiderArt.motion_region(vehicle, frame), ride_tint * tint)
+		return
 	if driver == "roshan":
-		var motion := "straight"
-		if float(k["boost_t"]) > 0.0:
-			motion = "boost"
-		elif float(k["steer_vis"]) > 0.35:
-			motion = "right"
-		elif float(k["steer_vis"]) < -0.35:
-			motion = "left"
-		var pose := _tex.get(vehicle + "_" + motion) as Texture2D
+		var motion := RiderArt.pose(k, true)
+		var pose := _tex.get(vehicle + "_" + RiderArt.POSES[motion]) as Texture2D
 		if pose != null:
-			_world.draw_texture_rect(pose, rect, false, k["ride_tint"])
+			_world.draw_texture_rect(pose, RiderArt.registered(vehicle, motion, rect), false, ride_tint * tint)
 			return
-	elif driver == "imp" and vehicle == "kart" and _tex.has("imp_kart_straight"):
-		_world.draw_texture_rect(_tex["imp_kart_straight"] as Texture2D, rect, false, k["ride_tint"])
+	var sheet := _tex.get(vehicle + "_riders") as Texture2D
+	if sheet != null and RiderArt.SLOTS.has(driver):
+		_world.draw_texture_rect_region(sheet, rect, RiderArt.region(driver, RiderArt.pose(k, false)),
+			ride_tint * tint)
+		return
+	if driver == "imp" and vehicle == "kart" and _tex.has("imp_kart_straight"):
+		_world.draw_texture_rect(_tex["imp_kart_straight"] as Texture2D, rect, false, ride_tint * tint)
 		return
 	var face := _tex.get("driver_" + driver) as Texture2D
 	var body := _tex.get(vehicle + "_empty") as Texture2D
@@ -1412,22 +1536,32 @@ func _draw_selected_driver(k: Dictionary, rect: Rect2) -> void:
 		var head := rect.size.x * (0.38 if vehicle == "moto" else 0.44)
 		var head_height := minf(rect.size.y * 0.45, head * source.size.y / source.size.x)
 		var head_rect := Rect2(-head * 0.5, rect.position.y + rect.size.y * 0.015, head, head_height)
-		_world.draw_texture_rect_region(face, head_rect, source)
+		_world.draw_texture_rect_region(face, head_rect, source, tint)
 	if body != null:
-		_world.draw_texture_rect(body, rect.grow(-rect.size.x * 0.04), false, k["ride_tint"])
+		_world.draw_texture_rect(body, rect.grow(-rect.size.x * 0.04), false, ride_tint * tint)
 
 
 func _draw_kart(k: Dictionary, screen: Vector2, scale: float) -> void:
+	var opacity := 1.0
+	if _pc_hud and not is_same(k, _pl):
+		# Rivals between the chase camera and its driver fade before they
+		# can fill the viewport. The same world position drives contact.
+		opacity = smoothstep(40.0, CAM_BACK - 4.0, FOCAL / scale)
+		if opacity <= 0.0:
+			return
+	var tint := Color(1.0, 1.0, 1.0, opacity)
 	var size := KART_SPRITE * scale
 	_world.draw_set_transform(screen, 0.0, Vector2(1.0, 0.3))
-	_world.draw_circle(Vector2.ZERO, size * 0.42, Color(0.15, 0.1, 0.28, 0.24))
+	_world.draw_circle(Vector2.ZERO, size * 0.42, Color(0.15, 0.1, 0.28, 0.24 * opacity))
 	var driver_color: Color = k["player_color"]
+	driver_color.a *= opacity
 	if driver_color.a > 0.0:
 		_world.draw_arc(Vector2.ZERO, size * 0.43, 0.0, TAU, 20, driver_color, maxf(1.0, size * 0.035), true)
 	_world.draw_set_transform(Vector2.ZERO)
 	if pc_handling and float(k["drift_dir"]) != 0.0:
 		var charged := float(k["drift_charge"]) >= float(_pc_tune["charge"])
 		var spark := Color("#ffe4a3") if charged else Color("#9de8fa")
+		spark.a *= opacity
 		var side := float(k["drift_dir"])
 		for wheel: float in [-0.31, 0.31]:
 			var tire := screen + Vector2(wheel * size, -size * 0.04)
@@ -1435,10 +1569,12 @@ func _draw_kart(k: Dictionary, screen: Vector2, scale: float) -> void:
 				spark, clampf(size * 0.024, 1.0, 5.0), true)
 	var center := screen - Vector2(0.0, size * 0.42)
 	var wobble := sin(float(k["spin_vis"])) * 0.45
-	_world.draw_set_transform(center, wobble, Vector2.ONE)
-	var rect := Rect2(-size * 0.5, -size * 0.44, size, size)
-	if String(k["driver"]) != "":
-		_draw_selected_driver(k, rect)
+	var selected := String(k["driver"]) != "" or k.get("motion_sheet") != null
+	# Spin the seated card around the registered tire contact.
+	_world.draw_set_transform(screen if selected else center, wobble, Vector2.ONE)
+	var rect := Rect2(-size * 0.5, -size * (0.86 if selected else 0.44), size, size)
+	if selected:
+		_draw_selected_driver(k, rect, tint)
 	elif bool(k["player"]):
 		var key := "kart_straight"
 		if float(k["boost_t"]) > 0.0:
@@ -1449,14 +1585,14 @@ func _draw_kart(k: Dictionary, screen: Vector2, scale: float) -> void:
 			key = "kart_left"
 		var texture := _tex.get(key) as Texture2D
 		if texture != null:
-			_world.draw_texture_rect(texture, rect, false)
+			_world.draw_texture_rect(texture, rect, false, tint)
 	elif _tex.has("imp_kart_straight"):
 		var imp_key := "imp_kart_straight"
 		if float(k["steer_vis"]) > 0.35 and _tex.has("imp_kart_right"):
 			imp_key = "imp_kart_right"
 		elif float(k["steer_vis"]) < -0.35 and _tex.has("imp_kart_left"):
 			imp_key = "imp_kart_left"
-		_world.draw_texture_rect(_tex[imp_key] as Texture2D, rect, false, IMP_TINT)
+		_world.draw_texture_rect(_tex[imp_key] as Texture2D, rect, false, IMP_TINT * tint)
 	else:
 		var body := _tex.get("kart_empty") as Texture2D
 		var face := _tex.get("imp") as Texture2D
@@ -1464,29 +1600,29 @@ func _draw_kart(k: Dictionary, screen: Vector2, scale: float) -> void:
 			var head := size * 0.42
 			_world.draw_texture_rect_region(face,
 				Rect2(-head * 0.5, rect.position.y + size * 0.02, head, head * IMP_FACE.size.y / IMP_FACE.size.x),
-				IMP_FACE)
+				IMP_FACE, tint)
 		if body != null:
-			_world.draw_texture_rect(body, rect.grow(-size * 0.04), false, IMP_TINT)
+			_world.draw_texture_rect(body, rect.grow(-size * 0.04), false, IMP_TINT * tint)
 	_world.draw_set_transform(Vector2.ZERO)
 	if float(k["spin_t"]) > 0.0:
 		var dizzy := _tex.get("dizzy") as Texture2D
 		var over := center - Vector2(0.0, size * 0.55)
 		if dizzy != null:
 			_world.draw_texture_rect(dizzy, Rect2(over - Vector2(size * 0.4, size * 0.2),
-				Vector2(size * 0.8, size * 0.4)), false)
+				Vector2(size * 0.8, size * 0.4)), false, tint)
 		else:
 			for i in range(3):
 				var angle := _time * 6.0 + TAU * float(i) / 3.0
 				_draw_star(_world, over + Vector2(cos(angle) * size * 0.32, sin(angle) * size * 0.1),
-					size * 0.07, Color("#ffe27a"))
+					size * 0.07, Color("#ffe27a") * tint)
 	if bool(k["player"]) and float(k["boost_t"]) > 0.0:
 		for i in range(5):
 			var y := screen.y - size * (0.1 + float(i) * 0.09)
 			var spread := size * (0.55 + float(i) * 0.08)
 			_world.draw_line(Vector2(screen.x - spread, y + size * 0.4),
-				Vector2(screen.x - spread * 1.35, y + size * 0.6), Color(1, 1, 1, 0.55), 3.0)
+				Vector2(screen.x - spread * 1.35, y + size * 0.6), Color(1, 1, 1, 0.55 * opacity), 3.0)
 			_world.draw_line(Vector2(screen.x + spread, y + size * 0.4),
-				Vector2(screen.x + spread * 1.35, y + size * 0.6), Color(1, 1, 1, 0.55), 3.0)
+				Vector2(screen.x + spread * 1.35, y + size * 0.6), Color(1, 1, 1, 0.55 * opacity), 3.0)
 
 
 func _draw_hud() -> void:

@@ -1,0 +1,252 @@
+{
+  "baseline": "a71ec8bffd70441ef1f713b1ee0d100ce95721c0",
+  "date": "2026-11-07",
+  "lane": "Gameplay Canvas whole-sprite keys",
+  "method": "Deterministic Godot 4.7.2 2D paint remapping and whole-sprite export using the seated-cutout masters. Aseprite bridge deferred because the fixed socket and wheel pixel equality gates are directly reproducible in the registered exporter.",
+  "generated_attempt_limit": 0,
+  "paid_cost_limit": 0,
+  "local_attempt_limit": 2,
+  "local_art_review_minutes": 30,
+  "actions": [
+    {
+      "id": "left_right",
+      "verb": "Lean and set the shoulders into the corner",
+      "phases": [
+        "neutral",
+        "half left",
+        "left",
+        "half right",
+        "right"
+      ],
+      "entry_exit": "Neutral at release; half lean bridges neutral and full lean in each direction.",
+      "support": "Hips stay behind the same seatback and both control sockets stay on the original grip row. Crown and upper torso move laterally and asymmetrically. The Zoom Cycle gets a larger lean."
+    },
+    {
+      "id": "boost",
+      "verb": "Brace forward into the burst",
+      "phases": [
+        "neutral",
+        "half tuck",
+        "full tuck",
+        "half tuck",
+        "neutral"
+      ],
+      "entry_exit": "Short tuck on boost onset, hold for the boost, ease out before taking a full turn pose.",
+      "support": "Arms stay at the controls. Head and shoulders lower and narrow in a forward tuck. Mama and Baby move together."
+    }
+  ],
+  "fixed": "Seat, grips, body shell, ground line, authored costume and age silhouettes.",
+  "negative": "Static front portrait or static upright rear key for the full turn/boost.",
+  "tolerances": "Frozen chassis and control band pixels before packaging, all keys retain ground row and transparent cell gutters. Both halves of the seat must remain covered by the opaque body. Allow the one existing Eagle authored yaw change above the grips.",
+  "reuse": "Use the three rear rider source sheets and existing V1 registration table. Preserve the exact existing Roshan key PNGs.",
+  "verification": "Atlas/source checks, turn and boost transitions at normal simulation speed, close and distant viewport samples, both split-screen cameras, pause and teardown through existing regressions.",
+  "fallback": "Reduce or refine the authored deformation if an upper silhouette clips or loses contact. No generation campaign.",
+  "completed_local_attempts": 2,
+  "attempt_dispositions": [
+    {
+      "attempt": 1,
+      "disposition": "Replaced",
+      "reason": "The first boost warped the whole upper silhouette too flat."
+    },
+    {
+      "attempt": 2,
+      "disposition": "Runtime candidate",
+      "reason": "Upper skull keeps its shape. The collar and shoulders compress while the crown translates toward the controls."
+    }
+  ],
+  "derivation_log_sha256": "106693c486d7abd314e6ef33a8996f7ad67ab011e57a0cdc4078d3c64d1408bd",
+  "source_inputs": [
+    {
+      "path": "assets_src/imagegen/reef_kart_riders_20261107/eagle_native.png",
+      "sha256": "42430b9b8d8230bfc52499d12479cc55b6f4157763621f20f8f0462aea0eeb5f",
+      "size": [
+        2172,
+        724
+      ],
+      "role": "Existing painted rear view; reused directly under original provenance"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_riders_20261107/toy_native.png",
+      "sha256": "a4d0fd6476a42fbdcc40ee122e404b2059712fc51f4a44a4543c4d94e6c9d5b5",
+      "size": [
+        1536,
+        1024
+      ],
+      "role": "Existing painted rear view; reused directly under original provenance"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_riders_20261107/family_native.png",
+      "sha256": "3f5ed21b4e5da99bd2c0e2e480f8ebc54fb463b59b4799eade581364e6ec303b",
+      "size": [
+        1309,
+        1202
+      ],
+      "role": "Existing painted rear view; reused directly under original provenance"
+    },
+    {
+      "path": "assets/racer/riders_v1/kart.png",
+      "sha256": "ff540e60c130b6816e14f5ebf2e57344df0440dacc75ed2482f70bef9f207236",
+      "size": [
+        1024,
+        1024
+      ],
+      "role": "Exact neutral and held cockpit band"
+    },
+    {
+      "path": "assets/racer/riders_v1/moto.png",
+      "sha256": "a16705411d0f3cbb72dab9387fa4993f73f10fe691a7118aa260ffa7c3c7ca49",
+      "size": [
+        1024,
+        1024
+      ],
+      "role": "Exact neutral and held cockpit band"
+    },
+    {
+      "path": "assets/racer/riders_v1/truck.png",
+      "sha256": "858a7cc166b64a503e78a545383974be765d59362e379e57666e0585e00c9090",
+      "size": [
+        1024,
+        1024
+      ],
+      "role": "Exact neutral and held cockpit band"
+    },
+    {
+      "path": "assets/kart/chase/empty_kart.png",
+      "sha256": "35457c5cf602bffa666d6663f9fcbefb9be26bd2d0eca1c96cb5c2a6fbf9ac88",
+      "size": [
+        1024,
+        1024
+      ],
+      "role": "Original chassis background under changing upper rider"
+    },
+    {
+      "path": "assets/kart/chase/empty_moto.png",
+      "sha256": "dfec5d6132bf3d81a086f451b4b1030aef435b9b44804ebe22ea7fce7d611bda",
+      "size": [
+        1024,
+        1024
+      ],
+      "role": "Original chassis background under changing upper rider"
+    },
+    {
+      "path": "assets/kart/chase/empty_truck.png",
+      "sha256": "8fc3380295df50ac0c981a2b28f12d4b82236be7c79c7de9907ceb640eeda1fd",
+      "size": [
+        1024,
+        1024
+      ],
+      "role": "Original chassis background under changing upper rider"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_riders_20261107/build_rider_atlases.gd",
+      "sha256": "cfa1f84b2c0513da2269736ae5be4bc06dead030881dd1ab1cd719d734f92e78",
+      "role": "Existing crop and seat registration source"
+    }
+  ],
+  "output": {
+    "exporter": "assets_src/racer_pose_keys_20261107/build_pose_atlases.gd",
+    "atlas_layout": "5 columns, 5 rows, 200px square cells, 1000px square lossless mipmapped RGBA. The first 21 cells are three rides by seven poses.",
+    "ordered_poses": [
+      "neutral",
+      "half-left",
+      "full-left",
+      "half-right",
+      "full-right",
+      "half-tuck",
+      "full-tuck"
+    ],
+    "whole_sprites": [
+      {
+        "path": "assets/racer/rider_poses_v2/sparkle.png",
+        "sha256": "dfb4341551bf4e105169f408d30eb13a3a8de06ca3c57b4ba2a092ba459ad405",
+        "size": [
+          1000,
+          1000
+        ]
+      },
+      {
+        "path": "assets/racer/rider_poses_v2/huluu.png",
+        "sha256": "31bbb15390055915b646fd1d74bb5bef856a958b9de8e1c94b29e4577f69ba57",
+        "size": [
+          1000,
+          1000
+        ]
+      },
+      {
+        "path": "assets/racer/rider_poses_v2/bunny.png",
+        "sha256": "82144c6bf0fd110f5cb51daacab683b8e8f92b78973dd96c77c84256e5104761",
+        "size": [
+          1000,
+          1000
+        ]
+      },
+      {
+        "path": "assets/racer/rider_poses_v2/kitty.png",
+        "sha256": "236af97f35cb2f659e4a430bf0e23ba2c46e8212c25c5efad49486e8d306d57e",
+        "size": [
+          1000,
+          1000
+        ]
+      },
+      {
+        "path": "assets/racer/rider_poses_v2/baby_doll.png",
+        "sha256": "30caaf66cabdd6ac8a8092bb7555e98d9579463118ac809d148704820a266234",
+        "size": [
+          1000,
+          1000
+        ]
+      },
+      {
+        "path": "assets/racer/rider_poses_v2/dolly.png",
+        "sha256": "3d171b3bd86b747492319f098e456c03b03a3a7d74000420f36c7b5c7f262eeb",
+        "size": [
+          1000,
+          1000
+        ]
+      },
+      {
+        "path": "assets/racer/rider_poses_v2/sleepy.png",
+        "sha256": "7d42bfa46aa652c8403a067e548159ab6d3c8de285072915f6c49582eca6878e",
+        "size": [
+          1000,
+          1000
+        ]
+      },
+      {
+        "path": "assets/racer/rider_poses_v2/imp.png",
+        "sha256": "200ee20f5b4018c593479767e9665f5fb70640d35ae79b2420dd8ae334f2dd0a",
+        "size": [
+          1000,
+          1000
+        ]
+      },
+      {
+        "path": "assets/racer/rider_poses_v2/rumi.png",
+        "sha256": "ef322cef1be1f22a844d7a2157a9ef9d0db40229e6a1810288d2bba1b6c97291",
+        "size": [
+          1000,
+          1000
+        ]
+      },
+      {
+        "path": "assets/racer/rider_poses_v2/daddy.png",
+        "sha256": "43fd89274839de67f5bebd7770d55e48dab05c007c7763b6b830d4d0abe13ca3",
+        "size": [
+          1000,
+          1000
+        ]
+      },
+      {
+        "path": "assets/racer/rider_poses_v2/mama_baby.png",
+        "sha256": "83968e1cc42649a15a46e329c939384d034d06735cae497a2372cc95dbbe4069",
+        "size": [
+          1000,
+          1000
+        ]
+      }
+    ],
+    "native_resolution": "Existing 256px registered master coordinates. Resized to 200px after compositing.",
+    "runtime_timing": "Authoritative physics advances lean and tuck once per tick. The chase renderer samples one packed key, using the same state for both cameras. No cross-fades.",
+    "reproduction": "Run the exporter with Godot 4.7.2-stable from the repository root."
+  }
+}

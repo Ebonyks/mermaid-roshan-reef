@@ -1,0 +1,552 @@
+{
+  "schema": "reef.kart.cast.motion.evidence.v1",
+  "baseline": "a71ec8bffd70441ef1f713b1ee0d100ce95721c0",
+  "engine": "Godot 4.7.2-stable official.ed1daf0bf",
+  "renderer": "1280×720 Vulkan Mobile, NVIDIA RTX 3060 Ti",
+  "runtime_sha256": {
+    "assets/racer/rider_poses_v2/baby_doll.png": "30caaf66cabdd6ac8a8092bb7555e98d9579463118ac809d148704820a266234",
+    "assets/racer/rider_poses_v2/baby_doll.png.import": "82eea276733905629385740be988d9d5f7e7bf0bcac8523d8e4d45420d8eea73",
+    "assets/racer/rider_poses_v2/bunny.png": "82144c6bf0fd110f5cb51daacab683b8e8f92b78973dd96c77c84256e5104761",
+    "assets/racer/rider_poses_v2/bunny.png.import": "45c5c99c2e877fbb423a7a8614aeac6b9ea7e454a8c247a25f63e8c3ef413bfb",
+    "assets/racer/rider_poses_v2/daddy.png": "43fd89274839de67f5bebd7770d55e48dab05c007c7763b6b830d4d0abe13ca3",
+    "assets/racer/rider_poses_v2/daddy.png.import": "e46fb71c82a33c8bbf4013ba8446b3a44ac534e1f4fb3c80a22828b20b15fb9f",
+    "assets/racer/rider_poses_v2/dolly.png": "3d171b3bd86b747492319f098e456c03b03a3a7d74000420f36c7b5c7f262eeb",
+    "assets/racer/rider_poses_v2/dolly.png.import": "c7aa134f1bba4b8ea8cb6493686274f3517ef0b1b814abd3bb0b72aef8151b37",
+    "assets/racer/rider_poses_v2/huluu.png": "31bbb15390055915b646fd1d74bb5bef856a958b9de8e1c94b29e4577f69ba57",
+    "assets/racer/rider_poses_v2/huluu.png.import": "473e927c6fc2aeb1611cfdaca4d5124477458df37eea8f899b8e4ffc6249bc0c",
+    "assets/racer/rider_poses_v2/imp.png": "200ee20f5b4018c593479767e9665f5fb70640d35ae79b2420dd8ae334f2dd0a",
+    "assets/racer/rider_poses_v2/imp.png.import": "2f43a3aa5039ccb465f7b570ede7b5db8b5677c7b4dffd3bdab22831a64fd7c2",
+    "assets/racer/rider_poses_v2/kitty.png": "236af97f35cb2f659e4a430bf0e23ba2c46e8212c25c5efad49486e8d306d57e",
+    "assets/racer/rider_poses_v2/kitty.png.import": "de21871198076560fa398444730d3f4ef40f0a254301471a63836c8381d997c4",
+    "assets/racer/rider_poses_v2/mama_baby.png": "83968e1cc42649a15a46e329c939384d034d06735cae497a2372cc95dbbe4069",
+    "assets/racer/rider_poses_v2/mama_baby.png.import": "b959d302ee5e939650689615fa7f0d22614ecbe5f7ac4e6bb2623ec9a7463c75",
+    "assets/racer/rider_poses_v2/rumi.png": "ef322cef1be1f22a844d7a2157a9ef9d0db40229e6a1810288d2bba1b6c97291",
+    "assets/racer/rider_poses_v2/rumi.png.import": "be8af67c174dd1380e165dbd51427a9b6109352981cad6d3428fa7beed79771f",
+    "assets/racer/rider_poses_v2/sleepy.png": "7d42bfa46aa652c8403a067e548159ab6d3c8de285072915f6c49582eca6878e",
+    "assets/racer/rider_poses_v2/sleepy.png.import": "507d4027eed9ea439476db0e06b56414ae60026d028ef751661f1423ce1c1df4",
+    "assets/racer/rider_poses_v2/sparkle.png": "dfb4341551bf4e105169f408d30eb13a3a8de06ca3c57b4ba2a092ba459ad405",
+    "assets/racer/rider_poses_v2/sparkle.png.import": "feb921e0d3cea1cf3d0f0fa4f06af4981717af16fff8f6c9935b2dcb40d781f1",
+    "scripts/racer/reef_kart_race.gd": "903a72fd5a8fd92deb9338c502758052e3ec37c9bdb4f9ce295a5151ae0208d1",
+    "scripts/racer/reef_kart_rider_art.gd": "1ad52da7fe9dd89f454c54b2ea39cb0bb185dbd7b1389d8ee49ec34748e2a00c"
+  },
+  "export": {
+    "generated_atlas_count": 11,
+    "poses_per_ride": 7,
+    "packed_keys": 231,
+    "unchanged_lower_band": "Every packed pixel at and below the per-ride held-band check row is byte identical across the seven keys.",
+    "geometry_sha256": "1426fdda206125bb75bde3b7b1e5eb09a47c5bf4d6ee5298e4c7fad9e7690cff",
+    "metrics_columns": [
+      "driver",
+      "ride_index",
+      "left_crown_dx",
+      "right_crown_dx",
+      "boost_crown_drop",
+      "fixed_pixels_from_y",
+      "ground_row"
+    ],
+    "geometry_metrics": [
+      [
+        "sparkle",
+        0,
+        -9.62,
+        9.68,
+        10,
+        78,
+        172
+      ],
+      [
+        "sparkle",
+        1,
+        -11.13,
+        11.34,
+        10,
+        56,
+        172
+      ],
+      [
+        "sparkle",
+        2,
+        -8.64,
+        8.8,
+        11,
+        76,
+        172
+      ],
+      [
+        "huluu",
+        0,
+        -13.08,
+        12.76,
+        13,
+        78,
+        172
+      ],
+      [
+        "huluu",
+        1,
+        -14.85,
+        14.82,
+        10,
+        56,
+        172
+      ],
+      [
+        "huluu",
+        2,
+        -12.02,
+        11.4,
+        12,
+        76,
+        172
+      ],
+      [
+        "bunny",
+        0,
+        -12.27,
+        12.33,
+        10,
+        78,
+        172
+      ],
+      [
+        "bunny",
+        1,
+        -13.73,
+        13.64,
+        10,
+        56,
+        172
+      ],
+      [
+        "bunny",
+        2,
+        -11.37,
+        11.32,
+        10,
+        76,
+        172
+      ],
+      [
+        "kitty",
+        0,
+        -11.68,
+        11.58,
+        9,
+        78,
+        172
+      ],
+      [
+        "kitty",
+        1,
+        -12.97,
+        12.9,
+        9,
+        56,
+        172
+      ],
+      [
+        "kitty",
+        2,
+        -10.79,
+        10.86,
+        9,
+        76,
+        172
+      ],
+      [
+        "baby_doll",
+        0,
+        -10.74,
+        10.69,
+        11,
+        78,
+        172
+      ],
+      [
+        "baby_doll",
+        1,
+        -12.08,
+        12.18,
+        10,
+        56,
+        172
+      ],
+      [
+        "baby_doll",
+        2,
+        -9.56,
+        9.72,
+        11,
+        76,
+        172
+      ],
+      [
+        "dolly",
+        0,
+        -11.89,
+        11.9,
+        11,
+        78,
+        172
+      ],
+      [
+        "dolly",
+        1,
+        -13.5,
+        13.47,
+        10,
+        56,
+        172
+      ],
+      [
+        "dolly",
+        2,
+        -10.58,
+        10.56,
+        10,
+        76,
+        172
+      ],
+      [
+        "sleepy",
+        0,
+        -10.08,
+        10.24,
+        9,
+        78,
+        172
+      ],
+      [
+        "sleepy",
+        1,
+        -11.3,
+        11.35,
+        9,
+        56,
+        172
+      ],
+      [
+        "sleepy",
+        2,
+        -9.04,
+        9.1,
+        9,
+        76,
+        172
+      ],
+      [
+        "imp",
+        0,
+        -14.32,
+        14.07,
+        11,
+        78,
+        172
+      ],
+      [
+        "imp",
+        1,
+        -16.11,
+        16.03,
+        11,
+        56,
+        172
+      ],
+      [
+        "imp",
+        2,
+        -13.08,
+        13.03,
+        11,
+        76,
+        172
+      ],
+      [
+        "rumi",
+        0,
+        -13.57,
+        13.81,
+        12,
+        78,
+        172
+      ],
+      [
+        "rumi",
+        1,
+        -15.89,
+        15.86,
+        10,
+        56,
+        172
+      ],
+      [
+        "rumi",
+        2,
+        -11.9,
+        12.44,
+        12,
+        76,
+        172
+      ],
+      [
+        "daddy",
+        0,
+        -10.43,
+        10.47,
+        13,
+        78,
+        172
+      ],
+      [
+        "daddy",
+        1,
+        -12.06,
+        12.26,
+        11,
+        56,
+        172
+      ],
+      [
+        "daddy",
+        2,
+        -8.81,
+        9.07,
+        13,
+        76,
+        172
+      ],
+      [
+        "mama_baby",
+        0,
+        -10.64,
+        10.36,
+        12,
+        78,
+        172
+      ],
+      [
+        "mama_baby",
+        1,
+        -12.06,
+        12.0,
+        9,
+        56,
+        172
+      ],
+      [
+        "mama_baby",
+        2,
+        -9.68,
+        9.56,
+        11,
+        76,
+        172
+      ]
+    ],
+    "existing_roshan_pose_pngs": 12
+  },
+  "state_check": {
+    "harness": "audit/cycles/reef-kart-cast-motion-20261107/check_state.gd",
+    "log_sha256": "79105957f890ad571e6acc09b20ae0dd31a199292d1e01e16558844bae1cba8a",
+    "key_order": [
+      0,
+      1,
+      2,
+      1,
+      0,
+      3,
+      4,
+      3,
+      0,
+      5,
+      6,
+      5,
+      0
+    ],
+    "atlas_mip_count": 9
+  },
+  "exercise": {
+    "harness": "audit/cycles/reef-kart-cast-motion-20261107/exercise.gd",
+    "clock": "normal-time Godot simulation with injected controller input",
+    "race_setups": 72,
+    "driver_observations": 108,
+    "pose_captures": 729,
+    "per_role_pairings": {
+      "1p-p0": 36,
+      "2p-p0": 36,
+      "2p-p1": 36
+    },
+    "all_keys_and_neutral_recovery": true,
+    "error_count": 0,
+    "speed_units": "track units per second at an observed frame entering each full pose",
+    "peak_entry_speed_min_median_max": {
+      "left": [
+        270.17,
+        358.515,
+        473.77
+      ],
+      "right": [
+        270.17,
+        300.78,
+        438.72
+      ],
+      "boost": [
+        278.53,
+        339.28,
+        375.33
+      ]
+    },
+    "report_sha256": "1f6b6388138ea66be45aeb06c5a18e883bb1451d53dad5d13e3af5ec00ea9b30",
+    "log_sha256": "107607a6cd213c5ac88f7817edf5c142763f823f7bc2e68d82f7f7a8ca1b29da",
+    "review": "Agent reviewed all 36 pairing silhouettes through the runtime boards, with additional split left and right examples and time-based key traces.",
+    "boards": [
+      "audit/cycles/reef-kart-cast-motion-20261107/go-kart.jpg",
+      "audit/cycles/reef-kart-cast-motion-20261107/zoom-cycle.jpg",
+      "audit/cycles/reef-kart-cast-motion-20261107/monster-truck.jpg"
+    ]
+  },
+  "complete_races": {
+    "harness": "audit/cycles/reef-kart-cast-motion-20261107/full_races.gd",
+    "run_count": 4,
+    "log_sha256": "9de3f1b82253d5697fac6e087652971806b9cf01c5058e73aca5c817fd953e6e",
+    "runs": [
+      {
+        "course": "playroom",
+        "mode": 1,
+        "attempts": 1,
+        "seconds": 26.95,
+        "frames": 26,
+        "telemetry_sha256": "a0c9f782275c8001d3ad60fa5100ef919d5e47617f03c5dc59abbd767f898f9b"
+      },
+      {
+        "course": "kitchen",
+        "mode": 1,
+        "attempts": 2,
+        "seconds": 47.15,
+        "frames": 88,
+        "telemetry_sha256": "b2b1d946da877d5c6571cee0a1baa3c26aef946be6b5c90818ddb60779a67bc2"
+      },
+      {
+        "course": "mermaid_pool",
+        "mode": 2,
+        "attempts": 1,
+        "seconds": 94.833,
+        "frames": 85,
+        "telemetry_sha256": "b11c75f74ddeb21936019ef88ace7ba0f4c7104fb58734aa0ef85a66d3de9623"
+      },
+      {
+        "course": "opera_hall",
+        "mode": 2,
+        "attempts": 1,
+        "seconds": 85.317,
+        "frames": 76,
+        "telemetry_sha256": "136037d9a6c2eb4cb51bb384b8c0a81d28c3b3a6f2e3c88d84b30b4a4e2ac129"
+      }
+    ]
+  },
+  "focused": {
+    "probe_reef_kart_pc": {
+      "passed_assertions": 65,
+      "log_sha256": "65835e6a4714333f5e6ba314c102c77f476ba4977b95655f33af7aa5341c9968"
+    },
+    "probe_racer_integration": {
+      "passed_assertions": 50,
+      "log_sha256": "666906bf339f4a5a349c07b8652b61e9a49c0d3acd3adef52751f0b551c97253"
+    }
+  },
+  "full_local_ci": {
+    "script": "scripts/ci.sh",
+    "log_sha256": "d32db77d7ae7c5800de436b53843d7d1238d4dbac1ae945ca13394d8b0b429cb",
+    "exit_code": 0,
+    "probe_count": 82,
+    "zero_exit_probes": [
+      "probe_reef_districts",
+      "probe_ocean_kingdoms",
+      "probe_audit",
+      "probe_passive",
+      "probe_living_world",
+      "probe_load",
+      "probe_rank",
+      "probe_save_recovery",
+      "probe_galaxy_state",
+      "probe_collection",
+      "probe_mg2d",
+      "probe_fetch",
+      "probe_melody",
+      "probe_dolls",
+      "probe_seek",
+      "probe_audio",
+      "probe_dance",
+      "probe_l2",
+      "probe_l2_living_cards",
+      "probe_sky_lagoon_animals",
+      "probe_l2_reenter",
+      "probe_crown",
+      "probe_throne",
+      "probe_northern",
+      "probe_human_art_audit",
+      "probe_train",
+      "probe_verbs",
+      "probe_skins",
+      "probe_touch_router",
+      "probe_touch_stress",
+      "probe_interaction",
+      "probe_touch_adversary",
+      "probe_touch_look",
+      "probe_ui_system",
+      "probe_voice",
+      "probe_day_one_voice",
+      "probe_day_one_d8_revisits",
+      "probe_day_one_handoffs",
+      "probe_kart_feel",
+      "probe_combat",
+      "probe_dust_bunny",
+      "probe_dust_bunny_boss",
+      "probe_dust_boss",
+      "probe_hit",
+      "probe_partner",
+      "probe_combat_tutorial",
+      "probe_imp_ai",
+      "probe_mic",
+      "probe_stuffie",
+      "probe_dungeon",
+      "probe_ember",
+      "probe_opera",
+      "probe_opera_2d",
+      "probe_opera_diegetic_paths",
+      "probe_opera_detective",
+      "probe_opera_pipe",
+      "probe_opera_nursery",
+      "probe_opera_gesture_quality",
+      "probe_kitchen_props",
+      "probe_bathroom_props",
+      "probe_castle_door_language",
+      "probe_bathroom_integration",
+      "probe_day_one_bathroom_bunny",
+      "probe_day_one_bathroom_cleanup",
+      "probe_day_one_bathroom_movie_handoff",
+      "probe_day_one_director",
+      "probe_day_one_integration",
+      "probe_day_one_pool_cleanup",
+      "probe_day_one_art_attack_state",
+      "probe_day_one_castle_dressing",
+      "probe_day_one_story_clips",
+      "probe_chapter2",
+      "probe_chapter2_farmer_resume",
+      "probe_chapter2_lawn",
+      "probe_alpha_milestone_save",
+      "probe_dust_boss_balance",
+      "probe_start_menu_routing",
+      "probe_start_menu_new_game",
+      "probe_castle_pool_life_2d",
+      "probe_castle_pearl_art",
+      "probe_fairy_art",
+      "probe_props"
+    ]
+  },
+  "acceptance": {
+    "desktop_geometry_animation_and_render": "PASS",
+    "physical_controllers_tablet_child_owner": "OPEN",
+    "master_visual": "UNSATISFIED"
+  }
+}

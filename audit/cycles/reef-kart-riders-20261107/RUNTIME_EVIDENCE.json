@@ -1,0 +1,1136 @@
+{
+  "schema": "reef.kart.riders.evidence.v1",
+  "baseline": "8d6d7cce6748d1fb7d6fcee243f2a4d21f2f3290",
+  "engine": "Godot 4.7.2-stable official.ed1daf0bf",
+  "renderer": "1280×720 Vulkan Mobile, NVIDIA RTX 3060 Ti",
+  "runtime_sha256": {
+    "assets/kart/chase/kart_boost.png.import": "ec4dc306d3d15e26653509ae9e2f6500092a0012609e62eaa024d55b18c34e4d",
+    "assets/kart/chase/kart_left.png.import": "d3bded6155f15633b378da81b17e84f758a08a2edc501dd21ec0f7f5e4e43749",
+    "assets/kart/chase/kart_right.png.import": "fb1db73797e8acd172d564e3f20791d89677b5311f417af56a95b70631545b28",
+    "assets/kart/chase/kart_straight.png.import": "a78a3e4043213c6740b99f9c7e8371fb98ede5f3753471996e9b687590125850",
+    "assets/kart/chase/moto_boost.png.import": "cab6db1ad3f319ebb4ab68ddca7d78e70ca6c4919659a47ac3455b2f85ab93eb",
+    "assets/kart/chase/moto_left.png.import": "7229ad816f7d149a24ed974eb002c96a7822d02e0f06b2a81e9e4a3e829a1de0",
+    "assets/kart/chase/moto_right.png.import": "b91f531190a500bfb733cbea62601eab26bb231a8ed38e78e0200298390fb394",
+    "assets/kart/chase/moto_straight.png.import": "e9dc5fdb47578c0b1ad296d34688bb031415d0973082e6b968224d99b9b8e868",
+    "assets/kart/chase/truck_boost.png.import": "0e91d41dc62e80193cd4457e3e534da3244d73da7f57359b011c6592c874eb18",
+    "assets/kart/chase/truck_left.png.import": "628142b84f8f36bdc1e1d31801db8d06e7916b2df64552a08a8efee5fd5c3b03",
+    "assets/kart/chase/truck_right.png.import": "bcd0d856fafd43d6f15ee477ea732321354432bca28da8157bead61cf87a65ea",
+    "assets/kart/chase/truck_straight.png.import": "35dfc3aad56e53960b7a76493cd5701d7711f786a5aca5fe298e510088c0362b",
+    "assets/racer/karts/imp_kart_straight.png.import": "1347db1cb5baaa41423fc74e8ab87dee555556992c566c9db74fce2751fa2b70",
+    "assets/racer/riders_v1/kart.png": "ff540e60c130b6816e14f5ebf2e57344df0440dacc75ed2482f70bef9f207236",
+    "assets/racer/riders_v1/kart.png.import": "4d620ec49b122bdf9a622d3f14c28ef4490707d3a6ed15923ddc767858b7ad01",
+    "assets/racer/riders_v1/moto.png": "a16705411d0f3cbb72dab9387fa4993f73f10fe691a7118aa260ffa7c3c7ca49",
+    "assets/racer/riders_v1/moto.png.import": "131c4ba780b8a1f1936ac2605babdc1a20ed3af46c6ef9c84f1fdccaa874d037",
+    "assets/racer/riders_v1/truck.png": "858a7cc166b64a503e78a545383974be765d59362e379e57666e0585e00c9090",
+    "assets/racer/riders_v1/truck.png.import": "d79684a35c329df7c94a5d75a1964e6678a821e56f6ea75f720fb36e12cddb4f",
+    "scripts/racer/reef_kart_catalog.gd": "416ce55e4f10eabda26b00992aa8c0cdeb3e22e980014f22284d0679472a25c1",
+    "scripts/racer/reef_kart_pc.gd": "7c554ce5efc1a236fde2cb6fb6e0d49c0b0b6b127ad9f0f887fb154e9eb12d83",
+    "scripts/racer/reef_kart_race.gd": "217bc5a7673a464807c8d8e349530454cca5aab48ecec1f9a13da31f7eaf971f",
+    "scripts/racer/reef_kart_rider_art.gd": "6004ac8a14ee73d72c89f5c182528850bf4e4a46045232a0a35e22d6dbdc5049"
+  },
+  "source_integrity": "All inventoried source SHA-256 values and three atlas PNGs matched GENERATION.json after export.",
+  "posed": {
+    "harness": "audit/cycles/reef-kart-riders-20261107/capture.gd",
+    "count_each": 612,
+    "baseline_plus_final": 1224,
+    "additional_garage_screenshots": 6,
+    "pairings": 36,
+    "camera_roles": [
+      "solo",
+      "split left",
+      "split right"
+    ],
+    "poses": [
+      "straight",
+      "left",
+      "right",
+      "boost",
+      "spin"
+    ],
+    "rival_distance_crops_each": 72,
+    "baseline_log_sha256": "fa431eca50a5ba9056a04012c3ea16dbb98bbce005447d3c700ea59cddb80ebb",
+    "final_log_sha256": "18e97109b3b8e79820cbfe46ae94bc11a405f67a45fb23f910e36f8b2ae504f6",
+    "boards": [
+      "audit/cycles/reef-kart-riders-20261107/baby-eagle-comparison.jpg",
+      "audit/cycles/reef-kart-riders-20261107/go-kart.jpg",
+      "audit/cycles/reef-kart-riders-20261107/zoom-cycle.jpg",
+      "audit/cycles/reef-kart-riders-20261107/monster-truck.jpg"
+    ],
+    "visual_review": "All combinations reviewed through representative cast boards, plus the split-screen distance and spin boards and garage previews. The matrix automatically checks each selected texture, both cameras sharing the resource dictionary, and the registered authored contacts and mip counts."
+  },
+  "atlas_geometry": {
+    "kart": {
+      "atlas_size": [
+        1024,
+        1024
+      ],
+      "cells": 13,
+      "bounds": [
+        [
+          30,
+          36,
+          226,
+          220
+        ],
+        [
+          30,
+          34,
+          226,
+          220
+        ],
+        [
+          30,
+          41,
+          226,
+          220
+        ],
+        [
+          30,
+          47,
+          226,
+          220
+        ],
+        [
+          30,
+          39,
+          226,
+          220
+        ],
+        [
+          30,
+          39,
+          226,
+          220
+        ],
+        [
+          30,
+          43,
+          226,
+          220
+        ],
+        [
+          30,
+          43,
+          226,
+          220
+        ],
+        [
+          30,
+          31,
+          226,
+          220
+        ],
+        [
+          30,
+          30,
+          226,
+          220
+        ],
+        [
+          30,
+          30,
+          226,
+          220
+        ],
+        [
+          30,
+          36,
+          226,
+          220
+        ],
+        [
+          30,
+          36,
+          226,
+          220
+        ]
+      ],
+      "fixed_eagle_body_from_y": 126,
+      "eagle_keys_distinct": true
+    },
+    "moto": {
+      "atlas_size": [
+        1024,
+        1024
+      ],
+      "cells": 13,
+      "bounds": [
+        [
+          62,
+          14,
+          194,
+          220
+        ],
+        [
+          62,
+          14,
+          194,
+          220
+        ],
+        [
+          62,
+          14,
+          194,
+          220
+        ],
+        [
+          62,
+          19,
+          194,
+          220
+        ],
+        [
+          62,
+          15,
+          194,
+          220
+        ],
+        [
+          62,
+          14,
+          194,
+          220
+        ],
+        [
+          62,
+          15,
+          194,
+          220
+        ],
+        [
+          62,
+          15,
+          194,
+          220
+        ],
+        [
+          62,
+          14,
+          194,
+          220
+        ],
+        [
+          62,
+          14,
+          194,
+          220
+        ],
+        [
+          62,
+          14,
+          194,
+          220
+        ],
+        [
+          62,
+          14,
+          194,
+          220
+        ],
+        [
+          62,
+          14,
+          194,
+          220
+        ]
+      ],
+      "fixed_eagle_body_from_y": 126,
+      "eagle_keys_distinct": true
+    },
+    "truck": {
+      "atlas_size": [
+        1024,
+        1024
+      ],
+      "cells": 13,
+      "bounds": [
+        [
+          23,
+          33,
+          233,
+          220
+        ],
+        [
+          23,
+          31,
+          233,
+          220
+        ],
+        [
+          23,
+          38,
+          233,
+          220
+        ],
+        [
+          23,
+          44,
+          233,
+          220
+        ],
+        [
+          23,
+          36,
+          233,
+          220
+        ],
+        [
+          23,
+          36,
+          233,
+          220
+        ],
+        [
+          23,
+          40,
+          233,
+          220
+        ],
+        [
+          23,
+          40,
+          233,
+          220
+        ],
+        [
+          23,
+          28,
+          233,
+          220
+        ],
+        [
+          23,
+          27,
+          233,
+          220
+        ],
+        [
+          23,
+          27,
+          233,
+          220
+        ],
+        [
+          23,
+          33,
+          233,
+          220
+        ],
+        [
+          23,
+          33,
+          233,
+          220
+        ]
+      ],
+      "fixed_eagle_body_from_y": 126,
+      "eagle_keys_distinct": true
+    }
+  },
+  "motion": {
+    "harness": "audit/cycles/reef-kart-riders-20261107/motion.gd",
+    "clock": "normal real-time simulation with synthetic controller events",
+    "runs": [
+      {
+        "course": "playroom",
+        "mode": 1,
+        "cast_and_rides": [
+          1,
+          0,
+          -1,
+          0
+        ],
+        "finished": true,
+        "attempts": 1,
+        "finish_seconds": 26.533,
+        "frames": 26,
+        "min_diagnostic_fps": 60.0,
+        "median_diagnostic_fps": 60.0,
+        "visited_lap_zone_pairs_by_seat": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        ],
+        "telemetry_sha256": "dd8edbf4a5595b44cbc809bdba9a100661138cb723fb77044e277b6ac0b94763"
+      },
+      {
+        "course": "playroom",
+        "mode": 1,
+        "cast_and_rides": [
+          1,
+          1,
+          -1,
+          0
+        ],
+        "finished": true,
+        "attempts": 1,
+        "finish_seconds": 26.867,
+        "frames": 26,
+        "min_diagnostic_fps": 46.0,
+        "median_diagnostic_fps": 60.0,
+        "visited_lap_zone_pairs_by_seat": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        ],
+        "telemetry_sha256": "79e2903b238b7667cf7ee94582dadcb4193e6307a7298667f9f62670ad8c215d"
+      },
+      {
+        "course": "playroom",
+        "mode": 1,
+        "cast_and_rides": [
+          1,
+          2,
+          -1,
+          0
+        ],
+        "finished": true,
+        "attempts": 1,
+        "finish_seconds": 28.533,
+        "frames": 27,
+        "min_diagnostic_fps": 59.0,
+        "median_diagnostic_fps": 60.0,
+        "visited_lap_zone_pairs_by_seat": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        ],
+        "telemetry_sha256": "1f9eea4113901b7ff336e65e6bb0c7c2216a30ea653ec3322c9389af67e7f1a5"
+      },
+      {
+        "course": "playroom",
+        "mode": 2,
+        "cast_and_rides": [
+          1,
+          0,
+          11,
+          2
+        ],
+        "finished": true,
+        "attempts": 1,
+        "finish_seconds": 25.25,
+        "frames": 24,
+        "min_diagnostic_fps": 60.0,
+        "median_diagnostic_fps": 60.0,
+        "visited_lap_zone_pairs_by_seat": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        ],
+        "telemetry_sha256": "86ef12eff3a56bfba7ed28f95ce43c4d367825b70380c08253456517f24b325c"
+      },
+      {
+        "course": "kitchen",
+        "mode": 2,
+        "cast_and_rides": [
+          0,
+          1,
+          10,
+          2
+        ],
+        "finished": true,
+        "attempts": 1,
+        "finish_seconds": 50.0,
+        "frames": 46,
+        "min_diagnostic_fps": 59.0,
+        "median_diagnostic_fps": 60.0,
+        "visited_lap_zone_pairs_by_seat": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        ],
+        "telemetry_sha256": "ca2d63372a7519ee7e3eb87fa522268ebe91e0486d58e704f3f0dc7b2af748d8"
+      },
+      {
+        "course": "mermaid_pool",
+        "mode": 2,
+        "cast_and_rides": [
+          2,
+          0,
+          9,
+          1
+        ],
+        "finished": true,
+        "attempts": 1,
+        "finish_seconds": 92.633,
+        "frames": 83,
+        "min_diagnostic_fps": 59.0,
+        "median_diagnostic_fps": 60.0,
+        "visited_lap_zone_pairs_by_seat": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        ],
+        "telemetry_sha256": "77cdc92d68bb16aca4b543a2a76d236657ce3bb3d8643fc4f550038febe4eb40"
+      },
+      {
+        "course": "opera_hall",
+        "mode": 2,
+        "cast_and_rides": [
+          3,
+          2,
+          4,
+          0
+        ],
+        "finished": true,
+        "attempts": 1,
+        "finish_seconds": 91.033,
+        "frames": 81,
+        "min_diagnostic_fps": 59.0,
+        "median_diagnostic_fps": 60.0,
+        "visited_lap_zone_pairs_by_seat": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        ],
+        "telemetry_sha256": "a5fc752a7e80b3e72fe9bec259dd36870bb8a363ec7bcd8b107b4c9a6eae0c27"
+      },
+      {
+        "course": "playroom",
+        "mode": 2,
+        "cast_and_rides": [
+          5,
+          1,
+          8,
+          0
+        ],
+        "finished": true,
+        "attempts": 1,
+        "finish_seconds": 25.783,
+        "frames": 25,
+        "min_diagnostic_fps": 56.0,
+        "median_diagnostic_fps": 60.0,
+        "visited_lap_zone_pairs_by_seat": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        ],
+        "telemetry_sha256": "d154e7828c114bc4f027f107adce04cb83f4c597b399184518d43ac6f5f8eb3c"
+      },
+      {
+        "course": "kitchen",
+        "mode": 2,
+        "cast_and_rides": [
+          6,
+          2,
+          7,
+          1
+        ],
+        "finished": true,
+        "attempts": 1,
+        "finish_seconds": 47.583,
+        "frames": 44,
+        "min_diagnostic_fps": 56.0,
+        "median_diagnostic_fps": 60.0,
+        "visited_lap_zone_pairs_by_seat": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        ],
+        "telemetry_sha256": "b03654ffc9d8bed67340e5aab806a20af5e0f94a02c2136dc9fb1a3552bfe9f9"
+      }
+    ],
+    "run_count": 9,
+    "sample_count": 382,
+    "log_sha256": "57578616b0b3af1a9e024374749fabdfc38a5bce908df2f8fbbe52c8dcea478a",
+    "errors": 0,
+    "fixed_window_reruns": {
+      "case_indices": [
+        6,
+        7,
+        8
+      ],
+      "size": [
+        1280,
+        720
+      ],
+      "log_sha256": "a2da95eefaa7550e049901a31eb8523e8fcc93d94cab4c9be7de6db66b1c1106",
+      "reason": "The initial desktop window changed size during case 6."
+    },
+    "performance_scope": "Diagnostic samples include GPU readback, disk writes and concurrent test work."
+  },
+  "focused": {
+    "probe_reef_kart_pc": {
+      "passed_assertions": 65,
+      "log_sha256": "65835e6a4714333f5e6ba314c102c77f476ba4977b95655f33af7aa5341c9968"
+    },
+    "probe_racer_integration": {
+      "passed_assertions": 50,
+      "log_sha256": "d971a04d7c394514a1f8332a3b38e1f97d0a61e45c5b9f646faee9a8fcf36d5a"
+    }
+  },
+  "full_local_ci": {
+    "script": "scripts/ci.sh",
+    "log_sha256": "65c0f4292c485a96cd8ab054742a7ea4f2df42d452e6b2c27d3020071d5bac55",
+    "exit_code": 0,
+    "probe_count": 82,
+    "zero_exit_probes": [
+      "probe_reef_districts",
+      "probe_ocean_kingdoms",
+      "probe_audit",
+      "probe_passive",
+      "probe_living_world",
+      "probe_load",
+      "probe_rank",
+      "probe_save_recovery",
+      "probe_galaxy_state",
+      "probe_collection",
+      "probe_mg2d",
+      "probe_fetch",
+      "probe_melody",
+      "probe_dolls",
+      "probe_seek",
+      "probe_audio",
+      "probe_dance",
+      "probe_l2",
+      "probe_l2_living_cards",
+      "probe_sky_lagoon_animals",
+      "probe_l2_reenter",
+      "probe_crown",
+      "probe_throne",
+      "probe_northern",
+      "probe_human_art_audit",
+      "probe_train",
+      "probe_verbs",
+      "probe_skins",
+      "probe_touch_router",
+      "probe_touch_stress",
+      "probe_interaction",
+      "probe_touch_adversary",
+      "probe_touch_look",
+      "probe_ui_system",
+      "probe_voice",
+      "probe_day_one_voice",
+      "probe_day_one_d8_revisits",
+      "probe_day_one_handoffs",
+      "probe_kart_feel",
+      "probe_combat",
+      "probe_dust_bunny",
+      "probe_dust_bunny_boss",
+      "probe_dust_boss",
+      "probe_hit",
+      "probe_partner",
+      "probe_combat_tutorial",
+      "probe_imp_ai",
+      "probe_mic",
+      "probe_stuffie",
+      "probe_dungeon",
+      "probe_ember",
+      "probe_opera",
+      "probe_opera_2d",
+      "probe_opera_diegetic_paths",
+      "probe_opera_detective",
+      "probe_opera_pipe",
+      "probe_opera_nursery",
+      "probe_opera_gesture_quality",
+      "probe_kitchen_props",
+      "probe_bathroom_props",
+      "probe_castle_door_language",
+      "probe_bathroom_integration",
+      "probe_day_one_bathroom_bunny",
+      "probe_day_one_bathroom_cleanup",
+      "probe_day_one_bathroom_movie_handoff",
+      "probe_day_one_director",
+      "probe_day_one_integration",
+      "probe_day_one_pool_cleanup",
+      "probe_day_one_art_attack_state",
+      "probe_day_one_castle_dressing",
+      "probe_day_one_story_clips",
+      "probe_chapter2",
+      "probe_chapter2_farmer_resume",
+      "probe_chapter2_lawn",
+      "probe_alpha_milestone_save",
+      "probe_dust_boss_balance",
+      "probe_start_menu_routing",
+      "probe_start_menu_new_game",
+      "probe_castle_pool_life_2d",
+      "probe_castle_pearl_art",
+      "probe_fairy_art",
+      "probe_props"
+    ]
+  },
+  "acceptance": {
+    "desktop_art_geometry_and_render": "PASS",
+    "physical_controllers_tablet_child_owner": "OPEN",
+    "master_visual": "UNSATISFIED"
+  }
+}

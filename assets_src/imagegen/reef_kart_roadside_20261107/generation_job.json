@@ -1,0 +1,52 @@
+{
+  "tool": "Built-in OpenAI ImageGen",
+  "attempts": 1,
+  "rejected_attempts": 0,
+  "provider_revision_or_seed": "Unexposed by the tool",
+  "output_id": "exec-594e64dd-f3c1-44e6-af6d-a6350ec5ab52.png",
+  "license": "https://openai.com/policies/terms-of-use/",
+  "gap": "Existing room paintings and fixture cutouts have no unobstructed orthographic cabinetry, coping and stage-panel fronts for world geometry.",
+  "references": [
+    {
+      "path": "assets/flats/castle/rooms/room_playroom_background.png",
+      "sha256": "bd0baef94bad5c9257c0ab20d239513bd42ef465584fec6f012d990993ce797b",
+      "role": "existing project color palette and brushwork only"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_kitchen_background.png",
+      "sha256": "b58bd03a394717ebff381d76e4cb7d03410a463b7b30d2a58065be5a4df8c065",
+      "role": "existing project color palette and brushwork only"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_mermaid_pool_background.png",
+      "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+      "role": "existing project color palette and brushwork only"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_opera_hall_background.png",
+      "sha256": "ebd074ac85a1b7d479eada4f49e0000690a9e96576a8ae1370525fe68e08116f",
+      "role": "existing project color palette and brushwork only"
+    }
+  ],
+  "exact_prompt": "Paint one production texture atlas for the side faces of stage structures in a children's hand-painted 2D underwater castle racing game. The four attached room images are palette and brushwork references only, in order: playroom, kitchen, pool, theater. No part of the reference images needs to be repeated as a scene. OUTPUT: a precise 2-by-2 grid of four full-bleed orthographic rectangular painted material panels, each filling its exact quadrant, no margins, no empty background, no transparency, no objects sticking out, no perspective, no text, no labels, no borders dividing the four panels beyond the abrupt color seam at exactly half width and height. These are flat UV textures to wrap around low rectangular furniture and pool edges, not illustrations of a room. TOP LEFT: mellow lavender and dusty turquoise painted toy chest paneling with rounded inset woodworking, small understated warm cream shell and star inlays, quiet wide woodgrain, polished peach accents. TOP RIGHT: softly painted teal-green kitchen cabinet fronts, broad rounded inset doors and tiny shell-like brass handles, restrained copper highlights, maintain readable warm aqua and peach. BOTTOM LEFT: cream and warm sandstone marine coping and broad aqua glazed tiles with occasional pastel shells and tiny blue pearl mosaics, subtle satin water-reflected accents. BOTTOM RIGHT: dusky aubergine theater box front with warm antique-gold molding, elegantly spaced small star and scallop reliefs and a restrained velvet inset. High-key animated picture-book art, authentic warm painted imperfections, clean dark-plum contours, large simple quiet forms, refined soft reflected light, limited detail clusters. Keep each texture as one coherent surface with gently alternating repeating panels. No prominent icons, no typography, no lighting bloom, no high contrast noise. Landscape composition.",
+  "native": {
+    "path": "assets_src/imagegen/reef_kart_roadside_20261107/painted_fascias_native.png",
+    "size": [
+      1774,
+      887
+    ],
+    "sha256": "9f0b6984ba4d8f3af95eed09390170c9a50e157508be1e753e84a861f712edbb"
+  },
+  "export": {
+    "path": "assets/racer/roadside_v1/fascias.png",
+    "size": [
+      1024,
+      512
+    ],
+    "sha256": "a10049305b518db79655299feba4939bba2e11afe2b1b696493afeef622809c1",
+    "script": "assets_src/imagegen/reef_kart_roadside_20261107/prepare_atlas.gd",
+    "method": "Godot 4.7.2. Floor half-size, inset 3 px on each side of the quadrants, discard odd trailing row, Lanczos resample each to 512×256 RGB8, copy into a 2×2 atlas. Lossless import, 10 mip levels."
+  },
+  "third_party_art_references_used_as_generator_pixels": false,
+  "status": "RUNTIME_CANDIDATE"
+}

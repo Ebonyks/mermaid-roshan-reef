@@ -21569,3 +21569,91 @@ The existing castle motif keeps its source licence and provenance unchanged. The
 - `assets_src/bubble_duel_visual_20261107/wear-daddy_mermaid-rainbow.png` — non-runtime project-owned review evidence from the existing game art, captured in Godot Mobile or assembled from exact decoded project bitmaps. JPEG thumbnails and H.264 footage are diagnostic derivatives.
 - `assets_src/bubble_duel_visual_20261107/wear-rainbow_dust_bunny-swiftconch.png` — non-runtime project-owned review evidence from the existing game art, captured in Godot Mobile or assembled from exact decoded project bitmaps. JPEG thumbnails and H.264 footage are diagnostic derivatives.
 - `assets_src/bubble_duel_visual_20261107/wear-roshan-moonpearl.png` — non-runtime project-owned review evidence from the existing game art, captured in Godot Mobile or assembled from exact decoded project bitmaps. JPEG thumbnails and H.264 footage are diagnostic derivatives.
+
+## Racer roadside materials (2026-11-07)
+
+| Asset | Source / license / URL | Modifications |
+|---|---|---|
+| `assets_src/imagegen/reef_kart_roadside_20261107/painted_fascias_native.png` | Built-in OpenAI ImageGen, owner-commissioned material study using four existing project room paintings as palette and brushwork references. https://openai.com/policies/terms-of-use/ | Native output preserved. Inputs, exact prompt and hashes in generation_job.json. No external reference pixels were used in the generation. |
+| `assets/racer/roadside_v1/fascias.png` | Above generated native, same provenance. | Inset crop of each quadrant, Lanczos resample and reassembly into an opaque 1024×512 atlas. Lossless import with mipmaps. |
+| `audit/cycles/reef-kart-roadside-20261107/playroom.jpg` | Godot captures of project game artwork, with existing runtime art and the fascia credits above. | Labeled solo and split-screen screenshot board for review. |
+| `audit/cycles/reef-kart-roadside-20261107/kitchen.jpg` | Godot captures of project game artwork, with existing runtime art and the fascia credits above. | Labeled solo and split-screen screenshot board for review. |
+| `audit/cycles/reef-kart-roadside-20261107/mermaid_pool.jpg` | Godot captures of project game artwork, with existing runtime art and the fascia credits above. | Labeled solo and split-screen screenshot board for review. |
+| `audit/cycles/reef-kart-roadside-20261107/opera_hall.jpg` | Godot captures of project game artwork, with existing runtime art and the fascia credits above. | Labeled solo and split-screen screenshot board for review. |
+
+## Racer seated cast (2026-11-07)
+
+| Asset | Source / license / URL | Modifications |
+|---|---|---|
+| `assets_src/imagegen/reef_kart_riders_20261107/eagle_native.png` | Built-in OpenAI ImageGen from project cast and chase references. https://openai.com/policies/terms-of-use/ | Preserved generated alpha, exact prompts and source hashes in GENERATION.json. |
+| `assets_src/imagegen/reef_kart_riders_20261107/toy_native.png` | Built-in OpenAI ImageGen from project cast and chase references. https://openai.com/policies/terms-of-use/ | Preserved generated alpha, exact prompts and source hashes in GENERATION.json. |
+| `assets_src/imagegen/reef_kart_riders_20261107/family_native.png` | Built-in OpenAI ImageGen from project cast and chase references. https://openai.com/policies/terms-of-use/ | Preserved generated alpha, exact prompts and source hashes in GENERATION.json. |
+| `assets_src/imagegen/reef_kart_riders_20261107/toy_reference.jpg` | Existing project identity artwork, existing original licenses. Paths in GENERATION.json. | Labeled non-runtime reference collage. |
+| `assets_src/imagegen/reef_kart_riders_20261107/family_reference.jpg` | Existing project identity artwork, existing original licenses. Paths in GENERATION.json. | Labeled non-runtime reference collage. |
+| `assets/racer/riders_v1/kart.png` | Corresponding project chase chassis and above generated driver keys, same provenance. | Isotropic registration, seat occlusion, whole-frame packing and mipmapped lossless import. |
+| `assets/racer/riders_v1/moto.png` | Corresponding project chase chassis and above generated driver keys, same provenance. | Isotropic registration, seat occlusion, whole-frame packing and mipmapped lossless import. |
+| `assets/racer/riders_v1/truck.png` | Corresponding project chase chassis and above generated driver keys, same provenance. | Isotropic registration, seat occlusion, whole-frame packing and mipmapped lossless import. |
+| `audit/cycles/reef-kart-riders-20261107/baby-eagle-comparison.jpg` | Godot capture of project artwork with the above sprite credits. | Cropped and labeled runtime review board. |
+| `audit/cycles/reef-kart-riders-20261107/go-kart.jpg` | Godot capture of project artwork with the above sprite credits. | Cropped and labeled runtime review board. |
+| `audit/cycles/reef-kart-riders-20261107/zoom-cycle.jpg` | Godot capture of project artwork with the above sprite credits. | Cropped and labeled runtime review board. |
+| `audit/cycles/reef-kart-riders-20261107/monster-truck.jpg` | Godot capture of project artwork with the above sprite credits. | Cropped and labeled runtime review board. |
+
+## Racer turn and boost keys (2026-11-07)
+
+| Asset | Source / license / URL | Modifications |
+|---|---|---|
+| `assets/racer/rider_poses_v2/sparkle.png` | Existing project rear-rider art and chassis under the original license entries. Exact bindings in `assets_src/racer_pose_keys_20261107/JOB_CARD.json`. | Local Canvas key derivation, registered grip and chassis, lossless packed mipmapped export. |
+| `assets/racer/rider_poses_v2/huluu.png` | Existing project rear-rider art and chassis under the original license entries. Exact bindings in `assets_src/racer_pose_keys_20261107/JOB_CARD.json`. | Local Canvas key derivation, registered grip and chassis, lossless packed mipmapped export. |
+| `assets/racer/rider_poses_v2/bunny.png` | Existing project rear-rider art and chassis under the original license entries. Exact bindings in `assets_src/racer_pose_keys_20261107/JOB_CARD.json`. | Local Canvas key derivation, registered grip and chassis, lossless packed mipmapped export. |
+| `assets/racer/rider_poses_v2/kitty.png` | Existing project rear-rider art and chassis under the original license entries. Exact bindings in `assets_src/racer_pose_keys_20261107/JOB_CARD.json`. | Local Canvas key derivation, registered grip and chassis, lossless packed mipmapped export. |
+| `assets/racer/rider_poses_v2/baby_doll.png` | Existing project rear-rider art and chassis under the original license entries. Exact bindings in `assets_src/racer_pose_keys_20261107/JOB_CARD.json`. | Local Canvas key derivation, registered grip and chassis, lossless packed mipmapped export. |
+| `assets/racer/rider_poses_v2/dolly.png` | Existing project rear-rider art and chassis under the original license entries. Exact bindings in `assets_src/racer_pose_keys_20261107/JOB_CARD.json`. | Local Canvas key derivation, registered grip and chassis, lossless packed mipmapped export. |
+| `assets/racer/rider_poses_v2/sleepy.png` | Existing project rear-rider art and chassis under the original license entries. Exact bindings in `assets_src/racer_pose_keys_20261107/JOB_CARD.json`. | Local Canvas key derivation, registered grip and chassis, lossless packed mipmapped export. |
+| `assets/racer/rider_poses_v2/imp.png` | Existing project rear-rider art and chassis under the original license entries. Exact bindings in `assets_src/racer_pose_keys_20261107/JOB_CARD.json`. | Local Canvas key derivation, registered grip and chassis, lossless packed mipmapped export. |
+| `assets/racer/rider_poses_v2/rumi.png` | Existing project rear-rider art and chassis under the original license entries. Exact bindings in `assets_src/racer_pose_keys_20261107/JOB_CARD.json`. | Local Canvas key derivation, registered grip and chassis, lossless packed mipmapped export. |
+| `assets/racer/rider_poses_v2/daddy.png` | Existing project rear-rider art and chassis under the original license entries. Exact bindings in `assets_src/racer_pose_keys_20261107/JOB_CARD.json`. | Local Canvas key derivation, registered grip and chassis, lossless packed mipmapped export. |
+| `assets/racer/rider_poses_v2/mama_baby.png` | Existing project rear-rider art and chassis under the original license entries. Exact bindings in `assets_src/racer_pose_keys_20261107/JOB_CARD.json`. | Local Canvas key derivation, registered grip and chassis, lossless packed mipmapped export. |
+| `audit/cycles/reef-kart-cast-motion-20261107/go-kart.jpg` | Godot capture of the project artwork with the above rider credits. | Cropped and labeled pose review board. |
+| `audit/cycles/reef-kart-cast-motion-20261107/zoom-cycle.jpg` | Godot capture of the project artwork with the above rider credits. | Cropped and labeled pose review board. |
+| `audit/cycles/reef-kart-cast-motion-20261107/monster-truck.jpg` | Godot capture of the project artwork with the above rider credits. | Cropped and labeled pose review board. |
+
+## Racer rigid head and seat motion (2026-11-07)
+
+| Asset | Source / license / URL | Modifications |
+|---|---|---|
+| `assets/racer/rider_poses_v3/roshan.png` | Original project chase and rear-view rider art under its existing license rows. Bindings in `assets_src/racer_rigid_poses_20261107/JOB_CARD.json`. | Deterministic rigid seated pose derivation, fixed cockpit occlusion, lossless mipmapped whole sprites. |
+| `assets/racer/rider_poses_v3/sparkle.png` | Original project chase and rear-view rider art under its existing license rows. Bindings in `assets_src/racer_rigid_poses_20261107/JOB_CARD.json`. | Deterministic rigid seated pose derivation, fixed cockpit occlusion, lossless mipmapped whole sprites. |
+| `assets/racer/rider_poses_v3/huluu.png` | Original project chase and rear-view rider art under its existing license rows. Bindings in `assets_src/racer_rigid_poses_20261107/JOB_CARD.json`. | Deterministic rigid seated pose derivation, fixed cockpit occlusion, lossless mipmapped whole sprites. |
+| `assets/racer/rider_poses_v3/bunny.png` | Original project chase and rear-view rider art under its existing license rows. Bindings in `assets_src/racer_rigid_poses_20261107/JOB_CARD.json`. | Deterministic rigid seated pose derivation, fixed cockpit occlusion, lossless mipmapped whole sprites. |
+| `assets/racer/rider_poses_v3/kitty.png` | Original project chase and rear-view rider art under its existing license rows. Bindings in `assets_src/racer_rigid_poses_20261107/JOB_CARD.json`. | Deterministic rigid seated pose derivation, fixed cockpit occlusion, lossless mipmapped whole sprites. |
+| `assets/racer/rider_poses_v3/baby_doll.png` | Original project chase and rear-view rider art under its existing license rows. Bindings in `assets_src/racer_rigid_poses_20261107/JOB_CARD.json`. | Deterministic rigid seated pose derivation, fixed cockpit occlusion, lossless mipmapped whole sprites. |
+| `assets/racer/rider_poses_v3/dolly.png` | Original project chase and rear-view rider art under its existing license rows. Bindings in `assets_src/racer_rigid_poses_20261107/JOB_CARD.json`. | Deterministic rigid seated pose derivation, fixed cockpit occlusion, lossless mipmapped whole sprites. |
+| `assets/racer/rider_poses_v3/sleepy.png` | Original project chase and rear-view rider art under its existing license rows. Bindings in `assets_src/racer_rigid_poses_20261107/JOB_CARD.json`. | Deterministic rigid seated pose derivation, fixed cockpit occlusion, lossless mipmapped whole sprites. |
+| `assets/racer/rider_poses_v3/imp.png` | Original project chase and rear-view rider art under its existing license rows. Bindings in `assets_src/racer_rigid_poses_20261107/JOB_CARD.json`. | Deterministic rigid seated pose derivation, fixed cockpit occlusion, lossless mipmapped whole sprites. |
+| `assets/racer/rider_poses_v3/rumi.png` | Original project chase and rear-view rider art under its existing license rows. Bindings in `assets_src/racer_rigid_poses_20261107/JOB_CARD.json`. | Deterministic rigid seated pose derivation, fixed cockpit occlusion, lossless mipmapped whole sprites. |
+| `assets/racer/rider_poses_v3/daddy.png` | Original project chase and rear-view rider art under its existing license rows. Bindings in `assets_src/racer_rigid_poses_20261107/JOB_CARD.json`. | Deterministic rigid seated pose derivation, fixed cockpit occlusion, lossless mipmapped whole sprites. |
+| `assets/racer/rider_poses_v3/mama_baby.png` | Original project chase and rear-view rider art under its existing license rows. Bindings in `assets_src/racer_rigid_poses_20261107/JOB_CARD.json`. | Deterministic rigid seated pose derivation, fixed cockpit occlusion, lossless mipmapped whole sprites. |
+| `audit/cycles/reef-kart-rigid-heads-20261107/comparison.jpg` | Project race artwork under the original rider and vehicle credits. | Labeled comparison or cropped Godot review capture. |
+| `audit/cycles/reef-kart-rigid-heads-20261107/go-kart.jpg` | Project race artwork under the original rider and vehicle credits. | Labeled comparison or cropped Godot review capture. |
+| `audit/cycles/reef-kart-rigid-heads-20261107/zoom-cycle.jpg` | Project race artwork under the original rider and vehicle credits. | Labeled comparison or cropped Godot review capture. |
+| `audit/cycles/reef-kart-rigid-heads-20261107/monster-truck.jpg` | Project race artwork under the original rider and vehicle credits. | Labeled comparison or cropped Godot review capture. |
+
+### Reef Grand Prix stage art 2026-11-07
+
+| Path | Source and license | Modifications |
+| --- | --- | --- |
+| `assets_src\imagegen\reef_kart_stage_art_20261107/playroom_native.png` | Built-in OpenAI ImageGen, commissioned for Mermaid Roshan. https://openai.com/policies/terms-of-use/ | Native RGBA source, prompt and input hashes in generation_job.json. |
+| `assets\racer\stage_art_v1/playroom.png` | Corresponding native ImageGen sheet, same provenance. | Isolated alpha contour, lossless atlas export and mipmapped import. |
+| `assets_src\imagegen\reef_kart_stage_art_20261107/kitchen_native.png` | Built-in OpenAI ImageGen, commissioned for Mermaid Roshan. https://openai.com/policies/terms-of-use/ | Native RGBA source, prompt and input hashes in generation_job.json. |
+| `assets\racer\stage_art_v1/kitchen.png` | Corresponding native ImageGen sheet, same provenance. | Isolated alpha contour, lossless atlas export and mipmapped import. |
+| `assets_src\imagegen\reef_kart_stage_art_20261107/mermaid_pool_native.png` | Built-in OpenAI ImageGen, commissioned for Mermaid Roshan. https://openai.com/policies/terms-of-use/ | Native RGBA source, prompt and input hashes in generation_job.json. |
+| `assets\racer\stage_art_v1/mermaid_pool.png` | Corresponding native ImageGen sheet, same provenance. | Isolated alpha contour, lossless atlas export and mipmapped import. |
+| `assets_src\imagegen\reef_kart_stage_art_20261107/opera_hall_native.png` | Built-in OpenAI ImageGen, commissioned for Mermaid Roshan. https://openai.com/policies/terms-of-use/ | Native RGBA source, prompt and input hashes in generation_job.json. |
+| `assets\racer\stage_art_v1/opera_hall.png` | Corresponding native ImageGen sheet, same provenance. | Isolated alpha contour, lossless atlas export and mipmapped import. |
+| `assets_src\imagegen\reef_kart_stage_art_20261107/pickups_native.png` | Built-in OpenAI ImageGen, commissioned for Mermaid Roshan. https://openai.com/policies/terms-of-use/ | Native RGBA source, prompt and input hashes in generation_job.json. |
+| `assets\racer\stage_art_v1/pickups.png` | Corresponding native ImageGen sheet, same provenance. | Isolated alpha contour, lossless atlas export and mipmapped import. |
+| `audit\cycles\reef-kart-stage-art-20261107/kitchen.jpg` | Godot desktop capture of project and derived stage art under the recorded asset credits. | Downscaled and labeled visual stress frames. |
+| `audit\cycles\reef-kart-stage-art-20261107/playroom.jpg` | Godot desktop capture of project and derived stage art under the recorded asset credits. | Downscaled and labeled visual stress frames. |
+| `audit\cycles\reef-kart-stage-art-20261107/mermaid_pool.jpg` | Godot desktop capture of project and derived stage art under the recorded asset credits. | Downscaled and labeled visual stress frames. |
+| `audit\cycles\reef-kart-stage-art-20261107/opera_hall.jpg` | Godot desktop capture of project and derived stage art under the recorded asset credits. | Downscaled and labeled visual stress frames. |
+| `audit/cycles/reef-kart-stage-art-20261107/stage-preview.jpg` | Godot desktop capture of project and derived stage art under the recorded asset credits. | Labeled four-course solo and split-screen comparison. |
