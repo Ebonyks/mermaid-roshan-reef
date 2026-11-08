@@ -1,7 +1,7 @@
 extends RefCounted
 ## Whole seated sprites. Each ride atlas has a 4×4 grid of 256px keys.
 const ROOT := "res://assets/racer/riders_v1/"
-const MOTION_ROOT := "res://assets/racer/rider_poses_v2/"
+const MOTION_ROOT := "res://assets/racer/rider_poses_v3/"
 const MOTION_CELL := 200
 const MOTION_COLS := 5
 const MOTION_COUNT := 7

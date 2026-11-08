@@ -1,0 +1,271 @@
+{
+  "baseline": "e233e003b0de17f58aa783cc3597c0f2d7ac1367",
+  "date": "2026-11-07",
+  "lane": "Whole-frame 2D gameplay keys",
+  "actions": [
+    {
+      "id": "turn",
+      "verb": "Lean with the shoulders while keeping a coherent head silhouette",
+      "contact": "Pivot at seated support. Left and right pass through a half pose. Eyes face down the course. Hat, ears and horns follow a rigid transform."
+    },
+    {
+      "id": "boost",
+      "verb": "Brace lower toward the controls",
+      "contact": "Move the head and upper back lower through two keys without scaling the head or accessories. Settle through the same intermediate key."
+    }
+  ],
+  "fixed": "Neutral driver appearance, painted helmet/hat/ears/horns, body support and wheel line. Grip and cockpit should stay visually connected.",
+  "motion_tolerances": "Head pixels move by rigid transform only, with determinant 1 and no shear. Check the exported silhouettes and comparison crops, plus all three seat geometries.",
+  "method": "Use existing painted neutral figures and registered chassis. Rebuild the entire output card in a deterministic 2D export. One flattened sprite per key, one draw per rider.",
+  "attempts": [
+    {
+      "attempt": 1,
+      "disposition": "Rejected framing trial",
+      "reason": "The largest original Roshan cycle sprite exceeded the registered top margin."
+    },
+    {
+      "attempt": 2,
+      "disposition": "Runtime candidate",
+      "reason": "Roshan is fitted uniformly at 230px master resolution for every ride and phase. Her original helmet and tail fit the grounded cell."
+    }
+  ],
+  "fallback": "Reduce excursion or shift the hinge below the head if a repaired frame cuts the silhouette or loses seat contact.",
+  "verification": "Test the same full-speed cast matrix and complete races, add rigid-head and fixed chassis pixel checks. Owner review is separate.",
+  "source_inputs": [
+    {
+      "path": "assets_src/imagegen/reef_kart_riders_20261107/eagle_native.png",
+      "sha256": "42430b9b8d8230bfc52499d12479cc55b6f4157763621f20f8f0462aea0eeb5f",
+      "size": [
+        2172,
+        724
+      ],
+      "role": "Original rear rider master under existing provenance"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_riders_20261107/toy_native.png",
+      "sha256": "a4d0fd6476a42fbdcc40ee122e404b2059712fc51f4a44a4543c4d94e6c9d5b5",
+      "size": [
+        1536,
+        1024
+      ],
+      "role": "Original rear rider master under existing provenance"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_riders_20261107/family_native.png",
+      "sha256": "3f5ed21b4e5da99bd2c0e2e480f8ebc54fb463b59b4799eade581364e6ec303b",
+      "size": [
+        1309,
+        1202
+      ],
+      "role": "Original rear rider master under existing provenance"
+    },
+    {
+      "path": "assets/racer/riders_v1/kart.png",
+      "sha256": "ff540e60c130b6816e14f5ebf2e57344df0440dacc75ed2482f70bef9f207236",
+      "size": [
+        1024,
+        1024
+      ],
+      "role": "Neutral frame and fixed cockpit occlusion"
+    },
+    {
+      "path": "assets/racer/riders_v1/moto.png",
+      "sha256": "a16705411d0f3cbb72dab9387fa4993f73f10fe691a7118aa260ffa7c3c7ca49",
+      "size": [
+        1024,
+        1024
+      ],
+      "role": "Neutral frame and fixed cockpit occlusion"
+    },
+    {
+      "path": "assets/racer/riders_v1/truck.png",
+      "sha256": "858a7cc166b64a503e78a545383974be765d59362e379e57666e0585e00c9090",
+      "size": [
+        1024,
+        1024
+      ],
+      "role": "Neutral frame and fixed cockpit occlusion"
+    },
+    {
+      "path": "assets/kart/chase/empty_kart.png",
+      "sha256": "35457c5cf602bffa666d6663f9fcbefb9be26bd2d0eca1c96cb5c2a6fbf9ac88",
+      "size": [
+        1024,
+        1024
+      ],
+      "role": "Underlying chassis fixture"
+    },
+    {
+      "path": "assets/kart/chase/empty_moto.png",
+      "sha256": "dfec5d6132bf3d81a086f451b4b1030aef435b9b44804ebe22ea7fce7d611bda",
+      "size": [
+        1024,
+        1024
+      ],
+      "role": "Underlying chassis fixture"
+    },
+    {
+      "path": "assets/kart/chase/empty_truck.png",
+      "sha256": "8fc3380295df50ac0c981a2b28f12d4b82236be7c79c7de9907ceb640eeda1fd",
+      "size": [
+        1024,
+        1024
+      ],
+      "role": "Underlying chassis fixture"
+    },
+    {
+      "path": "assets/kart/chase/kart_straight.png",
+      "sha256": "6a3107b79afd615b96b3777cd002b9d2e5814743dbfef718567d7e535693deee",
+      "size": [
+        627,
+        627
+      ],
+      "role": "Roshan original seated art, including the visible tail"
+    },
+    {
+      "path": "assets/kart/chase/moto_straight.png",
+      "sha256": "dd2abb4e3076a8e87e0a0c412c1dbf2ce1b34c573a7281bcfb513568808df6a0",
+      "size": [
+        627,
+        627
+      ],
+      "role": "Roshan original seated art, including the visible tail"
+    },
+    {
+      "path": "assets/kart/chase/truck_straight.png",
+      "sha256": "3e9d73e98848e690c7785c8b26f7a7959a766eb974f237af3df0975bfbfab247",
+      "size": [
+        627,
+        627
+      ],
+      "role": "Roshan original seated art, including the visible tail"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_riders_20261107/build_rider_atlases.gd",
+      "sha256": "cfa1f84b2c0513da2269736ae5be4bc06dead030881dd1ab1cd719d734f92e78",
+      "role": "Reused source registration or raster helper"
+    },
+    {
+      "path": "assets_src/racer_pose_keys_20261107/build_pose_atlases.gd",
+      "sha256": "e1596d2c5e8b8f5439d138c196f959841f5657ea34b99bab3c38b06bc6c23bac",
+      "role": "Reused source registration or raster helper"
+    }
+  ],
+  "output": {
+    "exporter": "assets_src/racer_rigid_poses_20261107/build_rigid_atlases.gd",
+    "derivation": "Deterministic local Godot 4.7.2 build with a 2D rotation and translation applied to each entire fitted source driver. Use the original seat foreground to occlude the hips and preserve the tires. Roshan has the same rigid helmet and a small blend at the shoulder junction because her source is a single whole driver and ride painting.",
+    "files": [
+      {
+        "path": "assets/racer/rider_poses_v3/roshan.png",
+        "sha256": "ce8b7e1b92c08f4c2ff7d46a41004d9eb29e97e124aac700ab4823b6fddee165",
+        "size": [
+          1000,
+          1000
+        ],
+        "role": "Whole runtime pose atlas"
+      },
+      {
+        "path": "assets/racer/rider_poses_v3/sparkle.png",
+        "sha256": "57213220f2aa52ec2e2bbd532dc3e3d6f4896fd1b928dedff60614b94a1574cd",
+        "size": [
+          1000,
+          1000
+        ],
+        "role": "Whole runtime pose atlas"
+      },
+      {
+        "path": "assets/racer/rider_poses_v3/huluu.png",
+        "sha256": "4d514a0b1304fe552687653627e48a46a015bf414e6ca6f194c6edb142afe103",
+        "size": [
+          1000,
+          1000
+        ],
+        "role": "Whole runtime pose atlas"
+      },
+      {
+        "path": "assets/racer/rider_poses_v3/bunny.png",
+        "sha256": "63ec9881b4754098e44d043d34e603ee85679f7587641c526bd3eab3c461cc7d",
+        "size": [
+          1000,
+          1000
+        ],
+        "role": "Whole runtime pose atlas"
+      },
+      {
+        "path": "assets/racer/rider_poses_v3/kitty.png",
+        "sha256": "434297ecd25bf310e25339dc8e7e6d1c71b20d45f7b7aed129c4439d28c738f1",
+        "size": [
+          1000,
+          1000
+        ],
+        "role": "Whole runtime pose atlas"
+      },
+      {
+        "path": "assets/racer/rider_poses_v3/baby_doll.png",
+        "sha256": "a9e03eb03fea4969bf811eebb243f995e58497a25547c97980d4f5290707ae29",
+        "size": [
+          1000,
+          1000
+        ],
+        "role": "Whole runtime pose atlas"
+      },
+      {
+        "path": "assets/racer/rider_poses_v3/dolly.png",
+        "sha256": "662ef4046adde1dae0371441c8a02b6ab78ae8e909cf71bdc7b51c513c56b875",
+        "size": [
+          1000,
+          1000
+        ],
+        "role": "Whole runtime pose atlas"
+      },
+      {
+        "path": "assets/racer/rider_poses_v3/sleepy.png",
+        "sha256": "e77ee9e11dbe8fc114203548015c1346fc439662f8dcb02cf9effd7ca9e225f6",
+        "size": [
+          1000,
+          1000
+        ],
+        "role": "Whole runtime pose atlas"
+      },
+      {
+        "path": "assets/racer/rider_poses_v3/imp.png",
+        "sha256": "aa3c9dbefa6b11ead56c5574e7892dbebd6f74e83ef2d7c4664088641ed36efc",
+        "size": [
+          1000,
+          1000
+        ],
+        "role": "Whole runtime pose atlas"
+      },
+      {
+        "path": "assets/racer/rider_poses_v3/rumi.png",
+        "sha256": "2d2fd0125531b69b27383a3728fa99288cac56fa5d56e1e582bf083bae170dbf",
+        "size": [
+          1000,
+          1000
+        ],
+        "role": "Whole runtime pose atlas"
+      },
+      {
+        "path": "assets/racer/rider_poses_v3/daddy.png",
+        "sha256": "6afa5fd192e7f6e7a8a2adb3d416934fc14468a27a26def7315d2ef6a3566367",
+        "size": [
+          1000,
+          1000
+        ],
+        "role": "Whole runtime pose atlas"
+      },
+      {
+        "path": "assets/racer/rider_poses_v3/mama_baby.png",
+        "sha256": "1af37dee9aef4d45c1be5c7f77a1e74b82d8e376f8e624ff5155a83d8744ab31",
+        "size": [
+          1000,
+          1000
+        ],
+        "role": "Whole runtime pose atlas"
+      }
+    ],
+    "atlas": "5×5 grid of 200px cells. 21 used cells per driver. Neutral, intermediate/full left, intermediate/full right, intermediate/full boost for each of three rides.",
+    "render": "One Canvas sprite draw. No independent head render, cross-fade, or runtime scaling of body parts.",
+    "build_log_sha256": "9da5194498b69ec17c22b81cb45009ca36db74f8077f4d93bfb28a9e6a9d27bd"
+  }
+}

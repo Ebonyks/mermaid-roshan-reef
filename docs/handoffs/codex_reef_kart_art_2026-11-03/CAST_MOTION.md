@@ -15,3 +15,5 @@ A first tuck flattened some heads. The second export moves the upper silhouette 
 The test enters through the PC garage and drives each pairing at race speed in solo and both split-screen seats. Steering and boost use injected controller events on the normal game clock. Separate complete races exercise the same assets through all four rooms. [Exact runtime evidence](../../../audit/cycles/reef-kart-cast-motion-20261107/RUNTIME_EVIDENCE.json) · [Audit impact](../../../design/audit_impacts/reef-kart-cast-motion-20261107.json)
 
 Physical controllers, tablet performance, child play and owner acceptance remain open.
+
+The owner rejected the head distortion in this revision. The [rigid head and seat correction](RIGID_RIDERS.md) is the current PC pose candidate. The evidence above describes the earlier build.

@@ -1873,6 +1873,8 @@ The 2026-11-07 owner-directed [seated cast pass](../../docs/handoffs/codex_reef_
 
 The owner-directed [turn and boost follow-up](../../docs/handoffs/codex_reef_kart_art_2026-11-03/CAST_MOTION.md) gives the PC cast registered lean and tuck keys on all three rides. The existing finding lifecycle and separate physical acceptance gates remain open.
 
+The owner rejected the previous driver head distortion, particularly the Imp, Bunny, Kitty and Sleepy. The [rigid seated motion correction](../../docs/handoffs/codex_reef_kart_art_2026-11-03/RIGID_RIDERS.md) records the replacement across the PC cast. The current lifecycle and separate acceptance gates remain open.
+
 ## MA-VIS-011
 
 | Field | Value |

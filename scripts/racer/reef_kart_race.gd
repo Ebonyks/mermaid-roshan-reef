@@ -299,7 +299,8 @@ func _load_textures() -> void:
 		var driver := String(kart["driver"])
 		var vehicle := String(kart["vehicle"])
 		var art_driver := "imp" if pc_handling and driver.is_empty() and kart["id"] == "imp" else driver
-		if pc_handling and RiderArt.SLOTS.has(art_driver) and RiderArt.VEHICLE_INDEX.has(vehicle):
+		if pc_handling and (art_driver == "roshan" or RiderArt.SLOTS.has(art_driver)) \
+				and RiderArt.VEHICLE_INDEX.has(vehicle):
 			kart["motion_sheet"] = RiderArt.motion_atlas(art_driver)
 			if kart["motion_sheet"] != null:
 				continue
