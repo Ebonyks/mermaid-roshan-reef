@@ -44,6 +44,16 @@
       "evidence": "Exact tested staged tree 91e2cf25df3c5ca145218788b8ffe4ab41a40764 before receipt synchronization. Full local command exited 0 across all 82 trusted probes. Full log SHA-256 7cf46130e6b99c3d73cc868cecafecd65ae3b595372c07092fb1fda441525f25. PC probe exits 0, zero failures, SHA-256 896211797472b2d74bc3a8778f8f46661ed63c1a9a5bf3dd4ad343328e5176c0. Embedded Racer probe exits 0, zero failures, SHA-256 6af30d8171cbd23ba9a4adbc9e31deb8ab648397766e0d470201f796867468ff. 2D NO_REGRESSION and authority 956/956."
     },
     {
+      "command": "GitHub Actions Probe suite at first reconciled candidate",
+      "result": "FAIL",
+      "evidence": "Run 42512664873 at 254f851243e2f298e5cd73f12ed82c3dae9f4771 failed Linux document authority on two remaining Windows-style links in the finding register."
+    },
+    {
+      "command": "Portable local-link scan across the changed Markdown and exact Git path check",
+      "result": "PASS",
+      "evidence": "Corrected both finding-register paths and scanned 11 changed Markdown files against 903f77bf. Zero local Markdown links use backslashes. This follow-up changes only the finding register and this receipt. The tested runtime remains identical to 254f851243e2f298e5cd73f12ed82c3dae9f4771."
+    },
+    {
       "command": "GitHub Actions Probe suite on the exact follow-up commit",
       "result": "PENDING",
       "evidence": "Required before the fast-forward update to dev."
