@@ -3183,11 +3183,16 @@ func _sync_castle_voice_caption() -> void:
 		or (day_one_is_active() and (castle_room_id in ["bubble_bath", "playroom"] \
 			or (castle_room_id == "mermaid_pool" and day_one_pool_cleanup_step == 0)))
 	castle_voice_caption.position.y = 112.0 if floor_objective_room else 590.0
+	castle_voice_caption.scale = Vector2.ONE
 	if castle_room_id == "mermaid_pool":
-		# Keep the caption in the quiet top arch, clear of every pool fixture.
-		# The former 112px-high banner covered the waterfall and seahorse mouths.
 		castle_voice_caption.position = Vector2(300.0, 24.0)
 		castle_voice_caption.size = Vector2(680.0, 48.0)
+		if day_one_is_active() and day_one_pool_cleanup_step == 1 \
+				and is_instance_valid(castle_room_stage):
+			# Follow the fitted room stage so the whole hand gesture stays visible.
+			castle_voice_caption.position = castle_room_stage.get_global_transform_with_canvas() \
+				* Vector2(570.0, 24.0)
+			castle_voice_caption.scale = castle_room_stage.scale
 	else:
 		castle_voice_caption.position.x = 230.0
 		castle_voice_caption.size = Vector2(820.0, 112.0)

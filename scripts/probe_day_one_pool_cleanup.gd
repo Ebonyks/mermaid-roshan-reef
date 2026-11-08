@@ -238,8 +238,23 @@ func _run_probe() -> void:
 		waterfall_activity._process(0.25)
 	_check("quiet waterfall shows the authored stroke guide on the next lane",
 		bool(waterfall_activity.audit_snapshot().get("guide_hand_visible", false)))
-	# Three real downward strokes, one per lane, through the real input path.
 	var lane_width: float = waterfall_activity.fixture_size.x / 3.0
+	var previous_room: String = main.castle_room_id
+	main.castle_room_id = "mermaid_pool"
+	main.castle_room_stage = host
+	main._castle_rooms_ref()._build_castle_voice_caption()
+	var guide: Sprite2D = waterfall_activity._guide_hand
+	for x_offset: float in [0.0, 160.0]:
+		host.position.x = x_offset
+		main._sync_castle_voice_caption()
+		var guide_bounds: Rect2 = guide.get_global_transform_with_canvas() * guide.get_rect()
+		_check("pool caption clears the full waterfall hand path at stage offset %s" % x_offset,
+			main.castle_voice_caption.position.x > guide_bounds.end.x + 2.0 * lane_width
+			and main.castle_voice_caption.get_rect().end.x <= x_offset + StorybookUI.CANVAS_SIZE.x)
+	host.position.x = 0.0
+	main.castle_room_stage = null
+	main.castle_room_id = previous_room
+	# Three real downward strokes, one per lane, through the real input path.
 	for lane: int in range(3):
 		var x: float = waterfall_activity._fixture_rect.position.x + lane_width * (float(lane) + 0.5)
 		var top := Vector2(x, waterfall_activity._fixture_rect.position.y + 8.0)

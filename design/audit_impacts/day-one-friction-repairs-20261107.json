@@ -1,6 +1,6 @@
 {
   "id": "day-one-friction-repairs-20261107",
-  "scope": "Day One touch and navigation repairs from the fresh-save Luna and Terra audit. Improve room exits and story skip, align waterfall feedback and retained progress with child input, and review bathroom and Grand Puff cues. Provide a standard Back shortcut from the optional Day One playground ride.",
+  "scope": "Day One touch and navigation repairs from the fresh-save Luna and Terra audit. Improve room exits and story skip, align waterfall feedback and retained progress with child input, and review bathroom and Grand Puff cues. Provide a standard Back shortcut from the optional Day One playground ride. Keep the full waterfall hand gesture clear of the adult caption across the fitted room stage.",
   "baseline": "cd861fa4cd2a7ee5308d1890fdbf1c6e8f7f2d3f",
   "rules": [
     "DL-AUTH-05",
@@ -23,7 +23,9 @@
     "DL-MOT-04",
     "DL-AGE-06",
     "DL-SAVE-04",
-    "DL-QA-05"
+    "DL-QA-05",
+    "DL-READ-02",
+    "DL-READ-03"
   ],
   "findings": [
     "MA-PLAY-001",
@@ -92,10 +94,20 @@
       "evidence": "Every core probe exited 0 with no failure line using the completed test view, standard touch modes and fresh user-data directories. The broader Day One probes include the warm Back cue, focused save/cleanup, story clip transition and Grand Puff positional sound."
     },
     {
+      "command": "Godot 4.7.2 desktop Mobile Vulkan touch route and pool caption regression probe",
+      "result": "PASS",
+      "evidence": "Two 511-touch routes from the normal start menu reached Day Two with four completed rooms. Before capture exposed the parent caption covering the top of the animated hand. With the caption tied to the room stage, the full gesture is visible at 1280x720 (waterfall-guide.png SHA-256 caf0c00ff19722ba3c363e63c792b84bf1d7f6390f216ba65395d8ec0bd6280d) and 1600x720 (SHA-256 0a3eb9e3ce788e1f72378fef2e0d8856d84460f12615b2acce0d5262390d9a8d). Both stage-offset checks and the full focused pool probe passed."
+    },
+    {
+      "command": "Verify independent follow-up saves and rerun the five core Godot probes, story clips and handoffs",
+      "result": "PASS",
+      "evidence": "Thirteen further Luna and Terra routes persisted all four rooms, defeated Grand Puff and reached Chapter 2. Runs 095\u2013104 complete the sixth ten-run checkpoint; runs 105\u2013114 use the stage-relative caption at pin 00b6666131d73064db32412352b1dbad25965fdcfe68f5d7c3445a99bef7aed5. The combined count is 114 distinct model-assisted routes (57 Luna and 57 Terra). Across repair runs, 280/280 clean-room exits pulsed, 120/120 full guided strokes cleared on the first pass, 57/57 sampled first taps rippled, and seven partial strips retained progress across re-entry. The final follow-up receipt SHA-256 is 5c74694635be3f3a97c6474bab98486cecc0ebf7631dbee445713d7fc3a941fa. The final stage-relative build passed all five core probes plus the two focused story and room handoff probes."
+    },
+    {
       "command": "Exact topic-branch GitHub probe workflow and dev integration",
       "result": "PENDING",
       "evidence": "Use the published topic commit SHA for the protected probe workflow. Dev integration requires a green result for that source."
     }
   ],
-  "acceptance_gaps": "Review displayed Mobile visuals, approved voice timing, target-device play, child comprehension and owner acceptance separately from headless timing."
+  "acceptance_gaps": "Desktop Mobile review covers the Back pulse and waterfall guide only. Target-device performance, listening, observed child comprehension and owner acceptance remain separate."
 }
