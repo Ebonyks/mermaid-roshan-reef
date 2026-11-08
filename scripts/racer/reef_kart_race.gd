@@ -197,7 +197,6 @@ func setup(options: Dictionary = {}) -> void:
 		item_voice = ItemVoice.new()
 		item_voice.duel = _duel
 		add_child(item_voice)
-		item_awarded.connect(item_voice.award)
 	_load_textures()
 	_build_view()
 	_build_minimap()
@@ -524,7 +523,10 @@ func step_race(delta: float, input: Dictionary) -> void:
 				race_event.emit("go", 0.0)
 				for slot in range(karts.size()):
 					if bool(karts[slot]["player"]):
-						item_awarded.emit(slot, String(karts[slot]["item"]))
+						var kind := String(karts[slot]["item"])
+						if item_voice != null and (not _duel or slot == 0):
+							item_voice.award(ItemVoice.SHARED_SLOT if _duel else slot, kind)
+						item_awarded.emit(slot, kind)
 		"race":
 			race_time += delta
 			_step_racers(delta, input)
@@ -854,7 +856,11 @@ func _contact_features(k: Dictionary, delta: float) -> void:
 			k["ai_item_t"] = 0.0
 			if bool(k["player"]):
 				race_event.emit("item_ready", float(ITEM_KINDS.find(String(k["item"]))))
-				item_awarded.emit(karts.find(k), String(k["item"]))
+				var slot := karts.find(k)
+				var kind := String(k["item"])
+				if item_voice != null:
+					item_voice.award(slot, kind)
+				item_awarded.emit(slot, kind)
 
 
 ## Position-weighted draws keep the race close: whoever is behind is more

@@ -32,6 +32,7 @@ var _drivers: Array[int] = [0, 1]
 var _rides: Array[int] = [0, 0]
 var _ready_players: Array[bool] = [false, false]
 var _items_queued: Array[bool] = [false, false]
+var _gas_queued: Array[float] = [0.0, 0.0]
 var _rearm: Array[bool] = [false, false]
 var _race: ReefKartRace
 var _second_view: ReefKartRace
@@ -42,6 +43,7 @@ var _content: Control
 var _panel_labels: Array[Label] = []
 var _drive_labels: Array[Label] = []
 var _item_icons: Array[TextureRect] = []
+var _item_plates: Array[Panel] = []
 var _notice: Label
 var _notice_plate: Panel
 var _pause_button: Button
@@ -83,14 +85,19 @@ func _input(event: InputEvent) -> void:
 			at = event.position
 		for slot in range(_count):
 			if at.distance_to(_item_icons[slot].get_global_rect().get_center()) < 48.0:
-				_race.item_voice.skip()
+				_race.item_voice.skip(slot)
 				get_viewport().set_input_as_handled()
 				return
 	if event is InputEventJoypadButton:
 		var button := event as InputEventJoypadButton
 		get_viewport().set_input_as_handled()
 		if button.pressed:
+			if button.button_index == JOY_BUTTON_A:
+				_queue_gas(button.device, 1.0)
 			_pad(button.device, button.button_index)
+	elif event is InputEventJoypadMotion:
+		if event.axis == JOY_AXIS_TRIGGER_RIGHT:
+			_queue_gas(event.device, _trigger_gas(event.axis_value))
 	elif event is InputEventKey:
 		var key := event as InputEventKey
 		if key.pressed and not key.echo and _key(key.physical_keycode):
@@ -202,6 +209,7 @@ func _controller_connection(device: int, connected: bool) -> void:
 	_devices[slot] = VACANT
 	_ready_players[slot] = false
 	_items_queued[slot] = false
+	_gas_queued[slot] = 0.0
 	if _screen == Screen.GARAGE:
 		_build_garage()
 	elif _screen == Screen.COURSE:
@@ -394,6 +402,7 @@ func _start_race() -> void:
 	_paused = false
 	_elapsed = 0.0
 	_items_queued = [false, false]
+	_gas_queued.fill(0.0)
 	_rearm = [false, false]
 	var roster: Array = [Catalog.spec(_drivers[0], _rides[0], 0)]
 	if _count == 2:
@@ -415,13 +424,14 @@ func _start_race() -> void:
 	_panel_labels.clear()
 	_drive_labels.clear()
 	_item_icons.clear()
+	_item_plates.clear()
 	for slot in range(_count):
 		var x := float(slot * pane)
 		_panel(_content, Rect2(x + 22, 16, 456, 64), Color("#183e61"), P_COLORS[slot])
 		_panel_labels.append(_label(_content, "", Rect2(x + 34, 19, 428, 56), 23))
 		_drive_labels.append(_label(_content, "", Rect2(x + 30, 80, 444, 34), 22, Color("#ffe6a4")))
 		var item_x := x + (float(pane) - 114.0 if slot == 1 else 30.0)
-		_panel(_content, Rect2(item_x, 609, 84, 84), Color("#183e61"), P_COLORS[slot], 42)
+		_item_plates.append(_panel(_content, Rect2(item_x, 609, 84, 84), Color("#183e61"), P_COLORS[slot], 42))
 		_item_icons.append(_picture(_content, null, Rect2(item_x + 12, 621, 60, 60)))
 	_notice_plate = _panel(_content, Rect2(216, 235, 848, 153), Color("#173653"), Color("#80d6ea"))
 	_notice_plate.hide()
@@ -460,9 +470,10 @@ func _physics_process(delta: float) -> void:
 	while _elapsed >= STEP and _screen == Screen.RACE:
 		_elapsed -= STEP
 		var active := _race.state == "race"
-		var command := _controls_for(0)
+		var command := _race_command(0)
 		if _count == 2:
-			command["second"] = _controls_for(1)
+			command["second"] = _race_command(1)
+		_gas_queued.fill(0.0)
 		_race.step_race(STEP, command)
 		if active:
 			_items_queued = [false, false]
@@ -475,6 +486,28 @@ func _physics_process(delta: float) -> void:
 
 static func steer_from_axis(axis: float, deadzone: float = STICK_DEADZONE) -> float:
 	return signf(axis) * clampf((absf(axis) - deadzone) / (1.0 - deadzone), 0.0, 1.0)
+
+
+static func _trigger_gas(value: float) -> float:
+	return clampf((value - GAS_TRIGGER_DEADZONE) / (1.0 - GAS_TRIGGER_DEADZONE), 0.0, 1.0)
+
+
+func _queue_gas(device: int, amount: float) -> void:
+	if amount <= 0.0 or _screen != Screen.RACE or _paused \
+			or not is_instance_valid(_race) or _race.state != "race":
+		return
+	var slot := _devices.find(device)
+	if slot >= 0 and not _rearm[slot]:
+		_gas_queued[slot] = maxf(amount, _gas_queued[slot])
+
+
+func _race_command(slot: int) -> Dictionary:
+	var command := _controls_for(slot)
+	# The held level remains authoritative for sustained gas. Preserve a
+	# complete press/release between polls for exactly one simulation step.
+	if not command.is_empty() and float(command["throttle"]) == 0.0:
+		command["throttle"] = _gas_queued[slot]
+	return command
 
 
 func _controls_for(slot: int) -> Dictionary:
@@ -496,8 +529,7 @@ func _controls_for(slot: int) -> Dictionary:
 			steer = float(dpad)
 		brake = Input.is_joy_button_pressed(device, JOY_BUTTON_B) or Input.get_joy_axis(device, JOY_AXIS_TRIGGER_LEFT) > 0.35
 		var trigger := Input.get_joy_axis(device, JOY_AXIS_TRIGGER_RIGHT)
-		throttle = 1.0 if Input.is_joy_button_pressed(device, JOY_BUTTON_A) else clampf(
-			(trigger - GAS_TRIGGER_DEADZONE) / (1.0 - GAS_TRIGGER_DEADZONE), 0.0, 1.0)
+		throttle = 1.0 if Input.is_joy_button_pressed(device, JOY_BUTTON_A) else _trigger_gas(trigger)
 		drift = Input.is_joy_button_pressed(device, JOY_BUTTON_RIGHT_SHOULDER)
 	if _rearm[slot]:
 		_rearm[slot] = brake or throttle > 0.0 or drift or not is_zero_approx(steer)
@@ -508,6 +540,7 @@ func _controls_for(slot: int) -> Dictionary:
 func _pause() -> void:
 	_paused = true
 	_items_queued = [false, false]
+	_gas_queued.fill(0.0)
 	_rearm = [true, true]
 	if is_instance_valid(_race):
 		_race.cancel_pc_input()
@@ -539,6 +572,7 @@ func _update_notice() -> void:
 func _update_race_ui() -> void:
 	if _screen != Screen.RACE:
 		return
+	var voice_slot := int(_race.item_voice.active.get("slot", KEYBOARD))
 	for slot in range(_count):
 		var kart: Dictionary = _race.karts[slot]
 		var driver := Catalog.driver(_drivers[slot])
@@ -546,6 +580,11 @@ func _update_race_ui() -> void:
 		_panel_labels[slot].text = "P%d  %s   ·   Lap %d/%d   ·   ◉ %d" % [
 			slot + 1, driver["name"], lap, ReefKartRace.LAPS, int(kart["pearls"])]
 		_item_icons[slot].texture = ITEM_CAPSULE if float(kart["roulette_t"]) > 0.0 else ITEM_ICONS.get(String(kart["item"])) as Texture2D
+		var guiding := _count == 2 and (voice_slot == slot or voice_slot == Race.ItemVoice.SHARED_SLOT)
+		var plate := _item_plates[slot].get_theme_stylebox("panel") as StyleBoxFlat
+		var plate_color := Color("#183e61").lerp(P_COLORS[slot], 0.40 if guiding else 0.0)
+		if plate.bg_color != plate_color:
+			plate.bg_color = plate_color
 		var cue := "WRONG WAY" if bool(kart["wrong_way"]) else ""
 		if _rearm[slot] and not _paused:
 			cue = "RELEASE CONTROLS TO DRIVE"

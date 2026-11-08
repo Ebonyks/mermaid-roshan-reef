@@ -2,6 +2,7 @@ extends SceneTree
 
 const PC := preload("res://scripts/racer/reef_kart_pc.gd")
 const Scene := preload("res://scenes/racer/reef_grand_prix_pc.tscn")
+const Race := preload("res://scripts/racer/reef_kart_race.gd")
 const Catalog := preload("res://scripts/racer/reef_kart_catalog.gd")
 const Courses := preload("res://scripts/racer/reef_kart_courses.gd")
 const Handling := preload("res://scripts/probe_reef_kart_handling.gd")
@@ -129,14 +130,14 @@ func _run() -> void:
 		and race.item_voice.playing and race.item_voice.active["slot"] == 0)
 	b["pearls"] = 0
 	race.item_voice.award(1, "sparkle")
-	race.item_voice.skip()
+	race.item_voice.skip(0)
 	check("two-human sparkle guidance names a racer rather than an absent imp",
 		race.item_voice.playing and race.item_voice.stream.resource_path.ends_with("guide_kart_sparkle_duel.ogg"))
 	var skip_touch := InputEventScreenTouch.new()
 	skip_touch.pressed = true
 	skip_touch.position = pc._item_icons[1].get_global_rect().get_center()
 	pc._input(skip_touch)
-	check("touching P2's actual item icon skips the shared explanation",
+	check("touching P2's actual item icon skips P2's explanation",
 		not race.item_voice.playing and race.item_voice.pending.is_empty())
 	race.item_voice.award(0, "zoom")
 	b["item"] = "zoom"
@@ -314,6 +315,7 @@ func _run() -> void:
 		check("%s binds the same course and art to both players" % track.id,
 			pc._race.track.id == track.id and is_same(pc._race.track, pc._second_view.track)
 			and is_same(pc._race._room_art, pc._second_view._room_art))
+		_check_split_edges(pc, track.id)
 		await process_frame
 	pc._show_garage(1, 6)
 	tap(6, JOY_BUTTON_A)
@@ -334,6 +336,57 @@ func _run() -> void:
 	await create_timer(0.1).timeout
 	print("REEF_KART_PC|DONE|failures=", failures)
 	quit(0 if failures == 0 else 1)
+
+
+func _check_split_edges(pc: PC, course: String) -> void:
+	var race := pc._race
+	while race.state == "countdown":
+		pc._physics_process(STEP)
+	var voice := race.item_voice
+	check(course + " announces the common opening boost once and centered",
+		voice.active.get("slot") == Race.ItemVoice.SHARED_SLOT and is_zero_approx(voice._panner.pan))
+	tap(6, JOY_BUTTON_A)
+	pc._physics_process(STEP)
+	var speed_a := float(race.karts[0]["speed"])
+	check(course + " a complete A tap between ticks accelerates only P1", speed_a > 0.0
+		and is_zero_approx(float(race.karts[1]["speed"])))
+	axis(11, 0.8, JOY_AXIS_TRIGGER_RIGHT)
+	axis(11, 0.0, JOY_AXIS_TRIGGER_RIGHT)
+	pc._physics_process(STEP)
+	var speed_b := float(race.karts[1]["speed"])
+	check(course + " a complete trigger pulse accelerates P2 on the next tick while P1 coasts",
+		speed_b > 0.0 and float(race.karts[0]["speed"]) < speed_a)
+	pc._physics_process(STEP)
+	check(course + " a consumed pulse does not keep accelerating P2", float(race.karts[1]["speed"]) < speed_b)
+	voice.clear()
+	voice.award(0, "kelp")
+	voice.award(1, "kelp")
+	check(course + " the same item queues separately for each seat", voice.pending.size() == 1
+		and voice.active.get("slot") == 0 and voice.pending[0]["slot"] == 1 and voice._panner.pan < 0.0)
+	var touch := InputEventScreenTouch.new()
+	touch.pressed = true
+	touch.position = pc._item_icons[1].get_global_rect().get_center()
+	pc._input(touch)
+	check(course + " P2 can dismiss its own pending cue while P1 keeps playing",
+		voice.playing and voice.active.get("slot") == 0 and voice.pending.is_empty())
+	voice.award(1, "kelp")
+	voice.skip(0)
+	pc._update_race_ui()
+	var seat_one := pc._item_plates[0].get_theme_stylebox("panel") as StyleBoxFlat
+	var seat_two := pc._item_plates[1].get_theme_stylebox("panel") as StyleBoxFlat
+	check(course + " the queue pans P2 right and lights only the P2 badge", voice.active.get("slot") == 1
+		and voice._panner.pan > 0.0 and seat_one.bg_color == Color("#183e61")
+		and seat_two.bg_color != Color("#183e61"))
+	tap(6, JOY_BUTTON_A)
+	pc._pause()
+	pc._toggle_pause()
+	pc._physics_process(STEP)
+	check(course + " pause clears pending acceleration and item speech",
+		float(race.karts[0]["speed"]) <= speed_a and not voice.playing and voice.pending.is_empty())
+	var seat_bus: StringName = voice.bus
+	pc._return_to_garage()
+	check(course + " returning to the garage retires the private stereo bus",
+		AudioServer.get_bus_index(seat_bus) == -1)
 
 
 func _summary(kart: Dictionary) -> Array:
