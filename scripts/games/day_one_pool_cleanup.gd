@@ -382,7 +382,7 @@ func _build_activities() -> void:
 	waterfall_activity.size = StorybookUI.CANVAS_SIZE
 	waterfall_activity.z_index = 70
 	waterfall_activity.setup(_waterfall_fixture_center(),
-		_waterfall_fixture_size(), m.day_one_pool_waterfall_mask)
+		_waterfall_fixture_size(), m.day_one_pool_waterfall_mask, m.day_one_pool_waterfall_progress)
 	waterfall_activity.progress_changed.connect(_on_waterfall_progress)
 	waterfall_activity.completed.connect(_on_waterfall_completed)
 	add_child(waterfall_activity)
@@ -486,6 +486,10 @@ func _on_waterfall_progress(mask: int) -> void:
 				WATERFALL_LANE_CAPTIONS[lane],
 				"day_one")
 	_announced_waterfall_mask = mask
+	var progress: Array[float] = waterfall_activity.progress_snapshot()
+	if m.day_one_pool_waterfall_progress != progress:
+		m.day_one_pool_waterfall_progress = progress
+		m._queue_save()
 	m.day_one_record_pool_activity_progress(
 		m.day_one_pool_skimmer_mask, mask, m.day_one_pool_seahorse_tugs)
 	m._ui_tap()

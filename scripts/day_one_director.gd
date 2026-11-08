@@ -78,6 +78,7 @@ const SAVE_KEYS: Array[String] = [
 	"day_one_pool_rumi_met",
 	"day_one_pool_skimmer_mask",
 	"day_one_pool_waterfall_mask",
+	"day_one_pool_waterfall_progress",
 	"day_one_pool_seahorse_tugs",
 	"day_one_art_collected_materials",
 	"day_one_art_cleaned_grime",
@@ -527,6 +528,8 @@ func serialize_state() -> Dictionary:
 		"day_one_pool_rumi_met": pool_rumi_met,
 		"day_one_pool_skimmer_mask": pool_skimmer_mask,
 		"day_one_pool_waterfall_mask": pool_waterfall_mask,
+		"day_one_pool_waterfall_progress": _waterfall_progress_static(
+			m.day_one_pool_waterfall_progress, pool_waterfall_mask),
 		"day_one_pool_seahorse_tugs": pool_seahorse_tugs,
 		"day_one_art_collected_materials": art_collected_materials.duplicate(true),
 		"day_one_art_cleaned_grime": art_cleaned_grime.duplicate(true),
@@ -571,6 +574,8 @@ func _normalise_state(source: Dictionary) -> void:
 	pool_rumi_met = bool(normalised.get("day_one_pool_rumi_met", false))
 	pool_skimmer_mask = int(normalised.get("day_one_pool_skimmer_mask", 0))
 	pool_waterfall_mask = int(normalised.get("day_one_pool_waterfall_mask", 0))
+	m.day_one_pool_waterfall_progress = _waterfall_progress_static(
+		normalised.get("day_one_pool_waterfall_progress", []), pool_waterfall_mask)
 	pool_seahorse_tugs = int(normalised.get("day_one_pool_seahorse_tugs", 0))
 	art_collected_materials = _string_bool_map(normalised.get(
 		"day_one_art_collected_materials", {}))
@@ -691,6 +696,8 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 			source.get("day_one_pool_rumi_met", false), false),
 		"day_one_pool_skimmer_mask": saved_skimmer_mask,
 		"day_one_pool_waterfall_mask": saved_waterfall_mask,
+		"day_one_pool_waterfall_progress": _waterfall_progress_static(
+			source.get("day_one_pool_waterfall_progress", []), saved_waterfall_mask),
 		"day_one_pool_seahorse_tugs": saved_seahorse_tugs,
 		"day_one_art_collected_materials": art_materials,
 		"day_one_art_cleaned_grime": art_grime,
@@ -698,6 +705,19 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 		"day_one_art_customization_completed": art_desk and _as_bool_static(
 			source.get("day_one_art_customization_completed", false), false),
 	}
+
+
+static func _waterfall_progress_static(raw: Variant, mask: int) -> Array[float]:
+	var saved: Array = raw if raw is Array else []
+	var progress: Array[float] = [0.0, 0.0, 0.0]
+	for lane: int in range(progress.size()):
+		if (mask & (1 << lane)) != 0:
+			progress[lane] = 1.0
+		elif lane < saved.size() and (saved[lane] is float or saved[lane] is int):
+			var fraction: float = float(saved[lane])
+			if is_finite(fraction) and fraction >= 0.0 and fraction < 1.0:
+				progress[lane] = fraction
+	return progress
 
 
 func _advance_current_room() -> void:

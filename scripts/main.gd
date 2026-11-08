@@ -337,6 +337,7 @@ var day_one_pool_cleanup_step: int = 0
 var day_one_pool_rumi_met: bool = false
 var day_one_pool_skimmer_mask: int = 0
 var day_one_pool_waterfall_mask: int = 0
+var day_one_pool_waterfall_progress: Array[float] = [0.0, 0.0, 0.0]
 var day_one_pool_seahorse_tugs: int = 0
 var day_one_art_collected_materials: Dictionary = {}
 var day_one_art_cleaned_grime: Dictionary = {}
@@ -4703,6 +4704,9 @@ func _prepare_touch_transition() -> void:
 func _finish_touch_transition() -> void:
 	if fade_rect != null:
 		fade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	if is_instance_valid(_day_one_story_clip):
+		# Gameplay processing can stay paused for the entire film.
+		_navigation_ref().sync_button()
 	_populate_touch_interactables()
 
 func _touch_interaction_ready(interactable_id: String) -> void:
@@ -6601,6 +6605,7 @@ func _show_day_one_room_handoff(target_room: String,
 	var cue: String = "day_one_pool_ready" if voice_key == "day_one_pool_ready" \
 		else "day_one_room_clean"
 	show_msg("Roshan", "Back to the hall, then follow the glowing door!", cue)
+	_navigation_ref().sync_button()
 	return true
 
 
@@ -6795,26 +6800,29 @@ func _day_one_play_story_clip(movie_id: String, repeat_completed: bool = false) 
 	if _day_one_story_clip_layer == null or not is_instance_valid(_day_one_story_clip_layer):
 		_day_one_story_clip_layer = CanvasLayer.new()
 		# Story clips stay below the game-wide upper-left Back control (29), which
-		# is the one skip route; taps on the clip itself are swallowed.
+		# exposes Skip. Double-tapping the film is also accepted.
 		_day_one_story_clip_layer.layer = 28
 		add_child(_day_one_story_clip_layer)
 	_day_one_story_clip_layer.add_child(preview)
 	if not preview.setup(movie_id):
 		preview.queue_free()
 		return false
-	_navigation_push("day_one_story_clip", preview, Callable(preview, "skip"))
 	_day_one_story_clip = preview
+	_navigation_push("day_one_story_clip", preview, Callable(preview, "skip"))
 	_day_one_cover_castle_for_story_clip()
 	day_one_story_clips_seen[movie_id] = true
 	_queue_save()
 	if movie_id == "d1_bath_arrival":
 		_day_one_bathroom_entry_movie_checked = true
-	preview.finished.connect(func(_id: String, _status: String) -> void:
-		_navigation_remove("day_one_story_clip")
+	preview.finished.connect(func(id: String, _status: String) -> void:
 		if _day_one_story_clip == preview:
 			_day_one_story_clip = null
+			if id == "d1_opening" and game == "level2" and g.get("phase") == "promenade" \
+					and day_one_is_active() and g.get("lagoon_promenade_focus", "") == "":
+				g["lagoon_reef_guidance_pending"] = true
 			# Defer to consume the skip tap before enabling the next game action.
 			call_deferred("_day_one_drain_story_clips")
+		_navigation_remove("day_one_story_clip")
 		if _day_one_story_clip == null or not is_instance_valid(_day_one_story_clip):
 			_day_one_uncover_castle_after_story_clip()
 		)

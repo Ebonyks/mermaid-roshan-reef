@@ -64,9 +64,18 @@ func _run_probe() -> void:
 		_check("completion supplies a short hall-and-door cue",
 			main.hud_msg.text.contains("hall")
 			and main.hud_msg.text.contains("glowing door"))
+		var cue: Tween = main._navigation_ref()._handoff_pulse
+		_check("the ready room starts a Back pulse", cue != null and cue.is_valid())
+		if cue != null:
+			cue.custom_step(0.23)
+		_check("the ready Back pulses in both size and warmth",
+			back.scale.x > 1.0 and back.self_modulate != Color.WHITE)
 		var save_before: Dictionary = \
 			main._day_one_ref().serialize_state().duplicate(true)
 		main._navigation_ref().press()
+		_check("Back resets its cue in the hall", back.scale == Vector2.ONE
+			and back.self_modulate == Color.WHITE
+			and main._navigation_ref()._handoff_pulse == null)
 		_check("Back returns to the hall instead of advancing",
 			main.castle_room_id == "main_hall"
 			and main._day_one_room_handoff_target == String(handoff["target"])

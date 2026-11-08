@@ -83,11 +83,15 @@ func patient_warning() -> bool:
 
 func counter_window() -> float:
 	# A patient opening still needs a fresh, targeted input edge. Waiting wins nothing.
-	if profile != null and profile.patient_after_attempts > 0 \
-			and opening_misses >= profile.patient_after_attempts:
+	if profile == null:
+		return 0.0
+	var miss_limit: int = profile.patient_counter_after_misses
+	if miss_limit <= 0:
+		miss_limit = profile.patient_after_attempts
+	if miss_limit > 0 and opening_misses >= miss_limit:
 		return INF
 	return profile.counter_seconds + minf(float(opening_misses)
-		* profile.miss_assist_step, profile.miss_assist_max) if profile != null else 0.0
+		* profile.miss_assist_step, profile.miss_assist_max)
 
 func open_counter() -> void:
 	if state != State.COUNTER_READY:

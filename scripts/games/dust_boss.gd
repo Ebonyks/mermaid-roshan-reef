@@ -383,8 +383,12 @@ func _sync_music_for_state(next_state: String) -> void:
 
 
 func _on_vulnerability_changed(is_open: bool) -> void:
+	var lesson: DustBossLesson2D = m.g.get("db_lesson") as DustBossLesson2D
+	if lesson != null:
+		lesson.counter_open = is_open
 	if not is_open:
 		return
+	_say_care("puff_clean", "Tap his star to clean!")
 	m.g["db_music_action_cues"] = int(m.g.get("db_music_action_cues", 0)) + 1
 	if not _music_ready():
 		return
@@ -524,7 +528,6 @@ func _begin_counter_opening() -> void:
 		k.play_vulnerable_laugh()
 	m.g["db_flash"] = 0.0
 	_enter_state("vuln")
-	_say_care("puff_clean", "Tap his star to clean!")
 
 
 func _tick_counter_opening(delta: float, tapped: bool) -> void:
@@ -639,6 +642,11 @@ func on_world_tap(screen_pos: Vector2) -> void:
 		else:
 			_bounce_off()
 		return
+	if m.g.get("db_state") == "struck" and int(m.g.get("db_hits", 0)) == 1 \
+			and float(m.g.get("db_st", 0.0)) >= LANDED_ROUND_HOLD_T \
+			and not _screen_hit(screen_pos):
+		m.g["db_spin"] = 0.0
+		_begin_attack_tell()
 	_world_move_active = true
 	_move_to_screen(screen_pos)
 	if _dash_tap_time > 0.0 and screen_pos.distance_to(_dash_tap_point) <= 64.0:
@@ -691,6 +699,11 @@ func _accept_counter() -> void:
 		k.register_counter_tap()
 
 func _screen_hit(screen_pos: Vector2) -> bool:
+	var lesson: DustBossLesson2D = m.g.get("db_lesson") as DustBossLesson2D
+	if lesson != null and lesson.counter_open:
+		var star_position: Vector2 = lesson.get_global_transform_with_canvas() * lesson.boss_anchor
+		if screen_pos.distance_to(star_position) <= 44.0:
+			return true
 	# did the finger land on his card? (generous: the whole cutout plus a ring)
 	var boss: Node3D = m.g.get("db_boss") as Node3D
 	var cam: Camera3D = m.player.cam if m.player != null else null
@@ -798,10 +811,8 @@ func _place_boss(delta: float) -> void:
 	var k: DustBunnyBossSprite = kit()
 	if k != null and is_instance_valid(k):
 		k.position.y = 0.0
-	var flash: float = float(m.g.get("db_flash", 0.0))
 	var lesson: DustBossLesson2D = m.g.get("db_lesson") as DustBossLesson2D
 	if lesson != null:
-		lesson.counter_open = flash >= 0.99
 		if m.player != null and m.player.cam != null:
 			# Retained actor projection bridge; the invitation itself is Canvas art.
 			lesson.boss_anchor = m.player.cam.unproject_position(
@@ -893,7 +904,8 @@ func _update_lesson() -> void:
 		lesson.mode = "move"
 		lesson.target = stage.project_floor_point(stage.clamp_point(player_point + Vector2(7.0, 0.0), 3.0))
 	elif state == "tell" and patterns.contains(player_point) \
-			and (not _lesson_learned("dodge") or bool(m.g.get("db_dodge_help", false))):
+			and (not _lesson_learned("dodge") or bool(m.g.get("db_dodge_help", false)) \
+				or float(m.g.get("db_st", 0.0)) >= 0.55):
 		lesson.mode = "move"
 		lesson.target = stage.project_floor_point(patterns.geometry.get("safe_point", player_point) as Vector2)
 	elif state == "struck" and int(m.g.get("db_hits", 0)) == 1 \

@@ -1,0 +1,101 @@
+{
+  "id": "day-one-friction-repairs-20261107",
+  "scope": "Day One touch and navigation repairs from the fresh-save Luna and Terra audit. Improve room exits and story skip, align waterfall feedback and retained progress with child input, and review bathroom and Grand Puff cues. Provide a standard Back shortcut from the optional Day One playground ride.",
+  "baseline": "cd861fa4cd2a7ee5308d1890fdbf1c6e8f7f2d3f",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-UI-01",
+    "DL-SAVE-01",
+    "DL-CIN-16",
+    "DL-QA-01",
+    "DL-UI-03",
+    "DL-SAVE-02",
+    "DL-QA-02",
+    "DL-AGE-07",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-MOT-04",
+    "DL-AGE-06",
+    "DL-SAVE-04",
+    "DL-QA-05"
+  ],
+  "findings": [
+    "MA-PLAY-001",
+    "MA-PLAY-006"
+  ],
+  "files": [
+    "scripts/navigation_controller.gd",
+    "scripts/main.gd",
+    "scripts/games/pool_waterfall_activity.gd",
+    "scripts/games/day_one_pool_cleanup.gd",
+    "scripts/day_one_director.gd",
+    "scripts/boss_encounter_2d.gd",
+    "scripts/dust_boss_lesson_2d.gd",
+    "scripts/encounter_profile_2d.gd",
+    "scripts/games/day_one_bathroom_cleaning.gd",
+    "scripts/games/dust_boss.gd",
+    "scripts/probe_day_one_pool_cleanup.gd",
+    "scripts/probe_day_one_director.gd",
+    "scripts/probe_day_one_bathroom_cleanup.gd",
+    "scripts/probe_day_one_handoffs.gd",
+    "scripts/probe_day_one_story_clips.gd",
+    "scripts/arena/sky_lagoon_promenade.gd",
+    "scripts/probe_l2.gd",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2 fresh-save Day One route with viewport screen touches",
+      "result": "PASS",
+      "evidence": "101 independently assigned Luna and Terra runs with an isolated saved game and a documented headless menu bootstrap. 44 baseline and 57 repaired runs reached Chapter 2. The final seven used the verified standard audio layout at runtime pin 007a2acd79510b5e6b79c2d70449215bd3dc9af9be6ada465776e658a20eb2be. cohort_receipt.json SHA-256 5a4549878c793188a41fe64c625204986735e8aa14e358d28271d6ba483fee00."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py and python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Both structural checks reported ALL OK against the exact branch and integration baseline. Their Python test suite passed 67 tests."
+    },
+    {
+      "command": "Ten independent Luna and Terra fresh-save runs, luna-chapter-045 through terra-chapter-054",
+      "result": "PASS",
+      "evidence": "candidate_batch_045_054.json, runtime SHA-256 pin b0f082da9c339f6fd891e9966c79e8c699fec71feb39c25153ec246a58f2fde8. All ten reached Day Two and verified their saves. All 40 clean-room exits pulsed and 18/18 full guide strokes cleared on first try. The post-boss transformation exposed a separate Skip handoff issue."
+    },
+    {
+      "command": "Ten independent Luna and Terra fresh-save runs, luna-chapter-055 through terra-chapter-064",
+      "result": "PASS",
+      "evidence": "candidate_batch_055_064.json, runtime pin 78abe08d8f78bf886dd72523cad9255dc2a4298cdf36bda28c72b7cabe5c7516. Ten complete saves, 40 pulsing exits and six first-tap ripple traces across rapid-tap aspect scenarios. Visible transformation Skip after the 0.25-second fade. Focused story and pool probes passed. Realtime route pool reveal measured 3.173 wall seconds with the complete recorded line."
+    },
+    {
+      "command": "Ten independent Luna and Terra fresh-save runs, luna-chapter-065 through terra-chapter-074",
+      "result": "PASS",
+      "evidence": "candidate_batch_065_074.json, runtime pin 3f8aee4951be21ded0da7b20973bd76c8f647556381551b1caa72146ed9d46d1. Ten complete saves and 40 pulsing exits. Godot 4.7.2 probe_l2.gd passed the new optional playground Back, settle and return-to-control cases."
+    },
+    {
+      "command": "Ten independent Luna and Terra fresh-save runs, luna-chapter-075 through terra-chapter-084",
+      "result": "PASS",
+      "evidence": "candidate_batch_075_084.json records ten complete saves and 40 pulsing exits. The handoff probe verified size and warmth, then reset in the hall."
+    },
+    {
+      "command": "Ten independent Luna and Terra fresh-save runs, luna-chapter-085 through terra-chapter-094",
+      "result": "PASS",
+      "evidence": "candidate_batch_085_094.json records ten complete saves on the refreshed integration baseline. Real-pacing voice traces identify the actual pool completion recording through the clean-room reveal."
+    },
+    {
+      "command": "Godot 4.7.2 probe-by-probe gate with probe_audit, probe_passive, probe_load, probe_mg2d and probe_l2",
+      "result": "PASS",
+      "evidence": "Every core probe exited 0 with no failure line using the completed test view, standard touch modes and fresh user-data directories. The broader Day One probes include the warm Back cue, focused save/cleanup, story clip transition and Grand Puff positional sound."
+    },
+    {
+      "command": "Exact topic-branch GitHub probe workflow and dev integration",
+      "result": "PENDING",
+      "evidence": "Use the published topic commit SHA for the protected probe workflow. Dev integration requires a green result for that source."
+    }
+  ],
+  "acceptance_gaps": "Review displayed Mobile visuals, approved voice timing, target-device play, child comprehension and owner acceptance separately from headless timing."
+}

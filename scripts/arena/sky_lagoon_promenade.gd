@@ -32,6 +32,7 @@ const FIREFLY_COUNT := 18
 const PLANE_DEPARTURE_S := 7.0
 const PLAY_SETTLE_S := 0.34
 const PLAY_SETTLE_HOP := 18.0
+const DAY_ONE_PLAY_ROUTE := "day_one_lagoon_playground"
 const CASTLE_DOOR_MASTER_X := 5312.0
 const CASTLE_DOOR_FOCUS_BOUNDS := Rect2(Vector2(410.0, 557.0), Vector2(199.0, 228.0))
 const DOORSTEP_RADIUS_MASTER := 62.0
@@ -294,6 +295,7 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 		_show_reef_route_guidance()
 
 func teardown() -> void:
+	m._navigation_remove(DAY_ONE_PLAY_ROUTE)
 	var layer: CanvasLayer = root()
 	if layer != null and is_instance_valid(layer):
 		if layer.get_parent() != null:
@@ -1445,6 +1447,8 @@ func _start_playground_animation(kind: String, equipment: Node2D) -> void:
 		# Playground poses are authored in one facing. Route movement may have
 		# left the pooled card mirrored after approaching a toy from the right.
 		card.flip_h = false
+		if m.day_one_is_active():
+			m._navigation_push(DAY_ONE_PLAY_ROUTE, card, _finish_playground_animation)
 	_set_play_frame(0)
 	# Place the first pose on its authored contact socket immediately. Waiting
 	# for the next process tick exposes one frame at Roshan's old route position.
@@ -1654,6 +1658,7 @@ func _tick_playground_settle(card: Sprite2D, play: Dictionary, delta: float) -> 
 	if timer < PLAY_SETTLE_S:
 		return
 	m.g["lagoon_play_anim"] = {}
+	m._navigation_remove(DAY_ONE_PLAY_ROUTE)
 	_configure_route_roshan_card(card)
 	_sync_roshan_card()
 

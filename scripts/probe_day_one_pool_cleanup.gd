@@ -806,11 +806,13 @@ func _probe_contact_action(host: Control) -> void:
 			waterfall._end_touch(waterfall.fixture_center, 6)
 		waterfall._contact_action._process(0.05)
 		waterfall._process(0.05)
-	_check("waterfall earns one local scrub after arrival, even with a same-lane re-tap",
-		is_equal_approx(waterfall._lane_progress[1], waterfall.TAP_ASSIST)
+	_check("two quick taps earn two local scrubs without restarting the approach",
+		is_equal_approx(waterfall._lane_progress[1], waterfall.TAP_ASSIST * 2.0)
 		and not waterfall._scrubber.visible and actor.visible)
-	var stroke_start: Vector2 = waterfall.fixture_center - Vector2(waterfall.fixture_size.x / 3.0, 96.0)
-	var stroke_end: Vector2 = stroke_start + Vector2(0.0, waterfall.fixture_size.y)
+	var stroke_start: Vector2 = waterfall._lane_rect(0).get_center() - Vector2(0.0,
+		waterfall.fixture_size.y * (0.5 - waterfall.GUIDE_START_FRACTION))
+	var stroke_end: Vector2 = stroke_start + Vector2(0.0,
+		waterfall.fixture_size.y * (waterfall.GUIDE_END_FRACTION - waterfall.GUIDE_START_FRACTION))
 	waterfall._begin_touch(stroke_start, 7)
 	waterfall._update_touch(stroke_end, 7)
 	waterfall._end_touch(stroke_end, 7)

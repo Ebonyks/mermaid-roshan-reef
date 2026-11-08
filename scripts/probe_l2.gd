@@ -936,6 +936,23 @@ func _validate_targets_and_touch() -> void:
 		_check("toy_first_touch_focus_second_touch_play", first_ok and second_ok)
 		promenade._finish_playground_animation()
 		promenade._tick_playground_animation(1.0)
+		var day_one_before: bool = main.day_one_active
+		main.day_one_active = true
+		promenade.handle_touch(swing_screen)
+		promenade.handle_touch(swing_screen)
+		var button: Button = main.global_navigation_button
+		_check("day_one_playground_shows_back_during_optional_play",
+			main._navigation_ref().top_id() == SkyLagoonPromenade.DAY_ONE_PLAY_ROUTE
+			and button.is_visible_in_tree() and not button.disabled
+			and button.get_meta("global_navigation_mode", "") == "back")
+		button.button_down.emit()
+		_check("day_one_playground_back_uses_the_authored_settle",
+			(main.g.get("lagoon_play_anim", {}) as Dictionary).get("phase") == "settle")
+		promenade._tick_playground_animation(SkyLagoonPromenade.PLAY_SETTLE_S)
+		_check("day_one_playground_back_returns_control_without_leaving_lagoon",
+			(main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty()
+			and main.game == "level2" and main._navigation_ref().top_id() == "")
+		main.day_one_active = day_one_before
 
 
 func _validate_route_contact() -> void:
@@ -1229,7 +1246,7 @@ func _init() -> void:
 	main._apply_quality("speedy")
 	main.save_data["lagoon_plane_departed"] = true
 	main._enter_level2()
-	await _frames(12)
+	await create_timer(0.3).timeout
 	promenade = main._lagoon_promenade_ref()
 	_check("promenade_phase",
 		main.game == "level2" and String(main.g.get("phase", "")) == "promenade")

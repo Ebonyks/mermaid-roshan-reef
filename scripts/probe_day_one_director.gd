@@ -133,8 +133,17 @@ func _init() -> void:
 		partial_main.day_one_pool_cleanup_step == 2
 		and partial_main.day_one_pool_skimmer_mask == 0x15
 		and partial_main.day_one_pool_waterfall_mask == 0x03
+		and partial_main.day_one_pool_waterfall_progress == [1.0, 1.0, 0.0]
 		and partial_main.day_one_pool_seahorse_tugs == 5
 		and not partial_main.day_one_pool_rumi_met)
+	var fractional_save: Dictionary = partial_restore.serialize_state()
+	fractional_save["day_one_pool_cleanup_step"] = 1
+	fractional_save["day_one_pool_waterfall_mask"] = 1
+	fractional_save["day_one_pool_waterfall_progress"] = [0.1, 0.54, "invalid"]
+	partial_restore.restore_state(fractional_save)
+	_check("fractional waterfall progress round-trips without awarding a lane",
+		partial_main.day_one_pool_waterfall_mask == 1
+		and partial_restore.serialize_state()["day_one_pool_waterfall_progress"] == [1.0, 0.54, 0.0])
 	var later_main: ReefMain = ReefMain.new()
 	var later_day: DayOneDirector = DIRECTOR_SCRIPT.new(later_main) as DayOneDirector
 	later_day.restore_state({"day_one_active": false})

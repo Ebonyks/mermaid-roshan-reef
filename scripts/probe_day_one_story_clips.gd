@@ -141,15 +141,19 @@ func _run_behavioral_checks() -> void:
 		paused and main._day_one_story_clip != null
 		and main.fade_rect.modulate.a <= 0.001
 		and main.fade_rect.mouse_filter == Control.MOUSE_FILTER_IGNORE)
+	_check("the visible Skip control returns when the transition clears",
+		main.global_navigation_button.is_visible_in_tree()
+		and not main.global_navigation_button.disabled
+		and main.global_navigation_button.get_meta("global_navigation_mode", "") == "skip")
 	main._on_day_one_hook_event(DayOneDirector.EVENT_DAY_TWO_BEGINS, {})
 	_check("the Day Two hook queues the epilogue behind it",
 		main._day_one_story_clip_queue == ["d1_epilogue"])
 	main._show_day_two_transition()
 	_check("the Day Two card waits for the story",
 		main._day_one_story_boss_transition_pending)
-	main._day_one_story_clip.skip()
+	main.global_navigation_button.button_down.emit()
 	await _frames(3)
-	_check("Back hands the story over to the queued epilogue",
+	_check("Skip hands the story over to the queued epilogue",
 		main._day_one_story_clip != null
 		and main._day_one_story_clip.movie_id == "d1_epilogue")
 	main._day_one_story_clip.skip()

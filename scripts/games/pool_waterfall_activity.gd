@@ -18,7 +18,9 @@ const LANE_COUNT := 3
 const COMPLETE_MASK := 0b111
 const TAP_ASSIST := 0.22
 const DRAG_START_DISTANCE := 12.0
-const MIN_DRAG_DISTANCE := 4.0
+const GUIDE_START_FRACTION := 0.12
+const GUIDE_END_FRACTION := 0.80
+const FULL_STROKE_FRACTION := GUIDE_END_FRACTION - GUIDE_START_FRACTION - 0.02
 const LANE_GUTTER := 24.0
 const TOOL_SIZE := 72.0
 const SCRUBBER_CONTACT_OFFSET := Vector2(22.0, 22.0)
@@ -33,6 +35,7 @@ const GUIDE_FINGERTIP := Vector2(-38.5, 191.0)
 const GUIDE_IDLE_SECONDS := 0.6
 const GUIDE_STROKE_SECONDS := 1.4
 const GUIDE_REST_SECONDS := 0.5
+const TOUCH_RIPPLE_SECONDS := 0.24
 
 var fixture_center := Vector2.ZERO
 var fixture_size := Vector2.ZERO
@@ -53,10 +56,15 @@ var _touch_lane := -1
 var _touch_start := Vector2.ZERO
 var _touch_last := Vector2.ZERO
 var _touch_travel := 0.0
+var _touch_credited := 0.0
+var _touch_moved := false
 var _hint_lane := 0
 var _pulse_time := 0.0
 var _idle_time := 0.0
 var _pending_lane := -1
+var _pending_credit := 0.0
+var _touch_ripple_at := Vector2.ZERO
+var _touch_ripple_time := 0.0
 var _scrubber: Sprite2D = null
 var _wash_overlay: Control = null
 var _guide_hand: Sprite2D = null
@@ -71,7 +79,7 @@ func _ready() -> void:
 
 
 func setup(fixture_center: Vector2, fixture_size: Vector2,
-		initial_mask: int = 0) -> void:
+		initial_mask: int = 0, initial_progress: Array[float] = []) -> void:
 	self.fixture_center = fixture_center
 	self.fixture_size = Vector2(maxf(1.0, fixture_size.x), maxf(1.0, fixture_size.y))
 	_fixture_rect = Rect2(self.fixture_center - self.fixture_size * 0.5, self.fixture_size)
@@ -80,6 +88,11 @@ func setup(fixture_center: Vector2, fixture_size: Vector2,
 	_active = false
 	_pulse_time = 0.0
 	_lane_progress = [0.0, 0.0, 0.0]
+	for lane: int in range(LANE_COUNT):
+		if (_clear_mask & (1 << lane)) != 0:
+			_lane_progress[lane] = 1.0
+		elif lane < initial_progress.size():
+			_lane_progress[lane] = initial_progress[lane]
 	_lane_revealing = [false, false, false]
 	_hint_lane = _first_uncleared_lane()
 	_cancel_touch(false)
@@ -88,7 +101,8 @@ func setup(fixture_center: Vector2, fixture_size: Vector2,
 	_scrubber_texture = load(SCRUBBER_TEXTURE_PATH) as Texture2D
 	_clear_ring_texture = load(CLEAR_RING_PATH) as Texture2D
 	_idle_time = 0.0
-	_pending_lane = -1
+	_discard_pending()
+	_touch_ripple_time = 0.0
 	_build_dirty_slices()
 	_build_wash_overlay()
 	_build_scrubber()
@@ -124,7 +138,10 @@ func stop() -> void:
 	if _contact_action != null:
 		_contact_action.cancel()
 	_active = false
-	_pending_lane = -1
+	_discard_pending()
+	_touch_ripple_time = 0.0
+	if _wash_overlay != null:
+		_wash_overlay.queue_redraw()
 	_cancel_touch(false)
 	_update_guide_hand()
 	set_process(false)
@@ -135,7 +152,10 @@ func stop() -> void:
 func cancel_touch() -> void:
 	if _contact_action != null:
 		_contact_action.cancel()
-	_pending_lane = -1
+	_discard_pending()
+	_touch_ripple_time = 0.0
+	if _wash_overlay != null:
+		_wash_overlay.queue_redraw()
 	_cancel_touch(true)
 
 
@@ -151,6 +171,10 @@ func probe_clear_next_lane() -> bool:
 	return true
 
 
+func progress_snapshot() -> Array[float]:
+	return _lane_progress.duplicate()
+
+
 func audit_snapshot() -> Dictionary:
 	return {
 		"canvas_only": true,
@@ -161,7 +185,7 @@ func audit_snapshot() -> Dictionary:
 		"fixture_rect": _fixture_rect,
 		"lane_count": LANE_COUNT,
 		"clear_mask": _clear_mask,
-		"lane_progress": _lane_progress.duplicate(),
+		"lane_progress": progress_snapshot(),
 		"lane_revealing": _lane_revealing.duplicate(),
 		"hint_lane": _hint_lane,
 		"touch_active": _touch_active,
@@ -191,6 +215,9 @@ func _process(delta: float) -> void:
 		return
 	_pulse_time += maxf(delta, 0.0)
 	_idle_time += maxf(delta, 0.0)
+	if _touch_ripple_time > 0.0:
+		_touch_ripple_time = maxf(_touch_ripple_time - maxf(delta, 0.0), 0.0)
+		_wash_overlay.queue_redraw()
 	if _contact_action != null and _contact_action.active:
 		_show_scrubber(_contact_action.hand_point() - SCRUBBER_GRIP_OFFSET)
 	_update_guide_hand()
@@ -250,11 +277,17 @@ func _begin_touch(point: Vector2, touch_id: int) -> void:
 	if _touch_lane >= 0:
 		_hint_lane = _touch_lane
 		_show_scrubber(point)
+		if (_clear_mask & (1 << _touch_lane)) == 0:
+			_touch_ripple_at = point.clamp(_fixture_rect.position, _fixture_rect.end)
+			_touch_ripple_time = TOUCH_RIPPLE_SECONDS
+			_wash_overlay.queue_redraw()
 		if _contact_action != null and _contact_action.available():
 			# Another touch on the lane Roshan is already working keeps her work;
 			# it never restarts the contact timer, so tapping cannot stall it.
 			if not working:
-				_contact_action.request(point + SCRUBBER_GRIP_OFFSET)
+				_contact_action.request(point + SCRUBBER_GRIP_OFFSET, Callable(), {
+					"cancelled": Callable(self, "_discard_pending"),
+				})
 			_pending_lane = _touch_lane
 	else:
 		_hint_lane = _first_uncleared_lane()
@@ -266,14 +299,12 @@ func _begin_touch(point: Vector2, touch_id: int) -> void:
 func _update_touch(point: Vector2, touch_id: int) -> void:
 	if not _touch_active or touch_id != _touch_id:
 		return
-	var delta := point - _touch_last
 	_touch_last = point
 	_idle_time = 0.0
 	if _touch_lane < 0:
 		queue_redraw()
 		return
-	if delta.y > 0.0:
-		_touch_travel = maxf(_touch_travel, point.y - _touch_start.y)
+	_track_stroke(point)
 	if _contact_action != null and _contact_action.available():
 		_contact_action.follow(point + SCRUBBER_GRIP_OFFSET)
 		_show_scrubber(_contact_action.hand_point() - SCRUBBER_GRIP_OFFSET)
@@ -281,15 +312,10 @@ func _update_touch(point: Vector2, touch_id: int) -> void:
 			return
 	else:
 		_show_scrubber(point)
-	if delta.y > 0.0:
-		var track_length := maxf(fixture_size.y * 0.78, 1.0)
-		var drag_amount := _touch_travel / track_length
-		# A pass can begin anywhere on the broad strip; a downward stroke to
-		# the lower half still gives visible, friendly progress.
-		var absolute_amount := clampf(
-			(point.y - _fixture_rect.position.y) / maxf(fixture_size.y, 1.0),
-			0.0, 1.0) * 0.78
-		_advance_lane(_touch_lane, maxf(drag_amount, absolute_amount * 0.52))
+	var total: float = _stroke_progress()
+	if total > _touch_credited:
+		_advance_lane(_touch_lane, total - _touch_credited)
+		_touch_credited = total
 	queue_redraw()
 
 
@@ -298,19 +324,17 @@ func _end_touch(point: Vector2, touch_id: int) -> void:
 		return
 	_idle_time = 0.0
 	if _touch_lane >= 0:
-		var moved_down := point.y - _touch_start.y
-		_touch_travel = maxf(_touch_travel, moved_down)
-		if moved_down < DRAG_START_DISTANCE:
-			# A tap is a gentle snap-assist, never a penalty or a reset.
-			if _contact_action != null and _contact_action.available():
-				_contact_action.arm(Callable(self, "_finish_tap_lane").bind(_touch_lane))
-			else:
-				_advance_lane(_touch_lane, TAP_ASSIST)
-		elif _touch_travel < MIN_DRAG_DISTANCE:
-			_hint_lane = _touch_lane
-		elif _contact_action != null and _contact_action.available():
-			var amount: float = _touch_travel / maxf(fixture_size.y * 0.78, 1.0)
-			_contact_action.arm(Callable(self, "_finish_drag_lane").bind(_touch_lane, amount))
+		_track_stroke(point)
+		var amount: float = _stroke_progress() - _touch_credited if _touch_moved else TAP_ASSIST
+		if _contact_action != null and _contact_action.active:
+			# Same-lane taps keep their credit while Roshan reaches the fixture.
+			if amount > 0.0:
+				_pending_credit = minf(_pending_credit + amount, 1.0)
+				if _touch_moved and point != _touch_last:
+					_contact_action.follow(point + SCRUBBER_GRIP_OFFSET)
+			_contact_action.arm(Callable(self, "_finish_pending_lane"))
+		elif amount > 0.0:
+			_advance_lane(_touch_lane, amount)
 	else:
 		_hint_lane = _first_uncleared_lane()
 	_cancel_touch(false)
@@ -321,16 +345,30 @@ func _end_touch(point: Vector2, touch_id: int) -> void:
 	queue_redraw()
 
 
-func _finish_tap_lane(lane: int) -> void:
-	_pending_lane = -1
-	_advance_lane(lane, TAP_ASSIST)
+func _track_stroke(point: Vector2) -> void:
+	var offset: Vector2 = point - _touch_start
+	_touch_moved = _touch_moved or offset.length_squared() >= DRAG_START_DISTANCE * DRAG_START_DISTANCE
+	_touch_travel = maxf(_touch_travel, offset.y)
+
+
+func _stroke_progress() -> float:
+	if _touch_travel < DRAG_START_DISTANCE:
+		return 0.0
+	return minf(_touch_travel / maxf(fixture_size.y * FULL_STROKE_FRACTION, 1.0), 1.0)
+
+
+func _finish_pending_lane() -> void:
+	var lane: int = _pending_lane
+	var credit: float = _pending_credit
+	_discard_pending()
+	if credit > 0.0:
+		_advance_lane(lane, credit)
 	_hide_scrubber()
 
 
-func _finish_drag_lane(lane: int, amount: float) -> void:
+func _discard_pending() -> void:
 	_pending_lane = -1
-	_advance_lane(lane, amount)
-	_hide_scrubber()
+	_pending_credit = 0.0
 
 
 func _cancel_touch(rehint: bool) -> void:
@@ -340,6 +378,8 @@ func _cancel_touch(rehint: bool) -> void:
 	_touch_start = Vector2.ZERO
 	_touch_last = Vector2.ZERO
 	_touch_travel = 0.0
+	_touch_credited = 0.0
+	_touch_moved = false
 	_hide_scrubber()
 	if rehint:
 		_hint_lane = _first_uncleared_lane()
@@ -374,7 +414,8 @@ func _build_dirty_slices() -> void:
 		add_child(sprite)
 		if (_clear_mask & (1 << lane)) != 0:
 			sprite.visible = false
-			_lane_progress[lane] = 1.0
+		else:
+			_apply_lane_crop(lane)
 
 
 func _build_wash_overlay() -> void:
@@ -521,9 +562,16 @@ func _queue_progress_signal() -> void:
 
 
 func _draw_wash_overlay() -> void:
-	# Progress is shown by the authored dirt itself (_apply_lane_crop) and the
-	# next stroke by the approved guide hand; this layer draws no code shapes.
-	pass
+	if _touch_ripple_time <= 0.0:
+		return
+	# Reuse the pool contact art to mark the finger. Only real work clears grime.
+	var atlas: Texture2D = PoolSkimmerActivity.WATER_CONTACT_ATLAS
+	var frame_size: Vector2 = atlas.get_size() / Vector2(4.0, 2.0)
+	var alpha: float = _touch_ripple_time / TOUCH_RIPPLE_SECONDS
+	var ripple_size: Vector2 = Vector2(64.0, 22.0) * lerpf(0.7, 1.15, 1.0 - alpha)
+	_wash_overlay.draw_texture_rect_region(atlas,
+		Rect2(_touch_ripple_at - ripple_size * 0.5, ripple_size),
+		Rect2(Vector2(frame_size.x * 3.0, 0.0), frame_size), Color(0.78, 1.0, 1.0, alpha))
 
 
 func _lane_rect(lane: int) -> Rect2:
@@ -580,7 +628,8 @@ func _update_guide_hand() -> void:
 	var eased := t * t * (3.0 - 2.0 * t)
 	var rect := _lane_rect(lane)
 	var fingertip := Vector2(rect.get_center().x,
-		lerpf(rect.position.y + rect.size.y * 0.12, rect.position.y + rect.size.y * 0.80, eased))
+		lerpf(rect.position.y + rect.size.y * GUIDE_START_FRACTION,
+			rect.position.y + rect.size.y * GUIDE_END_FRACTION, eased))
 	_guide_hand.position = fingertip - GUIDE_FINGERTIP * _guide_hand.scale
 	_guide_hand.modulate.a = clampf(minf(t, 1.0 - t) * 6.0, 0.0, 1.0)
 

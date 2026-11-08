@@ -457,11 +457,11 @@ func _probe_cleaning_gestures(host: Control) -> void:
 	host.add_child(prompt_stage)
 	prompt_stage.setup(prompt_main, false)
 	await process_frame
-	prompt_stage._process(4.99)
+	prompt_stage._process(2.99)
 	_check("first idle re-prompt is not early",
 		int(prompt_stage.audit_snapshot().get("stage_reprompt_count", -1)) == 0)
 	prompt_stage._process(0.02)
-	_check("first idle re-prompt fires by five seconds",
+	_check("first idle re-prompt fires at three seconds",
 		int(prompt_stage.audit_snapshot().get("stage_reprompt_count", -1)) == 1)
 	prompt_stage._process(12.0)
 	prompt_stage._process(12.0)

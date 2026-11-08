@@ -29,7 +29,7 @@ const TUB_MIN_GESTURE_SECONDS := 1.5
 const TUB_MAX_GESTURE_SECONDS := 5.0
 const DIRTY_OVERLAY_ALPHA := 0.72
 const MOTION_DECAY_GRACE_SECONDS := 3.0
-const FIRST_REPROMPT_SECONDS := 5.0
+const FIRST_REPROMPT_SECONDS := 3.0
 const REPEAT_REPROMPT_SECONDS := 12.0
 const MAX_STAGE_REPROMPTS := 3
 const TOOL_TRAVEL_SECONDS := 0.22
@@ -1031,8 +1031,10 @@ func _gesture_ratio(stage: int) -> float:
 	if _step != stage:
 		return 1.0 if _step > stage else 0.0
 	if stage == 0:
-		var sink_raw: float = minf(1.0, minf(_sink_arc / SINK_ARC_REQUIRED,
-			_sink_distance / SINK_DISTANCE_REQUIRED))
+		var sink_spatial: float = minf(_sink_arc / SINK_ARC_REQUIRED,
+			_sink_distance / SINK_DISTANCE_REQUIRED)
+		var sink_raw: float = minf(1.0, minf(sink_spatial,
+			_valid_motion_seconds / SINK_MIN_GESTURE_SECONDS))
 		_sink_visual_progress_max = maxf(_sink_visual_progress_max, sink_raw)
 		return _sink_visual_progress_max
 	var tub_raw: float = minf(1.0, minf(_tub_distance / TUB_DISTANCE_REQUIRED,

@@ -13,7 +13,12 @@ var target := Vector2.ZERO
 var tuft := Vector2.ZERO
 var tuft_visible: bool = false
 var boss_anchor := Vector2.ZERO
-var counter_open: bool = false
+var counter_open: bool = false:
+	set(value):
+		if counter_open != value:
+			counter_open = value
+			_open_time = 0.0
+			queue_redraw()
 var _time: float = 0.0
 var _last_mode: String = ""
 var _open_time: float = 0.0
@@ -58,14 +63,9 @@ func _draw() -> void:
 		_draw_floor_effects()
 		return
 	if counter_open:
-		# One gold invitation unfolds with the real opening; never a rehearsal.
-		var unfold: float = smoothstep(0.0, 0.18, _open_time)
-		var edge: float = (53.0 + sin(_open_time * 3.0) * 3.0) * lerpf(0.65, 1.0, unfold)
-		_stamp(STAR, boss_anchor, Vector2.ONE * edge, unfold)
-		for i: int in range(2):
-			var angle: float = _open_time * 1.8 + float(i) * PI
-			var point: Vector2 = boss_anchor + Vector2(cos(angle) * 37.0, sin(angle) * 13.0)
-			_stamp(STAR, point, Vector2.ONE * 11.0, unfold * 0.7)
+		# Show the entire tap target as soon as the opening accepts input.
+		var edge: float = 58.0 + sin(_open_time * 3.0) * 3.0
+		_stamp(STAR, boss_anchor, Vector2.ONE * edge, 1.0)
 	if _beam_time > 0.0:
 		_draw_counter()
 	if mode == "move":
