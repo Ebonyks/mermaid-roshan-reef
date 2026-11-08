@@ -1,0 +1,86 @@
+{
+  "id": "reef-kart-crosstrek-20261108",
+  "baseline": "fa05d87206d95ddbfa7abcb125c854895fabfdd6",
+  "scope": "Add one original 2D toy 2021 Subaru Crosstrek on a Playroom Speedway display shelf in the PC race. Verify the factory Cool Gray Khaki paint and compare its digital appearance to the manufacturer reference. Exercise the ordinary solo and split-screen race paths and the portable Windows build.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03"
+  ],
+  "findings": [],
+  "no_findings_reason": "This is a requested decorative addition, independent of the existing Racer, rendering and controller repairs.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets/racer/roadside_v1/crosstrek_2021_paf.png",
+    "assets/racer/roadside_v1/crosstrek_2021_paf.png.import",
+    "assets_src/racer/crosstrek_20261108/crosstrek_2021_paf.svg",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/cycles/reef-kart-crosstrek-20261108/.gdignore",
+    "audit/cycles/reef-kart-crosstrek-20261108/capture.gd",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/STAGE_ART.md",
+    "scripts/racer/reef_kart_roadside.gd"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2 Forward Mobile import and audit/cycles/reef-kart-crosstrek-20261108/capture.gd",
+      "result": "PASS",
+      "evidence": "17 checks across all four courses and both modes. Inspected live Playroom solo and both split-screen cameras. Capture log SHA-256 150a5b78b23a0216ccdb48e71d4fe64c00a9d8844b581bd308b826931c4a03f8."
+    },
+    {
+      "command": "Godot 4.7.2 --headless --script res://scripts/probe_reef_kart_pc.gd",
+      "result": "PASS",
+      "evidence": "101 passing focused PC race assertions. Log SHA-256 896211797472b2d74bc3a8778f8f46661ed63c1a9a5bf3dd4ad343328e5176c0."
+    },
+    {
+      "command": "Official Godot 4.7.2 Windows x64 portable export and smoke",
+      "result": "PASS",
+      "evidence": "All four courses and both seats loaded. The pack binds the exact toy and roadside source. ZIP SHA-256 0d58a23db097f35637bf4b6f43045b344a4a8fd2d055e8d80fc61062d4f2af79."
+    },
+    {
+      "command": "bash scripts/ci.sh",
+      "result": "PASS",
+      "evidence": "Full local suite, 82 trusted zero-exit gameplay probes. Log SHA-256 e8a4279dfe2b638c5e45c352a4148159f62f27c0b4576e8b33d0ab80cfd10fec."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py and python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Both project gates passed on the candidate. Staged diff and targeted GDScript parser/inference checks passed."
+    }
+  ],
+  "acceptance_gaps": "Exact physical paint reproduction, owner visual acceptance and target-PC hardware play remain separate from source, machine and desktop visual checks.",
+  "references_used": [
+    {
+      "path": "https://www.subaru.com/content/dam/subaru/downloads/pdf/brochures/2021/crosstrek/2021_Crosstrek_Brochure.pdf",
+      "purpose": "Subaru US model-year brochure confirms availability of Cool Gray Khaki on the 2021 Crosstrek."
+    },
+    {
+      "path": "https://static.nhtsa.gov/odi/tsbs/2020/MC-10179430-0001.pdf",
+      "purpose": "The 2021 Crosstrek paint table pairs Cool-Gray Khaki with PAF."
+    },
+    {
+      "path": "https://www.subaruhawaii.com/2021Crosstrek.html",
+      "purpose": "Factory color gallery supplies appearance and display-referred samples, with no manufacturer image pixels embedded in the original SVG or PNG."
+    }
+  ],
+  "asset_and_capture_sha256": {
+    "assets_src/racer/crosstrek_20261108/crosstrek_2021_paf.svg": "2096c047203dde22380003533404af53ffc0f441821fbf68f57dc316db801c52",
+    "assets/racer/roadside_v1/crosstrek_2021_paf.png": "2f6ac5d1022e55e9518b82199ed018030af1eecf2445994488704a4a72f037a5",
+    "gallery_side_reference": "250d93cebb92e52df300b21eaf53d256ec9a6d069c9d549d5f427bfe1d84fce7",
+    "local_mobile_1p_capture": "7d91a83e47dbc074be26f1e27efb942a3982bd3559bf8c905eb4e22d63f85add",
+    "local_mobile_2p_capture": "fac554b2c7a38151ad4060e929fc7743e363431e29024ad30f29fb9aabe5aed1"
+  }
+}

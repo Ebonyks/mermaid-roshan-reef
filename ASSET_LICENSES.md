@@ -15270,3 +15270,10 @@ Racer review evidence below reuses project artwork under each original source's 
 | `audit\cycles\reef-kart-stage-art-20261107/mermaid_pool.jpg` | Godot desktop capture of project and derived stage art under the recorded asset credits. | Downscaled and labeled visual stress frames. |
 | `audit\cycles\reef-kart-stage-art-20261107/opera_hall.jpg` | Godot desktop capture of project and derived stage art under the recorded asset credits. | Downscaled and labeled visual stress frames. |
 | `audit/cycles/reef-kart-stage-art-20261107/stage-preview.jpg` | Godot desktop capture of project and derived stage art under the recorded asset credits. | Labeled four-course solo and split-screen comparison. |
+
+### Playroom die-cast Crosstrek
+
+| Path | Source and permission | Modifications |
+| --- | --- | --- |
+| `assets_src/racer/crosstrek_20261108/crosstrek_2021_paf.svg` | Original vector illustration authored for this project. Subaru’s model and color references are linked at https://www.subaruhawaii.com/2021Crosstrek.html. | Hand-drawn toy proportions with a muted PAF paint palette. Manufacturer images were used for reference only. |
+| `assets/racer/roadside_v1/crosstrek_2021_paf.png` | Raster export of the original vector illustration above. | 512×256 transparent PNG rasterized by the Godot 4.7.2 SVG decoder. |

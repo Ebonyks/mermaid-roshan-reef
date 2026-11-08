@@ -27,6 +27,14 @@ Five built-in ImageGen sheets supply sixteen scenery cards and four pickup state
 
 The first stress sweep found that the narrower camera could crop scenery and that nearby props blocked the new silhouettes. A horizon discontinuity and round pearl shadows also made some objects appear disconnected from the ground. The second pass placed scenic cards against sightlines in the narrower pane, penalized overlapping foreground props, blended the floor and wall at the horizon, and gave the new scenery and pearls flattened contact shadows. The course geometry and pickup timings are shared with the incoming branch.
 
+## Playroom die-cast Easter egg
+
+A stationary 2021 Crosstrek toy sits on a low shelf in the final Playroom sector. The existing roadside placement and landmark renderer handle its support and projection in both cameras. No discovery action or reward is required.
+
+The factory finish is **Cool Gray Khaki**, code **PAF**, a muted blue-gray. The body gradient uses representative sRGB pixels from the model-year color gallery, including `#949eaa` on the center door, `#9aaaba` on the hood and `#6f7d8b` along the lower body. These are digital image samples under the gallery lighting. Original vector paths depict the raised rails, hatchback profile, wheel cladding and front fascia. Subaru’s artwork remains reference material. [Subaru US model-year brochure](https://www.subaru.com/content/dam/subaru/downloads/pdf/brochures/2021/crosstrek/2021_Crosstrek_Brochure.pdf) · [2021 Crosstrek gallery](https://www.subaruhawaii.com/2021Crosstrek.html) · [2021 Crosstrek paint-code bulletin](https://static.nhtsa.gov/odi/tsbs/2020/MC-10179430-0001.pdf)
+
+[Scoped audit and verification](../../../design/audit_impacts/reef-kart-crosstrek-20261108.json)
+
 ## Desktop review
 
 Each course runs the same ten visual scenarios in solo and split-screen. The sweep covers all four zone approaches, three internal zone boundaries, a ready item row, a collected capsule on cooldown and the finish wrap. Each scenario takes three successive frames at a race-speed spacing, for eighty cases and 240 frames. The position sweep is accompanied by eight full real-time races from the normal garage and controller input path.

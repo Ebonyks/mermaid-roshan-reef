@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="256" viewBox="0 0 512 256">
+  <defs>
+    <linearGradient id="paint" x1="0" x2="0" y1="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#a8b6c4"/>
+      <stop offset=".47" stop-color="#949eaa"/>
+      <stop offset=".74" stop-color="#8b97a5"/>
+      <stop offset="1" stop-color="#6f7d8b"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" x2="0" y1="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#718492"/>
+      <stop offset=".6" stop-color="#4b5a6d"/>
+      <stop offset="1" stop-color="#343749"/>
+    </linearGradient>
+    <linearGradient id="trim" x1="0" x2="0" y1="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#4a4955"/>
+      <stop offset="1" stop-color="#292737"/>
+    </linearGradient>
+    <g id="wheel">
+      <circle r="35" fill="#272637" stroke="#33293d" stroke-width="4"/>
+      <circle r="29" fill="#393948" stroke="#535062" stroke-width="2"/>
+      <circle r="22" fill="#4b5162" stroke="#c2bdca" stroke-width="3"/>
+      <path d="M0-20 5-8 18-8 8 2 12 17 0 9-12 17-8 2-18-8-5-8Z" fill="#b9c2ca"/>
+      <circle r="6" fill="#55566a" stroke="#d6d3db" stroke-width="2"/>
+      <path d="M-21-19Q-11-29 1-29" fill="none" stroke="#777183" stroke-width="2" stroke-linecap="round"/>
+    </g>
+  </defs>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <!-- Raised bars and tall hatchback roof. -->
+    <path d="M92 66Q110 42 165 43L231 44Q258 44 277 57L257 56Q247 51 231 51L154 51Q126 52 112 65Z" fill="#383647" stroke="#33293d" stroke-width="4"/>
+    <path d="M221 52Q253 42 282 52L307 62 287 60 269 54Z" fill="#343343" stroke="#33293d" stroke-width="3"/>
+    <path d="M130 48 169 46M190 46 223 46" fill="none" stroke="#7f7c8b" stroke-width="2"/>
+    <!-- Main body. The painted flank uses the published PAF midtones. -->
+    <path d="M32 123Q42 111 48 97L75 81Q101 61 132 58L228 54Q260 54 287 69L349 111 428 122Q469 129 486 150L498 179 493 199Q486 211 457 212L53 211Q20 205 16 185L16 151Q18 134 32 123Z" fill="url(#paint)" stroke="#33293d" stroke-width="5"/>
+    <path d="M34 131Q75 118 113 118L337 132Q393 133 452 141L482 151 486 162Q435 153 398 154L354 159Q232 145 153 145L44 149Z" fill="#a4b2c1" opacity=".56"/>
+    <path d="M56 173Q101 157 151 162L350 169Q384 170 403 187L386 201 52 200Z" fill="#778797" opacity=".48"/>
+    <!-- Quarter window, two door windows, raked front windscreen. -->
+    <path d="M56 103 88 82Q111 67 137 66L225 63Q257 63 281 78L334 115Q346 124 330 128L81 116Q63 115 56 103Z" fill="url(#glass)" stroke="#383549" stroke-width="4"/>
+    <path d="M223 64Q262 61 286 75L347 112Q354 120 342 123L325 121 276 85Q250 70 226 70Z" fill="#5d7081" stroke="#383549" stroke-width="3"/>
+    <path d="M124 68 111 116M209 65 216 122M77 89 70 111" fill="none" stroke="#353449" stroke-width="5"/>
+    <path d="M132 76 200 73 183 84 128 88ZM225 73Q257 75 275 89L294 105 238 91Z" fill="#b7c2c9" opacity=".32"/>
+    <path d="M85 118Q183 121 317 131M118 119 114 177 127 195M212 126 219 181 221 199M321 134 319 177 313 199" fill="none" stroke="#58697d" stroke-width="2" opacity=".82"/>
+    <path d="M138 132H154M229 139H245" fill="none" stroke="#68798c" stroke-width="5"/>
+    <path d="M138 130H151M229 137H242" fill="none" stroke="#bac4ce" stroke-width="2"/>
+    <path d="M305 118 321 112Q334 114 333 122L320 129 306 125Z" fill="#788a9b" stroke="#383549" stroke-width="3"/>
+    <path d="M344 120Q386 117 431 128L466 141Q415 143 378 138Z" fill="#9aaaba" stroke="#788a9c" stroke-width="2"/>
+    <!-- Graphite cladding, wheels and the reshaped 2021 front bumper. -->
+    <path d="M16 163 35 178Q41 153 65 145Q96 136 117 158L131 184 326 188Q332 160 360 153Q390 146 412 168L422 185 450 180 477 164 496 174 498 193Q493 209 469 214L44 215Q21 210 16 189Z" fill="url(#trim)" stroke="#33293d" stroke-width="4"/>
+    <path d="M127 194Q225 199 326 195M432 198 481 191" fill="none" stroke="#777485" stroke-width="3"/>
+    <use href="#wheel" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wheel" x="84" y="198"/>
+    <use href="#wheel" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#wheel" x="374" y="204"/>
+    <path d="M429 155 478 151 492 162 483 178 440 180Z" fill="#303042" stroke="#64687a" stroke-width="3"/>
+    <path d="M438 159Q462 164 482 156M443 172 484 166" fill="none" stroke="#a3a9b6" stroke-width="2"/>
+    <ellipse cx="465" cy="163" rx="8" ry="5" fill="#50739b" stroke="#d4dae0" stroke-width="2"/>
+    <path d="M461 163h8m-4-2v4" fill="none" stroke="#e8f0ef" stroke-width="1"/>
+    <path d="M374 143Q399 141 432 151L426 160Q405 164 386 153Z" fill="#e7e7dd" stroke="#413b4b" stroke-width="3"/>
+    <path d="M375 144 388 145 393 154 384 151Z" fill="#d79355"/>
+    <path d="M34 121 49 119 52 127 33 133 26 130Z" fill="#c56b6c" stroke="#613d54" stroke-width="2"/>
+    <path d="M447 184 477 181 487 186 482 193 445 197Z" fill="#454658"/>
+    <path d="M480 183q6 0 7 5l-10 2Z" fill="#b6c0cc"/>
+  </g>
+</svg>

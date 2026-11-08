@@ -29,6 +29,7 @@ const ROOMS := {
 	],
 }
 
+const CROSSTREK_TOY := "res://assets/racer/roadside_v1/crosstrek_2021_paf.png"
 const ROOM := "res://assets/flats/castle/rooms/"
 const REEF := "res://assets/racer/tracks/pearl_canal/billboards/"
 const DETAILS := {
@@ -110,7 +111,11 @@ static func build(track: ReefKartTrack) -> Array[Dictionary]:
 			_finish(edge, profile, height, zone, false)
 			result.append(edge)
 			if index == 1:
-				_add_detail(track, edge, DETAILS[track.id][zone], zone)
+				_add_detail(track, edge, DETAILS[track.id][zone], "roadside_detail_" + str(zone))
+			elif track.id == "playroom" and zone == 3:
+				# Die-cast Crosstrek on the low shelf in the toy station sector.
+				var width_on_shelf := minf(146.0, (edge["half"] as Vector2).x * 1.65)
+				_add_detail(track, edge, [CROSSTREK_TOY, Rect2(9, 37, 495, 207), width_on_shelf], "crosstrek_2021_paf")
 	_mount_turn_signs(track, result)
 	return result
 
@@ -138,8 +143,8 @@ static func _mount_turn_signs(track: ReefKartTrack, decks: Array[Dictionary]) ->
 				break
 
 
-static func _add_detail(track: ReefKartTrack, deck: Dictionary, spec: Array, zone: int) -> void:
-	track.landmarks.append({"id": "roadside_detail_" + str(zone), "path": spec[0], "crop": spec[1],
+static func _add_detail(track: ReefKartTrack, deck: Dictionary, spec: Array, detail_id: String) -> void:
+	track.landmarks.append({"id": detail_id, "path": spec[0], "crop": spec[1],
 		"pos": deck["pos"], "s": deck["s"], "w": spec[2], "max_h": 98.0,
 		"lift": deck["height"], "supported": true})
 
