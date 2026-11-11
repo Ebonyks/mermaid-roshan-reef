@@ -64,6 +64,20 @@ var world_drag_end: Callable = Callable()
 # land a hit (alpha audit 2026-08-05).
 var world_press_cancel: Callable = Callable()
 
+# ---- world pointer channel (2026-11-11) ----
+# ONE source of truth for "where is the finger on open world space". Tap and
+# point-and-drag are the same gesture family with the same owner: a world touch
+# that lifts quickly and unmoved is a TAP (released as world_touched); a world
+# touch that is held past HOLD_MS or travels past TAP_SLOP is a POINT — every
+# stage that offers travel follows world_point() while it lasts. Stages must
+# read this instead of Godot's emulated mouse, which only knows the FIRST
+# finger and has no idea a press belongs to the action medallion, thumb bay or
+# pause corner. A consumer that turned a point into travel calls
+# mark_world_point_steered(), so the same finger never also fires a tap on lift.
+const HOLD_MS := 200
+var _world_point_idx := -1
+var _world_point_serial := 0
+
 var _root: Control
 var _base: Panel
 var _knob: Panel
@@ -88,6 +102,14 @@ var _act_vis: Panel = null
 var _act_lbl: Label = null
 var _act_t := 0.0
 var _action_edge_frames := 0
+# Travel destination marker: a heartbeat-driven screen-space ring. A consumer
+# re-arms it every frame it owns a destination; it hides itself the moment no
+# one refreshes it, so a stale marker can never outlive its route.
+var _goal_marker: Panel = null
+var _goal_bar: Panel = null
+var _goal_frames := 0
+var _goal_edge := false
+var _goal_edge_t := 0.0
 
 const R := 78.0
 const TAP_SLOP := 22.0
@@ -152,6 +174,7 @@ func _ready() -> void:
 	_knob.visible = false
 	_root.add_child(_base)
 	_root.add_child(_knob)
+	_build_goal_marker()
 	call_deferred("_rest_stick")
 	_btn = Button.new()
 	_btn.visible = false
@@ -226,6 +249,7 @@ func _process(delta: float) -> void:
 			_action_edge_frames -= 1
 		else:
 			action_just = false
+	_tick_goal_marker(delta)
 
 func _circle(col: Color, rad: float, outline: Color = Color.TRANSPARENT, border_width: int = 0) -> Panel:
 	var p := Panel.new()
@@ -311,6 +335,13 @@ func _drag(pos: Vector2) -> void:
 	else:
 		stick_vec = Vector2.ZERO
 	_knob.position = _origin + off - _knob.size * 0.5
+	# The thumb-bay stick is a different verb from pointing (relative steering
+	# vs. follow-the-finger), so it must be SEEN the moment it steers: the ring
+	# appears under the finger only while it is actually driving her.
+	# (Classic stays exactly as shipped: it is the runtime rollback.)
+	var show_stick: bool = _moved and control_mode == "hybrid"
+	_base.visible = show_stick
+	_knob.visible = show_stick
 	# Both saved touch modes are real movement inputs. Emitting this only for
 	# Hybrid left Canvas navigation/focus armed when a returning Classic user
 	# took the stick, so an off-screen PLAY/ENTER could fire afterwards.
@@ -593,6 +624,7 @@ func _clear_touch_state() -> void:
 	_action_fingers.clear()
 	_pend.clear()
 	_world_pend.clear()
+	_world_point_idx = -1
 	touch_owners.clear()
 	stick_vec = Vector2.ZERO
 	action_down = false
@@ -707,7 +739,9 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 				_press(touch.position, touch.index)
 			else:
 				touch_owners[touch.index] = TouchOwner.WORLD_INTERACT
-				_world_pend[touch.index] = {"pos": touch.position, "moved": false}
+				_world_pend[touch.index] = _new_world_record(touch.position)
+				if _world_point_idx == -1:
+					_world_point_idx = touch.index
 				if world_press_probe.is_valid() and bool(world_press_probe.call(touch.position)):
 					_world_pend[touch.index]["consumed"] = true
 					_flash(touch.position)
@@ -719,13 +753,17 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 				_release_action(touch.index)
 			elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(touch.index):
 				var world_data: Dictionary = _world_pend[touch.index]
-				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)) and not bool(world_data.get("consumed", false)):
+				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)) \
+						and not bool(world_data.get("consumed", false)) \
+						and not bool(world_data.get("steered", false)):
 					world_touched.emit(touch.position)
 					_flash(touch.position)
 				if bool(world_data.get("consumed", false)) and world_press_release.is_valid():
 					world_press_release.call()
 				_world_swipe(world_data, touch.position)
 				_world_pend.erase(touch.index)
+				if _world_point_idx == touch.index:
+					_world_point_idx = -1
 			touch_owners.erase(touch.index)
 	elif ev is InputEventScreenDrag:
 		var drag := ev as InputEventScreenDrag
@@ -757,7 +795,9 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 				_press(mouse_button.position, 99)
 			else:
 				touch_owners[99] = TouchOwner.WORLD_INTERACT
-				_world_pend[99] = {"pos": mouse_button.position, "moved": false}
+				_world_pend[99] = _new_world_record(mouse_button.position)
+				if _world_point_idx == -1:
+					_world_point_idx = 99
 				if world_press_probe.is_valid() and bool(world_press_probe.call(mouse_button.position)):
 					_world_pend[99]["consumed"] = true
 					_flash(mouse_button.position)
@@ -769,13 +809,17 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 				_release_action(99)
 			elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(99):
 				var world_data: Dictionary = _world_pend[99]
-				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)) and not bool(world_data.get("consumed", false)):
+				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)) \
+						and not bool(world_data.get("consumed", false)) \
+						and not bool(world_data.get("steered", false)):
 					world_touched.emit(mouse_button.position)
 					_flash(mouse_button.position)
 				if bool(world_data.get("consumed", false)) and world_press_release.is_valid():
 					world_press_release.call()
 				_world_swipe(world_data, mouse_button.position)
 				_world_pend.erase(99)
+				if _world_point_idx == 99:
+					_world_point_idx = -1
 			touch_owners.erase(99)
 	elif ev is InputEventMouseMotion and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.STICK:
 		var mouse_motion := ev as InputEventMouseMotion
@@ -792,6 +836,113 @@ func _hybrid_unhandled_input(ev: InputEvent) -> void:
 					world_press_drag.call()
 				world_data["moved"] = true
 				touch_owners[99] = TouchOwner.WORLD_MOVE
+
+func _new_world_record(pos: Vector2) -> Dictionary:
+	_world_point_serial += 1
+	return {"pos": pos, "moved": false, "ms": Time.get_ticks_msec(),
+		"serial": _world_point_serial}
+
+func owns_world_pointer() -> bool:
+	# True when this router is the authority for world pointing. Classic and the
+	# bare --no-touch desktop scheme keep their legacy pointer readers.
+	return wants_touch() and control_mode == "hybrid" and world_controls_enabled
+
+func world_point() -> Dictionary:
+	# The primary finger on open world space, or {} when there is none.
+	#   pos      - where the finger is NOW (screen px)
+	#   start    - where it landed
+	#   held     - it has become a POINT (held >= HOLD_MS or moved past slop)
+	#   moved    - it travelled past TAP_SLOP
+	#   consumed - it press-fired on an enemy/opaque stage; never travel
+	#   serial   - unique per gesture, so a consumer can decide once per press
+	if not owns_world_pointer() or _world_point_idx == -1 \
+			or not _world_pend.has(_world_point_idx):
+		return {}
+	var data: Dictionary = _world_pend[_world_point_idx]
+	var start: Vector2 = data.get("pos", Vector2.ZERO) as Vector2
+	var moved: bool = bool(data.get("moved", false))
+	var held: bool = moved \
+		or Time.get_ticks_msec() - int(data.get("ms", 0)) >= HOLD_MS
+	return {
+		"pos": data.get("last", start) as Vector2,
+		"start": start,
+		"held": held,
+		"moved": moved,
+		"consumed": bool(data.get("consumed", false)),
+		"serial": int(data.get("serial", 0)),
+	}
+
+func mark_world_point_steered() -> void:
+	# The current point became travel: its lift must not ALSO be a tap.
+	if _world_point_idx != -1 and _world_pend.has(_world_point_idx):
+		_world_pend[_world_point_idx]["steered"] = true
+
+# ---- travel destination marker ----
+func _build_goal_marker() -> void:
+	_goal_marker = _circle(Color(StorybookUI.MINT.r, StorybookUI.MINT.g,
+		StorybookUI.MINT.b, 0.16), 34.0, StorybookUI.MINT, 6)
+	_goal_marker.name = "TravelGoalMarker"
+	_goal_marker.visible = false
+	_goal_bar = Panel.new()
+	var bar_style := StyleBoxFlat.new()
+	bar_style.bg_color = StorybookUI.INK
+	bar_style.set_corner_radius_all(5)
+	_goal_bar.add_theme_stylebox_override("panel", bar_style)
+	_goal_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_goal_bar.name = "TravelEdgeBar"
+	_goal_bar.size = Vector2(52.0, 10.0)
+	_goal_bar.position = (_goal_marker.size - _goal_bar.size) * 0.5
+	_goal_bar.visible = false
+	_goal_marker.add_child(_goal_bar)
+	_root.add_child(_goal_marker)
+
+func show_travel_goal(screen_pos: Vector2, at_edge: bool = false) -> void:
+	# Mint ring: "she is going HERE". Lavender ring crossed by an ink bar: "this
+	# is as far as the world goes" - the finger asked for somewhere past the
+	# playable edge, and the ring sits where she will actually stop.
+	if _goal_marker == null:
+		return
+	if at_edge and not _goal_edge:
+		_goal_edge_t = 0.32   # one small "bump" wobble when the edge is met
+	_goal_edge = at_edge
+	_goal_frames = 3
+	_goal_marker.position = screen_pos - _goal_marker.size * 0.5
+	var sb := _goal_marker.get_theme_stylebox("panel") as StyleBoxFlat
+	var ring: Color = StorybookUI.LAVENDER if at_edge else StorybookUI.MINT
+	if sb != null:
+		sb.border_color = ring
+		sb.bg_color = Color(ring.r, ring.g, ring.b, 0.22 if at_edge else 0.16)
+	_goal_bar.visible = at_edge
+	_goal_marker.visible = true
+
+func hide_travel_goal() -> void:
+	_goal_frames = 0
+	_goal_edge = false
+	_goal_edge_t = 0.0
+	if _goal_marker != null:
+		_goal_marker.visible = false
+
+func travel_goal_visible() -> bool:
+	return _goal_marker != null and _goal_marker.visible
+
+func travel_goal_at_edge() -> bool:
+	return travel_goal_visible() and _goal_edge
+
+func _tick_goal_marker(delta: float) -> void:
+	if _goal_marker == null or not _goal_marker.visible:
+		return
+	if _goal_frames <= 0:
+		hide_travel_goal()
+		return
+	_goal_frames -= 1
+	_goal_marker.pivot_offset = _goal_marker.size * 0.5
+	var breathe: float = 1.0 + sin(Time.get_ticks_msec() * 0.006) * 0.06
+	var wobble := 0.0
+	if _goal_edge_t > 0.0:
+		_goal_edge_t = maxf(0.0, _goal_edge_t - delta)
+		wobble = sin(_goal_edge_t * 40.0) * 0.18 * (_goal_edge_t / 0.32)
+	_goal_marker.rotation = wobble
+	_goal_marker.scale = Vector2.ONE * breathe
 
 # A world touch that travelled is reported to the combat layer as a swipe.
 # Non-combat drags simply find no hit engine listening and cost nothing.

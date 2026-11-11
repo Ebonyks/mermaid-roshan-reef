@@ -290,7 +290,7 @@ func teardown() -> void:
 		"lagoon_master_x", "lagoon_master_y", "lagoon_route_t",
 		"lagoon_camera_x", "lagoon_plane_t", "lagoon_hop_t",
 		"lagoon_roshan_anim_t", "lagoon_roshan_frame", "lagoon_ambient_t",
-		"lagoon_press_t", "lagoon_press_position",
+		"lagoon_press_t", "lagoon_press_position", "lagoon_walk_goal_edge",
 	]:
 		m.g.erase(key)
 
@@ -307,6 +307,7 @@ func tick(delta: float) -> void:
 		_tick_movement(delta)
 		_handle_action()
 		_tick_doorstep()
+	_tick_travel_marker()
 	_tick_plane_arrival(delta)
 	_tick_ambient_life(delta)
 	_tick_animals(delta)
@@ -335,7 +336,10 @@ func handle_touch(screen_pos: Vector2) -> bool:
 		_activate(target)
 		_clear_focus()
 	else:
+		# Same object language as the reef: the first touch chooses the toy AND
+		# carries her to it; the second touch (or the action bubble) plays it.
 		_focus(target)
+		_approach(target)
 	return true
 
 func handle_drag(_from: Vector2, to: Vector2) -> bool:
@@ -350,6 +354,7 @@ func cancel_navigation() -> void:
 	# or keyboard movement, pause/focus loss and overlay transitions all use it so
 	# no off-screen PLAY/ENTER focus or old autowalk can resume later.
 	m.g["lagoon_walk_goal_master"] = null
+	m.g["lagoon_walk_goal_edge"] = false
 	m.g["lagoon_press_t"] = 0.0
 	m.g.erase("lagoon_press_position")
 	_clear_focus()
@@ -827,34 +832,61 @@ func _set_walk_goal(screen_pos: Vector2) -> void:
 	_clear_focus()
 	var master: Vector2 = master_from_screen(screen_pos)
 	m.g["lagoon_walk_goal_master"] = _closest_route_point(master)
+	# The painted path ends at the runway and the castle door. A finger past
+	# either end is told so by the edge marker instead of silently stopping.
+	m.g["lagoon_walk_goal_edge"] = master.x < ROUTE_MASTER[0].x - 1.0 \
+		or master.x > ROUTE_MASTER[-1].x + 1.0
 
-func _tick_hold_travel(delta: float) -> void:
-	# Tap selection still resolves on release. A deliberate hold on open world
-	# space follows the finger after 0.20 s, while the router-owned movement,
-	# action and pause zones can never leak into travel.
-	# Classic's first finger is always the stick owner—even when stationary—so
-	# its emulated mouse must never also become an invisible walk command.
-	if m.touch_ui == null or String(m.touch_ui.control_mode) != "hybrid":
-		m.g["lagoon_press_t"] = 0.0
-		m.g.erase("lagoon_press_position")
+func _approach(target: Dictionary) -> void:
+	# Walk to the chosen object without dropping its focus. The castle stops a
+	# step short of its doorstep trigger: choosing it must not also enter it.
+	var node: Node2D = target.get("node") as Node2D
+	if node == null or not is_instance_valid(node):
 		return
-	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		m.g["lagoon_press_t"] = 0.0
-		m.g.erase("lagoon_press_position")
+	var goal: Vector2 = _closest_route_point(node.position)
+	if String(target.get("kind", "")) == "castle":
+		goal = _route_point_for_x(minf(goal.x,
+			CASTLE_DOOR_MASTER_X - DOORSTEP_RADIUS_MASTER - 60.0))
+	m.g["lagoon_walk_goal_master"] = goal
+	m.g["lagoon_walk_goal_edge"] = false
+
+func _tick_hold_travel(_delta: float) -> void:
+	# Tap selection still resolves on release. A deliberate hold (HOLD_MS) or a
+	# drag on open world space follows the finger, read from the touch router's
+	# world pointer: it already excludes the movement, action and pause zones
+	# and every extra finger, which the emulated mouse cannot.
+	# Classic's first finger is always the stick owner - even when stationary -
+	# so it never becomes an invisible walk command.
+	m.g["lagoon_press_t"] = 0.0
+	m.g.erase("lagoon_press_position")
+	if m.touch_ui == null or not m.touch_ui.owns_world_pointer():
 		return
-	var viewport: Viewport = m.get_viewport()
-	var press: Vector2 = viewport.get_mouse_position()
-	if m.touch_ui != null and m.touch_ui.reserved_zone_hit(press):
-		m.g["lagoon_press_t"] = 0.0
+	var point: Dictionary = m.touch_ui.world_point()
+	if point.is_empty() or not bool(point.get("held", false)) \
+			or bool(point.get("consumed", false)):
 		return
-	if not _animal_at(press).is_empty() or not _target_at(press).is_empty():
-		m.g["lagoon_press_t"] = 0.0
+	var start: Vector2 = point.get("start", Vector2.ZERO) as Vector2
+	var press: Vector2 = point.get("pos", start) as Vector2
+	# A finger resting on an animal or a toy is choosing it (resolved on lift);
+	# once it drags away it is pointing again.
+	if not bool(point.get("moved", false)) \
+			and (not _animal_at(start).is_empty() or not _target_at(start).is_empty()):
 		return
-	var held: float = float(m.g.get("lagoon_press_t", 0.0)) + delta
-	m.g["lagoon_press_t"] = held
+	m.g["lagoon_press_t"] = 0.2
 	m.g["lagoon_press_position"] = press
-	if held >= 0.20:
-		_set_walk_goal(press)
+	m.touch_ui.mark_world_point_steered()
+	_set_walk_goal(press)
+
+func _tick_travel_marker() -> void:
+	if m.touch_ui == null:
+		return
+	var goal_value: Variant = m.g.get("lagoon_walk_goal_master")
+	if not goal_value is Vector2:
+		return
+	if not String(m.g.get("lagoon_promenade_focus", "")).is_empty():
+		return   # walking to a chosen toy: its own focus cue is the promise
+	m.touch_ui.show_travel_goal(screen_from_master(goal_value as Vector2),
+		bool(m.g.get("lagoon_walk_goal_edge", false)))
 
 func _set_spawn(master_x: float) -> void:
 	set_master_route_x(master_x)

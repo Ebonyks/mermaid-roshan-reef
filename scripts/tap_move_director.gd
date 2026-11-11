@@ -18,10 +18,16 @@ var m: ReefMain
 func _init(main: ReefMain) -> void:
 	m = main
 
+# A requested destination further than this past the playable edge is
+# reported as an EDGE route: the marker says "this is as far as she goes".
+const EDGE_REPORT_DISTANCE := 1.5
+
 func start(target: Vector3, interactable_id: String = "", activation_radius: float = 5.0) -> void:
 	if m.player == null:
 		return
 	var clamped_target := _clamp_target(target)
+	m.touch_auto_at_edge = interactable_id.is_empty() \
+		and _horizontal_distance(target, clamped_target) > EDGE_REPORT_DISTANCE
 	m.touch_auto_active = true
 	m.touch_auto_target = clamped_target
 	m.touch_auto_waypoint = Vector3.ZERO
@@ -32,11 +38,42 @@ func start(target: Vector3, interactable_id: String = "", activation_radius: flo
 	m.touch_auto_recoveries = 0
 
 func start_from_screen(screen_pos: Vector2) -> bool:
-	if m.player == null:
+	var target_value: Variant = screen_target(screen_pos)
+	if not target_value is Vector3:
 		return false
+	var target: Vector3 = target_value as Vector3
+	if _horizontal_distance(target, m.player.position) < 3.0:
+		return false
+	start(target)
+	return true
+
+func follow_screen(screen_pos: Vector2) -> bool:
+	# POINT-AND-DRAG: re-aim the same assisted route at the finger every frame.
+	# Same projection, same clamp, same steering as a tap, so a tap and a drag to
+	# one spot always agree. Once she is under the finger she simply waits there;
+	# on lift the last aim stays as an ordinary tap route and is finished.
+	var target_value: Variant = screen_target(screen_pos)
+	if not target_value is Vector3:
+		return false
+	var target: Vector3 = target_value as Vector3
+	if _horizontal_distance(_clamp_target(target), m.player.position) <= ARRIVAL_DISTANCE:
+		m.touch_auto_active = false
+		m.touch_auto_target = _clamp_target(target)
+		m.touch_auto_waypoint = Vector3.ZERO
+		m.touch_auto_interactable = ""
+		m.touch_auto_at_edge = _horizontal_distance(target, m.touch_auto_target) \
+			> EDGE_REPORT_DISTANCE
+		return true
+	start(target)
+	return true
+
+func screen_target(screen_pos: Vector2) -> Variant:
+	# Screen point -> the swim plane at her current depth, or null.
+	if m.player == null:
+		return null
 	var camera: Camera3D = m.get_viewport().get_camera_3d()
 	if camera == null:
-		return false
+		return null
 	var origin: Vector3 = camera.project_ray_origin(screen_pos)
 	var direction: Vector3 = camera.project_ray_normal(screen_pos)
 	var plane_y: float = m.player.position.y
@@ -50,13 +87,11 @@ func start_from_screen(screen_pos: Vector2) -> bool:
 	else:
 		target = origin + direction * 48.0
 	target.y = plane_y
-	if _horizontal_distance(target, m.player.position) < 3.0:
-		return false
-	start(target)
-	return true
+	return target
 
 func cancel(_reason: String = "") -> void:
 	m.touch_auto_active = false
+	m.touch_auto_at_edge = false
 	m.touch_auto_waypoint = Vector3.ZERO
 	m.touch_auto_interactable = ""
 	m.touch_auto_stall_t = 0.0

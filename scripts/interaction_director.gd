@@ -88,6 +88,11 @@ func mark_ready(interactable_id: String) -> void:
 	m.touch_focus_ready = true
 	m.show_msg(String(focused.get("label", "Roshan")), "Tap again or press the pink button!", "hint")
 
+func has_target_at(screen_pos: Vector2) -> bool:
+	# Same hit test a tap uses, so "press lands on a toy" means one thing for
+	# the tap path and the point-and-drag path alike.
+	return not _pick(screen_pos).is_empty()
+
 func clear_focus() -> void:
 	m.touch_focus_id = ""
 	m.touch_focus_ready = false

@@ -155,15 +155,14 @@ func tick(delta: float) -> Dictionary:
 	mx = clampf(mx, -1.0, 1.0)
 	var x := px()
 	var pointing := false
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	var pointer: Variant = travel_pointer()
+	if pointer is Vector2:
 		# point-and-she-swims-there: finger/mouse screen x maps to stage x
-		# (touch reaches here through Godot's emulated mouse, same as the old
-		# 2D catcher's drag control)
 		var vp := m.get_viewport()
 		if vp != null:
 			var vsz: Vector2 = vp.get_visible_rect().size
 			if vsz.x > 1.0:
-				var t: float = clampf(vp.get_mouse_position().x / vsz.x, 0.0, 1.0)
+				var t: float = clampf((pointer as Vector2).x / vsz.x, 0.0, 1.0)
 				x = lerpf(x, (t * 2.0 - 1.0) * half_w * 1.05, 0.2)
 				pointing = true
 	x = clampf(x + mx * float(cfg.get("steer_speed", 24.8)) * delta, -half_w, half_w)
@@ -176,6 +175,30 @@ func tick(delta: float) -> Dictionary:
 	m.player.rotation.z = lerpf(m.player.rotation.z, -mx * 0.22, 1.0 - pow(0.001, delta))
 	_glide_camera(delta, cfg, r, x * float(cfg.get("cam_follow", 0.25)))
 	return {"mx": mx, "px": x, "moved": absf(mx) > 0.05 or pointing}
+
+# The one pointer both stage verbs follow, or null. Hybrid touch reads the
+# router's world pointer, which already excludes the action medallion, thumb
+# bay, pause corner, extra fingers and press-fired enemy taps. Classic and the
+# bare desktop scheme keep the legacy emulated-mouse reader, behind the same
+# reserved-zone guard (MA-TOUCH-002: the swim branch used to skip it).
+func travel_pointer() -> Variant:
+	if m.touch_ui != null and m.touch_ui.owns_world_pointer():
+		var point: Dictionary = m.touch_ui.world_point()
+		if point.is_empty() or bool(point.get("consumed", false)):
+			return null
+		return point.get("pos", Vector2.ZERO) as Vector2
+	if m.touch_ui != null and m.touch_ui.wants_touch() \
+			and String(m.touch_ui.control_mode) == "hybrid":
+		return null   # the router owns touch but an overlay has world controls
+	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		return null
+	var vp := m.get_viewport()
+	if vp == null:
+		return null
+	var press: Vector2 = vp.get_mouse_position()
+	if m.touch_ui != null and m.touch_ui.reserved_zone_hit(press):
+		return null
+	return press
 
 # ---- run mode: auto-run + tap-to-hop (future Mario-run games) --------------
 func run_tick(delta: float) -> Dictionary:
@@ -260,25 +283,17 @@ func walk_tick(delta: float) -> Dictionary:
 		z = clampf(z + mz * spd * 0.8 * delta, -half_d, half_d)
 		dx = mx
 	else:
-		if bool(cfg.get("touch_travel", true)) and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		var walk_pointer: Variant = travel_pointer() \
+			if bool(cfg.get("touch_travel", true)) else null
+		if walk_pointer is Vector2:
 			# finger -> ray -> the stage plane; screen height on that plane maps
-			# into the depth band. Touch reaches here through Godot's emulated
-			# mouse. A stage that routes presses itself (a promenade whose
-			# standees are tappable) sets touch_travel false and calls
-			# plane_goal() for the presses its director judges to be travel.
-			var vp := m.get_viewport()
-			if vp != null:
-				# ownership first: the emulated pointer cannot tell a press on
-				# the action medallion or in the thumb bay from a press on open
-				# ground, and travelling toward a held BUTTON is never what the
-				# child asked for
-				var press: Vector2 = vp.get_mouse_position()
-				var reserved: bool = m.touch_ui != null \
-					and m.touch_ui.reserved_zone_hit(press)
-				var goal_here: Variant = null if reserved else plane_goal(press)
-				if goal_here is Vector2:
-					m.g["ss_walk_goal"] = goal_here
-					pointing = true
+			# into the depth band. A stage that routes presses itself (a
+			# promenade whose standees are tappable) sets touch_travel false and
+			# calls plane_goal() for the presses its director judges to be travel.
+			var goal_here: Variant = plane_goal(walk_pointer as Vector2)
+			if goal_here is Vector2:
+				m.g["ss_walk_goal"] = goal_here
+				pointing = true
 		var goal_v: Variant = m.g.get("ss_walk_goal")
 		if goal_v is Vector2:
 			var goal := goal_v as Vector2

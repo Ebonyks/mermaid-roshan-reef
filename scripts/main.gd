@@ -596,6 +596,15 @@ var touch_auto_activation_radius := 5.0
 var touch_auto_last_distance := 0.0
 var touch_auto_stall_t := 0.0
 var touch_auto_recoveries := 0
+# Point-and-drag + boundary clarity (2026-11-11). touch_auto_at_edge: the
+# current route was pulled back from past the playable edge. The follow_*
+# fields latch the per-gesture decision so a hold that LANDED on an object is
+# a select (resolved on lift), never travel.
+var touch_auto_at_edge := false
+var touch_follow_serial := -1
+var touch_follow_blocked := false
+var touch_follow_active := false
+var touch_edge_hint_t := 0.0
 var _interaction_director: InteractionDirector = null
 var _tap_move_director: TapMoveDirector = null
 var quality := "sparkly"
@@ -5273,6 +5282,68 @@ func _on_touch_manual_move() -> void:
 	_cancel_lagoon_navigation()
 	_tap_move_ref().cancel("manual")
 
+# Tap and point-and-drag are ONE travel system: a world finger that is held or
+# dragged on open water re-aims the very same assisted route a tap starts, so
+# both always agree about where she is going and where the world ends.
+func _world_touch_routes_to_travel() -> bool:
+	if player == null or game == "melody" or game == "dustboss":
+		return false
+	if _slide_canvas_fish_route_active() or _world_tap_gated():
+		return false
+	if game == "level2" and String(g.get("phase", "")) == "promenade":
+		return false   # the Canvas promenade follows the same pointer itself
+	if g.get("ss_root") != null:
+		return false   # side-scroll stages map the pointer onto their own plane
+	return _combat_arena_ref() == null
+
+func _tick_touch_follow(delta: float) -> void:
+	touch_follow_active = false
+	touch_edge_hint_t = maxf(0.0, touch_edge_hint_t - delta)
+	if touch_ui == null or not touch_ui.owns_world_pointer():
+		touch_follow_serial = -1
+		return
+	var point: Dictionary = touch_ui.world_point()
+	if point.is_empty():
+		touch_follow_serial = -1
+		return
+	if not bool(point.get("held", false)) or bool(point.get("consumed", false)):
+		return
+	if not _world_touch_routes_to_travel():
+		return
+	var serial: int = int(point.get("serial", -1))
+	if serial != touch_follow_serial:
+		touch_follow_serial = serial
+		touch_follow_blocked = _interaction_ref().has_target_at(
+			point.get("start", Vector2.ZERO) as Vector2)
+	# A finger resting ON a toy or friend is choosing it: that resolves as the
+	# normal select tap on lift. Dragging away from it is pointing again.
+	if touch_follow_blocked and not bool(point.get("moved", false)):
+		return
+	if not _tap_move_ref().follow_screen(point.get("pos", Vector2.ZERO) as Vector2):
+		return
+	if not touch_focus_id.is_empty():
+		_interaction_ref().clear_focus()
+	touch_ui.mark_world_point_steered()
+	touch_follow_active = true
+
+func _tick_travel_marker() -> void:
+	# One visible promise for every free-travel route, tapped or dragged: a mint
+	# ring where she is heading, or a lavender edge ring where the world stops.
+	# Object routes keep the object's own focus ring instead.
+	if touch_ui == null or not touch_auto_interactable.is_empty():
+		return
+	var showing: bool = touch_auto_active or (touch_follow_active and touch_auto_at_edge)
+	if not showing:
+		return
+	var camera: Camera3D = get_viewport().get_camera_3d()
+	if camera == null or camera.is_position_behind(touch_auto_target):
+		return
+	touch_ui.show_travel_goal(camera.unproject_position(touch_auto_target),
+		touch_auto_at_edge)
+	if touch_auto_at_edge and touch_edge_hint_t <= 0.0:
+		touch_edge_hint_t = 9.0
+		show_msg("Roshan", "This is as far as I can swim!", "hint")
+
 func _cancel_lagoon_navigation() -> void:
 	if game == "level2" and String(g.get("phase", "")) == "promenade":
 		_lagoon_promenade_ref().cancel_navigation()
@@ -9832,8 +9903,10 @@ func _process(delta: float) -> void:
 			touch_ui.set_action_label(_lagoon_promenade_ref().action_label())
 		return
 	if touch_uses_explicit_interactions():
+		_tick_touch_follow(delta)
 		_tap_move_ref().tick(delta)
 		_interaction_ref().tick(delta, ppos)
+		_tick_travel_marker()
 	_collection_ref().tick(delta, ppos)
 	if caustics_plane != null:
 		if game == "" and not intro_active and caustics_enabled:
