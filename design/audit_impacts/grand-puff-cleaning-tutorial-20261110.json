@@ -1,0 +1,203 @@
+{
+  "id": "grand-puff-cleaning-tutorial-20261110",
+  "baseline": "c6e5d1207a2d59e07a98ce4238a08850b35ac1f6",
+  "scope": "Owner-directed Grand Puff fever acting, first cleaning tutorial, spoken scrub prompt and patient, retryable openings. Require intentional input to clean.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-INT-01",
+    "DL-INT-04",
+    "DL-INT-06",
+    "DL-MOT-01",
+    "DL-MOT-03",
+    "DL-MOT-04",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-SND-01",
+    "DL-SND-03",
+    "DL-SND-05",
+    "DL-SND-10",
+    "DL-SND-13",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16",
+    "DL-PERF-02"
+  ],
+  "findings": [
+    "MA-PLAY-001",
+    "MA-ACCESS-001",
+    "MA-VIS-006"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets/audio/objective_guides/OBJECTIVE_GUIDE_MANIFEST.json",
+    "assets/audio/objective_guides/guide_puff_scrub.ogg",
+    "assets_src/audio/grand_puff_cleaning_tutorial_20261110/generate_guide.py",
+    "assets_src/audio/grand_puff_cleaning_tutorial_20261110/guide_puff_scrub.wav",
+    "assets_src/audio/grand_puff_cleaning_tutorial_20261110/provenance.json",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/audio_quality_ledger_2026-08-24.csv",
+    "audit/audio_quality_summary_2026-08-24.json",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/GRAND_PUFF_CARE_2026-10-17.md",
+    "design/reference/OWNER_DECISIONS.md",
+    "scripts/audio_director.gd",
+    "scripts/boss_encounter_2d.gd",
+    "scripts/dust_boss_lesson_2d.gd",
+    "scripts/dust_bunny_boss_sprite.gd",
+    "scripts/encounter_contract_checks.gd",
+    "scripts/encounter_profile_2d.gd",
+    "scripts/games/dust_boss.gd",
+    "scripts/grand_puff_care_2d.gd",
+    "scripts/probe_audio.gd",
+    "scripts/probe_dust_boss.gd",
+    "scripts/probe_dust_boss_balance.gd",
+    "tools/audit_audio_quality.py"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2 real Royal Hall touch route (headless), scripts/probe_dust_boss.gd",
+      "result": "PASS",
+      "evidence": "150 assertions. Real Royal Hall touch with prior room jobs supplied, stationary shiver before the active star, required scrub voice, six-second first window, pause freeze, retry hop with saved dodge, deliberate star touch, passive/held negatives, checkpoint restores and one-time reward through Day Two.",
+      "log": {
+        "path": "tmp/puff_clean_verify/route/probe.log",
+        "sha256": "b1f027c24b28ff61007ceacdf1b3642a86f37bb631f2fbdaf1509bfb2e29b2cd"
+      }
+    },
+    {
+      "command": "Windows desktop Forward Mobile direct stage capture on Godot 4.7.2",
+      "result": "PASS",
+      "evidence": "Rendered fever, first focus, missed hop, retry focus, and soap-scrub response to a real viewport touch. The fixture enters the arena directly to capture the frames. First focus visibly frames Grand Puff, places the star on his forehead and leaves his expression visible.",
+      "log": {
+        "path": "tmp/puff_clean_verify/desktop/probe.log",
+        "sha256": "f8dd7a8da181971bef90773f7117a14e7fa14a730ed872d6806f73280723c51b"
+      },
+      "frames": {
+        "fever.png": {
+          "size": [
+            2560,
+            1369
+          ],
+          "path": "tmp/puff_clean_verify/desktop/fever.png",
+          "sha256": "94dd222178b470de969580273c1873f02fe2fafeba2f21b9517fdae65d57f069"
+        },
+        "first_focus.png": {
+          "size": [
+            2560,
+            1369
+          ],
+          "path": "tmp/puff_clean_verify/desktop/first_focus.png",
+          "sha256": "1cc2bba52678375f5b12a4df6acd5a3dbfa8a69c0c450b9868451c5dd30dc5ee"
+        },
+        "retry_focus.png": {
+          "size": [
+            2560,
+            1369
+          ],
+          "path": "tmp/puff_clean_verify/desktop/retry_focus.png",
+          "sha256": "f9c7fc5fd654c8b899b92e2562ffa6b4d690375d556dd2c75bd4b8da48f860cb"
+        },
+        "retry_hop.png": {
+          "size": [
+            2560,
+            1369
+          ],
+          "path": "tmp/puff_clean_verify/desktop/retry_hop.png",
+          "sha256": "b4308880041a8d668e8f0aac78db797a951b94d2d9dfb0801a4d21dbe9f46bb9"
+        },
+        "soap_scrub.png": {
+          "size": [
+            2560,
+            1369
+          ],
+          "path": "tmp/puff_clean_verify/desktop/soap_scrub.png",
+          "sha256": "7489b5c2e64ee030be0f6a4371e19ec0291b9013a747f1c4729fe63163cf8055"
+        }
+      }
+    },
+    {
+      "command": "Pinned local Kokoro neutral Guide and offline faster-whisper tiny.en transcript",
+      "result": "PASS",
+      "evidence": "Recognized all requested words. Vorbis 48 kHz mono, 1.666 seconds, 86.43 kbps, -16.2 LUFS, -3.2 dBTP and zero clipped samples. One local af_heart synthesis, no paid calls. Human/device listening remains open.",
+      "log": {
+        "path": "tmp/puff_clean_verify/cue_transcript.log",
+        "sha256": "40b0f02497c4a7aaa698ad78acfcf8bdd71f46d89ee8cff4b2e4640cc02bc922"
+      },
+      "provenance": "assets_src/audio/grand_puff_cleaning_tutorial_20261110/provenance.json"
+    },
+    {
+      "command": "Exact Godot Grand Puff balance personas, changed-file GDScript parser and analyzer, protected-source diff",
+      "result": "PASS",
+      "evidence": "All twelve personas matched their expected outcomes. Slowest successful player cleared three rounds after four missed openings. Idle, stationary repeated taps, held input, and movement-only cases cleared zero rounds. Godot analyzer and GDScript lint passed all eleven changed scripts. No diffs to the family voices, protected book/friend art, selected Day One clips, or the Grand Puff source atlas.",
+      "log": {
+        "path": "tmp/puff_clean_verify/balance/probe.log",
+        "sha256": "e11e630645c7669d99e4aba1d9ed2bd9869823a102d6b790a99d134e745388cd"
+      }
+    },
+    {
+      "command": "Canonical exact-Godot import, 2D migration gate and trusted probe-by-probe local validation",
+      "result": "PASS",
+      "evidence": "81 gameplay probes passed and the human-art probe made its expected headless skip. The parallel run exposed a minigame timeout, a fresh-process Chapter Two startup deadline and a balance runtime timeout. Unchanged standalone scripts completed successfully in isolated save data. The 2D migration inventory reports NO_REGRESSION, with global strict acceptance still open.",
+      "logs": [
+        {
+          "path": "tmp/puff_clean_verify/import/log.txt",
+          "sha256": "e3b1fc60bbd7dd74b8f992f96c75165979560048940ee064cdd291d35ae6ec7d"
+        },
+        {
+          "path": "tmp/puff_clean_verify/game2d.log",
+          "sha256": "4022b0d0dd00dd5e333ac2fdd5684e1ec48df71542d261cc30972ea71a23d6d5"
+        },
+        {
+          "path": "tmp/puff_clean_verify/parallel_probes/results.json",
+          "sha256": "cb77a9d9b6c502b7a5fd33ddf9e03642fb0e6e3a7c0f60f195772982d6a80e60"
+        },
+        {
+          "path": "tmp/puff_clean_verify/minigame_retry/probe.log",
+          "sha256": "33c785dbeebf5c5a91b93a64915a6e595203d3a87b58d1d46b81834779cfac86"
+        },
+        {
+          "path": "tmp/puff_clean_verify/balance/probe.log",
+          "sha256": "e11e630645c7669d99e4aba1d9ed2bd9869823a102d6b790a99d134e745388cd"
+        },
+        {
+          "path": "tmp/puff_clean_verify/chapter2_native/probe.log",
+          "sha256": "ea1d174ed471bd64c4cc971e93fa504dd51b86520f5ae1e8373f3f85a76c742d"
+        }
+      ]
+    },
+    {
+      "command": "Canonical objective Guide validation and deterministic runtime audio ledger verification",
+      "result": "PASS",
+      "evidence": "All thirteen Guide files passed the project validator. The 869-row staged inventory uses existing measurements for the 868 unchanged baseline recordings and canonical measurements for the new cue. The reference counts were recalculated against the live project. Source script, native audio, final audio, ledger and summary hashes match the staged Git blobs.",
+      "logs": [
+        {
+          "path": "tmp/puff_clean_verify/audio_incremental.log",
+          "sha256": "0b5c9cf6c0696647d4c82411c027bb2684d914fcb04d5117dc25fd5233d0f734"
+        },
+        {
+          "path": "tmp/puff_clean_verify/guide_inventory.log",
+          "sha256": "c95a92229b0569b3bdb1504cd67dec385ac5753f50247beeff317e221158999b"
+        }
+      ]
+    },
+    {
+      "command": "Exact topic-head GitHub workflow",
+      "result": "PENDING",
+      "evidence": "Complete local checks before publication and integrate only a green candidate."
+    }
+  ],
+  "acceptance_gaps": "Target-device listening and performance, child comprehension, owner visual approval, and broader findings remain open.",
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-GRAND-PUFF-CLEANING-TUTORIAL-20261110",
+      "evidence": "The first tutorial focuses on Grand Puff after his shiver, says the requested scrub cue and allows six seconds for an intentional touch before the retry hop.",
+      "write_back": "design/GRAND_PUFF_CARE_2026-10-17.md"
+    }
+  ]
+}

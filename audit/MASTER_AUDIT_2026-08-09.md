@@ -302,6 +302,8 @@ rules; sealed evidence below remains scoped to its recorded build. Follow the
 [Executive verdict](#1-executive-verdict) · [Superseded design choices](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#15-explicitly-superseded-dismissed-and-deferred-ideas) · [Canonical finding schema](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#17-finding-record-fields)
 <!-- AUDIT_TASK_INDEX_END -->
 
+Owner-directed [Grand Puff cleaning tutorial](../design/audit_impacts/grand-puff-cleaning-tutorial-20261110.json) (2026-11-10) adds a fever pause, an audio-guided star, a six-second first window, and a gentle retry that preserves earned dodges. The broader play, accessibility, and visual findings retain their current lifecycles.
+
 Owner-directed [Grand Puff cold effects](../design/audit_impacts/grand-puff-cold-presentation-20261107.json) (2026-11-07) presents all five original locked steps as planted sneezes that send green goo carrying germs. Slow roaming is separate from the strike. The shared engine, attack shapes and cadence, saves, rewards and selected clips remain unchanged; device/child/owner acceptance and canonical findings remain open.
 
 ## Sealed audit snapshot and subsequent round metadata

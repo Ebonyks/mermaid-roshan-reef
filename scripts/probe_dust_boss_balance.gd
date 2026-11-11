@@ -9,7 +9,7 @@ const PERSONAS: Array[Dictionary] = [
 	{"name": "slow_counter", "reaction": 1.0, "speed": 0.6, "counter": 4.0},
 	{"name": "patient_dodger", "reaction": 3.5, "speed": 0.4, "counter": 1.2},
 	{"name": "patient_counter", "reaction": 1.0, "speed": 0.6, "counter": 6.0},
-	{"name": "patient_both", "reaction": 4.5, "speed": 0.4, "counter": 8.0},
+	{"name": "patient_both", "reaction": 4.5, "speed": 0.4, "counter": 6.25, "min_misses": 1},
 	{"name": "moving_masher", "reaction": 0.9, "speed": 0.7, "counter": 0.0, "mash": true},
 ]
 const CONTROLS: Array[Dictionary] = [
@@ -107,7 +107,8 @@ func _play(persona: Dictionary, negative: bool) -> void:
 		previous_state = state
 		await process_frame
 		elapsed += delta
-	var ok: bool = hits == 0 if negative else hits == 3 and main.game != "dustboss"
+	var ok: bool = hits == 0 if negative else hits == 3 and main.game != "dustboss" \
+		and misses >= int(persona.get("min_misses", 0))
 	if not ok:
 		failures += 1
 	print("DUSTBAL|%s,%.2f,%d,%d,%d,%d,%d,%s" % [

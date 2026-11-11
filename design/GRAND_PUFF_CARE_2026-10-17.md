@@ -138,3 +138,29 @@ existing routing and protected recordings.
 
 [Scoped impact and evidence](audit_impacts/grand-puff-cold-presentation-20261107.json).
 Machine and desktop evidence are separate from device, child and owner acceptance.
+
+## 2026-11-10 Grand Puff’s first cleaning lesson
+
+Once Roshan has avoided the round's sneezes, Grand Puff stays in place and
+looks feverish for 2.4 seconds in the first round and 2 seconds later. His
+existing tired and shivering atlas poses supply the acting. The first lesson
+then frames him with a gold ring and sends a soap bubble toward the forehead
+star. The Guide says “Help scrub the dust off now!” when the target opens.
+One deliberate touch on the star or Grand Puff triggers the soap scrub.
+The full first opportunity lasts six seconds. Later rounds start at five
+and a half seconds. A missed opportunity adds a small allowance up to one
+second and Grand Puff takes a short, gentle hop before offering another turn.
+The earned dodge stays saved during the retry. The first lesson repeats
+until the child cleans once. Waiting, holding a finger, and touching empty
+floor grant no cleaning progress.
+
+The fever animation uses four slots at 3 fps with the tired pose held
+between shivers. The open pose holds his tired expression through the touch
+window and then transitions to the existing soap response or the idle hop.
+Both use the existing whole-character atlas, unchanged foot and forehead
+anchors, and one Canvas overlay. The spoken line uses one local synthesis
+with the established neutral Guide voice. The native audio and mastering
+provenance live with the source. Android listening, child comprehension and
+owner review remain open.
+
+[Scoped impact and evidence](audit_impacts/grand-puff-cleaning-tutorial-20261110.json).

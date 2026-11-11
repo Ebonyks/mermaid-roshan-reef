@@ -218,6 +218,22 @@ func play_vulnerable_laugh() -> float:
 	return _play_action(&"laugh_vulnerable")
 
 
+func play_care_fever() -> void:
+	_play_action(&"care_fever")
+
+
+func play_care_opening() -> void:
+	_reset_tap_progress()
+	if _play_action(&"care_open") > 0.0:
+		_set_vulnerable(true)
+
+
+func play_care_roam() -> void:
+	close_vulnerability()
+	action_locked = false
+	play_idle()
+
+
 func play_sneeze_warning() -> void:
 	if care_mode:
 		_play_action(&"care_breath")

@@ -13,6 +13,8 @@ var target := Vector2.ZERO
 var tuft := Vector2.ZERO
 var tuft_visible: bool = false
 var boss_anchor := Vector2.ZERO
+var boss_size: float = 0.0
+var focus_cleaning: bool = false
 var counter_open: bool = false:
 	set(value):
 		if counter_open != value:
@@ -63,6 +65,8 @@ func _draw() -> void:
 		_draw_floor_effects()
 		return
 	if counter_open:
+		if focus_cleaning:
+			_draw_cleaning_focus()
 		# Show the entire tap target as soon as the opening accepts input.
 		var edge: float = 58.0 + sin(_open_time * 3.0) * 3.0
 		_stamp(STAR, boss_anchor, Vector2.ONE * edge, 1.0)
@@ -79,6 +83,24 @@ func _draw() -> void:
 				_stamp(BUBBLES, target, Vector2.ONE * lerpf(26.0, 52.0, beat), sin(beat * PI) * 0.9)
 		if cycle >= 0.44 and cycle < 1.5:
 			_draw_current((cycle - 0.44) / 1.06, 0.8)
+
+func _draw_cleaning_focus() -> void:
+	# Frame the whole character, then bring a soap bubble to the tap target.
+	var pulse: float = sin(_open_time * 2.8)
+	var size: float = maxf(130.0, boss_size)
+	var centre: Vector2 = boss_anchor + Vector2(0.0, size * 0.055)
+	var rim := PackedVector2Array()
+	for i: int in range(49):
+		var angle: float = TAU * float(i) / 48.0
+		rim.append(centre + Vector2.from_angle(angle) * Vector2(0.46, 0.38)
+			* (size + pulse * 5.0))
+	draw_polyline(rim, Color(0.37, 0.20, 0.39, 0.48), 7.0, true)
+	draw_polyline(rim, Color(1.0, 0.89, 0.48, 0.94), 3.0, true)
+	var approach: float = fmod(_open_time, 1.55) / 1.55
+	var bubble: Vector2 = boss_anchor + Vector2(58.0, -40.0).lerp(
+		Vector2(12.0, -12.0), smoothstep(0.0, 0.78, approach))
+	_stamp(BUBBLES, bubble, Vector2.ONE * 32.0, 1.0 - smoothstep(0.72, 1.0, approach))
+
 
 func _draw_current(progress: float, alpha: float) -> void:
 	var normal: Vector2 = (target - from).normalized().orthogonal()

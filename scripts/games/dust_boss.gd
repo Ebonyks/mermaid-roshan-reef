@@ -31,6 +31,10 @@ const CLOSER_FEEDBACK_COOLDOWN := 2.8
 const BASE_WIN_PEARLS := 3
 const PERFECT_BONUS_PEARLS := 2
 const DAMAGE_RECOVERY_T: float = 1.05
+const FIRST_CLEANING_SECONDS: float = 6.0
+const FIRST_FEVER_SECONDS: float = 2.4
+const FEVER_SECONDS: float = 2.0
+const CLEANING_RETRY_HOP_SECONDS: float = 1.8
 
 # Grand Puff owns a deterministic 120 BPM adaptive cue. The rendered track's
 # beat 16 is the unmistakable action downbeat. The actual vulnerable animation
@@ -38,7 +42,6 @@ const DAMAGE_RECOVERY_T: float = 1.05
 const MUSIC_SECONDS_PER_BEAT := 0.5
 const MUSIC_ACTION_BEAT := 16.0
 const MUSIC_ACTION_T := MUSIC_ACTION_BEAT * MUSIC_SECONDS_PER_BEAT
-const MUSIC_OPEN_FRAME_T := 0.2
 const MUSIC_SYNC_TOLERANCE := 0.08
 
 const MASTERY_GOLD := 3
@@ -151,8 +154,8 @@ func _restore_round_checkpoint() -> void:
 		int(m.g["db_damage_taken"]), int(m.g["db_opening_misses"]),
 		attacks)
 	patterns = encounter.patterns
-	if not _lesson_learned("counter"):
-		encounter.profile.counter_seconds = 8.0
+	if restored == 0:
+		encounter.profile.counter_seconds = FIRST_CLEANING_SECONDS
 	var k: DustBunnyBossSprite = kit()
 	if k == null or not is_instance_valid(k):
 		return
@@ -278,8 +281,14 @@ func tick(delta: float, fr: Dictionary, _ppos: Vector3) -> void:
 			_tick_attack_strike(st, tapped)
 		"damage_recovery":
 			_tick_damage_recovery(st, tapped)
+		"fever":
+			if st >= _fever_duration():
+				_show_cleaning_opening()
 		"vuln":
 			_tick_counter_opening(delta, tapped)
+		"counter_retry":
+			if st >= CLEANING_RETRY_HOP_SECONDS:
+				_begin_attack_tell()
 		"struck":
 			_tick_struck(delta, st, fr, tapped)
 		"friends":
@@ -363,12 +372,8 @@ func _music_seek(seconds: float) -> void:
 		m.music.seek(target)
 
 
-func _music_open_delay() -> float:
-	var k: DustBunnyBossSprite = kit()
-	var speed: float = 1.0
-	if k != null and is_instance_valid(k):
-		speed = maxf(0.01, k.combat_speed_scale)
-	return MUSIC_OPEN_FRAME_T / speed
+func _fever_duration() -> float:
+	return FIRST_FEVER_SECONDS if encounter.completed_rounds == 0 else FEVER_SECONDS
 
 
 func _sync_music_for_state(next_state: String) -> void:
@@ -376,19 +381,23 @@ func _sync_music_for_state(next_state: String) -> void:
 		"showing":
 			_music_seek(0.0)
 		"tell":
-			# Start far enough back in the quiet passage that the animation's
-			# first open frame, not merely the state boundary, reaches beat 16.
-			_music_seek(MUSIC_ACTION_T - patterns.tell_time \
-				- _music_open_delay())
+			_music_seek(MUSIC_ACTION_T - patterns.tell_time - _fever_duration() - 0.6)
+		"fever":
+			_music_seek(MUSIC_ACTION_T - _fever_duration())
 
 
 func _on_vulnerability_changed(is_open: bool) -> void:
 	var lesson: DustBossLesson2D = m.g.get("db_lesson") as DustBossLesson2D
+	var first_lesson: bool = is_open and not _lesson_learned("counter")
 	if lesson != null:
+		lesson.focus_cleaning = first_lesson
 		lesson.counter_open = is_open
 	if not is_open:
 		return
-	_say_care("puff_clean", "Tap his star to clean!")
+	if first_lesson:
+		_say_care("puff_scrub", "Help scrub the dust off now!")
+	else:
+		_say_care("puff_clean", "Tap his star to clean!")
 	m.g["db_music_action_cues"] = int(m.g.get("db_music_action_cues", 0)) + 1
 	if not _music_ready():
 		return
@@ -516,18 +525,22 @@ func _tick_damage_recovery(st: float, tapped: bool) -> void:
 		_begin_attack_tell()
 
 
-func _counter_window() -> float:
-	return encounter.counter_window()
-
-
 func _begin_counter_opening() -> void:
-	encounter.open_counter()
 	var k: DustBunnyBossSprite = kit()
 	if k != null and is_instance_valid(k):
-		k.configure_counter_mode(_counter_window())
-		k.play_vulnerable_laugh()
+		k.play_care_fever()
 	m.g["db_flash"] = 0.0
+	_enter_state("fever")
+
+
+func _show_cleaning_opening() -> void:
+	var k: DustBunnyBossSprite = kit()
+	encounter.open_counter()
 	_enter_state("vuln")
+	if k != null and is_instance_valid(k):
+		# The encounter clocks the window from the same frame as the star and cue.
+		k.configure_counter_mode(INF)
+		k.play_care_opening()
 
 
 func _tick_counter_opening(delta: float, tapped: bool) -> void:
@@ -545,8 +558,8 @@ func _tick_counter_opening(delta: float, tapped: bool) -> void:
 	m.g["db_miss"] = int(m.g.get("db_miss", 0)) + 1
 	m.g["db_flash"] = 0.0
 	if k != null and is_instance_valid(k):
-		k.close_vulnerability()
-	_begin_attack_tell()
+		k.play_care_roam()
+	_enter_state("counter_retry")
 
 # A real first movement: any direction works, and waiting never advances it.
 func _tick_showing(st: float, _fr: Dictionary, _tapped: bool) -> void:
@@ -710,7 +723,7 @@ func _accept_counter() -> void:
 		navigation.cancel()
 		# The round callback saves learning and earned progress together.
 		_learn_lesson("counter", false)
-		encounter.profile.counter_seconds = 3.2
+		encounter.profile.counter_seconds = EncounterProfile2D.GRAND_PUFF_CLEANING_SECONDS
 		if m.player != null:
 			m.player.play_verb("point")
 		var lesson: DustBossLesson2D = m.g.get("db_lesson") as DustBossLesson2D
@@ -791,10 +804,10 @@ func pose_for_state() -> String:
 			return "care_breath"
 		"strike":
 			return "care_sneeze_final" if int(m.g.get("db_hits", 0)) >= 2 else "care_sneeze"
-		"damage_recovery":
-			return "idle"
+		"fever":
+			return "care_fever"
 		"vuln":
-			return "laugh_vulnerable"
+			return "care_open"
 		"struck":
 			return "care_relief"
 		"friends":
@@ -808,7 +821,7 @@ func _tick_boss_roam(delta: float, state: String) -> void:
 	var circle_aiming: bool = state == "tell" \
 		and patterns.geometry.get("shape") == "circle" \
 		and not EncounterWarningCue2D.is_locked(patterns.elapsed / patterns.tell_time)
-	var roaming: bool = state in ["showing", "damage_recovery", "struck"] or circle_aiming
+	var roaming: bool = state in ["showing", "damage_recovery", "counter_retry", "struck"] or circle_aiming
 	if not roaming:
 		m.g["db_y"] = move_toward(float(m.g["db_y"]), 0.0, delta * 7.0)
 		return
@@ -859,6 +872,7 @@ func _place_boss(delta: float) -> void:
 				# The authored achoo key exhales left before mirroring.
 				care_view.flip_h = not k.sprite.flip_h if sneezing else k.sprite.flip_h
 				lesson.boss_anchor = care_view.forehead_anchor()
+				lesson.boss_size = edge
 	var shadow: Sprite2D = m.g.get("db_shadow") as Sprite2D
 	if shadow != null and is_instance_valid(shadow):
 		var lift: float = clampf(float(m.g.get("db_y", 0.0)) / LEAP_H, 0.0, 1.0)

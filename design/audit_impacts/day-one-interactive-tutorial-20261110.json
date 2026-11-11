@@ -1,7 +1,7 @@
 {
   "id": "day-one-interactive-tutorial-20261110",
   "scope": "Follow up the 114-run Day One friction audit with a one-finger picture prompt after three active seconds without progress. Use one live target and its existing action or visual demonstration. Hide help during valid progress, actor travel, pause, focus loss and scene replacement. A stationary held finger sees the hint after the stall window. The hint becomes tappable on release.",
-  "baseline": "c6e5d1207a2d59e07a98ce4238a08850b35ac1f6",
+  "baseline": "ef2218fb941fb37d1c5b57c5218ae762e845dc93",
   "rules": [
     "DL-AUTH-05",
     "DL-AUTH-06",
@@ -91,12 +91,12 @@
     {
       "command": "Godot 4.7.2 fresh-save viewport touch, with and without tutorial help",
       "result": "PASS",
-      "evidence": "assisted-approved-castle-final used 34 help taps at (1600.0, 720.0). Route SHA-256 c1e12e80385d8601e148dea4e9684e26d9b7fd4fe5b73391b10007d08da1b653. Save SHA-256 6ae842877f460ecb834daee5073eebc8163cf9309ea24726d8ea84b46244cd9a. ordinary-approved-castle-final used 0 help taps at (1280.0, 720.0). Route SHA-256 0801f2d917a2aef266e6243f97a5b0e77be351f0fbca6bc9e3d4dcb023658377. Save SHA-256 cb14147c6928ff455f896e73f5c7ff710f28ed8c925a8ca9a4faa08ced2e59b8. Both isolated saves retain all four rooms, Grand Puff's defeat and Chapter 2. The assisted route verifies the held-touch hint, Baby Eagle's live rescue action, one star after a miss and both ending skips."
+      "evidence": "assisted-integrated-final used 34 help taps at (1600.0, 720.0). Route SHA-256 461e5409212a45fbe6d724714016729a4fe8a0314c24b5c21184bc2544d2ec18. Save SHA-256 6ae842877f460ecb834daee5073eebc8163cf9309ea24726d8ea84b46244cd9a. ordinary-integrated-final used 0 help taps at (1280.0, 720.0). Route SHA-256 084150acf374044ec1d0cb34feacb5b7513345d9ab965ec6b6cf1b2c10a8abe0. Save SHA-256 cb14147c6928ff455f896e73f5c7ff710f28ed8c925a8ca9a4faa08ced2e59b8. Both isolated saves retain all four rooms, Grand Puff's defeat and Chapter 2. The assisted route verifies the held-touch hint, Baby Eagle's live rescue action, one star after a miss and both ending skips."
     },
     {
       "command": "Godot 4.7.2 Mobile Vulkan 1280x720 sink tutorial capture",
       "result": "PASS",
-      "evidence": "The initial render exposed a caption overlap. The corrected control points up at the sink, and the live bounding boxes do not intersect. bathroom_sink.png SHA-256 7a51da61e7499a986d4c6e23d8a1cc0d89e92497b9bfbd2b884fb59f552d8ed2."
+      "evidence": "The final 1280x720 rendered touch route reached Chapter 2. The initial render exposed a caption overlap. The corrected sink control points at the basin and its bounds clear the caption. Route SHA-256 381785a89cfd921ac1452b6d4b8903ad68b4c8fbda1693bae7ebc8d5f0a605e6. Sink SHA-256 7a51da61e7499a986d4c6e23d8a1cc0d89e92497b9bfbd2b884fb59f552d8ed2. Waterfall SHA-256 92ef3337b6458cdf231a9db2eec83c8f67a23417695aaa52784dada739dfa458."
     },
     {
       "command": "python -B tools/audit_document_authority.py",
@@ -106,7 +106,7 @@
     {
       "command": "Godot 4.7.2 full-game probe and focused Day One probes",
       "result": "PASS",
-      "evidence": "The 60 fps probe_audit persisted all five wins on the restored approved layout. Day One handoffs and Sky Lagoon passed again, including the optional ride Back. Story clips and Grand Puff passed at 60 fps. The unchanged and tutorial builds both passed Slide at 60 fps after variable Windows scheduling produced failures. Final full probe SHA-256 313d57792c1d15c21cf1876c79b4462c1e93e7c6d09929b661adfd8da914f65f."
+      "evidence": "The 60 fps probe_audit persisted all five wins on the reconciled dev revision. Day One handoffs and Sky Lagoon passed again, including the optional ride Back. Story clips, the new Grand Puff cleaning guide audio and the combined encounter passed at 60 fps. The unchanged and tutorial builds both passed Slide at 60 fps after variable Windows scheduling produced failures. Final full probe SHA-256 3281d7f355457658130fd7702a0848bcdefb17d26e760b58b42ebc292259b000."
     },
     {
       "command": "Gold-star catalogue validation and repository study summary",
@@ -124,5 +124,6 @@
       "evidence": "Run the protected probe workflow for the published topic revision before integrating dev."
     }
   ],
-  "acceptance_gaps": "Target-phone readability and timing, speech listening, observed child comprehension and owner acceptance remain separate from machine probes."
+  "acceptance_gaps": "Target-phone readability and timing, speech listening, observed child comprehension and owner acceptance remain separate from machine probes.",
+  "reconciliation": "Reconciled with integrated Grand Puff cleaning at ef2218fb941fb37d1c5b57c5218ae762e845dc93 after the initial c6e5d1207a2d59e07a98ce4238a08850b35ac1f6 tutorial validation. The first six-second and later 5.5-second cleaning opportunities remain live. The same three-second tutorial prompt can now act inside the new cleaning sequence. No acceptance was inferred from this merge."
 }
