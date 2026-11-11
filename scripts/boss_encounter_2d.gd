@@ -86,7 +86,7 @@ func counter_window() -> float:
 	if profile == null:
 		return 0.0
 	var miss_limit: int = profile.patient_counter_after_misses
-	if miss_limit <= 0:
+	if miss_limit == 0:
 		miss_limit = profile.patient_after_attempts
 	if miss_limit > 0 and opening_misses >= miss_limit:
 		return INF

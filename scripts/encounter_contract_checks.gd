@@ -198,11 +198,16 @@ static func _check_patient_checkpoint(failures: Array[String]) -> void:
 	if restored.state != BossEncounter2D.State.COUNTER_READY:
 		_fail(failures, "Grand Puff replayed earned attacks after restore")
 	restored.open_counter()
-	if restored.tick_counter(300.0, true) or restored.try_counter(false, true, true) \
-			or restored.try_counter(true, false, true) or restored.completed_rounds != 1:
-		_fail(failures, "patient opening advanced from waiting, held, or off-target input")
+	var window: float = restored.counter_window()
+	if window < 5.0 or window > 7.0 or restored.tick_counter(window - 0.1, true) \
+			or restored.try_counter(false, true, true) or restored.try_counter(true, false, true):
+		_fail(failures, "Grand Puff opening expired early or accepted held/off-target input")
+	if not restored.tick_counter(0.2, true) or restored.completed_rounds != 1:
+		_fail(failures, "waiting through an opening did not produce a retry without progress")
+	restored.begin_attack(PLAYER_POSITION, BOSS_POSITION, ARENA_RADIUS)
+	restored.open_counter()
 	if not restored.try_counter(true, true, true) or restored.completed_attacks != 0:
-		_fail(failures, "patient opening rejected a fresh target or retained stale attack progress")
+		_fail(failures, "retry rejected a fresh target or retained stale attack progress")
 	var pepper := BossEncounter2D.new()
 	pepper.configure(EncounterProfile2D.pepper(), 1, 2, 2, 1)
 	if pepper.completed_attacks != 0 or pepper.patient_warning() or is_inf(pepper.counter_window()):

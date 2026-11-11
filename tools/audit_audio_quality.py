@@ -35,6 +35,7 @@ OBJECTIVE_GUIDE_TEXT = {
     "guide_dolls_catch_three": "Move left and right. Catch three sleepy dolls!",
     "guide_puff_cold_intro": "Grand Puff has a cold. Let's help!",
     "guide_puff_clean": "Tap his star to clean!",
+    "guide_puff_scrub": "Help scrub the dust off now!",
     "guide_puff_relief": "Ahh! That feels better!",
     "guide_puff_almost": "Nearly clean! One more gentle wash!",
     "guide_puff_healthy": "All clean! Feeling better!",
@@ -48,6 +49,7 @@ OBJECTIVE_GUIDE_SOURCE_ROOTS = {
 }
 OBJECTIVE_GUIDE_SOURCE_ROOTS.update({key: "assets_src/audio/reef_kart_items_20261105"
     for key in OBJECTIVE_GUIDE_TEXT if key.startswith("guide_kart_")})
+OBJECTIVE_GUIDE_SOURCE_ROOTS["guide_puff_scrub"] = "assets_src/audio/grand_puff_cleaning_tutorial_20261110"
 FILLER_MANIFEST_NAME = "FILLER_MANIFEST.json"
 TEACHER_ROOT_REL = "assets/audio/teacher/"
 TEACHER_MANIFEST_REL = "assets_src/teacher_learning_2026-09-05/audio_manifest.json"

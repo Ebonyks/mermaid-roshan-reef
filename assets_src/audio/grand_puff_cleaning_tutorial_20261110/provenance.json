@@ -1,0 +1,29 @@
+{
+  "text": "Help scrub the dust off now!",
+  "voice": "af_heart",
+  "language": "en-us",
+  "speed": 1.0,
+  "phonemes": "hˈɛlp skɹˈʌb ðə dˈʌst ˈɔf nˈaʊ!",
+  "local_synthesis_calls": 1,
+  "paid_api_calls": 0,
+  "upstream_model": "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX",
+  "model_license": "Apache-2.0",
+  "input_hashes": {
+    "model.onnx": "8fbea51ea711f2af382e88c833d9e288c6dc82ce5e98421ea61c058ce21a34cb",
+    "voices.bin": "b58979d4eb5b1fdbe783c93f9f43c21217cb8f07af9d3860547371a5b2c8b646"
+  },
+  "versions": {
+    "onnxruntime": "1.28.0",
+    "kokoro-onnx": "0.5.0",
+    "numpy": "2.5.1",
+    "soundfile": "0.14.0"
+  },
+  "ffmpeg_version": "ffmpeg version 8.1.2-essentials_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+  "generator_sha256": "0461b8a64049e153ff79b2e463c0162067f8fc44bc19e3237c3f58b185d505ad",
+  "native_sha256": "cd90c308599f1d17db0edc01f10c71fbf4556fce83a00af3a66455bf13e92acc",
+  "native_sample_rate": 24000,
+  "output_sha256": "b5d60e9f87cbf0433bf34d741681332f279edb5aa9172a21d53a749963729fae",
+  "output_codec": "Vorbis 48 kHz mono, q4",
+  "mastering_filter": "atrim=start_sample=5802:end_sample=45780,asetpts=PTS-STARTPTS,highpass=f=40,acompressor=threshold=-20dB:ratio=2.5:attack=5:release=80,loudnorm=I=-16:TP=-2.8:LRA=7:measured_I=-24.80:measured_TP=-11.50:measured_LRA=0.00:measured_thresh=-34.80:offset=0.10:linear=true",
+  "family_recordings_used": false
+}

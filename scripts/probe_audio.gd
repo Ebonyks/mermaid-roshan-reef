@@ -122,7 +122,7 @@ func _init() -> void:
 	var previous_game: String = main.game
 	main.game = "dustboss"
 	var audio: AudioDirector = main._audio_ref()
-	for event: String in ["puff_cold_intro", "puff_clean", "puff_relief", "puff_almost", "puff_healthy"]:
+	for event: String in ["puff_cold_intro", "puff_clean", "puff_scrub", "puff_relief", "puff_almost", "puff_healthy"]:
 		audio.objective_guide(event)
 		audio._say("roshan", "talk")
 		_check("care cue owns exact Guide speech " + event,

@@ -15,6 +15,8 @@ const ANIMATIONS: Dictionary = {
 	&"care_sneeze": {"fps": 6.0, "keys": [1, 2, 2, 0]},
 	&"care_sneeze_final": {"fps": 8.0, "keys": [1, 2, 2, 0]},
 	&"jump": {"fps": 6.0, "keys": [1, 2, 0, 0]},
+	&"care_fever": {"fps": 3.0, "loop": true, "keys": [0, 0, 1, 0]},
+	&"care_open": {"fps": 2.0, "loop": true, "keys": [0]},
 	&"laugh_vulnerable": {"fps": 5.0, "keys": [0, 3, 3, 3]},
 	&"flinch_1": {"fps": 12.0, "keys": [0, 3]},
 	&"flinch_2": {"fps": 12.0, "keys": [3, 3]},

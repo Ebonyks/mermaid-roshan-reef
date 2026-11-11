@@ -285,17 +285,19 @@ func _care_contract_case() -> void:
 					else attack.half_width, float(spec[1]))
 			index += 1
 	_ck("owner's original five circle/circle/lane steps and timings remain exact",
-		unchanged and index == expected.size() and EncounterProfile2D.grand_puff().counter_seconds == 3.2
-		and boss.encounter.profile.counter_seconds == (3.2 if boss._lesson_learned("counter") else 8.0))
+		unchanged and index == expected.size())
+	_ck("first cleaning starts with six seconds and later openings with five and a half",
+		is_equal_approx(boss.encounter.profile.counter_seconds, 6.0)
+		and is_equal_approx(EncounterProfile2D.grand_puff().counter_seconds, 5.5))
 	var frames: SpriteFrames = kit.sprite.sprite_frames
 	var cadence: bool = true
 	for pair: Array in [[&"care_sneeze", &"jump"], [&"care_sneeze_final", &"angry_jump_final"],
-			[&"laugh_vulnerable", &"laugh_vulnerable"], [&"flinch_1", &"flinch_1"],
+			[&"flinch_1", &"flinch_1"],
 			[&"flinch_2", &"flinch_2"], [&"flinch_3", &"flinch_3"]]:
 		var original: Dictionary = DustBunnyBossSprite.ANIMATION_SPECS[pair[1]]
 		cadence = cadence and frames.get_frame_count(pair[0]) == original["frames"].size() \
 			and frames.get_animation_speed(pair[0]) == float(original["fps"])
-	_ck("sneeze, counter and washing reactions preserve the original cadence", cadence)
+	_ck("sneeze and washing reactions preserve the original cadence", cadence)
 	kit.play_sneeze_warning()
 	_ck("warning reads as an intake of breath", kit.sprite.animation == &"care_breath")
 	kit.play_idle()
@@ -313,15 +315,16 @@ func _negative_input_case() -> void:
 		_state() == "tell" and _hits() == 0 and not _boss().patterns.tell_finished())
 	await _safe_navigation_case()
 	for _i in range(900):
-		if _state() == "vuln":
+		if _state() == "fever":
 			break
 		if _state() in ["tell", "strike"]:
 			await _move_one_frame_toward(_boss().danger_geometry().get("safe_point", Vector2.ZERO) as Vector2)
 		else:
 			await process_frame
 	main.touch_ui.stick_vec = Vector2.ZERO
-	_ck("real first dodge earns a real opening and saves the lesson",
-		_state() == "vuln" and bool(main.save_data.get("dustboss_lesson_dodge", false)))
+	_ck("real first dodge earns a fever pause and saves the lesson",
+		_state() == "fever" and bool(main.save_data.get("dustboss_lesson_dodge", false)))
+	await _first_cleaning_retry_case()
 	var checkpoint: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("user://reef_save.json")) as Dictionary
 	_ck("earned dodge is on disk before any save debounce", int(checkpoint.get("dustboss_pending_attacks", 0)) == 1 and not main.save_pending)
 	# Start an unearned attack fixture: the previous dodge is now preserved.
@@ -364,12 +367,59 @@ func _negative_input_case() -> void:
 		else:
 			main.touch_ui.stick_vec = Vector2.ZERO
 			await process_frame
-		if held_saw_vuln and _state() == "tell":
+		if held_saw_vuln and _state() == "counter_retry":
 			break
 	main.touch_ui.action_down = false
 	main.touch_ui.stick_vec = Vector2.ZERO
 	_ck("held action reaches an opening without auto-countering", held_saw_vuln and _hits() == hits_before)
 	_ck("no-input and held input cannot finish", main.game == "dustboss")
+
+func _first_cleaning_retry_case() -> void:
+	var boss: DustBossGame = _boss()
+	var lesson: DustBossLesson2D = main.g.get("db_lesson") as DustBossLesson2D
+	var initial_position := Vector2(float(main.g["db_x"]), float(main.g["db_z"]))
+	var hits_before: int = _hits()
+	var misses_before: int = boss.encounter.opening_misses
+	var fever_time: float = 0.0
+	var fever_planted: bool = true
+	while _state() == "fever" and fever_time < 4.0:
+		fever_time = float(main.g["db_st"])
+		fever_planted = fever_planted and initial_position == Vector2(
+			float(main.g["db_x"]), float(main.g["db_z"])) \
+			and not lesson.counter_open and boss.care_view._animation == &"care_fever"
+		await process_frame
+	_ck("after the sneeze Grand Puff shivers in place for a few seconds before the star",
+		fever_time >= 2.2 and fever_planted and _state() == "vuln")
+	_ck("the first tutorial highlights the live star and plays the requested Guide cue",
+		lesson.counter_open and lesson.focus_cleaning and boss.kit().vulnerable
+		and main._audio_ref()._active_required_key == "guide_puff_scrub"
+		and boss.care_view._animation == &"care_open")
+	var paused_time: float = boss.encounter.counter_elapsed
+	main.get_tree().paused = true
+	await _frames(12)
+	_ck("pausing freezes the first cleaning opportunity", paused_time == boss.encounter.counter_elapsed)
+	main.get_tree().paused = false
+	var visible_time: float = 0.0
+	while _state() == "vuln" and visible_time < 7.5:
+		visible_time = boss.encounter.counter_elapsed
+		await process_frame
+	_ck("first star stays available for six seconds before an unearned retry",
+		visible_time >= 5.8 and visible_time <= 6.1 and _state() == "counter_retry"
+		and not lesson.counter_open and not lesson.focus_cleaning and _hits() == hits_before)
+	var saw_hop: bool = false
+	for _i in range(350):
+		if _state() != "counter_retry":
+			break
+		saw_hop = saw_hop or float(main.g["db_y"]) > 0.3
+		await process_frame
+	_ck("missing the star gives a gentle hop and preserves the earned dodge",
+		saw_hop and _state() == "fever" and boss.encounter.opening_misses == misses_before + 1
+		and boss.encounter.completed_attacks == 1 and _hits() == hits_before)
+	await _wait_state(["vuln"], 350)
+	_ck("retry returns the same tutorial with no automatic progress",
+		_state() == "vuln" and lesson.counter_open and lesson.focus_cleaning and _hits() == hits_before)
+	# The following negative checks start an independent attack fixture.
+
 
 func _safe_navigation_case() -> void:
 	var boss: DustBossGame = _boss()
@@ -659,6 +709,10 @@ func _adaptive_completion_case() -> void:
 				used_world_touch = true
 				await _tap_corner_rejected()
 				await _tap_boss_world()
+			elif _hits() == 0:
+				var lesson: DustBossLesson2D = main.g.get("db_lesson") as DustBossLesson2D
+				var star: Vector2 = lesson.get_global_transform_with_canvas() * lesson.boss_anchor
+				await _push_screen_tap(star, 74)
 			else:
 				await _tap_edge()
 			if _hits() == 1 and not checkpoint_done:
