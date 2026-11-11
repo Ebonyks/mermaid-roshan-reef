@@ -119,6 +119,7 @@
     "assets_src/cinematics/claude_bathroom_action_audit_20261110/visual/wardrobe/ballet-work-tub.png",
     "assets_src/cinematics/claude_bathroom_action_audit_20261110/visual/wardrobe/magician-flight-carry-toilet-2.png",
     "assets_src/cinematics/claude_bathroom_action_audit_20261110/visual/wardrobe/magician-work-tub.png",
+    "audit/receipts/claude-bathroom-action-audit-publication-20261110.json",
     "design/05_DOC_LEDGER.md"
   ],
   "validation": [
@@ -141,6 +142,11 @@
       "command": "Independent Claude written review and Godot, device, child and owner acceptance",
       "result": "PENDING",
       "evidence": "assets_src/cinematics/claude_bathroom_action_audit_20261110/CLAUDE_REVIEW.txt. This packet is for independent analysis of the browser prototype."
+    },
+    {
+      "command": "Anonymous GitHub verification of manifest and every payload file",
+      "result": "PASS",
+      "evidence": "audit/receipts/claude-bathroom-action-audit-publication-20261110.json at payload revision 33a4405483860c7f543bf8ba8ba7abfe825c0c66"
     }
   ],
   "acceptance_gaps": "Independent Claude review, full-speed human visual acceptance, Godot integration, device performance, child playtesting and owner acceptance remain open. MA-PLAY-004 and MA-ROSHAN-006 remain open."
