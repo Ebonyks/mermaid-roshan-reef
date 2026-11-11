@@ -25,7 +25,8 @@
     "DL-CIN-16",
     "DL-QA-02",
     "DL-QA-05",
-    "DL-SAVE-04"
+    "DL-SAVE-04",
+    "DL-QA-07"
   ],
   "findings": [
     "MA-PLAY-001",
@@ -34,6 +35,7 @@
   ],
   "files": [
     "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/reference/games.json",
     "scripts/arena/castle_rooms_25d.gd",
     "scripts/arena/sky_lagoon_promenade.gd",
     "scripts/boss_splash_2d.gd",
@@ -105,6 +107,11 @@
       "command": "Godot 4.7.2 full-game probe and focused Day One probes",
       "result": "PASS",
       "evidence": "The 60 fps run of probe_audit persisted all five wins. The unchanged and tutorial builds both passed the Slide comparison at 60 fps after variable Windows scheduling produced failures. Handoffs, story clips and Grand Puff passed at 60 fps. Full probe transcript SHA-256 405494b6cc118d545d24e75929631b5c7a720ef59799ec7556c5f8e36556f859."
+    },
+    {
+      "command": "Gold-star catalogue validation and repository study summary",
+      "result": "PASS",
+      "evidence": "The first GitHub run stopped because the shared tutorial host was absent from the catalogue. A local negative control reproduces missing coverage. All seven entries now name it, the catalogue has no uncovered files, and the exact study summary assertions pass. Existing ratings and acceptance evidence retain their recorded status."
     },
     {
       "command": "Exact topic GitHub probes and integration",

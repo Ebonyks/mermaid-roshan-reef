@@ -20,6 +20,7 @@
     "scripts/day_one_contact_action_2d.gd"
    ],
    "host": [
+    "scripts/day_one_tutorial.gd",
     "scripts/day_one_director.gd",
     "scripts/arena/castle_rooms_25d.gd",
     "scripts/main.gd",
@@ -170,6 +171,7 @@
     "scripts/day_one_bathroom_movie_handoff.gd"
    ],
    "host": [
+    "scripts/day_one_tutorial.gd",
     "scripts/day_one_director.gd",
     "scripts/main.gd",
     "scripts/day_one_flow.gd"
@@ -275,7 +277,9 @@
    "sources": [
     "scripts/arena/castle_rooms_25d.gd"
    ],
-   "host": [],
+   "host": [
+    "scripts/day_one_tutorial.gd"
+   ],
    "probes": [
     "probe_stuffie",
     "probe_day_one_director"
@@ -372,6 +376,7 @@
     "scripts/day_one_art_furniture_2d.gd"
    ],
    "host": [
+    "scripts/day_one_tutorial.gd",
     "scripts/attack_customizer.gd",
     "scripts/day_one_director.gd",
     "scripts/main.gd",
@@ -456,6 +461,7 @@
     "scripts/games/octagon_stage.gd"
    ],
    "host": [
+    "scripts/day_one_tutorial.gd",
     "scripts/encounter_profile_2d.gd",
     "scripts/main.gd",
     "scripts/day_one_flow.gd"
@@ -4127,6 +4133,7 @@
     "scripts/stage_navigation_2d.gd"
    ],
    "host": [
+    "scripts/day_one_tutorial.gd",
     "scripts/main.gd",
     "scripts/navigation_controller.gd",
     "scripts/arena/sky_lagoon.gd",
@@ -4227,6 +4234,7 @@
     "scripts/arena/sky_lagoon_layout.json"
    ],
    "host": [
+    "scripts/day_one_tutorial.gd",
     "scripts/main.gd",
     "scripts/arena/sky_lagoon.gd"
    ],
