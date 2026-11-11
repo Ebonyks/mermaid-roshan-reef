@@ -91,7 +91,7 @@
     {
       "command": "Godot 4.7.2 fresh-save viewport touch, with and without tutorial help",
       "result": "PASS",
-      "evidence": "assisted-gesture-star-final used 34 help taps ((1600.0, 720.0)). Route SHA-256 2bbd59ba628428fdfcedde8a04f44a6497cde436e80a3b1e3657de941c450f0e. Save SHA-256 6ae842877f460ecb834daee5073eebc8163cf9309ea24726d8ea84b46244cd9a. ordinary-held-gesture-final used 0 help taps ((1280.0, 720.0)). Route SHA-256 53aef968ed79bf9adbd6d09e5f9a3234c67af6bf37ad8f6f747dee93b64ce045. Save SHA-256 cb14147c6928ff455f896e73f5c7ff710f28ed8c925a8ca9a4faa08ced2e59b8. Both verified isolated saves retain all four rooms, Grand Puff's defeat and Chapter 2. The assisted route checked one star after a miss and both ending skips. A real stationary touch saw the sink hint without cleaning, then released and tapped it."
+      "evidence": "assisted-approved-castle-final used 34 help taps at (1600.0, 720.0). Route SHA-256 c1e12e80385d8601e148dea4e9684e26d9b7fd4fe5b73391b10007d08da1b653. Save SHA-256 6ae842877f460ecb834daee5073eebc8163cf9309ea24726d8ea84b46244cd9a. ordinary-approved-castle-final used 0 help taps at (1280.0, 720.0). Route SHA-256 0801f2d917a2aef266e6243f97a5b0e77be351f0fbca6bc9e3d4dcb023658377. Save SHA-256 cb14147c6928ff455f896e73f5c7ff710f28ed8c925a8ca9a4faa08ced2e59b8. Both isolated saves retain all four rooms, Grand Puff's defeat and Chapter 2. The assisted route verifies the held-touch hint, Baby Eagle's live rescue action, one star after a miss and both ending skips."
     },
     {
       "command": "Godot 4.7.2 Mobile Vulkan 1280x720 sink tutorial capture",
@@ -106,12 +106,17 @@
     {
       "command": "Godot 4.7.2 full-game probe and focused Day One probes",
       "result": "PASS",
-      "evidence": "The 60 fps run of probe_audit persisted all five wins. The unchanged and tutorial builds both passed the Slide comparison at 60 fps after variable Windows scheduling produced failures. Handoffs, story clips and Grand Puff passed at 60 fps. Full probe transcript SHA-256 405494b6cc118d545d24e75929631b5c7a720ef59799ec7556c5f8e36556f859."
+      "evidence": "The 60 fps probe_audit persisted all five wins on the restored approved layout. Day One handoffs and Sky Lagoon passed again, including the optional ride Back. Story clips and Grand Puff passed at 60 fps. The unchanged and tutorial builds both passed Slide at 60 fps after variable Windows scheduling produced failures. Final full probe SHA-256 313d57792c1d15c21cf1876c79b4462c1e93e7c6d09929b661adfd8da914f65f."
     },
     {
       "command": "Gold-star catalogue validation and repository study summary",
       "result": "PASS",
       "evidence": "The first GitHub run stopped because the shared tutorial host was absent from the catalogue. A local negative control reproduces missing coverage. All seven entries now name it, the catalogue has no uncovered files, and the exact study summary assertions pass. Existing ratings and acceptance evidence retain their recorded status."
+    },
+    {
+      "command": "python -B tools/review_castle_interaction_frames_v4.py check",
+      "result": "PASS",
+      "evidence": "The second GitHub run rejected a changed approved layout digest. The Baby Eagle helper now uses the original castle contact method from the shared controller. The castle source is restored byte-for-byte from the baseline. The unedited approval ledger matches the regenerated candidate 6832b5f60b98e0df8973b76c2601f49f8ebfdffe65d4126bef88ba50b273ade0 for 12 assets and 96 frames."
     },
     {
       "command": "Exact topic GitHub probes and integration",

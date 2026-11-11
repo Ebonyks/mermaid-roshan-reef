@@ -245,5 +245,21 @@ func _room_offer() -> Dictionary:
 			if is_instance_valid(pool):
 				return pool.tutorial_offer()
 		"playroom":
-			return main._castle_rooms_ref().day_one_rescue_tutorial_offer()
+			return _rescue_offer()
+	return {}
+
+
+func _rescue_offer() -> Dictionary:
+	if not is_instance_valid(main.castle_room_stage):
+		return {}
+	var rooms: CastleRooms25D = main._castle_rooms_ref()
+	for pin: String in ["eagle_pin_left", "eagle_pin_right"]:
+		var record: Dictionary = main.castle_room_item_sprites.get(pin, {})
+		var sprite: Sprite2D = record.get("sprite") as Sprite2D
+		if is_instance_valid(sprite) and sprite.is_visible_in_tree() \
+				and not bool(sprite.get_meta("exploding", false)):
+			var foot: Vector2 = record["contact_foot"]
+			var point: Vector2 = main.castle_room_stage.get_global_transform_with_canvas() * foot
+			return DayOneTutorial.at(StringName(pin), point,
+				rooms._walk_cutout_to.bind(point, false), "Free Baby Eagle", null, rooms._pointer_down)
 	return {}
