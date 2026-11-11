@@ -1,0 +1,85 @@
+{
+  "id": "bathroom-action-review-20261111",
+  "scope": "Owner-requested independent secondary review of the rebound02 bathroom browser study, a Codex scene-revision work order, and the proposed scene acting rig pattern for game-wide reuse. Documentation and review evidence only; no runtime, asset or acceptance change.",
+  "baseline": "07e88a8beb26f8c0c0be0c63daa3c2128f78ffaf",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-05",
+    "DL-AGE-07",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-INT-04",
+    "DL-MED-01",
+    "DL-MED-02",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16",
+    "DL-ASSET-01",
+    "DL-QA-01",
+    "DL-QA-02"
+  ],
+  "findings": [],
+  "finding_scope": "Review IDs C-01..C-12 are not canonical findings. Promotion to ACTIVE_FINDINGS requires owner triage. No lifecycle changes.",
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/audit_impacts/bathroom-action-review-20261111.json",
+    "docs/handoffs/claude_bathroom_action_review_2026-11-11/.gdignore",
+    "docs/handoffs/claude_bathroom_action_review_2026-11-11/README.md",
+    "docs/handoffs/claude_bathroom_action_review_2026-11-11/evidence/trace_summary.json",
+    "docs/handoffs/claude_bathroom_action_review_2026-11-11/evidence/trace_watch_30fps.json",
+    "docs/handoffs/claude_bathroom_action_review_2026-11-11/evidence/probes/child.cjs",
+    "docs/handoffs/claude_bathroom_action_review_2026-11-11/evidence/probes/child2.cjs",
+    "docs/handoffs/claude_bathroom_action_review_2026-11-11/evidence/probes/trace.cjs",
+    "docs/handoffs/claude_bathroom_action_review_2026-11-11/evidence/probes/sheet.py",
+    "docs/handoffs/claude_bathroom_action_review_2026-11-11/evidence/probes/child_results.txt",
+    "docs/handoffs/claude_bathroom_action_review_2026-11-11/evidence/sheets/carry_left_mid.jpg",
+    "docs/handoffs/claude_bathroom_action_review_2026-11-11/evidence/sheets/plates.jpg",
+    "docs/handoffs/claude_bathroom_action_review_2026-11-11/evidence/sheets/sink_reveal.jpg",
+    "docs/handoffs/claude_bathroom_action_review_2026-11-11/evidence/sheets/toilet_reveal.jpg",
+    "docs/handoffs/claude_bathroom_action_review_2026-11-11/evidence/sheets/tub_reveal.jpg",
+    "docs/handoffs/claude_bathroom_action_review_2026-11-11/evidence/sheets/tub_work.jpg",
+    "docs/handoffs/claude_bathroom_action_review_2026-11-11/evidence/sheets/turn_into_left.jpg",
+    "docs/handoffs/claude_bathroom_action_review_2026-11-11/evidence/sheets/turn_out_sink.jpg",
+    "docs/handoffs/codex_bathroom_scene_revision_2026-11-11/README.md"
+  ],
+  "validation": [
+    {
+      "command": "python -B verify_packet.py (packet at 07e88a8b)",
+      "result": "PASS",
+      "evidence": "97 payload files; digest ec6638ec434be53799249c3a6da7ba14527c12fe4e10c8b66a7b6d44e59cdf7d"
+    },
+    {
+      "command": "node child.cjs / child2.cjs against packet HTML d74802ef (headless Chromium SwiftShader, test-API input)",
+      "result": "MEASURED",
+      "evidence": "docs/handoffs/claude_bathroom_action_review_2026-11-11/evidence/probes/child_results.txt; two identical runs"
+    },
+    {
+      "command": "node trace.cjs watch-mode 30 fps trace (974 samples)",
+      "result": "MEASURED",
+      "evidence": "docs/handoffs/claude_bathroom_action_review_2026-11-11/evidence/trace_summary.json"
+    },
+    {
+      "command": "ffmpeg decode of visual/walkthrough.mp4 (975 frames) and frame-step contact sheets",
+      "result": "REVIEWED_IN_FRAMES",
+      "evidence": "docs/handoffs/claude_bathroom_action_review_2026-11-11/evidence/sheets/"
+    }
+  ],
+  "acceptance_gaps": "Synthetic test-API input only; no real-time viewing with audio, no real touch, device, child or owner evidence; no Godot run. Ballet and Magician reviewed only through the four packet stills. Owner decisions OD-1 (runtime rig representation) and OD-2 (contract v2) pending; CLAUDE.md and AGENTS.md wording unchanged.",
+  "change_record": null,
+  "lessons": [
+    {
+      "lesson": "Numerical rig gates (strain, socket error) passed while child-facing defects remained in plate registration, payoff, gesture coverage and target size. Review gates must include a gesture matrix and a before/after registration check, not only pose sampling.",
+      "write_back": "audit/MASTER_AUDIT_2026-08-09.md#scene-acting-rig-pattern-bathroom-study"
+    },
+    {
+      "lesson": "Screen-space prop angles silently invert meaning when the actor mirrors; carry angles must be facing-relative.",
+      "write_back": "docs/handoffs/codex_bathroom_scene_revision_2026-11-11/README.md WO-A3"
+    }
+  ]
+}

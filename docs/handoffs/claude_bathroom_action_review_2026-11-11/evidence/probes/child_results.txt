@@ -1,0 +1,26 @@
+# Gesture matrix, exact packet HTML sha256 d74802ef0e468568c3223b25f8735220b065cd7fb76bf476de36822215f35a1d, headless Chromium SwiftShader, test API input
+# seconds = simulated seconds from 'ready' to completion; '>40' = not complete after 40 s of continuous gesture
+## child.cjs
+sink watch-like ring 41x11 @0.4Hz          {"fi":0,"seconds":3.02,"progress":"1.00"}
+sink child ring 60x30 @0.8Hz               {"fi":0,"seconds":2.58,"progress":"1.00"}
+sink child fast scribble 50x25 @3Hz        {"fi":0,"seconds":2.58,"progress":"1.00"}
+sink tiny wiggle 10x6 @1.5Hz               {"fi":0,"seconds":">40","progress":"0.031"}
+sink offset+20,+18 ring 45x25 @0.8Hz       {"fi":0,"startRejected":true,"first":[620,215]}
+tub child sweep ±70 @0.7Hz                 {"fi":1,"seconds":2.58,"progress":"1.00"}
+tub short sweep ±35 @1Hz                   {"fi":1,"seconds":">40","progress":"0.792"}
+tub fast sweep ±60 @3Hz                    {"fi":1,"seconds":2.58,"progress":"1.00"}
+tub offset y+30 sweep ±70                  {"fi":1,"seconds":">40","progress":"0.982"}
+toilet watch-like ring 22x7 @0.4Hz         {"fi":2,"seconds":3.32,"progress":"1.00"}
+toilet child ring 40x25 @0.8Hz             {"fi":2,"seconds":2.58,"progress":"1.00"}
+toilet child ring 55x35 @0.8Hz             {"fi":2,"startRejected":true,"first":[887,263]}
+toilet offset+15,+15 ring 35x20            {"fi":2,"startRejected":true,"first":[882,277]}
+toilet fast scribble 35x20 @3Hz            {"fi":2,"seconds":2.58,"progress":"1.00"}
+tap during carry accepted                  false
+tap off-brush in wait accepted             false
+## child2.cjs
+sink back-and-forth ±40 @1.5Hz             {"fi":0,"seconds":">40","progress":"0.571"}
+toilet back-and-forth ±25 @1.5Hz           {"fi":2,"seconds":">40","progress":"0.571"}
+tub circles 60x20 @0.8Hz                   {"fi":1,"seconds":2.58,"progress":"1.00"}
+sink ring drifting +45px down after 1s     {"fi":0,"seconds":5.92,"progress":"1.00"}
+toilet ring drifting +35px right after 1s  {"fi":2,"seconds":3.13,"progress":"1.00"}
+tub sweep ±70 drifting +40 down after 1s   {"fi":1,"seconds":3.47,"progress":"1.00"}

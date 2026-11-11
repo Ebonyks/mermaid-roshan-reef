@@ -1,0 +1,98 @@
+{
+ "source": "trace.cjs watch-mode run of bathroom_playtest.html (HTML sha256 d74802ef...); one sample per 30 fps frame; logical 1024x576 px",
+ "samples": 974,
+ "travel_step_px": {
+  "tail": {
+   "median": 5.02,
+   "p95": 9.64
+  },
+  "head": {
+   "median": 4.43,
+   "p95": 8.68
+  },
+  "root": {
+   "median": 4.97,
+   "p95": 8.88
+  },
+  "palm": {
+   "median": 4.85,
+   "p95": 8.91
+  }
+ },
+ "view_swaps": [
+  {
+   "t": 3.967,
+   "frame30": 119,
+   "from_facing": 1,
+   "to_facing": -1,
+   "fluke_step_px": 126.0,
+   "head_step_px": 31.9,
+   "root_step_px": 8.6,
+   "palm_step_px": 12.8
+  },
+  {
+   "t": 7.433,
+   "frame30": 223,
+   "from_facing": -1,
+   "to_facing": 1,
+   "fluke_step_px": 120.1,
+   "head_step_px": 28.9,
+   "root_step_px": 9.9,
+   "palm_step_px": 13.1
+  },
+  {
+   "t": 12.733,
+   "frame30": 382,
+   "from_facing": 1,
+   "to_facing": -1,
+   "fluke_step_px": 124.6,
+   "head_step_px": 28.7,
+   "root_step_px": 8.0,
+   "palm_step_px": 10.8
+  },
+  {
+   "t": 15.833,
+   "frame30": 475,
+   "from_facing": -1,
+   "to_facing": 1,
+   "fluke_step_px": 124.2,
+   "head_step_px": 24.4,
+   "root_step_px": 12.1,
+   "palm_step_px": 9.1
+  }
+ ],
+ "left_carry": {
+  "samples": 197,
+  "min_bristle_to_fluke_px": 30.1,
+  "bristles_trailing_palm_pct": 100.0,
+  "mean_brush_angle_rad": 0.29
+ },
+ "right_carry_toilet": {
+  "samples": 128,
+  "min_bristle_to_fluke_px": 102.0,
+  "bristles_trailing_palm_pct": 53.9
+ },
+ "phase_seconds": {
+  "wait": 0.67,
+  "approach": 2.17,
+  "grasp": 0.83,
+  "carry": 11.83,
+  "ready": 2.57,
+  "work": 10.37,
+  "settle": 2.8,
+  "done": 1.2
+ },
+ "non_interactive_seconds": 18.3,
+ "tub_work_excursion_px": {
+  "root_x_range": 17.0,
+  "bristle_x_range": 109.0
+ },
+ "sink_work_excursion_px": {
+  "root_x_range": 19.3,
+  "bristle_x_range": 82.5
+ },
+ "toilet_work_excursion_px": {
+  "root_x_range": 4.4,
+  "bristle_x_range": 44.8
+ }
+}
