@@ -1077,6 +1077,10 @@ func _ready() -> void:
 		dev_mode = preload("res://scripts/dev_mode.gd").new()
 		add_child(dev_mode)
 	_build_pause()
+	var day_one_tutorial := DayOneTutorial.new()
+	day_one_tutorial.name = "DayOneTutorial"
+	day_one_tutorial.main = self
+	add_child(day_one_tutorial)
 	_load_save()
 	_init_touch_experiment()
 	# Display builds defer the authored gatehouse entry until the start menu

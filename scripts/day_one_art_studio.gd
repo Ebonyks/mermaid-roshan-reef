@@ -119,6 +119,8 @@ func refresh_from_state() -> void:
 		var material_card: Sprite2D = _material_art.get(material_id) as Sprite2D
 		if material_card != null:
 			material_card.visible = not collected
+			material_card.self_modulate = Color(1.24, 1.13, 0.86) \
+				if _pending_kind == "material" and _pending_id == material_id else Color.WHITE
 		var material_shadow: Sprite2D = _material_shadows.get(material_id) as Sprite2D
 		if material_shadow != null:
 			material_shadow.visible = not collected
@@ -306,6 +308,7 @@ func _on_material_pressed(material_id: String) -> void:
 	if m == null or _pending_id != "" or not _contact_action.available() \
 			or bool(m.day_one_art_collected_materials.get(material_id, false)):
 		return
+	m._ui_tap()
 	_pending_kind = "material"
 	_pending_id = material_id
 	if not _contact_action.request(_material_center(material_id),
@@ -450,8 +453,27 @@ func _on_customization_confirmed(_result: Variant = null) -> void:
 		refresh_from_state()
 
 
+func tutorial_offer() -> Dictionary:
+	if _pending_id != "" or _customizer_open or _tearing_down:
+		return {}
+	for material: Dictionary in MATERIALS:
+		var material_id: String = material["id"]
+		if not bool(m.day_one_art_collected_materials.get(material_id, false)):
+			return DayOneTutorial.for_button(StringName("art_" + material_id),
+				_material_buttons.get(material_id) as Button, "Pick up the " + String(material["label"]))
+	for grime: Dictionary in GRIME:
+		var grime_id: String = grime["id"]
+		if not bool(m.day_one_art_cleaned_grime.get(grime_id, false)):
+			return DayOneTutorial.for_button(StringName("art_" + grime_id),
+				_grime_buttons.get(grime_id) as Button, "Scrub this spot")
+	return DayOneTutorial.for_button(&"art_desk", _desk_button, "Open the glowing paint desk")
+
+
 func _refresh_pointer() -> void:
 	if _pointer == null:
+		return
+	if _pending_id != "":
+		_pointer.hide()
 		return
 	var target: Vector2 = Vector2.ZERO
 	var found: bool = false

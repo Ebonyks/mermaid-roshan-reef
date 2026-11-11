@@ -1,0 +1,116 @@
+{
+  "id": "day-one-interactive-tutorial-20261110",
+  "scope": "Follow up the 114-run Day One friction audit with a one-finger picture prompt after three active seconds without progress. Use one live target and its existing action or visual demonstration. Hide help during valid progress, actor travel, pause, focus loss and scene replacement. A stationary held finger sees the hint after the stall window. The hint becomes tappable on release.",
+  "baseline": "c6e5d1207a2d59e07a98ce4238a08850b35ac1f6",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-05",
+    "DL-AGE-06",
+    "DL-AGE-07",
+    "DL-READ-02",
+    "DL-READ-03",
+    "DL-UI-01",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-INT-02",
+    "DL-MOT-04",
+    "DL-SND-01",
+    "DL-CIN-16",
+    "DL-QA-02",
+    "DL-QA-05",
+    "DL-SAVE-04"
+  ],
+  "findings": [
+    "MA-PLAY-001",
+    "MA-PLAY-006",
+    "MA-TOUCH-003"
+  ],
+  "files": [
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "scripts/arena/castle_rooms_25d.gd",
+    "scripts/arena/sky_lagoon_promenade.gd",
+    "scripts/boss_splash_2d.gd",
+    "scripts/day_one_art_studio.gd",
+    "scripts/day_one_tutorial.gd",
+    "scripts/games/day_one_bathroom_cleaning.gd",
+    "scripts/games/day_one_bathroom_cleanup.gd",
+    "scripts/games/day_one_bathroom_toilet.gd",
+    "scripts/games/day_one_pool_cleanup.gd",
+    "scripts/games/dust_boss.gd",
+    "scripts/games/pool_seahorse_rescue_activity.gd",
+    "scripts/games/pool_skimmer_activity.gd",
+    "scripts/games/pool_waterfall_activity.gd",
+    "scripts/main.gd",
+    "scripts/probe_day_one_handoffs.gd",
+    "scripts/probe_l2.gd"
+  ],
+  "route_coverage": [
+    {
+      "moment": "Opening and room story clips, post-boss transformation and epilogue",
+      "help": "Offer the clip's existing Skip action after the stall window. Preserve its existing ownership and authored cuts."
+    },
+    {
+      "moment": "Lagoon castle gate and optional playground ride",
+      "help": "Point to the castle gate and use its existing entry. Offer Back during the playground ride to request its normal settle."
+    },
+    {
+      "moment": "Completed rooms and hall",
+      "help": "Reinforce the real Back action, then point to the next glowing door. Each control retains its local route."
+    },
+    {
+      "moment": "Bathroom basket, sink, tub drain, tub brush and toilet",
+      "help": "Tap the basket or drain through its current handler. The scrub hints replay the existing motions, and only a live scrub earns progress."
+    },
+    {
+      "moment": "Pool skimmer, waterfall, seahorse and celebration",
+      "help": "A deliberate help tap asks for one scoop, one partial strip scrub or one tug through the existing contact rules. The earned pool reveal keeps its full voice before the clip. Skip becomes available once the clip owns input."
+    },
+    {
+      "moment": "Playroom rescue and adoption",
+      "help": "Point to one live rescue pin, then to confirmation of the currently selected friend."
+    },
+    {
+      "moment": "Art Studio pickup, grime and paint desk",
+      "help": "Point to the next loose supply, grime spot, desk or confirmation. A selected supply brightens and answers at once as Roshan travels. The item enters the save at its original contact and storage completion."
+    },
+    {
+      "moment": "Grand Puff greeting, first floor move, dodge, open star and between-round pause",
+      "help": "Offer the greeting shortcut once speech has ended, then use the current floor or star target. Help is inactive during strike, travel and ending beats."
+    }
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2 fresh-save viewport touch, with and without tutorial help",
+      "result": "PASS",
+      "evidence": "assisted-gesture-star-final used 34 help taps ((1600.0, 720.0)). Route SHA-256 2bbd59ba628428fdfcedde8a04f44a6497cde436e80a3b1e3657de941c450f0e. Save SHA-256 6ae842877f460ecb834daee5073eebc8163cf9309ea24726d8ea84b46244cd9a. ordinary-held-gesture-final used 0 help taps ((1280.0, 720.0)). Route SHA-256 53aef968ed79bf9adbd6d09e5f9a3234c67af6bf37ad8f6f747dee93b64ce045. Save SHA-256 cb14147c6928ff455f896e73f5c7ff710f28ed8c925a8ca9a4faa08ced2e59b8. Both verified isolated saves retain all four rooms, Grand Puff's defeat and Chapter 2. The assisted route checked one star after a miss and both ending skips. A real stationary touch saw the sink hint without cleaning, then released and tapped it."
+    },
+    {
+      "command": "Godot 4.7.2 Mobile Vulkan 1280x720 sink tutorial capture",
+      "result": "PASS",
+      "evidence": "The initial render exposed a caption overlap. The corrected control points up at the sink, and the live bounding boxes do not intersect. bathroom_sink.png SHA-256 7a51da61e7499a986d4c6e23d8a1cc0d89e92497b9bfbd2b884fb59f552d8ed2."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "ALL OK in the audit checkout with all Git-declared Markdown and linked files hydrated from the baseline and the edited finding copied exactly."
+    },
+    {
+      "command": "Godot 4.7.2 full-game probe and focused Day One probes",
+      "result": "PASS",
+      "evidence": "The 60 fps run of probe_audit persisted all five wins. The unchanged and tutorial builds both passed the Slide comparison at 60 fps after variable Windows scheduling produced failures. Handoffs, story clips and Grand Puff passed at 60 fps. Full probe transcript SHA-256 405494b6cc118d545d24e75929631b5c7a720ef59799ec7556c5f8e36556f859."
+    },
+    {
+      "command": "Exact topic GitHub probes and integration",
+      "result": "PENDING",
+      "evidence": "Run the protected probe workflow for the published topic revision before integrating dev."
+    }
+  ],
+  "acceptance_gaps": "Target-phone readability and timing, speech listening, observed child comprehension and owner acceptance remain separate from machine probes."
+}

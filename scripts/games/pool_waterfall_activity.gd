@@ -254,6 +254,21 @@ func _gui_input(event: InputEvent) -> void:
 		accept_event()
 
 
+func tutorial_offer() -> Dictionary:
+	var lane: int = _first_uncleared_lane()
+	if not _active or lane < 0 or (_contact_action != null and _contact_action.active):
+		return {}
+	var point: Vector2 = get_global_transform_with_canvas() * _lane_rect(lane).get_center()
+	return DayOneTutorial.at(&"pool_waterfall", point, _help_scrub.bind(lane),
+		"Help scrub this strip", _lane_progress[lane] + float(lane), _touch_active)
+
+
+func _help_scrub(lane: int) -> void:
+	var point: Vector2 = _lane_rect(lane).get_center()
+	_begin_touch(point, -2)
+	_end_touch(point, -2)
+
+
 func _begin_touch(point: Vector2, touch_id: int) -> void:
 	if _touch_active:
 		return

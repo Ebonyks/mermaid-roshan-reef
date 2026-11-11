@@ -628,6 +628,31 @@ func _victory_message(bumps: int, tier: int) -> String:
 	return "A bronze star! Thank you for helping Grand Puff feel better!"
 
 # ---- the verbs -------------------------------------------------------------
+func tutorial_offer() -> Dictionary:
+	var state: String = m.g.get("db_state", "")
+	if state == "splash":
+		var splash: BossSplash2D = m.g.get("db_splash") as BossSplash2D
+		if not is_instance_valid(splash):
+			return {}
+		var offer: Dictionary = splash.tutorial_offer()
+		if not offer.is_empty():
+			offer["ready"] = not m._audio_ref()._has_active_speech()
+		return offer
+	var lesson: DustBossLesson2D = m.g.get("db_lesson") as DustBossLesson2D
+	if not is_instance_valid(lesson):
+		return {}
+	if lesson.counter_open:
+		var star: Vector2 = lesson.get_global_transform_with_canvas() * lesson.boss_anchor
+		return DayOneTutorial.at(&"puff_star", star, on_world_tap.bind(star), "Tap his star")
+	if lesson.mode == "move" or lesson.mode == "dash":
+		if _world_move_active and navigation.travelling:
+			return {}
+		var floor: Vector2 = lesson.get_global_transform_with_canvas() * lesson.target
+		return DayOneTutorial.at(StringName("puff_" + state), floor,
+			on_world_tap.bind(floor), "Move to this spot")
+	return {}
+
+
 func on_world_tap(screen_pos: Vector2) -> void:
 	_world_move_active = false
 	if not _can_world_move():

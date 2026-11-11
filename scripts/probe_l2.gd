@@ -945,7 +945,13 @@ func _validate_targets_and_touch() -> void:
 			main._navigation_ref().top_id() == SkyLagoonPromenade.DAY_ONE_PLAY_ROUTE
 			and button.is_visible_in_tree() and not button.disabled
 			and button.get_meta("global_navigation_mode", "") == "back")
-		button.button_down.emit()
+		var tutorial: DayOneTutorial = main.get_node("DayOneTutorial") as DayOneTutorial
+		tutorial._process(0.0)
+		tutorial._process(DayOneTutorial.HELP_SECONDS + 0.01)
+		_check("day_one_playground_help_appears_without_stopping_the_ride",
+			tutorial.button.visible and tutorial._step == &"playground_back"
+			and not (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty())
+		tutorial.button.pressed.emit()
 		_check("day_one_playground_back_uses_the_authored_settle",
 			(main.g.get("lagoon_play_anim", {}) as Dictionary).get("phase") == "settle")
 		promenade._tick_playground_animation(SkyLagoonPromenade.PLAY_SETTLE_S)

@@ -343,6 +343,22 @@ func _gui_input(event: InputEvent) -> void:
 			accept_event()
 
 
+func tutorial_offer() -> Dictionary:
+	if not _running or _completed or _target_index >= 0:
+		return {}
+	for index: int in range(TRASH_COUNT):
+		if (_progress_mask & (1 << index)) == 0:
+			var point: Vector2 = get_global_transform_with_canvas() * _trash_contact_position(index)
+			return DayOneTutorial.at(&"pool_skimmer", point, _help_scoop.bind(index),
+				"Scoop up this piece", _progress_mask, _dragging)
+	return {}
+
+
+func _help_scoop(index: int) -> void:
+	_begin_live_drag(_trash_contact_position(index))
+	_dragging = false
+
+
 func _begin_live_drag(position: Vector2) -> void:
 	_dragging = true
 	_last_input_time = _demo_time

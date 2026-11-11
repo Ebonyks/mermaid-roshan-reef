@@ -262,6 +262,16 @@ func identity_color_preserved() -> bool:
 	return true
 
 
+func tutorial_offer() -> Dictionary:
+	if _busy or _finale_started:
+		return {}
+	match _phase:
+		0: return skimmer_activity.tutorial_offer()
+		1: return waterfall_activity.tutorial_offer()
+		2: return seahorse_activity.tutorial_offer()
+	return {}
+
+
 func _process(delta: float) -> void:
 	if _reveal_beat_active:
 		_advance_reveal_beat(maxf(delta, 0.0))

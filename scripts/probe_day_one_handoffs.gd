@@ -22,6 +22,7 @@ func _run_probe() -> void:
 	main.start_menu_active = false
 	main.intro_active = false
 	main.day_one_active = true
+	main.game = "level2"
 	main.day_one_cleaned_rooms.assign({
 		"bathroom": true, "pool": true, "stuffie": true, "art": true})
 	main.global_navigation_button = Button.new()
@@ -72,7 +73,18 @@ func _run_probe() -> void:
 			back.scale.x > 1.0 and back.self_modulate != Color.WHITE)
 		var save_before: Dictionary = \
 			main._day_one_ref().serialize_state().duplicate(true)
-		main._navigation_ref().press()
+		var tutorial: DayOneTutorial = main.get_node("DayOneTutorial") as DayOneTutorial
+		tutorial._process(0.0)
+		tutorial._process(DayOneTutorial.HELP_SECONDS - 0.05)
+		_check("help stays out of the way before the idle deadline", not tutorial.visible and not tutorial.button.visible)
+		tutorial._process(0.10)
+		_check("waiting exposes one picture control without leaving",
+			tutorial.button.visible and tutorial.button.size.x >= 110.0
+			and main.castle_room_id == String(handoff["source"])
+			and main._day_one_ref().serialize_state() == save_before)
+		tutorial.button.pressed.emit()
+		tutorial._process(0.0)
+		_check("help disappears when its room is left", not tutorial.visible and not tutorial.button.visible)
 		_check("Back resets its cue in the hall", back.scale == Vector2.ONE
 			and back.self_modulate == Color.WHITE
 			and main._navigation_ref()._handoff_pulse == null)

@@ -222,6 +222,18 @@ func _draw() -> void:
 			and _finger == -1:
 		draw_arc(CENTER, 48.0, -0.8, TAU - 0.8, 28, Color(0.46, 0.91, 0.86, 0.7), 5.5, true)
 
+func tutorial_offer() -> Dictionary:
+	if not _arrived or _done or _focus_suspended or _pause_suspended:
+		return {}
+	return DayOneTutorial.at(&"bathroom_toilet", get_global_transform_with_canvas() * CENTER,
+		_replay_guide, "See how to scrub the toilet", _arc, _finger != -1)
+
+
+func _replay_guide() -> void:
+	_time = 0.0
+	_announce()
+
+
 func _announce() -> void:
 	if _announcements and m != null:
 		if m.hud_msg != null:

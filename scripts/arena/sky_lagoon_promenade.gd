@@ -343,6 +343,15 @@ func tick(delta: float) -> void:
 	_tick_target_affordances(String(m.g.get("lagoon_promenade_focus", "")), focus_t)
 	_apply_view_transform()
 
+func tutorial_offer() -> Dictionary:
+	var target: Dictionary = _target_by_id("castle_gate")
+	var gate: Node2D = target.get("node") as Node2D
+	if not is_instance_valid(gate) or not gate.is_visible_in_tree():
+		return {}
+	return DayOneTutorial.at(&"lagoon_gate", screen_from_master(gate.position),
+		_activate.bind(target), "Go to the castle")
+
+
 func handle_touch(screen_pos: Vector2) -> bool:
 	if not (m.g.get("lagoon_play_anim", {}) as Dictionary).is_empty():
 		return true

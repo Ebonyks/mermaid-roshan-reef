@@ -284,6 +284,15 @@ func _gui_input(event: InputEvent) -> void:
 		accept_event()
 
 
+func tutorial_offer() -> Dictionary:
+	if not _active or _completed or _completion_started \
+			or (_contact_action != null and _contact_action.active):
+		return {}
+	var point: Vector2 = _tap_region.get_center()
+	return DayOneTutorial.at(&"pool_seahorse", get_global_transform_with_canvas() * point,
+		_register_tap.bind(point), "Help tug the seahorse's litter", _taps, _touch_active)
+
+
 func _begin_press(touch_id: int, point: Vector2) -> void:
 	_touch_active = true
 	_touch_id = touch_id

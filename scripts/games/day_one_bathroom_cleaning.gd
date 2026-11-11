@@ -978,6 +978,32 @@ func _emit_completion_once() -> void:
 	cleanup_completed.emit()
 
 
+func tutorial_offer() -> Dictionary:
+	if _step >= 2:
+		return _toilet_stage.tutorial_offer() if is_instance_valid(_toilet_stage) else {}
+	if _busy:
+		return {}
+	var canvas: Transform2D = get_global_transform_with_canvas()
+	if _step == 0:
+		return DayOneTutorial.at(&"bathroom_sink", canvas * SINK_CENTER,
+			_replay_gesture_guide, "See how to scrub the sink",
+			_sink_visual_progress_max, _input_finger_down)
+	if not _tub_drained:
+		if not _tub_drain_ready:
+			return {}
+		return DayOneTutorial.at(&"bathroom_drain", canvas * TUB_CENTER,
+			_begin_tub_drain_reaction, "Drain the tub", null, _input_finger_down)
+	return DayOneTutorial.at(&"bathroom_brush", canvas * TUB_CENTER,
+		_replay_gesture_guide, "See how to brush the tub",
+		_tub_visual_progress_max, _input_finger_down)
+
+
+func _replay_gesture_guide() -> void:
+	_demonstration_time = 0.0
+	_pulse_pointer()
+	_announce_stage(false)
+
+
 func _announce_stage(reset_idle: bool = true) -> void:
 	if reset_idle:
 		_stage_idle_seconds = 0.0

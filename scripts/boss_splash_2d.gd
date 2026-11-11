@@ -266,6 +266,16 @@ func current_beat() -> String:
 	return "exit"
 
 
+func tutorial_offer() -> Dictionary:
+	if teach_counter or _done or not is_instance_valid(_stage):
+		return {}
+	var point: Vector2 = _stage.get_global_transform_with_canvas() * Vector2(1050.0, 620.0)
+	var offer: Dictionary = DayOneTutorial.at(&"puff_greeting", point, _complete, "Help Grand Puff")
+	offer["delay"] = 2.35
+	offer["layer"] = 43
+	return offer
+
+
 func cancel() -> void:
 	if _done:
 		return

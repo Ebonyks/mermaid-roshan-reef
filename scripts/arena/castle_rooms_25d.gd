@@ -5030,6 +5030,21 @@ func _add_playroom_rescue_pointer() -> void:
 	pulse.parallel().tween_property(pointer, "scale", Vector2.ONE * 0.052,
 		0.42).set_trans(Tween.TRANS_SINE)
 
+func day_one_rescue_tutorial_offer() -> Dictionary:
+	if not is_instance_valid(m.castle_room_stage):
+		return {}
+	for pin: String in ["eagle_pin_left", "eagle_pin_right"]:
+		var record: Dictionary = m.castle_room_item_sprites.get(pin, {})
+		var sprite: Sprite2D = record.get("sprite") as Sprite2D
+		if is_instance_valid(sprite) and sprite.is_visible_in_tree() \
+				and not bool(sprite.get_meta("exploding", false)):
+			var foot: Vector2 = record["contact_foot"]
+			var point: Vector2 = m.castle_room_stage.get_global_transform_with_canvas() * foot
+			return DayOneTutorial.at(StringName(pin), point,
+				_walk_cutout_to.bind(point, false), "Free Baby Eagle", null, _pointer_down)
+	return {}
+
+
 func _check_playroom_rescue_complete() -> void:
 	if m.castle_room_id != "playroom" or _playroom_rescue_done():
 		return

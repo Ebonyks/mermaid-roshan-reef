@@ -786,6 +786,14 @@ func _complete_supply_hunt() -> void:
 	begin_cleaning_handoff()
 
 
+func tutorial_offer() -> Dictionary:
+	if is_instance_valid(_cleaning_stage):
+		return _cleaning_stage.tutorial_offer()
+	if _hunt_completed or _busy:
+		return {}
+	return DayOneTutorial.for_button(&"bathroom_basket", _basket_button, "Open the cleaning basket")
+
+
 func _on_basket_tapped() -> void:
 	if _hunt_completed or _busy:
 		return
