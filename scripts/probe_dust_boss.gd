@@ -127,20 +127,23 @@ func _move_one_frame_toward(point: Vector2) -> void:
 
 func _prepare_terminal_boundary() -> void:
 	var director: DayOneDirector = main._day_one_ref()
-	director.restore_state({})
+	# The boss probe owns the real Royal Hall trigger, not Day One room work.
+	# Seed a valid v2 completed save and an already adopted Eagle as its input.
+	director.restore_state({
+		"day_one_route_version": DayOneDirector.ROUTE_VERSION,
+		"day_one_active": true,
+		"day_one_current_room": "",
+		"day_one_completed_rooms": DayOneDirector.ROOM_ORDER.duplicate(),
+		"day_one_cleaned_rooms": DayOneDirector.ROOM_ORDER.duplicate(),
+		"day_one_art_brush_earned": true,
+		"day_one_giant_dust_bunny_boss_triggered": false,
+		"day_one_giant_dust_bunny_boss_defeated": false,
+	})
 	main._chapter_two_ref().restore_state({})
-	director.bathroom_tools_authorized = true
-	director.bathroom_supply_hunt_step = 2
-	director.bathroom_cleanup_step = 2
-	director.bathroom_toilet_cleaned = true
-	director.complete_tutorial("bathroom")
-	director.complete_placeholder("pool", "pool_activity")
-	director.complete_activity("stuffie", "stuffie_activity")
-	director.complete_activity("art", "art_activity")
-	# The fixture supplies prior room work; only the visible doorway may trigger the boss.
-	director.giant_dust_bunny_boss_triggered = false
-	director.boss_door_glow = true
-	director.giant_dust_bunny_boss_defeated = false
+	main.companion_id = "eagle"
+	main.save_data.merge(director.serialize_state(), true)
+	# Prior clean-room work is a valid saved checkpoint; only the visible doorway
+	# may trigger the boss in this probe.
 	main.save_data["dustboss_pending_rounds"] = 0
 	main.save_data["dustboss_pending_attacks"] = 0
 

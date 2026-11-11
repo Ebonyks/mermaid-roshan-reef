@@ -15,6 +15,7 @@ func _init() -> void:
 func _run_probe() -> void:
 	var castle := _read("res://scripts/arena/castle_rooms_25d.gd")
 	var main := _read("res://scripts/main.gd")
+	var flow := _read("res://scripts/day_one_flow.gd")
 	var audio := _read("res://scripts/audio_director.gd")
 	var art := _read("res://scripts/day_one_art_studio.gd")
 	var contextual_catalog := _read(
@@ -48,7 +49,12 @@ func _run_probe() -> void:
 	_check("completed bathroom restores real navigation",
 		main.contains("if bathroom_route_owned:")
 		and main.contains("_restore_day_one_bathroom_controls()")
-		and main.contains('and director.current_room_id == "pool":'))
+		and main.contains("func _day_one_next_handoff_room() -> String:")
+		and main.contains("var target_room: String = _day_one_next_handoff_room()")
+		and main.contains("director.is_room_completed(source_room)")
+		and flow.contains("var logical_room: String = m._day_one_ref().current_room_id")
+		and flow.contains(
+			"String(ReefMain.DAY_ONE_CASTLE_ROOM_IDS[castle_room]) == logical_room"))
 	_check("Rumi revisit is persistent and contextual",
 		castle.contains("_sync_day_one_persistent_rumi()")
 		and castle.contains("Pool completion flips the persistent-meeting latch")

@@ -56,6 +56,15 @@ func _init() -> void:
 			"res://future/bathroom.mp4"))
 
 	var entry_main: ReefMain = ReefMain.new()
+	entry_main._day_one_ref().restore_state({
+		"day_one_route_version": DayOneDirector.ROUTE_VERSION,
+		"day_one_active": true,
+		"day_one_current_room": "bathroom",
+		"day_one_completed_rooms": ["art"],
+	})
+	_check("entry movie fixture has completed Craft and earned brush",
+		entry_main._day_one_ref().current_room_id == "bathroom"
+		and entry_main.day_one_art_brush_earned)
 	var entry: DayOneBathroomMovieHandoff = HANDOFF.new() \
 		as DayOneBathroomMovieHandoff
 	entry.setup(entry_main, HANDOFF.PHASE_ENTRY)
@@ -78,6 +87,15 @@ func _init() -> void:
 
 	var cleanup_main: ReefMain = ReefMain.new()
 	var director: DayOneDirector = cleanup_main._day_one_ref()
+	director.restore_state({
+		"day_one_route_version": DayOneDirector.ROUTE_VERSION,
+		"day_one_active": true,
+		"day_one_current_room": "bathroom",
+		"day_one_completed_rooms": ["art"],
+	})
+	_check("cleanup movie fixture has completed Craft and earned brush",
+		director.current_room_id == "bathroom"
+		and cleanup_main.day_one_art_brush_earned)
 	director.bathroom_supply_hunt_step = 2
 	director.bathroom_tools_authorized = true
 	director.bathroom_cleanup_step = 2

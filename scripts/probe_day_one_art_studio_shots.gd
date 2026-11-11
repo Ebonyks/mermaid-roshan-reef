@@ -87,15 +87,10 @@ func _run() -> void:
 		"d1_bath_clean": true, "d1_pool_arrival": true, "d1_pool_clean": true,
 		"d1_eagle_free": true, "d1_art_arrival": true,
 	}
-	main._day_one_ref().restore_state({
-		"day_one_active": true,
-		"day_one_current_room": "art",
-		"day_one_completed_rooms": ["bathroom", "pool", "stuffie"],
-	})
-	main.day_one_art_collected_materials = {}
-	main.day_one_art_cleaned_grime = {}
-	main.day_one_art_desk_unlocked = false
-	main.day_one_art_customization_completed = false
+	main._day_one_ref().restore_state({})
+	_check("fresh story guides to Craft Room first",
+		main.day_one_castle_room_for_current() == "craft_room"
+		and not main.day_one_can_enter_castle_room("bubble_bath"))
 	main.pearl_count = 10
 	main.level2_done_once = true
 	main._enter_level2_now(true, false, false)
@@ -164,11 +159,13 @@ func _run() -> void:
 		if studio._contact_action.work_time >= 0.4:
 			break
 		_drive(1)
-	_check("partial local brush work changes pixels before progress",
+	_check("the studio scrubber changes pixels before awarding progress or magic brush",
 		_surface_progress("left_counter") > 0.0
 		and _surface_progress("left_counter") < 1.0
 		and main.day_one_art_cleaned_grime.is_empty()
-		and studio._contact_action.work_tool.visible)
+		and not main.day_one_art_brush_earned
+		and studio._contact_action.work_tool.visible
+		and studio._contact_action.work_tool.texture == studio.COUNTER_SCRUBBER)
 	await _capture("02_partial_scrub")
 	main._pause_ref().toggle_pause()
 	await _frames(2)
@@ -186,70 +183,87 @@ func _run() -> void:
 	_drive(240)
 	_check("focus loss during work resets unearned wipe",
 		main.day_one_art_cleaned_grime.is_empty() and _surface_progress("left_counter") == 0.0)
-	for id: String in ["right_counter", "left_counter", "desk_counter"]:
-		var before: int = main.day_one_art_cleaned_grime.size()
-		await _tap((studio._grime_buttons[id] as Button).get_global_rect().get_center())
-		_check("visible grime touch owns its action " + id, studio._pending_id == id)
-		for _repeat: int in range(50):
-			studio._on_grime_pressed(id)
-			studio._on_grime_pressed("desk_counter")
-		_drive(300)
-		_check("only requested surface cleans " + id,
-			bool(main.day_one_art_cleaned_grime.get(id, false))
-			and main.day_one_art_cleaned_grime.size() == before + 1
-			and _surface_progress(id) == 1.0)
-		await _capture("03_clean_" + id)
-	_check("all seven jobs unlock table", main.day_one_art_desk_unlocked
+	_check("shell hidden until first scrub", studio._shell_art != null
+		and not studio._shell_art.visible and not studio._shell_button.visible
+		and not main.day_one_art_desk_unlocked)
+	var left_button: Button = studio._grime_buttons["left_counter"] as Button
+	await _tap(left_button.get_global_rect().get_center())
+	_check("left scrub touch starts contact before saving",
+		studio._pending_id == "left_counter"
+		and main.day_one_art_cleaned_grime.is_empty())
+	for _index: int in range(300):
+		if main.day_one_art_cleaned_grime.has("left_counter"):
+			break
+		_drive(1)
+	_check("first actual left scrub reveals shell and desk brush",
+		main.day_one_art_cleaned_grime == {"left_counter": true}
+		and main.day_one_art_desk_unlocked and studio._shell_art.visible
+		and studio._brush_button.visible and not studio._shell_button.visible
+		and _surface_progress("left_counter") == 1.0)
+	var shell_counter: Sprite2D = studio._grime_art["left_counter"] as Sprite2D
+	_check("shell draws above the foreground counter at its touch target",
+		studio._shell_art.z_index > shell_counter.z_index
+		and studio._shell_button.get_global_rect().has_point(studio._shell_art.global_position))
+	await _capture("03_first_scrub_shell_revealed")
+	# Restore the same durable first-scrub state on a fresh overlay. This checks
+	# that the painted shell and brush prompt are reconstructed from saved state.
+	_check("save first scrub snapshot", main._write_save())
+	main._close_day_one_art_studio()
+	await _frames(2)
+	main._open_day_one_art_studio()
+	studio = main._day_one_art_studio
+	await _frames(3)
+	_check("re-entry restores shell and unearned brush",
+		studio._shell_art.visible and studio._brush_button.visible
+		and not main.day_one_art_brush_earned
+		and main.day_one_art_cleaned_grime == {"left_counter": true})
+	# A desk tap only requests approach. Cancel the first attempt before contact,
+	# let callbacks settle, then make a fresh physical touch to claim the brush.
+	await _tap(studio._brush_button.get_global_rect().get_center())
+	_drive(8)
+	_check("brush approach is pending and still unearned",
+		studio._pending_kind == "brush" and not main.day_one_art_brush_earned)
+	studio._contact_action.cancel()
+	_drive(240)
+	_check("cancelled brush approach grants nothing",
+		studio._pending_id == "" and not main.day_one_art_brush_earned
+		and studio._brush_button.visible)
+	await _tap(studio._brush_button.get_global_rect().get_center())
+	_drive(320)
+	_check("real desk contact claims brush once",
+		main.day_one_art_brush_earned and studio._pending_id == ""
+		and not studio._brush_button.visible and studio._shell_button.visible)
+	_check("optional counters and picker remain unfinished",
+		main.day_one_art_cleaned_grime.size() == 1
 		and not main.day_one_art_customization_completed)
-	# Back is cancellation even after selecting a color; reopening remains possible.
+	await _capture("04_brush_earned_shell_exit_ready")
+	# Picker Back remains a harmless cancel; it never owns the room exit.
 	studio._on_desk_pressed()
 	main._attack_customizer._on_color_pressed(AttackCustomizer.COLORS[3] as Color)
 	main._attack_customizer.close()
-	_check("picker Back keeps room incomplete and table reopenable",
+	_check("picker Back preserves earned brush and room exit",
 		not main.day_one_art_customization_completed and not studio._customizer_open
-		and studio._desk_button.visible)
-	studio._on_desk_pressed()
-	await _capture("04_picker_reopened")
-	main._attack_customizer.close()
-	# Every saved grime subset restores exact visible dirt with no extra awards.
+		and studio._shell_button.visible and studio._desk_button.visible)
+	_check("save earned-brush snapshot", main._write_save())
+	main._close_day_one_art_studio()
+	await _frames(2)
+	main._open_day_one_art_studio()
+	studio = main._day_one_art_studio
+	await _frames(3)
+	var actor_after_load: Sprite2D = main.castle_room_player_sprite
+	_check("earned-brush re-entry restores shell and actor",
+		studio._shell_art.visible and studio._shell_button.visible
+		and not studio._brush_button.visible and main.day_one_art_brush_earned
+		and actor_after_load.visible and actor_after_load.self_modulate.a > 0.95)
+	var ghosts: int = 0
+	for child: Node in actor_after_load.get_children():
+		if child is SpriteTransition2D:
+			ghosts += 1
+	_check("earned-brush re-entry retains one active smoother", ghosts == 1)
 	var saved_clean: Dictionary = main.day_one_art_cleaned_grime.duplicate()
-	for mask: int in range(8):
-		var subset: Dictionary = {}
-		for bit: int in range(3):
-			if mask & (1 << bit):
-				subset[DayOneDirector.ART_GRIME_IDS[bit]] = true
-		main.day_one_art_cleaned_grime = subset
-		_check("save partial surface subset %d" % mask, main._write_save())
-		main.day_one_art_cleaned_grime = {}
-		main._load_save()
-		_check("load partial surface subset %d" % mask,
-			main.day_one_art_cleaned_grime == subset)
-		main._close_day_one_art_studio()
-		await _frames(1)
-		main._open_day_one_art_studio()
-		studio = main._day_one_art_studio
-		studio.refresh_from_state()
-		await _frames(3)
-		var actor_after_load: Sprite2D = main.castle_room_player_sprite
-		_check("reload keeps Roshan opaque %d" % mask, actor_after_load.visible
-			and actor_after_load.self_modulate.a > 0.95)
-		var ghosts: int = 0
-		for child: Node in actor_after_load.get_children():
-			if child is SpriteTransition2D:
-				ghosts += 1
-		_check("reload retains one active smoother %d" % mask, ghosts == 1)
-		for bit: int in range(3):
-			var id: String = DayOneDirector.ART_GRIME_IDS[bit]
-			_check("restore dirty/clean subset %d/%s" % [mask, id],
-				_surface_progress(id) == (1.0 if subset.has(id) else 0.0))
-	main.day_one_art_cleaned_grime = saved_clean
-	studio.refresh_from_state()
-	await _capture("05_all_furniture_clean")
-	# Exit during a partial action cannot leave cards, hidden originals or callbacks.
+	# Exit during a partial optional action cannot leave cards or callbacks.
 	var originals: Array[Dictionary] = studio._furniture.hidden_cards.duplicate()
-	main.day_one_art_cleaned_grime = {}
-	studio.refresh_from_state()
-	studio._on_grime_pressed("left_counter")
+	studio._on_grime_pressed("right_counter")
 	_drive(5)
 	main._close_day_one_art_studio()
 	await _frames(3)
@@ -259,7 +273,42 @@ func _run() -> void:
 		if is_instance_valid(item) and item.visible != bool(record["visible"]):
 			restored = false
 	_check("teardown restores original room ownership", restored)
-	_check("teardown drops unearned scrub", main.day_one_art_cleaned_grime.is_empty())
+	_check("teardown drops unearned optional scrub",
+		main.day_one_art_cleaned_grime == saved_clean)
+	main._open_day_one_art_studio()
+	studio = main._day_one_art_studio
+	await _frames(3)
+	await _tap(studio._shell_button.get_global_rect().get_center())
+	_check("shell exits with optional counters and profile unfinished",
+		main._day_one_ref().is_room_completed("art")
+		and main.day_one_art_cleaned_grime == saved_clean
+		and not main.day_one_art_customization_completed)
+	_check("shell unlocks Bathroom and prepares the hall handoff",
+		main.day_one_castle_room_for_current() == "bubble_bath"
+		and main._day_one_room_handoff_target == "bubble_bath"
+		and main.day_one_can_enter_castle_room("bubble_bath"))
+	main._day_one_cancel_story_clips()
+	await _frames(4)
+	await _tap(main.global_navigation_button.get_global_rect().get_center())
+	await _frames(18)
+	var hall_shell: TextureRect = null
+	if main.castle_room_stage != null:
+		hall_shell = main.castle_room_stage.find_child(
+			"DayOneBathroomShell", true, false) as TextureRect
+	_check("Back returns to the hall with the same shell on the Bathroom door",
+		main.castle_room_id == "main_hall" and hall_shell != null
+		and hall_shell.is_visible_in_tree() and hall_shell.texture == ReefMain.DAY_ONE_BATHROOM_SHELL)
+	await _capture("05_matching_shell_on_bathroom_door")
+	if hall_shell != null and hall_shell.is_visible_in_tree():
+		await _tap(hall_shell.get_global_rect().get_center())
+		for _index: int in range(360):
+			if main._day_one_bathroom_cleanup != null:
+				break
+			await process_frame
+	var bathroom: DayOneBathroomCleanup = main._day_one_bathroom_cleanup
+	_check("touching the marked door enters Bathroom with the earned brush",
+		main.castle_room_id == "bubble_bath" and bathroom != null
+		and bathroom._earned_brush_is_visible_with_roshan())
 	main.queue_free()
 	await _frames(4)
 	print("ART_STRESS|RESULT: %s failures=%d" % ["PASS" if failures == 0 else "FAIL", failures])

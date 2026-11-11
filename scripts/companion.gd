@@ -705,6 +705,9 @@ func _pick_color_slot(slot: int) -> void:
 func _confirm_pick() -> void:
 	var studio_change: bool = m.companion_pick_mode == "studio" \
 		and m.companion_pick_id == m.companion_id
+	var resumes_day_one: bool = m.companion_id == "" and m.companion_pick_id == "eagle" \
+		and m.castle_room_id == "playroom" and m.day_one_is_active() \
+		and m._day_one_ref().is_room_completed("stuffie")
 	m.g.erase("stuffie_rescue_tutorial")
 	m.g.erase("stuffie_rescue_tutorial_step")
 	m.companion_id = m.companion_pick_id
@@ -745,6 +748,8 @@ func _confirm_pick() -> void:
 		m.show_msg(String(d["name"]), "My new colors are beautiful! Thank you!", "win")
 	else:
 		m.show_msg(String(d["name"]), String(d["hello"]), "win")
+	if resumes_day_one:
+		m.call_deferred("_day_one_finish_eagle_adoption")
 
 func _draw_picker() -> void:
 	var stage: Control = m.companion_stage

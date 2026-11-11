@@ -60,6 +60,21 @@ func _init() -> void:
 
 	var main: ReefMain = ReefMain.new()
 	var director: DayOneDirector = DIRECTOR_SCRIPT.new(main) as DayOneDirector
+	# Route v2 starts in Craft Room. Complete its real persisted prerequisites
+	# before this state-only fixture advances into the Bathroom and Pool.
+	director.day_one_active = true
+	director.current_room_id = "art"
+	var supplies_ready: bool = true
+	for material_id: String in DayOneDirector.ART_MATERIAL_IDS:
+		supplies_ready = director.record_art_cleanup("material", material_id) \
+			and supplies_ready
+	_check("Craft Room supplies are valid before the first scrub", supplies_ready)
+	_check("first left scrub reveals the bathroom route",
+		director.record_art_cleanup("grime", "left_counter")
+		and director.art_shell_revealed() and director.art_desk_unlocked)
+	_check("real v2 Craft completion requires and earns brush",
+		director.claim_art_brush() and director.complete_art_studio()
+		and director.is_room_completed("art") and director.current_room_id == "bathroom")
 	director.bathroom_supply_hunt_step = 2
 	director.bathroom_tools_authorized = true
 	director.bathroom_cleanup_step = 2

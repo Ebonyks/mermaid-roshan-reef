@@ -43,11 +43,20 @@ func _init() -> void:
 	_check("director uses ReefMain state owner", director.m == main)
 	_check("Day One starts with jobs and opera locked",
 		main.day_one_jobs_locked() and not main.day_one_opera_enabled())
-	_check("only physical bathroom route starts unlocked",
+	_check("only physical Craft Room route starts unlocked",
 		main.day_one_can_enter_castle_room("main_hall")
-		and main.day_one_can_enter_castle_room("bubble_bath")
-		and not main.day_one_can_enter_castle_room("mermaid_pool")
+		and main.day_one_can_enter_castle_room("craft_room")
+		and not main.day_one_can_enter_castle_room("bubble_bath")
 		and not main.day_one_can_enter_castle_room("opera_hall"))
+	# Craft Room is first. Its one-time brush reward follows all supply pickups
+	# and the left-counter scrub; the other counter colors remain optional.
+	for material_id: String in ["brushes", "pink_paint", "blue_paint", "paint_cups"]:
+		director.record_art_cleanup("material", material_id)
+	_check("live Craft Room awards brush only after its left scrub",
+		director.record_art_cleanup("grime", "left_counter")
+		and director.claim_art_brush()
+		and director.art_brush_earned
+		and director.complete_art_studio())
 	# Match the live bathroom completion contract: the basket authorizes both
 	# tools, then the drain and grime gestures must be complete.
 	director.bathroom_tools_authorized = true
@@ -55,7 +64,7 @@ func _init() -> void:
 	director.bathroom_cleanup_step = 2
 	director.bathroom_toilet_cleaned = true
 	director.complete_tutorial("bathroom")
-	_check("completion advances the physical castle route",
+	_check("completion advances from bathroom to the physical pool route",
 		main.day_one_can_enter_castle_room("bubble_bath")
 		and main.day_one_can_enter_castle_room("mermaid_pool")
 		and not main.day_one_can_enter_castle_room("playroom"))
@@ -64,7 +73,6 @@ func _init() -> void:
 	_check("remaining physical rooms arm the real boss boundary",
 		director.complete_placeholder("pool", "pool_activity")
 		and director.complete_activity("stuffie", "stuffie_activity")
-		and director.complete_activity("art", "art_activity")
 		and director.boss_door_glow)
 	# This lightweight policy probe has no rendered arena. The full
 	# probe_dust_boss run below owns the physical trigger; mark that already-
@@ -96,13 +104,21 @@ func _probe_save_patch() -> void:
 		"legacy_key": "preserved by SaveState's duplicate",
 		"day_one_completed_rooms": ["bathroom", "pool", "art"],
 	})
-	_check("save normalization cannot skip the room order",
+	_check("versionless save preserves its historical prefix then detours to Art",
 		patch.get("day_one_completed_rooms", []) == ["bathroom", "pool"]
-		and String(patch.get("day_one_current_room", "")) == "stuffie")
+		and String(patch.get("day_one_current_room", "")) == "art")
+	var new_route_patch: Dictionary = DayOneDirector.normalise_save_patch({
+		"day_one_route_version": DayOneDirector.ROUTE_VERSION,
+		"day_one_completed_rooms": ["art"],
+	})
+	_check("v2 save resumes after Art in bathroom",
+		new_route_patch.get("day_one_completed_rooms", []) == ["art"]
+		and String(new_route_patch.get("day_one_current_room", "")) == "bathroom"
+		and bool(new_route_patch.get("day_one_art_brush_earned", false)))
 	var legacy_terminal: Dictionary = {
 		"day_one_active": false,
-		"day_one_completed_rooms": DayOneDirector.ROOM_ORDER.duplicate(),
-		"day_one_cleaned_rooms": DayOneDirector.ROOM_ORDER.duplicate(),
+		"day_one_completed_rooms": ["bathroom", "pool", "stuffie", "art"],
+		"day_one_cleaned_rooms": ["bathroom", "pool", "stuffie", "art"],
 		"day_one_giant_dust_bunny_boss_triggered": true,
 		"chapter3_fairy_door_revealed": true,
 		"chapter3_fairy_door_opened": false,

@@ -27,6 +27,7 @@ const RUNTIME_ASSETS: Array[String] = [
 var checks_failed: int = 0
 var found_signals: int = 0
 var hunt_complete_signals: int = 0
+var found_supply_ids: Array[String] = []
 
 
 func _init() -> void:
@@ -35,6 +36,7 @@ func _init() -> void:
 
 func _run_probe() -> void:
 	var main := ReefMain.new()
+	_seed_earned_bathroom_route(main)
 	var host := Control.new()
 	host.name = "DayOneBathroomSupplyProbeHost"
 	host.size = StorybookUI.CANVAS_SIZE
@@ -91,9 +93,19 @@ func _run_probe() -> void:
 		and bool(snapshot.get("floating_sink_box_suppressed", false))
 		and (snapshot.get("basket_position", Vector2.ZERO) as Vector2).x > 760.0
 		and (snapshot.get("basket_position", Vector2.ZERO) as Vector2).y > 480.0)
-	_check("basket contains sponge and brush, never cleaner",
-		(snapshot.get("basket_item_ids", []) as Array) == ["sponge", "brush"]
+	_check("basket starts without the already-earned brush",
+		(snapshot.get("basket_item_ids", []) as Array).is_empty()
 		and not (snapshot.get("basket_item_ids", []) as Array).has("cleaner"))
+	var earned_brush: Sprite2D = hunt._supply_nodes[1] as Sprite2D
+	_check("rendered brush keeps its Craft source and Roshan ownership marker",
+		bool(snapshot.get("earned_brush_visible_with_roshan", false))
+		and earned_brush.visible
+		and earned_brush.texture != null
+		and earned_brush.texture.resource_path ==
+			"res://assets/castle/day_one_art_studio/magic_cleaning_brush.png"
+		and bool(earned_brush.get_meta("earned_in_craft", false))
+		and earned_brush.get_meta("owner_character", "") == "roshan"
+		and not bool(earned_brush.get_meta("visible_in_basket", true)))
 	_check("no magnifier or cabinet search route exists",
 		not bool(snapshot.get("magnifier_following_drag", false))
 		and int(snapshot.get("cabinet_target_count", 0)) == 0
@@ -132,6 +144,12 @@ func _run_probe() -> void:
 		and bool(hunt.audit_snapshot().get("basket_tap_count", 0))
 		and not bool(hunt.audit_snapshot().get(
 			"basket_tap_pointer_visible", true)))
+	_check("basket introduces only the sponge and never re-awards the brush",
+		found_signals == 1 and found_supply_ids == ["sponge"]
+		and (hunt.audit_snapshot().get("basket_item_ids", []) as Array)
+			== ["sponge"]
+		and earned_brush.visible
+		and bool(earned_brush.get_meta("earned_in_craft", false)))
 	# Leave import-time audio/texture loading headroom around the authored
 	# 0.38-second tween; this still verifies the bounded handoff itself.
 	await create_timer(0.75).timeout
@@ -164,6 +182,7 @@ func _run_probe() -> void:
 		and action_button.visible)
 
 	var restored_main := ReefMain.new()
+	_seed_earned_bathroom_route(restored_main)
 	# Production constructs the director before a room overlay can restore its
 	# progress. Mirror that order so a mid-gesture save resumes the tub.
 	restored_main._day_one_ref()
@@ -195,7 +214,7 @@ func _run_probe() -> void:
 
 func _probe_sink_room_graphics(host: Control) -> void:
 	var state := ReefMain.new()
-	state._day_one_ref()
+	_seed_earned_bathroom_route(state)
 	state.day_one_bathroom_supply_hunt_step = 2
 	var room := BATHROOM_CLEANUP.new() as DayOneBathroomCleanup
 	host.add_child(room)
@@ -240,6 +259,17 @@ func _probe_sink_room_graphics(host: Control) -> void:
 		bool(room.day_one_bathroom_plate_snapshot().get("sink_clean_pixels", false))
 		and not room._sink_grime.visible
 		and room._tub_grime.visible)
+	await create_timer(0.72).timeout
+	var brush_handoff: Dictionary = room.cleaning_audit_snapshot()
+	_check("same Craft brush travels from Roshan to the tub",
+		bool(brush_handoff.get("brush_travel_complete", false))
+		and bool(brush_handoff.get("brush_starts_as_craft_earned", false))
+		and brush_handoff.get("brush_origin_position", Vector2.ZERO)
+			== Vector2(850.0, 406.0)
+		and cleaning._sponge.texture != null
+		and cleaning._sponge.texture.resource_path ==
+			"res://assets/castle/day_one_art_studio/magic_cleaning_brush.png"
+		and not bool(room._supply_nodes[1].get_meta("visible_in_basket", true)))
 	var outline: PackedVector2Array = sink.polygon.slice(0, BATHROOM_CLEANUP.CLEAN_SINK_OUTLINE.size())
 	_check("clean sink cutout follows the fixture and excludes rectangular scenery",
 		Geometry2D.is_point_in_polygon(Vector2(555, 195), outline)
@@ -286,6 +316,7 @@ func _probe_sink_room_graphics(host: Control) -> void:
 
 func _probe_cleaning_gestures(host: Control) -> void:
 	var cleaning_main := ReefMain.new()
+	_seed_earned_bathroom_route(cleaning_main)
 	var cleaning: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \
 		as DayOneBathroomCleaning
 	host.add_child(cleaning)
@@ -299,6 +330,7 @@ func _probe_cleaning_gestures(host: Control) -> void:
 	# A real press during the basket-to-sink busy window is consumed, not lost;
 	# releasing before the tool arrives must clear that buffer.
 	var release_main := ReefMain.new()
+	_seed_earned_bathroom_route(release_main)
 	var release_stage: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \
 		as DayOneBathroomCleaning
 	host.add_child(release_stage)
@@ -319,6 +351,7 @@ func _probe_cleaning_gestures(host: Control) -> void:
 	release_stage.teardown()
 	release_main.free()
 	var held_main := ReefMain.new()
+	_seed_earned_bathroom_route(held_main)
 	var held_stage: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \
 		as DayOneBathroomCleaning
 	host.add_child(held_stage)
@@ -399,6 +432,7 @@ func _probe_cleaning_gestures(host: Control) -> void:
 		cleaning_main.day_one_bathroom_cleanup_step == 1)
 
 	var lifted_main := ReefMain.new()
+	_seed_earned_bathroom_route(lifted_main)
 	var lifted_stage: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \
 		as DayOneBathroomCleaning
 	host.add_child(lifted_stage)
@@ -437,6 +471,7 @@ func _probe_cleaning_gestures(host: Control) -> void:
 	lifted_main.free()
 
 	var focus_main := ReefMain.new()
+	_seed_earned_bathroom_route(focus_main)
 	var focus_stage: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \
 		as DayOneBathroomCleaning
 	host.add_child(focus_stage)
@@ -452,6 +487,7 @@ func _probe_cleaning_gestures(host: Control) -> void:
 	focus_main.free()
 
 	var prompt_main := ReefMain.new()
+	_seed_earned_bathroom_route(prompt_main)
 	var prompt_stage: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \
 		as DayOneBathroomCleaning
 	host.add_child(prompt_stage)
@@ -567,7 +603,7 @@ func _probe_cleaning_gestures(host: Control) -> void:
 		and float(final_snapshot["gesture_budget"]["tub_max_seconds"]) <= 5.0)
 
 	var interrupted_main := ReefMain.new()
-	interrupted_main._day_one_ref()
+	_seed_earned_bathroom_route(interrupted_main)
 	interrupted_main.day_one_bathroom_cleanup_step = 2
 	interrupted_main.day_one_bathroom_toilet_cleaned = true
 	var interrupted: DayOneBathroomCleaning = BATHROOM_CLEANING.new() \
@@ -594,8 +630,18 @@ func _send_screen_touch(cleaning: DayOneBathroomCleaning, pressed: bool,
 	cleaning._on_gesture_input(touch)
 
 
-func _on_supply_found(_index: int, _supply_id: String) -> void:
+func _on_supply_found(_index: int, supply_id: String) -> void:
 	found_signals += 1
+	found_supply_ids.append(supply_id)
+
+
+func _seed_earned_bathroom_route(main: ReefMain) -> void:
+	main._day_one_ref().restore_state({
+		"day_one_route_version": DayOneDirector.ROUTE_VERSION,
+		"day_one_active": true,
+		"day_one_current_room": "bathroom",
+		"day_one_completed_rooms": ["art"],
+	})
 
 
 func _on_hunt_completed() -> void:
@@ -699,13 +745,17 @@ func _probe_toilet(cleaning: DayOneBathroomCleaning, main: ReefMain) -> void:
 	_check("toilet clean state survives save restore", restored.day_one_bathroom_toilet_cleaned)
 	restored.free()
 	var legacy: Dictionary = DayOneDirector.normalise_save_patch({"day_one_completed_rooms": ["bathroom"]})
-	_check("completed legacy bathrooms stay completed", bool(legacy["day_one_bathroom_toilet_cleaned"]))
+	_check("legacy bathroom completion stays saved while Art is the next route",
+		bool(legacy["day_one_bathroom_toilet_cleaned"])
+		and (legacy.get("day_one_completed_rooms", []) as Array).has("bathroom")
+		and String(legacy.get("day_one_current_room", "")) == "art"
+		and not bool(legacy.get("day_one_art_brush_earned", true)))
 	await _probe_toilet_lifecycle(cleaning.get_parent())
 
 
 func _probe_toilet_lifecycle(host: Node) -> void:
 	var main := ReefMain.new()
-	main._day_one_ref()
+	_seed_earned_bathroom_route(main)
 	var toilet := DayOneBathroomToilet.new()
 	host.add_child(toilet)
 	toilet.setup(main, false)
