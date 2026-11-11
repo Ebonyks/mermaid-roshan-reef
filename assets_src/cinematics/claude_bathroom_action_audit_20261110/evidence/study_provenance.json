@@ -1,0 +1,184 @@
+{
+  "rigby_commit": "b05dc020aae1ee4ced2080f9fd51c52c07e2c0ce",
+  "rig_source": "roshan_arm_rebound.rigby",
+  "rig_sha256": "db65e8fcff9e1094bb78a07efbc4aaecf81b9eb90f906848a8d0e0e32dff3ad2",
+  "renderer_license": "Rigby2D MIT text embedded in the playtest",
+  "fixture_masks": "scripts/games/day_one_bathroom_cleanup.gd CLEAN_*_OUTLINE",
+  "output_sha256": "d74802ef0e468568c3223b25f8735220b065cd7fb76bf476de36822215f35a1d",
+  "mode": "Independent agent-reviewed relaxed-arm bathroom source study",
+  "pass": "rebound02",
+  "profile": {
+    "tubAngle": 1.02,
+    "tubRake": 0.15,
+    "tubGripDepth": 0.86,
+    "tubY": 240,
+    "work": 0.8,
+    "swim": 0.82,
+    "hair": 0.14,
+    "calm": 0.84,
+    "blink": true,
+    "expression": 0.74,
+    "reachSolve": 0.63,
+    "tubDepth": true,
+    "featherEyes": true,
+    "banks": true,
+    "finish": true,
+    "turnIn": 0.48,
+    "turnOut": 0.47,
+    "turnBlend": 0,
+    "gripBridge": true,
+    "authoredLeft": true,
+    "tubForeground": true,
+    "turnActing": 0.8,
+    "leftHeadScale": 0.92,
+    "leftHeadDrop": 2,
+    "tubSweep": 0.32,
+    "staticTub": true,
+    "motor": 0.91,
+    "glide": true,
+    "armWork": true,
+    "finishMotion": true,
+    "scrubUpper": 8.8,
+    "scrubElbow": 10.0,
+    "scrubWrist": 3.4,
+    "depthMin": 0.83,
+    "depthMax": 1.02,
+    "tubHandle": 0.96,
+    "tubHover": 40,
+    "tubAngleMax": 2.26,
+    "tubDepthMin": 0.71,
+    "arrivalBridge": true,
+    "armDeparture": true,
+    "swimArmStrength": 0.84,
+    "swimArmOverlay": true,
+    "leftSwimArmStrength": 0.55,
+    "leftSwimBend": 0.73,
+    "leftHeldArmStrength": 0.31,
+    "relaxedArms": true,
+    "freeBend": 12,
+    "carryBend": 17,
+    "freeSweep": 0.32,
+    "recoveryBend": 0.8,
+    "armCompensation": 0.35,
+    "heldRecovery": 0.15,
+    "broadRecovery": true,
+    "reboundArms": true,
+    "forwardFreeCompensation": 0.32
+  },
+  "html_sha256": "d74802ef0e468568c3223b25f8735220b065cd7fb76bf476de36822215f35a1d",
+  "scene_sha256": "f0c96ddc22b4be1e6c71f08be5a9c49d32170886657f81774c8bb1be740901cf",
+  "base_sources": "../bathroom_scene_20261109/source_manifest.json",
+  "base_source_manifest": "../bathroom_swim_arms_20261110/source_manifest.json",
+  "eyelid_sources": {
+    "textures": {
+      "half": {
+        "path": "assets_src/animation/native_rig_stress_20261031/art/eyes_half.png",
+        "sha256": "a28c55c2afc5e990d61e77ba283fac1e395515773b4dd48c8b3e811b0eb54739"
+      },
+      "closed": {
+        "path": "assets_src/animation/native_rig_stress_20261031/art/eyes_closed.png",
+        "sha256": "f6c5abdf1d00ab49e6f889a47a03c1070c3b43f3e4f4016b00c18bd5881a909b"
+      }
+    },
+    "method": "Two separate painted eyelid regions registered in the shared quarter-view anatomy texture during browser packaging. Mesh geometry, face outline, brows, forehead, hair, costume and protected sources stay fixed.",
+    "license": "Existing Mermaid Roshan project source rights. Existing native rig stress donor; source-only study."
+  },
+  "left_view": {
+    "textures": {
+      "original_swim": "view_art/left_original_torso_uv.png",
+      "atlas_costume_anatomy": "view_art/left_wardrobe_torso_uv.png",
+      "left_head_original": "view_art/left_original_head_uv.png",
+      "left_head_wardrobe": "view_art/left_wardrobe_head_uv.png"
+    },
+    "files": {
+      "original_swim": {
+        "sha256": "65faefc04b359eeb9e48e38abb1d0c681f70b02a3e9e8dc9d2da202295159445",
+        "alpha_bounds": [
+          46,
+          318,
+          801,
+          1024
+        ]
+      },
+      "atlas_costume_anatomy": {
+        "sha256": "99b888daf11ba6f0e0896f07f72f1fc127af3d00a5ee08236208157a65209834",
+        "alpha_bounds": [
+          46,
+          318,
+          801,
+          1024
+        ]
+      },
+      "left_head_original": {
+        "sha256": "2b575fc43a1ccdf9c5c54c2039cf2c12fd7678e3329df0253074eae09f10e715",
+        "alpha_bounds": [
+          308,
+          69,
+          700,
+          427
+        ]
+      },
+      "left_head_wardrobe": {
+        "sha256": "480d8dffeed694b51f3de1decce7e10a37fe5a5b0442ce557b90f90d4a66dd44",
+        "alpha_bounds": [
+          308,
+          111,
+          714,
+          427
+        ]
+      }
+    },
+    "donor_provenance": "view_art/registration.json",
+    "alpha_split_provenance": "view_art/split_uv_receipt.json",
+    "coverage": "Painted left face, crown and pony from Gesture D cell 4. Shared reflected body geometry and body/fin garment paint. Dedicated head mesh uses same head/pony bones."
+  },
+  "left_view_assets_root": "../bathroom_two_views_20261110",
+  "motion_method": "Authored tail keys drive drag-integrated travel progress. Independent pelvis route during cruise, grip bridge at transitions.",
+  "scrub_method": "Per-fixture hover, shoulder/elbow/hand poses from contact, existing brush projection and a higher handle grip at the tub, residual reach reconciliation.",
+  "base_rig_sha256": "75561c123c1c12d9fd529dcb70bc7b8bd46707fffaf4f7d204296530ef8fe9e7",
+  "rig_path": "roshan_arm_rebound.rigby",
+  "binding_derivation": {
+    "source_sha256": "75561c123c1c12d9fd529dcb70bc7b8bd46707fffaf4f7d204296530ef8fe9e7",
+    "output_sha256": "db65e8fcff9e1094bb78a07efbc4aaecf81b9eb90f906848a8d0e0e32dff3ad2",
+    "changed": {
+      "Original": {
+        "hair_fringe_vertices": 243,
+        "changed_vertices": 424,
+        "right_arm_vertices": 181
+      },
+      "Ballet": {
+        "hair_fringe_vertices": 243,
+        "changed_vertices": 424,
+        "right_arm_vertices": 181
+      },
+      "Magician": {
+        "hair_fringe_vertices": 243,
+        "changed_vertices": 424,
+        "right_arm_vertices": 181
+      }
+    }
+  },
+  "assets": {
+    "dirty": {
+      "path": "assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png",
+      "sha256": "1382a8adcb37f1b0788989676e5412220878395727ac081ce1b8d6fc1335fd47"
+    },
+    "clean": {
+      "path": "assets/flats/castle/rooms/room_bubble_bath.png",
+      "sha256": "3ecd80b1be8444ae924e4fc05c86129d4ee3742e6708c3c3e38b84862e7bf4da"
+    },
+    "brush": {
+      "path": "assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3"
+    },
+    "sink": {
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png",
+      "sha256": "fe53ef3018b9f8164417cde5bf47489dff389179aad8432ea8ef1993cffab3ed"
+    },
+    "tub": {
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_tub_grime_v1.png",
+      "sha256": "52e8c42b0c044c1b5dba42681d7dfb5e34dc44b345e6535e9432df5f186ecb67"
+    }
+  },
+  "audio_policy": "Family recordings omitted. Prior audio cue timings retained in evidence/movie_receipt.json."
+}

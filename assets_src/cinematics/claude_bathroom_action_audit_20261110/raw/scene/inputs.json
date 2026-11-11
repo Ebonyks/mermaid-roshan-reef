@@ -1,0 +1,75 @@
+{
+  "room_and_prop": {
+    "dirty": {
+      "path": "raw/art/dirty.png",
+      "prefix": "data:image/png;base64,"
+    },
+    "clean": {
+      "path": "raw/art/clean.png",
+      "prefix": "data:image/png;base64,"
+    },
+    "brush": {
+      "path": "raw/art/brush.png",
+      "prefix": "data:image/png;base64,"
+    },
+    "sink": {
+      "path": "raw/art/sink.png",
+      "prefix": "data:image/png;base64,"
+    },
+    "tub": {
+      "path": "raw/art/tub.png",
+      "prefix": "data:image/png;base64,"
+    }
+  },
+  "groups": {
+    "leftPaint": {
+      "original_swim": {
+        "path": "raw/art/left_original_swim.png",
+        "prefix": "data:image/png;base64,"
+      },
+      "atlas_costume_anatomy": {
+        "path": "raw/art/left_atlas_costume_anatomy.png",
+        "prefix": "data:image/png;base64,"
+      },
+      "left_head_original": {
+        "path": "raw/art/left_left_head_original.png",
+        "prefix": "data:image/png;base64,"
+      },
+      "left_head_wardrobe": {
+        "path": "raw/art/left_left_head_wardrobe.png",
+        "prefix": "data:image/png;base64,"
+      }
+    },
+    "eyePaint": {
+      "half": {
+        "path": "raw/art/eyes_half.png",
+        "prefix": "data:image/png;base64,"
+      },
+      "closed": {
+        "path": "raw/art/eyes_closed.png",
+        "prefix": "data:image/png;base64,"
+      }
+    }
+  },
+  "modules": {
+    "@rigby/src/webgl/renderer.js": "raw/renderer/src/webgl/renderer.js",
+    "@rigby/src/core/draw.js": "raw/renderer/src/core/draw.js",
+    "@rigby/src/core/clipping.js": "raw/renderer/src/core/clipping.js",
+    "@rigby/src/core/atlas.js": "raw/renderer/src/core/atlas.js",
+    "@rigby/src/editor/zip.js": "raw/renderer/src/editor/zip.js",
+    "@rigby/src/core/index.js": "raw/renderer/src/core/index.js",
+    "@rigby/src/core/scene.js": "raw/renderer/src/core/scene.js",
+    "@rigby/src/core/pose.js": "raw/renderer/src/core/pose.js",
+    "@rigby/src/core/model.js": "raw/renderer/src/core/model.js",
+    "@rigby/src/core/poses.js": "raw/renderer/src/core/poses.js",
+    "@rigby/src/core/math.js": "raw/renderer/src/core/math.js",
+    "@rigby/src/core/curve.js": "raw/renderer/src/core/curve.js",
+    "@rigby/src/core/animation.js": "raw/renderer/src/core/animation.js",
+    "@rigby/src/core/constraintdata.js": "raw/renderer/src/core/constraintdata.js",
+    "@rigby/src/core/sequence.js": "raw/renderer/src/core/sequence.js",
+    "@rigby/src/core/constraints.js": "raw/renderer/src/core/constraints.js",
+    "@rigby/src/core/binary.js": "raw/renderer/src/core/binary.js",
+    "@rigby/src/core/interop.js": "raw/renderer/src/core/interop.js",
+    "@rigby/src/core/state.js": "raw/renderer/src/core/state.js"
+  }
+}

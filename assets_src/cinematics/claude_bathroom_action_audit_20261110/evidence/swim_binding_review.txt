@@ -1,0 +1,25 @@
+# Swim arm binding review
+
+Review date: 2026-11-10. Scope: the existing Rigby2D bathroom study, including free-arm and brush-support motion through approach and carry. This is a prototype review and does not update the master audit.
+
+## Why the previous arm range looked stiff
+
+The source arm bones have signed rest elbow bends of −6.861° (screen-left chain) and +7.975° (screen-right chain). The earlier overlay applied its elbow pulse in the opposite direction. In the matched Original capture, the free left arm in approach moved from −11.39° to +5.81°, the free right arm during the bathtub carry moved from −0.51° to +10.90°, and the left brush arm reached only −1.49° in that carry. The apparent excursion therefore included straightening and sometimes crossing through zero. The broad recovery revision uses anatomical bend signs for both arms and keeps a rounded flex during the glide.
+
+Stronger flex exposed distinct paint-binding limits. The original anatomy mesh uses diffuse proximity weights. In the earlier passing relaxed01, the limiting high strain (1.193715) was not an elbow triangle: it was anatomy triangle 2041 in rightward carry at normalized flight time 0.176471. Its source triangle spans [432,384], [440,392], [432,392] in the 1024px atlas. The original weights assign roughly 28–40% to the ponytail tip, 22–25% to chest, 19–27% to left upper arm and 5–8% to left forearm. A source atlas crop shows this triangle at the ponytail and upper-arm fringe. The limiting low strain in that run (0.818856) was a different neck/right shoulder triangle in the work phase and was outside the swim repair.
+
+With the stronger relaxed03 recovery and native weights, an independent replay of all 182 collected Chrome samples reproduced the browser's 0.756865–1.237971 strain exactly. The most severe bands were near the right elbow and forearm, at source x696–712/y440–456 and x696–712/y472–488. The left hair/arm fringe was a separate, smaller high violation (1.211768).
+
+## Derivative binding and observed results
+
+The derived archive uses an axial, piecewise linear influence gradient on the right arm. Upper arm to forearm transitions over 21 rig units, and the wrist over 14. A shoulder lead-in and transverse taper retain the source attachment behavior around the neck and sleeve. At the left ponytail/arm fringe, the repair transfers up to 20% of the erroneous left-arm influence to the existing head/pony weights with a spatial taper. This preserves the paint, transparency gap and topology. A complete transfer on that shared topology overstrains the fringe; it would need independent source-part geometry and its own review.
+
+The actual numerical diff is 292 vertices in each of the three anatomy attachments. The mask visits 424 vertices per look, including 132 whose weights already require no change. The input archive SHA-256 is `75561c123c1c12d9fd529dcb70bc7b8bd46707fffaf4f7d204296530ef8fe9e7`; the derived archive SHA-256 is `db65e8fcff9e1094bb78a07efbc4aaecf81b9eb90f906848a8d0e0e32dff3ad2`. Independent comparison verified that all image entries are byte identical and every project field outside the three `anatomy.weights` arrays is unchanged, including 17 bones, mesh topology, texture coordinates, slots, skin assignments, and animation keys.
+
+In the independent real Chrome Original quick walkthrough, the exact derived archive with relaxed03 passed 182 geometry samples at 0.808649–1.196060 with zero flips or exceptions. All fixtures completed, 155 brush contact samples passed, and there was no sampled finger-disk overlap. The maximum palm-to-brush coordinate error was 2.84e−14px, and the maximum bristle-to-contact error was 1.17e−13px. Spot checks of rendered approach and both carry headings show the painted arm continuous and the brush seated at the visible grip. Selected stills do not establish full-speed motion acceptance. The occupied left carry can still look extended in individual poses.
+
+The offline replay using each costume's visible triangles found one Ballet and Magician `shoulder_skin` triangle exceeding the upper bound (1.202669). Its vertices [126,156,155] map to the same left fringe coordinates above. Limiting the right-facing free screen-left arm's carry shoulder compensation from 0.35 to 0.32 preserves the elbow recovery and leaves the derivative archive unchanged. Offline bracketing at 0.325 and 0.31 produced 0.807145–1.195884 and 0.806246–1.195707 across all three looks. The current candidate still requires the full actual browser suite and frame review. Adding another 5° to the left-facing occupied elbow failed independently (0.780876 minimum anatomy strain), and is excluded.
+
+## Acceptance boundary
+
+Maintain the existing 0.8–1.2 singular-value range with zero flips, actual palm and bristle binding, the one-actor costume switch, and child-controlled scrub completion. The initial Original result is machine evidence for the binding proposal; check final bytes, both views, full motion and turns, all looks, actual touch, and live swaps before claiming a prototype pass. Device, child, and owner acceptance remain separate.

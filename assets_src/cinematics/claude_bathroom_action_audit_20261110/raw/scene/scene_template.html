@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roshan · Bathroom playtest</title>
+<style>
+:root{color-scheme:dark;background:#101928;color:#eef4ff;font:16px "Segoe UI",sans-serif}
+*{box-sizing:border-box} body{margin:0;min-height:100dvh;display:grid;place-content:center}
+main{width:min(100vw,1100px,calc((100dvh - 58px)*16/9));margin:auto}
+#stage{position:relative;width:100%;aspect-ratio:16/9;background:#182840;touch-action:none;user-select:none;overflow:hidden}
+canvas{position:absolute;width:100%;height:100%;inset:0}canvas:not(#front){pointer-events:none}
+nav{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px;min-height:56px}
+nav div{display:flex;gap:6px} button,select{font:600 clamp(11px,2vw,15px) "Segoe UI",sans-serif;color:#eef4ff;background:#24364e;border:1px solid #557392;border-radius:9px;min-height:40px;padding:0 10px}
+button:focus-visible,select:focus-visible{outline:3px solid #a2eddf}button[aria-pressed=true]{color:#142a36;background:#a2eddf}
+#loading{position:absolute;inset:0;display:grid;place-content:center;font-size:20px;background:#101928;pointer-events:none}
+#loading[hidden]{display:none}
+</style>
+<script type="importmap">@@IMPORTS@@</script>
+<script type="application/json" id="payload">@@PAYLOAD@@</script>
+<main>
+ <div id="stage" aria-label="Bathroom with brush, sink, bathtub, and toilet">
+  <canvas id="room" width="1024" height="576"></canvas><canvas id="actor" width="1024" height="576"></canvas><canvas id="front" width="1024" height="576"></canvas>
+  <div id="loading">Opening bathroom…</div>
+ </div>
+ <nav aria-label="Playtest controls">
+  <div><button id="play" aria-pressed="true">Play</button><button id="watch" aria-pressed="false">Watch playthrough</button><button id="restart">Restart</button></div>
+  <div><select id="look" aria-label="Costume"><option>Original</option><option>Ballet</option><option>Magician</option></select><button id="sound" aria-pressed="true">Sound on</button></div>
+ </nav>
+</main>
+<script type="module">@@SCENE@@</script>
+</html>

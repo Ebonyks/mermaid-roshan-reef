@@ -1,0 +1,19 @@
+SWIM MOTION CRITIC REVIEW OF REBOUND02
+Reviewed 2026-11-10.
+
+Exact candidate
+HTML SHA-256 d74802ef0e468568c3223b25f8735220b065cd7fb76bf476de36822215f35a1d
+Scene SHA-256 f0c96ddc22b4be1e6c71f08be5a9c49d32170886657f81774c8bb1be740901cf
+Rig SHA-256 db65e8fcff9e1094bb78a07efbc4aaecf81b9eb90f906848a8d0e0e32dff3ad2
+Identity is recorded in .capture/rebound02/build_receipt.json.
+
+Evidence reviewed
+Twelve native 1024x576 Original frames. Compared .capture/baseline, .capture/rebound01, and .capture/rebound02 at original-recovery-carry-toilet-19, -247, -576, and -641. Read the shoulder compensation branch in scene.mjs and its final profile. Compared RGB pixel differences between the two repaired variants in these samples.
+
+Findings
+The baseline rightward free arm often makes a nearly straight line from shoulder to wrist. The repaired variants keep a visible bend, especially around .19 and .247, and the occupied arm holds the brush with its own steadier shape. In rebound02 the free-arm shoulder adjustment is small at all four recovery poses. The most visible differences from rebound01 are on the trailing free-arm contour. I see no material loss of elbow bend, visible shoulder seam, or visible shift of the brush and grip in these samples.
+
+The final setting changes upper-arm compensation from .35 to .32 only for the free arm during rightward carry. The code applies elbow flexion and hand rotation separately. The two repaired candidates use the same bound rig. The leftward occupied silhouette reviewed on rebound01 remains a refinement opportunity outside this four-pose comparison.
+
+Disposition and scope
+Endorse rebound02 as a focused prototype improvement. These sampled frames establish pose readability and the visual scope of the final adjustment. Playback rhythm, arrival and departure continuity, unsampled poses, touch checks and the other costume skins are separate evidence. The parent was running the full verification at review time. This review used still frames and source and provides no device, child or owner acceptance.

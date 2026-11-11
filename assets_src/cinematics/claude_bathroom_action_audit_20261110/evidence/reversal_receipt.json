@@ -1,0 +1,245 @@
+{
+  "mode": "reversal",
+  "watch": [],
+  "touch": {
+    "finished": [
+      {
+        "fixture": "sink",
+        "at": 15.8333333333337,
+        "distance": 205.11545480963014,
+        "arc": 7.4287322776676055,
+        "reversals": 0,
+        "activeSeconds": 3.0833333333333273,
+        "mode": "play"
+      },
+      {
+        "fixture": "tub",
+        "at": 26.349999999999785,
+        "distance": 395.92535563144617,
+        "arc": 0,
+        "reversals": 2,
+        "activeSeconds": 5.049999999999987,
+        "mode": "play"
+      },
+      {
+        "fixture": "toilet",
+        "at": 35.26666666666595,
+        "distance": 129.16864452307965,
+        "arc": 8.128659335093035,
+        "reversals": 0,
+        "activeSeconds": 3.483333333333326,
+        "mode": "play"
+      }
+    ],
+    "events": [
+      {
+        "phase": "wait",
+        "fixture": 0,
+        "at": 0,
+        "held": false
+      },
+      {
+        "phase": "approach",
+        "fixture": 0,
+        "at": 2.499999999999996,
+        "held": false
+      },
+      {
+        "phase": "grasp",
+        "fixture": 0,
+        "at": 4.666666666666655,
+        "held": false
+      },
+      {
+        "phase": "carry",
+        "fixture": 0,
+        "at": 5.499999999999986,
+        "held": true
+      },
+      {
+        "phase": "ready",
+        "fixture": 0,
+        "at": 9.466666666666717,
+        "held": true
+      },
+      {
+        "phase": "work",
+        "fixture": 0,
+        "at": 9.500000000000052,
+        "held": true
+      },
+      {
+        "phase": "ready",
+        "fixture": 0,
+        "at": 12.333333333333526,
+        "held": true
+      },
+      {
+        "phase": "work",
+        "fixture": 0,
+        "at": 12.43333333333353,
+        "held": true
+      },
+      {
+        "phase": "ready",
+        "fixture": 0,
+        "at": 13.63333333333359,
+        "held": true
+      },
+      {
+        "phase": "work",
+        "fixture": 0,
+        "at": 13.90000000000027,
+        "held": true
+      },
+      {
+        "phase": "settle",
+        "fixture": 0,
+        "at": 15.8333333333337,
+        "held": true
+      },
+      {
+        "phase": "carry",
+        "fixture": 1,
+        "at": 16.766666666666996,
+        "held": true
+      },
+      {
+        "phase": "ready",
+        "fixture": 1,
+        "at": 20.383333333333457,
+        "held": true
+      },
+      {
+        "phase": "work",
+        "fixture": 1,
+        "at": 20.433333333333454,
+        "held": true
+      },
+      {
+        "phase": "ready",
+        "fixture": 1,
+        "at": 21.166666666666746,
+        "held": true
+      },
+      {
+        "phase": "work",
+        "fixture": 1,
+        "at": 21.483333333333395,
+        "held": true
+      },
+      {
+        "phase": "ready",
+        "fixture": 1,
+        "at": 22.883333333333315,
+        "held": true
+      },
+      {
+        "phase": "work",
+        "fixture": 1,
+        "at": 23.199999999999964,
+        "held": true
+      },
+      {
+        "phase": "settle",
+        "fixture": 1,
+        "at": 26.349999999999785,
+        "held": true
+      },
+      {
+        "phase": "carry",
+        "fixture": 2,
+        "at": 27.283333333333065,
+        "held": true
+      },
+      {
+        "phase": "ready",
+        "fixture": 2,
+        "at": 31.54999999999949,
+        "held": true
+      },
+      {
+        "phase": "work",
+        "fixture": 2,
+        "at": 31.599999999999486,
+        "held": true
+      },
+      {
+        "phase": "settle",
+        "fixture": 2,
+        "at": 35.26666666666595,
+        "held": true
+      },
+      {
+        "phase": "done",
+        "fixture": 2,
+        "at": 36.19999999999923,
+        "held": true
+      }
+    ],
+    "stationaryHold": true,
+    "outsideDrag": true,
+    "touchCancel": true,
+    "passive": true,
+    "reversalReleases": [
+      {
+        "sample": 11,
+        "rootStep": 0.28722604365628646,
+        "progress": 0
+      },
+      {
+        "sample": 32,
+        "rootStep": 0.1022277032850932,
+        "progress": 0
+      }
+    ]
+  },
+  "metrics": {
+    "maxBristleError": 1.1718571004216928e-13,
+    "maxGripError": 4.0194366942304644e-14,
+    "maxFingerError": 7.180545002936034,
+    "minFingerToHead": 98.57168419339379,
+    "activeSamples": 179,
+    "alphaHits": 0,
+    "low": 0.8540095338669955,
+    "high": 1.1369507334098947,
+    "flips": 0,
+    "strainSamples": 13,
+    "geometryExceptions": []
+  },
+  "propulsion": [
+    {
+      "duration": 2.15,
+      "driven": 12.106218401265716,
+      "disabled": 0,
+      "firstThrust": 0.17083333333333334,
+      "peakSpeed": 10.110343833898172,
+      "finishSpeed": 0.5665428849638996
+    },
+    {
+      "duration": 2.65,
+      "driven": 13.960792764764365,
+      "disabled": 0,
+      "firstThrust": 0.17083333333333334,
+      "peakSpeed": 9.386818758158325,
+      "finishSpeed": 0.25152864262358865
+    },
+    {
+      "duration": 3,
+      "driven": 15.079771466917403,
+      "disabled": 0,
+      "firstThrust": 0.17083333333333334,
+      "peakSpeed": 8.925011727883168,
+      "finishSpeed": 0.1426594090962075
+    },
+    {
+      "duration": 4.25,
+      "driven": 18.172493853173556,
+      "disabled": 0,
+      "firstThrust": 0.17083333333333334,
+      "peakSpeed": 8.636252516963879,
+      "finishSpeed": 0.01915801330323214
+    }
+  ],
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+}
