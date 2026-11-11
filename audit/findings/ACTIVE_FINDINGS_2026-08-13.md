@@ -1875,6 +1875,8 @@ The 2026-11-07 owner review found the improved curbs readable and asked for high
 
 The 2026-11-07 [stage art and stress review](../../docs/handoffs/codex_reef_kart_art_2026-11-03/STAGE_ART.md) compares roadside and item readability with Nintendo references, adds one unique landmark per room zone and exercises solo and split-screen. The [impact](../../design\audit_impacts\reef-kart-stage-art-20261107.json) records the exact baseline and verification scope. The career rebuild remains in progress.
 
+The 2026-11-10 [PC course mechanics pass](../../docs/handoffs/codex_reef_kart_art_2026-11-03/STAGE_ART.md#course-mechanics-and-original-cartridge-study) adds signed alternate routes, boost strips and avoidable room obstacles to the four-course demo. The [impact](../../design/audit_impacts/reef-kart-course-features-20261110.json) tracks scoped verification. The career rebuild remains in progress.
+
 The 2026-11-07 [split-screen controller review](../../docs/handoffs/codex_reef_kart_art_2026-11-03/PC_CONTROLLERS.md) repairs missed sub-tick gas and item guide ownership in the standalone PC courses. The [impact](../../design\audit_impacts\reef-kart-controller-audio-20261107.json) keeps USB/Bluetooth and human acceptance open until both physical controllers can be exercised.
 
 The 2026-11-07 owner-directed [seated cast pass](../../docs/handoffs/codex_reef_kart_art_2026-11-03/RIDERS.md) covers Baby Eagle and the full selectable roster across the three rides. The [impact](../../design/audit_impacts/reef-kart-rider-art-20261107.json) tracks the existing pose and contact defects separately from physical device, child and owner acceptance.

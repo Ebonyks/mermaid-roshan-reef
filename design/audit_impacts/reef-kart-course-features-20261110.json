@@ -1,0 +1,93 @@
+{
+  "id": "reef-kart-course-features-20261110",
+  "baseline": "702471773fbc5280e06e73688a5f7d392d9b1f2d",
+  "scope": "Add optional physical shortcuts, boost strips and avoidable course obstacles to all four PC room courses. Preserve the manual handling and the separate story race. Verify the safe and fast lines, contact ownership, signed progress, and live 1P and 2P composition.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-VIS-01",
+    "DL-VIS-04",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-INT-05",
+    "DL-INT-10",
+    "DL-ASSET-01",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03"
+  ],
+  "findings": [
+    "MA-OPERA-014"
+  ],
+  "files": [
+    "scripts/racer/reef_kart_courses.gd",
+    "scripts/racer/reef_kart_track.gd",
+    "scripts/racer/reef_kart_race.gd",
+    "scripts/racer/reef_kart_floor.gdshader",
+    "scripts/probe_reef_kart_pc.gd",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/STAGE_ART.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "scripts/racer/reef_kart_roadside.gd",
+    "scripts/racer/reef_kart_stage_art.gd"
+  ],
+  "validation": [
+    {
+      "command": "Snes9x local US cartridge course runs and direct headerless overlay/object reads",
+      "result": "PASS",
+      "evidence": "512 KiB image SHA-256 2ada8919688087be60a6a48cace8f877add60c45d2e5d09e2442faa55be62a49. Reviewed six original course layouts in the emulator. Ran an aligned and an offset controlled approach to the actual Mario Circuit 2 ramp. ROM table log SHA-256 0953c9ea30069f84b9b436e3f20198fccd3bd4f103df306eafbccf111c6ecf42. Ramp log SHA-256 15a87da05443bff1442da5276e665f1f8843af5ee2c88257dbdd0c43ce3ce442. Also compared a standard hop with a grounded approach at Ghost Valley 1's visible gap. Ghost Valley comparison log SHA-256 0614db419e901ee3f5ec2c617408fb321541648df1694fdaaa8f29e5a3b4f4f4."
+    },
+    {
+      "command": "Godot 4.7.2 --headless -s scripts/probe_reef_kart_pc.gd",
+      "result": "PASS",
+      "evidence": "151 passing assertions, including four solo finishes, both shortcut seats, reversible progress, forward-only once-per-lap boost, obstacle contact, item routing and Sparkle branch follow. Log SHA-256 27c9be55068e3c267ee4db634fd5042672dec5ddad31699448afaf0a89c6cdfd."
+    },
+    {
+      "command": "Godot 4.7.2 --headless -s scripts/probe_racer_integration.gd",
+      "result": "PASS",
+      "evidence": "50 passing story-race assertions include gas/steer handling, lap finish, imp retries, pearl retention and lifecycle. Log SHA-256 d02d1b02245467b0840f556e2cb8f0f256663d7f07555178615bbf3820d26980."
+    },
+    {
+      "command": "Godot 4.7.2 full split-screen controller-event races and Forward Mobile capture sweep",
+      "result": "PASS",
+      "evidence": "Eight two-seat race results with both drivers completing a lap. The four shortcut runs each took the cut twice and finished 0.52 to 5.82 seconds sooner. 32 frames cover course approaches, alternate roads, obstacle footprints and boost strips in solo and split-screen. Timing log SHA-256 11bb9e5f4c17f4065f9dc3771c9741bd4b64d02e265b730627839f0aae42fea2. Capture log SHA-256 37662f11c3a5fc6286c55dd5c2cbd89f3cf1b1e445d4dec04d076efc49857e6f."
+    },
+    {
+      "command": "Official Godot 4.7.2 Windows x64 portable build and smoke test",
+      "result": "PASS",
+      "evidence": "All four courses, both seats and asset loads verified with the exported executable on Mobile renderer. Runtime content is hashed per file in the package build info. ZIP SHA-256 4eaaffab5c0b8cbae2018367b3a33eeaf77771a30ad6f918ce538af0d39c7710. All six changed runtime files in the archive were checked against the staged script and shader content."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py and python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Both project gates passed on the final candidate; development range base fa05d87206d95ddbfa7abcb125c854895fabfdd6. Changed GDScript parser/inference and Git whitespace checks passed."
+    },
+    {
+      "command": "scripts/ci.sh repository gates and all 82 existing trusted Godot probes",
+      "result": "PASS",
+      "evidence": "The corrected candidate passed the serial repository gates through a clean Godot import and the exact shrinking 2D inventory. Static-gate prefix SHA-256 4aa6806b5af29305eb5cf176ccf7476010fcb3a9c4719e1b06881e3161007d96. All 82 trusted probes had zero-exit passing transcripts. The whole-game audit passed in serial CI and the new-game verifier passed in an individual replay. Exact candidate probe receipt SHA-256 5b52e9acd437e5c23a4f63564f756e13854f2815cf9ce04ea3ed847b7bfc2bd4."
+    }
+  ],
+  "acceptance_gaps": "USB/Bluetooth controller input and latency on the target PC, observed child play and owner acceptance remain open. Desktop visual and software controller checks cover this standalone PC branch.",
+  "references_used": [
+    {
+      "path": "https://www.nintendo.co.jp/clvs/manuals/common/pdf/CLV-P-SAAFE.pdf",
+      "purpose": "Original zipper and jump tiles, Feather/Mushroom controls, course hazards and split-screen."
+    },
+    {
+      "path": "https://smkdan.eludevisibility.org/smkovlof.html",
+      "purpose": "Offsets used to read the local US cartridge's track overlay records."
+    },
+    {
+      "path": "https://smkdan.eludevisibility.org/smkomush.html",
+      "purpose": "Offsets used to read pipe, pillar and Thwomp coordinates from the local cartridge."
+    },
+    {
+      "path": "https://docs.libretro.com/library/snes9x/",
+      "purpose": "Snes9x core used to drive the local cartridge with repeatable controller frames and compare aligned and missed ramp approaches."
+    }
+  ]
+}

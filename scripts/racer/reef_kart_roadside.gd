@@ -170,6 +170,16 @@ static func _place(track: ReefKartTrack, station: float, side: int, size: Vector
 
 static func _clears_route(track: ReefKartTrack, center: Vector2, along: Vector2,
 		across: Vector2, half: Vector2, margin: float) -> bool:
+	if not track.shortcut.is_empty():
+		var start: Vector2 = track.shortcut["start"]
+		var end: Vector2 = track.shortcut["end"]
+		var clear := float(track.shortcut["half"]) + 31.0
+		for step in range(25):
+			var delta := start.lerp(end, float(step) / 24.0) - center
+			var x := maxf(0.0, absf(delta.dot(along)) - half.x)
+			var y := maxf(0.0, absf(delta.dot(across)) - half.y)
+			if x * x + y * y < clear * clear:
+				return false
 	var reach := pow(half.length() + margin, 2.0)
 	for sample: Vector2 in track.center:
 		var delta := sample - center

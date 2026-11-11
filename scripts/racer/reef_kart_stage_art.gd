@@ -123,6 +123,8 @@ static func clears_course(track: ReefKartTrack, center: Vector2, radius: float,
 		placed: Array[Dictionary]) -> bool:
 	# Conservative circular footprint keeps even a camera-facing card behind
 	# the rails when viewed from the far side of another bend.
+	if not track.clears_shortcut(center, radius + 27.0):
+		return false
 	var road_margin := ReefKartTrack.RAIL + radius + 27.0 + track.length / ReefKartTrack.SAMPLES * 0.5
 	for sample: Vector2 in track.center:
 		if center.distance_squared_to(sample) < road_margin * road_margin:

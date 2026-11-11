@@ -1,5 +1,31 @@
 # Reef Grand Prix stage art
 
+## Course mechanics and original cartridge study
+
+The November 10 course pass starts at `702471773fbc5280e06e73688a5f7d392d9b1f2d`. The reference run used the local 512 KiB US Super Mario Kart cartridge image in Snes9x. Its header reads `SUPER MARIO KART` and its SHA-256 is `2ada8919688087be60a6a48cace8f877add60c45d2e5d09e2442faa55be62a49`. Course selection, driving and the loaded Mode 7 tilemap came from that image. The ROM bytes were also inspected directly using the published overlay and object addresses. The ROM and emulator captures stay outside the game. [Nintendo instruction manual](https://www.nintendo.co.jp/clvs/manuals/common/pdf/CLV-P-SAAFE.pdf) · [ROM overlay addresses](https://smkdan.eludevisibility.org/smkovlof.html) · [ROM object clusters](https://smkdan.eludevisibility.org/smkomush.html)
+
+| Original observation | Reef Grand Prix implementation |
+| --- | --- |
+| Mario Circuit 1 gives the wide paved line a clear curb and puts the pipes in specific clusters. Its ROM overlay table has three strip records of type 28. | Playroom Speedway has a block slalom with staggered sides, a wide rug cut through the bend and a boost on the cut. |
+| Mario Circuit 2 puts its permanent launch strip near the end of an alignment straight. In two controlled emulator starts near the ramp, the aligned kart went airborne and the offset approach stayed grounded. Its overlapping roads read as different surfaces at the crossing. | Copper Pan Circuit places a narrow serving-board cut across the inside of the return hook. An offset pad rewards lining up the cut. Teapot and pitcher obstacles sit on the longer route. |
+| Ghost Valley 1 shows an alternate landing before the player commits to the gap. The live tilemap confirms the open gap, and a paired run from the same emulator state showed that a standard hop carried farther into it. Both trial lines stopped short of the landing. Donut Plains 3 distinguishes a narrow bridge deck from surrounding water. | Seahorse Bridgeway has the narrowest shortcut, with a separate colored boardwalk across the shallows. Flower and star floats drift across part of the wider route. |
+| Bowser Castle breaks its route into timed obstacle clusters. Rainbow Road spaces its strip overlays across several different sections. | Footlight Finale offers a rehearsal-carpet cut around the sweeping right corner, a moving music-box obstacle on the long line and a trophy to dodge near the lower turn. |
+
+Each course has two main-line boosts and one alternate-line boost. The visible pad footprint is shared with contact logic. Each pad activates once per lap for each kart, in the forward direction. Obstacles cost speed briefly and leave steering available. Static and moving props reuse the existing painted room art. Shortcut surfaces and arrows are drawn on the world plane from the same endpoints and width used by driving. The shortcut uses a forward entry and rejoin within the same lap, with reversible signed progress and no course relocation. A sparkle fired on the alternate line follows that line to the merge. The [impact record](../../../design/audit_impacts/reef-kart-course-features-20261110.json) records machine and external acceptance separately.
+
+The final PC check ran 151 assertions through the game checkout. Eight full split-screen races used two independently injected controller streams. Both racers completed at least one lap in every run and a driver reached the results screen. The shortcut driver took the alternate route on both laps of each challenge run.
+
+| PC course | First finish on main-line run | First finish with shortcut | Difference |
+| --- | ---: | ---: | ---: |
+| Playroom Speedway | 26.22 s | 25.70 s | 0.52 s |
+| Copper Pan Circuit | 47.03 s | 41.22 s | 5.82 s |
+| Seahorse Bridgeway | 92.42 s | 89.02 s | 3.40 s |
+| Footlight Finale | 87.92 s | 85.52 s | 2.40 s |
+
+The 32 Mobile renderer captures cover each approach, cut, obstacle and main-line pad in both modes. They establish the rendered positions and both camera compositions. The Windows package starts all four courses with both seats and loads their art. Physical-controller and child/owner play remain open.
+
+## November 7 stage art pass
+
 This pass starts from `77252935800b8146694d1eceba930309f7999c8c` on the standalone PC demo branch. The four room paintings, sixteen zone themes, curb geometry and item rules are the existing reference. The approved room paintings remain as the far wall and surface source. The additions are isolated transparent cards placed in world space, with one distinct silhouette per zone, a wall-light grade, and separate collectible and cooldown art.
 
 ## Mario Kart reference study

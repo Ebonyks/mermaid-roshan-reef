@@ -25,6 +25,13 @@ uniform vec2 finish_forward;
 uniform vec4 boundary_ink : source_color = vec4(0.17, 0.12, 0.28, 1.0);
 uniform vec4 bridge_a;
 uniform vec4 bridge_b;
+uniform vec4 shortcut_axis;
+uniform vec2 shortcut_size;
+uniform vec4 shortcut_lead;
+uniform float shortcut_lead_length;
+uniform vec4 pad_axes[3];
+uniform vec2 pad_sizes[3];
+uniform vec4 obstacle_footprints[2];
 uniform sampler2D painted_floor : source_color, filter_linear_mipmap, repeat_disable;
 uniform sampler2D room_surface : source_color, filter_linear_mipmap, repeat_disable;
 uniform vec4 room_surface_rect = vec4(0.2, 0.72, 0.5, 0.20);
@@ -172,6 +179,82 @@ vec4 race_markings(vec2 world, float d, vec4 color) {
 	return color;
 }
 
+vec2 local_ground(vec2 world, vec4 axis) {
+	vec2 rel = world - axis.xy;
+	return vec2(dot(rel, axis.zw), dot(rel, vec2(-axis.w, axis.z)));
+}
+
+vec4 course_challenges(vec4 color, vec2 world, float main_distance, float detail) {
+	vec2 cut = local_ground(world, shortcut_axis);
+	float across = abs(cut.y);
+	float cut_distance = length(vec2(max(max(-cut.x, cut.x - shortcut_size.x), 0.0), across));
+	float width = shortcut_size.y;
+	float aa = clamp(max(length(fwidth(cut)), 1.0), 1.0, 7.0);
+	float branch = 1.0 - smoothstep(width - aa, width + aa, cut_distance);
+	float main_road = 1.0 - smoothstep(road_edge - 0.025, road_edge, main_distance);
+	// Leave the shared mouth open and show the alternate surface where the
+	// routes separate. The clear deck width is the same as the driving rail.
+	vec4 wood = vec4(0.62, 0.34, 0.22, 1.0);
+	vec4 accent = vec4(1.0, 0.76, 0.44, 1.0);
+	if (room_pattern == 1) {
+		wood = vec4(0.48, 0.28, 0.52, 1.0);
+		accent = vec4(1.0, 0.72, 0.46, 1.0);
+	} else if (room_pattern == 3) {
+		wood = vec4(0.26, 0.46, 0.57, 1.0);
+		accent = vec4(0.67, 0.90, 0.91, 1.0);
+	} else if (room_pattern == 4) {
+		wood = vec4(0.48, 0.22, 0.43, 1.0);
+		accent = vec4(0.98, 0.73, 0.73, 1.0);
+	}
+	float seam = smoothstep(0.85, 0.98, fract(cut.x / 38.0));
+	if (room_pattern == 1 || room_pattern == 4) {
+		seam = soft_checker(cut, 42.0);
+	}
+	float pinstripe = 1.0 - smoothstep(3.0, 3.0 + aa, abs(cut_distance - width + 8.0));
+	float frame = smoothstep(width - 7.0 - aa, width - 7.0, cut_distance);
+	vec4 branch_color = mix(wood, wood * 0.78, seam * detail * 0.55);
+	branch_color = mix(branch_color, accent, pinstripe);
+	branch_color = mix(branch_color, boundary_ink, frame);
+	color = mix(color, branch_color, branch * (1.0 - main_road * 0.94));
+	// Larger arrow at the split, smaller directional marks along the cut.
+	float head = abs(mod(cut.x + 91.0, 136.0) - 68.0 + across * 0.65);
+	float arrow = (1.0 - smoothstep(5.0, 6.0 + aa, head)) * (1.0 - smoothstep(21.0, 25.0 + aa, across));
+	float arrows = step(-46.0, cut.x) * step(cut.x, shortcut_size.x - 25.0);
+	color = mix(color, accent, arrows * arrow * (0.7 + 0.3 * detail));
+	// Painted approach cues begin on the main road, within the narrow PC pane.
+	vec2 lead = local_ground(world, shortcut_lead);
+	float lead_y = abs(lead.y);
+	float first = abs(lead.x - 28.0 + lead_y * 0.64);
+	float second = abs(lead.x - shortcut_lead_length * 0.56 + lead_y * 0.64);
+	float advance = (1.0 - smoothstep(4.0, 5.0 + aa, min(first, second)))
+		* (1.0 - smoothstep(15.0, 19.0 + aa, lead_y)) * main_road;
+	color = mix(color, accent, advance);
+	for (int i = 0; i < 3; i++) {
+		vec2 pad = local_ground(world, pad_axes[i]);
+		vec2 extent = pad_sizes[i];
+		float edge = max(abs(pad.x) - extent.x, abs(pad.y) - extent.y);
+		float mask = 1.0 - smoothstep(-1.0, aa, edge);
+		float rim = smoothstep(-5.0 - aa, -5.0, edge);
+		float strip = 1.0 - smoothstep(3.0, 4.0 + aa,
+			abs(mod(pad.x + 32.0 + abs(pad.y) * 0.48, 23.0) - 11.5));
+		strip *= (1.0 - smoothstep(extent.y - 12.0, extent.y - 8.0, abs(pad.y)))
+			* (1.0 - smoothstep(extent.x - 8.0, extent.x - 5.0, abs(pad.x)));
+		vec4 orange = mix(vec4(0.88, 0.39, 0.10, 1.0), vec4(1.0, 0.64, 0.22, 1.0),
+			0.5 + 0.15 * sin(time * 4.0));
+		vec4 paint = mix(orange, vec4(1.0, 0.91, 0.61, 1.0), strip);
+		color = mix(color, mix(paint, boundary_ink, rim), mask);
+	}
+	for (int i = 0; i < 2; i++) {
+		vec4 footprint = obstacle_footprints[i];
+		float d = length(world - footprint.xy) - footprint.z;
+		float ring = 1.0 - smoothstep(2.0, 3.0 + aa, abs(d));
+		float shadow = 1.0 - smoothstep(-6.0, 0.0, d);
+		color = mix(color, boundary_ink, shadow * 0.21);
+		color = mix(color, vec4(0.96, 0.60, 0.34, 1.0), ring * 0.86);
+	}
+	return color;
+}
+
 void fragment() {
 	vec2 pixel = UV * rect_size;
 	float dy = max(pixel.y, 0.75);
@@ -219,6 +302,9 @@ void fragment() {
 	}
 	float distance_field = inside ? texture(field, uv).r : 1.0;
 	color = race_markings(world, distance_field, color);
+	if (room_pattern > 0 && inside) {
+		color = course_challenges(color, world, distance_field, detail);
+	}
 	float h = smoothstep(haze_start, haze_end, depth);
 	float room_horizon = room_pattern > 0 ? smoothstep(1500.0, 2550.0, depth) : 0.0;
 	COLOR = vec4(mix(color.rgb, haze.rgb, max(h * 0.86, room_horizon)), 1.0);

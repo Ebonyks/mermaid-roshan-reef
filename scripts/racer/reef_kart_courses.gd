@@ -4,7 +4,7 @@ const ROOMS := "res://assets/flats/castle/rooms/"
 const COURSES := [
 	{
 		"id": "playroom", "pattern": 1, "wall_height": 0.47, "name": "Playroom Speedway", "room": "Castle Playroom",
-		"hint": "Block slalom, stuffie nook, tent deck and toy parade",
+		"hint": "Block slalom and an inside line through the toy rug",
 		# Broad oval inspiration, now with an authored block slalom and tent approach.
 		"points": [
 			Vector2(640, 830), Vector2(850, 792), Vector2(1040, 844), Vector2(1150, 807),
@@ -14,7 +14,17 @@ const COURSES := [
 			Vector2(50, 732), Vector2(130, 807), Vector2(240, 830), Vector2(430, 830),
 		],
 		"scale": 1.25, "shift": Vector2(220, 350), "world_size": 2048.0,
-		"items": [5, 15], "pearls": [2, 7, 12, 17],
+		"items": [5, 15], "pearls": [1, 7, 12, 17],
+		"cut": {"in": 3, "out": 6, "out_offset": 38.0, "entry_lat": -79.0, "exit_lat": -85.0, "half": 68.0},
+		"boosts": [
+			{"at": 1, "lat": 57.0, "offset": 0.0},
+			{"at": 11, "lat": -60.0, "offset": -45.0},
+		],
+		"cut_boost": Vector2(0.32, 0.0),
+		"obstacles": [
+			{"prop": "play_blocks", "at": 2, "offset": -55.0, "lat": 59.0, "radius": 27.0},
+			{"prop": "play_blocks", "at": 2, "offset": 61.0, "lat": -60.0, "radius": 27.0},
+		],
 		"palette": [Color("#a185c5"), Color("#675088"), Color("#f2d99f"),
 			Color("#559d98"), Color("#6da8a2"), Color("#70818f")],
 		"props": [
@@ -24,7 +34,7 @@ const COURSES := [
 	},
 	{
 		"id": "kitchen", "pattern": 2, "wall_height": 0.53, "name": "Copper Pan Circuit", "room": "Castle Kitchen",
-		"hint": "Breakfast china, warm bakery, cool fridge corner and shell sink",
+		"hint": "Dodge the china or take the narrow serving-board cut",
 		# SNES Mario Circuit 1. Start up the east straight, run the long
 		# diagonal, then follow the west straight into the return hook.
 		"points": [
@@ -39,6 +49,16 @@ const COURSES := [
 		],
 		"scale": 2.15, "shift": Vector2(25, -40), "world_size": 2304.0,
 		"items": [7, 14, 26], "pearls": [5, 12, 17, 21, 28],
+		"cut": {"in": 13, "out": 23, "entry_lat": -79.0, "exit_lat": 64.0, "half": 61.0},
+		"boosts": [
+			{"at": 5, "lat": 53.0, "offset": 90.0},
+			{"at": 19, "lat": -62.0, "offset": 10.0},
+		],
+		"cut_boost": Vector2(0.34, -19.0),
+		"obstacles": [
+			{"prop": "kitchen_teapot", "at": 16, "offset": 34.0, "lat": -58.0, "radius": 31.0},
+			{"prop": "kitchen_pitcher", "at": 28, "offset": 118.0, "lat": 55.0, "radius": 26.0},
+		],
 		"palette": [Color("#a89179"), Color("#70697a"), Color("#f7d999"),
 			Color("#618e85"), Color("#88b3a1"), Color("#896d94")],
 		"props": [
@@ -50,7 +70,7 @@ const COURSES := [
 	},
 	{
 		"id": "mermaid_pool", "pattern": 3, "wall_height": 0.32, "name": "Seahorse Bridgeway", "room": "Mermaid Pool",
-		"hint": "Towel alcove, fountain garden, float shallows and waterfall return",
+		"hint": "Floating obstacles and a narrow boardwalk across the shallows",
 		# SNES Donut Plains 3. Two straight crossings followed by the
 		# central S and the southern hook. Bridge decks are continuous.
 		"points": [
@@ -72,6 +92,16 @@ const COURSES := [
 		],
 		"scale": 3.25, "shift": Vector2(40, -55), "world_size": 3456.0,
 		"items": [13, 23, 36, 51], "pearls": [4, 16, 27, 34, 43, 57],
+		"cut": {"in": 44, "out": 51, "entry_lat": -78.0, "exit_lat": -68.0, "half": 52.0},
+		"boosts": [
+			{"at": 11, "lat": 56.0, "offset": 20.0},
+			{"at": 49, "lat": 63.0, "offset": -15.0},
+		],
+		"cut_boost": Vector2(0.58, 0.0),
+		"obstacles": [
+			{"prop": "pool_flower", "at": 30, "offset": -25.0, "lat": -61.0, "sway": 35.0, "radius": 27.0},
+			{"prop": "pool_star", "at": 46, "offset": 13.0, "lat": 62.0, "sway": 35.0, "radius": 26.0},
+		],
 		"palette": [Color("#47becb"), Color("#246a9b"), Color("#f5d8a7"),
 			Color("#255574"), Color("#3e779a"), Color("#62a7b9")],
 		"bridges": [Rect2(356, 142, 319, 92), Rect2(447, 411, 337, 92)],
@@ -84,7 +114,7 @@ const COURSES := [
 	},
 	{
 		"id": "opera_hall", "pattern": 4, "wall_height": 0.45, "name": "Footlight Finale", "room": "Opera Hall",
-		"hint": "Pearl lobby, music rehearsal, footlight stage and backstage",
+		"hint": "Thread the stage props or cut across the rehearsal carpet",
 		# SNES Rainbow Road. Follow the main loop and the inside line of
 		# the split on the bottom straight. Rounded corners suit kart scale.
 		"points": [
@@ -103,6 +133,16 @@ const COURSES := [
 		],
 		"scale": 2.9, "shift": Vector2(60, -95), "world_size": 3072.0,
 		"items": [6, 17, 27, 39], "pearls": [3, 10, 15, 24, 33, 44],
+		"cut": {"in": 11, "out": 16, "entry_lat": 80.0, "exit_lat": 70.0, "half": 57.0},
+		"boosts": [
+			{"at": 8, "lat": 55.0, "offset": -65.0},
+			{"at": 32, "lat": -60.0, "offset": 18.0},
+		],
+		"cut_boost": Vector2(0.68, 12.0),
+		"obstacles": [
+			{"prop": "opera_musicbox", "at": 13, "offset": 30.0, "lat": 52.0, "sway": 25.0, "radius": 28.0},
+			{"prop": "opera_cup", "at": 30, "offset": -48.0, "lat": -58.0, "radius": 29.0},
+		],
 		"palette": [Color("#ae88b5"), Color("#694679"), Color("#ffd58d"),
 			Color("#373658"), Color("#554567"), Color("#66537b")],
 		"props": [

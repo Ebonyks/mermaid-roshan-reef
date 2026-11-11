@@ -135,6 +135,8 @@ Doctor/Farmer/Magician/Painter P6 painted-art candidate (2026-10-19): [CHG-108 i
 
 2026-11-08 [Playroom Crosstrek Easter egg](../docs/handoffs/codex_reef_kart_art_2026-11-03/STAGE_ART.md#playroom-die-cast-easter-egg) adds one original die-cast roadside prop in the PC course. The [impact](../design/audit_impacts/reef-kart-crosstrek-20261108.json) records factory-color provenance and its solo and split-screen evidence.
 
+2026-11-10 [Racer course mechanics](../docs/handoffs/codex_reef_kart_art_2026-11-03/STAGE_ART.md#course-mechanics-and-original-cartridge-study) studies the local original SNES cartridge and adds a driveable alternate route, forward boost strips and avoidable room props to each of the four PC courses. The [impact](../design/audit_impacts/reef-kart-course-features-20261110.json) records scoped verification.
+
 ## Development task index
 
 | Geologist in-world painted station props | [R115 candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/README.md) | [Impact](../design/audit_impacts/flat-vector-geologist-station-props-20261030.json); whole fossil/three trays/gallery foreground candidate; originaltaskguard/input/save unchanged. Cavebackground/river/formal/external open. |

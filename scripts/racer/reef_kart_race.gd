@@ -228,6 +228,7 @@ func setup_camera_view(source: ReefKartRace, slot: int) -> void:
 
 func refresh_camera_view(source: ReefKartRace, delta: float) -> void:
 	state = source.state
+	race_time = source.race_time
 	clock = source.clock
 	go_t = source.go_t
 	_time = source._time
@@ -258,7 +259,7 @@ func _new_kart(spec: Dictionary) -> Dictionary:
 		"roulette_t": 0.0, "boost_t": 0.0, "spin_t": 0.0, "slow_t": 0.0,
 		"bump_t": 0.0, "finished": false, "finish_time": 0.0,
 		"flubbed": false, "steer_vis": 0.0, "ai_item_t": 0.0, "spin_vis": 0.0,
-		"wrong_way": false,
+		"wrong_way": false, "on_shortcut": false, "pad_laps": {}, "obstacle_contacts": 0,
 	}
 
 
@@ -286,6 +287,9 @@ func _place_grid() -> void:
 		k["finished"] = false
 		k["flubbed"] = false
 		k["wrong_way"] = false
+		k["on_shortcut"] = false
+		k["pad_laps"].clear()
+		k["obstacle_contacts"] = 0
 		k["pending"] = ""
 		k["item"] = START_ITEM if bool(k["player"]) else ""
 
@@ -458,6 +462,30 @@ func _style_room_floor() -> void:
 		var end := area.end * scale + shift
 		var uniform := "bridge_a" if index == 0 else "bridge_b"
 		_floor_material.set_shader_parameter(uniform, Vector4(start.x, start.y, end.x, end.y))
+	_style_course_challenges()
+
+
+func _style_course_challenges() -> void:
+	var cut := track.shortcut
+	var start: Vector2 = cut["start"]
+	var direction: Vector2 = cut["along"]
+	_floor_material.set_shader_parameter("shortcut_axis", Vector4(start.x, start.y, direction.x, direction.y))
+	_floor_material.set_shader_parameter("shortcut_size", Vector2(cut["length"], cut["half"]))
+	var entry_s := float(cut["start_s"])
+	var entry_side := signf(track.shortcut_local(track.point_at(entry_s)).y)
+	var lead := track.point_at(entry_s - 178.0, -entry_side * 18.0)
+	var lead_axis := lead.direction_to(start)
+	_floor_material.set_shader_parameter("shortcut_lead", Vector4(lead.x, lead.y, lead_axis.x, lead_axis.y))
+	_floor_material.set_shader_parameter("shortcut_lead_length", lead.distance_to(start))
+	var axes := PackedVector4Array()
+	var sizes := PackedVector2Array()
+	for pad: Dictionary in track.boost_pads:
+		var pos: Vector2 = pad["pos"]
+		var along: Vector2 = pad["along"]
+		axes.append(Vector4(pos.x, pos.y, along.x, along.y))
+		sizes.append(pad["half"])
+	_floor_material.set_shader_parameter("pad_axes", axes)
+	_floor_material.set_shader_parameter("pad_sizes", sizes)
 
 
 func _build_minimap() -> void:
@@ -707,14 +735,19 @@ func _drive(k: Dictionary, steer: float, braking: bool, delta: float, throttle: 
 func _drive_pc(k: Dictionary, command: Dictionary, delta: float) -> void:
 	for key: String in ["boost_t", "spin_t", "slow_t", "bump_t"]:
 		k[key] = maxf(0.0, float(k[key]) - delta)
-	var terrain := track.terrain_at_lat(float(k["lat"]))
+	var on_shortcut := bool(k["on_shortcut"])
+	var terrain := ReefKartTrack.Terrain.ROAD if on_shortcut else track.terrain_at_lat(float(k["lat"]))
 	PCDrive.step(k, command, terrain, _top_speed(k, terrain), _pc_tune, delta)
 	_move_pc(k, delta)
 	if bool(k["player"]):
-		var error := wrapf(track.heading_at(float(k["track_s"])) - float(k["heading"]), -PI, PI)
+		var tangent := track.tangent_at(float(k["track_s"]))
+		if bool(k["on_shortcut"]):
+			tangent = track.shortcut["along"]
+		var error := wrapf(atan2(tangent.x, -tangent.y) - float(k["heading"]), -PI, PI)
 		if absf(error) > WRONG_WAY and not bool(k["wrong_way"]):
 			race_event.emit("wrong_way", 0.0)
 		k["wrong_way"] = absf(error) > WRONG_WAY
+	_contact_course(k)
 	_contact_features(k, delta)
 	RiderArt.advance_motion(k, delta, true)
 
@@ -745,25 +778,56 @@ func _move_pc(k: Dictionary, delta: float) -> void:
 	var previous := float(k["track_s"])
 	# Projection identifies the nearby road and lap progress. It never
 	# supplies a driving heading or moves a kart on the open surface.
-	var proj := track.project(pos, previous, maxf(24.0, velocity.length() * delta * 3.0))
-	var lateral := proj.y
+	var window := maxf(24.0, velocity.length() * delta * 3.0)
+	if not track.shortcut.is_empty():
+		var cut := track.shortcut
+		var local := track.shortcut_local(pos)
+		var cut_length := float(cut["length"])
+		var limit := float(cut["half"]) - KART_RADIUS
+		var along: Vector2 = cut["along"]
+		if not bool(k["on_shortcut"]):
+			# The near mouth is the sole entry. A kart approaching an adjacent
+			# rail or the exit from the main course retains main-course progress.
+			if absf(previous - float(cut["start_s"])) <= 112.0 and local.x >= 0.0 \
+					and velocity.dot(along) >= maxf(28.0, velocity.length() * 0.86):
+				var before := track.shortcut_local(k["pos"])
+				if before.x < 0.0:
+					var at_mouth := lerpf(before.y, local.y, -before.x / (local.x - before.x))
+					k["on_shortcut"] = absf(at_mouth) <= limit
+		if bool(k["on_shortcut"]):
+			if local.x < 0.0 or local.x > cut_length:
+				previous = float(cut["start_s"] if local.x < 0.0 else cut["end_s"])
+				k["on_shortcut"] = false
+			else:
+				var lateral := clampf(local.y, -limit, limit)
+				var next_s := lerpf(float(cut["start_s"]), float(cut["end_s"]), local.x / cut_length)
+				if lateral != local.y:
+					var across: Vector2 = cut["across"]
+					pos += across * (lateral - local.y)
+					_bounce_pc_rail(k, across * signf(local.y))
+				_apply_position(k, pos, next_s, lateral)
+				return
+	var proj := track.project(pos, previous, window)
 	var limit := ReefKartTrack.RAIL - KART_RADIUS
-	if absf(lateral) > limit:
-		var side := signf(lateral)
+	var lateral := clampf(proj.y, -limit, limit)
+	if lateral != proj.y:
 		var along := track.tangent_at(proj.x)
-		var outward := Vector2(-along.y, along.x) * side
-		var impact := maxf(0.0, velocity.dot(outward))
-		velocity -= outward * impact * (1.0 + float(_pc_tune["rail_rebound"]))
-		lateral = side * limit
+		_bounce_pc_rail(k, Vector2(-along.y, along.x) * signf(proj.y))
 		pos = track.point_at(proj.x, lateral)
-		k["velocity"] = velocity
-		k["speed"] = velocity.length()
-		if impact > 48.0 and float(k["bump_t"]) <= 0.0:
-			k["bump_t"] = 0.23
-			PCDrive.cancel_drift(k)
-			if bool(k["player"]):
-				race_event.emit("bump", 0.0)
 	_apply_position(k, pos, proj.x, lateral)
+
+
+func _bounce_pc_rail(k: Dictionary, outward: Vector2) -> void:
+	var velocity: Vector2 = k["velocity"]
+	var impact := maxf(0.0, velocity.dot(outward))
+	velocity -= outward * impact * (1.0 + float(_pc_tune["rail_rebound"]))
+	k["velocity"] = velocity
+	k["speed"] = velocity.length()
+	if impact > 48.0 and float(k["bump_t"]) <= 0.0:
+		k["bump_t"] = 0.23
+		PCDrive.cancel_drift(k)
+		if bool(k["player"]):
+			race_event.emit("bump", 0.0)
 
 
 func _move(k: Dictionary, delta: float) -> void:
@@ -822,6 +886,41 @@ func _separate_karts() -> void:
 				karts[b]["velocity"] = vb + impulse
 				karts[a]["speed"] = (va - impulse).length()
 				karts[b]["speed"] = (vb + impulse).length()
+
+
+func _contact_course(k: Dictionary) -> void:
+	var pos: Vector2 = k["pos"]
+	var velocity: Vector2 = k["velocity"]
+	var lap := floori(float(k["race_s"]) / track.length)
+	var pad_laps: Dictionary = k["pad_laps"]
+	for index in range(track.boost_pads.size()):
+		var pad := track.boost_pads[index]
+		var along: Vector2 = pad["along"]
+		if int(pad_laps.get(index, -2)) >= lap or velocity.dot(along) < 35.0:
+			continue
+		var offset := pos - (pad["pos"] as Vector2)
+		var half: Vector2 = pad["half"]
+		if absf(offset.dot(along)) <= half.x and absf(offset.cross(along)) <= half.y:
+			pad_laps[index] = lap
+			k["boost_t"] = maxf(float(k["boost_t"]), float(pad["duration"]))
+	var previous := int(k["obstacle_contacts"])
+	var touching := 0
+	for index in range(track.obstacles.size()):
+		var obstacle := track.obstacles[index]
+		var center := track.obstacle_position(obstacle, race_time)
+		var radius := float(obstacle["radius"]) + KART_RADIUS
+		if pos.distance_squared_to(center) > radius * radius:
+			continue
+		var mask := 1 << index
+		touching |= mask
+		if previous & mask:
+			continue
+		k["slow_t"] = maxf(float(k["slow_t"]), 0.48)
+		_scale_kart_speed(k, 0.66)
+		PCDrive.cancel_drift(k)
+		if bool(k["player"]):
+			race_event.emit("bump", 0.0)
+	k["obstacle_contacts"] = touching
 
 
 func _contact_features(k: Dictionary, delta: float) -> void:
@@ -907,7 +1006,8 @@ func _use_item(k: Dictionary) -> void:
 		"sparkle":
 			projectiles.append({"owner": k, "s": float(k["track_s"]) + 30.0,
 				"lat": float(k["lat"]), "speed": maxf(float(k["speed"]) + 260.0, SPARKLE_SPEED),
-				"life": 3.5, "pos": k["pos"] as Vector2 + forward * 30.0})
+				"life": 3.5, "pos": k["pos"] as Vector2 + forward * 30.0,
+				"on_shortcut": bool(k["on_shortcut"])})
 			if bool(k["player"]):
 				race_event.emit("item_used", 1.0)
 		"kelp":
@@ -938,11 +1038,7 @@ func _tick_projectiles(delta: float) -> void:
 	for index in range(projectiles.size() - 1, -1, -1):
 		var p := projectiles[index]
 		p["life"] = float(p["life"]) - delta
-		p["s"] = float(p["s"]) + float(p["speed"]) * delta
-		var target := _next_ahead(p["owner"] as Dictionary, float(p["s"]))
-		if not target.is_empty():
-			p["lat"] = move_toward(float(p["lat"]), float(target["lat"]), 150.0 * delta)
-		p["pos"] = track.point_at(float(p["s"]), float(p["lat"]))
+		_move_sparkle(p, delta)
 		var hit := false
 		for k: Dictionary in karts:
 			if is_same(k, p["owner"]):
@@ -957,11 +1053,39 @@ func _tick_projectiles(delta: float) -> void:
 			projectiles.remove_at(index)
 
 
-func _next_ahead(owner: Dictionary, s: float) -> Dictionary:
+func _move_sparkle(p: Dictionary, delta: float) -> void:
+	var distance := float(p["speed"]) * delta
+	if bool(p.get("on_shortcut", false)):
+		var cut := track.shortcut
+		var local := track.shortcut_local(p["pos"])
+		local.x += distance
+		if local.x < float(cut["length"]):
+			p["s"] = lerpf(float(cut["start_s"]), float(cut["end_s"]), local.x / float(cut["length"]))
+			var branch_target := _next_ahead(p["owner"], float(p["s"]), true)
+			if not branch_target.is_empty():
+				local.y = move_toward(local.y, float(branch_target["lat"]), 150.0 * delta)
+			p["pos"] = (cut["start"] as Vector2) + (cut["along"] as Vector2) * local.x \
+				+ (cut["across"] as Vector2) * local.y
+			return
+		var end: Vector2 = cut["end"]
+		var across: Vector2 = cut["across"]
+		var proj := track.project(end + across * local.y, float(cut["end_s"]), 70.0)
+		p["s"] = proj.x
+		p["lat"] = proj.y
+		p["on_shortcut"] = false
+		distance = local.x - float(cut["length"])
+	p["s"] = float(p["s"]) + distance
+	var target := _next_ahead(p["owner"], float(p["s"]))
+	if not target.is_empty():
+		p["lat"] = move_toward(float(p["lat"]), float(target["lat"]), 150.0 * delta)
+	p["pos"] = track.point_at(float(p["s"]), float(p["lat"]))
+
+
+func _next_ahead(owner: Dictionary, s: float, on_shortcut: bool = false) -> Dictionary:
 	var best: Dictionary = {}
 	var best_gap := 1200.0
 	for k: Dictionary in karts:
-		if is_same(k, owner):
+		if is_same(k, owner) or bool(k["on_shortcut"]) != on_shortcut:
 			continue
 		var gap := wrapf(float(k["track_s"]) - track.wrap_s(s), 0.0, track.length)
 		if gap < best_gap:
@@ -1098,6 +1222,12 @@ func _refresh_view() -> void:
 	_floor_material.set_shader_parameter("cam_forward", forward)
 	_floor_material.set_shader_parameter("cam_right", Vector2(-forward.y, forward.x))
 	_floor_material.set_shader_parameter("time", _time)
+	if not track.obstacles.is_empty():
+		var footprints := PackedVector4Array()
+		for obstacle: Dictionary in track.obstacles:
+			var center := track.obstacle_position(obstacle, race_time)
+			footprints.append(Vector4(center.x, center.y, float(obstacle["radius"]), 0.0))
+		_floor_material.set_shader_parameter("obstacle_footprints", footprints)
 	_sky.queue_redraw()
 	_world.queue_redraw()
 	_hud.queue_redraw()
@@ -1204,7 +1334,9 @@ func _draw_world() -> void:
 		_queue_drawable(track.buoys[index]["pos"] as Vector2, "buoy", index)
 	for index in range(track.landmarks.size()):
 		var landmark: Dictionary = track.landmarks[index]
-		if bool(landmark.get("spans", false)):
+		if bool(landmark.get("course_obstacle", false)):
+			_queue_drawable(track.obstacle_position(landmark, race_time), "landmark", index)
+		elif bool(landmark.get("spans", false)):
 			var center: Vector2 = landmark["pos"]
 			var depth := _depth(center)
 			# An oblique span can still have a visible side after its centre
@@ -1715,6 +1847,10 @@ func _draw_minimap() -> void:
 	_hud.draw_polyline(_minimap, INK, 6.0 if _pc_hud else 9.0, true)
 	_hud.draw_polyline(_minimap, Color("#f4e6f0"), 2.5 if _pc_hud else 5.0, true)
 	var scale := _minimap_rect.size.x / track.world_size
+	if not track.shortcut.is_empty():
+		var a := _minimap_rect.position + (track.shortcut["start"] as Vector2) * scale
+		var b := _minimap_rect.position + (track.shortcut["end"] as Vector2) * scale
+		_hud.draw_dashed_line(a, b, Color("#ffe083"), 2.0, 4.0, true, true)
 	for k: Dictionary in karts:
 		var at := _minimap_rect.position + (k["pos"] as Vector2) * scale
 		var color := Color("#ff9db6") if bool(k["player"]) else Color("#b48ce8")

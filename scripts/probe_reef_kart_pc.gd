@@ -315,6 +315,7 @@ func _run() -> void:
 		check("%s binds the same course and art to both players" % track.id,
 			pc._race.track.id == track.id and is_same(pc._race.track, pc._second_view.track)
 			and is_same(pc._race._room_art, pc._second_view._room_art))
+		_check_course_challenges(pc._race)
 		_check_split_edges(pc, track.id)
 		await process_frame
 	pc._show_garage(1, 6)
@@ -387,6 +388,143 @@ func _check_split_edges(pc: PC, course: String) -> void:
 	pc._return_to_garage()
 	check(course + " returning to the garage retires the private stereo bus",
 		AudioServer.get_bus_index(seat_bus) == -1)
+
+
+func _check_course_challenges(race: ReefKartRace) -> void:
+	var track := race.track
+	var cut := track.shortcut
+	var start: Vector2 = cut["start"]
+	var along: Vector2 = cut["along"]
+	var end_s := float(cut["end_s"])
+	var start_s := float(cut["start_s"])
+	var distance := float(cut["length"])
+	check(track.id + " shortcut cuts physical distance between ordered stations",
+		end_s - start_s - distance > 120.0 and start_s > 180.0 and end_s < track.length - 180.0)
+	var p1 := race.karts[0]
+	var p2 := race.karts[1]
+	var pad := track.boost_pads[0]
+	var pad_axis: Vector2 = pad["along"]
+	var pad_center: Vector2 = pad["pos"]
+	p1["pos"] = pad_center
+	p1["velocity"] = -pad_axis * 140.0
+	p1["boost_t"] = 0.0
+	race._contact_course(p1)
+	var reverse_ignored := is_zero_approx(float(p1["boost_t"]))
+	p1["velocity"] = pad_axis * 140.0
+	race._contact_course(p1)
+	var independent := float(p1["boost_t"]) >= 0.8 and is_zero_approx(float(p2["boost_t"]))
+	p2["pos"] = pad_center
+	p2["velocity"] = pad_axis * 140.0
+	race._contact_course(p2)
+	check(track.id + " both seats can use one pad independently and reverse cannot trigger it",
+		reverse_ignored and independent and float(p2["boost_t"]) >= 0.8)
+	p1["boost_t"] = 0.0
+	race._contact_course(p1)
+	var no_farm := is_zero_approx(float(p1["boost_t"]))
+	p1["race_s"] = float(p1["race_s"]) + track.length
+	race._contact_course(p1)
+	check(track.id + " a pad fires once per driver per lap", no_farm and float(p1["boost_t"]) >= 0.8)
+
+	var obstacle := track.obstacles[0]
+	var center := track.obstacle_position(obstacle, race.race_time)
+	p1["pos"] = center
+	p1["velocity"] = along * 240.0
+	p1["speed"] = 240.0
+	p1["drift_charge"] = 0.6
+	p2["slow_t"] = 0.0
+	race._contact_course(p1)
+	var slowed := float(p1["speed"])
+	race._contact_course(p1)
+	check(track.id + " obstacle slows one seat once on contact and releases its drift",
+		slowed < 170.0 and is_equal_approx(float(p1["speed"]), slowed)
+		and is_zero_approx(float(p1["drift_charge"])) and is_zero_approx(float(p2["slow_t"])))
+	p1["pos"] = center + Vector2.RIGHT * 115.0
+	race._contact_course(p1)
+	check(track.id + " obstacle can be steered clear without a lingering contact",
+		int(p1["obstacle_contacts"]) == 0)
+	if float(obstacle["sway"]) > 0.0:
+		var a := track.obstacle_position(obstacle, 0.0)
+		var b := track.obstacle_position(obstacle, 1.0)
+		check(track.id + " moving prop changes its physical contact location", a.distance_to(b) > 15.0)
+
+	race._place_grid()
+	var axis_heading := atan2(along.x, -along.y)
+	var controlled := {"throttle": 1.0}
+	for kart: Dictionary in race.karts:
+		var pos := start - along * 31.0
+		var projection := track.project(pos, start_s, 112.0)
+		kart["pos"] = pos
+		kart["track_s"] = projection.x
+		kart["race_s"] = projection.x
+		kart["lat"] = projection.y
+		kart["heading"] = axis_heading
+		kart["velocity"] = along * 225.0
+		kart["speed"] = 225.0
+		var entered := false
+		var monotone := true
+		var continuous := true
+		for frame in range(450):
+			var prev: Vector2 = kart["pos"]
+			var progress := float(kart["race_s"])
+			race._drive_pc(kart, controlled, STEP)
+			var next: Vector2 = kart["pos"]
+			var on_cut := bool(kart["on_shortcut"])
+			monotone = monotone and float(kart["race_s"]) >= progress - 1.0
+			continuous = continuous and prev.distance_to(next) < 16.0
+			if entered and not on_cut:
+				break
+			entered = entered or on_cut
+		var label := track.id + " " + String(kart["id"])
+		check(label + " drives through and merges with signed progress and no teleport",
+			entered and not bool(kart["on_shortcut"]) and monotone and continuous
+			and absf(float(kart["track_s"]) - end_s) < 70.0 and int(kart["lap"]) == 0)
+		check(label + " gets the alternate-route boost", (kart["pad_laps"] as Dictionary).has(2))
+		kart["pearls"] = 0
+
+	# Sparkle takes the branch its sender is on and stays in world space.
+	for slot in range(2):
+		var rider := race.karts[slot]
+		var travel := 80.0 + float(slot) * 110.0
+		rider["pos"] = start + along * travel
+		rider["track_s"] = lerpf(start_s, end_s, travel / distance)
+		rider["on_shortcut"] = true
+		rider["lat"] = 0.0
+		rider["heading"] = axis_heading
+	p1["item"] = "sparkle"
+	p2["spin_t"] = 0.0
+	race._use_item(p1)
+	for frame in range(15):
+		race._tick_projectiles(STEP)
+	check(track.id + " sparkle follows the branch and reaches the other driver",
+		race.projectiles.is_empty() and float(p2["spin_t"]) > 0.0)
+
+	# Backing out undoes progress in the branch and restores the main rail.
+	var near := start + along * 24.0
+	var near_s := lerpf(start_s, end_s, 24.0 / distance)
+	p1["pos"] = near
+	p1["track_s"] = near_s
+	p1["race_s"] = near_s
+	p1["velocity"] = -along * 135.0
+	p1["on_shortcut"] = true
+	for frame in range(21):
+		race._move_pc(p1, STEP)
+	check(track.id + " reversing from the shortcut returns through the near mouth",
+		not bool(p1["on_shortcut"]) and float(p1["race_s"]) < start_s + 10.0
+		and absf(float(p1["race_s"]) - start_s) < 100.0 and int(p1["lap"]) == 0)
+
+	# Approaching the far mouth from the wrong end must not pick up the branch.
+	var end: Vector2 = cut["end"]
+	var after := end + along * 20.0
+	var projection := track.project(after, end_s, 90.0)
+	p1["pos"] = after
+	p1["track_s"] = projection.x
+	p1["race_s"] = projection.x
+	p1["velocity"] = -along * 150.0
+	for frame in range(20):
+		race._move_pc(p1, STEP)
+	check(track.id + " shortcut exit cannot be used as an entrance",
+		not bool(p1["on_shortcut"]) and absf(float(p1["race_s"]) - end_s) < 95.0)
+	race._place_grid()
 
 
 func _summary(kart: Dictionary) -> Array:

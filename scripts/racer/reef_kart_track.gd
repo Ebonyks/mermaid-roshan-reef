@@ -152,6 +152,9 @@ var buoys: Array[Dictionary] = []
 var landmarks: Array[Dictionary] = []
 var roadside: Array[Dictionary] = []
 var gate_s: Array[float] = []
+var shortcut: Dictionary = {}
+var boost_pads: Array[Dictionary] = []
+var obstacles: Array[Dictionary] = []
 
 static var _field_cache: ImageTexture = null
 static var _room_fields: Dictionary = {}
@@ -173,6 +176,7 @@ func _init(course: Dictionary = {}) -> void:
 	if room.is_empty():
 		_build_features()
 	else:
+		_build_course_challenges()
 		_build_room_features()
 
 
@@ -264,6 +268,62 @@ func _build_features() -> void:
 		landmarks.append(entry)
 
 
+func _build_course_challenges() -> void:
+	var cut: Dictionary = room["cut"]
+	var start_s := s_of(int(cut["in"]))
+	var end_s := s_of(int(cut["out"]), float(cut.get("out_offset", 0.0)))
+	var start := point_at(start_s, float(cut["entry_lat"]))
+	var end := point_at(end_s, float(cut["exit_lat"]))
+	var direction := start.direction_to(end)
+	var across := Vector2(-direction.y, direction.x)
+	var distance := start.distance_to(end)
+	shortcut = {"start_s": start_s, "end_s": end_s, "start": start, "end": end,
+		"along": direction, "across": across, "length": distance, "half": float(cut["half"])}
+	for spec: Dictionary in room["boosts"]:
+		var s := s_of(int(spec["at"]), float(spec["offset"]))
+		boost_pads.append({"pos": point_at(s, float(spec["lat"])), "along": tangent_at(s),
+			"half": Vector2(30.0, 35.0), "duration": 0.85})
+	var boost: Vector2 = room["cut_boost"]
+	boost_pads.append({"pos": start + direction * (distance * boost.x) + across * boost.y,
+		"along": direction, "half": Vector2(34.0, 30.0), "duration": 0.7})
+	for spec: Dictionary in room["obstacles"]:
+		for prop: Dictionary in room["props"]:
+			if prop["id"] != spec["prop"]:
+				continue
+			var obstacle := prop.duplicate()
+			obstacle["s"] = s_of(int(spec["at"]), float(spec["offset"]))
+			obstacle["lat"] = spec["lat"]
+			obstacle["sway"] = spec.get("sway", 0.0)
+			obstacle["radius"] = spec["radius"]
+			obstacle["w"] = float(spec["radius"]) * 2.0
+			obstacle["max_h"] = 66.0
+			obstacle["phase"] = float(obstacles.size()) * PI
+			obstacle["pos"] = obstacle_position(obstacle, 0.0)
+			obstacle["course_obstacle"] = true
+			obstacles.append(obstacle)
+			landmarks.append(obstacle)
+			break
+
+
+func obstacle_position(obstacle: Dictionary, race_time: float) -> Vector2:
+	var lateral := float(obstacle["lat"]) + float(obstacle["sway"]) \
+		* sin(race_time * 1.55 + float(obstacle["phase"]))
+	return point_at(float(obstacle["s"]), lateral)
+
+
+func shortcut_local(pos: Vector2) -> Vector2:
+	var offset := pos - (shortcut["start"] as Vector2)
+	return Vector2(offset.dot(shortcut["along"]), offset.dot(shortcut["across"]))
+
+
+func clears_shortcut(pos: Vector2, clearance: float) -> bool:
+	if shortcut.is_empty():
+		return true
+	var local := shortcut_local(pos)
+	var nearest := Vector2(clampf(local.x, 0.0, float(shortcut["length"])), 0.0)
+	return local.distance_to(nearest) >= float(shortcut["half"]) + clearance
+
+
 func _build_room_features() -> void:
 	for point: int in room["items"]:
 		var s := s_of(point)
@@ -332,6 +392,8 @@ func _build_turn_markers() -> void:
 
 
 func _clear_of_road(pos: Vector2, clearance: float) -> bool:
+	if not clears_shortcut(pos, maxf(0.0, clearance - RAIL)):
+		return false
 	for sample in range(0, SAMPLES, 3):
 		if pos.distance_squared_to(center[sample]) < clearance * clearance:
 			return false
