@@ -1,0 +1,85 @@
+{
+  "scope": "Static art and registration only",
+  "fixtures": {
+    "sink_clean_registered": {
+      "matte_iou_alpha128": 1.0,
+      "centroid_offset_px": 0.0,
+      "spill_px": 0
+    },
+    "toilet_clean_registered": {
+      "matte_iou_alpha128": 1.0,
+      "centroid_offset_px": 0.0,
+      "spill_px": 0
+    },
+    "tub_water_registered": {
+      "matte_iou_alpha128": 1.0,
+      "centroid_offset_px": 0.0,
+      "spill_px": 0
+    }
+  },
+  "hands": {
+    "hand_screen_left_grip": {
+      "wrist": [
+        64,
+        117
+      ],
+      "alpha_at_wrist": 178
+    },
+    "hand_screen_left_open": {
+      "wrist": [
+        64,
+        117
+      ],
+      "alpha_at_wrist": 255
+    },
+    "hand_screen_left_point": {
+      "wrist": [
+        64,
+        117
+      ],
+      "alpha_at_wrist": 255
+    },
+    "hand_screen_right_grip": {
+      "wrist": [
+        64,
+        117
+      ],
+      "alpha_at_wrist": 255
+    },
+    "hand_screen_right_open": {
+      "wrist": [
+        64,
+        117
+      ],
+      "alpha_at_wrist": 255
+    },
+    "hand_screen_right_point": {
+      "wrist": [
+        64,
+        117
+      ],
+      "alpha_at_wrist": 161
+    }
+  },
+  "grime": {
+    "sink": {
+      "method": "CIE76 on visibly changed footprint at opacity 0.74",
+      "pixels": 1448,
+      "median_delta_e": 36.348,
+      "fraction_ge_15": 0.9468
+    },
+    "tub": {
+      "method": "CIE76 on visibly changed footprint at opacity 0.74",
+      "pixels": 1681,
+      "median_delta_e": 28.698,
+      "fraction_ge_15": 0.884
+    },
+    "toilet": {
+      "method": "CIE76 on visibly changed footprint at opacity 0.74",
+      "pixels": 480,
+      "median_delta_e": 28.672,
+      "fraction_ge_15": 0.8521
+    }
+  },
+  "preview_pixels_changed_outside_fixture_and_duck": 0
+}
