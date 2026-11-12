@@ -2538,6 +2538,23 @@ Base `774b0d134be93c5751ac8c03efeec85c8a854674` uses a rectangular tint behind e
 
 Baseline `118acf6c090dd42307a281f0b13e0e114bf62b54`. Replace the wrong-way polygon with one mirrored painted texture at the original anchor. The input, steering correction and PC HUD scope keep their existing behavior. If a rollback becomes necessary, restore the exact baseline draw and keep the painted source record outside runtime. [Candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/README.md) · [Impact](../design/audit_impacts/flat-vector-r150-painted-racer-direction-cue-20261107.json)
 
+## CHG-CRAFT-FIRST-20261110 — Earn the Day One brush before the Bathroom
+
+From `c6e5d1207a2d59e07a98ce4238a08850b35ac1f6`, guide fresh play through
+Craft → Bathroom → Pool → Stuffie before Royal Hall. Four existing put-away
+contacts and the left scrub reveal a shell; the desk contact earns the actual
+brush, and the shell leads to the matching Bathroom door. The Bathroom basket
+stages only its sponge and Roshan brings the same brush into her existing
+cleaning gestures. Optional color selection does not gate travel.
+
+Preserve old completions, unfinished cleanup and pending Eagle adoption, and
+test the new route, exit/re-entry and save normalization separately from visual
+and device acceptance. No selected clip bytes, asset pixels, or protected
+recordings change. If rollback is needed, use a forward repair that keeps
+the v2 decoder capable of preserving new Art-first completions and brush
+ownership; reverting to a bathroom-first prefix-only decoder would discard
+some new saves' progress. [Impact](../design/audit_impacts/day-one-craft-first-20261110.json).
+
 ## CHG-174 — Paint the Racer countdown lamps
 
 Baseline `0be76936a163628801a5156507f18185878cbaa7`. Replace the three flat countdown discs with two authored lens states at the original lamp positions. Preserve input, timing and the PC HUD route. A rollback would restore the exact baseline draw and retain the painted source record outside runtime. [Candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r151_racer_painted_countdown_lights_runtime/README.md) · [Impact](../design/audit_impacts/flat-vector-r151-painted-racer-countdown-lights-20261107.json)

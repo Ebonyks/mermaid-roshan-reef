@@ -115,14 +115,25 @@ func _probe_day_one_resume_contract(main: ReefMain) -> void:
 		"day_one_current_room": "pool",
 		"day_one_completed_rooms": ["bathroom"],
 	})
-	_check("save normalization preserves authoritative valid room",
-		String(normalised_valid.get("day_one_current_room", "")) == "pool")
+	_check("legacy Continue preserves the old prefix then detours to Art",
+		normalised_valid.get("day_one_completed_rooms", []) == ["bathroom"]
+		and String(normalised_valid.get("day_one_current_room", "")) == "art")
 	var normalised_invalid: Dictionary = DayOneDirector.normalise_save_patch({
 		"day_one_current_room": "reef",
 		"day_one_completed_rooms": ["bathroom"],
 	})
-	_check("save normalization falls back invalid room safely",
-		String(normalised_invalid.get("day_one_current_room", "")) == "pool")
+	_check("legacy invalid room also resumes at the Art detour",
+		String(normalised_invalid.get("day_one_current_room", "")) == "art")
+	var normalised_v2: Dictionary = DayOneDirector.normalise_save_patch({
+		"day_one_route_version": DayOneDirector.ROUTE_VERSION,
+		"day_one_current_room": "pool",
+		"day_one_completed_rooms": ["art", "bathroom"],
+		"day_one_art_brush_earned": true,
+	})
+	_check("v2 Continue preserves the selected next room after Art and bathroom",
+		normalised_v2.get("day_one_completed_rooms", []) == ["art", "bathroom"]
+		and String(normalised_v2.get("day_one_current_room", "")) == "pool"
+		and bool(normalised_v2.get("day_one_art_brush_earned", false)))
 	var director: DayOneDirector = main._day_one_ref()
 	director.current_room_id = "pool"
 	director.dirty_castle_discovered = true

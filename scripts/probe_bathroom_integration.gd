@@ -486,9 +486,14 @@ func _run() -> void:
 		main._skip_intro()
 	await process_frame
 	main._day_one_ref().restore_state({
+		"day_one_route_version": DayOneDirector.ROUTE_VERSION,
 		"day_one_active": true,
-		"day_one_completed_rooms": [],
+		"day_one_current_room": "bathroom",
+		"day_one_completed_rooms": ["art"],
 	})
+	_ck("focused bathroom fixture has completed Craft and earned brush",
+		main._day_one_ref().current_room_id == "bathroom"
+		and main.day_one_art_brush_earned)
 	main.g.erase("day_one_bathtub_filled")
 	main.set_process(false)
 	main.pearl_count = main.PEARL_TOTAL

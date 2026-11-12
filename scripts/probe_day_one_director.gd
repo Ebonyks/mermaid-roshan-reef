@@ -8,20 +8,36 @@ var checks_failed: int = 0
 func _init() -> void:
 	var main: ReefMain = ReefMain.new()
 	var director: DayOneDirector = DIRECTOR_SCRIPT.new(main) as DayOneDirector
-	_check("four-room order", director.room_ids() == ["bathroom", "pool", "stuffie", "art"])
-	_check("only bathroom starts unlocked",
-		main.day_one_current_room_id == "bathroom"
-		and director.unlocked_room_ids() == ["bathroom"])
+	_check("four-room order", director.room_ids() == ["art", "bathroom", "pool", "stuffie"])
+	_check("only Craft Room starts unlocked",
+		main.day_one_current_room_id == "art"
+		and director.unlocked_room_ids() == ["art"])
 	_check("jobs globally locked", director.jobs_are_globally_locked()
 		and not director.is_job_unlocked("any_job")
 		and not director.can_start_opera()
 		and not director.is_opera_enabled())
-	_check("future room locked", not director.can_enter_room("pool"))
+	_check("future rooms locked", not director.can_enter_room("bathroom")
+		and not director.can_enter_room("pool"))
 	_check("arrival media hook", director.trigger_arrival_plane_media()
 		and not director.trigger_arrival_plane_media()
 		and main.day_one_event_seen.has(DayOneDirector.EVENT_ARRIVAL_PLANE_MEDIA)
 		and main.day_one_event_history.size() == 1)
 	director.drain_events()
+	_check("Art cannot complete or award brush early",
+		not director.complete_art_studio()
+		and not director.claim_art_brush()
+		and not director.record_art_cleanup("grime", "right_counter"))
+	for material_id: String in ["brushes", "pink_paint", "blue_paint", "paint_cups"]:
+		director.record_art_cleanup("material", material_id)
+	_check("left scrub unlocks desk and enables brush claim",
+		director.record_art_cleanup("grime", "left_counter")
+		and director.art_desk_unlocked
+		and director.claim_art_brush()
+		and director.art_brush_earned)
+	_check("Craft Room completes after brush award without optional color work",
+		director.complete_art_studio()
+		and director.is_room_completed("art")
+		and main.day_one_current_room_id == "bathroom")
 	_check("bathroom cannot complete before basket and both scrubs",
 		not director.complete_tutorial("bathroom")
 		and not director.can_enter_room("pool"))
@@ -39,7 +55,9 @@ func _init() -> void:
 		and director.can_enter_room("bathroom")
 		and director.can_enter_room("pool"))
 	var bathroom_events: Array[Dictionary] = director.drain_events()
-	_check("completion cleanup hook", _has_event(bathroom_events, "dust_bunny_cleanup"))
+	_check("Art and bathroom each emit their cleanup hook",
+		_has_cleanup_for(bathroom_events, "art")
+		and _has_cleanup_for(bathroom_events, "bathroom"))
 	_check("wrong activity rejected", not director.complete_activity("pool", "wrong"))
 	_check("pool activity completes", director.complete_placeholder("pool", "pool_activity"))
 	_check("pool completion derives full cleanup state",
@@ -49,17 +67,19 @@ func _init() -> void:
 		and director.pool_seahorse_tugs == 8
 		and director.pool_rumi_met)
 	_check("stuffie activity completes", director.complete_activity("stuffie", "stuffie_activity"))
-	_check("art activity completes", director.complete_activity("art", "art_activity"))
 	# Every room's cleanup is its own story beat (and story clip). A name-only
 	# dedupe once let only the first room cleaned in a session reach the hook.
 	var later_events: Array[Dictionary] = director.drain_events()
-	_check("every later room emits its own cleanup hook in the same session",
+	_check("pool and Stuffie each emit their own cleanup hook in the same session",
 		_has_cleanup_for(later_events, "pool")
-		and _has_cleanup_for(later_events, "stuffie")
-		and _has_cleanup_for(later_events, "art"))
+		and _has_cleanup_for(later_events, "stuffie"))
+	var cleanup_sequence: Array[String] = _cleanup_rooms(bathroom_events)
+	cleanup_sequence.append_array(_cleanup_rooms(later_events))
+	_check("all four cleanup hooks preserve Craft-first route order",
+		cleanup_sequence == ["art", "bathroom", "pool", "stuffie"])
 	_check("a repeated room completion never re-emits its cleanup hook",
-		not director.complete_activity("art", "art_activity")
-		and not _has_cleanup_for(director.drain_events(), "art"))
+		not director.complete_activity("stuffie", "stuffie_activity")
+		and not _has_cleanup_for(director.drain_events(), "stuffie"))
 	_check("all completed and boss glow", director.boss_door_glow
 		and director.current_room_id == ""
 		and director.can_enter_room("bathroom")
@@ -76,7 +96,9 @@ func _init() -> void:
 	var save_keys_ok: bool = true
 	for key: Variant in saved.keys():
 		save_keys_ok = save_keys_ok and String(key).begins_with("day_one_")
-	_check("save keys are additive day-one keys", save_keys_ok)
+	_check("save keys are additive day-one keys", save_keys_ok
+		and int(saved.get("day_one_route_version", 0)) == DayOneDirector.ROUTE_VERSION
+		and bool(saved.get("day_one_art_brush_earned", false)))
 	var restored_main: ReefMain = ReefMain.new()
 	var restored: DayOneDirector = DIRECTOR_SCRIPT.new(restored_main) as DayOneDirector
 	restored.restore_state({
@@ -86,9 +108,9 @@ func _init() -> void:
 		"day_one_grok_video_2_seen": true,
 		"day_one_giant_dust_bunny_boss_triggered": true,
 	})
-	_check("restore normalises ordered rooms",
+	_check("legacy restore preserves old prefix and detours to unfinished Art",
 		restored_main.day_one_completed_rooms == {"bathroom": true, "pool": true}
-		and restored_main.day_one_current_room_id == "stuffie"
+		and restored_main.day_one_current_room_id == "art"
 		and restored_main.day_one_cleaned_rooms == {"bathroom": true, "pool": true}
 		and restored_main.day_one_bathroom_cleanup_step == 3
 		and restored_main.day_one_bathroom_tools_authorized
@@ -99,7 +121,27 @@ func _init() -> void:
 		and restored_main.day_one_pool_rumi_met
 		and not restored_main.day_one_boss_door_glow
 		and not restored_main.day_one_giant_dust_bunny_boss_triggered)
+	var v2_main: ReefMain = ReefMain.new()
+	var v2_restore: DayOneDirector = DIRECTOR_SCRIPT.new(v2_main) as DayOneDirector
+	v2_restore.restore_state({
+		"day_one_route_version": DayOneDirector.ROUTE_VERSION,
+		"day_one_completed_rooms": ["art"],
+	})
+	_check("v2 Art completion resumes in bathroom and owns the earned brush",
+		v2_main.day_one_completed_rooms == {"art": true}
+		and v2_main.day_one_current_room_id == "bathroom"
+		and v2_main.day_one_art_brush_earned)
+	var impossible_main: ReefMain = ReefMain.new()
+	var impossible_restore: DayOneDirector = DIRECTOR_SCRIPT.new(impossible_main) as DayOneDirector
+	impossible_restore.restore_state({
+		"day_one_route_version": DayOneDirector.ROUTE_VERSION,
+		"day_one_completed_rooms": ["pool"],
+	})
+	_check("normalization rejects impossible pool-only completion",
+		impossible_main.day_one_completed_rooms.is_empty()
+		and impossible_main.day_one_current_room_id == "art")
 	var all_done: Dictionary = saved.duplicate(true)
+	all_done.erase("day_one_route_version")
 	all_done["day_one_completed_rooms"] = ["bathroom", "pool", "stuffie", "art"]
 	var final_main: ReefMain = ReefMain.new()
 	var final_restore: DayOneDirector = DIRECTOR_SCRIPT.new(final_main) as DayOneDirector
@@ -130,7 +172,8 @@ func _init() -> void:
 		"day_one_pool_seahorse_tugs": 5,
 	})
 	_check("partial pool progress restores exactly and monotonically",
-		partial_main.day_one_pool_cleanup_step == 2
+		partial_main.day_one_current_room_id == "art"
+		and partial_main.day_one_pool_cleanup_step == 2
 		and partial_main.day_one_pool_skimmer_mask == 0x15
 		and partial_main.day_one_pool_waterfall_mask == 0x03
 		and partial_main.day_one_pool_waterfall_progress == [1.0, 1.0, 0.0]
@@ -158,6 +201,8 @@ func _init() -> void:
 	final_main.free()
 	partial_main.free()
 	later_main.free()
+	v2_main.free()
+	impossible_main.free()
 	terminal_main.free()
 	_print_result()
 	quit(1 if checks_failed > 0 else 0)
@@ -180,6 +225,16 @@ func _has_cleanup_for(events: Array[Dictionary], room_id: String) -> bool:
 				and String((record.get("payload", {}) as Dictionary).get("room_id", "")) == room_id:
 			return true
 	return false
+
+
+func _cleanup_rooms(events: Array[Dictionary]) -> Array[String]:
+	var room_ids: Array[String] = []
+	for record: Dictionary in events:
+		if String(record.get("event", "")) != DayOneDirector.EVENT_DUST_BUNNY_CLEANUP:
+			continue
+		room_ids.append(String((record.get("payload", {}) as Dictionary).get(
+			"room_id", "")))
+	return room_ids
 
 
 func _check(label: String, ok: bool) -> void:

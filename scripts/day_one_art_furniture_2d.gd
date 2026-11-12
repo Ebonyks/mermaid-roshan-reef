@@ -89,8 +89,9 @@ func scrub_end(grime_id: String) -> Vector2:
 
 
 func set_progress(grime_id: String, value: float) -> void:
-	var card: Sprite2D = cards.get(grime_id) as Sprite2D
-	if card != null:
+	var fixture: Variant = cards.get(grime_id)
+	if is_instance_valid(fixture):
+		var card: Sprite2D = fixture as Sprite2D
 		(card.material as ShaderMaterial).set_shader_parameter(
 			"clean_progress", clampf(value, 0.0, 1.0))
 
@@ -106,8 +107,9 @@ func teardown() -> void:
 	layer = null
 	cards.clear()
 	for record: Dictionary in hidden_cards:
-		var original: CanvasItem = record.get("node") as CanvasItem
-		if is_instance_valid(original):
+		var borrowed: Variant = record.get("node")
+		if is_instance_valid(borrowed):
+			var original: CanvasItem = borrowed as CanvasItem
 			original.visible = bool(record["visible"])
 	hidden_cards.clear()
 

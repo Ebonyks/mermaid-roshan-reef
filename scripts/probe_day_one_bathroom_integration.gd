@@ -18,6 +18,8 @@ const REQUIRED_WIRING: Dictionary = {
 		"if not day_one_is_active():",
 	],
 	"res://scripts/day_one_director.gd": [
+		"const ROUTE_VERSION := 2",
+		"const ROOM_ORDER: Array[String] = [\"art\", \"bathroom\", \"pool\", \"stuffie\"]",
 		"day_one_bathroom_cleanup_step",
 		"day_one_bathroom_supply_hunt_step",
 		"day_one_bathroom_tub_drained",
@@ -37,10 +39,22 @@ var checks_failed: int = 0
 func _init() -> void:
 	var main := ReefMain.new()
 	var director: DayOneDirector = main._day_one_ref()
-	_check("bathroom rescue is the first playable room",
-		director.current_room_id == "bathroom"
-		and director.unlocked_room_ids() == ["bathroom"]
+	_check("Craft is the first playable room",
+		director.current_room_id == "art"
+		and director.unlocked_room_ids() == ["art"]
 		and not director.can_enter_room("pool"))
+	director.restore_state({
+		"day_one_route_version": DayOneDirector.ROUTE_VERSION,
+		"day_one_active": true,
+		"day_one_current_room": "bathroom",
+		"day_one_completed_rooms": ["art"],
+		"day_one_bathroom_cleanup_step": 2,
+		"day_one_bathroom_supply_hunt_step": 1,
+	})
+	_check("v2 Art completion authorizes the bathroom and earns its brush",
+		director.current_room_id == "bathroom"
+		and director.is_room_completed("art")
+		and main.day_one_art_brush_earned)
 	main.day_one_bathroom_cleanup_step = 2
 	main.day_one_bathroom_supply_hunt_step = 1
 	var mid_rescue_save: Dictionary = director.serialize_state()
@@ -55,6 +69,8 @@ func _init() -> void:
 	_check("mid-rescue progress restores without unlocking the pool",
 		restored_main.day_one_bathroom_cleanup_step == 2
 		and restored.current_room_id == "bathroom"
+		and restored.is_room_completed("art")
+		and restored_main.day_one_art_brush_earned
 		and not restored.can_enter_room("pool"))
 	_check("mid-hunt supply progress restores without loss",
 		restored_main.day_one_bathroom_supply_hunt_step == 1)
@@ -98,10 +114,49 @@ func _init() -> void:
 	var interrupted_patch: Dictionary = DayOneDirector.normalise_save_patch({
 		"day_one_bathroom_cleanup_step": 3,
 	})
-	_check("a saved final wipe cannot skip director completion",
+	_check("legacy bathroom progress takes the Art detour before resuming",
 		int(interrupted_patch.get("day_one_bathroom_cleanup_step", -1)) == 3
-		and String(interrupted_patch.get("day_one_current_room", "")) == "bathroom"
+		and String(interrupted_patch.get("day_one_current_room", "")) == "art"
+		and not bool(interrupted_patch.get("day_one_art_brush_earned", true))
 		and (interrupted_patch.get("day_one_completed_rooms", []) as Array).is_empty())
+	var legacy_completed_bath: Dictionary = DayOneDirector.normalise_save_patch({
+		"day_one_route_version": 1,
+		"day_one_active": true,
+		"day_one_current_room": "pool",
+		"day_one_completed_rooms": ["bathroom"],
+		"day_one_bathroom_cleanup_step": 2,
+		"day_one_bathroom_supply_hunt_step": 1,
+	})
+	_check("completed legacy bathroom stays complete and routes active saves to Art",
+		(legacy_completed_bath.get("day_one_completed_rooms", []) as Array)
+			.has("bathroom")
+		and int(legacy_completed_bath.get(
+			"day_one_bathroom_cleanup_step", -1)) == 3
+		and int(legacy_completed_bath.get(
+			"day_one_bathroom_supply_hunt_step", -1)) == 2
+		and bool(legacy_completed_bath.get(
+			"day_one_bathroom_toilet_cleaned", false))
+		and String(legacy_completed_bath.get("day_one_current_room", "")) == "art"
+		and not bool(legacy_completed_bath.get(
+			"day_one_art_brush_earned", true)))
+	var legacy_bathroom_prefix: Dictionary = DayOneDirector.normalise_save_patch({
+		"day_one_route_version": 1,
+		"day_one_active": true,
+		"day_one_current_room": "bathroom",
+		"day_one_completed_rooms": [],
+		"day_one_bathroom_cleanup_step": 2,
+		"day_one_bathroom_supply_hunt_step": 1,
+	})
+	_check("historical in-flight bathroom save preserves progress but routes to Art",
+		int(legacy_bathroom_prefix.get(
+			"day_one_bathroom_cleanup_step", -1)) == 2
+		and int(legacy_bathroom_prefix.get(
+			"day_one_bathroom_supply_hunt_step", -1)) == 1
+		and (legacy_bathroom_prefix.get("day_one_completed_rooms", []) as Array)
+			.is_empty()
+		and String(legacy_bathroom_prefix.get("day_one_current_room", "")) == "art"
+		and not bool(legacy_bathroom_prefix.get(
+			"day_one_art_brush_earned", true)))
 	_probe_wiring()
 	main.free()
 	restored_main.free()
@@ -177,6 +232,7 @@ func _probe_wiring() -> void:
 	_check("bathroom route owns the basket-to-sink handoff",
 		cleanup_source.contains("_build_basket()")
 		and cleanup_source.contains("_build_dirty_overlays()")
+		and cleanup_source.contains("set_earned_brush")
 		and cleanup_source.contains("begin_cleaning_handoff()"))
 	var sealed_castle_source: String = FileAccess.get_file_as_string(
 		"res://scripts/arena/castle_rooms_25d.gd")

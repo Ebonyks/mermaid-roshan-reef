@@ -242,37 +242,46 @@ func _day_one_continue_ok() -> bool:
 		await process_frame
 		if main.game == "level2":
 			world_frames += 1
-		if main._day_one_bathroom_cleanup != null:
+		if main._day_one_art_studio != null \
+				and is_instance_valid(main._day_one_art_studio) \
+				and main._day_one_art_studio.is_inside_tree():
 			activity_frames += 1
 	var rebuilds: int = castle._day_one_voice_visit_counter - visits_before
 	var continue_ok: bool = saved and restored and world_frames == 60 \
-		and main.castle_room_id == "bubble_bath" and rebuilds == 0 \
+		and main.castle_room_id == "craft_room" and rebuilds == 0 \
 		and activity_frames == 60
 	if continue_ok:
-		print("Day One Continue lands in a live bathroom (60/60 world frames, no rebuilds)")
+		print("Day One Continue lands in live Craft (60/60 world frames, studio mounted, no rebuilds)")
 	else:
 		print("FAIL: Day One Continue soft-lock saved=", saved, " restored=", restored,
 			" world_frames=", world_frames, " room=", main.castle_room_id,
-			" rebuilds=", rebuilds, " activity_frames=", activity_frames)
+			" studio=", main._day_one_art_studio, " rebuilds=", rebuilds,
+			" activity_frames=", activity_frames)
 	# A lost world ID during Day One must converge within a few frames.
 	main.game = ""
 	for _frame: int in range(3):
 		await process_frame
 	var recovered: bool = main.game == "level2" \
-		and main.castle_room_id == "bubble_bath"
+		and main.castle_room_id == "craft_room" \
+		and main._day_one_art_studio != null \
+		and is_instance_valid(main._day_one_art_studio) \
+		and main._day_one_art_studio.is_inside_tree()
 	visits_before = castle._day_one_voice_visit_counter
 	activity_frames = 0
 	for _frame: int in range(30):
 		await process_frame
-		if main._day_one_bathroom_cleanup != null:
+		if main._day_one_art_studio != null \
+				and is_instance_valid(main._day_one_art_studio) \
+				and main._day_one_art_studio.is_inside_tree():
 			activity_frames += 1
 	rebuilds = castle._day_one_voice_visit_counter - visits_before
 	var converge_ok: bool = recovered and rebuilds == 0 and activity_frames == 30
 	if converge_ok:
-		print("Day One empty-world watchdog converges once (no per-frame rebuild)")
+		print("Day One empty-world watchdog restores live Craft once (studio mounted, no per-frame rebuild)")
 	else:
 		print("FAIL: Day One watchdog did not converge recovered=", recovered,
-			" game=", main.game, " rebuilds=", rebuilds,
+			" game=", main.game, " room=", main.castle_room_id,
+			" studio=", main._day_one_art_studio, " rebuilds=", rebuilds,
 			" activity_frames=", activity_frames)
 	main.queue_free()
 	for _frame: int in range(3):

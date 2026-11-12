@@ -313,13 +313,15 @@ const DAY_ONE_CASTLE_ROOM_IDS: Dictionary = {
 	"playroom": "stuffie",
 	"craft_room": "art",
 }
+const DAY_ONE_BATHROOM_SHELL := preload(
+	"res://assets/flats/castle/logo_studio_v2/castle_banner_motif_shell.png")
 # Optional Day One rooms are visitable and voiced but never enter the ordered
 # cleanup state machine or count toward boss/progression readiness.
 const DAY_ONE_OPTIONAL_CASTLE_ROOM_IDS: Dictionary = {
 	"kitchen": true,
 }
 var day_one_active: bool = true
-var day_one_current_room_id: String = "bathroom"
+var day_one_current_room_id: String = "art"
 var day_one_completed_rooms: Dictionary = {}
 var day_one_cleaned_rooms: Dictionary = {}
 var day_one_arrival_plane_media_seen: bool = false
@@ -342,6 +344,7 @@ var day_one_pool_seahorse_tugs: int = 0
 var day_one_art_collected_materials: Dictionary = {}
 var day_one_art_cleaned_grime: Dictionary = {}
 var day_one_art_desk_unlocked: bool = false
+var day_one_art_brush_earned: bool = false
 var day_one_art_customization_completed: bool = false
 var day_one_event_seen: Dictionary = {}
 var day_one_event_history: Array[Dictionary] = []
@@ -6309,10 +6312,7 @@ func day_one_activate_castle_room(castle_room: String) -> bool:
 			day_one_complete_stuffie_rescue()
 		return true
 	if logical_room == "art":
-		if director.art_customization_completed:
-			day_one_complete_art_scene()
-		else:
-			_open_day_one_art_studio()
+		_open_day_one_art_studio()
 		return true
 	if not director.complete_placeholder(logical_room):
 		show_msg("Roshan", "Let's finish this glowy room first!",
@@ -6381,6 +6381,10 @@ func day_one_record_art_cleanup(kind: String, item_id: String) -> bool:
 
 func day_one_complete_art_customization() -> bool:
 	return _day_one_flow_ref().day_one_complete_art_customization()
+
+
+func day_one_claim_art_brush() -> bool:
+	return _day_one_flow_ref().day_one_claim_art_brush()
 
 
 func day_one_complete_art_scene() -> bool:
@@ -6597,7 +6601,7 @@ func _show_day_one_room_handoff(target_room: String,
 	if not day_one_is_active() or castle_room_stage == null \
 			or not is_instance_valid(castle_room_stage):
 		return false
-	if target_room not in ["mermaid_pool", "playroom", "craft_room", "__royal_hall"]:
+	if target_room not in ["bubble_bath", "mermaid_pool", "playroom", "craft_room", "__royal_hall"]:
 		return false
 	_clear_day_one_pool_route()
 	_castle_rooms_ref().restore_day_one_handoff_view()
@@ -6609,9 +6613,33 @@ func _show_day_one_room_handoff(target_room: String,
 	# Preserve existing recordings without turning Back into a forward action.
 	var cue: String = "day_one_pool_ready" if voice_key == "day_one_pool_ready" \
 		else "day_one_room_clean"
-	show_msg("Roshan", "Back to the hall, then follow the glowing door!", cue)
+	var caption: String = "Back to the hall, then follow the glowing door!"
+	if target_room == "bubble_bath":
+		caption = "Back to the hall, then follow the shell to the bathroom!"
+	show_msg("Roshan", caption, cue)
 	_navigation_ref().sync_button()
 	return true
+
+
+func _day_one_next_handoff_room() -> String:
+	var target_room: String = day_one_castle_room_for_current()
+	if target_room == "main_hall" and day_one_boss_door_ready():
+		target_room = "__royal_hall"
+	if target_room == "main_hall" or target_room == castle_room_id:
+		return ""
+	return target_room
+
+
+func _show_day_one_next_room_handoff() -> bool:
+	var target_room: String = _day_one_next_handoff_room()
+	if target_room == "":
+		return false
+	var voice_key: String = "day_one_new_door"
+	if target_room == "mermaid_pool":
+		voice_key = "day_one_pool_ready"
+	elif target_room == "__royal_hall":
+		voice_key = "day_one_all_rooms_clean"
+	return _show_day_one_room_handoff(target_room, voice_key)
 
 
 func _sync_day_one_pool_route() -> void:
@@ -6654,26 +6682,9 @@ func _sync_day_one_pool_route() -> void:
 		_suspend_day_one_bathroom_controls()
 		return
 	var director: DayOneDirector = _day_one_ref()
-	var target_room := ""
-	var voice_key := "day_one_new_door"
-	if castle_room_id == "bubble_bath" \
-			and director.is_room_completed("bathroom") \
-			and director.current_room_id == "pool":
-		target_room = "mermaid_pool"
-		voice_key = "day_one_pool_ready"
-	elif castle_room_id == "mermaid_pool" \
-			and director.is_room_completed("pool") \
-			and director.current_room_id == "stuffie":
-		target_room = "playroom"
-	elif castle_room_id == "playroom" \
-			and director.is_room_completed("stuffie") \
-			and director.current_room_id == "art":
-		target_room = "craft_room"
-	elif castle_room_id == "craft_room" \
-			and director.is_room_completed("art") \
-			and director.boss_door_glow:
-		target_room = "__royal_hall"
-		voice_key = "day_one_all_rooms_clean"
+	var source_room: String = String(DAY_ONE_CASTLE_ROOM_IDS.get(castle_room_id, ""))
+	var target_room: String = _day_one_next_handoff_room() \
+		if director.is_room_completed(source_room) else ""
 	if target_room.is_empty():
 		_clear_day_one_pool_route()
 		_restore_day_one_bathroom_controls()
@@ -6681,7 +6692,7 @@ func _sync_day_one_pool_route() -> void:
 	_restore_day_one_bathroom_controls()
 	if _day_one_room_handoff_target != target_room \
 			or _day_one_room_handoff_source != castle_room_id:
-		_show_day_one_room_handoff(target_room, voice_key)
+		_show_day_one_next_room_handoff()
 
 
 func _day_one_bathroom_movie_is_playing() -> bool:
@@ -6727,6 +6738,20 @@ func _clear_day_one_pool_route() -> void:
 func _day_one_arm_boss_door() -> void:
 	_day_one_flow_ref()._day_one_arm_boss_door()
 
+
+func _day_one_present_royal_route() -> void:
+	if not day_one_boss_door_ready():
+		return
+	_day_one_arm_boss_door()
+	_day_one_play_story_clip("d1_rainbow_route")
+
+
+func _day_one_finish_eagle_adoption() -> void:
+	if not day_one_is_active() or castle_room_id != "playroom" or companion_id != "eagle":
+		return
+	_day_one_present_royal_route()
+	_show_day_one_next_room_handoff()
+
 func _on_day_one_hook_event(event_name: String, payload: Dictionary) -> void:
 	g["day_one_last_event"] = event_name
 	match event_name:
@@ -6757,8 +6782,7 @@ func _on_day_one_hook_event(event_name: String, payload: Dictionary) -> void:
 		DayOneDirector.EVENT_ART_CUSTOMIZATION_COMPLETED:
 			g["day_one_art_customization_completed"] = true
 		DayOneDirector.EVENT_BOSS_DOOR_GLOW:
-			_day_one_arm_boss_door()
-			_day_one_play_story_clip("d1_rainbow_route")
+			_day_one_present_royal_route()
 		DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS:
 			# The director's trigger is a runtime latch. Do not persist it until
 			# complete_day_one_after_boss() has crossed the real win boundary.

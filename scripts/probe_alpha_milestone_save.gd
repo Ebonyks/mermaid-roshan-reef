@@ -44,15 +44,21 @@ func _init() -> void:
 		completed_mask |= 1 << act_index
 		_assert_saved(main, "chapter2_party_piece_mask", completed_mask)
 	main._day_one_ref().restore_state({"day_one_active": true,
-		"day_one_current_room": "art", "day_one_completed_rooms": ["bathroom", "pool", "stuffie"],
-		"day_one_cleaned_rooms": ["bathroom", "pool", "stuffie"]})
+		"day_one_route_version": DayOneDirector.ROUTE_VERSION,
+		"day_one_current_room": "art", "day_one_completed_rooms": [],
+		"day_one_cleaned_rooms": [], "day_one_art_brush_earned": false})
 	for material: String in DayOneDirector.ART_MATERIAL_IDS:
 		_check("art material accepted " + material, main.day_one_record_art_cleanup("material", material))
 		_assert_saved(main, "day_one_art_collected_materials", main.day_one_art_collected_materials)
 	for grime: String in DayOneDirector.ART_GRIME_IDS:
 		_check("art grime accepted " + grime, main.day_one_record_art_cleanup("grime", grime))
 		_assert_saved(main, "day_one_art_cleaned_grime", main.day_one_art_cleaned_grime)
-	main._day_one_ref().restore_state({"day_one_active": true, "day_one_current_room": "pool"})
+	main._day_one_ref().restore_state({"day_one_active": true,
+		"day_one_route_version": DayOneDirector.ROUTE_VERSION,
+		"day_one_current_room": "pool",
+		"day_one_completed_rooms": ["art", "bathroom"],
+		"day_one_cleaned_rooms": ["art", "bathroom"],
+		"day_one_art_brush_earned": true})
 	for index: int in range(6):
 		main.day_one_record_pool_activity_progress(1 << index, 0, 0)
 		_assert_saved(main, "day_one_pool_skimmer_mask", (1 << (index + 1)) - 1)
