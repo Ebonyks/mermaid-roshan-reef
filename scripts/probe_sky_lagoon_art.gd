@@ -543,7 +543,7 @@ func _highlight_contract() -> bool:
 				return false
 			if target_id != "castle_gate":
 				if String(highlight.get_meta("focus_cue_role", "")) \
-						!= "procedural_ring_pointer" \
+						!= "attached_ring_pointer" \
 						or not _procedural_pointer_contrast(highlight):
 					return false
 				var tip_local: Variant = highlight.get_meta("pointer_tip_local")
@@ -557,7 +557,7 @@ func _highlight_contract() -> bool:
 			return false
 		if target_id != "castle_gate" \
 				and String(highlight.get_meta("focus_cue_role", "")) \
-					!= "procedural_ring_pointer":
+					!= "attached_ring_pointer":
 			return false
 	return true
 

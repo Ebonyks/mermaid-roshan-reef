@@ -690,7 +690,7 @@ func _validate_parallax_and_coordinates() -> void:
 	var expected_z: Array[int] = [-500, -400, -400, -300, 0, 0, 300, 300]
 	var expected_relative_z: Array[Vector2i] = [
 		Vector2i(0, 0), Vector2i(0, 0), Vector2i(0, 0), Vector2i(0, 0),
-		Vector2i(-180, 220), Vector2i(-180, 190), Vector2i(0, 0), Vector2i(0, 0),
+		Vector2i(-200, 220), Vector2i(-180, 190), Vector2i(0, 0), Vector2i(0, 0),
 	]
 	var holder_contract_ok := true
 	var holders_present := true
@@ -821,6 +821,36 @@ func _validate_parallax_and_coordinates() -> void:
 	_check("mural_transform_covers_each_phone_screen", coverage_ok,
 		";".join(coverage_detail))
 
+	promenade.set_master_route_x(3072.0)
+	var origin: float = float(main.g["lagoon_camera_x"])
+	main.g["lagoon_walk_goal_master"] = Vector2(3572.0, 0.0)
+	promenade._tick_movement(0.1)
+	var contact: float = promenade.master_route_x()
+	var camera_x: float = float(main.g["lagoon_camera_x"])
+	var response: float = (camera_x - origin) / maxf(contact - origin, 0.001)
+	_check("camera_eases_after_touch_with_bounded_response",
+		contact > origin and camera_x > origin and camera_x < contact
+		and response >= 0.58 and response <= 0.61,
+		"contact=%.2f camera=%.2f response=%.3f" % [contact, camera_x, response])
+	promenade.cancel_navigation()
+	var cloud: Sprite2D = rear.get_node_or_null("SkyLagoonRearCloud") as Sprite2D
+	var eased := false
+	if cloud != null:
+		var cloud_timer: float = float(main.g["lagoon_ambient_t"])
+		main.g["lagoon_ambient_t"] = 0.0
+		promenade._tick_ambient_life(0.0)
+		var start_x: float = cloud.position.x
+		promenade._tick_ambient_life(0.1)
+		var start_step: float = cloud.position.x - start_x
+		main.g["lagoon_ambient_t"] = 8.0
+		promenade._tick_ambient_life(0.0)
+		var mid_x: float = cloud.position.x
+		promenade._tick_ambient_life(0.1)
+		eased = start_step > 0.0 and cloud.position.x - mid_x > start_step * 10.0
+		main.g["lagoon_ambient_t"] = cloud_timer
+		promenade._tick_ambient_life(0.0)
+	_check("cloud_eases_at_cycle_boundary", eased)
+
 
 func _validate_targets_and_touch() -> void:
 	var roster_ok: bool = _target_ids() == TARGET_IDS
@@ -857,7 +887,7 @@ func _validate_targets_and_touch() -> void:
 				var source := node as Sprite2D
 				unique_focus_ok = unique_focus_ok and focus_sprite.texture != null \
 					and focus_sprite.texture != source.texture \
-					and focus_sprite.texture is GradientTexture2D
+					and focus_sprite.texture.resource_path.ends_with("/iteration_20261111/pearl_focus.png")
 		if node != null:
 			promenade.set_master_route_x(float(node.position.x))
 			var center: Vector2 = promenade.screen_from_master(node.position)
@@ -891,7 +921,7 @@ func _validate_targets_and_touch() -> void:
 							* (tip_local as Vector2)
 					var tip_distance: float = _point_rect_distance(tip_screen, target_bounds)
 					cue_ok = cue_ok and String(focus_sprite.get_meta(
-						"focus_cue_role", "")) == "procedural_ring_pointer" \
+						"focus_cue_role", "")) == "attached_ring_pointer" \
 						and tip_distance <= 4.0 \
 						and _procedural_pointer_contrast(focus_sprite)
 					cue_detail.append("%s=%.1fx%.1f tip=%.2f center=%.2f a=%.2f" % [
@@ -913,8 +943,9 @@ func _validate_targets_and_touch() -> void:
 	var idle_cues_ok := true
 	for target_id: String in TARGET_IDS:
 		var idle_highlight: Sprite2D = _target(target_id).get("highlight") as Sprite2D
+		var idle_alpha: float = 0.06 if target_id == "castle_gate" else 0.0
 		idle_cues_ok = idle_cues_ok and idle_highlight != null \
-			and idle_highlight.visible and idle_highlight.modulate.a <= 0.06
+			and idle_highlight.visible and idle_highlight.modulate.a <= idle_alpha
 	_check("idle_focus_cues_are_subtle_not_ghost_objects", idle_cues_ok)
 	_check("unique_focus_assets_do_not_clone_target_pixels",
 		unique_focus_ok and _sprite_resource_count(promenade.root(),
@@ -951,9 +982,35 @@ func _validate_targets_and_touch() -> void:
 			"lagoon_promenade_focus", "")) == "swing" \
 			and (main.g.get("lagoon_play_anim", {}) as Dictionary).is_empty() \
 			and promenade.action_label() == "PLAY"
-		promenade.handle_touch(swing_screen)
+		var swing_cue: Sprite2D = swing.get("highlight") as Sprite2D
+		var cue_tip: Vector2 = swing_cue.get_meta("pointer_tip_local") as Vector2
+		var cue_anchor: float = float(swing_cue.get_meta("focus_anchor_y"))
+		var pin_ok := true
+		for time: float in [0.0, 0.22, 0.47, 0.86]:
+			promenade._tick_target_affordances("swing", time)
+			var tip_y: float = (swing_cue.transform * cue_tip).y
+			pin_ok = pin_ok and absf(tip_y - cue_anchor) <= 0.01
+		_check("selected_cue_tip_stays_attached_during_pulse", pin_ok)
+		var actor: Dictionary = main.g.get("lagoon_animal_actor", {}) as Dictionary
+		var animal: Sprite2D = actor.get("node") as Sprite2D
+		if animal != null:
+			var old_position: Vector2 = animal.position
+			var old_visible: bool = animal.visible
+			var old_state: String = String(actor.get("state", ""))
+			animal.position = promenade.master_from_screen(swing_screen)
+			animal.visible = true
+			actor["state"] = "idle"
+			_check("selected_station_test_contains_incidental_wildlife",
+				not promenade._animal_at(swing_screen).is_empty())
+			promenade.handle_touch(swing_screen)
+			animal.position = old_position
+			animal.visible = old_visible
+			actor["state"] = old_state
+		else:
+			_check("selected_station_test_contains_incidental_wildlife", false)
 		var second_ok: bool = String((main.g.get(
 			"lagoon_play_anim", {}) as Dictionary).get("kind", "")) == "swing"
+		_check("selected_station_confirmation_survives_wildlife_overlap", second_ok)
 		_check("ride_pose_draws_above_equipment",
 			route_actor != null and route_actor.z_index > swing_node.z_index)
 		_check("toy_first_touch_focus_second_touch_play", first_ok and second_ok)

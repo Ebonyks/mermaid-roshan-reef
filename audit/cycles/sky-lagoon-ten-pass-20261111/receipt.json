@@ -1,0 +1,424 @@
+{
+  "schema_version": 1,
+  "kind": "Sky Lagoon authored iterations and diagnostic evidence",
+  "base": "f71bb9563ad3cfe91f2603587a54d1c741c07f5f",
+  "integration_base": "f070a61e0ffdd84c1cca17ea2c368aa0382d981f",
+  "renderer": "Godot 4.7.2-stable official.ed1daf0bf, Vulkan Mobile, Speedy, 1280x720",
+  "comparison": {
+    "path": "audit/cycles/sky-lagoon-ten-pass-20261111/comparison.jpg",
+    "sha256": "2508375b3ac575bb3490bf93e2e7f2a64478013c03b3e4a06e4443767c510750",
+    "role": "Desktop runtime diagnostic comparison"
+  },
+  "generator": {
+    "method": "Built-in ImageGen",
+    "calls": 4,
+    "input_role": "Palette, camera and painterly style reference",
+    "input_name": "lagoon_08_playground_overview_day.png",
+    "input_revision": "f71bb9563ad3cfe91f2603587a54d1c741c07f5f",
+    "input_sha256": "4eabe2864034d280e55ee4bea7274f322490502e6b59f946edb2503c46c1627c"
+  },
+  "assets": {
+    "ivory_cloud": {
+      "generator_file": "exec-e4296b2b-fb6e-45e4-b80b-309f187f8050.png",
+      "native_sha256": "0882c7ac5792c5c22d8d330fa0351526377a9dbd4372e676c34da56513d445ea",
+      "native_dimensions": [
+        2172,
+        724
+      ],
+      "crop": [
+        327,
+        134,
+        1838,
+        552
+      ],
+      "runtime": "assets/sprites/sky_lagoon/iteration_20261111/ivory_cloud.png",
+      "runtime_sha256": "76a3f7b839d7b2a1d9883491ba15c4c012c4a1fa621fe89b8e9a3070099c7584",
+      "runtime_dimensions": [
+        512,
+        146
+      ],
+      "native_source": "assets_src/sky_lagoon/ten_pass_20261111/ivory_cloud_native.png",
+      "generator": "Built-in ImageGen, transparent RGBA, Reef viewport screenshot as style reference only",
+      "selection": "runtime_candidate",
+      "prompt": "Generate ONE standalone hand-painted PNG sprite for a real 2D Godot storybook game, transparent background. The input screenshot is a palette and brushwork reference only. Asset: ONE distant low cumulus cloud for the bright mountain lagoon sky. Match the ivory-white sunlit puffs and soft muted lavender-blue underside of the small pale painted clouds in the reference, with the highlight toward upper left, a wide shallow airy silhouette, three grouped rounded lobes and an understated soft trailing edge, not the large darker blue independent cloud. Only the standalone cloud, centered, wide horizontal aspect footprint about 3.3:1, with ample transparent padding. Alpha edge gracefully soft but clean. No background, no gradient covering the canvas, no border, no ground, no characters, no UI, no text.",
+      "source_license": "OpenAI ImageGen output for Mermaid Roshan, project use under OpenAI Terms of Use",
+      "derivative_edits": "Alpha threshold used to select crop bounds, existing alpha preserved within crop, Lanczos downscale and 3 px outer transparent padding. Cue centered in 192 px square."
+    },
+    "moss_footing": {
+      "generator_file": "exec-0b5c7612-9051-4d4e-9b02-a9b70f445b7d.png",
+      "native_sha256": "e97f89ed351a95a81df50a5e581bfca32933783a823e0a26e68b7b8034ff4d5c",
+      "native_dimensions": [
+        2172,
+        724
+      ],
+      "crop": [
+        63,
+        242,
+        2090,
+        514
+      ],
+      "runtime": "assets/sprites/sky_lagoon/iteration_20261111/moss_footing.png",
+      "runtime_sha256": "75506399b20b5903fa6e619ae9cec47a76114d1260415711a4b0e3788ca5b68c",
+      "runtime_dimensions": [
+        512,
+        74
+      ],
+      "native_source": "assets_src/sky_lagoon/ten_pass_20261111/moss_footing_native.png",
+      "generator": "Built-in ImageGen, transparent RGBA, Reef viewport screenshot as style reference only",
+      "selection": "runtime_candidate",
+      "prompt": "Create ONE standalone hand-painted PNG sprite asset for a 2D storybook mountain lagoon game, with genuine transparent RGBA background. Input screenshot is palette and camera-angle reference only. Asset is a low-profile elliptical patch of flattened warm moss-green meadow grass with a few small pale limestone chips embedded right at the perimeter, seen from the same shallow overhead stage angle as the lawn in the screenshot. A tiny quiet ground treatment used underneath a playground footing, deliberately desaturated and lower contrast than the equipment. The dark muted olive interior grades into feathered irregular grass tips, with no sharp sticker outline. The patch is wide and extremely shallow, about 4:1 footprint. Do not draw raised or freestanding rocks, flowers, equipment, cast silhouette, people, letters, borders, extra patches, canvas background or UI.",
+      "source_license": "OpenAI ImageGen output for Mermaid Roshan, project use under OpenAI Terms of Use",
+      "derivative_edits": "Alpha threshold used to select crop bounds, existing alpha preserved within crop, Lanczos downscale and 3 px outer transparent padding. Cue centered in 192 px square."
+    },
+    "pearl_focus": {
+      "generator_file": "exec-b757f6c9-412d-4de3-97ef-513cbd4e8543.png",
+      "native_sha256": "c1a92a974facfb338ce482a35e028aa5c68b50c6668ee214d98dc39aac4c67a4",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "crop": [
+        210,
+        214,
+        1042,
+        1053
+      ],
+      "runtime": "assets/sprites/sky_lagoon/iteration_20261111/pearl_focus.png",
+      "runtime_sha256": "f11252f5b10a2f46a67e86522fb800e1ce410932d849fb33e54c725068069515",
+      "runtime_dimensions": [
+        192,
+        192
+      ],
+      "native_source": "assets_src/sky_lagoon/ten_pass_20261111/pearl_focus_native.png",
+      "generator": "Built-in ImageGen, transparent RGBA, Reef viewport screenshot as style reference only",
+      "selection": "runtime_candidate",
+      "prompt": "Generate one isolated 2D storybook game interaction-cue sprite, real transparent RGBA. Input image is a style and palette reference only. A single centered hollow rounded diamond made of a thin cream mother-of-pearl rim, a dark blue-violet silhouette edge, and one restrained warm amber highlight at the top. Equal width and height, empty fully transparent center through which the game scene is visible, visually simple enough to read at 48 pixels. Its bottom diamond point should be clean and centered. Flat overhead UI orientation, no cast shadow, no decorative flourishes or sparkles, no letters, no arrows, no backing plate, no scene, no characters. The diamond alone with transparent padding.",
+      "source_license": "OpenAI ImageGen output for Mermaid Roshan, project use under OpenAI Terms of Use",
+      "derivative_edits": "Alpha threshold used to select crop bounds, existing alpha preserved within crop, Lanczos downscale and 3 px outer transparent padding. Cue centered in 192 px square."
+    },
+    "warm_footing": {
+      "generator_file": "exec-a25ebb54-156a-4846-884c-7a13a1adb75e.png",
+      "native_sha256": "c297b0608d7dd13bfd8d497470c13a213c75c338c883807d5d95d72c0be4a142",
+      "native_dimensions": [
+        2172,
+        724
+      ],
+      "crop": [
+        95,
+        165,
+        2078,
+        584
+      ],
+      "native_source": "assets_src/sky_lagoon/ten_pass_20261111/warm_footing_native.png",
+      "generator": "Built-in ImageGen, transparent RGBA, Reef viewport screenshot as style reference only",
+      "selection": "rejected_after_pass_04",
+      "trial_derivative": "assets_src/sky_lagoon/ten_pass_20261111/warm_footing_trial.png",
+      "trial_derivative_sha256": "1a35795a6545485a751d17eaba25a9065b954174d74d6071f17718e7b76cb9b0",
+      "trial_derivative_dimensions": [
+        512,
+        113
+      ],
+      "prompt": "One original 2D painted environmental game sprite on transparent RGBA, palette reference from the shown storybook mountain lagoon. Make a tiny shallow worn contact patch for a stone playground pedestal, a soft irregular oval of warm light moss and packed earth with a little grass at its edge, viewed from the same low overhead angle as the walkway. Smooth out the texture in the middle so a toy support remains clearly legible. A little warmer and lighter than the lawn while staying subdued. About 3.5 times wider than high. Ground layer only, with genuine transparent outside pixels and soft painted alpha edges. No loose stones, extra objects, signage, character, equipment, cast silhouette, floor beyond the patch, text or UI.",
+      "source_license": "OpenAI ImageGen output for Mermaid Roshan, project use under OpenAI Terms of Use",
+      "derivative_edits": "Alpha threshold used to select crop bounds, existing alpha preserved within crop, Lanczos downscale and 3 px outer transparent padding. Cue centered in 192 px square."
+    }
+  },
+  "passes": [
+    {
+      "pass": 0,
+      "change": "Baseline",
+      "candidate_sha256": "5512ca42db2a2ee58b4ebcb7dc25f8fbdcb43979d3631128adf1e7020880631b",
+      "delta": {
+        "CLOUD_PATH": "\"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png\"",
+        "CLOUD_POSITION": "Vector2(2680, 430)",
+        "CLOUD_HEIGHT": "235.0",
+        "CLOUD_NIGHT": "Color(0.72, 0.78, 0.96)",
+        "CLOUD_TRAVEL": "520.0",
+        "SMOOTH_CLOUD": "false",
+        "FOOTINGS": "[]",
+        "CUE_PATH": "\"\"",
+        "PIN_POINTER": "false",
+        "CAMERA_FOLLOW": "7.5",
+        "PRIORITIZE_FOCUS": "false"
+      },
+      "engine_exit": 0,
+      "rendering_method": "mobile",
+      "summary": {
+        "expected": 20,
+        "failed": 0,
+        "passed": 20,
+        "rows": 20,
+        "skipped": 0,
+        "written": 20
+      },
+      "capture_manifest_sha256": "103d7f88a3f1cc0cd2f8babac0bcb9b1b46129384a77c360b37dfaaa0f955394",
+      "diagnostic_log_sha256": "d1854b3b23cbe76fce40dbbe85bf2e4679f53281f2ab034cefa6104171e3a298",
+      "review": "The old independent blue cloud reads apart from the warmer painted sky.",
+      "retained": true
+    },
+    {
+      "pass": 1,
+      "change": "Match the ivory cloud family",
+      "candidate_sha256": "fedd2b9d2999606bfa6c5ccc6b6937e199885a74fd248f7434fde64832c445d5",
+      "delta": {
+        "CLOUD_PATH": "\"res://assets/sprites/sky_lagoon/iteration_20261111/ivory_cloud.png\""
+      },
+      "engine_exit": 0,
+      "rendering_method": "mobile",
+      "summary": {
+        "expected": 20,
+        "failed": 0,
+        "passed": 20,
+        "rows": 20,
+        "skipped": 0,
+        "written": 20
+      },
+      "capture_manifest_sha256": "3a5726a2c7f7f5d77348b178f644fd361242d411cf25c613cf618f95795c3df2",
+      "diagnostic_log_sha256": "17b287b5fce286b611926100010332862f69f377704a9f0145b55bd375f258a5",
+      "review": "The ivory and lavender paint belongs to the sky family. At the original scale it competes with nearby clouds.",
+      "retained": true
+    },
+    {
+      "pass": 2,
+      "change": "Reduce the cloud footprint and match the night grade",
+      "candidate_sha256": "609aad542a4012a3d0ad924085e3f26395ec9a7b361d230eb132ba6e9dbcf798",
+      "delta": {
+        "CLOUD_POSITION": "Vector2(2720, 390)",
+        "CLOUD_HEIGHT": "166.0",
+        "CLOUD_NIGHT": "Color(0.54, 0.62, 0.86)"
+      },
+      "engine_exit": 0,
+      "rendering_method": "mobile",
+      "summary": {
+        "expected": 20,
+        "failed": 0,
+        "passed": 20,
+        "rows": 20,
+        "skipped": 0,
+        "written": 20
+      },
+      "capture_manifest_sha256": "ff8e6a388eb79e740d17eda7f18ddfc044a71aaf6cbb86096d89d68f71c73ad7",
+      "diagnostic_log_sha256": "8c5ea3d8b6e1970d0e3ed87ca49299991128846b1f641939ec749ce19ae294db",
+      "review": "The smaller cloud recedes and the blue night grade keeps it in the same value tier as the distant painted clouds.",
+      "retained": true
+    },
+    {
+      "pass": 3,
+      "change": "Ease cloud motion at both turnarounds",
+      "candidate_sha256": "3e5c76fe58abe9350200b93027ed1ea1f796ec2ab64c0931b4c7ea06659a3e2c",
+      "delta": {
+        "CLOUD_TRAVEL": "300.0",
+        "SMOOTH_CLOUD": "true"
+      },
+      "engine_exit": 0,
+      "rendering_method": "mobile",
+      "summary": {
+        "expected": 20,
+        "failed": 0,
+        "passed": 20,
+        "rows": 20,
+        "skipped": 0,
+        "written": 20
+      },
+      "capture_manifest_sha256": "01bf1ddf6c5f145ce2974927f3a214a700326b4c412f559934f1cada4636712a",
+      "diagnostic_log_sha256": "50f52cc1098a75385864743ae8f2705418e23b5fb2649c8231097640614494c4",
+      "review": "The matched overview preserves the composition. A cosine cycle reduces velocity smoothly at each turnaround.",
+      "retained": true
+    },
+    {
+      "pass": 4,
+      "change": "Test a warm support patch under the seesaw",
+      "candidate_sha256": "0c295db17850a511ac0cc4cc04ed40adab2c6f43b55bde42d9ad43d15a116ca5",
+      "delta": {
+        "FOOTINGS": "[\n\t{\"name\": \"SeesawFooting\", \"path\": \"res://assets/sprites/sky_lagoon/iteration_20261111/warm_footing.png\", \"position\": Vector2(3826, 1500), \"height\": 44.0, \"alpha\": 0.75},\n]"
+      },
+      "engine_exit": 0,
+      "rendering_method": "mobile",
+      "summary": {
+        "expected": 20,
+        "failed": 0,
+        "passed": 20,
+        "rows": 20,
+        "skipped": 0,
+        "written": 20
+      },
+      "capture_manifest_sha256": "c1be23cbd97bb38ca75b971c97d40a54bc41092644e08bd6c09c8a06160f5268",
+      "diagnostic_log_sha256": "ac0a6546bb31422c878ca9540023d02e88f51221671115a9c3adc687453357e6",
+      "review": "The warm patch highlights the seesaw contact but introduces a second warm accent in the grass. It is retained as a trial.",
+      "retained": false
+    },
+    {
+      "pass": 5,
+      "change": "Compare the quieter moss support patch",
+      "candidate_sha256": "715969eb44c86fa538819997f788d1f26663ebb73083fdc39a9c2b23bf4f203e",
+      "delta": {
+        "FOOTINGS": "[\n\t{\"name\": \"SeesawFooting\", \"path\": \"res://assets/sprites/sky_lagoon/iteration_20261111/moss_footing.png\", \"position\": Vector2(3826, 1500), \"height\": 37.0, \"alpha\": 0.66},\n]"
+      },
+      "engine_exit": 0,
+      "rendering_method": "mobile",
+      "summary": {
+        "expected": 20,
+        "failed": 0,
+        "passed": 20,
+        "rows": 20,
+        "skipped": 0,
+        "written": 20
+      },
+      "capture_manifest_sha256": "736a7a37dfd9ab2a917dc28eaacfb7e600bed309c8f57a4f21f4dadfd10c29f4",
+      "diagnostic_log_sha256": "189ebc1e289defd62f7ac974558ed8b1cee335ead6dc91c135ce2b829e7e0dd2",
+      "review": "Moss gives the pivot a quieter base and separates it from the darker shrub edge. Selected over the warm trial.",
+      "retained": true
+    },
+    {
+      "pass": 6,
+      "change": "Register the swing and slide supports",
+      "candidate_sha256": "088d51ee0ff9ce315fe7d048b728cef82ef52624cbaa3251f1b44508198bb758",
+      "delta": {
+        "FOOTINGS": "[\n\t{\"name\": \"SeesawFooting\", \"path\": \"res://assets/sprites/sky_lagoon/iteration_20261111/moss_footing.png\", \"position\": Vector2(3826, 1500), \"height\": 37.0, \"alpha\": 0.66},\n\t{\"name\": \"SwingFooting\", \"path\": \"res://assets/sprites/sky_lagoon/iteration_20261111/moss_footing.png\", \"position\": Vector2(3200, 1365), \"height\": 68.0, \"alpha\": 0.52},\n\t{\"name\": \"SlideLadderFooting\", \"path\": \"res://assets/sprites/sky_lagoon/iteration_20261111/moss_footing.png\", \"position\": Vector2(2310, 1315), \"height\": 30.0, \"alpha\": 0.53},\n\t{\"name\": \"SlideExitFooting\", \"path\": \"res://assets/sprites/sky_lagoon/iteration_20261111/moss_footing.png\", \"position\": Vector2(2735, 1395), \"height\": 30.0, \"alpha\": 0.54},\n]"
+      },
+      "engine_exit": 0,
+      "rendering_method": "mobile",
+      "summary": {
+        "expected": 20,
+        "failed": 0,
+        "passed": 20,
+        "rows": 20,
+        "skipped": 0,
+        "written": 20
+      },
+      "capture_manifest_sha256": "a626b7ae83d400f79a0770d043574cced55b5ce997c7a39961fc4c5dd3013811",
+      "diagnostic_log_sha256": "314d806b8ba421553ebbb41a66709a1b854333b7ee917c9c9ead279a3f3ae733",
+      "review": "Low-alpha moss under the ladder, chute and swing feet keeps the play lane clear. The existing equipment silhouettes stay separated.",
+      "retained": true
+    },
+    {
+      "pass": 7,
+      "change": "Use the painted pearl focus ring",
+      "candidate_sha256": "f50eaa676e486437665654aee78bcbc05ca773916f3c5bc327bf31fb19edeb4d",
+      "delta": {
+        "CUE_PATH": "\"res://assets/sprites/sky_lagoon/iteration_20261111/pearl_focus.png\""
+      },
+      "engine_exit": 0,
+      "rendering_method": "mobile",
+      "summary": {
+        "expected": 20,
+        "failed": 0,
+        "passed": 20,
+        "rows": 20,
+        "skipped": 0,
+        "written": 20
+      },
+      "capture_manifest_sha256": "7f08a88a341b2a1c8f0a31df674a41704b75030f0fb32dbe57e102369d005f46",
+      "diagnostic_log_sha256": "e17f95eb332e0940103e8661fd6b493410359cd8d66c0fcefedc532a171f75df",
+      "review": "The hollow pearl ring reads clearly without masking the artwork. The original pointing geometry still identifies the target.",
+      "retained": true
+    },
+    {
+      "pass": 8,
+      "change": "Anchor the pointer tip during the entire pulse",
+      "candidate_sha256": "70dac6ed9eb948b81bd46c6f16dec4c2a3dd226c704a803576fa6a8824c28c68",
+      "delta": {
+        "PIN_POINTER": "true"
+      },
+      "engine_exit": 0,
+      "rendering_method": "mobile",
+      "summary": {
+        "expected": 20,
+        "failed": 0,
+        "passed": 20,
+        "rows": 20,
+        "skipped": 0,
+        "written": 20
+      },
+      "capture_manifest_sha256": "5c1a98fddd4c2e8f8d216134688c8b9c12f065116c2c056ad23df6cd13bfcfde",
+      "diagnostic_log_sha256": "b1745d31f49a8bb7ccfb941d92a167e58acbd19405c40b5c39278a634061ea2f",
+      "review": "The tip stays on the support at varying cue scales. Read the numerical pin check alongside the still.",
+      "retained": true
+    },
+    {
+      "pass": 9,
+      "change": "Tighten follow response while keeping eased camera travel",
+      "candidate_sha256": "fb4189e3d8ade8e20bebde9f155f7299f7e45bb19e716ab8f004796a498ffa55",
+      "delta": {
+        "CAMERA_FOLLOW": "9.0"
+      },
+      "engine_exit": 0,
+      "rendering_method": "mobile",
+      "summary": {
+        "expected": 20,
+        "failed": 0,
+        "passed": 20,
+        "rows": 20,
+        "skipped": 0,
+        "written": 20
+      },
+      "capture_manifest_sha256": "c2695cfde3a09f8108595845fcd6ccc24360f95f6b99ca73c852fe5b380838bf",
+      "diagnostic_log_sha256": "f8dd5deb09f026924ab5808ffb120a1b0071f936bd3ae275052edd8118ddba7c",
+      "review": "The paired still keeps the same composition. A time-step probe verifies 0.593 camera response in 0.1 s without snapping.",
+      "retained": true
+    },
+    {
+      "pass": 10,
+      "change": "Give selected station confirmation precedence over incidental wildlife",
+      "candidate_sha256": "64716af3c6bcd63699a0ad30381f3b27869018b0b827969013ea4f21648e42f7",
+      "delta": {
+        "PRIORITIZE_FOCUS": "true"
+      },
+      "engine_exit": 0,
+      "rendering_method": "mobile",
+      "summary": {
+        "expected": 20,
+        "failed": 0,
+        "passed": 20,
+        "rows": 20,
+        "skipped": 0,
+        "written": 20
+      },
+      "capture_manifest_sha256": "fffa346ebb259909b93a56137beb54d2c5d594a6fc6683c4fe5ebf6d2d6c3c23",
+      "diagnostic_log_sha256": "ffe5abe6df7b1fe18728d0556dc30f3aadf8a64b630ff4316467d4c5bb880baf",
+      "review": "The paired still keeps the same composition. The live overlap probe verifies that confirmation reaches the already selected swing.",
+      "retained": true
+    }
+  ],
+  "acceptance": "Desktop diagnostics. Exact device, child, owner and formal visual acceptance remain open.",
+  "final_verification": {
+    "focused_probe_sha256": "8ca70a8cfc30fd079ffaa1837c33e909cfe55b1f6ac904aaa156caa566a94d30",
+    "capture_manifest_sha256": "a125b8f59c9dd1c57780c6f237b7964e14cc2ead216002fcd1bc5d137dd8def2",
+    "capture_count": 20,
+    "camera_test": {
+      "elapsed_seconds": 0.1,
+      "contact_x": 3151.0,
+      "camera_x": 3118.88,
+      "closed_fraction": 0.593
+    },
+    "checks": [
+      "cloud_eases_at_cycle_boundary",
+      "selected_cue_tip_stays_attached_during_pulse",
+      "selected_station_confirmation_survives_wildlife_overlap"
+    ],
+    "congruency": {
+      "passed": 9,
+      "total": 9,
+      "diagnostic_sha256": "87a4118155b9501b7a341b75e683b1ef6e5072dc5353a4b83696d6a737665d50"
+    },
+    "bridge": {
+      "godot_fixture": "PASS",
+      "log_sha256": "d8d386295d218df6254009386affcc8fb781ed643500ddc035a58064f940f762",
+      "unidot_local_ref": "9719eaa2c5ac10c6444800913a06f28934f4dc34"
+    },
+    "footing_quad_budget": {
+      "estimated_pixels_at_1280x720": 6664.2,
+      "viewport_fraction": 0.00723,
+      "method": "Conservative sum of four unoccluded sprite bounding quads at the master camera scale. Device GPU timing remains open."
+    },
+    "selected_candidate_cleanup": "The full-size review found faint idle rings. Unselected playground cues use zero alpha. Selected cue and Day One castle route behavior retain their checks."
+  },
+  "integration_review": {
+    "dev_at_cross_check": "f070a61e0ffdd84c1cca17ea2c368aa0382d981f",
+    "object_guide_topic": "0f4f8971f2031ccb0c3416174ec38926a6fc7a24",
+    "object_guide_check": "Dry three-way read against the staged tree showed the shared audit and ledger edits with no conflict markers.",
+    "grove_demo_check": "The separate worktree is based on f070a61e and had no tracked overlap in the five shared promenade, probe and visual-spec paths checked.",
+    "reed_cove_and_ecosystem": "Independent candidate review remains requested. No current Reed Cove topic SHA was available from the GitHub branch check. The ecosystem-fit ref found was a historical July branch.",
+    "review_request": "Recheck natural-play contact, foreground overlaps, target visibility, wildlife versus selected station priority and exact return from activities across the merged candidates."
+  }
+}

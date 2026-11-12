@@ -313,7 +313,7 @@ Scoped Luna repair implementation from integration `831d0bbb` is tracked by [CHG
 
 | Doc | | Note |
 |---|---|---|
-| `docs/handoffs/sky_lagoon_layering_20261111/README.md` | 🔵 | `SUPPORTING_CURRENT` for the independent reference study, Canvas contact depth and the Sky Lagoon art handoff. The project design language and exact runtime evidence govern acceptance. |
+| `docs/handoffs/sky_lagoon_layering_20261111/README.md` | 🔵 | `SUPPORTING_CURRENT` for the independent reference study, Canvas contact depth and the Sky Lagoon art handoff. The project design language and exact runtime evidence govern acceptance. The extended Cult of the Lamb study and ten-pass application live in the master audit planning entry. |
 | `SKY_LAGOON_CONGRUENCY_REBUILD_2026-07-27.md` | 🟠 | `SUPPORTING_CURRENT` for approved 3×1 source composition/congruency; promenade/spatial runtime structure is `SUPERSEDED`. |
 | `SKY_LAGOON_REDUCTIVE_HANDOFF_2026-07-28.md` | 🟠 | `BINDING_DOMAIN` for the 6144×2048 clean plate, unique object ownership and 6×2 slicing; the old Sprite3D assembly is `SUPERSEDED`, and final reconstruction uses Canvas/`Sprite2D`. |
 | `SKY_LAGOON_BACKGROUND_RESOLUTION_AUDIT_2026-07-27.md` | 🟠 | `BINDING_DOMAIN` for native-master preservation/resolution. Sprite3D/camera/touch validation is `HISTORICAL_EVIDENCE`, not final structure. |

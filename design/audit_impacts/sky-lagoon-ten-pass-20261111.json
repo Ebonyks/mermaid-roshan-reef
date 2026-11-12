@@ -1,0 +1,114 @@
+{
+  "id": "sky-lagoon-ten-pass-20261111",
+  "scope": "Expand the master audit comparison and apply ten small generated-art, camera and interaction refinements to the true-Canvas Sky Lagoon promenade. Study original, rights-cleared Unity placement translation for Reef.",
+  "baseline": "f71bb9563ad3cfe91f2603587a54d1c741c07f5f",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-READ-05",
+    "DL-READ-06",
+    "DL-LAY-01",
+    "DL-LAY-02",
+    "DL-LAY-03",
+    "DL-LAY-04",
+    "DL-LAY-05",
+    "DL-LAY-07",
+    "DL-LAY-08",
+    "DL-INT-01",
+    "DL-PERF-01",
+    "DL-PERF-02",
+    "DL-PERF-03",
+    "DL-PERF-04",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-04",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-VIS-002"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets/sprites/sky_lagoon/iteration_20261111/ivory_cloud.png",
+    "assets/sprites/sky_lagoon/iteration_20261111/moss_footing.png",
+    "assets/sprites/sky_lagoon/iteration_20261111/pearl_focus.png",
+    "assets_src/sky_lagoon/ten_pass_20261111/.gdignore",
+    "assets_src/sky_lagoon/ten_pass_20261111/ivory_cloud_native.png",
+    "assets_src/sky_lagoon/ten_pass_20261111/moss_footing_native.png",
+    "assets_src/sky_lagoon/ten_pass_20261111/pearl_focus_native.png",
+    "assets_src/sky_lagoon/ten_pass_20261111/warm_footing_native.png",
+    "assets_src/sky_lagoon/ten_pass_20261111/warm_footing_trial.png",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/cycles/sky-lagoon-ten-pass-20261111/comparison.jpg",
+    "audit/cycles/sky-lagoon-ten-pass-20261111/receipt.json",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/reference/games.json",
+    "scripts/arena/sky_lagoon_presentation.gd",
+    "scripts/arena/sky_lagoon_promenade.gd",
+    "scripts/probe_l2.gd",
+    "scripts/probe_sky_lagoon_art.gd",
+    "tools/audit_scene_congruency.py",
+    "tools/unity_2d_layout_bridge.py",
+    "tools/visual_audit_spec.json"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2-stable Vulkan Mobile visual iteration runner using scripts/probe_sky_lagoon_art.gd",
+      "result": "PASS",
+      "evidence": "11 candidate settings including the control. 20/20 states each. Real canvas captures, machine receipts and an agent-inspected comparison in audit/cycles/sky-lagoon-ten-pass-20261111/receipt.json."
+    },
+    {
+      "command": "python -B tools/unity_2d_layout_bridge.py plus a 4.7.2 headless scene load fixture",
+      "result": "PASS",
+      "evidence": "The licensed local PNG scene loads with the exact expected projected position, pivot offset, scale, rotation and depth."
+    },
+    {
+      "command": "python -B tools/audit_scene_congruency.py",
+      "result": "PASS",
+      "evidence": "9/9. Explicit Canvas display density and opaque upper-to-lower value sampling for the diffuse cloud. Other thresholds are retained."
+    },
+    {
+      "command": "Godot 4.7.2-stable focused Sky Lagoon runtime probes and final capture",
+      "result": "PASS",
+      "evidence": "Final polished candidate: promenade ALL OK, including paced camera response, eased cloud boundaries, zero idle cue alpha, attached selected pointer and wildlife-overlap confirmation. Focused log SHA-256 8ca70a8cfc30fd079ffaa1837c33e909cfe55b1f6ac904aaa156caa566a94d30. Visual manifest SHA-256 a125b8f59c9dd1c57780c6f237b7964e14cc2ead216002fcd1bc5d137dd8def2 (20/20 Mobile)."
+    },
+    {
+      "command": "Canonical scripts/ci.sh gates and trusted probes",
+      "result": "PASS",
+      "evidence": "Canonical CI gates in independent Windows shell segments. The catalogue coverage check was corrected and its full failing block reran successfully. Official import, shrink-only gate and 82 unchanged trusted probes passed on the selected candidate."
+    },
+    {
+      "command": "GitHub exact-head topic probes and anonymous handoff verification",
+      "result": "PENDING",
+      "evidence": "Exact published topic and asset receipt."
+    }
+  ],
+  "acceptance_gaps": "This campaign supports local visual diagnosis and normal route functionality. Natural-play per-card face/occlusion review, mobile performance on the target device, child discovery and owner art acceptance remain open. MA-VIS-002 remains FIXED_PENDING_VERIFICATION.",
+  "local_gate_log_sha256": {
+    "static-1.log": "992edca3cd07d5e464eba197186718f8c60186cb438d2accaafde750d5d3c9d5",
+    "static-1-remainder.log": "007ee3dc459def0bc050557d5766778769a8ab467580a52fe16341c2eea55a45",
+    "static-2.log": "b170c624c77fdc578b716eedc84000653fd4bc6256c4dd9974fa52ef95c3c2c2",
+    "static-3.log": "dd38ede43e409345fbbe63a6734d74f8c9e0395021ce9b998934add2378f4d0c",
+    "canonical-import.log": "502b693e80819e13a72cba94d1a44c4983e8dac0d14c387375f7396da6f39b8f",
+    "canvas-regression-verified.log": "4022b0d0dd00dd5e333ac2fdd5684e1ec48df71542d261cc30972ea71a23d6d5",
+    "verified-1.log": "8ded8e3f2a3dbd09cffb1cc9181f4967eb0fb5693844636b3a6900cd50a63190",
+    "verified-2.log": "df4b3d4cd30c3f3d701ec382d3722e238b77d299260d84394f90317af2077c00",
+    "verified-3.log": "ff014aa235afb067495772b1a9d38ced8e9f17e17b7b0d4bb55634b0289ea3a8",
+    "verified-4.log": "ca169780c2683ad44302ebc6bc788f3705f07b19437d58e664b8d878861fb340"
+  },
+  "runtime_source_sha256": {
+    "scripts/arena/sky_lagoon_promenade.gd": "445383f7ef019632c3a1de38a22629e9e54c292d85e3cae1e79926820e4e09ef",
+    "scripts/arena/sky_lagoon_presentation.gd": "d1d018c3d4b2cb078019964735c7d87260393e7421609d219ba93ae9d26933fa",
+    "scripts/probe_l2.gd": "6fd841d7266ddb09194aaefb09949cc873d8c11f364e3ab2359f264120119347",
+    "scripts/probe_sky_lagoon_art.gd": "785a0576a7056486f25f50b59c4082b5327464836182607c799c8176175e5fd0"
+  }
+}

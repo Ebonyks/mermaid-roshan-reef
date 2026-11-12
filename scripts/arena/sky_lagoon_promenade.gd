@@ -7,6 +7,7 @@ extends RefCounted
 
 const Affordance := preload("res://scripts/interaction_affordance.gd")
 const FRAMES := preload("res://scripts/roshan_sprite_frames.gd")
+const Presentation := preload("res://scripts/arena/sky_lagoon_presentation.gd")
 const LAYOUT_PATH := "res://scripts/arena/sky_lagoon_layout.json"
 
 const MASTER_SIZE := Vector2(6144.0, 2048.0)
@@ -15,7 +16,6 @@ const BACKDROP_ROWS := 2
 const BACKDROP_TILE_PX := Vector2(1024.0, 1024.0)
 const STAGE_LAYER := -1
 const VIEW_HEIGHT_MARGIN := 0.0
-const CAMERA_FOLLOW := 7.5
 const WALK_SPEED_MASTER := 790.0
 const ARRIVE_RADIUS_MASTER := 28.0
 const EDGE_MARGIN_PX := 112.0
@@ -252,7 +252,7 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 		{"key": "lagoon_rear_geography_layer", "name": "SkyLagoonRearMural", "audit_id": "rear_geography", "z": -400, "z_min": 0, "z_max": 0, "parallax": LOCKED_MURAL_PARALLAX},
 		{"key": "lagoon_rear_layer", "name": "SkyLagoonRear", "audit_id": "rear_atmosphere", "z": -400, "z_min": 0, "z_max": 0, "parallax": REAR_PARALLAX},
 		{"key": "lagoon_landmark_layer", "name": "SkyLagoonLandmarks", "audit_id": "landmarks", "z": -300, "z_min": 0, "z_max": 0, "parallax": LOCKED_MURAL_PARALLAX},
-		{"key": "lagoon_interactive_layer", "name": "SkyLagoonInteractive", "audit_id": "interactive", "z": 0, "z_min": GROUND_SHADOW_Z, "z_max": FOCUS_CUE_Z, "parallax": LOCKED_MURAL_PARALLAX},
+		{"key": "lagoon_interactive_layer", "name": "SkyLagoonInteractive", "audit_id": "interactive", "z": 0, "z_min": -200, "z_max": FOCUS_CUE_Z, "parallax": LOCKED_MURAL_PARALLAX},
 		{"key": "lagoon_actor_layer", "name": "SkyLagoonActors", "audit_id": "actors", "z": 0, "z_min": GROUND_SHADOW_Z, "z_max": PLAY_ROSHAN_Z, "parallax": LOCKED_MURAL_PARALLAX},
 		{"key": "lagoon_foreground_geography_layer", "name": "SkyLagoonForegroundMural", "audit_id": "foreground_geography", "z": 300, "z_min": 0, "z_max": 0, "parallax": LOCKED_MURAL_PARALLAX},
 		{"key": "lagoon_foreground_layer", "name": "SkyLagoonForeground", "audit_id": "foreground_lighting", "z": 300, "z_min": 0, "z_max": 0, "parallax": FOREGROUND_PARALLAX},
@@ -362,11 +362,16 @@ func tutorial_offer() -> Dictionary:
 func handle_touch(screen_pos: Vector2) -> bool:
 	if not (m.g.get("lagoon_play_anim", {}) as Dictionary).is_empty():
 		return true
-	var animal: Dictionary = _animal_at(screen_pos)
-	if not animal.is_empty():
-		_startle_animal(animal)
-		return true
 	var target: Dictionary = _target_at(screen_pos)
+	var confirms_focus: bool = not target.is_empty() and String(target["id"]) \
+		== String(m.g.get("lagoon_promenade_focus", ""))
+	# Confirming a visible, selected station takes priority over wildlife
+	# wandering into its generous touch radius.
+	if not confirms_focus:
+		var animal: Dictionary = _animal_at(screen_pos)
+		if not animal.is_empty():
+			_startle_animal(animal)
+			return true
 	if target.is_empty():
 		_clear_focus()
 		_set_walk_goal(screen_pos)
@@ -452,13 +457,13 @@ func _build_ambient_life() -> void:
 	# v5 plate and obscured its scenic mountain path.  Its disabled contract is
 	# retained in the shared manifest so previews and audits cannot revive it.
 	var cloud := _make_sprite(
-		"res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
-		Vector2(2680, 430), 235.0, false, m.g.get("lagoon_rear_layer") as Node2D)
+		Presentation.CLOUD_PATH, Presentation.CLOUD_POSITION,
+		Presentation.CLOUD_HEIGHT, false, m.g.get("lagoon_rear_layer") as Node2D)
 	cloud.name = "SkyLagoonRearCloud"
 	cloud.set_meta("ambient_kind", "cloud")
 	cloud.set_meta("canvas_layer_role", "rear_ambient")
 	cloud.set_meta("source_owned", true)
-	_mark_living_card(cloud, "drift", "quiet", 235.0)
+	_mark_living_card(cloud, "drift", "quiet", Presentation.CLOUD_HEIGHT)
 	m.g["lagoon_ambient_cards"] = [cloud]
 	for index: int in range(3):
 		var smoke := _make_sprite(SMOKE_WISP_TEX,
@@ -486,7 +491,8 @@ func _build_ambient_life() -> void:
 	if m.is_night:
 		for value: Variant in m.g["lagoon_ambient_cards"] as Array:
 			var ambient: Sprite2D = value as Sprite2D
-			ambient.modulate *= Color(0.72, 0.78, 0.96, 1.0)
+			ambient.modulate *= Presentation.CLOUD_NIGHT if ambient == cloud \
+				else Color(0.72, 0.78, 0.96, 1.0)
 			ambient.set_meta("night_tinted", true)
 
 func _mark_living_card(card: Sprite2D, motion_class: String,
@@ -566,6 +572,15 @@ func _build_playground_screen() -> void:
 	for equipment: Sprite2D in [slide, swing, seesaw]:
 		var contact_y: float = equipment.position.y + _sprite_draw_height(equipment) * 0.5
 		equipment.z_index = _ground_depth(contact_y)
+	for footing: Dictionary in Presentation.FOOTINGS:
+		var pad := _make_sprite(footing["path"], footing["position"],
+			footing["height"], false, holder)
+		pad.name = String(footing["name"])
+		pad.z_index = -200
+		pad.modulate.a = float(footing["alpha"])
+		if m.is_night:
+			pad.modulate *= Color(0.60, 0.65, 0.85)
+		pad.set_meta("canvas_layer_role", "playground_floor_dressing")
 	_add_contact_shadow(slide, Vector2(500, 40))
 	_add_contact_shadow(swing, Vector2(580, 42))
 	_add_contact_shadow(seesaw, Vector2(430, 38))
@@ -747,10 +762,9 @@ func _register_target(id: String, node: Node2D, kind: String, payload: String,
 	var glow := Sprite2D.new()
 	glow.name = "SkyLagoonFocus_%s" % id
 	if kind == "playground":
-		# A neutral procedural ring plus arrow names the object without cloning
-		# any of its pixels. At the full-height phone scale the selected composite
-		# remains over 64 px and its tip lands on the source card's top edge.
-		glow.texture = _affordance_diamond_texture()
+		# The hollow cue preserves the equipment silhouette. The pointer's
+		# tip identifies the physical card even while the selected cue pulses.
+		glow.texture = Presentation.CUE_TEXTURE
 		glow.scale = Vector2.ONE * highlight_scale
 		var pointer_tip := Vector2(0.0, 128.0)
 		_add_affordance_pointer(glow, pointer_tip)
@@ -758,7 +772,8 @@ func _register_target(id: String, node: Node2D, kind: String, payload: String,
 			if node is Sprite2D else node.position.y
 		glow.position = Vector2(node.position.x,
 			visible_top_y - pointer_tip.y * highlight_scale)
-		glow.set_meta("focus_cue_role", "procedural_ring_pointer")
+		glow.set_meta("focus_cue_role", "attached_ring_pointer")
+		glow.set_meta("focus_anchor_y", visible_top_y)
 		glow.set_meta("pointer_tip_local", pointer_tip)
 		glow.set_meta("focus_cue_nominal_master_size", Vector2(192.0, 256.0))
 	elif not highlight_path.is_empty():
@@ -772,10 +787,8 @@ func _register_target(id: String, node: Node2D, kind: String, payload: String,
 	if kind != "playground":
 		glow.position = node.position
 	var idle_tint: Color = Affordance.color(affordance_kind, false)
-	# A complete duplicate object is never the affordance. Idle animation targets
-	# use a nearly invisible shimmer; selection raises the same pixels briefly.
-	idle_tint.a = minf(idle_tint.a,
-		0.055 if kind == "playground" else 0.10)
+	# Reserve the painted pearl ring for the selected playground station.
+	idle_tint.a = 0.0 if kind == "playground" else minf(idle_tint.a, 0.10)
 	glow.modulate = idle_tint
 	glow.visible = true
 	glow.z_index = FOCUS_CUE_Z
@@ -793,23 +806,6 @@ func _register_target(id: String, node: Node2D, kind: String, payload: String,
 		"highlight": glow, "highlight_scale": highlight_scale,
 	})
 	m.g["lagoon_promenade_targets"] = targets
-
-func _affordance_diamond_texture() -> GradientTexture2D:
-	var gradient := Gradient.new()
-	gradient.colors = PackedColorArray([
-		Color(1.0, 1.0, 1.0, 0.0),
-		Color(1.0, 1.0, 1.0, 0.98),
-		Color(1.0, 1.0, 1.0, 0.0),
-	])
-	gradient.offsets = PackedFloat32Array([0.0, 0.50, 1.0])
-	var texture := GradientTexture2D.new()
-	texture.gradient = gradient
-	texture.width = 192
-	texture.height = 192
-	texture.fill = GradientTexture2D.FILL_RADIAL
-	texture.fill_from = Vector2(0.5, 0.5)
-	texture.fill_to = Vector2(1.0, 0.5)
-	return texture
 
 func _add_affordance_pointer(glow: Sprite2D, tip: Vector2) -> void:
 	var outline := Polygon2D.new()
@@ -873,14 +869,18 @@ func _tick_target_affordances(focus_id: String, focus_t: float) -> void:
 			# the only safe destination effectively disappear.
 			if m.day_one_is_active() and String(target.get("id", "")) == "castle_gate":
 				tint.a = maxf(tint.a, 0.45)
+			elif String(target.get("kind", "")) == "playground":
+				tint.a = 0.0
 			else:
 				tint.a = minf(tint.a, 0.055)
 		glow.modulate = tint
 		var pulse: float = 1.0 + wave * Affordance.pulse_amount(kind, selected)
 		var base_scale: float = float(target.get("highlight_scale", 1.0))
 		if String(glow.get_meta("focus_cue_role", "")) \
-				== "procedural_ring_pointer":
+				== "attached_ring_pointer":
 			glow.scale = Vector2.ONE * base_scale * pulse
+			var tip: Vector2 = glow.get_meta("pointer_tip_local") as Vector2
+			glow.position.y = float(glow.get_meta("focus_anchor_y")) - tip.y * glow.scale.y
 		elif String(target.get("id", "")) != "castle_gate":
 			var node: Node2D = target.get("node") as Node2D
 			if node is Sprite2D:
@@ -991,7 +991,7 @@ func _tick_movement(delta: float) -> void:
 	var camera_target: float = _camera_clamp_x(point.x)
 	m.g["lagoon_camera_x"] = camera_target if delta <= 0.0 else lerpf(
 		float(m.g.get("lagoon_camera_x", camera_target)), camera_target,
-		1.0 - exp(-CAMERA_FOLLOW * delta))
+		1.0 - exp(-Presentation.CAMERA_FOLLOW * delta))
 	_sync_roshan_card(next_x - old_x, absf(next_x - old_x) > 0.1)
 
 func _sync_roshan_card(delta_x: float = 0.0, moving: bool = false) -> void:
@@ -1204,10 +1204,9 @@ func _tick_ambient_life(delta: float) -> void:
 				card.rotation = sin(timer * 0.78 + 0.7) * 0.008
 			"cloud":
 				var base: Vector2 = card.get_meta("ambient_base", card.position) as Vector2
-				# Bounded triangle drift starts exactly at the authored socket and
-				# never teleports when its quiet 32-second cycle wraps.
 				var phase: float = fposmod(timer, 32.0) / 32.0
-				card.position.x = base.x + (1.0 - absf(phase * 2.0 - 1.0)) * 520.0
+				var travel: float = 0.5 - 0.5 * cos(phase * TAU)
+				card.position.x = base.x + travel * Presentation.CLOUD_TRAVEL
 			"smoke":
 				var base: Vector2 = card.get_meta("ambient_base", card.position) as Vector2
 				var phase: float = fposmod(timer + float(card.get_meta("phase", 0.0)), 6.0) / 6.0

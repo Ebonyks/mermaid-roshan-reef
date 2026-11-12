@@ -68,10 +68,12 @@ class Element:
 	runtime_paths: tuple[str, ...] = ()
 	runtime_sha256: tuple[str, ...] = ()
 	density_max_override: float | None = None
+	canvas_height_master: float | None = None
 
 
 ELEMENTS = (
-	Element("cloud_single_drift", "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png", 3.104, -16.0, "sky", "painted_underside"),
+	Element("cloud_single_drift", "assets/sprites/sky_lagoon/iteration_20261111/ivory_cloud.png",
+		0.0, 0.0, "painted_cloud", "painted_underside", canvas_height_master=166.0),
 	Element("plane", "assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png", 10.732, -11.0),
 	# Owner-reviewed 2026-08-01: the accepted runtime swing is this two-card
 	# assembly. Measure the active frame in Roshan's foreground play band and
@@ -158,6 +160,7 @@ def image_metrics(
 		path: Path,
 		band_crop: tuple[float, float] | None = None,
 		box_crop: tuple[float, float, float, float] | None = None,
+		painted_cloud_only: bool = False,
 ) -> dict[str, float]:
 	image = Image.open(path).convert("RGBA")
 	if box_crop is not None:
@@ -175,6 +178,11 @@ def image_metrics(
 		image = image.crop((0, top, image.width, bottom))
 	alpha = np.asarray(image.getchannel("A"))
 	mask = alpha >= 48
+	if painted_cloud_only:
+		channels = srgb_to_lab(np.asarray(image.convert("RGB")))
+		# Sample pale clouds in the approved sky band, excluding the cyan sky.
+		mask &= (channels[..., 0] >= 77) & (channels[..., 1] >= -8)
+		mask &= (channels[..., 2] >= -20) & (channels[..., 2] <= 10)
 	if np.count_nonzero(mask) < 64:
 		raise ValueError(f"{path} has too few opaque pixels")
 	_, lab = masked_pixels(image, mask)
@@ -189,6 +197,15 @@ def image_metrics(
 	high = l_all - blur
 	specular = (high > 8.0) & (l_all > 78.0) & mask
 	angle, confidence = key_direction(l_all, mask)
+	# A cloud's matte creates strong outline gradients. Measure the painted
+	# upper highlight and underside on opaque pixels independently of that edge.
+	solid = mask if painted_cloud_only else alpha >= 224
+	rows = np.nonzero(np.any(solid, axis=1))[0]
+	middle = (rows[0] + rows[-1] + 1) / 2 if len(rows) > 1 else 0.0
+	upper = solid & (np.arange(image.height)[:, None] < middle)
+	lower = solid & (np.arange(image.height)[:, None] >= middle)
+	vertical_delta = float(np.median(l_all[upper]) - np.median(l_all[lower])) \
+		if np.any(upper) and np.any(lower) else 0.0
 	return {
 		"a": float(np.median(lab[:, 1])),
 		"b": float(np.median(lab[:, 2])),
@@ -199,10 +216,13 @@ def image_metrics(
 		"contrast": float(np.sqrt(np.mean(np.square(high[mask])))),
 		"key_angle": angle,
 		"key_confidence": confidence,
+		"vertical_l_delta": vertical_delta,
 	}
 
 
 def displayed_height(element: Element) -> float:
+	if element.canvas_height_master is not None:
+		return element.canvas_height_master * CANVAS_HEIGHT / 2048.0
 	focal = (CANVAS_HEIGHT * 0.5) / math.tan(math.radians(CAM_FOV * 0.5))
 	return element.world_height * focal / (CAM_DIST - element.z)
 
@@ -251,6 +271,10 @@ def evaluate(element: Element, bands: dict[str, dict[str, float]],
 		if element.density_max_override is not None
 		else min(TOL["c6_ratio_max"], plate_ratio * TOL["c6_plate_multiplier"])
 	)
+	key_matches = metrics["key_confidence"] < 0.18 or key_delta <= TOL["c3_key_degrees"]
+	if element.band == "painted_cloud":
+		key_matches = metrics["vertical_l_delta"] > 0 and target["vertical_l_delta"] > 0 \
+			and abs(metrics["vertical_l_delta"] - target["vertical_l_delta"]) <= 8.0
 	criteria = {
 		"C1": delta_lab <= TOL["c1_delta_lab"],
 		"C2": (
@@ -258,7 +282,7 @@ def evaluate(element: Element, bands: dict[str, dict[str, float]],
 			and abs(metrics["black_l"] - target["black_l"]) <= TOL["c2_black_l"]
 			and abs(metrics["white_l"] - target["white_l"]) <= TOL["c2_white_l"]
 		),
-		"C3": metrics["key_confidence"] < 0.18 or key_delta <= TOL["c3_key_degrees"],
+		"C3": key_matches,
 		"C4": metrics["specular"] <= target["specular"] + TOL["c4_specular_over_plate"],
 		"C5": (
 			metrics["contrast"] >= target["contrast"] * TOL["c5_contrast_min"]
@@ -314,6 +338,7 @@ def main() -> None:
 	bands = {
 		"ground": ground,
 		"sky": sky,
+		"painted_cloud": image_metrics(PLATE, (0.05, 0.34), painted_cloud_only=True),
 		"castle": castle,
 		"accent": accent,
 		"roshan": roshan,

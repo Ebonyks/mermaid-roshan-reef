@@ -1,5 +1,19 @@
 # Asset license ledger (Phase 8 — complete table)
 
+## Sky Lagoon ten-pass art study
+
+| Asset | Source | License | Reference | Modifications |
+|---|---|---|---|---|
+| `assets_src/sky_lagoon/ten_pass_20261111/ivory_cloud_native.png` | Built-in ImageGen, Reef scene style reference | OpenAI Terms of Use, project-owned output | `audit/cycles/sky-lagoon-ten-pass-20261111/receipt.json` | Native transparent PNG. Source and output hashes in the receipt. |
+| `assets/sprites/sky_lagoon/iteration_20261111/ivory_cloud.png` | `assets_src/sky_lagoon/ten_pass_20261111/ivory_cloud_native.png` | Same as source | `audit/cycles/sky-lagoon-ten-pass-20261111/receipt.json` | Alpha-bounds crop, proportional downscale and transparent padding. |
+| `assets_src/sky_lagoon/ten_pass_20261111/moss_footing_native.png` | Built-in ImageGen, Reef scene style reference | OpenAI Terms of Use, project-owned output | `audit/cycles/sky-lagoon-ten-pass-20261111/receipt.json` | Native transparent PNG. Source and output hashes in the receipt. |
+| `assets/sprites/sky_lagoon/iteration_20261111/moss_footing.png` | `assets_src/sky_lagoon/ten_pass_20261111/moss_footing_native.png` | Same as source | `audit/cycles/sky-lagoon-ten-pass-20261111/receipt.json` | Alpha-bounds crop, proportional downscale and transparent padding. |
+| `assets_src/sky_lagoon/ten_pass_20261111/pearl_focus_native.png` | Built-in ImageGen, Reef scene style reference | OpenAI Terms of Use, project-owned output | `audit/cycles/sky-lagoon-ten-pass-20261111/receipt.json` | Native transparent PNG. Source and output hashes in the receipt. |
+| `assets/sprites/sky_lagoon/iteration_20261111/pearl_focus.png` | `assets_src/sky_lagoon/ten_pass_20261111/pearl_focus_native.png` | Same as source | `audit/cycles/sky-lagoon-ten-pass-20261111/receipt.json` | Alpha-bounds crop, proportional downscale and transparent padding. |
+| `assets_src/sky_lagoon/ten_pass_20261111/warm_footing_native.png` | Built-in ImageGen, Reef scene style reference | OpenAI Terms of Use, project-owned output | `audit/cycles/sky-lagoon-ten-pass-20261111/receipt.json` | Native transparent PNG. Source and output hashes in the receipt. |
+| `assets_src/sky_lagoon/ten_pass_20261111/warm_footing_trial.png` | `assets_src/sky_lagoon/ten_pass_20261111/warm_footing_native.png` | Same as source | `audit/cycles/sky-lagoon-ten-pass-20261111/receipt.json` | Alpha-bounds crop, proportional downscale and transparent padding. |
+| `audit/cycles/sky-lagoon-ten-pass-20261111/comparison.jpg` | Godot Mobile runtime diagnostic capture | Inherits Reef artwork licenses | `audit/cycles/sky-lagoon-ten-pass-20261111/receipt.json` | Reduced and assembled for comparison. |
+
 ## Pool native review evidence — 2026-10-17
 
 These PNGs/MP4s are review-only runtime diagnostics, not accepted cinematic assets, generation inputs or delivery footage. They grant no creative, device, child or owner acceptance.
