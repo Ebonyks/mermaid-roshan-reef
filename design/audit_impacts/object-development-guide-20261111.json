@@ -1,0 +1,98 @@
+{
+  "id": "object-development-guide-20261111",
+  "baseline": "f070a61e0ffdd84c1cca17ea2c368aa0382d981f",
+  "scope": "Owner directs five rounds of object breakdown refinement followed by master-audit adoption. Publish the scoped object development guide, link it from the planning entry and task index, and classify its authority. Cover painted objects, joined faces, owned near/far cuts, scene-depth foliage, water, state changes, object movement, contact, touch, and Mobile evidence. Documentation scope.",
+  "rules": [
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-06",
+    "DL-AGE-07",
+    "DL-AGE-08",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-INT-04",
+    "DL-INT-05",
+    "DL-LAY-01",
+    "DL-LAY-02",
+    "DL-LAY-03",
+    "DL-LAY-04",
+    "DL-LAY-05",
+    "DL-LAY-06",
+    "DL-LAY-08",
+    "DL-LAY-09",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-MOT-03",
+    "DL-MOT-04",
+    "DL-PERF-01",
+    "DL-PERF-02",
+    "DL-PERF-03",
+    "DL-PERF-04",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-07",
+    "DL-QA-11",
+    "DL-READ-02",
+    "DL-READ-05",
+    "DL-READ-06",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-UI-01",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-07"
+  ],
+  "findings": [
+    "MA-2D-002",
+    "MA-VIS-002",
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-PLAY-001",
+    "MA-TOUCH-001",
+    "MA-ACCESS-001"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/OBJECT_DEVELOPMENT_GUIDE.md"
+  ],
+  "validation": [
+    {
+      "command": "Five sequential source, family, registration, interaction, and evidence reviews",
+      "result": "PASS",
+      "evidence": "Five distinct cumulative drafts and their reviewed changes are recorded in the guide. Draft SHA-256 sequence: 83e2ab71552f97fba053bc7e074c0a8b233331c5ce3288398785f35712d6d69a, 968bdb32a6cc2cd37b6278d9c7f30b899d3661c46029c8c982a1b77ed8395d54, 5a833cd07ee13b26837061599125f3529ca14c4908cf0f57d3469e24627c0e38, 652ca24705aafb6600f69359c764ae0d93c736e2ba515ccd1c8f05d77ca3e7e2, 95f4c302b84f27fe42fe1e4ce1419b3b7d2aa591a0d8033e7e1bc05d91ea9d9b."
+    },
+    {
+      "command": "python -B tools/audit_sprite_layer_study.py <retained sprite-layer-study bundle> (earlier study worktree)",
+      "result": "PASS",
+      "evidence": "Reran pixel checks on the previous Forward Mobile 1280x720 and 1600x720 fixtures, and verified all 28 width-bound files against manifest SHA-256 cf3d015928236e4f80345f9e2b44ce06716d7da3bdc18805c117f1fb3dbae864. Pixel receipt SHA-256 b51e9963aa52133349096514e4cd4a4e8d7a2890f7df9f09a1bacd2c974bb8b7. These local diagnostic measurements bind the exact bridge, bushel and marker captures."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py and python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Both required audits returned ALL OK on the isolated documentation candidate based on f070a61e0ffdd84c1cca17ea2c368aa0382d981f. The targeted check resolved the guide's local paths and anchors, confirmed eight object families and five review rounds, and found the guide in the master audit and ledger. The baseline runtime probe suite was green at https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/43004282444. This change edits documentation only."
+    },
+    {
+      "command": "Runtime asset, target device, child and creative acceptance",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Guide-only change. Individual production assets and routes gather their own evidence under the referenced rules. All listed finding lifecycles retain their current status."
+    }
+  ],
+  "acceptance_gaps": "The owner directed adoption of the guide after five reviews. Earlier fixtures remain diagnostic desktop evidence. Production object and route acceptance, including device and child evidence, applies when those objects change."
+}
