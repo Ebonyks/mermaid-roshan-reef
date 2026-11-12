@@ -64,6 +64,9 @@ const POINTER_TEXTURE := "res://assets/castle/training/ghost_hand.png"
 const SPONGE_TEXTURE := "res://assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png"
 const BRUSH_TEXTURE := "res://assets/castle/day_one_art_studio/magic_cleaning_brush.png"
 const BASKET_TOOL_SCALE := 0.07
+# This is Roshan's already-earned magic brush. It stays visibly with her until
+# the sink is clean, then the cleaning owner carries the same brush to the tub.
+const EARNED_BRUSH_POSITION := Vector2(850.0, 406.0)
 # Reuse the approved Day One cleanup basket as the single, diegetic collection
 # point. It is deliberately placed on the front-right floor, clear of the
 # lower-right action control, so a child can see where each found tool goes
@@ -250,6 +253,7 @@ func audit_snapshot() -> Dictionary:
 		"basket_collects_supplies": _basket != null and _basket.get_meta(
 			"collects_supplies", false),
 		"found_tools_visible_in_basket": _found_tools_visible_in_basket(),
+		"earned_brush_visible_with_roshan": _earned_brush_is_visible_with_roshan(),
 		"normal_hud_suppressed": _hud_layer == null or not _hud_layer.visible,
 		"room_hotspots_suppressed": _hotspots_suppressed(),
 		"room_links_suppressed": _room_link_layer == null
@@ -322,6 +326,9 @@ func begin_cleaning_handoff() -> bool:
 		_cleaning_stage.cleanup_completed.connect(_on_cleaning_completed)
 		add_child(_cleaning_stage)
 		_cleaning_stage.setup(m, _announcements_enabled)
+		if _supply_nodes.size() > 1 and _supply_nodes[1] is Sprite2D:
+			_cleaning_stage.set_earned_brush(_supply_nodes[1] as Sprite2D,
+				EARNED_BRUSH_POSITION)
 		_cleaning_stage.set_supply_basket(BASKET_POSITION)
 		_cleaning_stage.set_dirty_overlays(_sink_grime, _tub_grime)
 		_cleaning_stage.set_bunny_swimmer(_bath_bunny)
@@ -706,7 +713,7 @@ func _build_supply_icons() -> void:
 		icon.configure(String(SUPPLY_DEFINITIONS[index]["id"]))
 		icon.position = _basket_content_position(index)
 		icon.z_index = 29
-		icon.visible = true
+		icon.visible = false
 		icon.set_meta("collection_role", "basket_tool")
 		icon.set_meta("visible_in_basket", false)
 		add_child(icon)
@@ -736,11 +743,14 @@ func _build_guidance() -> void:
 
 
 func _apply_restored_progress() -> void:
-	for index: int in range(MAX_SUPPLIES):
-		# The new rescue starts with both child-readable tools already sitting in
-		# the one basket; tapping it is the only hunt action.
-		_found[index] = true
-		_place_supply_in_basket(index)
+	# Preserve the old numeric hunt prefix: a saved sponge pickup remains in the
+	# basket, while the craft-earned brush stays with Roshan on every visit.
+	_found[0] = _supply_step >= 1
+	if _found[0]:
+		_place_supply_in_basket(0)
+	_found[1] = m != null and m.day_one_art_brush_earned
+	if _found[1]:
+		_place_earned_brush()
 	_refresh_guidance()
 
 
@@ -782,7 +792,7 @@ func _complete_supply_hunt() -> void:
 	supply_hunt_completed.emit()
 	if _announcements_enabled and m != null:
 		_say_context("day1_bathroom_supplies_found",
-			"We found the cleaning supplies!", "day_one")
+			"The sponge is ready!", "day_one")
 	begin_cleaning_handoff()
 
 
@@ -796,10 +806,11 @@ func _on_basket_tapped() -> void:
 		m._ui_tap()
 		_say_context("day1_bathroom_basket_open", "The cleaning basket is open!",
 			_context_visit_id())
-	for index: int in range(MAX_SUPPLIES):
-		_found[index] = true
-		_place_supply_in_basket(index)
-		supply_found.emit(index, String(SUPPLY_DEFINITIONS[index]["id"]))
+	_found[0] = true
+	_place_supply_in_basket(0)
+	supply_found.emit(0, String(SUPPLY_DEFINITIONS[0]["id"]))
+	# Keep the legacy terminal numeric step/key so old resumes still enter the
+	# cleaning owner, but do not recast the brush as a basket discovery.
 	_supply_step = MAX_SUPPLIES
 	if m != null:
 		m.day_one_record_bathroom_supply_step(_supply_step)
@@ -846,8 +857,9 @@ func _basket_content_position(index: int) -> Vector2:
 
 func _basket_item_ids() -> Array[String]:
 	var ids: Array[String] = []
-	for definition: Dictionary in SUPPLY_DEFINITIONS:
-		ids.append(String(definition["id"]))
+	if not _supply_nodes.is_empty() and bool(_supply_nodes[0].get_meta(
+			"visible_in_basket", false)):
+		ids.append(String(SUPPLY_DEFINITIONS[0]["id"]))
 	return ids
 
 
@@ -860,6 +872,9 @@ func _pointer_bounds() -> Rect2:
 func _place_supply_in_basket(index: int) -> void:
 	if index < 0 or index >= _supply_nodes.size():
 		return
+	if index == 1:
+		_place_earned_brush()
+		return
 	var supply: Node2D = _supply_nodes[index]
 	supply.visible = true
 	supply.position = _basket_content_position(index)
@@ -869,13 +884,40 @@ func _place_supply_in_basket(index: int) -> void:
 	supply.set_meta("visible_in_basket", true)
 
 
+func _place_earned_brush() -> void:
+	if _supply_nodes.size() <= 1:
+		return
+	var brush: Node2D = _supply_nodes[1]
+	brush.visible = true
+	brush.position = EARNED_BRUSH_POSITION
+	brush.scale = Vector2.ONE * BASKET_TOOL_SCALE
+	brush.rotation = 0.08
+	brush.modulate.a = 1.0
+	brush.set_meta("visible_in_basket", false)
+	brush.set_meta("earned_in_craft", true)
+	brush.set_meta("owner_character", "roshan")
+
+
 func _found_tools_visible_in_basket() -> bool:
 	for index: int in range(_found.size()):
-		if _found[index] and (not _supply_nodes[index].visible
-				or not bool(_supply_nodes[index].get_meta(
-					"visible_in_basket", false))):
+		if not _found[index]:
+			continue
+		if index == 1:
+			if not _earned_brush_is_visible_with_roshan():
+				return false
+		elif not _supply_nodes[index].visible or not bool(
+				_supply_nodes[index].get_meta("visible_in_basket", false)):
 			return false
 	return true
+
+
+func _earned_brush_is_visible_with_roshan() -> bool:
+	if _supply_nodes.size() <= 1 or not _found[1]:
+		return false
+	var brush: Node2D = _supply_nodes[1]
+	return brush.visible and not bool(brush.get_meta("visible_in_basket", true)) \
+		and bool(brush.get_meta("earned_in_craft", false)) \
+		and brush.get_meta("owner_character", "") == "roshan"
 
 
 func _hotspots_suppressed() -> bool:

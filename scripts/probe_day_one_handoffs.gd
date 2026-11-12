@@ -4,10 +4,10 @@ extends SceneTree
 
 var failures: int = 0
 const TARGETS: Array[Dictionary] = [
+	{"source": "craft_room", "target": "bubble_bath", "voice": "day_one_new_door"},
 	{"source": "bubble_bath", "target": "mermaid_pool", "voice": "day_one_pool_ready"},
 	{"source": "mermaid_pool", "target": "playroom", "voice": "day_one_new_door"},
-	{"source": "playroom", "target": "craft_room", "voice": "day_one_new_door"},
-	{"source": "craft_room", "target": "__royal_hall", "voice": "day_one_all_rooms_clean"},
+	{"source": "playroom", "target": "__royal_hall", "voice": "day_one_all_rooms_clean"},
 ]
 
 
@@ -39,6 +39,34 @@ func _run_probe() -> void:
 	main.add_child(voice_player)
 	main.voice_pool.append(voice_player)
 	var stage: Control = main.castle_room_stage
+	# Use the production portal builder so the shell cue assertion is tied to
+	# the real painted Bubble Bath portal record and its CastleDoorCue.
+	var room_logic: CastleRooms25D = main._castle_rooms_ref()
+	main.castle_room_door_hotspot_layer = Control.new()
+	main.castle_room_door_hotspot_layer.name = "ProbeDoorHotspots"
+	main.add_child(main.castle_room_door_hotspot_layer)
+	var door_visual_layer := Control.new()
+	door_visual_layer.name = "ProbeDoorVisuals"
+	main.add_child(door_visual_layer)
+	main.g["castle_room_door_visual_layer"] = door_visual_layer
+	room_logic._build_hall_portals()
+	var bathroom_shell_matches_portal: bool = false
+	for portal_record: Dictionary in main.castle_room_door_hotspots:
+		var data: Dictionary = portal_record.get("data", {}) as Dictionary
+		if String(data.get("id", "")) != "bubble_bath":
+			continue
+		var cue: CastleDoorCue = portal_record.get("cue") as CastleDoorCue
+		var shell: TextureRect = portal_record.get("shell") as TextureRect
+		var button: Button = portal_record.get("button") as Button
+		bathroom_shell_matches_portal = cue != null and shell != null \
+			and button != null and cue.name == "HallDoorCue_bubble_bath" \
+			and button.name == "HallDoor_bubble_bath" \
+			and shell.name == "DayOneBathroomShell" \
+			and shell.texture == ReefMain.DAY_ONE_BATHROOM_SHELL \
+			and String(data.get("name", "")) == "Bubble Bath"
+		break
+	_check("real shell art is paired to the painted Bubble Bath hall portal",
+		bathroom_shell_matches_portal)
 	for handoff: Dictionary in TARGETS:
 		main.castle_room_id = String(handoff["source"])
 		main._navigation_push("pearl_castle_room", main, func() -> void:
@@ -61,9 +89,16 @@ func _run_probe() -> void:
 			main._day_one_room_handoff_target == String(handoff["target"])
 			and not back.has_meta("day_one_route_target")
 			and not back.has_meta("day_one_route_handoff"))
-		_check("completion supplies a short hall-and-door cue",
-			main.hud_msg.text.contains("hall")
-			and main.hud_msg.text.contains("glowing door"))
+		var route_cue_matches: bool = main.hud_msg.text.contains("hall")
+		if String(handoff["target"]) == "bubble_bath":
+			route_cue_matches = route_cue_matches \
+				and main.hud_msg.text.contains("shell") \
+				and main.hud_msg.text.contains("bathroom")
+		else:
+			route_cue_matches = route_cue_matches \
+				and main.hud_msg.text.contains("glowing door")
+		_check("completion supplies the matching hall-and-door cue",
+			route_cue_matches)
 		var cue: Tween = main._navigation_ref()._handoff_pulse
 		_check("the ready room starts a Back pulse", cue != null and cue.is_valid())
 		if cue != null:

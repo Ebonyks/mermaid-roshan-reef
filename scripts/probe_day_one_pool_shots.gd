@@ -62,8 +62,17 @@ func _run() -> void:
 		main._skip_intro()
 	await _frames(3)
 	main._day_one_ref().restore_state({
+		"day_one_route_version": DayOneDirector.ROUTE_VERSION,
 		"day_one_active": true,
-		"day_one_completed_rooms": ["bathroom"],
+		"day_one_current_room": "pool",
+		"day_one_completed_rooms": ["art", "bathroom"],
+		"day_one_art_collected_materials": {
+			"brushes": true, "pink_paint": true,
+			"blue_paint": true, "paint_cups": true,
+		},
+		"day_one_art_cleaned_grime": {"left_counter": true},
+		"day_one_art_desk_unlocked": true,
+		"day_one_art_brush_earned": true,
 		"day_one_pool_cleanup_step": 0,
 		"day_one_pool_skimmer_mask": 0,
 		"day_one_pool_waterfall_mask": 0,

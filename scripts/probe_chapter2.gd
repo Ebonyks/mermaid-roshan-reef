@@ -150,16 +150,23 @@ func _audit_boss_boundary() -> void:
 		not day_one.complete_giant_dust_bunny_boss()
 		and day_one.day_one_active
 		and not main.chapter2_active)
-	day_one.bathroom_supply_hunt_step = 2
-	day_one.bathroom_tools_authorized = true
-	day_one.bathroom_cleanup_step = 2
-	day_one.bathroom_toilet_cleaned = true
-	_check("the four clean rooms arm the boss door",
-		day_one.complete_tutorial("bathroom")
-		and day_one.complete_placeholder("pool", "pool_activity")
-		and day_one.complete_activity("stuffie", "stuffie_activity")
-		and day_one.complete_activity("art", "art_activity")
-		and day_one.boss_door_glow)
+	# This Chapter 2 boundary probe does not replay Day One's room work; seed a
+	# canonical v2 completed route so it can isolate the real boss/Chapter 2 seam.
+	day_one.restore_state({
+		"day_one_route_version": DayOneDirector.ROUTE_VERSION,
+		"day_one_active": true,
+		"day_one_current_room": "",
+		"day_one_completed_rooms": DayOneDirector.ROOM_ORDER.duplicate(),
+		"day_one_cleaned_rooms": DayOneDirector.ROOM_ORDER.duplicate(),
+		"day_one_art_brush_earned": true,
+	})
+	_check("a valid v2 four-room save derives the boss-door prerequisite",
+		day_one.boss_door_glow
+		and day_one.current_room_id == ""
+		and day_one.is_room_completed("art")
+		and day_one.is_room_completed("bathroom")
+		and day_one.is_room_completed("pool")
+		and day_one.is_room_completed("stuffie"))
 	_check("boss defeat starts Chapter 2",
 		day_one.trigger_giant_dust_bunny_boss()
 		and day_one.complete_giant_dust_bunny_boss()

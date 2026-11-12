@@ -10,31 +10,33 @@ extends RefCounted
 
 signal hook_event(event_name: String, payload: Dictionary)
 
-const ROOM_ORDER: Array[String] = ["bathroom", "pool", "stuffie", "art"]
+const ROUTE_VERSION := 2
+const LEGACY_ROOM_ORDER: Array[String] = ["bathroom", "pool", "stuffie", "art"]
+const ROOM_ORDER: Array[String] = ["art", "bathroom", "pool", "stuffie"]
 const ROOM_DEFINITIONS: Dictionary = {
-	"bathroom": {
+	"art": {
 		"index": 0,
+		"title": "Craft Room",
+		"kind": "activity",
+		"activity_id": "art_activity",
+	},
+	"bathroom": {
+		"index": 1,
 		"title": "Bubble Bathroom",
 		"kind": "tutorial",
 		"activity_id": "bathroom_tutorial",
 	},
 	"pool": {
-		"index": 1,
+		"index": 2,
 		"title": "Sparkle Pool",
 		"kind": "activity",
 		"activity_id": "pool_activity",
 	},
 	"stuffie": {
-		"index": 2,
+		"index": 3,
 		"title": "Stuffie Room",
 		"kind": "activity",
 		"activity_id": "stuffie_activity",
-	},
-	"art": {
-		"index": 3,
-		"title": "Art Room",
-		"kind": "activity",
-		"activity_id": "art_activity",
 	},
 }
 
@@ -55,8 +57,10 @@ const ART_MATERIAL_IDS: Array[String] = [
 const ART_GRIME_IDS: Array[String] = [
 	"left_counter", "desk_counter", "right_counter",
 ]
+const ART_SHELL_COUNTER := "left_counter"
 
 const SAVE_KEYS: Array[String] = [
+	"day_one_route_version",
 	"day_one_active",
 	"day_one_current_room",
 	"day_one_completed_rooms",
@@ -83,6 +87,7 @@ const SAVE_KEYS: Array[String] = [
 	"day_one_art_collected_materials",
 	"day_one_art_cleaned_grime",
 	"day_one_art_desk_unlocked",
+	"day_one_art_brush_earned",
 	"day_one_art_customization_completed",
 ]
 
@@ -211,6 +216,12 @@ var art_customization_completed: bool:
 		return m.day_one_art_customization_completed
 	set(value):
 		m.day_one_art_customization_completed = value
+
+var art_brush_earned: bool:
+	get:
+		return m.day_one_art_brush_earned
+	set(value):
+		m.day_one_art_brush_earned = value
 var day_one_event_seen: Dictionary:
 	get:
 		return m.day_one_event_seen
@@ -327,21 +338,30 @@ func art_cleanup_complete() -> bool:
 		and _map_has_every_id(art_cleaned_grime, ART_GRIME_IDS)
 
 
-## Records one child-readable studio action. The maps intentionally remain
-## string->true dictionaries so arbitrary future props survive JSON round trips
-## without changing this director's schema.
+func art_shell_revealed() -> bool:
+	return _map_has_every_id(art_collected_materials, ART_MATERIAL_IDS) \
+		and bool(art_cleaned_grime.get(ART_SHELL_COUNTER, false))
+
+
+## Saved maps remain additive. Only actual known actions can award new progress.
 func record_art_cleanup(kind: String, item_id: String) -> bool:
 	var id: String = item_id.strip_edges().to_lower()
 	if id.is_empty():
 		return false
 	var action: String = kind.strip_edges().to_lower()
 	if action in ["material", "materials", "loose_material", "loose_materials"]:
+		if id not in ART_MATERIAL_IDS or bool(art_collected_materials.get(id, false)):
+			return false
 		art_collected_materials[id] = true
 	elif action in ["grime", "counter", "counter_grime", "cleaned_grime"]:
+		if id not in ART_GRIME_IDS or bool(art_cleaned_grime.get(id, false)) \
+				or not _map_has_every_id(art_collected_materials, ART_MATERIAL_IDS) \
+				or (id != ART_SHELL_COUNTER and not art_shell_revealed()):
+			return false
 		art_cleaned_grime[id] = true
 	else:
 		return false
-	if art_cleanup_complete() and not art_desk_unlocked:
+	if art_shell_revealed() and not art_desk_unlocked:
 		art_desk_unlocked = true
 		_emit_once(EVENT_ART_DESK_UNLOCKED, {
 			"materials": _string_bool_map_to_array(art_collected_materials),
@@ -351,15 +371,23 @@ func record_art_cleanup(kind: String, item_id: String) -> bool:
 
 
 func unlock_art_desk() -> bool:
-	if not art_cleanup_complete() or art_desk_unlocked:
+	if not art_shell_revealed() or art_desk_unlocked:
 		return false
 	art_desk_unlocked = true
 	_emit_once(EVENT_ART_DESK_UNLOCKED, {})
 	return true
 
 
+func claim_art_brush() -> bool:
+	if not day_one_active or current_room_id != "art" or art_brush_earned \
+			or not art_desk_unlocked or not art_shell_revealed():
+		return false
+	art_brush_earned = true
+	return true
+
+
 func complete_art_customization() -> bool:
-	if not art_desk_unlocked or art_customization_completed:
+	if not art_brush_earned or not art_desk_unlocked or art_customization_completed:
 		return false
 	art_customization_completed = true
 	_emit_once(EVENT_ART_CUSTOMIZATION_COMPLETED, {})
@@ -367,8 +395,7 @@ func complete_art_customization() -> bool:
 
 
 func complete_art_studio() -> bool:
-	if not art_cleanup_complete() or not art_desk_unlocked \
-			or not art_customization_completed:
+	if not art_shell_revealed() or not art_desk_unlocked or not art_brush_earned:
 		return false
 	return complete_activity("art", "art_activity")
 
@@ -377,6 +404,8 @@ func complete_room(room_id: String) -> bool:
 	var id: String = _normalise_room_id(room_id)
 	if id == "" or id != current_room_id or is_room_completed(id):
 		return false
+	if id == "art" and (not art_brush_earned or not art_shell_revealed()):
+		return false
 	if id == "bathroom":
 		# Keep the room gate in the director as well as the UI seam. This
 		# prevents a direct activity/tutor call from skipping the basket and
@@ -384,7 +413,7 @@ func complete_room(room_id: String) -> bool:
 		# treated as already basket-authorized for compatibility.
 		if bathroom_supply_hunt_step >= 2:
 			bathroom_tools_authorized = true
-		if not bathroom_tools_authorized \
+		if not art_brush_earned or not bathroom_tools_authorized \
 				or bathroom_supply_hunt_step < 2 \
 				or bathroom_cleanup_step < 2 \
 				or not bathroom_toilet_cleaned:
@@ -505,6 +534,7 @@ func drain_events() -> Array[Dictionary]:
 ## into an existing save without changing any legacy key or schema version.
 func serialize_state() -> Dictionary:
 	return {
+		"day_one_route_version": ROUTE_VERSION,
 		"day_one_active": day_one_active,
 		"day_one_current_room": current_room_id,
 		"day_one_completed_rooms": _room_map_to_array(completed_rooms),
@@ -534,6 +564,7 @@ func serialize_state() -> Dictionary:
 		"day_one_art_collected_materials": art_collected_materials.duplicate(true),
 		"day_one_art_cleaned_grime": art_cleaned_grime.duplicate(true),
 		"day_one_art_desk_unlocked": art_desk_unlocked,
+		"day_one_art_brush_earned": art_brush_earned,
 		"day_one_art_customization_completed": art_customization_completed,
 	}
 
@@ -582,7 +613,8 @@ func _normalise_state(source: Dictionary) -> void:
 	art_cleaned_grime = _string_bool_map(normalised.get(
 		"day_one_art_cleaned_grime", {}))
 	art_desk_unlocked = bool(normalised.get(
-		"day_one_art_desk_unlocked", false)) and art_cleanup_complete()
+		"day_one_art_desk_unlocked", false)) and art_shell_revealed()
+	art_brush_earned = bool(normalised.get("day_one_art_brush_earned", false))
 	art_customization_completed = bool(normalised.get(
 		"day_one_art_customization_completed", false)) and art_desk_unlocked
 
@@ -594,16 +626,27 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 	var source: Dictionary = raw as Dictionary if raw is Dictionary else {}
 	var candidates: Dictionary = _room_membership_static(source.get(
 		"day_one_completed_rooms", []))
-	var completed: Array[String] = []
-	for room_id: String in ROOM_ORDER:
+	# An old save can contain a valid bathroom-first prefix. Accept that prefix
+	# before migrating; do not reinterpret an old out-of-order Art entry as
+	# earned. Subsequent v2 saves may legitimately contain both prefixes.
+	var earned: Dictionary = {}
+	for room_id: String in LEGACY_ROOM_ORDER:
 		if not bool(candidates.get(room_id, false)):
 			break
-		completed.append(room_id)
+		earned[room_id] = true
+	if int(source.get("day_one_route_version", 1)) >= ROUTE_VERSION:
+		for room_id: String in ROOM_ORDER:
+			if not bool(candidates.get(room_id, false)):
+				break
+			earned[room_id] = true
+	var completed: Array[String] = []
+	var current: String = ""
+	for room_id: String in ROOM_ORDER:
+		if bool(earned.get(room_id, false)):
+			completed.append(room_id)
+		elif current == "":
+			current = room_id
 	var cleaned: Array[String] = completed.duplicate()
-	var current: String = _normalise_room_id_static(String(
-		source.get("day_one_current_room", "")))
-	if current == "" and completed.size() < ROOM_ORDER.size():
-		current = ROOM_ORDER[completed.size()]
 	var grok_seen: bool = _as_bool_static(source.get(
 		"day_one_grok_video_2_seen", false), false)
 	var all_done: bool = completed.size() == ROOM_ORDER.size()
@@ -664,14 +707,14 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 		"day_one_art_collected_materials", {}))
 	var art_grime: Dictionary = _string_bool_map_static(source.get(
 		"day_one_art_cleaned_grime", {}))
-	var art_cleanup_done: bool = _map_has_every_id_static(
-		art_materials, ART_MATERIAL_IDS) and _map_has_every_id_static(
-		art_grime, ART_GRIME_IDS)
-	# The desk is a derived reward for finishing all seven cleanup actions.
-	# Deriving it on restore prevents a save written between the final scrub and
-	# the next frame from ever losing progress or trapping the child.
-	var art_desk: bool = art_cleanup_done
+	# The existing action maps reconstruct the revealed shell and desk after
+	# a reload. A completed legacy Craft Room already earned its brush.
+	var art_desk: bool = _map_has_every_id_static(art_materials, ART_MATERIAL_IDS) \
+		and bool(art_grime.get(ART_SHELL_COUNTER, false))
+	var art_brush: bool = completed.has("art") or (art_desk and _as_bool_static(
+		source.get("day_one_art_brush_earned", false), false))
 	return {
+		"day_one_route_version": ROUTE_VERSION,
 		"day_one_active": day_active,
 		"day_one_current_room": current,
 		"day_one_completed_rooms": completed,
@@ -702,6 +745,7 @@ static func normalise_save_patch(raw: Variant) -> Dictionary:
 		"day_one_art_collected_materials": art_materials,
 		"day_one_art_cleaned_grime": art_grime,
 		"day_one_art_desk_unlocked": art_desk,
+		"day_one_art_brush_earned": art_brush,
 		"day_one_art_customization_completed": art_desk and _as_bool_static(
 			source.get("day_one_art_customization_completed", false), false),
 	}

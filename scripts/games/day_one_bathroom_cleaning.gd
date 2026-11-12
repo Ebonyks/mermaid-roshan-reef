@@ -121,6 +121,8 @@ var _sink_grime: Sprite2D = null
 var _tub_grime: Sprite2D = null
 var _guide: GestureGuide = null
 var _basket_position := Vector2(1082.0, 575.0)
+var _earned_brush_icon: Sprite2D = null
+var _earned_brush_origin := Vector2(850.0, 406.0)
 var _demo_active: bool = false
 var _tool_traveling: bool = false
 var _demonstration_time: float = 0.0
@@ -252,6 +254,8 @@ func audit_snapshot() -> Dictionary:
 				"parked_on_tub_rim", false)),
 		"sponge_travel_complete": _sponge_travel_complete,
 		"brush_travel_complete": _brush_travel_complete,
+		"brush_origin_position": _earned_brush_origin,
+		"brush_starts_as_craft_earned": true,
 		"whole_room_sparkle": _whole_room_sparkle,
 		"target_clutter_suppressed": (_target == null or not _target.visible)
 			and (_swoosh == null or not _swoosh.visible),
@@ -305,14 +309,18 @@ func set_dirty_overlays(sink_grime: Sprite2D, tub_grime: Sprite2D) -> void:
 
 
 func set_supply_basket(at: Vector2) -> void:
-	# The basket is the only source of tools in the child-facing flow. Keep the
-	# old save step semantics, but make the visible handoff explicit each time a
-	# fresh sink or resumed tub stage is entered.
+	# The basket supplies the sponge. The magic brush already belongs to Roshan;
+	# keep the old save step semantics while handing it on at the tub stage.
 	_basket_position = at
 	if _step == 0:
 		_begin_sink_tool_travel()
 	elif _step == 1:
 		_begin_brush_tool_travel()
+
+
+func set_earned_brush(icon: Sprite2D, origin: Vector2) -> void:
+	_earned_brush_icon = icon
+	_earned_brush_origin = origin
 
 
 func set_bunny_swimmer(swimmer: DayOneDustBunnySwimmer) -> void:
@@ -758,7 +766,9 @@ func _begin_brush_tool_travel() -> void:
 	_brush_travel_complete = false
 	_sponge.texture = load(BRUSH_TEXTURE) as Texture2D
 	_sponge.scale = Vector2.ONE * TUB_TOOL_SCALE
-	_sponge.position = _basket_position
+	if _earned_brush_icon != null and is_instance_valid(_earned_brush_icon):
+		_earned_brush_icon.visible = false
+	_sponge.position = _earned_brush_origin
 	_sponge.visible = true
 	if _pointer != null:
 		_pointer.visible = false
