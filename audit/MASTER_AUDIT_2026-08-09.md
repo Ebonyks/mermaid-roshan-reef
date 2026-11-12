@@ -2,6 +2,8 @@
 
 ## 0. Planning entry
 
+Use the [object development guide](../design/OBJECT_DEVELOPMENT_GUIDE.md) when planning or changing a world object's depth, composition, motion, or interaction. The guide applies the existing true 2D, art, touch, state and Mobile evidence rules to practical object assemblies. The five review rounds and scoped evidence are linked in the [impact record](../design/audit_impacts/object-development-guide-20261111.json).
+
 Owner correction2026-11-05 rejects the separate hydrangea/front-plant animation round and directs motion of features already painted into the approved v5 Sky Lagoon panorama. The [original-art review](../assets_src/sky_lagoon/original_art_motion_20261105/README.md) contains three rooted two-second flower studies, a painted-layer/actor survey and verified GIF output limits. [Impact](../design/audit_impacts/sky-lagoon-original-art-motion-20261105.json). PR46 is closed; earlier payloads remain rejection evidence. This source-only candidate changes no production routes and closes no finding; human/device/child/owner acceptance remains separate.
 
 
@@ -217,6 +219,7 @@ rules; sealed evidence below remains scoped to its recorded build. Follow the
 
 | Task | Start with | Then consult |
 |---|---|---|
+| World object development and sprite layering | [Object development guide](../design/OBJECT_DEVELOPMENT_GUIDE.md) | [2D canvas construction](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#6-2d-canvas-living-card-world-construction) and [interaction rules](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#7-interactions-change-the-world-truthfully). Record owned parts, shared contact and touch geometry, order controls, visible state changes, and dense-route Mobile evidence as applicable. |
 | Painted Racer minimap backing | [Composition and child-readable hierarchy](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#5-composition-and-child-readable-hierarchy) | [R149 candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r149_racer_painted_minimap_runtime/README.md) · [Impact](../design/audit_impacts/flat-vector-r149-painted-racer-minimap-20261107.json). One passive map backing across Opera and PC. Route and marker logic remain separate. |
 | Painted Racer direction cue | [Child-readable hierarchy](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#5-composition-and-child-readable-hierarchy) | [R150 candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/README.md) · [Impact](../design/audit_impacts/flat-vector-r150-painted-racer-direction-cue-20261107.json). Same steering direction, bob and visibility. |
 | Painted Racer countdown lamps | [Child-readable hierarchy](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#5-composition-and-child-readable-hierarchy) | [R151 candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r151_racer_painted_countdown_lights_runtime/README.md) · [Impact](../design/audit_impacts/flat-vector-r151-painted-racer-countdown-lights-20261107.json). One painted light role, two lens states and the original countdown cadence. |
