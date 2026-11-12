@@ -1,0 +1,91 @@
+{
+  "id": "sky-lagoon-layering-20261111",
+  "scope": "Apply the reference study to Sky Lagoon's Canvas contact depth, grounded shadows, supported play poses and cues. Preserve the approved panorama and route while documenting the next art and layout checks.",
+  "baseline": "f070a61e0ffdd84c1cca17ea2c368aa0382d981f",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-READ-05",
+    "DL-READ-06",
+    "DL-LAY-01",
+    "DL-LAY-02",
+    "DL-LAY-03",
+    "DL-LAY-04",
+    "DL-LAY-05",
+    "DL-LAY-07",
+    "DL-LAY-08",
+    "DL-INT-01",
+    "DL-PERF-01",
+    "DL-PERF-02",
+    "DL-PERF-03",
+    "DL-ASSET-01",
+    "DL-ASSET-06"
+  ],
+  "findings": [
+    "MA-VIS-002"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/sky_lagoon_layering_20261111/README.md",
+    "scripts/arena/sky_lagoon_promenade.gd",
+    "scripts/probe_l2.gd",
+    "tools/visual_audit_spec.json"
+  ],
+  "validation": [
+    {
+      "command": "ILSpyCmd 9.1.0.7988 project decompilation and UnityPy 1.23.0 serialized settings inspection",
+      "result": "PASS",
+      "evidence": "2,718 main and 391 first-pass C# outputs. Assembly and globalgamemanagers SHA-256 values in the handoff. Local reference files are outside this repository."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "DOCAUTH and AUDITDEV report ALL OK on the baseline-bound candidate."
+    },
+    {
+      "command": "python -m gdtoolkit.parser scripts/arena/sky_lagoon_promenade.gd scripts/probe_l2.gd; python tools/lint_inference.py scripts/arena/sky_lagoon_promenade.gd scripts/probe_l2.gd",
+      "result": "PASS",
+      "evidence": "Both changed GDScript files pass the parser and inference lint."
+    },
+    {
+      "command": "Godot 4.7.2-stable --headless --path . --import and -s scripts/probe_l2.gd -- --touch --classic-touch-test",
+      "result": "PASS",
+      "evidence": "Official ed1daf0bf. Import log SHA-256 f752dce23431cc5b9ec956a8ce5948ea66fdb15f341be1afc28be3a236f2e1bc. LAGOONCANVAS ALL OK, including both sides of the slide contact, shadow and cue bands, ride order and ground restore. Probe log SHA-256 98f87219f49d823d11646d98a605475c8d6e61ab08325156298cb8ac8d181277."
+    },
+    {
+      "command": "scripts/ci.sh",
+      "result": "PASS",
+      "evidence": "Canonical scripts/ci.sh checks, executed in two Windows shell segments with the exact import and shrink-only gate. All 82 trusted probes passed in four isolated batches."
+    },
+    {
+      "command": "Godot 4.7.2-stable Mobile -s scripts/probe_sky_lagoon_art.gd",
+      "result": "PASS",
+      "evidence": "Official ed1daf0bf, Vulkan Forward Mobile. All 20 1280x720 day/night states passed. Desktop spot review of 08, 12 and 19. Manifest SHA-256 69409ca0e44f6e4177cd25fa891c4f9c813f3944f39b29048ea9139025db9882."
+    },
+    {
+      "command": "GitHub exact-head probes",
+      "result": "PENDING",
+      "evidence": "Exact topic branch before dev integration."
+    }
+  ],
+  "acceptance_gaps": "Per-card natural-play occlusion and formal visual, target phone, Lenovo Tab M11, child and owner acceptance remain open. Existing walking geometry passes in front of the playground. The two-sided slide depth test is a configured order check. MA-VIS-002 remains FIXED_PENDING_VERIFICATION.",
+  "local_gate_log_sha256": {
+    "ci-prefix.log": "7c11d66676bcf7b8b4a0423582b6e9a670389b3f06e7534bcff8ab089f6276e3",
+    "ci-prefix-tail.log": "e0c084b8e2733dc9493663c3f5c190cded2618495e62326a428b8048fa7b80bc",
+    "early-probes-1.log": "1f0c16d18de42919334478070df98e4d68189d1b00f12cf0bcc6e6a471ccc737",
+    "early-probes-2.log": "a9c798057ca8257eed4baf2c5cae63f1d080346b019f84d8b5d9a97b473b15d6",
+    "early-probes-3.log": "5bcade80b41b5108c5eea53f7051adaba1bdeb6e11e57f6db5290e160935252d",
+    "early-probes-4.log": "f1071ccd65388d9543a2b3a1fd9d18d4e772a57586d014e2090690a54e1b1d5c"
+  },
+  "promenade_source_sha256": "e79f123d67d66e4e69787b3105526d61a7df1c0c890c6bb688edf70ffe80dd3b",
+  "probe_l2_source_sha256": "55fba4481e22024957d46e4c2bd4dff27b52f26f6b890468ce55a9ae8eff9222"
+}

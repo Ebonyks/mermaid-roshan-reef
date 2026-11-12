@@ -41,6 +41,13 @@ const LOCKED_MURAL_PARALLAX := 1.0
 const REAR_PARALLAX := 0.82
 const FOREGROUND_PARALLAX := 1.06
 
+# Ground shadows, grounded subjects, supported action poses and cues each
+# have a draw band between the landmarks and the sparse foreground.
+const GROUND_SHADOW_Z := -180
+const GROUND_DEPTH_LIMIT := 150
+const PLAY_ROSHAN_Z := 190
+const FOCUS_CUE_Z := 220
+
 const CONTACT_SHADOW_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png"
 const FIREFLY_TEX := "res://assets/fairy/sprites/bug_firefly.png"
 const SMOKE_WISP_TEX := "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png"
@@ -245,8 +252,8 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool) -> void
 		{"key": "lagoon_rear_geography_layer", "name": "SkyLagoonRearMural", "audit_id": "rear_geography", "z": -400, "z_min": 0, "z_max": 0, "parallax": LOCKED_MURAL_PARALLAX},
 		{"key": "lagoon_rear_layer", "name": "SkyLagoonRear", "audit_id": "rear_atmosphere", "z": -400, "z_min": 0, "z_max": 0, "parallax": REAR_PARALLAX},
 		{"key": "lagoon_landmark_layer", "name": "SkyLagoonLandmarks", "audit_id": "landmarks", "z": -300, "z_min": 0, "z_max": 0, "parallax": LOCKED_MURAL_PARALLAX},
-		{"key": "lagoon_interactive_layer", "name": "SkyLagoonInteractive", "audit_id": "interactive", "z": 0, "z_min": -1, "z_max": 4, "parallax": LOCKED_MURAL_PARALLAX},
-		{"key": "lagoon_actor_layer", "name": "SkyLagoonActors", "audit_id": "actors", "z": 100, "z_min": -1, "z_max": 0, "parallax": LOCKED_MURAL_PARALLAX},
+		{"key": "lagoon_interactive_layer", "name": "SkyLagoonInteractive", "audit_id": "interactive", "z": 0, "z_min": GROUND_SHADOW_Z, "z_max": FOCUS_CUE_Z, "parallax": LOCKED_MURAL_PARALLAX},
+		{"key": "lagoon_actor_layer", "name": "SkyLagoonActors", "audit_id": "actors", "z": 0, "z_min": GROUND_SHADOW_Z, "z_max": PLAY_ROSHAN_Z, "parallax": LOCKED_MURAL_PARALLAX},
 		{"key": "lagoon_foreground_geography_layer", "name": "SkyLagoonForegroundMural", "audit_id": "foreground_geography", "z": 300, "z_min": 0, "z_max": 0, "parallax": LOCKED_MURAL_PARALLAX},
 		{"key": "lagoon_foreground_layer", "name": "SkyLagoonForeground", "audit_id": "foreground_lighting", "z": 300, "z_min": 0, "z_max": 0, "parallax": FOREGROUND_PARALLAX},
 	]:
@@ -554,6 +561,11 @@ func _build_playground_screen() -> void:
 		"res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
 		Vector2(3826, 1500), 265.0, true, holder)
 	seesaw.name = "SkyLagoonSeesaw"
+	# Bottom-aligned equipment is rooted at its resting ground contact.
+	# The seesaw's action rotation and swing's seat motion keep that depth.
+	for equipment: Sprite2D in [slide, swing, seesaw]:
+		var contact_y: float = equipment.position.y + _sprite_draw_height(equipment) * 0.5
+		equipment.z_index = _ground_depth(contact_y)
 	_add_contact_shadow(slide, Vector2(500, 40))
 	_add_contact_shadow(swing, Vector2(580, 42))
 	_add_contact_shadow(seesaw, Vector2(430, 38))
@@ -684,6 +696,11 @@ func _make_sprite_at_texture_anchor(path: String, anchor_pixel: Vector2,
 	parent.add_child(sprite)
 	return sprite
 
+func _ground_depth(contact_y: float) -> int:
+	# Group into three-master-pixel rows to keep a bounded Canvas z range.
+	return clampi(floori((contact_y - 1500.0) / 3.0),
+		-GROUND_DEPTH_LIMIT, GROUND_DEPTH_LIMIT)
+
 func _add_contact_shadow(sprite: Sprite2D, size_master: Vector2) -> Sprite2D:
 	var shadow := Sprite2D.new()
 	shadow.name = "%sContactShadow" % sprite.name
@@ -691,7 +708,7 @@ func _add_contact_shadow(sprite: Sprite2D, size_master: Vector2) -> Sprite2D:
 	shadow.modulate = Color(0.20, 0.28, 0.42, 0.30)
 	if shadow.texture != null:
 		shadow.scale = size_master / shadow.texture.get_size()
-	shadow.z_index = sprite.z_index - 1
+	shadow.z_index = GROUND_SHADOW_Z
 	shadow.set_meta("canvas_layer_role", "contact_shadow")
 	shadow.set_meta("contact_shadow", true)
 	shadow.set_meta("source_owned", true)
@@ -761,7 +778,7 @@ func _register_target(id: String, node: Node2D, kind: String, payload: String,
 		0.055 if kind == "playground" else 0.10)
 	glow.modulate = idle_tint
 	glow.visible = true
-	glow.z_index = node.z_index + 4
+	glow.z_index = FOCUS_CUE_Z
 	glow.set_meta("canvas_layer_role", "interaction_affordance")
 	glow.set_meta("interaction_id", id)
 	glow.set_meta("affordance_base_scale", glow.scale)
@@ -1038,6 +1055,7 @@ func _route_roshan_center_for_contact(card: Sprite2D, contact_master: Vector2) -
 
 func _place_route_roshan_contact(card: Sprite2D, contact_master: Vector2) -> void:
 	card.position = _route_roshan_center_for_contact(card, contact_master)
+	card.z_index = _ground_depth(contact_master.y)
 	card.set_meta("route_contact_master", contact_master)
 
 func _apply_view_transform(snap: bool = false) -> void:
@@ -1280,6 +1298,7 @@ func _place_animal_frame(actor: Dictionary, clip: String, frame: int, hop: float
 	node.region_rect = Rect2(Vector2(float(frame % 2), float(frame / 2)) * 256.0, Vector2(256, 256))
 	node.position = contact - Vector2(0.0, (float(feet[frame]) - 128.0) * node.scale.y + hop)
 	node.set_meta("route_contact_master", contact)
+	node.z_index = _ground_depth(contact.y)
 	_sync_contact_shadow(node)
 
 func _bind_next_animal(page: int) -> bool:
@@ -1456,6 +1475,7 @@ func _start_playground_animation(kind: String, equipment: Node2D) -> void:
 		# Playground poses are authored in one facing. Route movement may have
 		# left the pooled card mirrored after approaching a toy from the right.
 		card.flip_h = false
+		card.z_index = PLAY_ROSHAN_Z
 		if m.day_one_is_active():
 			m._navigation_push(DAY_ONE_PLAY_ROUTE, card, _finish_playground_animation)
 	_set_play_frame(0)

@@ -687,10 +687,10 @@ func _validate_parallax_and_coordinates() -> void:
 	var expected_audit_ids: Array[String] = ["base", "rear_geography",
 		"rear_atmosphere", "landmarks", "interactive", "actors",
 		"foreground_geography", "foreground_lighting"]
-	var expected_z: Array[int] = [-500, -400, -400, -300, 0, 100, 300, 300]
+	var expected_z: Array[int] = [-500, -400, -400, -300, 0, 0, 300, 300]
 	var expected_relative_z: Array[Vector2i] = [
 		Vector2i(0, 0), Vector2i(0, 0), Vector2i(0, 0), Vector2i(0, 0),
-		Vector2i(-1, 4), Vector2i(-1, 0), Vector2i(0, 0), Vector2i(0, 0),
+		Vector2i(-180, 220), Vector2i(-180, 190), Vector2i(0, 0), Vector2i(0, 0),
 	]
 	var holder_contract_ok := true
 	var holders_present := true
@@ -920,6 +920,27 @@ func _validate_targets_and_touch() -> void:
 		unique_focus_ok and _sprite_resource_count(promenade.root(),
 			"res://assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png") == 1)
 
+	var slide_card: Sprite2D = _target("slide").get("node") as Sprite2D
+	var route_actor: Sprite2D = main.g.get("lagoon_roshan_card") as Sprite2D
+	if slide_card != null and route_actor != null:
+		var slide_shadow: Sprite2D = slide_card.get_meta("contact_shadow") as Sprite2D
+		var slide_cue: Sprite2D = _target("slide").get("highlight") as Sprite2D
+		var ground: Vector2 = slide_shadow.position
+		var slide_depth: int = slide_card.z_index + (slide_card.get_parent() as Node2D).z_index
+		var actor_band: int = (route_actor.get_parent() as Node2D).z_index
+		# Sample both sides of the live slide contact, then restore the real route.
+		# The original fixed actor tier fails the behind assertion.
+		promenade._place_route_roshan_contact(route_actor, ground - Vector2(0, 12))
+		var behind: bool = route_actor.z_index + actor_band < slide_depth
+		promenade._place_route_roshan_contact(route_actor, ground + Vector2(0, 12))
+		var ahead: bool = route_actor.z_index + actor_band > slide_depth
+		_check("ground_contact_orders_actors_and_equipment_on_both_sides", behind and ahead)
+		_check("contact_shadows_and_cues_bracket_ground_subjects",
+			slide_shadow.z_index < slide_card.z_index and slide_cue.z_index > slide_card.z_index)
+		promenade.set_master_route_x(promenade.master_route_x())
+	else:
+		_check("ground_contact_orders_actors_and_equipment_on_both_sides", false)
+
 	var swing: Dictionary = _target("swing")
 	var swing_node: CanvasItem = swing.get("node") as CanvasItem
 	if swing_node != null:
@@ -933,9 +954,14 @@ func _validate_targets_and_touch() -> void:
 		promenade.handle_touch(swing_screen)
 		var second_ok: bool = String((main.g.get(
 			"lagoon_play_anim", {}) as Dictionary).get("kind", "")) == "swing"
+		_check("ride_pose_draws_above_equipment",
+			route_actor != null and route_actor.z_index > swing_node.z_index)
 		_check("toy_first_touch_focus_second_touch_play", first_ok and second_ok)
 		promenade._finish_playground_animation()
 		promenade._tick_playground_animation(1.0)
+		_check("ride_settle_restores_ground_depth", route_actor != null
+			and route_actor.z_index == promenade._ground_depth(
+				(route_actor.get_meta("route_contact_master") as Vector2).y))
 		var day_one_before: bool = main.day_one_active
 		main.day_one_active = true
 		promenade.handle_touch(swing_screen)
