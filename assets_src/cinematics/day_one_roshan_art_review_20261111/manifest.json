@@ -1,0 +1,706 @@
+{
+  "id": "day-one-roshan-art-review-20261111",
+  "status": "Review candidates",
+  "source_authority": {
+    "integration_base": "f070a61e0ffdd84c1cca17ea2c368aa0382d981f",
+    "claude_review": "12e04c6ee9a0d0bd6806c9b8dffda8622e708f4f",
+    "accepted_draft": "546de41e86beae6b8bd854e5b2a62bb29c56dd95",
+    "bathroom_prototype": "33a4405483860c7f543bf8ba8ba7abfe825c0c66"
+  },
+  "publication": {
+    "repository": "Ebonyks/mermaid-roshan-reef",
+    "branch": "codex/day-one-roshan-art-20261111",
+    "access": "Public anonymous HTTPS"
+  },
+  "payload_sha256": "ce650d22842adccef7ccfa23108f9d1c3e46429d7b28fe614f690a6194190e06",
+  "payload_digest_method": "SHA-256 of sorted UTF-8 lines: file sha256, two spaces, relative path, newline",
+  "imagegen_calls": 5,
+  "art_status": "Static source review; binding, visual, device, child and owner review pending",
+  "files": [
+    {
+      "path": ".gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Review instructions and rebuild source",
+      "source": "Claude work order, accepted Day One rig and this art review",
+      "license": "Project documentation",
+      "modification": "Authored for this review",
+      "dimensions": null
+    },
+    {
+      "path": ".gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "role": "Review instructions and rebuild source",
+      "source": "Claude work order, accepted Day One rig and this art review",
+      "license": "Project documentation",
+      "modification": "Authored for this review",
+      "dimensions": null
+    },
+    {
+      "path": "README.md",
+      "bytes": 5204,
+      "sha256": "7bf723449bc4ce36d75dab1acc9e13d4d688833d7ecd9df3642ba9487a4d6116",
+      "role": "Review instructions and rebuild source",
+      "source": "Claude work order, accepted Day One rig and this art review",
+      "license": "Project documentation",
+      "modification": "Authored for this review",
+      "dimensions": null
+    },
+    {
+      "path": "art/face_closed_smile.png",
+      "bytes": 7596,
+      "sha256": "53b973923dd749caa54b3f9c54784e750174b0d7ef5bde62dd4d3f71a977c9d5",
+      "role": "Review candidate RGBA cutout",
+      "source": "takes/face_take01.png",
+      "license": "Project art candidate derived from named source",
+      "modification": "Crop local feature and feather its alpha border",
+      "dimensions": [
+        70,
+        62
+      ]
+    },
+    {
+      "path": "art/face_gaze_at_child.png",
+      "bytes": 22566,
+      "sha256": "7faba4113223520dbe0c4eaa984077830af326cb821232f5cdf6493ba3764462",
+      "role": "Review candidate RGBA cutout",
+      "source": "takes/face_take01.png",
+      "license": "Project art candidate derived from named source",
+      "modification": "Crop local feature and feather its alpha border",
+      "dimensions": [
+        147,
+        77
+      ]
+    },
+    {
+      "path": "art/face_smiling_lids.png",
+      "bytes": 20173,
+      "sha256": "6d29b5329382b9abfd5b4fb386d217edaa844c1b86641e64d7fbf12f80fc2e82",
+      "role": "Review candidate RGBA cutout",
+      "source": "takes/face_take01.png",
+      "license": "Project art candidate derived from named source",
+      "modification": "Crop local feature and feather its alpha border",
+      "dimensions": [
+        147,
+        77
+      ]
+    },
+    {
+      "path": "art/face_speech_mouth.png",
+      "bytes": 7778,
+      "sha256": "fcaff779f0b45245d9e864be1f4237654275989228a0e3365848eb3d1c24feca",
+      "role": "Review candidate RGBA cutout",
+      "source": "takes/face_take01.png",
+      "license": "Project art candidate derived from named source",
+      "modification": "Crop local feature and feather its alpha border",
+      "dimensions": [
+        70,
+        62
+      ]
+    },
+    {
+      "path": "art/face_wide_eyes.png",
+      "bytes": 23003,
+      "sha256": "b37d7949963c75ce0c387b6a101bf1b40762a3f4364e188569a8f6480fa5ebc0",
+      "role": "Review candidate RGBA cutout",
+      "source": "takes/face_take01.png",
+      "license": "Project art candidate derived from named source",
+      "modification": "Crop local feature and feather its alpha border",
+      "dimensions": [
+        147,
+        77
+      ]
+    },
+    {
+      "path": "art/face_wide_mouth.png",
+      "bytes": 8419,
+      "sha256": "ce1957828062962e3c1807dd751290d5a56c0162361f9b4faf62de808291d622",
+      "role": "Review candidate RGBA cutout",
+      "source": "takes/face_take01.png",
+      "license": "Project art candidate derived from named source",
+      "modification": "Crop local feature and feather its alpha border",
+      "dimensions": [
+        70,
+        62
+      ]
+    },
+    {
+      "path": "art/face_worried_brows.png",
+      "bytes": 15643,
+      "sha256": "cd300cf7bd497b5bc871b3eb54c22c50d1b2a61d4bd74d3f8d06b2516c2c45af",
+      "role": "Review candidate RGBA cutout",
+      "source": "takes/face_take01.png",
+      "license": "Project art candidate derived from named source",
+      "modification": "Crop local feature and feather its alpha border",
+      "dimensions": [
+        150,
+        48
+      ]
+    },
+    {
+      "path": "art/hand_screen_left_grip.png",
+      "bytes": 11138,
+      "sha256": "d0bf687e77df426552b16d034a4cc7eae594436ae83356bf91c1bc9e16fee84c",
+      "role": "Review candidate RGBA cutout",
+      "source": "takes/hands_take01.png",
+      "license": "Project art candidate derived from named source",
+      "modification": "Crop, remove low alpha fringe, scale and pad to wrist anchor",
+      "dimensions": [
+        128,
+        128
+      ]
+    },
+    {
+      "path": "art/hand_screen_left_open.png",
+      "bytes": 18554,
+      "sha256": "d77e6486bd5db24cb57f93dbf8d9eb9b709611ddeba90a767f4ff6cf60705382",
+      "role": "Review candidate RGBA cutout",
+      "source": "takes/hands_take01.png",
+      "license": "Project art candidate derived from named source",
+      "modification": "Crop, remove low alpha fringe, scale and pad to wrist anchor",
+      "dimensions": [
+        128,
+        128
+      ]
+    },
+    {
+      "path": "art/hand_screen_left_point.png",
+      "bytes": 13015,
+      "sha256": "dff7dd639d4302775a5973f91c0ab5fa73bf3154c96ddb1d807c1645624cffd9",
+      "role": "Review candidate RGBA cutout",
+      "source": "takes/hands_take01.png",
+      "license": "Project art candidate derived from named source",
+      "modification": "Crop, remove low alpha fringe, scale and pad to wrist anchor",
+      "dimensions": [
+        128,
+        128
+      ]
+    },
+    {
+      "path": "art/hand_screen_right_grip.png",
+      "bytes": 11544,
+      "sha256": "7d5e7006c0beec0b5d5327e086235cadcd3bb6f665fe243f6fe9298ad82d27f0",
+      "role": "Review candidate RGBA cutout",
+      "source": "takes/hands_take01.png",
+      "license": "Project art candidate derived from named source",
+      "modification": "Crop, remove low alpha fringe, scale and pad to wrist anchor",
+      "dimensions": [
+        128,
+        128
+      ]
+    },
+    {
+      "path": "art/hand_screen_right_open.png",
+      "bytes": 18195,
+      "sha256": "5d427553104a0936c4548a80c9cfea89c001c7e790b8bee9bcce597baa4fac12",
+      "role": "Review candidate RGBA cutout",
+      "source": "takes/hands_take01.png",
+      "license": "Project art candidate derived from named source",
+      "modification": "Crop, remove low alpha fringe, scale and pad to wrist anchor",
+      "dimensions": [
+        128,
+        128
+      ]
+    },
+    {
+      "path": "art/hand_screen_right_point.png",
+      "bytes": 12976,
+      "sha256": "33edd5fa47939b1d346080ecbdd656d27e1d0d2b37fe29711249fceca0dd10d8",
+      "role": "Review candidate RGBA cutout",
+      "source": "takes/hands_take01.png",
+      "license": "Project art candidate derived from named source",
+      "modification": "Crop, remove low alpha fringe, scale and pad to wrist anchor",
+      "dimensions": [
+        128,
+        128
+      ]
+    },
+    {
+      "path": "art/neck_underlay.png",
+      "bytes": 36104,
+      "sha256": "3fe89e7a04608755bed9c8abea733c7f2f143ec00fe4b34d8715cb80525fae47",
+      "role": "Review candidate RGBA cutout",
+      "source": "takes/neck_take01.png",
+      "license": "Project art candidate derived from named source",
+      "modification": "Crop, soften alpha fringe and scale",
+      "dimensions": [
+        214,
+        150
+      ]
+    },
+    {
+      "path": "art/ponytail_root_underlay.png",
+      "bytes": 27849,
+      "sha256": "806ffd610f79fe2e6b6851ef147c6fed0e959f0db0161a9bac300d04435dd595",
+      "role": "Review candidate RGBA cutout",
+      "source": "takes/neck_take01.png",
+      "license": "Project art candidate derived from named source",
+      "modification": "Crop, soften alpha fringe and scale",
+      "dimensions": [
+        200,
+        116
+      ]
+    },
+    {
+      "path": "art/rubber_duck.png",
+      "bytes": 13668,
+      "sha256": "b59e54068419ff0beb5bba30eb20a1daf6309331c5bf4bcbf52ccb4f2b0c59c7",
+      "role": "Review candidate RGBA cutout",
+      "source": "references/duck_sheet.png",
+      "license": "Project art candidate derived from named source",
+      "modification": "Crop, scale and pad approved duck cell",
+      "dimensions": [
+        92,
+        87
+      ]
+    },
+    {
+      "path": "art/shoulder_screen_left.png",
+      "bytes": 5133,
+      "sha256": "669b8c539192c4872b2417e77540ad58729f0dfaa615376f41d5c8affbd74104",
+      "role": "Review candidate RGBA cutout",
+      "source": "references/atlas_shoulder.png",
+      "license": "Project art candidate derived from named source",
+      "modification": "Native crop of approved underlay",
+      "dimensions": [
+        150,
+        108
+      ]
+    },
+    {
+      "path": "art/shoulder_screen_right.png",
+      "bytes": 4901,
+      "sha256": "654824edc786275d6d294ff89cdf9f226e6e32458ba9fe44f1e66b75c11a0e6c",
+      "role": "Review candidate RGBA cutout",
+      "source": "references/atlas_shoulder.png",
+      "license": "Project art candidate derived from named source",
+      "modification": "Native crop of approved underlay",
+      "dimensions": [
+        130,
+        124
+      ]
+    },
+    {
+      "path": "art/sink_clean_registered.png",
+      "bytes": 1330547,
+      "sha256": "cbe432455dc76dc729e33b76b30c6dffaadfb7bec61b0696fae0d5d00e8512eb",
+      "role": "Review candidate RGBA cutout",
+      "source": "references/dirty_room.png + takes/sink_take01.png (finish reference)",
+      "license": "Project art candidate derived from named source",
+      "modification": "Original coordinates; local color-only clean finish and matte",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "art/toilet_clean_registered.png",
+      "bytes": 1322998,
+      "sha256": "192e4046f1fb216e3d5fe3b6401d805143fabff01e76588c8a68c0babd918589",
+      "role": "Review candidate RGBA cutout",
+      "source": "references/dirty_room.png + takes/toilet_take01.png (water chip)",
+      "license": "Project art candidate derived from named source",
+      "modification": "Original coordinates; local clean finish and registered water chip",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "art/tub_water_registered.png",
+      "bytes": 24821,
+      "sha256": "3ca69ce03ec80417a987e85795ea7133f2dd681a828a38bd5c96c77b7cfbab43",
+      "role": "Review candidate RGBA cutout",
+      "source": "references/clean_room.png",
+      "license": "Project art candidate derived from named source",
+      "modification": "Approved water crop scaled within drained bowl matte",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "build_review.ps1",
+      "bytes": 6891,
+      "sha256": "a9f3340478a8a35e88ab620522a8e57fb801bae2a1f61c48a71f7732e37f4f5a",
+      "role": "Review instructions and rebuild source",
+      "source": "Claude work order, accepted Day One rig and this art review",
+      "license": "Project documentation",
+      "modification": "Authored for this review",
+      "dimensions": null
+    },
+    {
+      "path": "evidence/bathroom_registered_preview.png",
+      "bytes": 1300086,
+      "sha256": "42e7eed18a1472289252afb7ae8ffa5480e4fd7c682d10b33f90a0b27e858682",
+      "role": "Review or measurement evidence",
+      "source": "build_review.ps1 / verify_art.py",
+      "license": "Project evidence",
+      "modification": "Static rendering, procedural matte or verification receipt",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "evidence/grime_reuse_preview.png",
+      "bytes": 1301597,
+      "sha256": "dcab96b7b8736072efd8d0a0516f35f559fa8b8c422e027e2863e4bba1ed2fe4",
+      "role": "Review or measurement evidence",
+      "source": "build_review.ps1 / verify_art.py",
+      "license": "Project evidence",
+      "modification": "Static rendering, procedural matte or verification receipt",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "evidence/sink_matte.png",
+      "bytes": 12966,
+      "sha256": "6e9226e0e67c6da87c7203dd8815790f533dd87d7609032b6e044a23d8199598",
+      "role": "Review or measurement evidence",
+      "source": "build_review.ps1 / verify_art.py",
+      "license": "Project evidence",
+      "modification": "Static rendering, procedural matte or verification receipt",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "evidence/static_verification.json",
+      "bytes": 1846,
+      "sha256": "a0432c31dfc2f8bd828ab3e733a89641db6c9da0aa7396b9352c7d026fb9ee1a",
+      "role": "Review or measurement evidence",
+      "source": "build_review.ps1 / verify_art.py",
+      "license": "Project evidence",
+      "modification": "Static rendering, procedural matte or verification receipt",
+      "dimensions": null
+    },
+    {
+      "path": "evidence/toilet_matte.png",
+      "bytes": 13157,
+      "sha256": "c655e1e8c721d94d59fbdd5961e94ecdc62eb795d8ba72e012941d81304fad63",
+      "role": "Review or measurement evidence",
+      "source": "build_review.ps1 / verify_art.py",
+      "license": "Project evidence",
+      "modification": "Static rendering, procedural matte or verification receipt",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "evidence/toilet_water_matte.png",
+      "bytes": 4228,
+      "sha256": "9777cdbd9ce761ec665a0bc5bf2a8a0e28b913c30afee283d4f5a8ee6189a603",
+      "role": "Review or measurement evidence",
+      "source": "build_review.ps1 / verify_art.py",
+      "license": "Project evidence",
+      "modification": "Static rendering, procedural matte or verification receipt",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "evidence/tub_interior_matte.png",
+      "bytes": 5699,
+      "sha256": "d61b08631521cc074b43d320497f3c9ad1dae745559aa2cbe1612670288fcdb7",
+      "role": "Review or measurement evidence",
+      "source": "build_review.ps1 / verify_art.py",
+      "license": "Project evidence",
+      "modification": "Static rendering, procedural matte or verification receipt",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "job_cards.json",
+      "bytes": 12315,
+      "sha256": "3258c9ec7b9c7714405adac5ea74dede7c9f85e30452a57f0a8da3d4defcf0f2",
+      "role": "Review instructions and rebuild source",
+      "source": "Claude work order, accepted Day One rig and this art review",
+      "license": "Project documentation",
+      "modification": "Authored for this review",
+      "dimensions": null
+    },
+    {
+      "path": "references/atlas_shoulder.png",
+      "bytes": 15905,
+      "sha256": "87cff9e98391ebb07ce031fa5fbf943efd971718d44264960095f1c045e11d44",
+      "role": "Approved source or review reference",
+      "source": "Same Rigby archive / images/atlas_shoulder.png",
+      "license": "Existing project art rights",
+      "modification": "Exact original or documented native crop",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "references/bathroom_action_board.jpg",
+      "bytes": 745569,
+      "sha256": "b6de78697c19af73e0f5aea824491b38128742e7affd98d0b11fe97a9fb0472b",
+      "role": "Approved source or review reference",
+      "source": "33a4405483860c7f543bf8ba8ba7abfe825c0c66:assets_src/cinematics/claude_bathroom_action_audit_20261110/visual/action_board.jpg",
+      "license": "Existing project art rights",
+      "modification": "Exact original or documented native crop",
+      "dimensions": [
+        1200,
+        1524
+      ]
+    },
+    {
+      "path": "references/brush.png",
+      "bytes": 535795,
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "role": "Approved source or review reference",
+      "source": "assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+      "license": "Existing project art rights",
+      "modification": "Exact original or documented native crop",
+      "dimensions": [
+        936,
+        1024
+      ]
+    },
+    {
+      "path": "references/clean_room.png",
+      "bytes": 986757,
+      "sha256": "3ecd80b1be8444ae924e4fc05c86129d4ee3742e6708c3c3e38b84862e7bf4da",
+      "role": "Approved source or review reference",
+      "source": "assets/flats/castle/rooms/room_bubble_bath.png",
+      "license": "Existing project art rights",
+      "modification": "Exact original or documented native crop",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "references/directional.png",
+      "bytes": 396741,
+      "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+      "role": "Approved source or review reference",
+      "source": "assets/characters/roshan_25d/roshan_directional.png",
+      "license": "Existing project art rights",
+      "modification": "Exact original or documented native crop",
+      "dimensions": [
+        1024,
+        512
+      ]
+    },
+    {
+      "path": "references/dirty_room.png",
+      "bytes": 1259130,
+      "sha256": "1382a8adcb37f1b0788989676e5412220878395727ac081ce1b8d6fc1335fd47",
+      "role": "Approved source or review reference",
+      "source": "assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png",
+      "license": "Existing project art rights",
+      "modification": "Exact original or documented native crop",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "references/dirty_sink_ref.png",
+      "bytes": 94841,
+      "sha256": "02c401589f275d003027f47fc4c82bb953b3a5d31bbb1790b636528b2a9752dc",
+      "role": "Approved source or review reference",
+      "source": "dirty_room.png native crop 252x168+437+133",
+      "license": "Existing project art rights",
+      "modification": "Exact original or documented native crop",
+      "dimensions": [
+        252,
+        168
+      ]
+    },
+    {
+      "path": "references/dirty_toilet_ref.png",
+      "bytes": 90294,
+      "sha256": "c5daf38a994d44fe87c5439abcfd8ac7a7e0433a0217102bf7c54d567fa596c2",
+      "role": "Approved source or review reference",
+      "source": "dirty_room.png native crop 198x198+755+146",
+      "license": "Existing project art rights",
+      "modification": "Exact original or documented native crop",
+      "dimensions": [
+        198,
+        198
+      ]
+    },
+    {
+      "path": "references/duck_sheet.png",
+      "bytes": 303150,
+      "sha256": "6baa98b658d66ea5aef7195eca10d19d1496e08f4c96df6f8e56c7e4a4e06f77",
+      "role": "Approved source or review reference",
+      "source": "assets/flats/castle/interactions_v2/bubble_bath_rubber_duck_sheet.png",
+      "license": "Existing project art rights",
+      "modification": "Exact original or documented native crop",
+      "dimensions": [
+        1024,
+        512
+      ]
+    },
+    {
+      "path": "references/fixture_outlines.json",
+      "bytes": 2667,
+      "sha256": "cdd748972c557367bde47d65bab2fd8a68f6edde00ae5905d9562c9f77d20397",
+      "role": "Approved source or review reference",
+      "source": "33a4405483860c7f543bf8ba8ba7abfe825c0c66:assets_src/cinematics/claude_bathroom_action_audit_20261110/raw/scene/fixture_outlines.json",
+      "license": "Existing project art rights",
+      "modification": "Exact original or documented native crop",
+      "dimensions": null
+    },
+    {
+      "path": "references/left_head_original.png",
+      "bytes": 201672,
+      "sha256": "2b575fc43a1ccdf9c5c54c2039cf2c12fd7678e3329df0253074eae09f10e715",
+      "role": "Approved source or review reference",
+      "source": "33a4405483860c7f543bf8ba8ba7abfe825c0c66:assets_src/cinematics/claude_bathroom_action_audit_20261110/raw/art/left_left_head_original.png",
+      "license": "Existing project art rights",
+      "modification": "Exact original or documented native crop",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "references/original_swim.png",
+      "bytes": 489901,
+      "sha256": "0279a72397846c8ed2a70d5f63354bb5782667c36c054756e70e8035a0766a5c",
+      "role": "Approved source or review reference",
+      "source": "Claude accepted rig 71f4647930f9df02031521cea4f96659bc0002337faa636a8c59a56e66411e48 / images/original_swim.png",
+      "license": "Existing project art rights",
+      "modification": "Exact original or documented native crop",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "references/origins.json",
+      "bytes": 1426,
+      "sha256": "c6e333fd49fe5431cf869f3afc3a92bc4b7927f15645a6cdbaf854510bf1a18f",
+      "role": "Approved source or review reference",
+      "source": "Packet reference index",
+      "license": "Existing project art rights",
+      "modification": "Exact original or documented native crop",
+      "dimensions": null
+    },
+    {
+      "path": "references/sink_grime.png",
+      "bytes": 960326,
+      "sha256": "fe53ef3018b9f8164417cde5bf47489dff389179aad8432ea8ef1993cffab3ed",
+      "role": "Approved source or review reference",
+      "source": "assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png",
+      "license": "Existing project art rights",
+      "modification": "Exact original or documented native crop",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "references/tub_grime.png",
+      "bytes": 593724,
+      "sha256": "52e8c42b0c044c1b5dba42681d7dfb5e34dc44b345e6535e9432df5f186ecb67",
+      "role": "Approved source or review reference",
+      "source": "assets/castle/dirty_cleanup_2d/targets/target_tub_grime_v1.png",
+      "license": "Existing project art rights",
+      "modification": "Exact original or documented native crop",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "registration.json",
+      "bytes": 4206,
+      "sha256": "f9844c2d84c48b0b6f0c5c00b10864c3f0569e07e961c5bcb93e4f22bc3e094a",
+      "role": "Review instructions and rebuild source",
+      "source": "Claude work order, accepted Day One rig and this art review",
+      "license": "Project documentation",
+      "modification": "Authored for this review",
+      "dimensions": null
+    },
+    {
+      "path": "takes/face_take01.png",
+      "bytes": 2010184,
+      "sha256": "74ba54d67056a6364f6453617c00d114263090d2d361d802aaf13269028c114c",
+      "role": "Native ImageGen take",
+      "source": "job_cards.json#face",
+      "license": "Built-in ImageGen over authorized project reference",
+      "modification": "Verbatim generated PNG. Seven feature crops, with feathered edges. Full heads are reference only. Landmark placement and expression seam review pending.",
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "path": "takes/hands_take01.png",
+      "bytes": 1752514,
+      "sha256": "9eab23a9882f7de6207db820fdc7d7945a75f09cd6d766ef87a86d9547e48fca",
+      "role": "Native ImageGen take",
+      "source": "job_cards.json#hands",
+      "license": "Built-in ImageGen over authorized project reference",
+      "modification": "Verbatim generated PNG. Six candidate chips cropped, with alpha trimmed and normalized to a shared provisional wrist. Rig and brush-contact review pending.",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "path": "takes/neck_take01.png",
+      "bytes": 237870,
+      "sha256": "99efe5b255ce123d310a94dbbbe3f1e77f04e12f1cd295074495d7abf5ef1700",
+      "role": "Native ImageGen take",
+      "source": "job_cards.json#neck",
+      "license": "Built-in ImageGen over authorized project reference",
+      "modification": "Verbatim generated PNG. Two isolated hidden-fill candidates. Placement and separation tests pending.",
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "path": "takes/sink_take01.png",
+      "bytes": 2317430,
+      "sha256": "04afe1b2c7d04eb533358887c0c2f37b08b15df1271c89fa6bac942125837d34",
+      "role": "Native ImageGen take",
+      "source": "job_cards.json#sink",
+      "license": "Built-in ImageGen over authorized project reference",
+      "modification": "Verbatim generated PNG. Full take rejected as replacement geometry because scallops, studs and trim moved. Finish palette reference for registered source-pixel adjustment.",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "path": "takes/toilet_take01.png",
+      "bytes": 2569583,
+      "sha256": "252a65282868b3b85e50f168e4dd4fbf2b8493181efe733687a8e9bc9c665dd3",
+      "role": "Native ImageGen take",
+      "source": "job_cards.json#toilet",
+      "license": "Built-in ImageGen over authorized project reference",
+      "modification": "Verbatim generated PNG. Full take rejected as replacement geometry because lid and porcelain contours changed. Retained the interior clean-water chip only.",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "path": "verify_art.py",
+      "bytes": 4263,
+      "sha256": "07d967d4feac69ca9b2f31a2c006cb86b2743df1ac1f2b80780322001ebba535",
+      "role": "Review instructions and rebuild source",
+      "source": "Claude work order, accepted Day One rig and this art review",
+      "license": "Project documentation",
+      "modification": "Authored for this review",
+      "dimensions": null
+    }
+  ]
+}

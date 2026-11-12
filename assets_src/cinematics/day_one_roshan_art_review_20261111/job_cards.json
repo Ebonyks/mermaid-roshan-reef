@@ -1,0 +1,204 @@
+{
+  "scope": "Source-only art candidates for WO-A6 and Day One R1–R5. Existing plates, anatomy, wardrobes and front seed reused where they fit.",
+  "baseline": "f070a61e0ffdd84c1cca17ea2c368aa0382d981f",
+  "claude_review": "12e04c6ee9a0d0bd6806c9b8dffda8622e708f4f",
+  "accepted_draft": "546de41e86beae6b8bd854e5b2a62bb29c56dd95",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-02",
+    "DL-ASSET-01",
+    "DL-MOT-01",
+    "DL-MOT-12",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-ROSHAN-006"
+  ],
+  "limits": {
+    "per_brief_takes": 2,
+    "aggregate_takes": 10,
+    "wall_minutes": 90,
+    "cleanup_minutes": 35,
+    "incremental_paid_API_USD": 0
+  },
+  "evidence": "Exact input and take SHA-256, pixel extent/alpha, identity and named-feature review, reuse disposition, no integration claim.",
+  "jobs": {
+    "sink": {
+      "file": "dirty_sink_ref.png",
+      "prompt": "Precisely restore this exact cropped watercolor storybook bathroom sink as a clean-state animation replacement. Input 1 is the locked crop from the approved dirty room, with its framing, fixture geometry and boundaries. Edit only dirt, dull scuffs and grime on the sink fixture. Retain pixel-registered faucet and two knobs, shell basin scallops and silhouette, teal cabinet contour, small studs, centered shell medallion, gold trim, and plinth outline. Clean pearl-pink ceramic with subtle gloss and polished warm brass, saturated clean teal cabinet, matching the original hand-painted style and original light. Keep the mirror, towel, purple wall, floor and coral surroundings exactly unchanged. Preserve original camera, proportions, perspective, position, and framing. No redesign or new objects, no text, no sparkles, no extra water.",
+      "references": [
+        {
+          "path": "references/dirty_sink_ref.png",
+          "sha256": "02c401589f275d003027f47fc4c82bb953b3a5d31bbb1790b636528b2a9752dc",
+          "dimensions": [
+            252,
+            168
+          ],
+          "role": "Approved appearance or dirty-fixture geometry",
+          "source": "dirty_room.png native crop 252x168+437+133"
+        }
+      ],
+      "take": {
+        "number": 1,
+        "native_path": "takes/sink_take01.png",
+        "sha256": "04afe1b2c7d04eb533358887c0c2f37b08b15df1271c89fa6bac942125837d34",
+        "backend": "Built-in ImageGen",
+        "hosted_revision": "Not exposed",
+        "seed": "Not exposed",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "artifact_id": "exec-6521ab5e-8d5a-4305-a3cb-3687cc3e2990.png",
+        "wall_seconds": 19,
+        "tool_calls": 1,
+        "transparent_requested": false,
+        "disposition": "Full take rejected as replacement geometry because scallops, studs and trim moved. Finish palette reference for registered source-pixel adjustment."
+      },
+      "verification": "evidence/static_verification.json"
+    },
+    "toilet": {
+      "file": "dirty_toilet_ref.png",
+      "prompt": "Precisely restore this exact cropped watercolor storybook shell toilet as a clean-state animation replacement. Input 1 is the locked crop from the approved dirty room. Edit only dirt and brown scuffs on the toilet, and replace murky interior with a small clean dark-aqua water surface. Keep the open pink shell-shaped lid and tank, gold rim, bowl opening, scallop contours, pearl ornament, base, hinges and every outer edge at the input's exact location, size and perspective. Clean pearl-pink ceramic, subtle painted shine and polished warm gold, still the same hand-painted fairytale style. Preserve all crop framing and surrounding window, wall, coral and floor. No moved parts, change of shape, added graphics, text, sparkle or people.",
+      "references": [
+        {
+          "path": "references/dirty_toilet_ref.png",
+          "sha256": "c5daf38a994d44fe87c5439abcfd8ac7a7e0433a0217102bf7c54d567fa596c2",
+          "dimensions": [
+            198,
+            198
+          ],
+          "role": "Approved appearance or dirty-fixture geometry",
+          "source": "dirty_room.png native crop 198x198+755+146"
+        }
+      ],
+      "take": {
+        "number": 1,
+        "native_path": "takes/toilet_take01.png",
+        "sha256": "252a65282868b3b85e50f168e4dd4fbf2b8493181efe733687a8e9bc9c665dd3",
+        "backend": "Built-in ImageGen",
+        "hosted_revision": "Not exposed",
+        "seed": "Not exposed",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "artifact_id": "exec-8fd5f0ae-9c49-4f24-ae08-970cec909777.png",
+        "wall_seconds": 40,
+        "tool_calls": 1,
+        "transparent_requested": false,
+        "disposition": "Full take rejected as replacement geometry because lid and porcelain contours changed. Retained the interior clean-water chip only."
+      },
+      "verification": "evidence/static_verification.json"
+    },
+    "hands": {
+      "file": "original_swim.png",
+      "prompt": "Create one transparent source sprite sheet of six isolated childlike painted hands matching the attached approved Mermaid Roshan sprite. Image 1 is the identity, skin color, scale proportions and soft storybook rendering reference. No face, sleeve, person, props, writing, guides or background. Exactly 3 columns by 2 rows with generous transparent gutters, each cell contains one whole hand from distal wrist. All wrists enter at cell bottom center, all wrist widths equal, fingers above. Top row corresponds to the hand on screen-left of the approved quarter-right actor: friendly open palm, supported closed cylinder grip, index point with three curled fingers. Bottom row matches the anatomically opposite screen-right hand: open palm, supported closed cylinder grip, index point. Correct opposite thumb side in the two rows. Thumb naturally wraps on grip, leave a clear suggested cylindrical handle axis diagonally across the grip without drawing any tool. Compact child proportions and short rounded fingers, exactly five digits where visible, warm peach with cream highlights and quiet brown contact shadows. Render clean RGBA antialiased cutouts, one separate connected silhouette per cell, no crop or outlines around cells.",
+      "references": [
+        {
+          "path": "references/original_swim.png",
+          "sha256": "0279a72397846c8ed2a70d5f63354bb5782667c36c054756e70e8035a0766a5c",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "role": "Approved appearance or dirty-fixture geometry",
+          "source": "Claude accepted rig 71f4647930f9df02031521cea4f96659bc0002337faa636a8c59a56e66411e48 / images/original_swim.png"
+        }
+      ],
+      "take": {
+        "number": 1,
+        "native_path": "takes/hands_take01.png",
+        "sha256": "9eab23a9882f7de6207db820fdc7d7945a75f09cd6d766ef87a86d9547e48fca",
+        "backend": "Built-in ImageGen",
+        "hosted_revision": "Not exposed",
+        "seed": "Not exposed",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "artifact_id": "exec-7e1bcc7b-bc4c-4ec0-8ea4-246d0a18a1fe.png",
+        "wall_seconds": 73,
+        "tool_calls": 1,
+        "transparent_requested": true,
+        "disposition": "Six candidate chips cropped, with alpha trimmed and normalized to a shared provisional wrist. Rig and brush-contact review pending."
+      },
+      "verification": "evidence/static_verification.json"
+    },
+    "face": {
+      "file": "original_swim.png",
+      "prompt": "Make one transparent registered facial-expression reference atlas for the attached approved Mermaid Roshan, exact same little child's face in the exact same quarter-right angle. The image is a strict 4 columns by 2 rows atlas with eight discrete and aligned identical cropped HEAD portraits, fully contained in each cell. No body, labels, text, frames or background. Keep unchanged the facial outline, cheek fullness, age, nose, eye sizes and positions, amber-brown irises, eyebrows except where called for, fringe, brown hair, rainbow streak colors and tiara. Match the source's soft painted 2D storybook finish exactly. Only each indicated expression changes. Row 1 from left: (1) neutral source-style smile control, (2) slightly wider eyes, curious mild surprise with mouth unchanged, (3) delighted closed smiling eyelids and original mouth, (4) eyes look toward the child/camera with head and mouth still. Row 2 from left: (1) slightly lifted inner worried brows, otherwise neutral and gentle, (2) small speech-open mouth, unchanged eyes, (3) wider but natural open cheer/yawn mouth, unchanged eyes, (4) warm closed-mouth smile, unchanged eyes. Equal crop, scale and eye line in all cells. These are painting donors for small local eye, brow and mouth masks, no new identity.",
+      "references": [
+        {
+          "path": "references/original_swim.png",
+          "sha256": "0279a72397846c8ed2a70d5f63354bb5782667c36c054756e70e8035a0766a5c",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "role": "Approved appearance or dirty-fixture geometry",
+          "source": "Claude accepted rig 71f4647930f9df02031521cea4f96659bc0002337faa636a8c59a56e66411e48 / images/original_swim.png"
+        }
+      ],
+      "take": {
+        "number": 1,
+        "native_path": "takes/face_take01.png",
+        "sha256": "74ba54d67056a6364f6453617c00d114263090d2d361d802aaf13269028c114c",
+        "backend": "Built-in ImageGen",
+        "hosted_revision": "Not exposed",
+        "seed": "Not exposed",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "artifact_id": "exec-0bdc3011-0451-41c9-83a2-d77fedd13ec7.png",
+        "wall_seconds": 98,
+        "tool_calls": 1,
+        "transparent_requested": true,
+        "disposition": "Seven feature crops, with feathered edges. Full heads are reference only. Landmark placement and expression seam review pending."
+      },
+      "verification": "evidence/static_verification.json"
+    },
+    "neck": {
+      "file": "original_swim.png",
+      "prompt": "Create a transparent two-piece local inpainting donor sheet for the exact approved 2D painted Mermaid Roshan cutout in input image 1. Left half: just a small warm peach neck/upper-shoulder skin bridge that could underlap this child's chin and neckline by a few pixels when her head turns, matching the source's quarter-right perspective, cream highlight and soft peach shadow, soft rounded alpha edges. Right half: just the little rounded brown-hair root patch where the visible rainbow ponytail joins the crown hair on screen-left, brown-to-copper roots with only a tiny continuation of the existing yellow-and-blue strands, matching their existing sweep, no new hairstyle. Two fully isolated disconnected pieces with plenty of transparent space; one neck and one hair patch only. No face, torso, limbs, ponytail length, accessory, prop, text, background or grid. Preserve the source paint language. Intended only as concealed underpainting, not a redesign or full head replacement.",
+      "references": [
+        {
+          "path": "references/original_swim.png",
+          "sha256": "0279a72397846c8ed2a70d5f63354bb5782667c36c054756e70e8035a0766a5c",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "role": "Approved appearance or dirty-fixture geometry",
+          "source": "Claude accepted rig 71f4647930f9df02031521cea4f96659bc0002337faa636a8c59a56e66411e48 / images/original_swim.png"
+        }
+      ],
+      "take": {
+        "number": 1,
+        "native_path": "takes/neck_take01.png",
+        "sha256": "99efe5b255ce123d310a94dbbbe3f1e77f04e12f1cd295074495d7abf5ef1700",
+        "backend": "Built-in ImageGen",
+        "hosted_revision": "Not exposed",
+        "seed": "Not exposed",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "artifact_id": "exec-905bbd9b-57e7-42e0-8d0e-cdfedf47ad72.png",
+        "wall_seconds": 121,
+        "tool_calls": 1,
+        "transparent_requested": true,
+        "disposition": "Two isolated hidden-fill candidates. Placement and separation tests pending."
+      },
+      "verification": "evidence/static_verification.json"
+    }
+  },
+  "attempts_used": 5,
+  "output_lane": "Source art candidates for Canvas gameplay; no generated animation or cinematic"
+}
