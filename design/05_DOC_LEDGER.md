@@ -1461,3 +1461,5 @@ The bounded 2026-11-01 [Chapter Two startup watchdog prerequisite](audit_impacts
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r150_racer_painted_direction_cue_runtime/README.md` | 🔵 | `SUPPORTING_CURRENT`. R150 painted direction cue and bounded configured recovery evidence. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r151_racer_painted_countdown_lights_runtime/README.md` | 🔵 | `SUPPORTING_CURRENT`. R151 painted countdown lamps and bounded configured start and retry evidence. |
+
+| `docs/handoffs/day_one_roshan_rig_draft_2026-11-11/README.md` | 🔵 | `SUPPORTING_CURRENT`; owner-accepted design (2026-11-11) for Roshan's Day One acting on a 2D skinned Rigby2D cutout rig: action audit, acting direction, idle and touch-reaction system, rig upgrade plan and 44 geometry-checked draft clips. The same owner decision amends `CLAUDE.md`, `AGENTS.md`, `DL-MED-02`, the movement language and the atlas contract to accept that rig for gameplay acting. Clips not yet rendered or viewed; no runtime integration, device or child acceptance. |

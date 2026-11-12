@@ -119,9 +119,17 @@ converted gameplay uses `Node2D`, `CanvasItem`, `Control`, `Sprite2D`,
 `TextureRect`, `Camera2D`, 2D particles and 2D collision where needed. A flat
 image on a 3D node is migration debt, not final 2D.
 
-Mermaid Roshan's only approved representation is the RGBA atlas/cutout family
-under `assets/characters/roshan_25d/`, staged on the 2D canvas. She has no
-accepted GLB, mesh, armature, skeleton, rig, skin-weight or model fallback.
+Mermaid Roshan's approved representations are the RGBA atlas/cutout family
+under `assets/characters/roshan_25d/`, staged on the 2D canvas, and (owner
+decision 2026-11-11, "This is now accepted design") a 2D skinned cutout rig:
+Rigby2D bones and skin weights deforming approved Roshan RGBA art on the
+Canvas, as designed in
+`docs/handoffs/day_one_roshan_rig_draft_2026-11-11/README.md`. The rig's only
+texture source is approved Roshan art. She still has no accepted GLB, 3D mesh,
+3D armature or model fallback. This acceptance covers gameplay acting; the
+cinematic rules, the approval and `DL-MOT-14`–`DL-MOT-16` caps for any new
+Roshan art, the unchanged rig strain floors, and device/child acceptance all
+remain in force.
 The 2026-07-19 Meshy migration, the Roshan model hierarchy, every other 3D
 character/world work order, and the old dimensional rollback direction are
 **superseded or dismissed**, not paused.

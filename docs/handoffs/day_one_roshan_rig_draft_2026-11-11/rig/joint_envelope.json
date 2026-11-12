@@ -1,0 +1,151 @@
+{
+ "rig": "roshan_arm_rebound.rigby sha256 db65e8fcff9e1094bb78a07efbc4aaecf81b9eb90f906848a8d0e0e32dff3ad2",
+ "method": "one bone rotated alone from rest in 0.5 degree steps; last angle with visible-triangle strain inside 0.80-1.20 and zero flips in Original, Ballet and Magician",
+ "note": "Combined poses fail sooner than single joints; use the per-clip fit, not these limits, to accept a pose.",
+ "bones": [
+  {
+   "bone": "abdomen",
+   "min_degrees": -16.5,
+   "max_degrees": 15.0,
+   "limiting_look_and_slot": {
+    "min": "default:tailwear",
+    "max": "default:anatomy"
+   }
+  },
+  {
+   "bone": "chest",
+   "min_degrees": -6.0,
+   "max_degrees": 6.0,
+   "limiting_look_and_slot": {
+    "min": "Ballet:bodice",
+    "max": "Ballet:bodice"
+   }
+  },
+  {
+   "bone": "head",
+   "min_degrees": -3.0,
+   "max_degrees": 3.0,
+   "limiting_look_and_slot": {
+    "min": "default:anatomy",
+    "max": "default:anatomy"
+   }
+  },
+  {
+   "bone": "ponytail_base",
+   "min_degrees": -2.0,
+   "max_degrees": 2.0,
+   "limiting_look_and_slot": {
+    "min": "default:anatomy",
+    "max": "default:anatomy"
+   }
+  },
+  {
+   "bone": "ponytail_tip",
+   "min_degrees": -2.5,
+   "max_degrees": 2.5,
+   "limiting_look_and_slot": {
+    "min": "default:anatomy",
+    "max": "default:anatomy"
+   }
+  },
+  {
+   "bone": "screen_left_upper_arm",
+   "min_degrees": -10.0,
+   "max_degrees": 10.0,
+   "limiting_look_and_slot": {
+    "min": "Ballet:anatomy",
+    "max": "Ballet:anatomy"
+   }
+  },
+  {
+   "bone": "screen_left_forearm",
+   "min_degrees": -19.5,
+   "max_degrees": 17.0,
+   "limiting_look_and_slot": {
+    "min": "default:anatomy",
+    "max": "default:anatomy"
+   }
+  },
+  {
+   "bone": "screen_left_hand",
+   "min_degrees": -16.5,
+   "max_degrees": 19.0,
+   "limiting_look_and_slot": {
+    "min": "default:anatomy",
+    "max": "default:anatomy"
+   }
+  },
+  {
+   "bone": "screen_right_upper_arm",
+   "min_degrees": -11.0,
+   "max_degrees": 11.5,
+   "limiting_look_and_slot": {
+    "min": "default:anatomy",
+    "max": "default:anatomy"
+   }
+  },
+  {
+   "bone": "screen_right_forearm",
+   "min_degrees": -26.0,
+   "max_degrees": 30.0,
+   "limiting_look_and_slot": {
+    "min": "default:anatomy",
+    "max": "default:anatomy"
+   }
+  },
+  {
+   "bone": "screen_right_hand",
+   "min_degrees": -22.5,
+   "max_degrees": 22.5,
+   "limiting_look_and_slot": {
+    "min": "default:anatomy",
+    "max": "default:anatomy"
+   }
+  },
+  {
+   "bone": "tail_root",
+   "min_degrees": -15.0,
+   "max_degrees": 16.5,
+   "limiting_look_and_slot": {
+    "min": "default:anatomy",
+    "max": "default:tailwear"
+   }
+  },
+  {
+   "bone": "tail_mid",
+   "min_degrees": -15.0,
+   "max_degrees": 15.0,
+   "limiting_look_and_slot": {
+    "min": "default:tailwear",
+    "max": "Magician:tailwear"
+   }
+  },
+  {
+   "bone": "tail_distal",
+   "min_degrees": -15.0,
+   "max_degrees": 15.5,
+   "limiting_look_and_slot": {
+    "min": "default:tailwear",
+    "max": "Magician:tailwear"
+   }
+  },
+  {
+   "bone": "tail_peduncle",
+   "min_degrees": -19.5,
+   "max_degrees": 17.5,
+   "limiting_look_and_slot": {
+    "min": "Ballet:tailwear",
+    "max": "default:tailwear"
+   }
+  },
+  {
+   "bone": "fluke",
+   "min_degrees": -16.0,
+   "max_degrees": 14.5,
+   "limiting_look_and_slot": {
+    "min": "Ballet:tailwear",
+    "max": "Ballet:tailwear"
+   }
+  }
+ ]
+}

@@ -2,8 +2,10 @@
 
 **Binding owner decision (2026-08-09): Mermaid Roshan is 2D-only.** These flat
 images must be staged on the Canvas through `Node2D`/`Sprite2D` with explicit
-2D ordering. Roshan must not use a mesh, GLB, armature, character skeleton,
-rig, skin weights, or model fallback. The player's current
+2D ordering. Roshan must not use a 3D mesh, GLB, 3D armature or model
+fallback. Owner decision 2026-11-11 accepts a 2D skinned cutout rig (Rigby2D
+bones and skin weights over this approved art) for gameplay acting; see
+`docs/handoffs/day_one_roshan_rig_draft_2026-11-11/README.md`. The player's current
 `Node3D`/`Sprite3D` staging is measured migration debt, not an exception to
 this contract.
 

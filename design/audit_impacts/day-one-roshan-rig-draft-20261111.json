@@ -1,0 +1,74 @@
+{
+  "id": "day-one-roshan-rig-draft-20261111",
+  "scope": "Owner-requested rough draft: review of the existing Rigby2D Roshan work, a Day One action audit against the bathroom cleanup study, acting direction for Mermaid Roshan, an idle and touch-reaction system, a rig upgrade plan, and 44 draft Day One animations added to a copy of the bathroom rig. Source-only documentation and animation data; no runtime, save, voice or approved-art change and no acceptance. Second part, at the owner's explicit instruction of 2026-11-11 (\"Modify project rules to allow this design as well. This is now accepted design\"): HIGH-RISK rule change to CLAUDE.md and AGENTS.md, with matching edits to DL-MED-02, the Roshan movement language and the roshan_25d atlas contract, accepting a 2D skinned cutout rig over approved RGBA art for Roshan's gameplay acting. 3D models, cinematic rules, art-generation caps and device/child acceptance are unchanged.",
+  "baseline": "c6e5d1207a2d59e07a98ce4238a08850b35ac1f6",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-07",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-INT-04",
+    "DL-MED-01",
+    "DL-MOT-01",
+    "DL-MOT-03",
+    "DL-MOT-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16",
+    "DL-VIS-01",
+    "DL-VIS-06",
+    "DL-ASSET-01",
+    "DL-QA-01",
+    "DL-MED-02"
+  ],
+  "findings": [],
+  "no_findings_reason": "Related open findings MA-ROSHAN-006 and MA-PLAY-004 are cited for context only. No finding is created, repaired or closed, and no lifecycle or history entry changes. The owner decision answers OD-1 from the 2026-11-11 Codex bathroom work order; the contract adapter under OD-2 is not yet written.",
+  "files": [
+    "design/audit_impacts/day-one-roshan-rig-draft-20261111.json",
+    "docs/handoffs/day_one_roshan_rig_draft_2026-11-11/.gdignore",
+    "docs/handoffs/day_one_roshan_rig_draft_2026-11-11/README.md",
+    "docs/handoffs/day_one_roshan_rig_draft_2026-11-11/rig/day_one_clips.json",
+    "docs/handoffs/day_one_roshan_rig_draft_2026-11-11/rig/joint_envelope.json",
+    "docs/handoffs/day_one_roshan_rig_draft_2026-11-11/rig/roshan_day_one_draft.rigby",
+    "docs/handoffs/day_one_roshan_rig_draft_2026-11-11/rig/strain_verification.json",
+    "docs/handoffs/day_one_roshan_rig_draft_2026-11-11/tools/build.py",
+    "docs/handoffs/day_one_roshan_rig_draft_2026-11-11/tools/clips.mjs",
+    "docs/handoffs/day_one_roshan_rig_draft_2026-11-11/tools/envelope.mjs",
+    "docs/handoffs/day_one_roshan_rig_draft_2026-11-11/tools/export.mjs",
+    "docs/handoffs/day_one_roshan_rig_draft_2026-11-11/tools/fit.mjs",
+    "docs/handoffs/day_one_roshan_rig_draft_2026-11-11/tools/lib.mjs",
+    "docs/handoffs/day_one_roshan_rig_draft_2026-11-11/tools/verify.mjs",
+    "design/05_DOC_LEDGER.md",
+    "CLAUDE.md",
+    "AGENTS.md",
+    "ASSET_LICENSES.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "assets/characters/roshan_25d/README.md"
+  ],
+  "validation": [
+    {
+      "command": "python -B build.py roshan_arm_rebound.rigby animations.json roshan_day_one_draft.rigby",
+      "result": "PASS",
+      "evidence": "Source SHA-256 db65e8fcff9e1094bb78a07efbc4aaecf81b9eb90f906848a8d0e0e32dff3ad2 (equals the packet rig on codex/claude-bathroom-action-audit-20261110); output SHA-256 71f4647930f9df02031521cea4f96659bc0002337faa636a8c59a56e66411e48; animations 13 to 57; every texture, bone, slot, skin and weight byte-identical."
+    },
+    {
+      "command": "node verify.mjs draft_project.json scene/visible_triangles.json strain_verification.json",
+      "result": "PASS",
+      "evidence": "44 animations, 6,432 samples at 30 fps across Original, Ballet and Magician; visible-triangle strain 0.8284 to 1.1706; zero flips. docs/handoffs/day_one_roshan_rig_draft_2026-11-11/rig/strain_verification.json"
+    },
+    {
+      "command": "node envelope.mjs; node fit.mjs",
+      "result": "PASS",
+      "evidence": "Measurement completed. Single-joint limits in rig/joint_envelope.json; 8 clips at full intended strength, 10 at 58-91%, 26 below 58% and recorded as needing the rig upgrade (rig/day_one_clips.json)."
+    }
+  ],
+  "acceptance_gaps": "No clip has been rendered or viewed. Visual review, timing by eye, left and front views, Godot integration, device cost and child acceptance are all outstanding. The owner accepted the design, not any rendered result."
+}

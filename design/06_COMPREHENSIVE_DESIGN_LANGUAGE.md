@@ -368,8 +368,14 @@ under `assets/opera/worlds/actors/animation/`. Every instance is staged through
 `Node2D`/`Sprite2D` and explicit 2D ordering. The current player still contains
 legacy `Node3D`/`Sprite3D` staging, which is measured migration debt rather than
 evidence that this target is complete. Her final animation, costumes, contact,
-and occlusion MUST use the 2D canvas path; there is no model, skeleton, rig,
-skin-weight, bone-driven costume, or model fallback in the accepted runtime.
+and occlusion MUST use the 2D canvas path; there is no 3D model, 3D skeleton
+or model fallback in the accepted runtime. Owner decision 2026-11-11 also
+accepts a 2D skinned cutout rig for her gameplay acting: Rigby2D bones and skin
+weights deforming approved Roshan RGBA art on the Canvas, with costumes as
+skins on the same skeleton, per
+`docs/handoffs/day_one_roshan_rig_draft_2026-11-11/README.md`. Approved art is
+its only texture source, and the visible-triangle strain floor of 0.80–1.20
+with zero flips applies in every look.
 
 `DL-MED-03` — No active project, editor, export, source-master, backup, build
 tool, or production-test surface may retain 3D model resources or their import

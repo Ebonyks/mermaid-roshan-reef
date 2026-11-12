@@ -99,8 +99,12 @@ uses `Node2D`, `CanvasItem`, `Control`, `Sprite2D`, `TextureRect`, `Camera2D`,
 on `Sprite3D` is migration debt, not a finished 2D implementation.
 
 - Mermaid Roshan uses the approved RGBA atlas/cutout family under
-  `assets/characters/roshan_25d/` on the 2D canvas. She has no accepted GLB,
-  mesh, armature, skeleton, rig, skin-weight, or model fallback. Current
+  `assets/characters/roshan_25d/` on the 2D canvas. Owner decision 2026-11-11
+  also accepts a 2D skinned cutout rig (Rigby2D bones and skin weights
+  deforming approved Roshan RGBA art on the Canvas) for gameplay acting, per
+  `docs/handoffs/day_one_roshan_rig_draft_2026-11-11/README.md`. She has no
+  accepted GLB, 3D mesh, 3D armature, or model fallback. New Roshan art for
+  the rig keeps its approval and `DL-MOT-14`–`DL-MOT-16` caps. Current
   `Node3D`/`Sprite3D` player staging is measured debt and must be converted.
 - The 2026-07-19 Meshy migration and every 3D character/world work order,
   including the Roshan v2/v3/v4 model hierarchy, are **superseded**, not
@@ -168,7 +172,8 @@ and the [production protocol](design/animation/ANIMATION_PRODUCTION_PROTOCOL.md)
 - Inventory approved sources first. Choose existing authored states,
   Aseprite/keyed 2D, image-to-video, guided video-to-video or a bounded combination.
   ImageGen supplies named missing views/keys/local repairs. No new 3D assets,
-  model/rig fallback or identity redesign is authorized.
+  3D model/rig fallback or identity redesign is authorized; the accepted 2D
+  skinned cutout rig (owner decision 2026-11-11) is an eligible method.
 - Method eligibility does not accept a performance. Static-sticker wobble cannot
   replace authored character acting; lateral swing motion cannot replace the
   required fore-and-aft changing surfaces/occlusion. Old owner-rejected studies

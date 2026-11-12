@@ -219,7 +219,8 @@ before changing the world or awarding progress.
 Use the existing architecture. The protocol's clip/state names are semantic
 brief fields, not shipped APIs or a commission to build another framework.
 Keep world/camera travel separate from decorative offsets; use the accepted
-2D Canvas path. Never add 3D bodies, skeletons or model fallbacks.
+2D Canvas path. Never add 3D bodies, 3D skeletons or model fallbacks. The 2D
+skinned cutout rig accepted by the owner on 2026-11-11 is part of that path.
 
 Optional reactions yield to intentional input. Work interruptions specify
 whether cancellation occurs before contact, after contact but before visible
