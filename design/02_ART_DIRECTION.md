@@ -88,13 +88,12 @@ child, owner, or accepted-art result is claimed. Historical
 
 ---
 
-## 2. The medium — true-2D living cards (binding)
+## 2. The medium - 2.5D living cards (binding)
 
-**Owner direction 2026-08-09:** the final game is true Canvas/Node2D 2D
-game-wide. Codex-painted flats and approved illustrated cutouts remain the
-primary art channel, but they are staged through `Node2D`, `CanvasItem`,
-`Sprite2D`, `TextureRect`, `Camera2D`, 2D particles and explicit 2D ordering.
-A flat image on `Sprite3D` is migration debt, not a final living card.
+Mermaid Roshan 3.0 builds painted volume with independent Canvas layers,
+registered parts, projected ground anchors, contact shadows and authored
+overlap. Use Cult of the Lamb for construction and keep this game's
+storybook appearance. See `DL-LAY-10` and `DL-LAY-11`.
 
 The Sprite3D structural prescription in
 `LIVING_CARD_DESIGN_LANGUAGE_2026-07-29.md` is `SUPERSEDED` for runtime
@@ -106,8 +105,9 @@ foreground roles.
 Every animated card keeps a stable 2D anchor and named ordering/parallax role.
 A grounded card uses a bottom-center pivot and a restrained `Sprite2D`/Canvas
 contact shadow; non-grounded ornaments declare their semantic anchor (a
-chimney mouth, for example). **The crop is the rig** means stable authored
-pixel ownership, never permission to introduce a character skeleton or mesh.
+chimney mouth, for example). A card crop preserves authored pixel ownership and a stable pivot. A
+character's Rigby2D cutouts use versioned 2D bones, weights and contact
+sockets under `DL-MED-02` and `DL-MOT-17`.
 
 ### Two valid art lanes — and the rule that separates them
 
@@ -299,7 +299,7 @@ reintroduced.
 | Channel | Lifecycle / status 2026-08-09 |
 |---|---|
 | **Codex-painted 2D flats / Canvas cards** | **PRIMARY**; reuse approved work before generating a named gap |
-| Illustrated character cutouts | **FINAL MEDIUM.** `Node2D`/`Sprite2D`, unshaded authored contours, restrained 2D idle motion/contact shadow/sparkles; never relit or redesigned to imitate a mesh |
+| Illustrated character cutouts | **FINAL MEDIUM.** Rigby2D-authored Canvas actors for 3.0, with approved RGBA identity, coherent silhouettes and grounded contact |
 | Opera costume atlases | **CURRENT 2D DELIVERY.** Thirteen hash-audited 4×4 sheets; Ballerina uses held pose keys and a one-shot curtain call. Earlier sheets remain rejected provenance, never fallback |
 | gen2 Meshy / any 3D character migration | `SUPERSEDED`; removed, not paused. Work orders are history and landed models are removal debt, never fallback |
 | Deterministic Blender/3D kits | `SUPERSEDED` as runtime direction; remaining reachable resources are exact shrinking debt, retired resources live only on the archive branch |

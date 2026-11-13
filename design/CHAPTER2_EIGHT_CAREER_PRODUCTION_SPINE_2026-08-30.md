@@ -29,7 +29,7 @@ eight-job sequence independently of later global career additions.
 
 | Step | Bit | Career | Scene | Persistent result |
 | ---: | ---: | --- | --- | --- |
-| 1 | 6 | Farmer | Sky Lagoon strawberry grove | five fresh strawberries delivered in a basket |
+| 1 | 6 | Farmer | Enchanted Forest strawberry grove (Sky Lagoon in earlier builds) | five fresh strawberries delivered in a basket |
 | 2 | 0 | Pastry Chef | Castle Kitchen | the actual tiered cake, stacked and frosted |
 | 3 | 3 | Candy Maker | cake-decorating workstation | those strawberries candied and placed; final cake locked |
 | 4 | 10 | Painter | Craft Room to Main Hall | painted/stamped birthday banner hung in Main Hall |

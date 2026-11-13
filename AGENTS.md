@@ -91,36 +91,36 @@ Use `python -B tools/resolve_godot.py` or `tools/run_godot.ps1` to select
 the exact approved build; local CI uses this resolver. An older executable
 on PATH is not a valid default. Historical audit versions remain evidence.
 
-## FINAL MEDIUM (owner decision 2026-08-09): TRUE 2D GAME-WIDE
+## MERMAID ROSHAN 3.0 MEDIUM (owner decision 2026-11-12)
 
-The accepted final game is a Canvas/Node2D 2D game. New and converted gameplay
-uses `Node2D`, `CanvasItem`, `Control`, `Sprite2D`, `TextureRect`, `Camera2D`,
-2D particles and 2D collision where collision is needed. A flat image mounted
-on `Sprite3D` is migration debt, not a finished 2D implementation.
+Mermaid Roshan 3.0 uses **2.5D presentation on Godot's 2D Canvas**. Build
+painted depth with a consistent projection, independent scenery planes,
+ground-contact sorting, restrained parallax and deliberate foreground
+occlusion. Use Cult of the Lamb as the principal reference for scene
+composition and sprite construction. Keep Mermaid Roshan's storybook art,
+palette and character identity. Use `Node2D`, `CanvasItem`, `Sprite2D`,
+`Control`, `Camera2D` and 2D input/collision.
 
-- Mermaid Roshan uses the approved RGBA atlas/cutout family under
-  `assets/characters/roshan_25d/` on the 2D canvas. She has no accepted GLB,
-  mesh, armature, skeleton, rig, skin-weight, or model fallback. Current
-  `Node3D`/`Sprite3D` player staging is measured debt and must be converted.
-- The 2026-07-19 Meshy migration and every 3D character/world work order,
-  including the Roshan v2/v3/v4 model hierarchy, are **superseded**, not
-  paused. Never submit or revive those batches.
-- `Node3D`, `Sprite3D`, `Camera3D`, meshes, 3D materials/lights/physics,
-  spatial shaders, and `Vector3`/`Transform3D` world logic are exact shrinking
-  transition debt. Do not add to that debt or describe it as accepted
-  scaffolding.
-- Retired 3D resources live only on archive branch
-  `codex/deprecated-resources-roshan-20260809` at verified archive head
-  `9329d9a6`. That branch is preservation evidence, never a runtime fallback,
-  rollback target, merge source, or alternate production authority.
-- `tools/audit_game_2d.py` owns the inventory. `NO_REGRESSION` means only that
-  debt did not grow. Satisfaction requires its strict zero-debt state.
+**Enchanted Forest** is the 3.0 name for the area being developed from the
+Strawberry Grove draft. **Sky Lagoon** identifies prior drafts and their
+evidence. Existing resource paths, route IDs, save keys and recorded voice
+references keep their compatibility names until a scoped runtime migration.
 
-The synchronized committed audit snapshot is **`UNSATISFIED`** at 513 model
-files and 70 production 3D files. See
-`design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` and
-`audit/MASTER_AUDIT_2026-08-09.md` for the rule IDs, full inventory and
-individual repair protocol.
+**Rigby2D is the character rig authoring standard for 3.0 gameplay.** Use
+approved RGBA cutouts with 2D bones, weights, attachment sockets and authored
+animation. Export a versioned Canvas-compatible runtime representation
+with reproducible provenance and exact-engine import, Mobile and acting
+evidence. Treat earlier atlases as approved identity sources and existing
+runtime coverage during migration. New art still needs its applicable
+approval and provenance. Preserve protected static assets and recordings.
+
+Legacy spatial nodes, 3D models, spatial shaders and 3D physics remain
+shrinking migration debt under `DL-MED-03`–`DL-MED-10`. The Meshy batches and
+the old 3D model hierarchy remain superseded. The archive at `9329d9a6` is
+preservation evidence only. GAME2D still requires strict zero 3D debt.
+The [design language](design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#3-mermaid-roshan-30-medium-25d-on-the-2d-canvas)
+defines the construction rules and the [master audit](audit/MASTER_AUDIT_2026-08-09.md)
+defines the evidence and release gates.
 
 ## ART REUSE AND GENERATION BUDGET (owner decision 2026-07-28)
 The project is in art finalization, not open-ended redesign. Conserve the
@@ -168,7 +168,8 @@ and the [production protocol](design/animation/ANIMATION_PRODUCTION_PROTOCOL.md)
 - Inventory approved sources first. Choose existing authored states,
   Aseprite/keyed 2D, image-to-video, guided video-to-video or a bounded combination.
   ImageGen supplies named missing views/keys/local repairs. No new 3D assets,
-  model/rig fallback or identity redesign is authorized.
+  3D model fallback or identity redesign is authorized. Use Rigby2D for 3.0
+  gameplay character rigs.
 - Method eligibility does not accept a performance. Static-sticker wobble cannot
   replace authored character acting; lateral swing motion cannot replace the
   required fore-and-aft changing surfaces/occlusion. Old owner-rejected studies
@@ -365,7 +366,7 @@ GODOT=./Godot_v4.7.2-stable_linux.x86_64   # or GODOT="$(python3 tools/resolve_g
    $GODOT --headless -s scripts/probe_passive.gd   # zero-input: nothing may be won
    $GODOT --headless -s scripts/probe_load.gd      # save restore
    $GODOT --headless -s scripts/probe_mg2d.gd      # 5 picture games
-   $GODOT --headless -s scripts/probe_l2.gd        # sky lagoon
+   $GODOT --headless -s scripts/probe_l2.gd        # legacy Sky Lagoon route probe
 3. Never trust probe_games.gd / probe_trial.gd / probe_race.gd until
    Phase 1 replaces them — they reference removed APIs. (Deleted Phase 0.)
 

@@ -353,23 +353,24 @@ glare, and punishment are softened into playful, child-scale fantasy.
 
 ---
 
-## 3. Final medium decision: a 2D game
+## 3. Mermaid Roshan 3.0 medium: 2.5D on the 2D Canvas
 
-`DL-MED-01` — This is a 2D game in both authored medium and runtime structure.
-Gameplay uses `Node2D`, `CanvasItem`, `Control`, `Sprite2D`, `TextureRect`,
-`Camera2D`, 2D particles, 2D collision where collision is needed, and explicit
-2D draw/z ordering. A flat image mounted on a 3D node is migration debt, not a
-finished 2D implementation.
+`DL-MED-01` — Mermaid Roshan 3.0 presents a 2.5D storybook world on Godot's
+2D Canvas. Use projected painted surfaces, independent depth planes and
+ground-contact ordering to give the scene volume. Gameplay uses `Node2D`,
+`CanvasItem`, `Control`, `Sprite2D`, `TextureRect`, `Camera2D`, 2D particles
+and 2D collision where needed. Spatial staging is measured migration debt.
 
-`DL-MED-02` — Mermaid Roshan's approved final representation is a
-provenance-locked, audit-accepted RGBA atlas/cutout family: the base-world art
-under `assets/characters/roshan_25d/` plus accepted career-specific atlases
-under `assets/opera/worlds/actors/animation/`. Every instance is staged through
-`Node2D`/`Sprite2D` and explicit 2D ordering. The current player still contains
-legacy `Node3D`/`Sprite3D` staging, which is measured migration debt rather than
-evidence that this target is complete. Her final animation, costumes, contact,
-and occlusion MUST use the 2D canvas path; there is no model, skeleton, rig,
-skin-weight, bone-driven costume, or model fallback in the accepted runtime.
+`DL-MED-02` — Rigby2D is the character rig authoring standard for new and
+converted 3.0 gameplay. Use an approved RGBA cutout identity, a versioned
+2D hierarchy, rest pose, skin weights, attachment sockets and named views.
+The exported actor renders as one coherent figure with intentional part
+and world occlusion on the Canvas. Roshan's approved RGBA sources remain
+the base-world family under `assets/characters/roshan_25d/` and accepted
+career-specific atlases under `assets/opera/worlds/actors/animation/`.
+Keep existing atlas playback on unmigrated routes until replacements earn
+their own evidence. Existing spatial player staging is migration debt.
+The 2026-11-11 Roshan rig allowance preceded this game-wide direction.
 
 `DL-MED-03` — No active project, editor, export, source-master, backup, build
 tool, or production-test surface may retain 3D model resources or their import
@@ -410,7 +411,8 @@ replacement or non-reachability proof and surrounding tests are verified.
 `DL-MED-09` — `tools/audit_game_2d.py` defines the migration inventory. A green
 regression result means only that debt did not grow; it MUST say
 `NO_REGRESSION`, never `PASS`. Only the strict zero-debt state may say the game
-satisfies the 2D medium contract.
+satisfies the runtime inventory requirement. Layered composition and
+Rigby2D acting still require their own evidence.
 
 `DL-MED-10` — Current-authority documents and work orders MAY mention 3D only
 as exact shrinking transition debt or explicitly labelled historical evidence.
@@ -519,8 +521,10 @@ background layers; the target language is four to five depth classes where the
 transparent-overdraw budget permits. Side-by-side tiles from one panorama count
 as one layer.
 
-`DL-LAY-03` — Anything Roshan can tap, approach, pass, or stand behind is an
-independent owned card, not a painted mural object pretending to be interactive.
+`DL-LAY-03` — Anything Roshan can tap, approach, pass, or stand behind has an
+independently owned Canvas assembly. Split a reusable painted object into
+registered parts when its action, overlap or construction requires it.
+Keep each source pixel under one owner.
 
 `DL-LAY-04` — Occlusion is validated per relevant card. It is not sufficient
 for one depth constant in a stage to overlap the walk band while all important
@@ -546,6 +550,24 @@ carry broad opaque wall, floor, water, or architecture pixels that hide Roshan.
 `DL-LAY-09` — Fixed-camera canvas activities are exempt from promenade
 parallax, but not from hierarchy, ownership, cutoff, touch-target, or
 figure/ground rules.
+
+`DL-LAY-10` — Cult of the Lamb is the principal construction reference
+for 3.0. Use intentional foreground framing, a mid-foreground that
+bridges the frame and playable midground, and background planes that
+reinforce the scene's projection. Track interaction ownership separately
+from draw order. Use projected ground contacts for actor/prop order changes
+and split tall props into independently ordered parts when crossings need
+them. Audit in both travel directions with actual terrain and touch geometry.
+
+`DL-LAY-11` — Enchanted Forest is the current 3.0 design name for the
+Strawberry Grove direction. Prior Sky Lagoon drafts, authored story sources,
+resource paths, save keys and probe receipts keep their recorded identities.
+For the Forest, review the raised beds, bridge, firs, grasses, other plant life,
+Pearl Castle, Evie and the two-shell crossing in scene context. Split firs into
+authored layers, match strawberry plants to the painted cartoon beds, and
+keep repeated strawberry taps responsive with exactly-once pickup. Compare
+successive drafts for color and style cohesion, depth, child-readable paths
+and targets, actor occlusion and dense-route Mobile cost.
 
 ---
 
@@ -903,6 +925,16 @@ still-frame campaign. Install only a selected, version-pinned local pilot in
 an isolated environment; paid work needs an existing authorized funded budget.
 Compare total cost and operator minutes
 per accepted second before expanding a batch.
+
+`DL-MOT-17` — A gameplay rig records the Rigby2D source/version, approved
+art paths and hashes, export tool/version and output hashes. Validate hierarchy,
+weights, pivots, draw slots and sockets. Exercise entry, turnaround, action
+contact, interruption, settle, loops, wardrobe and save/re-entry where
+applicable. Use the exact Godot baseline and Mobile runtime path for native
+integration. Headless import/build must work from a fresh checkout without
+an untracked editor install. Pin and license any required importer or
+runtime dependency when one is actually introduced. A source rig or a green
+geometry check alone does not accept a performance.
 
 ---
 

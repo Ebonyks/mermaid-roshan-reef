@@ -42,7 +42,7 @@ Record reasons for exceptions and respect the funded task budget.
 
 | Lane | Construction and evidence |
 |---|---|
-| Interactive gameplay | Authored approved 2D frames/states on Canvas with explicit anchors and draw order. Navigation moves the actor through the stage; accepted authored states explain propulsion and acting. Observe the production input, contact and save owners. |
+| Interactive gameplay | Rigby2D cutouts on the Canvas for new and converted 3.0 character work, with explicit anchors and draw order. Navigation moves the actor through the stage; accepted authored states explain propulsion and acting. Observe the production input, contact and save owners. |
 | Authored cinematic delivery | Suitable declared 2D/video workflow under revised `DL-CIN-01` through `DL-CIN-12` and the [AGENTS contract](../../AGENTS.md#animation-production-owner-decision-2026-10-03). Flattened footage requires exact provenance, production-profile scene/temporal/human gates and device/child/owner acceptance. |
 | Motion or editorial study | Label reference-only; record method and source. A useful study never becomes runtime art or accepted cinematic pixels by relabeling or encoding it. |
 
@@ -50,7 +50,10 @@ Gameplay translation, gentle idle motion and effects remain subject to the
 living-card rules. Wobbling or moving one static sticker does not establish
 character animation; blending frames cannot repair missing contact or identity.
 Use `Node2D`, `Sprite2D`, `Control` and related Canvas nodes. Existing spatial
-staging is measured migration debt; no model, rig or 3D fallback is introduced.
+staging is measured migration debt. Follow `DL-MOT-17` for Rigby2D source,
+export, fresh build and live acting evidence. Keep native authoring masters
+separate from runtime exports. A required importer or runtime dependency
+must be version-pinned and licensed when the integration introduces it.
 
 Choose a method using the [dated workflow comparison](WORKFLOW_OPTIONS_2026-10-03.md)
 and complete the [job card](../templates/ANIMATION_JOB_CARD_V1.md). ImageGen fills
@@ -86,6 +89,18 @@ contact references; they do not authorize freezing the rest of the body while
 only a limb animates. Preserve the source figure's changing silhouette,
 attachments, cloth/hair response and counterbalance throughout the action.
 Object motion likewise includes its relevant support and moving parts.
+
+**Scope of the historical whole-frame corrections below.** The October 5 and
+October 7 construction requirements remain attached to their whole-frame wave
+and cinematic deliverables and rejection evidence. The November 12 3.0 gameplay
+direction supersedes their game-wide ban on separately authored character parts:
+Rigby2D gameplay rigs may use registered cutout layers and weighted deformation
+under `DL-MED-02` and `DL-MOT-17`. Such rigs must still read as one coherent
+figure, preserve approved proportions and crisp contours, and prove coordinated
+acting, support and prop contact. Duplicated figures, cross-faded copies and
+uncontrolled part-size drift are not acceptable substitutes for that evidence.
+The original owner quotations are preserved below as historical evidence, not
+as a prohibition on the explicitly authorized 3.0 gameplay rig construction.
 
 Owner correction 2026-10-05 (`ODR-ROSHAN-WHOLE-FRAME-20261005`): "No arm moves
 as a single figure, the whole body moves at once, drawn as a whole frame." A

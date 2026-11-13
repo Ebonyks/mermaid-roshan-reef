@@ -275,9 +275,9 @@ Cut from the reachable product; save slots 4/9/14 are permanent tombstones; any 
 
 ## PLC-SKY-LAGOON
 
-**Sky Lagoon** — ACTIVE
+**Enchanted Forest, Sky Lagoon (predecessor drafts)** — ACTIVE
 
-Sky Lagoon contains Pearl Castle and the birthday lawn; the flight arrives here. Exact placement is as built, not a new map commission.
+Enchanted Forest is the 3.0 name for the Strawberry Grove direction. Pearl Castle, the birthday lawn and the flight arrival are recorded in the earlier Sky Lagoon design. Their 3.0 placement follows the current Grove and separate runtime evidence.
 
 | Field | Source-bound value |
 |---|---|
@@ -288,7 +288,7 @@ Sky Lagoon contains Pearl Castle and the birthday lawn; the flight arrives here.
 | Movement | GAP |
 | Sources | [design/10_CHAPTER_REFERENCE_LIBRARY.md](../../design/10_CHAPTER_REFERENCE_LIBRARY.md) (SUPPORTING_CURRENT: ); [design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md](../../design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md) (BINDING_DOMAIN: ) |
 | Conflicts |  |
-| Owner decisions |  |
+| Owner decisions | ODR-MERMAID-ROSHAN-3-20261112 |
 
 - Preserve: Preserve the source-bound identity and narrative above; no new traits inferred.
 - Never: Do not redesign or infer a new personality, relationship or voice from appearance alone.

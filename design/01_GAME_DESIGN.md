@@ -65,15 +65,13 @@ new content on both rails.
 
 ---
 
-## 2. The shape of the world — a true-2D living storybook
+## 2. The shape of the world - a 2.5D living storybook
 
-**Owner decision 2026-08-09 (binding, supersedes the dimensional parts of
-`GAME_REDESIGN_2P5D_2026-07-27.md`).** The final game is a connected set of
-true Canvas/Node2D storybook stages. `SideScrollStage`, a 3D play band,
-depth-buffer sorting, and 3D camera staging are transition debt, not the final
-medium. The 2026-07-27 charter remains historical evidence for the child-
-readable navigation, touch-the-world, independent-card and differential-layer
-goals that survive in 2D.
+Mermaid Roshan 3.0 uses authored projection, ground-contact ordering and
+independent foreground, playable and background layers on the Godot 2D Canvas.
+Cult of the Lamb is the construction reference. Enchanted Forest is the
+current name for the Strawberry Grove direction. The 2026-07-27 charter and
+its spatial staging are predecessor history.
 
 Three stated reasons, all of them accessibility reasons:
 
@@ -84,7 +82,7 @@ Three stated reasons, all of them accessibility reasons:
 3. **Input** — the analog stick was too ambitious for the age group.
 
 Each panning stage targets four or five explicit Canvas depth classes where
-the transparent-overdraw budget permits, a `Sprite2D` Roshan moving through a
+the transparent-overdraw budget permits, a coherently rendered Rigby2D Roshan moving through a
 clear play band, a gentle `Camera2D`, and obvious edge exits / door cards.
 Fixed-camera activities may use fewer layers but remain subject to hierarchy,
 ownership, cutoff, touch-target and figure/ground rules. **You cannot be lost

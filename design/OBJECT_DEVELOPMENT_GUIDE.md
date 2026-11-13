@@ -2,7 +2,7 @@
 
 **BINDING_DOMAIN** for visual construction and verification of world objects, under the [design language](06_COMPREHENSIVE_DESIGN_LANGUAGE.md#6-2d-canvas-living-card-world-construction). Owner direction, 2026-11-11, asks for five review rounds followed by adoption in the [master audit](../audit/MASTER_AUDIT_2026-08-09.md#development-task-index). Use this guide when planning, adding, replacing, or changing a world object's depth, composition, motion, or interaction.
 
-A world object can read as solid through its silhouette, projected surfaces, contact with the ground, and the order in which it covers other objects. Mermaid Roshan builds those cues with its existing storybook artwork on a true 2D Godot canvas. Choose the smallest assembly that preserves the silhouette, required action, and readable overlap.
+A world object can read as solid through its silhouette, projected surfaces, contact with the ground, and the order in which it covers other objects. Mermaid Roshan builds those cues with its existing storybook artwork using 2.5D composition on the Godot 2D Canvas. Choose the smallest assembly that preserves the silhouette, required action, and readable overlap.
 
 ## What transfers from Cult of the Lamb
 
@@ -75,9 +75,15 @@ Write the visible sequence before implementing it. A usable object has an identi
 
 For a bridge, compare idle and in-transit actions. Test both banks from the visible route, blocked input toward the water, and a touch on a nearby fixture. For a closed door, check that its state and decoration communicate the same meaning. An open door's tap, approach, destination, return and re-entry belong in one replay. The current Pearl Castle code already resolves `blocked`, `open`, `bonus`, and `plot` as shared reachability and cue states. Reuse that vocabulary for Pearl Castle door work. [Castle door state model](../scripts/castle_door_language.gd), [promenade doorstep handoff](../scripts/arena/sky_lagoon_promenade.gd).
 
-### Worked example for Sky Lagoon
+### Worked example for Enchanted Forest
 
 A later optional farm-to-castle sequence could use the approved raised bed, an existing bushel, Evie's authored help, and a compatible castle display fixture. In the grove, the near bed edge owns the soil line, strawberry crowns stay rooted, and the ripe berries own distinct pickup positions with a clear aisle for Roshan. On one deliberate tap Roshan approaches and picks at the live berry socket. The fruit leaves the plant at contact and settles visibly in a bushel slot behind its lip. The settled state remains readable on the way out. For any commissioned castle payoff, show the result on the destination fixture when Roshan returns and restore it on revisits. Keep the Day One castle entrance independently reachable before the harvest. This example describes a future design. The earlier bench measured one fruit in one bushel.
+
+For a Forest review, label background, midground, mid-foreground and
+foreground roles, then record the interaction owner and region separately.
+Compare before/after passes with the current Grove terrain and the same
+camera, including both crossings of depth boundaries, strawberry-tap cadence,
+walkable paths, wet/dry habitat boundaries and dense foliage performance.
 
 ## Review and record the evidence
 

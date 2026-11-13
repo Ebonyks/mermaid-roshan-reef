@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
-"""Blocking contract audit for Mermaid Roshan's 2D-only character medium.
+"""Guard Roshan's 2D character sources and the atlases still in service.
 
-The project may use Godot's 3D scene graph to stage flat art, but Mermaid
-Roshan herself is authored and rendered only as 2D atlas/cutout imagery. This
-gate keeps retired models out of the editor, exports, runtime loaders, and
-player implementation. It follows the visual-master-audit principle that each
-check must be falsifiable: ``--stress`` injects one defect per rule and proves
-that the rule fires.
+Mermaid Roshan 3.0 uses Rigby2D-authored Canvas actors. This gate rejects
+retired spatial character resources and APIs while retaining coverage for
+shipping atlases. The game-wide audit tracks legacy spatial staging. Live
+rigs earn separate integration and acting evidence under DL-MOT-17.
 """
 
 from __future__ import annotations
@@ -154,7 +152,7 @@ def audit(root: Path, require_ci: bool = True) -> list[Issue]:
 			if OBSOLETE_PLAYER_API_RE.search(line):
 				issues.append(Issue(
 					"R2D003", f"{relative}:{line_number}",
-					"removed Roshan rig API is still referenced",
+					"retired Roshan 3D player API is still referenced",
 				))
 			if OBSOLETE_DIRECTION_RE.search(line):
 				issues.append(Issue(
@@ -167,17 +165,6 @@ def audit(root: Path, require_ci: bool = True) -> list[Issue]:
 		issues.append(Issue("R2D005", "scripts/player.gd", "player implementation is missing"))
 	else:
 		player = player_path.read_text(encoding="utf-8", errors="replace")
-		required_tokens = (
-			"const ROSHAN_25D_SHEETS",
-			"classic_sprite = Sprite3D.new()",
-			"classic_sprite.shaded = false",
-		)
-		for token in required_tokens:
-			if token not in player:
-				issues.append(Issue(
-					"R2D005", "scripts/player.gd",
-					f"2D player renderer contract is missing token: {token}",
-				))
 		for forbidden in ("Skeleton3D", "model_v3", "hair_sim", "roshan.glb", "roshan_v"):
 			if forbidden in player:
 				issues.append(Issue(
@@ -207,7 +194,7 @@ def audit(root: Path, require_ci: bool = True) -> list[Issue]:
 				if command not in text:
 					issues.append(Issue(
 						"R2D007", relative,
-						f"blocking 2D-only gate is missing command: {command}",
+						f"blocking 2D character gate is missing command: {command}",
 					))
 
 	return sorted(issues, key=lambda issue: (issue.check_id, issue.path, issue.detail))
@@ -258,6 +245,21 @@ def stress() -> int:
 		clean_issues = audit(root)
 		if clean_issues:
 			print(f"ROSHAN2D| stress fixture invalid: {clean_issues}")
+			return 1
+
+	with tempfile.TemporaryDirectory(prefix="roshan-canvas-rig-audit-") as temp:
+		root = Path(temp)
+		_write_fixture(root)
+		(root / "scripts/player.gd").write_text(
+			"extends Node2D\n"
+			"var rig: Skeleton2D\n"
+			"var root_bone: Bone2D\n"
+			"var cutout: Polygon2D\n",
+			encoding="utf-8",
+		)
+		canvas_issues = audit(root)
+		if canvas_issues:
+			print(f"ROSHAN2D| valid Canvas rig fixture rejected: {canvas_issues}")
 			return 1
 
 	def add_runtime_model(root: Path) -> None:
@@ -328,7 +330,7 @@ def main() -> int:
 			print(f"ROSHAN2D| FAIL| {issue.check_id}| {issue.path}| {issue.detail}")
 		print(f"ROSHAN2D| RESULT: FAIL ({len(issues)} issue(s))")
 		return 1
-	print("ROSHAN2D| RESULT: ALL OK - active project is 2D Roshan only")
+	print("ROSHAN2D| RESULT: ALL OK - retired Roshan 3D paths excluded and shipping atlases present")
 	return 0
 
 

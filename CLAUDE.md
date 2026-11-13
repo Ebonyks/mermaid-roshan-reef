@@ -112,32 +112,36 @@ Use `python -B tools/resolve_godot.py` or `tools/run_godot.ps1` to select
 the exact approved build; local CI uses this resolver. An older executable
 on PATH is not a valid default. Historical audit versions remain evidence.
 
-## Final medium (owner decision 2026-08-09): true 2D game-wide
+## Mermaid Roshan 3.0 medium (owner decision 2026-11-12)
 
-The accepted final game uses Canvas/`Node2D` structure throughout. New and
-converted gameplay uses `Node2D`, `CanvasItem`, `Control`, `Sprite2D`,
-`TextureRect`, `Camera2D`, 2D particles and 2D collision where needed. A flat
-image on a 3D node is migration debt, not final 2D.
+Mermaid Roshan 3.0 uses **2.5D presentation on Godot's 2D Canvas**. Build
+painted depth with a consistent projection, independent scenery planes,
+ground-contact sorting, restrained parallax and deliberate foreground
+occlusion. Use Cult of the Lamb as the principal reference for scene
+composition and sprite construction. Keep Mermaid Roshan's storybook art,
+palette and character identity. Use `Node2D`, `CanvasItem`, `Sprite2D`,
+`Control`, `Camera2D` and 2D input/collision.
 
-Mermaid Roshan's only approved representation is the RGBA atlas/cutout family
-under `assets/characters/roshan_25d/`, staged on the 2D canvas. She has no
-accepted GLB, mesh, armature, skeleton, rig, skin-weight or model fallback.
-The 2026-07-19 Meshy migration, the Roshan model hierarchy, every other 3D
-character/world work order, and the old dimensional rollback direction are
-**superseded or dismissed**, not paused.
+**Enchanted Forest** is the 3.0 name for the area being developed from the
+Strawberry Grove draft. **Sky Lagoon** identifies prior drafts and their
+evidence. Existing resource paths, route IDs, save keys and recorded voice
+references keep their compatibility names until a scoped runtime migration.
 
-All remaining `Node3D`/`Sprite3D`/`Camera3D`, model, spatial-shader, 3D-light,
-3D-physics and `Vector3`/`Transform3D` paths are exact shrinking debt. Retired
-resources are preserved only on
-`codex/deprecated-resources-roshan-20260809` at verified archive head
-`9329d9a6`; that branch is not a fallback, rollback target, merge source or
-alternate production authority. `tools/audit_game_2d.py` owns the inventory;
-`NO_REGRESSION` is not satisfaction. The synchronized committed snapshot is
-**`UNSATISFIED`** at 513 model files and 70 production 3D files.
+**Rigby2D is the character rig authoring standard for 3.0 gameplay.** Use
+approved RGBA cutouts with 2D bones, weights, attachment sockets and authored
+animation. Export a versioned Canvas-compatible runtime representation
+with reproducible provenance and exact-engine import, Mobile and acting
+evidence. Treat earlier atlases as approved identity sources and existing
+runtime coverage during migration. New art still needs its applicable
+approval and provenance. Preserve protected static assets and recordings.
 
-Current cross-domain rules and audit state:
-`design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` and
-`audit/MASTER_AUDIT_2026-08-09.md`.
+Legacy spatial nodes, 3D models, spatial shaders and 3D physics remain
+shrinking migration debt under `DL-MED-03`–`DL-MED-10`. The Meshy batches and
+the old 3D model hierarchy remain superseded. The archive at `9329d9a6` is
+preservation evidence only. GAME2D still requires strict zero 3D debt.
+The [design language](design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#3-mermaid-roshan-30-medium-25d-on-the-2d-canvas)
+defines the construction rules and the [master audit](audit/MASTER_AUDIT_2026-08-09.md)
+defines the evidence and release gates.
 
 Owner decision 2026-10-03 permits final footage and sprite loops from suitable
 animation workflows with identity, motion, provenance and device checks,

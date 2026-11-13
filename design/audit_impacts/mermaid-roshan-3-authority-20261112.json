@@ -1,0 +1,129 @@
+{
+  "id": "mermaid-roshan-3-authority-20261112",
+  "scope": "Owner-directed 3.0 policy and build-audit alignment. HIGH-RISK AGENTS.md, CLAUDE.md and probes workflow revisions apply 2.5D Canvas composition, Enchanted Forest naming for the current Strawberry Grove design, and Rigby2D character authoring. Retire the Roshan audit's mandatory legacy spatial renderer token while preserving retired model and atlas coverage.",
+  "baseline": "f1ddb9b828176b32ea390696323018d78e922932",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MED-02",
+    "DL-MED-03",
+    "DL-MED-09",
+    "DL-LAY-03",
+    "DL-LAY-10",
+    "DL-LAY-11",
+    "DL-MOT-01",
+    "DL-MOT-12",
+    "DL-MOT-17",
+    "DL-INT-04",
+    "DL-PERF-02",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-2D-002",
+    "MA-DOC-001",
+    "MA-VIS-002",
+    "MA-ROSHAN-006"
+  ],
+  "files": [
+    ".github/workflows/probes.yml",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "assets/characters/roshan_25d/README.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/00_MASTER_INDEX.md",
+    "design/01_GAME_DESIGN.md",
+    "design/02_ART_DIRECTION.md",
+    "design/03_TECHNICAL_ARCHITECTURE.md",
+    "design/05_DOC_LEDGER.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+    "design/OBJECT_DEVELOPMENT_GUIDE.md",
+    "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+    "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "design/reference/CANON.md",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/reference/canon.json",
+    "design/reference/owner_decisions.json",
+    "project.godot",
+    "scripts/ci.sh",
+    "tools/audit_roshan_2d.py"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "958 Markdown paths and ledger rows, 75 active findings and 78 records. Structural gate ALL OK."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Auto-selected the exact recorded Dev baseline. Navigation and changed-file coverage ALL OK."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "67 tests passed. Test runner used a local Windows-only temporary directory ACL workaround and the tools import path."
+    },
+    {
+      "command": "python -B tools/design_reference.py --check",
+      "result": "PASS",
+      "evidence": "Canon and chapter references ALL OK."
+    },
+    {
+      "command": "python -B tools/audit_roshan_2d.py --stress",
+      "result": "PASS",
+      "evidence": "A Canvas skeleton/bone/polygon fixture passes without legacy constructor tokens, and all eight existing negative controls fire."
+    },
+    {
+      "command": "python -B tools/audit_roshan_2d.py",
+      "result": "PASS",
+      "evidence": "Source guard reports retired Roshan 3D paths excluded and all shipping atlases present in the checked inputs."
+    },
+    {
+      "command": "python -B tools/audit_godot_baseline.py --godot <resolved executable>",
+      "result": "PASS",
+      "evidence": "Resolved installed Godot 4.7.2-stable official.ed1daf0bf. Project settings compare identical when comments are excluded."
+    },
+    {
+      "command": "git diff --check",
+      "result": "PASS",
+      "evidence": "Scoped diff whitespace check passed."
+    },
+    {
+      "command": "scripts/ci.sh",
+      "result": "PENDING",
+      "evidence": "Git Bash stopped at startup with Win32 CreateFileMapping access denied. No full runtime/CI or merged-tree result."
+    },
+    {
+      "command": "Probe parity and GAME2D stress controls",
+      "result": "PASS",
+      "evidence": "Both CI rosters agree. Eight probe parity controls and 19 GAME2D controls pass. Full spatial inventory requires the complete imported project."
+    },
+    {
+      "command": "Owner decision JSON validation and append-only comparison",
+      "result": "PASS",
+      "evidence": "Prior JSON rows and all prior Markdown rows preserved, and appended Markdown row matches the generator."
+    },
+    {
+      "command": "python -B tools/record_owner_decision.py --check --base HEAD",
+      "result": "FAIL",
+      "evidence": "The baseline Markdown already carries four owner decisions absent from its JSON. Preserve those original rows; the candidate introduces no new view drift."
+    },
+    {
+      "command": "Independent authority cross-review and scoped correction, 2026-11-13",
+      "result": "PASS",
+      "evidence": "Original staged tree 3466b3fea2772f19a3dd9d495fe24896e7c27602 passed scripts/ci.sh with 82 runtime probes at 07:27 UTC; log SHA256 368C5C15DDBB283D5A53155BB8E04DCF0672B1F565282F1B96FE0782230C6DFF. Independent review found historical whole-frame construction bans conflicting with the new gameplay rig lane. This correction scopes the animation protocol and ledger without changing original quotations or runtime code. Corrected protocol/ledger passed independent re-review with no further actionable defect; document authority and explicit-base development coverage both passed. The original full-suite result is not a rerun of this corrected tree."
+    }
+  ],
+  "acceptance_gaps": "Authority and build-audit change only. Forest terrain and placement, production rig export/import, exact Mobile scene and animation review, device performance, child and owner acceptance still require runtime candidates. Preserve historical build evidence and all finding lifecycles.",
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-MERMAID-ROSHAN-3-20261112",
+      "evidence": "audit/MASTER_AUDIT_2026-08-09.md#mermaid-roshan-30-rule-review",
+      "write_back": "DL-MED-01, DL-MED-02, DL-LAY-10, DL-LAY-11, DL-MOT-17 and the blocking Roshan build audit"
+    }
+  ]
+}

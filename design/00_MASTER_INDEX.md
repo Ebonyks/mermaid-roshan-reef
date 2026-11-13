@@ -177,17 +177,17 @@ distribution.
 
 ## Current medium decision
 
-**Owner decision 2026-08-09:** the final game is true Canvas/Node2D 2D
-game-wide. `Node3D`, `Sprite3D`, `Camera3D`, models, spatial shaders, 3D
-physics, Blender/Meshy work, and real-3D character or world directions are
-only exact shrinking migration debt or explicitly labelled history. Mermaid
-Roshan has no accepted GLB, rig, skeleton, or model fallback. Retired 3D
-resources live only on the deprecated-resources archive branch; the active
-project is not allowed to use that branch as a fallback or merge source.
+**Owner decision 2026-11-12:** Mermaid Roshan 3.0 uses Cult of the Lamb-inspired
+2.5D composition on Godot's 2D Canvas and Rigby2D gameplay characters. The
+Strawberry Grove direction is now Enchanted Forest. Consult the
+[medium rules](06_COMPREHENSIVE_DESIGN_LANGUAGE.md#3-mermaid-roshan-30-medium-25d-on-the-2d-canvas).
+Spatial nodes, models and Blender/Meshy directions remain shrinking migration
+debt or labelled history. The deprecated-resources branch holds retired assets
+for preservation.
 
 At merge `f3b0de078898a8b4faddb2c738c4403180eff928` (parents `ea6185fd`
 and `5f58ef0a`), GAME2D recorded the historical 68-production/77-probe
-checkpoint. The current audit remains **`UNSATISFIED`** while Sky shrinks the
+checkpoint. That audit was **`UNSATISFIED`** while the Sky Lagoon conversion shrank the
 exact inventory to 509 model files, all 509 active/export, 157 tracked
 sidecars, 352 active-untracked generated sidecars, 65 production 3D files, 70
 probe 3D files, one scene, and one configuration. Regression mode is exact

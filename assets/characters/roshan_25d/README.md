@@ -1,11 +1,11 @@
 # Mermaid Roshan 2D atlas contract
 
-**Binding owner decision (2026-08-09): Mermaid Roshan is 2D-only.** These flat
-images must be staged on the Canvas through `Node2D`/`Sprite2D` with explicit
-2D ordering. Roshan must not use a mesh, GLB, armature, character skeleton,
-rig, skin weights, or model fallback. The player's current
-`Node3D`/`Sprite3D` staging is measured migration debt, not an exception to
-this contract.
+**Mermaid Roshan 3.0 identity sources.** This approved RGBA family supplies
+existing Canvas atlas playback and source artwork for the Rigby2D authoring
+workflow. Keep source pixels and provenance. Use derived, versioned cutouts
+and export data under `DL-MED-02` and `DL-MOT-17`. Review the assembled
+actor as one figure at play scale. Existing spatial player staging remains
+migration debt.
 
 Retired 3D **resource blobs** live only on archive branch
 `codex/deprecated-resources-roshan-20260809` (verified archive head

@@ -44,13 +44,12 @@ python3 tools/audit_typography.py --check \
 # This also proves the shipped mask still matches the rig/albedo contract.
 python3 -m unittest tools.tests.test_bake_zone_mask \
 	|| { echo "BABY EAGLE RECOLOR MASK FAIL"; exit 1; }
-# Owner decision 2026-08-09: Mermaid Roshan is 2D-only. Prove the guard can
-# fail before trusting it, then reject model assets, rig APIs, missing atlases,
-# or a future CI bypass before Godot imports anything.
+# Roshan's 3.0 Canvas rig is eligible. Guard retired 3D model assets and
+# player APIs, required shipping atlases, and both CI entry points.
 python3 tools/audit_roshan_2d.py --stress \
 	|| { echo "ROSHAN 2D AUDIT SELF-TEST FAIL"; exit 1; }
 python3 tools/audit_roshan_2d.py \
-	|| { echo "ROSHAN 2D-ONLY CONTRACT FAIL"; exit 1; }
+	|| { echo "ROSHAN 2D CHARACTER SOURCE CONTRACT FAIL"; exit 1; }
 # The character audit above remains the narrow atlas/identity invariant.  The
 # game-wide owner contract is a shrinking migration gate: its self-tests run
 # before import, while the exact inventory runs after import has recreated the

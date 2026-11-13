@@ -31,11 +31,15 @@ Engine/editor/release validator: **exactly Godot 4.7.2-stable**. The
 permit Godot 4.4 or a 4.7 development build. Renderer: **Mobile** on every
 platform. GDScript uses tabs and typed variables where present.
 
-Final runtime medium (owner 2026-08-09): true Canvas/Node2D 2D game-wide.
+Mermaid Roshan 3.0 uses 2.5D presentation and a 2D Canvas runtime. Rigby2D
+is the character authoring format. A production integration must pin the
+source, export and runtime dependencies, produce native Canvas-compatible
+data, and pass fresh import, analyzer and Android build checks on the
+existing Mobile path. Follow `DL-MOT-17`.
 `Node3D`, `Sprite3D`, `Camera3D`, models, spatial shaders, 3D lights/physics and
 `Vector3`/`Transform3D` world logic are exact shrinking migration debt, never
 accepted architecture for new or converted work.
-Current source `51d0abc0` is **`UNSATISFIED`** at 509 model/export files, 65
+Historical source `51d0abc0` was **`UNSATISFIED`** at 509 model/export files, 65
 production 3D files and 70 probe 3D files. The complete exact inventory is 509
 model files/509 active exports, 157 tracked sidecars, 352 active-untracked
 generated sidecars, one 3D scene, and one 3D configuration;

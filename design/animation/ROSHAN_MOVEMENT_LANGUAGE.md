@@ -219,7 +219,11 @@ before changing the world or awarding progress.
 Use the existing architecture. The protocol's clip/state names are semantic
 brief fields, not shipped APIs or a commission to build another framework.
 Keep world/camera travel separate from decorative offsets; use the accepted
-2D Canvas path. Never add 3D bodies, skeletons or model fallbacks.
+2D Canvas path. Rigby2D is the 3.0 gameplay rig standard under `DL-MED-02`
+and `DL-MOT-17`. The assembled actor reads as one figure. Apply this profile
+to the rig's rest pose, authored views, bindings and contact actions.
+Keep the Sky Lagoon swim notes below with that predecessor route, and
+evaluate Forest actions against the actual authored terrain and interactions.
 
 Optional reactions yield to intentional input. Work interruptions specify
 whether cancellation occurs before contact, after contact but before visible

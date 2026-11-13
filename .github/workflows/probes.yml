@@ -84,8 +84,8 @@ jobs:
           python3 tools/audit_godot_baseline.py --godot godot
           python3 -m gdtoolkit.parser $(find scripts -name '*.gd')
           python3 tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.gd
-          # Owner decision 2026-08-09: Mermaid Roshan is 2D-only. The stress
-          # pass proves every rule can fail before the real project is gated.
+          # Permit Canvas rigs while rejecting retired Roshan 3D paths
+          # and guarding the atlases still required by shipping playback.
           python3 tools/audit_roshan_2d.py --stress
           python3 tools/audit_roshan_2d.py
           # The Roshan audit remains the narrow atlas/identity invariant. The
