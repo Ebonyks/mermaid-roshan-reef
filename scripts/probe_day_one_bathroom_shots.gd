@@ -79,13 +79,17 @@ func _run() -> void:
 		"d1_intro": true, "d1_bath_arrival": true, "d1_bath_clean": true,
 	}
 	main._day_one_ref().restore_state({
+		"day_one_route_version": DayOneDirector.ROUTE_VERSION,
 		"day_one_active": true,
 		"day_one_current_room": "bathroom",
-		"day_one_completed_rooms": [],
+		"day_one_completed_rooms": ["art"],
 		"day_one_bathroom_cleanup_step": 0,
 		"day_one_bathroom_supply_hunt_step": 0,
 		"day_one_bathroom_tools_authorized": false,
 	})
+	_check("visual bathroom fixture carries the earned Craft brush",
+		main.day_one_art_brush_earned
+		and main._day_one_ref().current_room_id == "bathroom")
 	main.pearl_count = main.PEARL_TOTAL
 	main.level2_done_once = true
 	main._enter_level2_now(true, false, false)
@@ -117,6 +121,16 @@ func _run() -> void:
 		quit(1)
 		return
 	var entry: Dictionary = cleanup.audit_snapshot()
+	var earned_brush: Sprite2D = cleanup._supply_nodes[1] as Sprite2D
+	_check("Craft brush visibly belongs to Roshan outside the basket",
+		bool(entry.get("earned_brush_visible_with_roshan", false))
+		and earned_brush.visible
+		and earned_brush.texture != null
+		and earned_brush.texture.resource_path ==
+			"res://assets/castle/day_one_art_studio/magic_cleaning_brush.png"
+		and bool(earned_brush.get_meta("earned_in_craft", false))
+		and earned_brush.get_meta("owner_character", "") == "roshan"
+		and not bool(earned_brush.get_meta("visible_in_basket", true)))
 	_check("entry is dirty with one basket target",
 		bool(entry.get("sink_grime_visible", false))
 		and bool(entry.get("tub_grime_visible", false))

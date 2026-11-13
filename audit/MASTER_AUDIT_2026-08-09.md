@@ -32,6 +32,15 @@ interruption safety and sprite-smoother teardown. Exact validation and
 remaining visual/device/child/owner gaps stay in that record; existing
 finding lifecycles and game-wide satisfaction are unchanged.
 
+Owner-directed [Craft Room first and brush continuity](../design/audit_impacts/day-one-craft-first-20261110.json),
+`CHG-CRAFT-FIRST-20261110`: the guided Day One route now starts in Craft,
+where touch-to-put-away and a first counter scrub reveal the shell and a
+contact pickup earns the brush. The same shell leads to the Bathroom door
+and the same owned brush is used there. Versioned save normalization keeps
+legitimate historic room and partial-task progress; unresolved Eagle adoption
+remains resumable before the Royal Hall. This is a scoped candidate, with
+machine and displayed/device/child/owner evidence separated in the impact.
+
 | Planning question | Current answer and authority |
 |---|---|
 | How should an agent develop a chapter? | Use the [chapter guide](../design/09_CHAPTER_DEVELOPMENT_GUIDE.md) and [brief](../design/templates/CHAPTER_BRIEF_V1.md). The owner approves premise/boundaries; the agent develops the playable result within them, without another routine planning/expansion checkpoint. Known gaps and their repair plan: [`MA-DOC-010`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-010) and the [chapter-guide handoff](../docs/handoffs/codex_chapter_guide_2026-10-31/README.md). |

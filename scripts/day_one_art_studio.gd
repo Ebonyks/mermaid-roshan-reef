@@ -24,6 +24,8 @@ const GRIME: Array[Dictionary] = [
 ]
 const DESK_CENTER := Vector2(512.0, 311.0)
 const DESK_HIT_SIZE := Vector2(310.0, 158.0)
+const PICKER_CENTER := DESK_CENTER + Vector2(106.0, 18.0)
+const SHELL_CENTER := Vector2(223.0, 386.0)
 const SOURCE_CANVAS_SIZE := Vector2(1024.0, 576.0)
 const ART_TO_STAGE := 1.25
 const ART_BRUSHES := preload("res://assets/castle/day_one_art_studio/loose_brush_bundle.png")
@@ -33,6 +35,8 @@ const ART_PAINT_CUPS := preload("res://assets/castle/day_one_art_studio/paint_cu
 const ART_GRIME_LEFT := preload("res://assets/castle/day_one_art_studio/grime_left.png")
 const ART_GRIME_DESK := preload("res://assets/castle/day_one_art_studio/grime_desk.png")
 const ART_GRIME_RIGHT := preload("res://assets/castle/day_one_art_studio/grime_right.png")
+const COUNTER_SCRUBBER := preload(
+	"res://assets/castle/day_one_pool/activities/waterfall_scrubber.png")
 const CLEANING_BRUSH := preload("res://assets/castle/day_one_art_studio/magic_cleaning_brush.png")
 const CONTACT_SHADOW := preload("res://assets/flats/castle/rooms/room_actor_shadow.png")
 const SPARKLE_COLORS: Array[Color] = [
@@ -49,6 +53,10 @@ var _material_shadows: Dictionary = {}
 var _grime_art: Dictionary = {}
 var _world_visual_layer: Node2D = null
 var _desk_button: Button = null
+var _brush_button: Button = null
+var _shell_button: Button = null
+var _brush_art: Sprite2D = null
+var _shell_art: Sprite2D = null
 var _pointer: Label = null
 var _desk_glow: Label = null
 var _pulse_time: float = 0.0
@@ -126,18 +134,40 @@ func refresh_from_state() -> void:
 		var grime_button: Button = _grime_buttons[grime_id] as Button
 		var cleaned: bool = bool(m.day_one_art_cleaned_grime.get(grime_id, false))
 		var materials_ready: bool = _all_materials_collected()
-		grime_button.visible = materials_ready and not cleaned
+		grime_button.visible = materials_ready and not cleaned and (
+			grime_id == DayOneDirector.ART_SHELL_COUNTER or m.day_one_art_desk_unlocked)
 		grime_button.mouse_filter = Control.MOUSE_FILTER_STOP \
 			if grime_button.visible and _pending_id == "" else Control.MOUSE_FILTER_IGNORE
 	if _pending_kind != "grime":
 		_furniture.refresh(m.day_one_art_cleaned_grime)
 	var ready: bool = bool(m.day_one_art_desk_unlocked)
+	var brush_earned: bool = bool(m.day_one_art_brush_earned)
+	var shell_revealed: bool = ready
+	if _brush_art != null:
+		_brush_art.visible = ready and not brush_earned
+	if _brush_button != null:
+		_brush_button.visible = ready and not brush_earned and not _customizer_open
+		_brush_button.mouse_filter = Control.MOUSE_FILTER_STOP \
+			if _brush_button.visible and _pending_id == "" else Control.MOUSE_FILTER_IGNORE
+	if _shell_art != null:
+		_shell_art.visible = shell_revealed
+	if _shell_button != null:
+		_shell_button.visible = shell_revealed and brush_earned
+		_shell_button.mouse_filter = Control.MOUSE_FILTER_STOP \
+			if _shell_button.visible and _pending_id == "" else Control.MOUSE_FILTER_IGNORE
+	# The desk pickup owns the overlapping desk surface until the brush is earned.
+	# Its optional grime task remains available afterward.
+	var desk_grime: Button = _grime_buttons.get("desk_counter") as Button
+	if desk_grime != null and ready and not brush_earned:
+		desk_grime.visible = false
 	if _desk_button != null:
-		_desk_button.visible = ready and not _customizer_open
+		_desk_button.visible = ready and brush_earned and not _customizer_open
 		_desk_button.mouse_filter = Control.MOUSE_FILTER_STOP \
-			if _desk_button.visible else Control.MOUSE_FILTER_IGNORE
+			if _desk_button.visible and _pending_id == "" else Control.MOUSE_FILTER_IGNORE
 	if _desk_glow != null:
 		_desk_glow.visible = ready
+		var glow_center: Vector2 = PICKER_CENTER if brush_earned else DESK_CENTER
+		_desk_glow.position = glow_center - _desk_glow.size * 0.5
 	_refresh_pointer()
 
 
@@ -172,6 +202,8 @@ func probe_collect_all() -> bool:
 
 func _process(delta: float) -> void:
 	_pulse_time += maxf(delta, 0.0)
+	if _pending_kind == "brush" and _brush_art != null:
+		_brush_art.visible = not _contact_action.in_contact()
 	if _carrying and _contact_action.active:
 		var carried: Sprite2D = _material_art.get(_pending_id) as Sprite2D
 		if carried != null:
@@ -203,8 +235,16 @@ func _build_targets() -> void:
 		_grime_buttons[grime_id] = _make_target_button(
 			"Scrub_" + grime_id, _grime_center(grime_id),
 			grime["hit_size"] as Vector2, _on_grime_pressed.bind(grime_id))
-	_desk_button = _make_target_button("OpenPaintDesk", DESK_CENTER, DESK_HIT_SIZE,
+	_desk_button = _make_target_button("OpenPaintDesk", PICKER_CENTER, Vector2(90.0, 90.0),
 		_on_desk_pressed)
+	_brush_button = _make_target_button("TakeCleaningBrush", DESK_CENTER,
+		DESK_HIT_SIZE, _on_brush_pressed)
+	_brush_button.z_index = 20
+	_brush_button.tooltip_text = "Take the magic cleaning brush"
+	_shell_button = _make_target_button("EnterBathroomThroughShell",
+		SHELL_CENTER, Vector2(116.0, 100.0), _on_shell_pressed)
+	_shell_button.z_index = 21
+	_shell_button.tooltip_text = "Follow the shell"
 	_desk_button.z_index = 18
 	_desk_button.tooltip_text = "Open the glowing paint desk"
 	_desk_glow = Label.new()
@@ -252,6 +292,13 @@ func _build_item_art() -> void:
 	# Keep the established audit seam pointed at each actual surface, rather
 	# than creating another translucent grime decal above a clean fixture.
 	_grime_art = _furniture.cards.duplicate()
+	var shell_counter: Sprite2D = _grime_art[DayOneDirector.ART_SHELL_COUNTER] as Sprite2D
+	_shell_art = _make_world_card("BathroomShell", ReefMain.DAY_ONE_BATHROOM_SHELL,
+		SHELL_CENTER, Vector2(58.0, 58.0), shell_counter.z_index + 1)
+	_brush_art = _make_world_card("EarnableCleaningBrush", CLEANING_BRUSH,
+		DESK_CENTER, Vector2(72.0, 72.0), 270)
+	_shell_art.visible = false
+	_brush_art.visible = false
 
 
 func _make_world_card(card_name: String, texture: Texture2D, center: Vector2,
@@ -304,6 +351,7 @@ func _build_pointer() -> void:
 
 func _on_material_pressed(material_id: String) -> void:
 	if m == null or _pending_id != "" or not _contact_action.available() \
+			or not _material_buttons.has(material_id) \
 			or bool(m.day_one_art_collected_materials.get(material_id, false)):
 		return
 	_pending_kind = "material"
@@ -360,6 +408,8 @@ func _animate_storage_station(material_id: String) -> void:
 func _on_grime_pressed(grime_id: String) -> void:
 	if m == null or _pending_id != "" or not _all_materials_collected() \
 			or not _contact_action.available() \
+			or not _grime_buttons.has(grime_id) \
+			or (grime_id != DayOneDirector.ART_SHELL_COUNTER and not m.day_one_art_desk_unlocked) \
 			or bool(m.day_one_art_cleaned_grime.get(grime_id, false)):
 		return
 	_pending_kind = "grime"
@@ -368,8 +418,8 @@ func _on_grime_pressed(grime_id: String) -> void:
 		_grime_context_caption(grime_id))
 	if not _contact_action.request(_furniture.scrub_start(grime_id),
 			_finish_grime.bind(grime_id), {
-				"tool_texture": CLEANING_BRUSH,
-				"tool_size": Vector2(68.0, 68.0),
+				"tool_texture": COUNTER_SCRUBBER,
+				"tool_size": Vector2(58.0, 58.0),
 				"work_duration": 1.10,
 				"work_end": _furniture.scrub_end(grime_id),
 				"work_progress": _scrub_progress.bind(grime_id),
@@ -386,9 +436,13 @@ func _finish_grime(grime_id: String) -> void:
 	_spawn_clean_sparkles(_grime_center(grime_id))
 	if not _record_cleanup("grime", grime_id):
 		return
-	if _all_grime_cleaned():
-		_say_day_one_context("day1_art_desk_unlock",
-			"The paint table is glowing! Let's make something!", 0)
+	if grime_id == DayOneDirector.ART_SHELL_COUNTER:
+		_say_day_one_context(_grime_context_key(grime_id),
+			"The left counter is clean!", 0)
+		if bool(m.day_one_art_desk_unlocked):
+			_say_day_one_context("day1_art_desk_unlock",
+				"The paint table is glowing!", 0)
+	refresh_from_state()
 
 
 func _record_cleanup(kind: String, item_id: String) -> bool:
@@ -400,7 +454,8 @@ func _record_cleanup(kind: String, item_id: String) -> bool:
 
 
 func _on_desk_pressed() -> void:
-	if m == null or not bool(m.day_one_art_desk_unlocked) or _customizer_open:
+	if m == null or not bool(m.day_one_art_desk_unlocked) \
+			or not bool(m.day_one_art_brush_earned) or _customizer_open or _pending_id != "":
 		return
 	_customizer_open = true
 	m._ui_tap()
@@ -430,23 +485,47 @@ func _on_customization_confirmed(_result: Variant = null) -> void:
 		return
 	_say_day_one_context("day1_art_customization_confirmed",
 		"Our colors are ready!", 0)
-	var result: Variant = m.call("day_one_complete_art_scene")
-	if result is bool and not bool(result):
-		# A repeated confirmation is harmless, but the visual state should still
-		# follow the saved customization flag supplied by the main state owner.
+	m.call("_write_save")
+	refresh_from_state()
+
+
+func _on_brush_pressed() -> void:
+	if m == null or not bool(m.day_one_art_desk_unlocked) \
+			or bool(m.day_one_art_brush_earned) or _pending_id != "" \
+			or not _contact_action.available():
+		return
+	_pending_kind = "brush"
+	_pending_id = "cleaning_brush"
+	if not _contact_action.request(_furniture.contact("desk_counter"),
+			_finish_brush, {
+				"tool_texture": CLEANING_BRUSH,
+				"tool_size": Vector2(68.0, 68.0),
+				"cancelled": _cancel_pending}):
+		_cancel_pending()
+	refresh_from_state()
+
+
+func _finish_brush() -> void:
+	if m == null or bool(m.day_one_art_brush_earned):
+		return
+	m._ui_tap()
+	_clear_pending()
+	var claimed: Variant = m.call("day_one_claim_art_brush")
+	if claimed is bool and not bool(claimed):
 		refresh_from_state()
 		return
-	m.call("_day_one_sync_castle_dressing")
-	m.call("_write_save")
-	# Completion makes the art room a normal, replayable castle room. Ask the
-	# castle satellite to remove this temporary overlay before returning to its
-	# regular Craft Room interactions.
-	var rooms: Variant = m.call("_castle_rooms_ref")
-	if rooms is Object and (rooms as Object).has_method("_clear_day_one_art_studio"):
-		_say_day_one_context("day1_art_complete",
-			"All clean! The floor is twinkling!", 0)
-		(rooms as Object).call("_clear_day_one_art_studio")
-	else:
+	_spawn_clean_sparkles(DESK_CENTER)
+	refresh_from_state()
+	_announce_shell_exit()
+
+
+func _on_shell_pressed() -> void:
+	if m == null or not bool(m.day_one_art_desk_unlocked) \
+			or not bool(m.day_one_art_brush_earned) or _pending_id != "":
+		return
+	m._ui_tap()
+	var result: Variant = m.call("day_one_complete_art_scene")
+	if result is bool and not bool(result):
 		refresh_from_state()
 
 
@@ -461,15 +540,14 @@ func _refresh_pointer() -> void:
 			found = true
 			break
 	if not found:
-		for grime: Dictionary in GRIME:
-			if not bool(m.day_one_art_cleaned_grime.get(String(grime["id"]), false)):
-				target = _grime_center(String(grime["id"]))
-				found = true
-				break
-	if not found and bool(m.day_one_art_desk_unlocked) and not _customizer_open:
-		target = DESK_CENTER
-		found = true
-	_pointer.visible = found
+		var shell_counter: String = DayOneDirector.ART_SHELL_COUNTER
+		if not bool(m.day_one_art_cleaned_grime.get(shell_counter, false)):
+			target = _grime_center(shell_counter)
+			found = true
+		elif m.day_one_art_desk_unlocked:
+			target = SHELL_CENTER if m.day_one_art_brush_earned else DESK_CENTER
+			found = true
+	_pointer.visible = found and _pending_id == "" and not _customizer_open
 	if found:
 		# Keep the fingertip directly above this object, inside its own generous
 		# hit region. A sideways offset points at the neighbouring paint bottle.
@@ -485,15 +563,23 @@ func _announce_current_target() -> void:
 			_say_day_one_context(_material_context_hint_key(material_id),
 				"Tap the %s!" % String(material["label"]))
 			return
-	for grime: Dictionary in GRIME:
-		if not bool(m.day_one_art_cleaned_grime.get(String(grime["id"]), false)):
-			var grime_id := String(grime["id"])
-			_say_day_one_context(_grime_context_hint_key(grime_id),
-				"Now scrub the %s!" % String(grime["label"]))
-			return
-	if bool(m.day_one_art_desk_unlocked) and not _customizer_open:
+	if not bool(m.day_one_art_cleaned_grime.get("left_counter", false)):
+		_say_day_one_context(_grime_context_hint_key("left_counter"),
+			"Now scrub the left counter!")
+		return
+	if not bool(m.day_one_art_brush_earned) \
+			and bool(m.day_one_art_desk_unlocked):
 		_say_day_one_context("day1_art_desk_hint",
-			"The magic paint desk is glowing! Tap it!")
+			"Tap the glowing paint desk!")
+		return
+	if bool(m.day_one_art_brush_earned):
+		_announce_shell_exit()
+
+
+func _announce_shell_exit() -> void:
+	if _announcements_enabled:
+		m.show_msg("Roshan", "Brush earned! Tap the shell to find the way out!",
+			"day_one_new_door", 0.0)
 
 
 func _say_day_one_context(cue_id: String, caption: String,

@@ -13,6 +13,7 @@ var main: Node3D
 var player: Node3D
 
 const REQUIRED_DAY_ONE_SNAPSHOT_KEYS: Array[String] = [
+	"day_one_route_version",
 	"day_one_active", "day_one_current_room", "day_one_completed_rooms",
 	"day_one_cleaned_rooms", "day_one_jobs_locked", "day_one_opera_enabled",
 	"day_one_arrival_plane_media_seen", "day_one_dirty_castle_discovered",
@@ -25,6 +26,7 @@ const REQUIRED_DAY_ONE_SNAPSHOT_KEYS: Array[String] = [
 	"day_one_pool_skimmer_mask", "day_one_pool_waterfall_mask",
 	"day_one_pool_seahorse_tugs", "day_one_art_collected_materials",
 	"day_one_art_cleaned_grime", "day_one_art_desk_unlocked",
+	"day_one_art_brush_earned",
 	"day_one_art_customization_completed",
 ]
 

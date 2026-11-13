@@ -114,16 +114,32 @@ func _init() -> void:
 	var reef_main := main as ReefMain
 	var day_one: DayOneDirector = reef_main._day_one_ref()
 	day_one.restore_state({})
+	var fresh_art_first: bool = day_one.current_room_id == "art" \
+		and reef_main.day_one_can_enter_castle_room("craft_room") \
+		and not reef_main.day_one_can_enter_castle_room("bubble_bath")
 	var fresh_bathroom_locked: bool = not day_one.complete_tutorial("bathroom")
+	# This probe checks the bathroom boundary, not Craft interactions. Load a
+	# valid v2 checkpoint with Craft completed and its earned brush preserved.
+	day_one.restore_state({
+		"day_one_route_version": DayOneDirector.ROUTE_VERSION,
+		"day_one_active": true,
+		"day_one_current_room": "bathroom",
+		"day_one_completed_rooms": ["art"],
+		"day_one_cleaned_rooms": ["art"],
+		"day_one_art_brush_earned": true,
+	})
 	day_one.bathroom_supply_hunt_step = 2
 	day_one.bathroom_tools_authorized = true
 	day_one.bathroom_cleanup_step = 2
 	day_one.bathroom_toilet_cleaned = true
 	var day_one_ok: bool = reef_main.day_one_jobs_locked() \
 		and not reef_main.day_one_opera_enabled() \
+		and fresh_art_first \
 		and reef_main.day_one_can_enter_castle_room("bubble_bath") \
 		and not reef_main.day_one_can_enter_castle_room("mermaid_pool") \
 		and fresh_bathroom_locked \
+		and day_one.current_room_id == "bathroom" \
+		and reef_main.day_one_art_brush_earned \
 		and day_one.complete_tutorial("bathroom") \
 		and reef_main.day_one_can_enter_castle_room("mermaid_pool")
 	print("AUDIT|Day One lock and progressive room contract: ",

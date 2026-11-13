@@ -27,46 +27,35 @@ func _run() -> void:
 		and not director.art_desk_unlocked
 		and not director.art_customization_completed
 		and not director.complete_art_studio())
-	_check("one pickup and one scrub cannot unlock the desk",
-		director.record_art_cleanup("material", "brushes")
-		and director.record_art_cleanup("grime", "left_counter")
-		and not director.art_desk_unlocked)
+	# The state-only Art leg starts from the same fresh v2 route as the live UI.
+	director.day_one_active = true
+	director.current_room_id = "art"
 	for material_id: String in DayOneDirector.ART_MATERIAL_IDS:
 		director.record_art_cleanup("material", material_id)
-	for grime_id: String in DayOneDirector.ART_GRIME_IDS:
-		director.record_art_cleanup("grime", grime_id)
-	_check("all seven cleanup actions unlock the desk",
-		director.art_desk_unlocked and director.art_cleanup_complete())
-	_check("customization is desk-gated",
-		director.complete_art_customization()
-		and director.art_customization_completed)
-	# Move the route to the art room without touching the physical castle.
-	# Mirror the persisted bathroom boundary required by the live director. The
-	# art probe is state-only, so seed the already-completed rescue rather than
-	# pretending a fresh bathroom can complete without its two gestures.
-	director.bathroom_supply_hunt_step = 2
-	director.bathroom_tools_authorized = true
-	director.bathroom_cleanup_step = 2
-	director.bathroom_toilet_cleaned = true
-	director.complete_tutorial("bathroom")
-	director.complete_activity("pool", "pool_activity")
-	director.complete_activity("stuffie", "stuffie_activity")
-	_check("art completion uses the existing room order",
-		director.current_room_id == "art"
-		and director.complete_art_studio()
-		and director.is_room_completed("art"))
+	_check("supplies alone do not reveal the shell or unlock the desk",
+		not director.art_shell_revealed() and not director.art_desk_unlocked)
+	_check("first left scrub reveals shell and unlocks desk",
+		director.record_art_cleanup("grime", "left_counter")
+		and director.art_shell_revealed() and director.art_desk_unlocked)
+	_check("brush claim enables room exit without optional counters/profile",
+		director.claim_art_brush() and director.complete_art_studio()
+		and director.is_room_completed("art")
+		and director.art_cleaned_grime.size() == 1
+		and not director.art_customization_completed)
 	var saved: Dictionary = director.serialize_state()
 	_check("serialized art state is JSON-safe",
 		(saved.get("day_one_art_collected_materials", {}) as Dictionary).size() == 4
-		and (saved.get("day_one_art_cleaned_grime", {}) as Dictionary).size() == 3
+		and (saved.get("day_one_art_cleaned_grime", {}) as Dictionary).size() == 1
 		and bool(saved.get("day_one_art_desk_unlocked", false))
-		and bool(saved.get("day_one_art_customization_completed", false)))
+		and bool(saved.get("day_one_art_brush_earned", false))
+		and not bool(saved.get("day_one_art_customization_completed", false)))
 	var malformed: Dictionary = SaveState.new(main)._normalise_save({
 		"attack_color": "not-a-colour",
 		"attack_effect": "rainbow",
 		"day_one_art_collected_materials": ["PAINTS"],
 		"day_one_art_cleaned_grime": {"COUNTER": 1},
 		"day_one_art_desk_unlocked": true,
+		"day_one_art_brush_earned": true,
 		"day_one_art_customization_completed": true,
 	})
 	_check("malformed attack values use safe defaults",
@@ -78,6 +67,7 @@ func _run() -> void:
 		malformed.get("day_one_art_collected_materials", {}) == {"paints": true}
 		and malformed.get("day_one_art_cleaned_grime", {}) == {"counter": true}
 		and not bool(malformed.get("day_one_art_desk_unlocked", false))
+		and not bool(malformed.get("day_one_art_brush_earned", false))
 		and not bool(malformed.get("day_one_art_customization_completed", false)))
 	var studio := DayOneArtStudio.new()
 	# The focused probe omits the full castle scene, so provide the same Canvas
@@ -91,22 +81,27 @@ func _run() -> void:
 	studio.setup(main, false)
 	touch_studio = studio
 	var studio_audit: Dictionary = studio.audit_snapshot()
-	_check("studio builds seven large Canvas cleanup targets at castle scale",
+	_check("studio builds touch-sized Canvas cleanup targets at castle scale",
 		int(studio_audit.get("material_count", 0)) == 4
 		and int(studio_audit.get("grime_count", 0)) == 3
 		and int(studio_audit.get("material_art_count", 0)) == 4
 		and int(studio_audit.get("grime_art_count", 0)) == 3
 		and bool(studio_audit.get("canvas_only", false))
 		and studio.scale.is_equal_approx(Vector2.ONE * 1.25))
-	# Exercise the actual seven touch handlers in their Day One room context.
+	# Exercise the actual touch handlers in their Day One room context.
 	# The craft-room paint-table card is shared with the later logo studio, so
 	# this is deliberately fail-closed: every cleanup tap must leave that layer
 	# absent, including the two taps that animate the shared station.
-	director.day_one_active = true
-	director.current_room_id = "art"
+	director.restore_state({
+		"day_one_route_version": DayOneDirector.ROUTE_VERSION,
+		"day_one_active": true,
+		"day_one_current_room": "art",
+		"day_one_completed_rooms": [],
+	})
 	main.day_one_art_collected_materials = {}
 	main.day_one_art_cleaned_grime = {}
 	main.day_one_art_desk_unlocked = false
+	main.day_one_art_brush_earned = false
 	main.day_one_art_customization_completed = false
 	studio.refresh_from_state()
 	root.size = Vector2i(1280, 720)
@@ -147,23 +142,52 @@ func _run() -> void:
 			and main.day_one_art_collected_materials.size() == before_count + 1)
 		_check("art tap %s never opens logo" % material_id,
 			main.castle_logo_layer == null)
-	for grime: Dictionary in DayOneArtStudio.GRIME:
-		var grime_id: String = String(grime["id"])
-		var grime_card: Sprite2D = studio._grime_art[grime_id] as Sprite2D
-		var grime_center: Vector2 = studio.get_global_transform_with_canvas() \
-			* studio._grime_center(grime_id)
-		var hand_center: Vector2 = studio._pointer.get_global_transform_with_canvas() \
-			* (studio._pointer.size * 0.5)
-		_check("hand points above visible %s" % grime_id,
-			absf(hand_center.x - grime_center.x) < 1.0 and hand_center.y < grime_center.y)
-		await _art_gui_tap(grime_center)
-		_check("visible %s touch cleans its own spot" % grime_id,
-			bool(main.day_one_art_cleaned_grime.get(grime_id, false)))
-		_check("art tap %s never opens logo" % grime_id,
-			main.castle_logo_layer == null)
-	_check("seven art taps finish cleanup without logo hijack",
-		director.art_cleanup_complete() and director.art_desk_unlocked
+	var left_id := "left_counter"
+	var left_button: Button = studio._grime_buttons[left_id] as Button
+	var left_center: Vector2 = left_button.get_global_rect().get_center()
+	_check("shell stays hidden before first actual scrub",
+		studio._shell_art != null and not studio._shell_art.visible
+		and not studio._shell_button.visible
+		and not main.day_one_art_desk_unlocked)
+	var hand_center: Vector2 = studio._pointer.get_global_transform_with_canvas() \
+		* (studio._pointer.size * 0.5)
+	_check("hand points at the first left-counter scrub",
+		absf(hand_center.x - left_center.x) < 1.0 and hand_center.y < left_center.y)
+	await _art_gui_tap(left_center)
+	_check("first actual scrub reveals shell and desk brush",
+		bool(main.day_one_art_cleaned_grime.get(left_id, false))
+		and main.day_one_art_cleaned_grime.size() == 1
+		and main.day_one_art_desk_unlocked
+		and studio._shell_art.visible
+		and studio._brush_button.visible
+		and not studio._shell_button.visible
 		and main.castle_logo_layer == null)
+	_check("optional counters remain unfinished",
+		not bool(main.day_one_art_cleaned_grime.get("desk_counter", false))
+		and not bool(main.day_one_art_cleaned_grime.get("right_counter", false)))
+	var brush_button: Button = studio._brush_button
+	await _art_gui_press(brush_button.get_global_rect().get_center())
+	_check("brush tap requests contact without remote earning",
+		studio._pending_kind == "brush" and not main.day_one_art_brush_earned)
+	studio._contact_action.cancel()
+	for _step: int in range(40):
+		studio._contact_action._process(0.05)
+		studio._process(0.05)
+	_check("cancelled brush approach cannot award later",
+		studio._pending_id == "" and not main.day_one_art_brush_earned
+		and studio._brush_button.visible)
+	await _art_gui_tap(brush_button.get_global_rect().get_center())
+	_check("real brush contact earns the brush",
+		main.day_one_art_brush_earned and studio._pending_id == ""
+		and studio._shell_button.visible and main.castle_logo_layer == null)
+	# The shell is a direct touch exit. Optional counters do not gate it.
+	await _art_gui_tap(studio._shell_button.get_global_rect().get_center())
+	_check("shell touch exits while optional counters stay dirty",
+		director.is_room_completed("art")
+		and main.day_one_art_cleaned_grime.size() == 1
+		and not bool(main.day_one_art_cleaned_grime.get("desk_counter", false))
+		and not bool(main.day_one_art_cleaned_grime.get("right_counter", false))
+		and not main.day_one_art_customization_completed)
 	var customizer := AttackCustomizer.new()
 	# Mount the picker under the SceneTree root, as the live CanvasLayer path does.
 	# `main` is intentionally state-only and is not in the tree, so a CanvasLayer
@@ -272,6 +296,21 @@ func _art_gui_tap(point: Vector2) -> void:
 		for _step: int in range(160):
 			touch_studio._contact_action._process(0.05)
 			touch_studio._process(0.05)
+
+
+func _art_gui_press(point: Vector2) -> void:
+	var press := InputEventScreenTouch.new()
+	press.index = 0
+	press.pressed = true
+	press.position = point
+	Input.parse_input_event(press)
+	await process_frame
+	var release := InputEventScreenTouch.new()
+	release.index = 0
+	release.pressed = false
+	release.position = point
+	Input.parse_input_event(release)
+	await process_frame
 
 
 func _check(label: String, ok: bool) -> void:

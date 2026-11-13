@@ -74,9 +74,11 @@ func _picker_case() -> void:
 	var director: DayOneDirector = main._day_one_ref()
 	director.restore_state({
 		"day_one_active": true,
+		"day_one_route_version": DayOneDirector.ROUTE_VERSION,
 		"day_one_current_room": "stuffie",
-		"day_one_completed_rooms": ["bathroom", "pool"],
-		"day_one_cleaned_rooms": ["bathroom", "pool"],
+		"day_one_completed_rooms": ["art", "bathroom", "pool"],
+		"day_one_cleaned_rooms": ["art", "bathroom", "pool"],
+		"day_one_art_brush_earned": true,
 		"day_one_dirty_castle_discovered": true,
 		"day_one_bathroom_supply_hunt_step": 2,
 		"day_one_bathroom_tools_authorized": true,
@@ -199,6 +201,12 @@ func _picker_case() -> void:
 			"StuffieRescueTutorialPointer") != null
 		and main.companion_stage.find_children(
 			"StuffieCard_*", "Button", true, false).size() == 1)
+	_ck("final-room rescue keeps Royal Hall blocked until adoption",
+		director.is_room_completed("stuffie")
+		and director.boss_door_glow
+		and not main.day_one_boss_door_ready()
+		and main.day_one_castle_room_for_current() == "playroom"
+		and main._day_one_next_handoff_room() != "__royal_hall")
 	var picker_back: Node = main.companion_stage.find_child(
 		"StuffiePickerBackButton", true, false)
 	var global_back: Button = main.global_navigation_button
@@ -210,11 +218,21 @@ func _picker_case() -> void:
 	_ck("closing before confirmation leaves a safe castle state",
 		main.companion_layer == null and main.companion_id == ""
 		and bool(main.g.get("stuffie_rescue_tutorial", false)))
-	rooms.show_room("playroom", false)
+	# Exercise the durable Continue path with an isolated probe save. The
+	# pending adoption must survive a real SaveState write/read and reorient to
+	# Playroom, while Royal Hall remains unavailable.
+	main._save_state = SaveState.new(main,
+		"user://day_one_stuffie_pending_eagle_probe.json")
+	main._write_save()
+	main._save_state.load_save()
+	main._day_one_reorient_after_exit_now()
 	await _settle(3)
-	_ck("playroom re-entry reopens the unconfirmed adoption",
+	_ck("saved unconfirmed adoption resumes in Playroom with Royal Hall blocked",
 		main.companion_layer != null and main.companion_pick_id == "eagle"
-		and main.companion_id == "")
+		and main.companion_id == ""
+		and main.day_one_castle_room_for_current() == "playroom"
+		and not main.day_one_boss_door_ready()
+		and main._day_one_next_handoff_room() != "__royal_hall")
 	var eagle_colors: Array = main.companion_pick_colors.duplicate()
 	comp._pick_color_slot(1)
 	comp._pick_color(1, Color(0.45, 0.82, 0.95))
@@ -231,6 +249,11 @@ func _picker_case() -> void:
 		main.companion_id == "eagle"
 		and main.companion_layer == null
 		and not main.g.has("stuffie_rescue_tutorial"))
+	await process_frame
+	_ck("adoption confirmation releases the final-room Royal Hall route",
+		director.is_room_completed("stuffie")
+		and main.day_one_boss_door_ready()
+		and main._day_one_next_handoff_room() == "__royal_hall")
 	rooms._add_playroom_rescue_pointer()
 	_ck("completed rescue cannot recreate its pointer",
 		main.castle_room_item_effect_layer.get_node_or_null("BabyEagleRescuePointer") == null)

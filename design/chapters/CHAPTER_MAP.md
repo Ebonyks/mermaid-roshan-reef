@@ -11,7 +11,7 @@ Read the [canon](../reference/CANON.md), [book source](../reference/BOOK_SOURCES
 | Field | Value |
 |---|---|
 | Aliases | Day One |
-| Premise | Roshan arrives at the dusty Pearl Castle and cleans it room by room: Bubble Bathroom (tutorial), Sparkle Pool, Stuffie Room and Art Room. The boss door then glows and she faces Grand Puff alone. |
+| Premise | Roshan arrives at the dusty Pearl Castle and starts in the Craft Room. The first scrub reveals a shell leading to the Bubble Bathroom, where she uses the brush she earned in Craft. Sparkle Pool and Stuffie Room follow; after Baby Eagle's adoption, the boss door glows and Roshan faces Grand Puff alone. |
 | Authorization | Existing game and owner-directed Day One clips (2026-09-23); acceptance remains open. |
 | Implementation | BUILT; acceptance open |
 | Evidence rung | COMMISSIONED |

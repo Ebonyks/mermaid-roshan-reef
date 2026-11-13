@@ -1741,9 +1741,22 @@ func _build_hall_portals() -> void:
 		m.castle_room_door_hotspot_layer.add_child(button)
 		if portal_id != ROYAL_HALL_PORTAL_ID:
 			m.castle_room_buttons[portal_id] = button
+		var shell: TextureRect = null
+		if portal_id == "bubble_bath":
+			shell = TextureRect.new()
+			shell.name = "DayOneBathroomShell"
+			shell.texture = ReefMain.DAY_ONE_BATHROOM_SHELL
+			shell.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			shell.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+			shell.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			shell.size = Vector2(68.0, 68.0)
+			shell.z_index = 2
+			shell.visible = false
+			door_visual_layer.add_child(shell)
 		m.castle_room_door_hotspots.append({
 			"button": button,
 			"cue": cue,
+			"shell": shell,
 			"data": portal_data,
 		})
 	m.castle_room_door_hotspot_layer.visible = false
@@ -1773,12 +1786,8 @@ func refresh_door_states() -> void:
 
 
 func _act_one_current_destination_id() -> String:
-	for destination_value: Variant in m.DAY_ONE_CASTLE_ROOM_IDS.keys():
-		var destination_id: String = String(destination_value)
-		if String(m.DAY_ONE_CASTLE_ROOM_IDS[destination_id]) \
-				== m.day_one_current_room_id:
-			return destination_id
-	return ""
+	var destination: String = m.day_one_castle_room_for_current()
+	return destination if m.DAY_ONE_CASTLE_ROOM_IDS.has(destination) else ""
 
 
 func _act_one_completed_destination_ids() -> Array[String]:
@@ -5056,7 +5065,7 @@ func _check_playroom_rescue_complete() -> void:
 	# The completion answer is followed by one explicit, actionable next-door
 	# handoff. Keep it after the rescue line so the final caption and required
 	# voice key are the route instruction the child can act on.
-	m.call("_show_day_one_room_handoff", "craft_room", "day_one_new_door")
+	m._show_day_one_next_room_handoff()
 	if eagle == null or not is_instance_valid(eagle):
 		_open_playroom_stuffie_tutorial()
 		return
@@ -5384,6 +5393,13 @@ func _update_hall_portals() -> void:
 		var projected := Rect2(left, top, right - left, bottom - top)
 		var canvas_rect := Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE)
 		button.visible = projected.intersects(canvas_rect)
+		var shell: TextureRect = record.get("shell") as TextureRect
+		if shell != null:
+			shell.visible = button.visible and m.day_one_is_active() \
+				and m.day_one_art_brush_earned and m.day_one_current_room_id == "bathroom" \
+				and _act_one_current_destination_id() == portal_id
+			shell.position = projected.position \
+				+ projected.size * Vector2(0.5, 0.45) - shell.size * 0.5
 		if cue != null:
 			# Only touch bounds are clipped; keep the complete painted silhouette.
 			cue.position = projected.position

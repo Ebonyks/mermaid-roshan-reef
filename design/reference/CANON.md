@@ -397,7 +397,7 @@ Retired destination; no new route or fallback authorized.
 
 **Day One** — ACTIVE
 
-Arrival, dusty castle, bathroom/pool/stuffie/art restoration, Grand Puff faced alone, family joining only in the transformation clip, Rainbow Friend follower and the Day Two transition.
+Arrival and dusty castle, then Craft Room → Bubble Bathroom → Sparkle Pool → Stuffie Room. Roshan earns the brush in Craft and uses that same brush in the Bathroom; the first Craft scrub reveals the shell that leads there. Grand Puff is faced alone, family joins only in the transformation clip, then the Rainbow Friend follows and Day Two begins.
 
 | Field | Source-bound value |
 |---|---|

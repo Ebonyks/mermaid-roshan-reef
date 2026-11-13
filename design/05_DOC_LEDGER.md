@@ -1,5 +1,11 @@
 # Master design — document ledger
 
+The owner-directed [Craft Room first route impact](audit_impacts/day-one-craft-first-20261110.json)
+records the Day One brush acquisition/continuity correction, the save migration
+and separate verification. It supersedes the old bathroom-first order for
+new Day One routing; historical playback/canon evidence remains scoped to
+its own revision. No document authority or finding lifecycle is changed.
+
 | Document | State | Authority / scope |
 |---|---|---|
 | `design/OPERA_HOUSE_EXPLORATION_V1_2026-10-31.md` | 🟣 | `PROPOSED_CURRENT`; owner-corrected 1:1 translation of the original Opera house into one continuous four-screen world. Original layout/art, authored travel, local fixture motion, complete painted crests, source-balanced Canvas color and above-door completion are review candidates. Thematic drafts are rejected; tiled7360×4140 detail and source-owned fixtures have measured coverage, while exact art, floor-constrained navigation correction, final layer review, production integration and visual/device/child/owner acceptance remain pending. No finding closure or Castle career ownership change. |
