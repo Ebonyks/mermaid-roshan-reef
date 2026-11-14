@@ -12,6 +12,7 @@ const Valley := preload("res://scripts/arena/enchanted_forest_landing_valley.gd"
 
 const LANDING := Vector2(660, 1190)
 const COVE_APPROACH := Vector2(2335, 1190)
+const COVE_GUIDE_RADIUS := 225.0
 const BRIDGE_STAND := Vector2(-83, 43)
 const SPEED := 514.0
 
@@ -19,6 +20,7 @@ enum Action { WALK, COVE_WAYMARK, COVE_CONTROL, BRIDGE_SHELL }
 
 var _root: Node2D
 var _ground: Node2D
+var _objective_pointer: Node2D
 var _terrain: Terrain
 var _bridge: Bridge
 var _cove: Cove
@@ -34,6 +36,7 @@ var _contact_time := 0.0
 var _bridge_bits := 0
 var _bridge_opening := 0.0
 var _clock := 0.0
+var _guiding_cove := false
 var _objective: StringName
 var _objective_point := Vector2.INF
 
@@ -74,6 +77,12 @@ func mount(parent: Node2D, actor: Node2D, spawn: Vector2,
 	_actor.position = _terrain.safe_point(spawn, LANDING)
 	_wildlife_hit = wildlife_hit
 	_valley.build(_ground, _can_place_scenery)
+	_objective_pointer = Node2D.new()
+	_objective_pointer.name = "ForestObjectivePointer"
+	_objective_pointer.z_index = 20
+	_objective_pointer.hide()
+	_objective_pointer.draw.connect(_draw_objective_pointer)
+	_root.add_child(_objective_pointer)
 	_camera = Camera2D.new()
 	_camera.zoom = Vector2.ONE * 0.98
 	_root.add_child(_camera)
@@ -125,6 +134,7 @@ func cancel_navigation() -> void:
 	_action = Action.WALK
 	_target = -1
 	_contact_time = 0.0
+	_guiding_cove = false
 	if is_instance_valid(_cove):
 		_cove.select_target(-1)
 	_set_objective(&"", Vector2.INF)
@@ -157,6 +167,10 @@ func tick(delta: float) -> void:
 			_bridge.celebrate()
 	_bridge.tick(delta)
 	_cove.tick(delta, _actor.global_position)
+	if _guiding_cove:
+		_update_cove_objective()
+	if _objective_pointer.visible:
+		_objective_pointer.queue_redraw()
 	_terrain.set_wind_time(_clock)
 	_valley.tick(_clock, _actor.position, delta)
 	_update_camera(delta)
@@ -177,6 +191,7 @@ func teardown() -> Node2D:
 		_previous_camera.make_current()
 	_root = null
 	_ground = null
+	_objective_pointer = null
 	_actor = null
 	_terrain = null
 	_bridge = null
@@ -199,6 +214,9 @@ func _hit_wildlife(point: Vector2) -> bool:
 func _request(point: Vector2, action: Action = Action.WALK, target: int = -1) -> void:
 	if action != Action.WALK and _action == action and _target == target:
 		return
+	if action == Action.COVE_WAYMARK and _guiding_cove and _action == Action.WALK \
+			and _path.is_empty() and _actor.position.distance_to(point) < 2.0:
+		return
 	# Resolve the destination before granting an action or selecting its object.
 	if action == Action.WALK and not _terrain.bridge_open:
 		if _actor.position.x < Terrain.BRIDGE.x and point.x > Terrain.BRIDGE.x:
@@ -217,6 +235,10 @@ func _request(point: Vector2, action: Action = Action.WALK, target: int = -1) ->
 	_target = target
 	_cove.select_target(target if action == Action.COVE_CONTROL else -1)
 	if action == Action.COVE_WAYMARK or action == Action.COVE_CONTROL:
+		_guiding_cove = false
+		_set_objective(&"", Vector2.INF)
+	elif _guiding_cove and dest.distance_to(_cove.position) >= COVE_GUIDE_RADIUS:
+		_guiding_cove = false
 		_set_objective(&"", Vector2.INF)
 	if _path.is_empty():
 		_arrive()
@@ -226,14 +248,18 @@ func _arrive() -> void:
 	match _action:
 		Action.COVE_WAYMARK:
 			_action = Action.WALK
-			if not _cove.found:
-				_set_objective(&"forest_cove_valve", _root.to_local(_cove.interaction_point(1)))
+			_guiding_cove = true
+			_update_cove_objective()
 		Action.COVE_CONTROL:
 			_contact_time = 0.10
 		Action.BRIDGE_SHELL:
 			_contact_time = 0.30
 		Action.WALK:
-			_update_bridge_objective()
+			_guiding_cove = _actor.position.distance_to(_cove.position) < COVE_GUIDE_RADIUS
+			if _guiding_cove:
+				_update_cove_objective()
+			else:
+				_update_bridge_objective()
 
 
 func _finish_contact() -> void:
@@ -243,7 +269,8 @@ func _finish_contact() -> void:
 	_target = -1
 	if action == Action.COVE_CONTROL:
 		_cove.interact(target)
-		_set_objective(&"", Vector2.INF)
+		_guiding_cove = true
+		_update_cove_objective()
 	elif action == Action.BRIDGE_SHELL:
 		_bridge_bits |= 1 << target
 		_bridge.sync(_bridge_bits, _bridge_opening)
@@ -259,11 +286,35 @@ func _update_bridge_objective() -> void:
 		_set_objective(&"", Vector2.INF)
 
 
+func _update_cove_objective() -> void:
+	var target: int = _cove.objective_target()
+	match target:
+		1:
+			_set_objective(&"forest_cove_valve", _root.to_local(_cove.interaction_point(target)))
+		2:
+			_set_objective(&"forest_cove_shell", _root.to_local(_cove.interaction_point(target)))
+		_:
+			_set_objective(&"", Vector2.INF)
+
+
+func _draw_objective_pointer() -> void:
+	var clearance := 56.0 if _objective == &"forest_bridge_shells" else 30.0
+	var tip := Vector2(0.0, -clearance - 3.0 * sin(_clock * 5.0))
+	var chevron := PackedVector2Array([tip + Vector2(-10, -11), tip, tip + Vector2(10, -11)])
+	_objective_pointer.draw_polyline(chevron, Color("#504455"), 7.0, true)
+	_objective_pointer.draw_polyline(chevron, Color("#fff0b3"), 3.5, true)
+
+
 func _set_objective(key: StringName, point: Vector2) -> void:
 	if _objective == key and _objective_point == point:
 		return
 	_objective = key
 	_objective_point = point
+	if is_instance_valid(_objective_pointer):
+		_objective_pointer.visible = point.is_finite()
+		if _objective_pointer.visible:
+			_objective_pointer.position = point
+			_objective_pointer.queue_redraw()
 	objective_changed.emit(key, point)
 
 

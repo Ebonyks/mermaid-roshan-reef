@@ -1,0 +1,46 @@
+{
+  "id": "enchanted-forest-objective-guidance-20261113",
+  "scope": "Wire one visible world-space guidance pointer and target ownership for the bridge and Reed Cove on the dormant Forest route. Clear predecessor route dialogue when the Forest gains ownership.",
+  "baseline": "e19e88bcf4735f26ab48a963a93327b56029cdd4",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-READ-02",
+    "DL-READ-03",
+    "DL-LAY-11",
+    "DL-INT-01",
+    "DL-INT-04",
+    "DL-SND-03",
+    "DL-SND-13",
+    "DL-SAVE-01",
+    "DL-QA-01",
+    "DL-QA-02"
+  ],
+  "findings": [
+    "MA-ACCESS-001",
+    "MA-AUDIO-001",
+    "MA-TOUCH-001"
+  ],
+  "files": [
+    "docs/ENCHANTED_FOREST_LANDING_VALLEY_PORT.md",
+    "design/05_DOC_LEDGER.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "scripts/arena/enchanted_forest_route.gd",
+    "scripts/arena/enchanted_forest_reed_cove.gd",
+    "scripts/main.gd"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2 direct route fixture in headless and desktop Mobile at 1280x720 and 1600x720",
+      "result": "PASS",
+      "evidence": "Exact viewport routing, pointer coordinates and pixel removal comparison passed at both widths. Covered predecessor dialogue, repeat waymark, left valve, right-valve movement and deposit, shell pickup, focus/pause cancellation, bridge handback, SaveState and Castle teardown. Fixture SHA-256 4d759a94248ccbebefa98fce76a86c3000696b446c04bd51048bbab7fd56c79d. forest-objective-verified-0.log cb1eca70a520be4fdf83b930beb2055e7af5240cdb1468191b5934f322d9b7cd; forest-objective-verified-1280.log b93e51becc6e381372abf3055f2ac542c51502d8f1b3c66dfb67bbdaabf66a64; forest-objective-verified-1600.log 4f6379695ab4c7c19948f45bf0387d5a2e227c70012249a831ee19b61a4a3f39."
+    },
+    {
+      "command": "Exact full suite, hosted CI, and independent scoped review",
+      "result": "PENDING",
+      "evidence": "Review the frozen candidate against the already-published dormant entry. Parent evidence does not establish this scope."
+    }
+  ],
+  "acceptance_gaps": "Production Guide audio, Rigby2D actor, wildlife, Forest-to-Castle affordance and normal route activation are open. Listening, physical Android, child comprehension, and owner acceptance remain open. No finding is closed."
+}

@@ -5224,6 +5224,11 @@ func _open_forest_route(actor: Node2D, wildlife_hit: Callable = Callable()) -> b
 	_forest_session = session
 	_forest_layer = stage
 	g["phase"] = "forest"
+	_audio_ref().clear_dialogue()
+	msg_timer = 0.0
+	if hud_msg != null:
+		hud_msg.text = ""
+		hud_msg.hide()
 	_finish_touch_transition()
 	return true
 

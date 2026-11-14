@@ -27,7 +27,6 @@ var boat := START
 var _origin := START
 var _elapsed := 0.0
 var _clock := 0.0
-var _idle := 0.0
 var _near := false
 var _moving := false
 var _deposit_progress := -1.0
@@ -37,7 +36,6 @@ var _pulse_valve := -1
 # Review tuning is injected only by the dedicated replay. Shipping defaults are the final round.
 var hit_radius := 35.0
 var trip_time := 0.84
-var hint_time := 3.0
 var show_channels := true
 var mark_docks := true
 var preview_current := true
@@ -104,7 +102,6 @@ func interaction_stand(index: int) -> Vector2:
 func select_target(index: int) -> void:
 	if selected != index:
 		selected = index
-		_idle = 0.0
 		queue_redraw()
 
 
@@ -118,7 +115,6 @@ func interact(index: int) -> void:
 	if _moving and (not redirect or destination == index):
 		return
 	if not _moving and boat.distance_to(DOCKS[index]) < 1.0:
-		_idle = 0.0
 		_pulse = 0.28
 		_pulse_valve = index
 		queue_redraw()
@@ -130,7 +126,6 @@ func _begin(index: int) -> void:
 	destination = index
 	_origin = boat
 	_elapsed = 0.0
-	_idle = 0.0
 	_moving = true
 	queue_redraw()
 
@@ -139,8 +134,6 @@ func tick(delta: float, player: Vector2) -> void:
 	_clock += delta
 	_pulse = maxf(0.0, _pulse - delta)
 	_near = player.distance_to(global_position) < 395.0
-	if _near and not _moving and selected < 0:
-		_idle += delta
 	if _deposit_progress >= 0.0 and not arrived:
 		_deposit_progress = minf(1.0, _deposit_progress + delta / DEPOSIT_TIME)
 		arrived = _deposit_progress >= 1.0
@@ -198,22 +191,14 @@ func _draw() -> void:
 			_draw_charm(cargo_position(), 29.0, Color.WHITE)
 		elif replay_reward:
 			_draw_charm(CHARM, 29.0, Color("#d7a85f"))
-	if idle_hint_visible():
-		if arrived:
-			_draw_hint(CHARM)
-		elif destination == 0:
-			_draw_hint(valve(1))
-		else:
-			_draw_hint(valve(0))
-			_draw_hint(valve(1))
 
 
-func idle_hint_visible() -> bool:
-	return _near and not _moving and selected < 0 and _idle >= hint_time and not found
-
-
-func _draw_hint(at: Vector2) -> void:
-	draw_arc(at, 26 + sin(_clock * 3.6) * 2, 0, TAU, 32, GOLD, 2, true)
+## Only the right valve can deposit the charm. Let the boat and cargo settle
+## before the route highlights the next tappable target.
+func objective_target() -> int:
+	if found or _moving or (_deposit_progress >= 0.0 and not arrived):
+		return -1
+	return 2 if arrived else 1
 
 
 func _draw_dock(at: Vector2, index: int) -> void:
