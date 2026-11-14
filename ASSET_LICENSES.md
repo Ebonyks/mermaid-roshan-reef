@@ -1,5 +1,25 @@
 # Asset license ledger (Phase 8 — complete table)
 
+## Enchanted Forest route host — 2026-11-13
+
+| Asset | Source | License | Reference | Modifications |
+|---|---|---|---|---|
+| `assets/shaders/sky_lagoon_grove_ground.gdshader` | Project-authored Grove Canvas ground shader | Project-owned code | Reviewed standalone source manifest `6e36c6fa142a933a25764e1503191ebce3e2dccda2b58b5cf8bd92e669568c2f` | Exact reviewed shader bytes. Reuses the existing material and water sources. |
+| `assets/flats/sky_lagoon/day_one_demo/painted_water_v5.png` | Exact 384×384 water crop from the project v5 painting | Project-authored source reuse | `assets_src/sky_lagoon/gif_overlay_demo_20261104/lake_ripples_source.png` | Verified byte-identical reuse of the tracked crop. |
+
+## Landing Valley scenery candidate — 2026-11-13
+
+| Asset | Source | License | Reference | Modifications |
+|---|---|---|---|---|
+| `assets/sprites/enchanted_forest/landing_valley/buttercup.png` | Project ImageGen sheet for Landing Valley | Owner project use, as recorded for the standalone candidate | `assets_src/enchanted_forest/landing_valley_20261113/landing-art-provenance.json` | Original isolation, matte removal and alpha crop. Reviewed PNG bytes carried into the scenery component unchanged. |
+| `assets/sprites/enchanted_forest/landing_valley/fir_crown.png` | Project ImageGen sheet for Landing Valley | Owner project use, as recorded for the standalone candidate | `assets_src/enchanted_forest/landing_valley_20261113/landing-art-provenance.json` | Original isolation, matte removal and alpha crop. Reviewed PNG bytes carried into the scenery component unchanged. |
+| `assets/sprites/enchanted_forest/landing_valley/fir_near_bough.png` | Project ImageGen sheet for Landing Valley | Owner project use, as recorded for the standalone candidate | `assets_src/enchanted_forest/landing_valley_20261113/landing-art-provenance.json` | Original isolation, matte removal and alpha crop. Reviewed PNG bytes carried into the scenery component unchanged. |
+| `assets/sprites/enchanted_forest/landing_valley/fir_trunk.png` | Project ImageGen sheet for Landing Valley | Owner project use, as recorded for the standalone candidate | `assets_src/enchanted_forest/landing_valley_20261113/landing-art-provenance.json` | Original isolation, matte removal and alpha crop. Reviewed PNG bytes carried into the scenery component unchanged. |
+| `assets/sprites/enchanted_forest/landing_valley/golden_grass.png` | Project ImageGen sheet for Landing Valley | Owner project use, as recorded for the standalone candidate | `assets_src/enchanted_forest/landing_valley_20261113/landing-art-provenance.json` | Original isolation, matte removal and alpha crop. Reviewed PNG bytes carried into the scenery component unchanged. |
+| `assets/sprites/enchanted_forest/landing_valley/granite.png` | Project ImageGen sheet for Landing Valley | Owner project use, as recorded for the standalone candidate | `assets_src/enchanted_forest/landing_valley_20261113/landing-art-provenance.json` | Original isolation, matte removal and alpha crop. Reviewed PNG bytes carried into the scenery component unchanged. |
+| `assets_src/enchanted_forest/landing_valley_20261113/landing-valley-source.png` | Project ImageGen six-item Landing Valley source sheet | Owner project use, as recorded in the art provenance | `assets_src/enchanted_forest/landing_valley_20261113/landing-art-provenance.json` | Original source sheet preserved outside the runtime. |
+| `assets/shaders/sky_lagoon_grove_foliage.gdshader` | Project-authored standalone Grove foliage shader | Project source, same terms as repository code | `assets_src/enchanted_forest/landing_valley_20261113/reviewed-source-sha256.txt` | Reviewed Canvas shader carried unchanged for rooted foliage motion. |
+
 ## Pool native review evidence — 2026-10-17
 
 These PNGs/MP4s are review-only runtime diagnostics, not accepted cinematic assets, generation inputs or delivery footage. They grant no creative, device, child or owner acceptance.

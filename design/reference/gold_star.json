@@ -623,6 +623,34 @@
   ],
   "not_games": [
    {
+    "path": "scripts/arena/enchanted_forest_terrain.gd",
+    "reason": "Grove terrain and path geometry for the Forest route."
+   },
+   {
+    "path": "scripts/arena/enchanted_forest_card_samples.gd",
+    "reason": "Texture sampling for Forest crossing cards."
+   },
+   {
+    "path": "scripts/arena/enchanted_forest_reed_cove.gd",
+    "reason": "Reed Cove mechanics and painted control ownership within the Forest route."
+   },
+   {
+    "path": "scripts/arena/enchanted_forest_shell_bridge.gd",
+    "reason": "Shell crossing mechanics and rendering within the Forest route."
+   },
+   {
+    "path": "scripts/arena/enchanted_forest_route.gd",
+    "reason": "Canvas host for the Forest route. Assess the route through its production entry once wired."
+   },
+   {
+    "path": "scripts/arena/enchanted_forest_route_session.gd",
+    "reason": "Forest route adapter for the current save and audio directors."
+   },
+   {
+    "path": "scripts/arena/enchanted_forest_landing_valley.gd",
+    "reason": "Passive scenery component for the Forest route. The route owns gameplay."
+   },
+   {
     "path": "scripts/day_one_story_clips.gd",
     "reason": "Day One story clips play between scenes and never replace a child action (DL-CIN-16); assessed with the games they connect."
    },

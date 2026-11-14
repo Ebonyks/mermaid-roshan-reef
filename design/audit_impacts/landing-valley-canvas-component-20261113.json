@@ -1,0 +1,72 @@
+{
+  "id": "landing-valley-canvas-component-20261113",
+  "baseline": "062e5812bc07374ab8b7dc596a7f7434c650c2b4",
+  "scope": "Port the independently reviewed passive Landing Valley scenery into a Canvas component with terrain placement and synchronous teardown. Prepare the Forest route seam without changing normal game entry or saves.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-LAY-03",
+    "DL-LAY-04",
+    "DL-LAY-08",
+    "DL-LAY-10",
+    "DL-LAY-11",
+    "DL-READ-05",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-PERF-01",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03"
+  ],
+  "findings": [],
+  "no_findings_reason": "This component does not repair the predecessor promenade's MA-VIS-002, change the MA-TOUCH-001 production touch path, or address MA-ROSHAN-006 acting.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets/shaders/sky_lagoon_grove_foliage.gdshader",
+    "assets/shaders/sky_lagoon_grove_foliage.gdshader.uid",
+    "assets/sprites/enchanted_forest/landing_valley/buttercup.png",
+    "assets/sprites/enchanted_forest/landing_valley/buttercup.png.import",
+    "assets/sprites/enchanted_forest/landing_valley/fir_crown.png",
+    "assets/sprites/enchanted_forest/landing_valley/fir_crown.png.import",
+    "assets/sprites/enchanted_forest/landing_valley/fir_near_bough.png",
+    "assets/sprites/enchanted_forest/landing_valley/fir_near_bough.png.import",
+    "assets/sprites/enchanted_forest/landing_valley/fir_trunk.png",
+    "assets/sprites/enchanted_forest/landing_valley/fir_trunk.png.import",
+    "assets/sprites/enchanted_forest/landing_valley/golden_grass.png",
+    "assets/sprites/enchanted_forest/landing_valley/golden_grass.png.import",
+    "assets/sprites/enchanted_forest/landing_valley/granite.png",
+    "assets/sprites/enchanted_forest/landing_valley/granite.png.import",
+    "assets_src/enchanted_forest/landing_valley_20261113/.gdignore",
+    "assets_src/enchanted_forest/landing_valley_20261113/landing-art-provenance.json",
+    "assets_src/enchanted_forest/landing_valley_20261113/landing-valley-source.png",
+    "assets_src/enchanted_forest/landing_valley_20261113/reviewed-source-sha256.txt",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/reference/gold_star.json",
+    "docs/ENCHANTED_FOREST_LANDING_VALLEY_PORT.md",
+    "scripts/arena/enchanted_forest_landing_valley.gd",
+    "scripts/arena/enchanted_forest_landing_valley.gd.uid"
+  ],
+  "validation": [
+    {
+      "command": "Sealed standalone manifest and byte-by-byte extraction",
+      "result": "PASS",
+      "evidence": "310 source files, source manifest 6e36c6fa142a933a25764e1503191ebce3e2dccda2b58b5cf8bd92e669568c2f. The six cutouts and the foliage shader were taken from those exact bytes. Original rig, Grove, Cove, habitats, terrain and bridge cue remain in the standalone checkpoint. Verified 14 staged asset, shader, metadata and source paths against the sealed bytes."
+    },
+    {
+      "command": "Godot 4.7.2-stable probe_landing_valley_component.gd and exact project import",
+      "result": "PASS",
+      "evidence": "Headless and desktop Vulkan Mobile at 1280x720 and 1600x720 passed. The fixture uses a stand-in actor and controlled placement predicate. Fixture and log SHA-256: probe_landing_valley_component.gd aa07799fa128fb92b5fab6650a18afd4a24ad41c6af77f66cdc9a3c9864c5c92, component-0.log e68620fca9016c83eec15801549247691991a9a7e7d0c66ebdc429e1d6e37d46, component-1280.log 9f88133d692742a6e446563e1192f9228f79ed460aec68ec83548c58e38d02b1, component-1600.log 9dd247d0949df1528276384a78b3795ec607419b8b6f6ceb934c6b16168890e6, component-import.log dc1066135d79d4d14f9a4cb6960a21767bcc09f57b50d8b0ca392af8a7f2f15c. Production route and touch were outside fixture scope."
+    },
+    {
+      "command": "Document authority, development coverage, parser, lint and full local gates",
+      "result": "PENDING",
+      "evidence": "Component topic at the listed baseline. Verify exact tree and logs before topic publication."
+    }
+  ],
+  "acceptance_gaps": "Production Forest entry and Cove handoff are not implemented. Production route/input/save/audio/teardown replays, independent Mobile review at both widths, bridge cue production provenance, Rigby2D, Android, child, and owner acceptance remain open."
+}

@@ -1,0 +1,77 @@
+{
+  "id": "enchanted-forest-route-host-20261113",
+  "scope": "Dormant Forest route host and session adapter using the reviewed Canvas terrain, scenery, shell bridge and Reed Cove. The current game entry is outside this staged work.",
+  "baseline": "062e5812bc07374ab8b7dc596a7f7434c650c2b4",
+  "reviewed_component_tree": "f1268c32949d971f4a582423857938dc3f80fa29",
+  "standalone_manifest_sha256": "6e36c6fa142a933a25764e1503191ebce3e2dccda2b58b5cf8bd92e669568c2f",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MED-02",
+    "DL-LAY-03",
+    "DL-LAY-10",
+    "DL-LAY-11",
+    "DL-INT-01",
+    "DL-INT-04",
+    "DL-READ-05",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-SND-03",
+    "DL-SND-13",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-MOT-17",
+    "DL-QA-01",
+    "DL-QA-02"
+  ],
+  "findings": [
+    "MA-VIS-002",
+    "MA-TOUCH-001",
+    "MA-ROSHAN-006",
+    "MA-AUDIO-001"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets/flats/sky_lagoon/day_one_demo/painted_water_v5.png",
+    "assets/flats/sky_lagoon/day_one_demo/painted_water_v5.png.import",
+    "assets/shaders/sky_lagoon_grove_ground.gdshader",
+    "assets/shaders/sky_lagoon_grove_ground.gdshader.uid",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/reference/gold_star.json",
+    "docs/ENCHANTED_FOREST_LANDING_VALLEY_PORT.md",
+    "scripts/arena/enchanted_forest_card_samples.gd",
+    "scripts/arena/enchanted_forest_card_samples.gd.uid",
+    "scripts/arena/enchanted_forest_reed_cove.gd",
+    "scripts/arena/enchanted_forest_reed_cove.gd.uid",
+    "scripts/arena/enchanted_forest_route.gd",
+    "scripts/arena/enchanted_forest_route.gd.uid",
+    "scripts/arena/enchanted_forest_route_session.gd",
+    "scripts/arena/enchanted_forest_route_session.gd.uid",
+    "scripts/arena/enchanted_forest_shell_bridge.gd",
+    "scripts/arena/enchanted_forest_shell_bridge.gd.uid",
+    "scripts/arena/enchanted_forest_terrain.gd",
+    "scripts/arena/enchanted_forest_terrain.gd.uid"
+  ],
+  "validation": [
+    {
+      "command": "Reconstruct the sealed review inputs and compare exact or described derived bytes",
+      "result": "PASS",
+      "evidence": "Prior passive tree f1268c32949d971f4a582423857938dc3f80fa29 retained under refs/reef-review/landing-valley-scenery-20261113. Source archive SHA-256 c3d3da560d4c46c38853ba52ea8beee50a2c14bf29d097a6a4a8fa13ad7df6d3. Existing water crop verified from the Dev Git blob."
+    },
+    {
+      "command": "Godot 4.7.2-stable --script probe-forest-host.gd, headless and desktop Vulkan Mobile",
+      "result": "PASS",
+      "evidence": "Local fixture at 1280×720 and 1600×720 covers dry routed taps and drag, Cove and shell priority, bridge persistence and crossing, SaveState legacy/additive progress, and camera replacement and restoration. The actor, wildlife and launch caller are test stand-ins. Evidence SHA-256 probe-forest-host.gd 3c166cb1346ded63d86c2c380f7a6f323b612ce7fb16eb6935450a536c0b1414, host-headless.log 85dc90c8948cd2b9e415eb93a68cdadf31f2a2a45f0cdd976c8fade97c1e1456, host-mobile-1280.log 881f2c1665afc24d9286dbf5de408ff4bab6ffd2c6f278ecf7ed48c385312e87, host-mobile-1600.log 87d4a28a19180d77ab61991f76c430859f9c00d78bf201bbacaf736f17da5056."
+    },
+    {
+      "command": "scripts/ci.sh on the exact host candidate tree",
+      "result": "PENDING",
+      "evidence": "Run full local Godot 4.7.2-stable suite before any commit. Existing passive-tree evidence applies only to that earlier tree."
+    }
+  ],
+  "acceptance_gaps": "The candidate has no production caller. Live entry and return, spoken cues, production Rigby2D actor and current Ecosystems adaptation remain open. Independent exact-host review, hosted CI, Android, child and owner acceptance remain open. Existing finding lifecycles retain their status."
+}
