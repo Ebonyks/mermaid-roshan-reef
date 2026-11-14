@@ -26,6 +26,7 @@ const FAIRY_CONSERVATORY_DOOR := preload(
 const DAY_ONE_POOL_ROUTE_PREVIEW_TEXTURE := \
 	"res://assets/flats/castle/rooms/room_mermaid_pool.png"
 const NavigationControllerLogic = preload("res://scripts/navigation_controller.gd")
+const ForestSession := preload("res://scripts/arena/enchanted_forest_route_session.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
 
@@ -3724,29 +3725,37 @@ func _restore_slide_canvas_input_context(reason: StringName) -> void:
 
 func _notification(what: int) -> void:
 	match what:
+		NOTIFICATION_PAUSED:
+			if _forest_active():
+				_forest_session.cancel_navigation()
 		NOTIFICATION_APPLICATION_FOCUS_OUT:
+			_set_forest_context(&"focus", true)
 			if is_instance_valid(chapter2_lawn_view):
 				chapter2_lawn_view.set_input_context(&"focus", true)
 			_lose_melody_input_context(MELODY_CONTEXT_FOCUS)
 			_lose_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_FOCUS)
 			_day_one_suspend_boss_for_lifecycle()
 		NOTIFICATION_APPLICATION_PAUSED:
+			_set_forest_context(&"application", true)
 			if is_instance_valid(chapter2_lawn_view):
 				chapter2_lawn_view.set_input_context(&"application", true)
 			_lose_melody_input_context(MELODY_CONTEXT_APPLICATION)
 			_lose_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_APPLICATION)
 			_day_one_suspend_boss_for_lifecycle()
 		NOTIFICATION_APPLICATION_RESUMED:
+			_set_forest_context(&"application", false)
 			if is_instance_valid(chapter2_lawn_view):
 				chapter2_lawn_view.set_input_context(&"application", false)
 			_restore_melody_input_context(MELODY_CONTEXT_APPLICATION)
 			_restore_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_APPLICATION)
 		NOTIFICATION_APPLICATION_FOCUS_IN:
+			_set_forest_context(&"focus", false)
 			if is_instance_valid(chapter2_lawn_view):
 				chapter2_lawn_view.set_input_context(&"focus", false)
 			_restore_melody_input_context(MELODY_CONTEXT_FOCUS)
 			_restore_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_FOCUS)
 		NOTIFICATION_WM_CLOSE_REQUEST:
+			_set_forest_context(&"close", true)
 			_lose_melody_input_context(MELODY_CONTEXT_CLOSE)
 			_lose_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_CLOSE)
 			_day_one_suspend_boss_for_lifecycle()
@@ -3866,6 +3875,8 @@ func _touch_mode_label() -> String:
 # The world-tap gates shared by the release path and the press-fire probe:
 # a tap may reach the stage only when no overlay or mode owns the screen.
 func _world_tap_gated() -> bool:
+	if _forest_active() and not _forest_context_blocks.is_empty():
+		return true
 	if intro_active or day_two_transition_active or get_tree().paused or mg_kind != "":
 		return true
 	if fade_rect != null and fade_rect.modulate.a > 0.02:
@@ -4504,7 +4515,7 @@ func _on_world_press(screen_pos: Vector2) -> bool:
 		return true
 	if _world_tap_gated():
 		return false
-	if game == "level2" and String(g.get("phase", "")) == "promenade":
+	if _forest_active() or (game == "level2" and String(g.get("phase", "")) == "promenade"):
 		return false
 	for engine_value: Variant in hit_engines:
 		var engine: HitEngine = engine_value as HitEngine
@@ -4561,7 +4572,7 @@ func _on_world_press_drag() -> void:
 		(_game_obj("race", SlideRaceGame) as SlideRaceGame).cancel_input(
 			SLIDE_CANVAS_LEGACY_TOUCH_SOURCE)
 		return
-	if game == "level2" and String(g.get("phase", "")) == "promenade":
+	if _forest_active() or (game == "level2" and String(g.get("phase", "")) == "promenade"):
 		return
 	for engine_value: Variant in _live_hit_engines():
 		(engine_value as HitEngine).cancel_charge_for_drag()
@@ -4592,6 +4603,9 @@ func _on_world_drag_end(from: Vector2, to: Vector2) -> void:
 			SLIDE_CANVAS_LEGACY_TOUCH_SOURCE)
 		return
 	if _world_tap_gated():
+		return
+	if _forest_active():
+		_forest_session.handle_drag(to)
 		return
 	if game == "level2" and String(g.get("phase", "")) == "promenade":
 		_lagoon_promenade_ref().handle_drag(from, to)
@@ -4625,6 +4639,9 @@ func _on_touch_world(screen_pos: Vector2) -> void:
 		slide.handle_touch_release(SLIDE_CANVAS_LEGACY_TOUCH_SOURCE)
 		return
 	if _world_tap_gated():
+		return
+	if _forest_active():
+		_forest_session.handle_touch(screen_pos)
 		return
 	if game == "level2" and String(g.get("phase", "")) == "promenade":
 		_lagoon_promenade_ref().handle_touch(screen_pos)
@@ -4683,7 +4700,9 @@ func _on_touch_manual_move() -> void:
 	_tap_move_ref().cancel("manual")
 
 func _cancel_lagoon_navigation() -> void:
-	if game == "level2" and String(g.get("phase", "")) == "promenade":
+	if _forest_session != null:
+		_forest_session.cancel_navigation()
+	elif game == "level2" and String(g.get("phase", "")) == "promenade":
 		_lagoon_promenade_ref().cancel_navigation()
 
 func _set_world_controls_enabled(enabled: bool, reason: String = "overlay") -> void:
@@ -4762,7 +4781,7 @@ func _populate_touch_interactables() -> void:
 		return
 	if game != "level2":
 		return
-	if String(g.get("phase", "")) == "promenade":
+	if _forest_active() or String(g.get("phase", "")) == "promenade":
 		return
 	if String(g.get("phase", "court")) == "hall":
 		# The castle room stage owns every interior touch target. Never rebuild
@@ -4947,6 +4966,7 @@ func _enter_level2(from_castle: bool = false, from_north: bool = false,
 
 func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
 	at_ocean_gate_hub: bool = false) -> void:
+	_close_forest_route()
 	game = "level2"
 	# The reef sun is a persistent world node. Sky Lagoon supplies its own sun;
 	# stacking both erased nearly all color from pearl, snow, and pastel props.
@@ -5015,6 +5035,7 @@ func _enter_northern_kingdom() -> void:
 	_fade_cut(_enter_northern_kingdom_now)
 
 func _enter_northern_kingdom_now() -> void:
+	_close_forest_route()
 	if String(g.get("phase", "")) == "promenade" \
 			and _sky_lagoon_promenade != null:
 		_sky_lagoon_promenade.teardown()
@@ -5160,6 +5181,10 @@ func _l2_box(pos: Vector3, size: Vector3, col: Color, glow: float = 0.0) -> Mesh
 # (state stays here; SkyLagoon receives main by reference)
 var _sky_lagoon: SkyLagoon = null
 var _sky_lagoon_promenade: SkyLagoonPromenade = null
+var _forest_session: ForestSession
+var _forest_layer: CanvasLayer
+var _forest_return_x: float
+var _forest_context_blocks: Dictionary = {}
 
 func _lagoon_ref() -> SkyLagoon:
 	if _sky_lagoon == null:
@@ -5170,6 +5195,59 @@ func _lagoon_promenade_ref() -> SkyLagoonPromenade:
 	if _sky_lagoon_promenade == null:
 		_sky_lagoon_promenade = SkyLagoonPromenade.new(self)
 	return _sky_lagoon_promenade
+
+func _forest_active() -> bool:
+	return _forest_session != null and game == "level2" and g.get("phase") == "forest"
+
+
+## Explicit entry for a supplied Canvas actor. No shipping entry calls this yet.
+## The caller owns the actor until mount succeeds.
+func _open_forest_route(actor: Node2D, wildlife_hit: Callable = Callable()) -> bool:
+	if _forest_session != null or game != "level2" or g.get("phase") != "promenade":
+		return false
+	if day_one_is_active() or _world_tap_gated() or not _forest_context_blocks.is_empty():
+		return false
+	var stage := CanvasLayer.new()
+	stage.name = "EnchantedForestCanvasLayer"
+	stage.layer = SKY_LAGOON_STAGE_CANVAS_LAYER
+	stage.follow_viewport_enabled = true
+	add_child(stage)
+	var canvas := Node2D.new()
+	stage.add_child(canvas)
+	var session := ForestSession.new(self)
+	if not session.mount(canvas, actor, ForestSession.Route.LANDING, wildlife_hit):
+		stage.free()
+		return false
+	_prepare_touch_transition()
+	_forest_return_x = _lagoon_promenade_ref().master_route_x()
+	_lagoon_promenade_ref().teardown()
+	_forest_session = session
+	_forest_layer = stage
+	g["phase"] = "forest"
+	_finish_touch_transition()
+	return true
+
+
+func _set_forest_context(reason: StringName, blocked: bool) -> void:
+	if blocked:
+		_forest_context_blocks[reason] = true
+		if _forest_active():
+			_prepare_touch_transition()
+	else:
+		_forest_context_blocks.erase(reason)
+
+
+func _close_forest_route() -> void:
+	if _forest_session == null:
+		return
+	var actor: Node2D = _forest_session.teardown()
+	_forest_session = null
+	if is_instance_valid(actor):
+		actor.free()
+	if is_instance_valid(_forest_layer):
+		_forest_layer.free()
+	_forest_layer = null
+
 
 # The northern kingdom beyond the Alpine cave star is loaded separately so its
 # forest, town, and castle never share the mobile render budget with the lagoon.
@@ -5787,6 +5865,7 @@ func _enter_castle_interior(from_back: bool = false) -> void:
 	_fade_cut(_enter_castle_interior_now.bind(from_back))
 
 func _enter_castle_interior_now(from_back: bool = false) -> void:
+	_close_forest_route()
 	player.visible = true
 	_play_music("hall")
 	if String(g.get("phase", "")) == "promenade" and _sky_lagoon_promenade != null:
@@ -7371,6 +7450,12 @@ func _enter_ocean_kingdom(_kingdom: String) -> void:
 	_fade_cut(_exit_level2_now)
 
 func _exit_level2_now(_target_kingdom: String = "") -> void:
+	if _forest_active():
+		var return_x: float = _forest_return_x
+		var open: bool = l2_open
+		_enter_level2_now(open)
+		_lagoon_promenade_ref().set_master_route_x(return_x)
+		return
 	if day_one_is_active():
 		_day_one_reorient_after_exit_now()
 		return
@@ -8209,7 +8294,7 @@ func _process(delta: float) -> void:
 		and String(g.get("phase", "")) == "promenade"
 	var melody_canvas_active: bool = game == "melody"
 	var fairy_conservatory_canvas_active: bool = game == "fairy_conservatory"
-	var opaque_canvas_active: bool = sky_canvas_active or melody_canvas_active \
+	var opaque_canvas_active: bool = sky_canvas_active or _forest_active() or melody_canvas_active \
 		or fairy_conservatory_canvas_active \
 		or slide_canvas_active
 	# Player creates its compatibility camera deferred during boot. Direct phone
@@ -8316,6 +8401,9 @@ func _process(delta: float) -> void:
 			slide_canvas.retire_input_context_restore_guard()
 			return
 		_tick_game(delta)
+		return
+	if _forest_active():
+		_forest_session.tick(delta)
 		return
 	if sky_canvas_active:
 		# The opaque Canvas promenade is a complete world slice. Its controller
