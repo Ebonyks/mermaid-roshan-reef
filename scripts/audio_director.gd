@@ -30,6 +30,10 @@ const OBJECTIVE_GUIDES := {
 	"puff_relief": {"mode": "dustboss", "file": "guide_puff_relief.ogg"},
 	"puff_almost": {"mode": "dustboss", "file": "guide_puff_almost.ogg"},
 	"puff_healthy": {"mode": "dustboss", "file": "guide_puff_healthy.ogg"},
+
+	"forest_bridge_shells": {"mode": "level2", "phase": "forest", "file": "guide_forest_bridge_shells.ogg"},
+	"forest_cove_valve": {"mode": "level2", "phase": "forest", "file": "guide_forest_cove_valve.ogg"},
+	"forest_cove_shell": {"mode": "level2", "phase": "forest", "file": "guide_forest_cove_shell.ogg"},
 }
 const DAY_ONE_CONTEXT_CATALOG_SCRIPT: GDScript = preload(
 	"res://scripts/day_one_contextual_voice_catalog.gd")
@@ -271,10 +275,16 @@ func _voice_path(speaker: String, event: String = "", allow_generic: bool = true
 func _is_required_day_one_event(event: String) -> bool:
 	return bool(DAY_ONE_REQUIRED_EVENTS.get(event, false)) or event.begins_with("chapter2_") or event.begins_with("kart_")
 
+func _guide_is_current(guide: Dictionary) -> bool:
+	var phase := String(guide.get("phase", ""))
+	return not guide.is_empty() and m.game == String(guide.get("mode", "")) \
+		and (phase.is_empty() or m.g.get("phase") == phase)
+
+
 func objective_guide(event: String, greeting_speaker: String = "", min_gap: float = 0.0) -> void:
 	var guide: Dictionary = OBJECTIVE_GUIDES.get(event, {})
 	var mode := String(guide.get("mode", ""))
-	if guide.is_empty() or m.game != mode or _voice_path("guide", event, false).is_empty():
+	if not _guide_is_current(guide) or _voice_path("guide", event, false).is_empty():
 		return
 	var key := "guide_" + event
 	if _active_required_key == key and _has_active_speech():
@@ -292,8 +302,10 @@ func objective_guide(event: String, greeting_speaker: String = "", min_gap: floa
 			"min_gap": 0.0, "guide_mode": mode})
 
 
-func clear_objective_guide(mode: String) -> void:
-	if m.audio_active_guide_mode == mode:
+func clear_objective_guide(mode: String, event: String = "") -> void:
+	if m.audio_active_guide_mode != mode:
+		return
+	if event.is_empty() or _active_required_key == "guide_" + event or not _has_active_speech():
 		_stop_active_speech()
 
 
@@ -307,10 +319,12 @@ func chapter_two_prompt(event: String) -> void:
 func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 	var event_suffix := event.trim_prefix(speaker + "_")
 	var key := speaker + "_" + event_suffix
+	var guide: Dictionary = {}
 	if speaker == "guide":
-		var guide: Dictionary = OBJECTIVE_GUIDES.get(event_suffix, {})
-		if guide.is_empty() or m.game != String(guide.get("mode", "")):
+		guide = OBJECTIVE_GUIDES.get(event_suffix, {})
+		if not _guide_is_current(guide):
 			return
+	var route_guide := guide.has("phase")
 	if min_gap > 0.0:
 		var now := Time.get_ticks_msec() / 1000.0
 		if now - float(m.said_cool.get(key, -99.0)) < min_gap:
@@ -326,7 +340,7 @@ func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 	# A required line owns the single objective voice channel. If another exact
 	# objective arrives in the same frame, retain it in FIFO order; generic talk
 	# and win are ignored until the required line has finished.
-	var required := _is_required_day_one_event(event_suffix)
+	var required := route_guide or _is_required_day_one_event(event_suffix)
 	if _flush_required_queue():
 		return
 	var exact_path := _voice_path(speaker, event_suffix, false)
@@ -387,8 +401,8 @@ func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 		ap.stream = stream
 		ap.pitch_scale = 1.0
 		ap.play()
-		if speaker == "guide" and event_suffix.begins_with("kart_"):
-			# Pickup guidance is time-sensitive; reach the speech mix immediately.
+		if route_guide or (speaker == "guide" and event_suffix.begins_with("kart_")):
+			# Reach the speech mix as soon as the world target becomes available.
 			# minf preserves music-off and any quieter owner-selected volume.
 			if m.music != null and m.music_on:
 				m.music.volume_db = minf(m.music.volume_db, -14.0)
@@ -399,8 +413,7 @@ func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 		if speaker == "guide":
 			# Timestamp only an actual successful Guide start, including min_gap 0.
 			m.said_cool[key] = Time.get_ticks_msec() / 1000.0
-			var active_guide: Dictionary = OBJECTIVE_GUIDES.get(event_suffix, {})
-			m.audio_active_guide_mode = String(active_guide.get("mode", ""))
+			m.audio_active_guide_mode = String(guide.get("mode", ""))
 	elif m.voice != null:
 		# graceful fallback until real clips are dropped in: the recorded "yay",
 		# pitched to give each character a recognisably different timbre
@@ -441,7 +454,7 @@ func _flush_required_queue() -> bool:
 		if pending_speaker == "guide":
 			var guide: Dictionary = OBJECTIVE_GUIDES.get(
 				pending_event.trim_prefix("guide_"), {})
-			if guide.is_empty():
+			if not _guide_is_current(guide):
 				continue
 			pending_mode = String(guide.get("mode", ""))
 		if pending_mode != "" and m.game != pending_mode:

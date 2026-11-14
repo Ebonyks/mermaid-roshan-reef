@@ -1,0 +1,96 @@
+{
+  "id": "enchanted-forest-spoken-guidance-20261114",
+  "baseline": "6d369e7eadf94724ec9f5309982cefc4ca66f4f6",
+  "scope": "Register the exact neutral Guide bridge and Cove cues as a separately frozen dormant Forest candidate. Verify speaker and transcript, phase ownership, pointer synchronization, lifecycle and exact bytes. Keep activation and integration held.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SND-03",
+    "DL-SND-04",
+    "DL-SND-05",
+    "DL-SND-10",
+    "DL-SND-11",
+    "DL-SND-12",
+    "DL-SND-13",
+    "DL-SND-14",
+    "DL-SND-17",
+    "DL-QA-01",
+    "DL-QA-02"
+  ],
+  "findings": [
+    "MA-ACCESS-001",
+    "MA-AUDIO-001",
+    "MA-TOUCH-001"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets/audio/objective_guides/OBJECTIVE_GUIDE_MANIFEST.json",
+    "assets/audio/objective_guides/guide_forest_bridge_shells.ogg",
+    "assets/audio/objective_guides/guide_forest_cove_shell.ogg",
+    "assets/audio/objective_guides/guide_forest_cove_valve.ogg",
+    "assets_src/audio/enchanted_forest_guidance_20261114/.gdignore",
+    "assets_src/audio/enchanted_forest_guidance_20261114/guide_forest_bridge_shells.wav",
+    "assets_src/audio/enchanted_forest_guidance_20261114/guide_forest_cove_shell.wav",
+    "assets_src/audio/enchanted_forest_guidance_20261114/guide_forest_cove_valve.wav",
+    "assets_src/audio/enchanted_forest_guidance_20261114/provenance.json",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/audio_quality_ledger_2026-08-24.csv",
+    "audit/audio_quality_summary_2026-08-24.json",
+    "design/05_DOC_LEDGER.md",
+    "docs/ENCHANTED_FOREST_LANDING_VALLEY_PORT.md",
+    "scripts/arena/enchanted_forest_route_session.gd",
+    "scripts/audio_director.gd",
+    "tools/audit_audio_quality.py"
+  ],
+  "validation": [
+    {
+      "command": "Exact phrase recognition and delivery metrics, then python -B tools/audit_audio_quality.py",
+      "result": "PASS",
+      "evidence": "Existing neutral Guide identity. The offline recognizer returned all three exact texts. All masters are 48 kHz mono Vorbis above 64 kbps and pass loudness, true-peak, DC and clipping gates. All 869 parent ledger rows match the parent and three scoped rows were added.",
+      "logs": [
+        {
+          "path": "C:\\Users\\Peter\\AppData\\Local\\MermaidRoshan\\landing-valley-readiness-20261113\\forest-guide-registration\\master-review.json",
+          "sha256": "9dbdda01a7f6fdcf2ba37fdfa7b4d135d2c48859c6a2495d568b7af0039f2d69"
+        },
+        {
+          "path": "C:\\Users\\Peter\\AppData\\Local\\MermaidRoshan\\landing-valley-readiness-20261113\\forest-guide-registration\\audio-audit.log",
+          "sha256": "f0239475ada37999beb5469a4e3e6162fce4af5f08f1a1a4db918692ac3ba99f"
+        }
+      ]
+    },
+    {
+      "command": "Godot 4.7.2 headless import, analyzer and explicit Forest route with a fresh profile at 0/1280/1600",
+      "result": "PASS",
+      "evidence": "Real production route with a stand-in actor. One exact unpitched Guide channel aligns with each world pointer. Prompt ducking, repeated target, unrelated phase rejection, travel, Cove delivery, pause/focus, departure, exit and re-entry assertions passed. No Android latency or human-listening measurement.",
+      "logs": [
+        {
+          "path": "C:\\Users\\Peter\\AppData\\Local\\MermaidRoshan\\landing-valley-readiness-20261113\\forest-guide-registration\\import.log",
+          "sha256": "3890d6a5f6ac563ce27e1b6d3de3ab34e6fec47ea42c48e11ce8e24814e0364c"
+        },
+        {
+          "path": "C:\\Users\\Peter\\AppData\\Local\\MermaidRoshan\\landing-valley-readiness-20261113\\forest-guide-registration\\probe-forest-spoken-guidance.gd",
+          "sha256": "04c2859c00759678063f49c1aecb714c3363210999127a0eeb32a526208e2f68"
+        },
+        {
+          "path": "C:\\Users\\Peter\\AppData\\Local\\MermaidRoshan\\landing-valley-readiness-20261113\\forest-guide-registration\\first-0.log",
+          "sha256": "fa78dc64d0c7ebffcafdc4a470db94d52ccc272e1783366b37299ca11c595692"
+        },
+        {
+          "path": "C:\\Users\\Peter\\AppData\\Local\\MermaidRoshan\\landing-valley-readiness-20261113\\forest-guide-registration\\validated-1280.log",
+          "sha256": "c51600b33ffa7cbf19e53b4421a9c926a51e55e9b0df12f143a51c5f419847ba"
+        },
+        {
+          "path": "C:\\Users\\Peter\\AppData\\Local\\MermaidRoshan\\landing-valley-readiness-20261113\\forest-guide-registration\\validated-1600.log",
+          "sha256": "609ec3b342f0a91c50b33844b95ac4e38094cfeff5ccac4c8cfbe8576c154350"
+        }
+      ]
+    },
+    {
+      "command": "Canonical full trusted checks and independent candidate review",
+      "result": "PENDING",
+      "evidence": "The existing Dev and published parent results remain scoped to their trees."
+    }
+  ],
+  "acceptance_gaps": "Dormant route only. Finish exact human listening and mono/default mix review, physical Android timing, child comprehension, owner acceptance, and production actor and route activation. No finding closes on this evidence."
+}

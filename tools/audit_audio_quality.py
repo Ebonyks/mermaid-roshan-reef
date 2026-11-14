@@ -39,6 +39,9 @@ OBJECTIVE_GUIDE_TEXT = {
     "guide_puff_relief": "Ahh! That feels better!",
     "guide_puff_almost": "Nearly clean! One more gentle wash!",
     "guide_puff_healthy": "All clean! Feeling better!",
+    "guide_forest_bridge_shells": "Tap both shells to open the bridge.",
+    "guide_forest_cove_valve": "Tap this valve to bring the shell to shore.",
+    "guide_forest_cove_shell": "Tap the shell to collect it.",
 }
 OBJECTIVE_GUIDE_SOURCE_ROOTS = {
     key: ("assets_src/audio/grand_puff_care_20261017" if key in {
@@ -50,6 +53,10 @@ OBJECTIVE_GUIDE_SOURCE_ROOTS = {
 OBJECTIVE_GUIDE_SOURCE_ROOTS.update({key: "assets_src/audio/reef_kart_items_20261105"
     for key in OBJECTIVE_GUIDE_TEXT if key.startswith("guide_kart_")})
 OBJECTIVE_GUIDE_SOURCE_ROOTS["guide_puff_scrub"] = "assets_src/audio/grand_puff_cleaning_tutorial_20261110"
+OBJECTIVE_GUIDE_SOURCE_ROOTS.update({
+    key: "assets_src/audio/enchanted_forest_guidance_20261114"
+    for key in OBJECTIVE_GUIDE_TEXT if key.startswith("guide_forest_")
+})
 FILLER_MANIFEST_NAME = "FILLER_MANIFEST.json"
 TEACHER_ROOT_REL = "assets/audio/teacher/"
 TEACHER_MANIFEST_REL = "assets_src/teacher_learning_2026-09-05/audio_manifest.json"

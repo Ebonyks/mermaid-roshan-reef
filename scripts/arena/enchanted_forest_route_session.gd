@@ -9,7 +9,6 @@ var _main: ReefMain
 var _route := Route.new()
 var _pointer_world := Vector2.INF
 var _guide_key: StringName
-var _owns_guide := false
 
 
 func _init(main: ReefMain) -> void:
@@ -78,9 +77,8 @@ func _on_objective(key: StringName, world_point: Vector2) -> void:
 	if key == _guide_key:
 		return
 	var sound: AudioDirector = _main._audio_ref()
-	if _owns_guide:
-		sound.clear_objective_guide(GUIDE_MODE)
+	if _guide_key != &"":
+		sound.clear_objective_guide(GUIDE_MODE, String(_guide_key))
 	_guide_key = key
-	_owns_guide = key != &"" and not sound._voice_path("guide", String(key), false).is_empty()
-	if _owns_guide:
+	if key != &"":
 		sound.objective_guide(String(key))

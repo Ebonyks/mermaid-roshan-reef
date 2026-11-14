@@ -1,0 +1,71 @@
+{
+  "schema": "reef.forest-neutral-guide-source.v1",
+  "review_status": "PROVISIONAL_DORMANT_ROUTE_MACHINE_AUDIO",
+  "identity": "Same af_heart neutral Guide used by the existing runtime objective catalog; unpitched, en-us, speed 1.0.",
+  "method_decision": "Keep the established neutral Guide speaker for this dormant cohort. The supporting Parler recipe addresses new provisional recordings. The existing neutral Guide model and its pinned source maintain DL-SND-03 speaker continuity for this candidate.",
+  "model_reference": "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX",
+  "model_license": "Apache-2.0",
+  "model_inputs_sha256": {
+    "model.onnx": "8fbea51ea711f2af382e88c833d9e288c6dc82ce5e98421ea61c058ce21a34cb",
+    "voices.bin": "b58979d4eb5b1fdbe783c93f9f43c21217cb8f07af9d3860547371a5b2c8b646"
+  },
+  "source_sample_rate_hz": 24000,
+  "source_format": "Unmodified mono float PCM WAV",
+  "delivery": "Vorbis 48 kHz mono, q4; metadata stripped.",
+  "local_synthesis_calls": 3,
+  "paid_api_calls": 0,
+  "family_audio_used": false,
+  "earlier_demo_bridge_ogg_sha256": "438c01921b258f29fbe64e865857b01a844b1a63a0a1c09aa358a4344fc32a64",
+  "earlier_demo_bridge_note": "The same identity and exact words were rendered to a new native take for measurable mastering and provenance.",
+  "versions": {
+    "onnxruntime": "1.28.0",
+    "kokoro-onnx": "0.5.0",
+    "numpy": "2.5.1",
+    "soundfile": "0.14.0",
+    "faster-whisper": "1.2.1"
+  },
+  "ffmpeg_version": "ffmpeg version 8.1.2-essentials_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+  "asr_model_revision": "d1d751a5f8271d482d14ca55d9e2deeebbae577f",
+  "asr_scope": "Offline word match; human listening remains open.",
+  "attempts": [
+    {
+      "key": "guide_forest_bridge_shells",
+      "text": "Tap both shells to open the bridge.",
+      "native_source_sha256": "7e0d703e78f8b626559f48fe15b368621d0012adc7fbeb5ab36c5311d87e3a5d",
+      "output_sha256": "2cb2eadbed78284f79590641b24446d2f03149a2e0bcd9df16a886a84cc692a3",
+      "synthesis_script_sha256": "1d8945f9cb9606a0000355a3373f7dae829df82967492fc37b788f840da9a342",
+      "phonemes": "tˈæp bˈoʊθ ʃˈɛlz tʊ ˈoʊpən ðə bɹˈɪdʒ.",
+      "mastering_filter": "atrim=start_sample=6234:end_sample=54511,asetpts=PTS-STARTPTS,highpass=f=40,acompressor=threshold=-20dB:ratio=2.5:attack=5:release=80,loudnorm=I=-16:TP=-2.8:LRA=7:measured_I=-25.28:measured_TP=-10.90:measured_LRA=0.00:measured_thresh=-35.28:offset=1.18:linear=true,volume=1.2dB",
+      "asr": "Tap both shells to open the bridge.",
+      "first_master_sha256": "56499b139d997278ed1397a16310f008d07156f96d813eabdbc734f5370511f1"
+    },
+    {
+      "key": "guide_forest_cove_valve",
+      "text": "Tap this valve to bring the shell to shore.",
+      "native_source_sha256": "7dd0307f3ecf19a422596cf08da65e5fa89799f8ada3408a15ea69d09c8a9167",
+      "output_sha256": "733ccf1539c052495e29190ab64cece7b93bccbab965370a87215fb967987d03",
+      "synthesis_script_sha256": "f8258f0fab66c3e32b308862fa13286e533b317c7e268300286909e4db2dcd32",
+      "phonemes": "tˈæp ðɪs vˈælv tə bɹˈɪŋ ðə ʃˈɛl tə ʃˈɔːɹ.",
+      "mastering_filter": "atrim=start_sample=6307:end_sample=57781,asetpts=PTS-STARTPTS,highpass=f=40,acompressor=threshold=-20dB:ratio=2.5:attack=5:release=80,loudnorm=I=-16:TP=-2.8:LRA=7:measured_I=-25.28:measured_TP=-10.31:measured_LRA=0.00:measured_thresh=-35.28:offset=1.78:linear=true,volume=1.15dB",
+      "asr": "Tap this valve to bring the shell to shore.",
+      "first_master_sha256": "79bd8c56d1f14fc3f1b44ca5b3da85d429ad5135f3edd58366d89b3dd8dc987a",
+      "first_master_lufs": -17.88,
+      "first_master_true_peak_dbtp": -2.98,
+      "rejected_master_reason": "Initial master too quiet. The first gain revision exceeded the true-peak limit. Retained final gain 1.15 dB.",
+      "rejected_gain_revision_sha256": "503a3f1832278e5535fbb6aba851329da89c147f26d4dfb95cb51a856140b380"
+    },
+    {
+      "key": "guide_forest_cove_shell",
+      "text": "Tap the shell to collect it.",
+      "native_source_sha256": "ce59890fe70ea2f1fa4955bf898d00012060dd651e63fae58baa0eee25cf0853",
+      "output_sha256": "795f51cf2ae5245b848ee2eb9affe537d307284f6df078c028fc65307bcbeb63",
+      "synthesis_script_sha256": "f8258f0fab66c3e32b308862fa13286e533b317c7e268300286909e4db2dcd32",
+      "phonemes": "tˈæp ðə ʃˈɛl tə kəlˈɛkt ɪt.",
+      "mastering_filter": "atrim=start_sample=6220:end_sample=42512,asetpts=PTS-STARTPTS,highpass=f=40,acompressor=threshold=-20dB:ratio=2.5:attack=5:release=80,loudnorm=I=-16:TP=-2.8:LRA=7:measured_I=-25.23:measured_TP=-11.50:measured_LRA=0.00:measured_thresh=-35.23:offset=0.53:linear=true",
+      "asr": "Tap the shell to collect it.",
+      "first_master_sha256": "795f51cf2ae5245b848ee2eb9affe537d307284f6df078c028fc65307bcbeb63",
+      "first_master_lufs": -16.65,
+      "first_master_true_peak_dbtp": -3.28
+    }
+  ]
+}
