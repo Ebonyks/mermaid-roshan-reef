@@ -20,6 +20,10 @@ On successful mount, the Forest clears the predecessor route’s spoken and visi
 
 The lines proposed for recording are “Tap both shells to open the bridge,” “Tap this valve to bring the shell to shore,” and “Tap the shell to collect it.” The bridge demo has a byte-verified candidate with that transcript. The production guide needs a source-bound registration and listening review for each line. The child-facing player entry stays dormant. [Objective impact](../design/audit_impacts/enchanted-forest-objective-guidance-20261113.json)
 
+## Moat fish
+
+The Forest terrain mounts the two sealed fish loops on the painted moat. Each fish stays above the water card and below the island rim and grounded actor. The route clock advances both fish. The cards are passive and have no touch, collision, or save state. The same water node owns their lifetime. The original art bytes and authored loop settings are recorded in the [moat provenance](../assets_src/enchanted_forest/landing_valley_20261113/moat-fish-provenance.json). The [moat impact](../design/audit_impacts/enchanted-forest-moat-fish-20261114.json) records the live route and desktop Mobile evidence.
+
 ## Production seams still open
 
 | Seam | Required production connection and evidence |
@@ -28,6 +32,7 @@ The lines proposed for recording are “Tap both shells to open the bridge,” �
 | Touch | Deliver production touch and drag events through the existing input gates and one world-to-screen transform. Cancel pending travel and actions on overlay, focus loss, and route exit. Test the visible Cove waymark, valve, frog and shell at 1280×720 and 1600×720. |
 | Guidance | Register exact neutral Guide audio for the bridge, Cove valve, and shell collection, with the source, license, event, and pointer for each. The retained demo record identifies the exact Kokoro bridge cue. Use the current provisional voice process for new takes. Verify playback, one-channel ownership, ducking and target-device timing. DL-SND-13 provides the owner-approved diegetic alternative. |
 | Save and teardown | Keep the production reef_save.json recovery path. The host provides scoped Cove and bridge defaults. Production still needs to verify the route lifecycle and explicitly map any shared objectives. The demo’s separate CFG is outside production save authority. Verify old and fresh saves, interrupted contact, completed progress, restart and re-entry. Release route camera, audio, gesture ownership and scene nodes on exit. |
+| Habitats | The two moat fish are bound on the dormant route. The remaining ecosystem placements and the full cast need their own exact scene and target-device review. |
 | Character | The reviewed standalone uses atlas playback. New Forest gameplay needs the exact Rigby2D source, export and acting evidence in DL-MED-02 and DL-MOT-17. The scenery topic introduces no character playback. |
 
 ## Source and verification

@@ -4,6 +4,7 @@ extends Node2D
 const GROUND := preload("res://assets/shaders/sky_lagoon_grove_ground.gdshader")
 const GRASS := preload("res://assets/terrain/up_grass_col.jpg")
 const WATER := preload("res://assets/flats/sky_lagoon/day_one_demo/painted_water_v5.png")
+const MOAT_FISH := preload("res://assets/sprites/sky_lagoon/ecosystems/pond_fish.png")
 const STONE := preload("res://assets/terrain/up_flagstone_col.jpg")
 const LAWN := preload("res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png")
 
@@ -30,6 +31,7 @@ const LILY_BASIN := STOPS[4] + Vector2(-48, 141)
 const MOAT_CENTER := STOPS[2] + Vector2(8, -208)
 const MOAT_OUTER := Vector2(324, 201)
 const MOAT_ISLAND := Vector2(232, 112)
+const MOAT_WATER_LAYER := 5
 const CASTLE_GATE := STOPS[2] + Vector2(0, -111)
 const CASTLE_BRIDGE_HALF := 48.0
 const FARM_BEDS: Array[Rect2] = [
@@ -55,6 +57,8 @@ var bridge_open := false
 var _weather_materials: Array[ShaderMaterial] = []
 var _trail_samples: Array[PackedVector2Array] = []
 var _water_marks: Node2D
+var _west_moat_fish: Sprite2D
+var _east_moat_fish: Sprite2D
 var _wind_time := 0.0
 
 
@@ -109,20 +113,48 @@ func _ready() -> void:
 	_build_moat()
 
 
-func _water_pool(center: Vector2, radius: Vector2, seed: int, layer: int) -> void:
+func _water_pool(center: Vector2, radius: Vector2, seed: int, layer: int) -> Polygon2D:
 	var pool: Polygon2D = _surface(_oval(center, radius, seed), WATER, 0, layer, Color.WHITE)
 	var paint: ShaderMaterial = pool.material as ShaderMaterial
 	paint.set_shader_parameter("water_footprint", Vector4(center.x, center.y, radius.x, radius.y))
 	paint.set_shader_parameter("bank_seed", float(seed))
+	return pool
 
 
 func _build_moat() -> void:
 	var bank_radius: Vector2 = MOAT_OUTER + Vector2(43, 32)
 	_bank(MOAT_CENTER, bank_radius, 2, 4, Color("#b0b18f"))
-	_water_pool(MOAT_CENTER, MOAT_OUTER, 2, 5)
+	var water := _water_pool(MOAT_CENTER, MOAT_OUTER, 2, MOAT_WATER_LAYER)
+	water.name = "MoatWater"
+	# The cards share the painted water's layer, behind the island and the actor.
+	_west_moat_fish = _add_moat_fish(water, &"WestFish", 17.0)
+	_east_moat_fish = _add_moat_fish(water, &"EastFish", 16.0)
+	_update_moat_fish(0.0)
 	_surface(_oval(MOAT_CENTER + Vector2(0, 11), MOAT_ISLAND + Vector2(12, 6), 2),
 		STONE, 2, 6, Color("#aaa891"))
 	_surface(_oval(MOAT_CENTER, MOAT_ISLAND, 2), GRASS, 1, 7, Color("#a9b69a"))
+
+
+func _add_moat_fish(water: Polygon2D, label: StringName, height: float) -> Sprite2D:
+	var fish := Sprite2D.new()
+	fish.name = label
+	fish.texture = MOAT_FISH
+	fish.scale = Vector2.ONE * height / MOAT_FISH.get_height()
+	water.add_child(fish)
+	return fish
+
+
+func _update_moat_fish(time: float) -> void:
+	# Preserve the sealed Grove loop placement, sizing, facing and fades.
+	_sample_moat_fish(_west_moat_fish, Vector2(5695, 990), Vector2(8, 17), time * TAU / 9.0)
+	_sample_moat_fish(_east_moat_fish, Vector2(6249, 970), Vector2(8, 10), time * TAU / 11.0 + 1.1)
+
+
+func _sample_moat_fish(fish: Sprite2D, center: Vector2, extent: Vector2, angle: float) -> void:
+	var heading := cos(angle)
+	fish.position = center + Vector2(sin(angle), heading) * extent
+	fish.flip_h = heading < 0.0
+	fish.modulate.a = 0.84 * smoothstep(0.03, 0.34, absf(heading))
 
 
 func plantable(point: Vector2) -> bool:
@@ -291,6 +323,7 @@ func set_wind_time(time: float) -> void:
 	for material: ShaderMaterial in _weather_materials:
 		material.set_shader_parameter("water_time", time)
 	_water_marks.queue_redraw()
+	_update_moat_fish(time)
 
 
 func _draw_water_marks() -> void:

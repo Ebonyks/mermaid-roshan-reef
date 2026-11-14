@@ -6,6 +6,7 @@
 |---|---|---|---|---|
 | `assets/shaders/sky_lagoon_grove_ground.gdshader` | Project-authored Grove Canvas ground shader | Project-owned code | Reviewed standalone source manifest `6e36c6fa142a933a25764e1503191ebce3e2dccda2b58b5cf8bd92e669568c2f` | Exact reviewed shader bytes. Reuses the existing material and water sources. |
 | `assets/flats/sky_lagoon/day_one_demo/painted_water_v5.png` | Exact 384×384 water crop from the project v5 painting | Project-authored source reuse | `assets_src/sky_lagoon/gif_overlay_demo_20261104/lake_ripples_source.png` | Verified byte-identical reuse of the tracked crop. |
+| `assets/sprites/sky_lagoon/ecosystems/pond_fish.png` | Project-original drawn freshwater fish from the Lagoon Ecosystems source and sealed Grove handoff | Project-owned artwork, no external source | `assets_src/enchanted_forest/landing_valley_20261113/moat-fish-provenance.json` | Exact 125×58 RGBA PNG, mounted on the Forest moat water layer. |
 
 ## Landing Valley scenery candidate — 2026-11-13
 

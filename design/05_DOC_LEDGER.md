@@ -321,7 +321,7 @@ Apply the general per-screen resolution, provenance and touch rules to the actua
 
 | Doc | | Note |
 |---|---|---|
-| `docs/ENCHANTED_FOREST_LANDING_VALLEY_PORT.md` | 🔵 | `SUPPORTING_CURRENT` for the passive Valley scenery, dormant Grove host, explicit entry and return, bridge and Cove visual objectives, exact sources, and remaining activation evidence. |
+| `docs/ENCHANTED_FOREST_LANDING_VALLEY_PORT.md` | 🔵 | `SUPPORTING_CURRENT` for the passive Valley scenery, dormant Grove host, explicit entry and return, bridge and Cove visual objectives, the scoped moat fish port, exact sources, and remaining activation evidence. |
 | `SKY_LAGOON_CONGRUENCY_REBUILD_2026-07-27.md` | 🟠 | `SUPPORTING_CURRENT` for approved 3×1 source composition/congruency; promenade/spatial runtime structure is `SUPERSEDED`. |
 | `SKY_LAGOON_REDUCTIVE_HANDOFF_2026-07-28.md` | 🟠 | `BINDING_DOMAIN` for the 6144×2048 clean plate, unique object ownership and 6×2 slicing; the old Sprite3D assembly is `SUPERSEDED`, and final reconstruction uses Canvas/`Sprite2D`. |
 | `SKY_LAGOON_BACKGROUND_RESOLUTION_AUDIT_2026-07-27.md` | 🟠 | `BINDING_DOMAIN` for native-master preservation/resolution. Sprite3D/camera/touch validation is `HISTORICAL_EVIDENCE`, not final structure. |

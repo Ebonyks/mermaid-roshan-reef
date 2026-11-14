@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "archive_sha256": "c3d3da560d4c46c38853ba52ea8beee50a2c14bf29d097a6a4a8fa13ad7df6d3",
+  "habitat_path": "scripts/demo/sky_lagoon_grove_habitats.gd",
+  "habitat_sha256": "7dce2da090fd6157cbe9c830f83569431fb7ae0417457c257a7e74e1069210bf",
+  "fish": "assets/sprites/sky_lagoon/ecosystems/pond_fish.png",
+  "fish_sha256": "031e022f3be3fd79b771871e0841af8065db81b9db37c56251e9a5aad06a0398",
+  "fish_dimensions": [
+    125,
+    58
+  ],
+  "license": "Project-original artwork. No external URL.",
+  "modifications": "PNG copied byte-for-byte. Seal preserves corrected centers, extents, displayed heights, periods, phase offsets, facing and fade curve.",
+  "ownership": "Two passive Sprite2D children of MoatWater. Forest terrain advances them with its world clock and destroys them with the route.",
+  "loops": [
+    {
+      "slot": "WestFish",
+      "center": [
+        5695,
+        990
+      ],
+      "extent": [
+        8,
+        17
+      ],
+      "height": 17,
+      "period_s": 9,
+      "phase_rad": 0
+    },
+    {
+      "slot": "EastFish",
+      "center": [
+        6249,
+        970
+      ],
+      "extent": [
+        8,
+        10
+      ],
+      "height": 16,
+      "period_s": 11,
+      "phase_rad": 1.1
+    }
+  ]
+}
