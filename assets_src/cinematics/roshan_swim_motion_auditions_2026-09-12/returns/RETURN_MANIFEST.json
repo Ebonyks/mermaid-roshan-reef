@@ -1,0 +1,544 @@
+{
+  "schema": "roshan-motion-reference-return-v1",
+  "handoff_id": "roshan_swim_motion_auditions_2026-09-12",
+  "instructions": "Original clips were generated in Grok Build with imagine_reference_to_video. This batch is a 3D CGI style rewrite — do not adapt. Original MP4s are on GitHub PR #10 under returns/videos/take-01/. Hashes below are the authority. Owner selection and DELIVERY_ACCEPTED remain pending.",
+  "source_packet_commit": "f98ef836df35fc75657473755354b418f9c7d17f",
+  "stale_commit_not_used_for_status": "ca4dd1963ad36aab420d5f228189231dae924c73",
+  "candidates": [
+    {
+      "sample_id": "RSW-01",
+      "take": 1,
+      "video_path": "RSW-01_take-01.mp4",
+      "sha256": "a8de1b06b47860894b9d834b897358dfdbadce1a4508a49f95ad927803fe6366",
+      "prompt_sha256": "a499a2a1c20226862046dfbfb7f3900354193865941af9a8723b7b529e8c8e31",
+      "input_hashes": [
+        "cb4f0ccccf31937aabeecc4cba0232d2e50ab37fe0dc97c9b9ac2ef986959bf0",
+        "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c"
+      ],
+      "service_model": "imagine_reference_to_video",
+      "settings": {
+        "aspect_ratio": "16:9",
+        "requested_duration": 8,
+        "native_duration": 10,
+        "resolution": "720p"
+      },
+      "seed": null,
+      "created_at": "2026-09-14T03:20:00Z",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "duration_seconds": 10.04,
+      "fps": 24,
+      "frame_count": 241,
+      "normal_speed_reviewed": true,
+      "reviewer": "grok-build-imagine-bridge-2026-09-13",
+      "inferred_intention_before_reading_prompt": "She wants to go somewhere to the right, then present herself to the viewer.",
+      "knockouts": [
+        "Apparent scale growth",
+        "End pose faces camera with both arms open",
+        "Native AAC audio"
+      ],
+      "observations": [
+        "Identity holds: crown, gem, pink bodice, lilac frills, rainbow streak, pearlescent tail.",
+        "t2.5-t4.0 reads as swimming — diagonal body, one leading arm, trailing fin.",
+        "Later beats flatten into a hover/portrait. Useful middle, not a clean whole performance."
+      ],
+      "scores": {
+        "intention": 3,
+        "character_warmth": 3.5,
+        "buoyancy_propulsion": 3,
+        "rhythm_spacing": 3,
+        "arm_body_integration": 2.5,
+        "normal_speed_appeal": 3
+      },
+      "disposition": "comparison_candidate",
+      "useful_fragments": [
+        {
+          "source_sha256": "a8de1b06b47860894b9d834b897358dfdbadce1a4508a49f95ad927803fe6366",
+          "in_seconds": 2.5,
+          "out_seconds": 4.0,
+          "in_frame": null,
+          "out_frame_exclusive": null,
+          "use": "adaptation_reference",
+          "reason": "Quiet diagonal swim; discard later hover/portrait.",
+          "known_defects": [
+            "Apparent scale growth later",
+            "End pose faces camera"
+          ],
+          "facing": "screen-right",
+          "pose_phase": "glide",
+          "pelvis_xy_normalized": null,
+          "incoming_velocity": null,
+          "outgoing_velocity": null
+        }
+      ],
+      "loop_candidate": null,
+      "owner_selection": null,
+      "binary_on_github": true,
+      "playable_in_bridge": true,
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-01/RSW-01_take-01.mp4"
+    },
+    {
+      "sample_id": "RSW-02",
+      "take": 1,
+      "video_path": "RSW-02_take-01.mp4",
+      "sha256": "78c91b17af0a20126ed7c456b8a08970b8b7fde272a1464742a2c2427490cb0a",
+      "prompt_sha256": "32eb87de29f4e2268664bda72763958233a340924618f409dfcde9e8c45a5083",
+      "input_hashes": [
+        "cb4f0ccccf31937aabeecc4cba0232d2e50ab37fe0dc97c9b9ac2ef986959bf0",
+        "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c"
+      ],
+      "service_model": "imagine_reference_to_video",
+      "settings": {
+        "aspect_ratio": "16:9",
+        "requested_duration": 8,
+        "native_duration": 10,
+        "resolution": "720p"
+      },
+      "seed": null,
+      "created_at": "2026-09-14T03:20:00Z",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "duration_seconds": 10.04,
+      "fps": 24,
+      "frame_count": 241,
+      "normal_speed_reviewed": true,
+      "reviewer": "grok-build-imagine-bridge-2026-09-13",
+      "inferred_intention_before_reading_prompt": "She gathers, then celebrates, then shows off toward the camera.",
+      "knockouts": [
+        "t4.0 both arms raised flying/superhero silhouette",
+        "End pose camera-facing",
+        "Native AAC audio"
+      ],
+      "observations": [
+        "t2.5 gather is the most useful fragment: bent elbows, compact curve, rightward gaze.",
+        "Identity holds through the gather. Hair volume increases vs source, not a ponytail.",
+        "Mark t4 flying beat inspiration_only — do not treat it as swim grammar."
+      ],
+      "scores": {
+        "intention": 3,
+        "character_warmth": 3.5,
+        "buoyancy_propulsion": 2.5,
+        "rhythm_spacing": 2.5,
+        "arm_body_integration": 2,
+        "normal_speed_appeal": 3
+      },
+      "disposition": "comparison_candidate",
+      "useful_fragments": [],
+      "loop_candidate": null,
+      "owner_selection": null,
+      "binary_on_github": true,
+      "playable_in_bridge": true,
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-01/RSW-02_take-01.mp4"
+    },
+    {
+      "sample_id": "RSW-03",
+      "take": 1,
+      "video_path": "RSW-03_take-01.mp4",
+      "sha256": "96048e0ec855de8d1016c99732afe07f6e026cef1905074441df71d57d0e09cb",
+      "prompt_sha256": "892e2d92c22cb7a5aaccdf4f3fe89ee17464d8c02bc7dee0cb662be860ec168c",
+      "input_hashes": [
+        "cb4f0ccccf31937aabeecc4cba0232d2e50ab37fe0dc97c9b9ac2ef986959bf0",
+        "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c"
+      ],
+      "service_model": "imagine_reference_to_video",
+      "settings": {
+        "aspect_ratio": "16:9",
+        "requested_duration": 8,
+        "native_duration": 10,
+        "resolution": "720p"
+      },
+      "seed": null,
+      "created_at": "2026-09-14T03:20:00Z",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "duration_seconds": 10.04,
+      "fps": 24,
+      "frame_count": 241,
+      "normal_speed_reviewed": true,
+      "reviewer": "grok-build-imagine-bridge-2026-09-13",
+      "inferred_intention_before_reading_prompt": "She noticed something above-right and is reaching to understand it.",
+      "knockouts": [
+        "Native AAC audio despite silent request"
+      ],
+      "observations": [
+        "Best whole-performance candidate in this batch. t2.5-t4.0: eyes up-right, elbow-led reach, readable curiosity.",
+        "Identity holds. Rainbow streak, crown, costume intact. No extra characters in sampled frames.",
+        "Still a 10s native take, not an 8s matched sample. Owner selection remains separate."
+      ],
+      "scores": {
+        "intention": 4,
+        "character_warmth": 4,
+        "buoyancy_propulsion": 3.5,
+        "rhythm_spacing": 3.5,
+        "arm_body_integration": 3.5,
+        "normal_speed_appeal": 4
+      },
+      "disposition": "comparison_candidate",
+      "useful_fragments": [
+        {
+          "source_sha256": "96048e0ec855de8d1016c99732afe07f6e026cef1905074441df71d57d0e09cb",
+          "in_seconds": 2.5,
+          "out_seconds": 5.0,
+          "in_frame": null,
+          "out_frame_exclusive": null,
+          "use": "adaptation_reference",
+          "reason": "Curiosity reach: eyes up-right, elbow-led, readable intention.",
+          "known_defects": [
+            "Native 10s not 8s"
+          ],
+          "facing": "up-right",
+          "pose_phase": "reach",
+          "pelvis_xy_normalized": null,
+          "incoming_velocity": null,
+          "outgoing_velocity": null
+        }
+      ],
+      "loop_candidate": null,
+      "owner_selection": null,
+      "binary_on_github": true,
+      "playable_in_bridge": true,
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-01/RSW-03_take-01.mp4"
+    },
+    {
+      "sample_id": "RSW-04",
+      "take": 1,
+      "video_path": "RSW-04_take-01.mp4",
+      "sha256": "e7faf6a569c4c28d8538d67eef6138b35a35ea2995b8e823acfb1496d4fd98eb",
+      "prompt_sha256": "132531a2a657c26a5ef287229dc0d79f331a438857e92bff82a86b43d7988bb7",
+      "input_hashes": [
+        "cb4f0ccccf31937aabeecc4cba0232d2e50ab37fe0dc97c9b9ac2ef986959bf0",
+        "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c"
+      ],
+      "service_model": "imagine_reference_to_video",
+      "settings": {
+        "aspect_ratio": "16:9",
+        "requested_duration": 8,
+        "native_duration": 10,
+        "resolution": "720p"
+      },
+      "seed": null,
+      "created_at": "2026-09-14T03:20:00Z",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "duration_seconds": 10.04,
+      "fps": 24,
+      "frame_count": 241,
+      "normal_speed_reviewed": true,
+      "reviewer": "grok-build-imagine-bridge-2026-09-13",
+      "inferred_intention_before_reading_prompt": "She banks toward a playmate that should not be in the shot.",
+      "knockouts": [
+        "Extra fauna (yellow fish, seahorse)",
+        "Native AAC audio"
+      ],
+      "observations": [
+        "Body line of the bank is useful as inspiration_only.",
+        "Do not promote the extra-character pixels as a swim reference."
+      ],
+      "scores": {
+        "intention": 3,
+        "character_warmth": 3,
+        "buoyancy_propulsion": 3,
+        "rhythm_spacing": 3,
+        "arm_body_integration": 3,
+        "normal_speed_appeal": 2.5
+      },
+      "disposition": "inspiration_only",
+      "useful_fragments": [],
+      "loop_candidate": null,
+      "owner_selection": null,
+      "binary_on_github": true,
+      "playable_in_bridge": true,
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-01/RSW-04_take-01.mp4"
+    },
+    {
+      "sample_id": "RSW-05",
+      "take": 1,
+      "video_path": "RSW-05_take-01.mp4",
+      "sha256": "735491d3c33d0261790abf3e73c41e31bc4298a0e2bccb6afe9b36dc87ab909f",
+      "prompt_sha256": "ba32f67629b107fc189a1a3e20dcc8c740c656277b9a9c5f8ffd443df47e4440",
+      "input_hashes": [
+        "cb4f0ccccf31937aabeecc4cba0232d2e50ab37fe0dc97c9b9ac2ef986959bf0",
+        "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c"
+      ],
+      "service_model": "imagine_reference_to_video",
+      "settings": {
+        "aspect_ratio": "16:9",
+        "requested_duration": 8,
+        "native_duration": 10,
+        "resolution": "720p"
+      },
+      "seed": null,
+      "created_at": "2026-09-14T03:20:00Z",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "duration_seconds": 10.04,
+      "fps": 24,
+      "frame_count": 241,
+      "normal_speed_reviewed": true,
+      "reviewer": "grok-build-imagine-bridge-2026-09-13",
+      "inferred_intention_before_reading_prompt": "She is waiting for someone, then asking if play will begin.",
+      "knockouts": [
+        "Native AAC audio"
+      ],
+      "observations": [
+        "t2.5 palm-raise is the personality beat the packet asked for: affectionate impatience, not anger.",
+        "Identity holds. Useful fragment even if the later glide repeats the 01/02 hover problem."
+      ],
+      "scores": {
+        "intention": 4,
+        "character_warmth": 4,
+        "buoyancy_propulsion": 3,
+        "rhythm_spacing": 3.5,
+        "arm_body_integration": 3,
+        "normal_speed_appeal": 3.5
+      },
+      "disposition": "comparison_candidate",
+      "useful_fragments": [
+        {
+          "source_sha256": "735491d3c33d0261790abf3e73c41e31bc4298a0e2bccb6afe9b36dc87ab909f",
+          "in_seconds": 2.0,
+          "out_seconds": 3.5,
+          "in_frame": null,
+          "out_frame_exclusive": null,
+          "use": "adaptation_reference",
+          "reason": "Bored-to-eager palm-raise; silently readable personality.",
+          "known_defects": [
+            "Later glide repeats hover problem"
+          ],
+          "facing": "screen-right",
+          "pose_phase": "wait-ask",
+          "pelvis_xy_normalized": null,
+          "incoming_velocity": null,
+          "outgoing_velocity": null
+        }
+      ],
+      "loop_candidate": null,
+      "owner_selection": null,
+      "binary_on_github": true,
+      "playable_in_bridge": true,
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-01/RSW-05_take-01.mp4"
+    },
+    {
+      "sample_id": "RSW-06",
+      "take": 1,
+      "video_path": "RSW-06_take-01.mp4",
+      "sha256": "f6110264954b243193b4d70ffc046adcb419bfbc801d2f246b5f4be91272b7fa",
+      "prompt_sha256": "b92ec55446d79f38417e73aff7085acd9bd59072160dcfcc06c2f518959a3122",
+      "input_hashes": [
+        "cb4f0ccccf31937aabeecc4cba0232d2e50ab37fe0dc97c9b9ac2ef986959bf0",
+        "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c"
+      ],
+      "service_model": "imagine_reference_to_video",
+      "settings": {
+        "aspect_ratio": "16:9",
+        "requested_duration": 8,
+        "native_duration": 10,
+        "resolution": "720p"
+      },
+      "seed": null,
+      "created_at": "2026-09-14T03:20:00Z",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "duration_seconds": 10.04,
+      "fps": 24,
+      "frame_count": 241,
+      "normal_speed_reviewed": true,
+      "reviewer": "grok-build-imagine-bridge-2026-09-13",
+      "inferred_intention_before_reading_prompt": "She arrives and offers a hand — but to invented companions.",
+      "knockouts": [
+        "Extra characters at the offer beat",
+        "Native AAC audio"
+      ],
+      "observations": [
+        "The one-hand offer silhouette is the useful fragment. Extra fauna makes the take unusable as a clean reference."
+      ],
+      "scores": {
+        "intention": 3,
+        "character_warmth": 3,
+        "buoyancy_propulsion": 3,
+        "rhythm_spacing": 3,
+        "arm_body_integration": 3,
+        "normal_speed_appeal": 2.5
+      },
+      "disposition": "inspiration_only",
+      "useful_fragments": [],
+      "loop_candidate": null,
+      "owner_selection": null,
+      "binary_on_github": true,
+      "playable_in_bridge": true,
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-01/RSW-06_take-01.mp4"
+    },
+    {
+      "sample_id": "RSW-07",
+      "take": 1,
+      "video_path": "RSW-07_take-01.mp4",
+      "sha256": "9df10f68a5e4db29478c4a5c3e3c367cb606579fe573b4fe96ce48247830a39e",
+      "prompt_sha256": "12c781aca62fe91198eed7b9f7f34f3850a2bad73f801ff2ed1e5a252c6d3217",
+      "input_hashes": [
+        "5839c5cef6948666984700fb73ed07a77a047f8ad0ae5c75b9e44a465557ae48",
+        "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c"
+      ],
+      "service_model": "imagine_reference_to_video",
+      "settings": {
+        "aspect_ratio": "16:9",
+        "requested_duration": 8,
+        "native_duration": 10,
+        "resolution": "720p"
+      },
+      "seed": null,
+      "created_at": "2026-09-14T03:20:00Z",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "duration_seconds": 10.04,
+      "fps": 24,
+      "frame_count": 241,
+      "normal_speed_reviewed": true,
+      "reviewer": "grok-build-imagine-bridge-2026-09-13",
+      "inferred_intention_before_reading_prompt": "She swims in place, then turns more toward the camera.",
+      "knockouts": [
+        "Extra fish throughout",
+        "t1/t4/t7 do not match as two genuine cycles",
+        "Native AAC audio"
+      ],
+      "observations": [
+        "Profile opening did bind: t1 is more side-on than 01-06.",
+        "Do not slice a fake loop. Join fails on phase and velocity, not just first/last silhouette."
+      ],
+      "scores": {
+        "intention": 2.5,
+        "character_warmth": 3,
+        "buoyancy_propulsion": 2.5,
+        "rhythm_spacing": 2,
+        "arm_body_integration": 2.5,
+        "normal_speed_appeal": 2.5
+      },
+      "disposition": "inspiration_only",
+      "useful_fragments": [],
+      "loop_candidate": null,
+      "owner_selection": null,
+      "binary_on_github": true,
+      "playable_in_bridge": true,
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-01/RSW-07_take-01.mp4"
+    },
+    {
+      "sample_id": "RSW-08",
+      "take": 1,
+      "video_path": "RSW-08_take-01.mp4",
+      "sha256": "51efe2fb3c1d48e7bb4131ef151a63779e9034d700cad0697735c3802efb5c9d",
+      "prompt_sha256": "9f211e5dd4ae8067270ce6672e57c52305a5fe855b635e1bcc0c44231334ac1b",
+      "input_hashes": [
+        "5839c5cef6948666984700fb73ed07a77a047f8ad0ae5c75b9e44a465557ae48",
+        "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c"
+      ],
+      "service_model": "imagine_reference_to_video",
+      "settings": {
+        "aspect_ratio": "16:9",
+        "requested_duration": 8,
+        "native_duration": 10,
+        "resolution": "720p"
+      },
+      "seed": null,
+      "created_at": "2026-09-14T03:20:00Z",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "duration_seconds": 10.04,
+      "fps": 24,
+      "frame_count": 241,
+      "normal_speed_reviewed": true,
+      "reviewer": "grok-build-imagine-bridge-2026-09-13",
+      "inferred_intention_before_reading_prompt": "A livelier in-place cruise, still sharing the shot with fish.",
+      "knockouts": [
+        "Extra fish",
+        "Not verified as two genuine matching cycles",
+        "Native AAC audio"
+      ],
+      "observations": [
+        "t2.5 has a clearer leading-arm swim silhouette than 02's flying beat.",
+        "Keep as a profile-view motion hint, not a loop extraction."
+      ],
+      "scores": {
+        "intention": 3,
+        "character_warmth": 3,
+        "buoyancy_propulsion": 3,
+        "rhythm_spacing": 2.5,
+        "arm_body_integration": 3,
+        "normal_speed_appeal": 3
+      },
+      "disposition": "inspiration_only",
+      "useful_fragments": [],
+      "loop_candidate": null,
+      "owner_selection": null,
+      "binary_on_github": true,
+      "playable_in_bridge": true,
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-01/RSW-08_take-01.mp4"
+    }
+  ],
+  "shortlist": [
+    {
+      "sample_id": "RSW-03",
+      "reason": "Strongest whole-performance curiosity reach; identity holds; no extra characters in sampled frames."
+    },
+    {
+      "sample_id": "RSW-05",
+      "reason": "Personality wait/palm-raise is silently readable."
+    },
+    {
+      "sample_id": "RSW-01",
+      "reason": "t2.5–4.0 quiet diagonal swim; discard later hover."
+    }
+  ],
+  "assembly_candidates": [
+    {
+      "id": "ASSEMBLY-01",
+      "status": "unproposed",
+      "note": "No compatible whole-performance spine yet. Extra-character takes and flying-arm beats are not joined.",
+      "timing_spine_video_sha256": null,
+      "segments": [],
+      "joins": [],
+      "new_output_sha256": null,
+      "normal_speed_review": null,
+      "owner_selection": null
+    }
+  ],
+  "claims": {
+    "ARCHIVE_COMPLETE": true,
+    "GENERATION_READY": false,
+    "DELIVERY_ACCEPTED": false,
+    "VIDEO_TOOL_VERIFIED": true,
+    "OPENING_LAYOUT_OWNER_CONFIRMED": false,
+    "BINARIES_ON_GITHUB": true
+  },
+  "pilot_first": true,
+  "maximum_generation_attempts": 10,
+  "fragment_schema": {
+    "source_sha256": null,
+    "in_seconds": null,
+    "out_seconds": null,
+    "in_frame": null,
+    "out_frame_exclusive": null,
+    "use": "inspiration_only | adaptation_reference",
+    "reason": null,
+    "known_defects": [],
+    "facing": null,
+    "pose_phase": null,
+    "pelvis_xy_normalized": null,
+    "incoming_velocity": null,
+    "outgoing_velocity": null
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "schema": "roshan-codex-handoff-v1",
+  "handoff_id": "roshan_swim_motion_auditions_2026-09-12",
+  "pass": "take-03-reserved-combined",
+  "created_at": "2026-09-14T04:36:00Z",
+  "from": "Reef Imagine Bridge",
+  "to": "Codex",
+  "job": "Reconstruct reserved swim from owner basis: RSW-01 launch/swim, RSW-06 arrival/recovery, RSW-03 and RSW-05 attention/personality. Front-right only. Measure broad tail strokes, full-body posture, arm placement, trailing hair. Prior draft rejected. DELIVERY_ACCEPTED false.",
+  "videos_root": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos",
+  "videos_tree": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/codex/roshan-swim-combined-handoff-20260914/assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos",
+  "combined": {
+    "RESERVED_REEL": {
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/combined/RESERVED_REEL.mp4",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/codex/roshan-swim-combined-handoff-20260914/assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/combined/RESERVED_REEL.mp4",
+      "sha256": "7360743e173cc4d83869d66d037abf82cd1312091079738fa35e635db7cc000b",
+      "bytes": 25526104,
+      "duration_seconds": 91.6,
+      "fps": 24,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "method": "ffmpeg concat, 1.25s navy slates, straight cuts",
+      "note": "All eight take-03 clips in commission order. Review reel, not one performance.",
+      "binary_on_github": true,
+      "playable_in_bridge": true
+    },
+    "ASSEMBLY-01": {
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/combined/ASSEMBLY-01.mp4",
+      "raw_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/codex/roshan-swim-combined-handoff-20260914/assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/combined/ASSEMBLY-01.mp4",
+      "sha256": "29c0977cac9d5641d86f2af9bdf200f453892a6155f0cab7cc85cad4ef51884c",
+      "bytes": 5104514,
+      "duration_seconds": 22.31,
+      "fps": 24,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "method": "ffmpeg re-encode, straight cuts, no morph",
+      "status": "proposed",
+      "note": "New reference candidate. Joins are not pelvis/phase matched.",
+      "binary_on_github": true,
+      "playable_in_bridge": true,
+      "segments": [
+        {
+          "order": 1,
+          "sample_id": "RSW-05",
+          "take": 3,
+          "in_seconds": 0,
+          "out_seconds": 3,
+          "role": "idle wait",
+          "source_sha256": "f0327efa16a8821f8d77b17198a761de9b5001e8fe0a3138512b9616708d51ea"
+        },
+        {
+          "order": 2,
+          "sample_id": "RSW-01",
+          "take": 3,
+          "in_seconds": 1,
+          "out_seconds": 5.5,
+          "role": "ribbon glide spine",
+          "source_sha256": "027ff0112eab282e990fa15a4ea8ec1fa5ad101f189e350fb7d6935cca8c673d"
+        },
+        {
+          "order": 3,
+          "sample_id": "RSW-03",
+          "take": 3,
+          "in_seconds": 2.5,
+          "out_seconds": 6,
+          "role": "soft glance",
+          "source_sha256": "a24e44bf84bc7aa3f8679fddf482058442ee49f3009c22521a5cfca032692715"
+        },
+        {
+          "order": 4,
+          "sample_id": "RSW-04",
+          "take": 3,
+          "in_seconds": 2,
+          "out_seconds": 7,
+          "role": "shallow bank",
+          "source_sha256": "072741097f2b43af119a9b65fbb23d4904adfd109fe4a3c19c4ea2a3f6f27a42"
+        },
+        {
+          "order": 5,
+          "sample_id": "RSW-06",
+          "take": 3,
+          "in_seconds": 5,
+          "out_seconds": 10.04,
+          "role": "arrival hover",
+          "source_sha256": "9478b60c3f182c3b491fc3af854f7f6d85cc08346150ed1d1fdaf996c11a70e7"
+        }
+      ]
+    }
+  },
+  "appearance_authority": {
+    "approved_front_sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+    "turnaround_front_right_sha256": "b818e9d8852dcde1043662f290cf3f19e8c7e1bd8be55395548e5f54ee875ad6",
+    "turnaround_right_sha256": "5f2eec477d00de4625c3dc501de71739fcb2e27ce3c76de6aac9dc464dcf5825",
+    "locked_front_right_sha256": "6b0918967e5b1703e4b04a67b27798b7a733a6ab79c44314ebcf6f12bf1be685",
+    "locked_right_sha256": "042c2e052ad6bdcead67731282c6e7a8059c788a75cbc8bc687a63b7848859b7"
+  },
+  "forbidden": [
+    "take-01 pixels (style rewrite)",
+    "RSW-07/08 invented gold bracelets",
+    "3D redesign",
+    "cinematic or Godot runtime claim",
+    "setting DELIVERY_ACCEPTED",
+    "treating RESERVED_REEL as one performance",
+    "crossfade / morph / reverse to hide a join"
+  ],
+  "source_takes": [
+    {
+      "id": "RSW-01",
+      "take": 3,
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-03/RSW-01_take-03.mp4",
+      "sha256": "027ff0112eab282e990fa15a4ea8ec1fa5ad101f189e350fb7d6935cca8c673d",
+      "disposition": "comparison_candidate",
+      "owner_basis": true
+    },
+    {
+      "id": "RSW-02",
+      "take": 3,
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-03/RSW-02_take-03.mp4",
+      "sha256": "7095f4de8cb39f3ed30ccf0952af287e040d73422adc685aa67c07ff7e1a48b4",
+      "disposition": "comparison_candidate"
+    },
+    {
+      "id": "RSW-03",
+      "take": 3,
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-03/RSW-03_take-03.mp4",
+      "sha256": "a24e44bf84bc7aa3f8679fddf482058442ee49f3009c22521a5cfca032692715",
+      "disposition": "comparison_candidate",
+      "shortlist": true,
+      "owner_basis": true
+    },
+    {
+      "id": "RSW-04",
+      "take": 3,
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-03/RSW-04_take-03.mp4",
+      "sha256": "072741097f2b43af119a9b65fbb23d4904adfd109fe4a3c19c4ea2a3f6f27a42",
+      "disposition": "comparison_candidate",
+      "shortlist": true
+    },
+    {
+      "id": "RSW-05",
+      "take": 3,
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-03/RSW-05_take-03.mp4",
+      "sha256": "f0327efa16a8821f8d77b17198a761de9b5001e8fe0a3138512b9616708d51ea",
+      "disposition": "comparison_candidate",
+      "shortlist": true,
+      "owner_basis": true
+    },
+    {
+      "id": "RSW-06",
+      "take": 3,
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-03/RSW-06_take-03.mp4",
+      "sha256": "9478b60c3f182c3b491fc3af854f7f6d85cc08346150ed1d1fdaf996c11a70e7",
+      "disposition": "comparison_candidate",
+      "owner_basis": true
+    },
+    {
+      "id": "RSW-07",
+      "take": 3,
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-03/RSW-07_take-03.mp4",
+      "sha256": "678edf78e584624202cdc9bf5f301512095e0c68f612f7313befcd65d3400483",
+      "disposition": "inspiration_only",
+      "mutation": "invented gold bracelets",
+      "ghosted_resets": true,
+      "loop_reuse": false
+    },
+    {
+      "id": "RSW-08",
+      "take": 3,
+      "github_path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos/take-03/RSW-08_take-03.mp4",
+      "sha256": "092e8b4659a7156d0dd7e5f1157e7f80216500e66f628f0fa20c05c51ba83128",
+      "disposition": "inspiration_only",
+      "mutation": "invented gold bracelets",
+      "ghosted_resets": true,
+      "loop_reuse": false
+    }
+  ],
+  "github": {
+    "branch": "codex/roshan-swim-combined-handoff-20260914",
+    "base": "dev",
+    "pr": "https://github.com/Ebonyks/mermaid-roshan-reef/pull/10",
+    "binary_mp4": true,
+    "related": [
+      "pull/8",
+      "pull/9",
+      "pull/10"
+    ]
+  },
+  "claims": {
+    "ARCHIVE_COMPLETE": true,
+    "GENERATION_READY": false,
+    "DELIVERY_ACCEPTED": false,
+    "CORE_ART_HELD_ON_TAKE03": true,
+    "COMBINED_REEL_READY": true,
+    "BINARIES_ON_GITHUB": true,
+    "OWNER_RECONSTRUCTION_BASIS": true
+  },
+  "owner_selection": {
+    "file": "returns/OWNER_SELECTION.json",
+    "rejected_draft": "Missed broad tail strokes, changing full-body posture, arm placement, and trailing hair.",
+    "view": "front-right",
+    "basis": [
+      "RSW-01",
+      "RSW-06",
+      "RSW-03",
+      "RSW-05"
+    ],
+    "loops": "RSW-07/08 ghosted resets — reconstruct, do not reuse",
+    "assembly_01": "superseded as reconstruction spine"
+  }
+}

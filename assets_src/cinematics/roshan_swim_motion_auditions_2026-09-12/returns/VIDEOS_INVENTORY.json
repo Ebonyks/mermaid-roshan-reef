@@ -1,0 +1,29 @@
+{
+  "schema": "roshan-video-inventory-v1",
+  "branch": "codex/roshan-swim-combined-handoff-20260914",
+  "pr": "https://github.com/Ebonyks/mermaid-roshan-reef/pull/10",
+  "root": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/returns/videos",
+  "count": 19,
+  "total_bytes": 93519219,
+  "files": [
+    {"path": "combined/ASSEMBLY-01.mp4", "bytes": 5104514, "sha256": "29c0977cac9d5641d86f2af9bdf200f453892a6155f0cab7cc85cad4ef51884c", "role": "combined", "use": "reference_candidate"},
+    {"path": "combined/RESERVED_REEL.mp4", "bytes": 25526104, "sha256": "7360743e173cc4d83869d66d037abf82cd1312091079738fa35e635db7cc000b", "role": "combined", "use": "review_reel"},
+    {"path": "take-01/RSW-01_take-01.mp4", "bytes": 3318462, "sha256": "a8de1b06b47860894b9d834b897358dfdbadce1a4508a49f95ad927803fe6366", "role": "rejected_rewrite", "use": "do_not_adapt"},
+    {"path": "take-01/RSW-02_take-01.mp4", "bytes": 4799605, "sha256": "78c91b17af0a20126ed7c456b8a08970b8b7fde272a1464742a2c2427490cb0a", "role": "rejected_rewrite", "use": "do_not_adapt"},
+    {"path": "take-01/RSW-03_take-01.mp4", "bytes": 3334326, "sha256": "96048e0ec855de8d1016c99732afe07f6e026cef1905074441df71d57d0e09cb", "role": "rejected_rewrite", "use": "do_not_adapt"},
+    {"path": "take-01/RSW-04_take-01.mp4", "bytes": 3744415, "sha256": "e7faf6a569c4c28d8538d67eef6138b35a35ea2995b8e823acfb1496d4fd98eb", "role": "rejected_rewrite", "use": "do_not_adapt"},
+    {"path": "take-01/RSW-05_take-01.mp4", "bytes": 4485476, "sha256": "735491d3c33d0261790abf3e73c41e31bc4298a0e2bccb6afe9b36dc87ab909f", "role": "rejected_rewrite", "use": "do_not_adapt"},
+    {"path": "take-01/RSW-06_take-01.mp4", "bytes": 3633852, "sha256": "f6110264954b243193b4d70ffc046adcb419bfbc801d2f246b5f4be91272b7fa", "role": "rejected_rewrite", "use": "do_not_adapt"},
+    {"path": "take-01/RSW-07_take-01.mp4", "bytes": 5308097, "sha256": "9df10f68a5e4db29478c4a5c3e3c367cb606579fe573b4fe96ce48247830a39e", "role": "rejected_rewrite", "use": "do_not_adapt"},
+    {"path": "take-01/RSW-08_take-01.mp4", "bytes": 5676954, "sha256": "51efe2fb3c1d48e7bb4131ef151a63779e9034d700cad0697735c3802efb5c9d", "role": "rejected_rewrite", "use": "do_not_adapt"},
+    {"path": "take-02/RSW-01_take-02.mp4", "bytes": 2884890, "sha256": "fabb219b99df6ecfd0fd6f3b8578ecb204ce019541e3e0088b74d787529ecbf5", "role": "identity_recovery", "use": "do_not_adapt"},
+    {"path": "take-03/RSW-01_take-03.mp4", "bytes": 3470557, "sha256": "027ff0112eab282e990fa15a4ea8ec1fa5ad101f189e350fb7d6935cca8c673d", "role": "reserved", "use": "comparison_candidate"},
+    {"path": "take-03/RSW-02_take-03.mp4", "bytes": 3579115, "sha256": "7095f4de8cb39f3ed30ccf0952af287e040d73422adc685aa67c07ff7e1a48b4", "role": "reserved", "use": "comparison_candidate"},
+    {"path": "take-03/RSW-03_take-03.mp4", "bytes": 3088838, "sha256": "a24e44bf84bc7aa3f8679fddf482058442ee49f3009c22521a5cfca032692715", "role": "reserved", "use": "comparison_candidate", "shortlist": true},
+    {"path": "take-03/RSW-04_take-03.mp4", "bytes": 2648893, "sha256": "072741097f2b43af119a9b65fbb23d4904adfd109fe4a3c19c4ea2a3f6f27a42", "role": "reserved", "use": "comparison_candidate", "shortlist": true},
+    {"path": "take-03/RSW-05_take-03.mp4", "bytes": 2744672, "sha256": "f0327efa16a8821f8d77b17198a761de9b5001e8fe0a3138512b9616708d51ea", "role": "reserved", "use": "comparison_candidate", "shortlist": true},
+    {"path": "take-03/RSW-06_take-03.mp4", "bytes": 3262324, "sha256": "9478b60c3f182c3b491fc3af854f7f6d85cc08346150ed1d1fdaf996c11a70e7", "role": "reserved", "use": "comparison_candidate"},
+    {"path": "take-03/RSW-07_take-03.mp4", "bytes": 4172674, "sha256": "678edf78e584624202cdc9bf5f301512095e0c68f612f7313befcd65d3400483", "role": "reserved", "use": "inspiration_only", "mutation": "invented gold bracelets"},
+    {"path": "take-03/RSW-08_take-03.mp4", "bytes": 2735451, "sha256": "092e8b4659a7156d0dd7e5f1157e7f80216500e66f628f0fa20c05c51ba83128", "role": "reserved", "use": "inspiration_only", "mutation": "invented gold bracelets"}
+  ]
+}
