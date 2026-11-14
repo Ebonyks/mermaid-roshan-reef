@@ -1,0 +1,43 @@
+{
+  "id": "enchanted-forest-bridge-guide-departure-20261113",
+  "scope": "Clear an active bridge objective during departure when the character crosses the existing 320-unit radius. Keep the current approach and cancellation/re-entry semantics. No activation.",
+  "baseline": "98442ec2c90b62824f497805a090df7f7bfa2ad0",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-LAY-11",
+    "DL-READ-03",
+    "DL-INT-04",
+    "DL-SND-03",
+    "DL-SND-13",
+    "DL-QA-01"
+  ],
+  "findings": [
+    "MA-ACCESS-001",
+    "MA-TOUCH-001"
+  ],
+  "files": [
+    "scripts/arena/enchanted_forest_route.gd",
+    "docs/ENCHANTED_FOREST_LANDING_VALLEY_PORT.md",
+    "audit/MASTER_AUDIT_2026-08-09.md"
+  ],
+  "validation": [
+    {
+      "command": "Independent desktop Mobile route replay at 1280x720 and 1600x720 against the predecessor",
+      "result": "FAIL",
+      "evidence": "The baseline keeps an active pointer while traveling out of the radius. Independent fixture and reports SHA-256 independent-objectives.gd 8622a6c2093aaabb5bcf80add569a93b3585e4e4b9628ba10ba19f6375cc557a, extra1280.log 87cc81e08cf9e3a483c14fb245cf9a9dca7101def3b6754ad6333ca356c869f5, extra1600.log d2cc6abef07bd46d08359f6033989dd650ebdf0cc4c4b3bad815d88aa4b34a54."
+    },
+    {
+      "command": "Godot 4.7.2 headless and desktop Mobile replay of the reviewer\u2019s exact fixture",
+      "result": "PASS",
+      "evidence": "At 376.93 units from the bridge approach with an active route still in travel, objective and pointer are both clear. Castle handoff frees an active pointer. forest-objective-departure-0.log 38e7288b8b20bd8e84987fb1dc53b850fea2a6431743aaf5d2c0501411642c08, forest-objective-departure-1280.log ba436f5194e41994f5e5184eb6a923128c3f98175015a288fdbf502cf39a668d, forest-objective-departure-1600.log 15d55ff9e6d8bd22c36bafbaeccb3a525acb124c0835d1007ce7ca840896c1f1."
+    },
+    {
+      "command": "Canonical local suite, independent candidate recheck, and hosted validation",
+      "result": "PENDING",
+      "evidence": "Run against the new exact candidate tree. The predecessor\u2019s suite cannot validate this repair."
+    }
+  ],
+  "acceptance_gaps": "Production Guide audio, real actor and wildlife, Forest and Castle entry, physical Android, child and owner acceptance are open. No finding is closed."
+}

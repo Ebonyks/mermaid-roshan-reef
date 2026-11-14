@@ -14,6 +14,7 @@ const LANDING := Vector2(660, 1190)
 const COVE_APPROACH := Vector2(2335, 1190)
 const COVE_GUIDE_RADIUS := 225.0
 const BRIDGE_STAND := Vector2(-83, 43)
+const BRIDGE_GUIDE_RADIUS := 320.0
 const SPEED := 514.0
 
 enum Action { WALK, COVE_WAYMARK, COVE_CONTROL, BRIDGE_SHELL }
@@ -169,6 +170,8 @@ func tick(delta: float) -> void:
 	_cove.tick(delta, _actor.global_position)
 	if _guiding_cove:
 		_update_cove_objective()
+	elif _objective == &"forest_bridge_shells" and not _within_bridge_guide_range():
+		_set_objective(&"", Vector2.INF)
 	if _objective_pointer.visible:
 		_objective_pointer.queue_redraw()
 	_terrain.set_wind_time(_clock)
@@ -278,8 +281,12 @@ func _finish_contact() -> void:
 		_update_bridge_objective()
 
 
+func _within_bridge_guide_range() -> bool:
+	return _actor.position.distance_to(Terrain.BRIDGE_APPROACH) < BRIDGE_GUIDE_RADIUS
+
+
 func _update_bridge_objective() -> void:
-	if _bridge_bits != 3 and _actor.position.distance_to(Terrain.BRIDGE_APPROACH) < 320.0:
+	if _bridge_bits != 3 and _within_bridge_guide_range():
 		var next_shell: int = 0 if not (_bridge_bits & 1) else 1
 		_set_objective(&"forest_bridge_shells", Bridge.SWITCHES[next_shell])
 	else:
